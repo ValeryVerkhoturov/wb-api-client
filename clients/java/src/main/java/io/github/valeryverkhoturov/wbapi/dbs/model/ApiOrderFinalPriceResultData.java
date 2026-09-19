@@ -1,6 +1,6 @@
 /*
  * DBS
- * Узнать больше о модели DBS можно в [справочном центре](https://seller.wildberries.ru/instructions/category/6572e024-7428-4db1-86a8-a4c7dbebbfcf?goBackOption=prevRoute&categoryId=5a8e1202-0865-45b7-acae-5d0afc7add56)Управление [сборочными заданиями](/openapi/dbs#tag/dbsAssemblyOrders) и [идентификаторами маркировки](/openapi/dbs#tag/dbsLabelIdentifiers) DBS (Delivery by Seller).  Вы можете протестировать методы DBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceDbs) для эмуляции действий пользователя
+ * Узнать больше о модели DBS можно в [справочном центре](https://seller.wildberries.ru/instructions/category/6572e024-7428-4db1-86a8-a4c7dbebbfcf?goBackOption=prevRoute&categoryId=5a8e1202-0865-45b7-acae-5d0afc7add56)  Управление [сборочными заданиями](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) и [идентификаторами маркировки](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers) DBS (Delivery by Seller).  Вы можете протестировать методы DBS в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/marketplaceDbs) для эмуляции действий пользователя
  *
  * The version of the OpenAPI document: dbs
  * 
@@ -46,7 +46,7 @@ import java.util.Set;
 import io.github.valeryverkhoturov.wbapi.dbs.JSON;
 
 /**
- * Данные сборочного задания.  Если &#x60;\&quot;data\&quot;:{}&#x60;, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 1 минуты.  Если &#x60;data&#x60; отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов: - [Получить список новых сборочных заданий](/docs/openapi/dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew) - [Получить информацию о завершенных сборочных заданиях](/docs/openapi/dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrders)
+ * Данные сборочного задания.  Если &#x60;\&quot;data\&quot;:{}&#x60;, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 1 минуты.  Если &#x60;data&#x60; отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов: - [Получить список новых сборочных заданий](https://dev.wildberries.ru/docs/openapi/dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew) - [Получить информацию о завершенных сборочных заданиях](https://dev.wildberries.ru/docs/openapi/dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrders)
  */
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class ApiOrderFinalPriceResultData {

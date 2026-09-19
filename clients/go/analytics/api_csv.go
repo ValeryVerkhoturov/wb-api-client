@@ -1,7 +1,7 @@
 /*
 Аналитика и данные
 
-Узнать больше об аналитике и данных можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics)В разделе описаны методы получения: 1. [Воронки продаж](/openapi/analytics#tag/salesFunnel) 2. [Ленты заказов](/openapi/analytics#tag/orderFeed) 3. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/searchQueriesForYourItems) 4. [Истории остатков](/openapi/analytics#tag/stocksReport) 5. [Оценки товара](/openapi/analytics#tag/itemRating) 6. [Аналитики продавца в формате CSV](/openapi/analytics#tag/sellerAnalyticsCsv)
+Узнать больше об аналитике и данных можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics)  В разделе описаны методы получения: 1. [Воронки продаж](https://dev.wildberries.ru/openapi/analytics#tag/salesFunnel) 2. [Ленты заказов](https://dev.wildberries.ru/openapi/analytics#tag/orderFeed) 3. [Поисковых запросов по вашим товарам](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems) 4. [Истории остатков](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport) 5. [Оценки товара](https://dev.wildberries.ru/openapi/analytics#tag/itemRating) 6. [Аналитики продавца в формате CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv)
 
 API version: analytics
 */
@@ -27,7 +27,9 @@ type CSVAPI interface {
 	/*
 	GetV2NmReportDownloads Получить список отчётов
 
-	Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -47,10 +49,12 @@ type CSVAPI interface {
 	/*
 	GetV2NmReportDownloadsFileDownloadId Получить отчёт
 
-	Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads).
+	Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads).
 
 Можно получить отчёт, который сгенерирован за последние 48 часов.
-Отчёт будет загружен внутри архива ZIP в формате CSV.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Отчёт будет загружен внутри архива ZIP в формате CSV.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -73,18 +77,26 @@ type CSVAPI interface {
 
 	Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца.
 
-Вы можете создать CSV-версии отчётов по [воронке продаж](/openapi/analytics#tag/salesFunnel) или [параметрам поиска](/openapi/analytics#tag/searchQueriesForYourItems) с группировкой по:
+Вы можете создать CSV-версии отчётов по [воронке продаж](https://dev.wildberries.ru/openapi/analytics#tag/salesFunnel) или [параметрам поиска](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems) с группировкой по:
 \* артикулам WB
 \* предметам, брендам и ярлыкам
 В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.
 
-Также можете создать CSV-версии отчётов по [текстам поисковых запросов](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и [остаткам](/openapi/analytics#tag/stocksReport).
+Также можете создать CSV-версии отчётов по [текстам поисковых запросов](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и [остаткам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport).
 
-Каждый новый отчёт должен иметь уникальный ID.Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерацииНабор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.
+Каждый новый отчёт должен иметь уникальный ID.
+
+Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации
+
+Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.
 
 Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
 
-Если не удалось [получить отчёт](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.Отчёты по [остаткам](https://seller.wildberries.ru/content-analytics/history-remains) — типы `STOCK_HISTORY_REPORT_CSV` и `STOCK_HISTORY_DAILY_CSV` — можно создать без подписки [Джем](https://seller.wildberries.ru/monetization/jam)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Если не удалось [получить отчёт](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.
+
+Отчёты по [остаткам](https://seller.wildberries.ru/content-analytics/history-remains) — типы `STOCK_HISTORY_REPORT_CSV` и `STOCK_HISTORY_DAILY_CSV` — можно создать без подписки [Джем](https://seller.wildberries.ru/monetization/jam)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -104,7 +116,9 @@ type CSVAPI interface {
 	/*
 	PostV2NmReportDownloadsRetry Сгенерировать отчёт повторно
 
-	Метод создает повторное [задание на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод создает повторное [задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -144,7 +158,9 @@ func (r ApiGetV2NmReportDownloadsRequest) Execute() (*NmReportGetReportsResponse
 /*
 GetV2NmReportDownloads Получить список отчётов
 
-Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -318,10 +334,12 @@ func (r ApiGetV2NmReportDownloadsFileDownloadIdRequest) Execute() (*os.File, *ht
 /*
 GetV2NmReportDownloadsFileDownloadId Получить отчёт
 
-Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads).
+Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads).
 
 Можно получить отчёт, который сгенерирован за последние 48 часов.
-Отчёт будет загружен внутри архива ZIP в формате CSV.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Отчёт будет загружен внутри архива ZIP в формате CSV.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -505,18 +523,26 @@ PostV2NmReportDownloads Создать отчёт
 
 Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца.
 
-Вы можете создать CSV-версии отчётов по [воронке продаж](/openapi/analytics#tag/salesFunnel) или [параметрам поиска](/openapi/analytics#tag/searchQueriesForYourItems) с группировкой по:
+Вы можете создать CSV-версии отчётов по [воронке продаж](https://dev.wildberries.ru/openapi/analytics#tag/salesFunnel) или [параметрам поиска](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems) с группировкой по:
 \* артикулам WB
 \* предметам, брендам и ярлыкам
 В отчётах по воронке продаж можно группировать данные по дням, неделям или месяцам.
 
-Также можете создать CSV-версии отчётов по [текстам поисковых запросов](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и [остаткам](/openapi/analytics#tag/stocksReport).
+Также можете создать CSV-версии отчётов по [текстам поисковых запросов](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и [остаткам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport).
 
-Каждый новый отчёт должен иметь уникальный ID.Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерацииНабор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.
+Каждый новый отчёт должен иметь уникальный ID.
+
+Не используйте одинаковые ID для разных отчётов — это может привести к ошибкам при генерации
+
+Набор параметров запроса в объекте `params` зависит от типа отчёта. Чтобы получить описание параметров, выберите тип отчёта в раскрывающемся списке в описании параметра `reportType`.
 
 Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
 
-Если не удалось [получить отчёт](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.Отчёты по [остаткам](https://seller.wildberries.ru/content-analytics/history-remains) — типы `STOCK_HISTORY_REPORT_CSV` и `STOCK_HISTORY_DAILY_CSV` — можно создать без подписки [Джем](https://seller.wildberries.ru/monetization/jam)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Если не удалось [получить отчёт](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloadsFileDownloadId), можно создать [повторное задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry). Также можно [получить список и проверить статусы](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) отчётов.
+
+Отчёты по [остаткам](https://seller.wildberries.ru/content-analytics/history-remains) — типы `STOCK_HISTORY_REPORT_CSV` и `STOCK_HISTORY_DAILY_CSV` — можно создать без подписки [Джем](https://seller.wildberries.ru/monetization/jam)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -697,7 +723,9 @@ func (r ApiPostV2NmReportDownloadsRetryRequest) Execute() (*NmReportRetryReportR
 /*
 PostV2NmReportDownloadsRetry Сгенерировать отчёт повторно
 
-Метод создает повторное [задание на генерацию](/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод создает повторное [задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |

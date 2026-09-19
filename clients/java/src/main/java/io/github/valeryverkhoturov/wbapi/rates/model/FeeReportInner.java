@@ -1,6 +1,6 @@
 /*
  * Тарифы
- * Узнать больше о тарифах можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section)В разделе описаны методы получения: 1. [Комиссий](/openapi/rates#tag/fees) 2. [Тарифов на поставку](/openapi/rates#tag/supplyRates) 3. [Тарифов на остаток](/openapi/rates#tag/stockRates) 4. [Тарифов на возврат товаров продавцу](/openapi/rates#tag/returnCostToSeller)
+ * Узнать больше о тарифах можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section)  В разделе описаны методы получения: 1. [Комиссий](https://dev.wildberries.ru/openapi/rates#tag/fees) 2. [Тарифов на поставку](https://dev.wildberries.ru/openapi/rates#tag/supplyRates) 3. [Тарифов на остаток](https://dev.wildberries.ru/openapi/rates#tag/stockRates) 4. [Тарифов на возврат товаров продавцу](https://dev.wildberries.ru/openapi/rates#tag/returnCostToSeller)
  *
  * The version of the OpenAPI document: rates
  * 

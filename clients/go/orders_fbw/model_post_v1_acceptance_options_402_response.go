@@ -1,7 +1,7 @@
 /*
 Поставки FBW
 
-Узнать больше о поставках FBW можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)В разделе описаны методы получения: - [информации для формирования поставок](/openapi/orders-fbw#tag/informationForFormingSupplies) - [информации о поставках](/openapi/orders-fbw#tag/suppliesInformation) Вы можете создавать карточки товара в песочнице [Контента](/openapi/api-information#tag/authorization/Kategorii-tokenov), а потом использовать баркоды товаров в [песочнице](/sandbox) Поставок
+Узнать больше о поставках FBW можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)  В разделе описаны методы получения: - [информации для формирования поставок](https://dev.wildberries.ru/openapi/orders-fbw#tag/informationForFormingSupplies) - [информации о поставках](https://dev.wildberries.ru/openapi/orders-fbw#tag/suppliesInformation) Вы можете создавать карточки товара в песочнице [Контента](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov), а потом использовать баркоды товаров в [песочнице](https://dev.wildberries.ru/sandbox) Поставок
 
 API version: ordersfbw
 */
@@ -21,7 +21,7 @@ var _ MappedNullable = &PostV1AcceptanceOptions402Response{}
 type PostV1AcceptanceOptions402Response struct {
 	// Заголовок ошибки
 	Title *string `json:"title,omitempty"`
-	// Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
+	// Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](https://dev.wildberries.ru/business-solutions)
 	Detail *string `json:"detail,omitempty"`
 }
 

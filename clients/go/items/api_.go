@@ -1,7 +1,7 @@
 /*
 Работа с товарами
 
-С помощью методов этого раздела вы можете: - [создавать](/openapi/item-management#tag/listingItems) и [редактировать](/openapi/item-management#tag/listings) карточки товаров - получать [категории, предметы, характеристики и бренды товаров](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics) - загружать [медиафайлы](/openapi/item-management#tag/mediaFiles) в карточки товаров - настраивать [ярлыки](/openapi/item-management#tag/labels) для поиска товаров - работать с [рекомендациями](/openapi/item-management#tag/recommendations) для товаров - устанавливать [цены и скидки](/openapi/item-management#tag/pricesAndDiscounts) - управлять [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory) и [складами](/openapi/item-management#tag/sellerWarehouses), если вы работаете по модели продаж со склада продавца Вы можете протестировать методы работы с товарами в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/itemManagement) для управления карточками товаровУзнать, как использовать методы в бизнес-кейсах, можно в [инструкции](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami) по **работе с товарами**
+С помощью методов этого раздела вы можете: - [создавать](https://dev.wildberries.ru/openapi/item-management#tag/listingItems) и [редактировать](https://dev.wildberries.ru/openapi/item-management#tag/listings) карточки товаров - получать [категории, предметы, характеристики и бренды товаров](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics) - загружать [медиафайлы](https://dev.wildberries.ru/openapi/item-management#tag/mediaFiles) в карточки товаров - настраивать [ярлыки](https://dev.wildberries.ru/openapi/item-management#tag/labels) для поиска товаров - работать с [рекомендациями](https://dev.wildberries.ru/openapi/item-management#tag/recommendations) для товаров - устанавливать [цены и скидки](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts) - управлять [остатками товаров](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory) и [складами](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses), если вы работаете по модели продаж со склада продавца Вы можете протестировать методы работы с товарами в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/itemManagement) для управления карточками товаров  Узнать, как использовать методы в бизнес-кейсах, можно в [инструкции](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami) по **работе с товарами**
 
 API version: items
 */
@@ -26,7 +26,9 @@ type DefaultApi interface {
 	/*
 	DeleteV2TagId Удаление ярлыка
 
-	Метод удаляет ярлык из [списка ярлыков](/openapi/item-management#tag/labels/operation/getV2Tags) продавца.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
+	Метод удаляет ярлык из [списка ярлыков](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags) продавца.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -36,7 +38,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param id Числовой ID ярлыка
@@ -51,7 +53,11 @@ type DefaultApi interface {
 	/*
 	DeleteV3StocksWarehouseId Удалить остатки товаров
 
-	Метод удаляет запись об остатках товаров продавца из [списка остатков](/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).**Действие необратимо**. Удаленный остаток будет необходимо загрузить повторно для возобновления продаж.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод удаляет запись об остатках товаров продавца из [списка остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).
+
+**Действие необратимо**. Удаленный остаток будет необходимо загрузить повторно для возобновления продаж.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 10 запросов | 6 сек | 2 запроса |
@@ -59,7 +65,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param warehouseId ID склада продавца
@@ -73,7 +79,9 @@ type DefaultApi interface {
 	/*
 	DeleteV3WarehousesWarehouseId Удалить склад продавца
 
-	Метод удаляет [склад продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
+	Метод удаляет [склад продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -81,7 +89,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param warehouseId ID склада продавца
@@ -95,7 +103,9 @@ type DefaultApi interface {
 	/*
 	GetV1Brands Бренды
 
-	Метод возвращает список брендов по ID предмета.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод возвращает список брендов по ID предмета.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов |
@@ -115,7 +125,11 @@ type DefaultApi interface {
 	/*
 	GetV2BufferGoodsTask Детализация необработанной загрузки
 
-	Метод возвращает информацию о товарах и ошибках в товарах из загрузки в обработке.Необработанная загрузка — это загрузка скидок в [календаре акций](/openapi/promotion#tag/promoCalendar). Такие скидки применятся к товарам только в момент старта акции.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+	Метод возвращает информацию о товарах и ошибках в товарах из загрузки в обработке.
+
+Необработанная загрузка — это загрузка скидок в [календаре акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar). Такие скидки применятся к товарам только в момент старта акции.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -125,7 +139,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2BufferGoodsTaskRequest
@@ -139,7 +153,11 @@ type DefaultApi interface {
 	/*
 	GetV2BufferTasks Состояние необработанной загрузки
 
-	Метод возвращает информацию про загрузку скидок в обработке.Необработанная загрузка — это загрузка скидок в [календаре акций](/openapi/promotion#tag/promoCalendar). Такие скидки применятся к товарам только в момент старта акции.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+	Метод возвращает информацию про загрузку скидок в обработке.
+
+Необработанная загрузка — это загрузка скидок в [календаре акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar). Такие скидки применятся к товарам только в момент старта акции.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -149,7 +167,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2BufferTasksRequest
@@ -163,14 +181,16 @@ type DefaultApi interface {
 	/*
 	GetV2CardsLimits Лимиты карточек товаров
 
-	Возвращает бесплатные и платные лимиты продавца на [создание карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload).
+	Возвращает бесплатные и платные лимиты продавца на [создание карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload).
 
 Формула для получения количества карточек, которые можно создать:
 > (`freeLimits` + `paidLimits`) - количество созданных карточек
-Созданными считаются карточки, которые можно получить через методы [список карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList) и [список карточек товаров в корзине](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов:
+Созданными считаются карточки, которые можно получить через методы [список карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList) и [список карточек товаров в корзине](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).
 
-* [получения лимитов карточек товаров](/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
-* [получения несозданных карточек товаров с ошибками](/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов:
+
+* [получения лимитов карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
+* [получения несозданных карточек товаров с ошибками](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
@@ -181,7 +201,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2CardsLimitsRequest
@@ -195,7 +215,9 @@ type DefaultApi interface {
 	/*
 	GetV2DirectoryColors Цвет
 
-	Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Цвет`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**:
+	Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Цвет`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -205,7 +227,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectoryColorsRequest
@@ -219,22 +241,24 @@ type DefaultApi interface {
 	/*
 	GetV2DirectoryCountries Страна производства
 
-	Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Страна производства`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
+	Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Страна производства`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
 Исключение — методы:
 
-* [создания карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-* [создания карточек товаров с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-* [редактирования карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-* [восстановления карточек товаров из корзины](/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-* [получения списка рекомендаций в карточках товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-* [установки рекомендаций для товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectoryCountriesRequest
@@ -248,7 +272,9 @@ type DefaultApi interface {
 	/*
 	GetV2DirectoryKinds Пол
 
-	Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Пол`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**:
+	Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Пол`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -258,7 +284,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectoryKindsRequest
@@ -272,7 +298,9 @@ type DefaultApi interface {
 	/*
 	GetV2DirectorySeasons Сезон
 
-	Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Сезон`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**:
+	Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Сезон`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -282,7 +310,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectorySeasonsRequest
@@ -296,22 +324,24 @@ type DefaultApi interface {
 	/*
 	GetV2DirectoryTnved ТНВЭД-код
 
-	Метод возвращает список ТНВЭД-кодов по ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
+	Метод возвращает список ТНВЭД-кодов по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
 Исключение — методы:
 
-* [создания карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-* [создания карточек товаров с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-* [редактирования карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-* [восстановления карточек товаров из корзины](/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-* [получения списка рекомендаций в карточках товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-* [установки рекомендаций для товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectoryTnvedRequest
@@ -325,7 +355,9 @@ type DefaultApi interface {
 	/*
 	GetV2DirectoryVat Ставка НДС
 
-	Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Ставка НДС`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**:
+	Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Ставка НДС`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -335,7 +367,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectoryVatRequest
@@ -349,7 +381,11 @@ type DefaultApi interface {
 	/*
 	GetV2HistoryGoodsTask Детализация обработанной загрузки
 
-	Метод возвращает информацию о товарах и об ошибках в товарах в обработанной загрузке.Обработанная загрузка — это загрузка цен и скидок для [товаров](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), цен для [размеров товаров](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize) [скидок WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовых скидок для B2B-продаж](/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+	Метод возвращает информацию о товарах и об ошибках в товарах в обработанной загрузке.
+
+Обработанная загрузка — это загрузка цен и скидок для [товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), цен для [размеров товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize) [скидок WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовых скидок для B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -359,7 +395,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2HistoryGoodsTaskRequest
@@ -373,7 +409,11 @@ type DefaultApi interface {
 	/*
 	GetV2HistoryTasks Состояние обработанной загрузки
 
-	Метод возвращает информацию об обработанной загрузке цен и скидок.Обработанная загрузка — это загрузка цен и скидок для [товаров](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), цен для [размеров товаров](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize), [скидок WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовых скидок для B2B-продаж](/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+	Метод возвращает информацию об обработанной загрузке цен и скидок.
+
+Обработанная загрузка — это загрузка цен и скидок для [товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), цен для [размеров товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize), [скидок WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовых скидок для B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -383,7 +423,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2HistoryTasksRequest
@@ -397,15 +437,17 @@ type DefaultApi interface {
 	/*
 	GetV2ListGoodsFilter Получить товары с ценами
 
-	Метод возвращает информацию о товарах: цены, валюту, общие скидки, [скидки WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
+	Метод возвращает информацию о товарах: цены, валюту, общие скидки, [скидки WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
 
 В одном запросе можно указать только один артикул.
 
 Чтобы получить информацию обо всех товарах продавца, не указывая артикулы, установите `limit=1000`, в параметре `offset` установите смещение по количеству записей. Количество нужно рассчитать по формуле: `offset` плюс `limit` из предыдущего запроса. Повторяйте запрос, пока вы не получите ответ с пустым массивом.
 
 Используйте отдельные методы, чтобы получить информацию:
-- о [нескольких товарах по артикулам](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter)
-- о [размерах товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+- о [нескольких товарах по артикулам](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter)
+- о [размерах товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -415,7 +457,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2ListGoodsFilterRequest
@@ -429,11 +471,13 @@ type DefaultApi interface {
 	/*
 	GetV2ListGoodsSizeNm Получить размеры товара с ценами
 
-	Метод возвращает информацию обо всех размерах одного товара: цены, валюту, общие скидки и скидки для [WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount).
+	Метод возвращает информацию обо всех размерах одного товара: цены, валюту, общие скидки и скидки для [WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount).
 
 Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для таких товаров `"editableSizePrice":true`.
 
-Чтобы получить информацию о самом товаре, используйте [отдельный метод](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+Чтобы получить информацию о самом товаре, используйте [отдельный метод](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -443,7 +487,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2ListGoodsSizeNmRequest
@@ -457,22 +501,24 @@ type DefaultApi interface {
 	/*
 	GetV2ObjectAll Список предметов
 
-	Метод возвращает список названий [родительских категорий предметов](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) и их предметов с ID. Например, у категории `Игрушки` будут предметы `Калейдоскопы`, `Куклы`, `Мячики`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
+	Метод возвращает список названий [родительских категорий предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) и их предметов с ID. Например, у категории `Игрушки` будут предметы `Калейдоскопы`, `Куклы`, `Мячики`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
 Исключение — методы:
 
-* [создания карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-* [создания карточек товаров с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-* [редактирования карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-* [восстановления карточек товаров из корзины](/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-* [получения списка рекомендаций в карточках товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-* [установки рекомендаций для товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2ObjectAllRequest
@@ -486,22 +532,26 @@ type DefaultApi interface {
 	/*
 	GetV2ObjectCharcsSubjectId Характеристики предмета
 
-	Метод возвращает параметры характеристик предмета: названия, типы данных, единицы измерения и так далее. В запросе необходимо указать ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll).Для получения значений характеристик [Цвет](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryColors), [Пол](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryKinds), [Страна производства](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryCountries), [Сезон](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectorySeasons), [Ставка НДС](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryVat) и [ТНВЭД-код](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryTnved) используйте отдельные методы[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
+	Метод возвращает параметры характеристик предмета: названия, типы данных, единицы измерения и так далее. В запросе необходимо указать ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll).
+
+Для получения значений характеристик [Цвет](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryColors), [Пол](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryKinds), [Страна производства](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryCountries), [Сезон](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectorySeasons), [Ставка НДС](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryVat) и [ТНВЭД-код](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryTnved) используйте отдельные методы
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
 Исключение — методы:
 
-* [создания карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-* [создания карточек товаров с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-* [редактирования карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-* [восстановления карточек товаров из корзины](/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-* [получения списка рекомендаций в карточках товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-* [установки рекомендаций для товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param subjectId ID предмета
@@ -516,22 +566,24 @@ type DefaultApi interface {
 	/*
 	GetV2ObjectParentAll Родительские категории товаров
 
-	Метод возвращает названия и ID всех родительских категорий для [создания карточек товаров](/openapi/item-management#tag/listingItems): например, `Электроника`, `Бытовая химия`, `Рукоделие`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
+	Метод возвращает названия и ID всех родительских категорий для [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems): например, `Электроника`, `Бытовая химия`, `Рукоделие`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
 Исключение — методы:
 
-* [создания карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-* [создания карточек товаров с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-* [редактирования карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-* [восстановления карточек товаров из корзины](/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-* [получения списка рекомендаций в карточках товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-* [установки рекомендаций для товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2ObjectParentAllRequest
@@ -547,13 +599,15 @@ type DefaultApi interface {
 
 	Метод возвращает информацию о товарах в карантине.
 
-Если новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в [детализации загрузки](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask).
+Если новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в [детализации загрузки](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask).
 
 Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).
 
-Для товаров с [поразмерной установкой цен](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize) карантин не применяется.
+Для товаров с [поразмерной установкой цен](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize) карантин не применяется.
 
-В [песочнице](/sandbox) товары автоматически удаляются из карантина через 3 дня.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+В [песочнице](https://dev.wildberries.ru/sandbox) товары автоматически удаляются из карантина через 3 дня.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -563,7 +617,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2QuarantineGoodsRequest
@@ -577,7 +631,9 @@ type DefaultApi interface {
 	/*
 	GetV2Tags Список ярлыков
 
-	Метод возвращает список и характеристики всех ярлыков продавца для группировки и фильтрации товаров.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
+	Метод возвращает список и характеристики всех ярлыков продавца для группировки и фильтрации товаров.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -587,7 +643,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2TagsRequest
@@ -601,9 +657,11 @@ type DefaultApi interface {
 	/*
 	GetV3DbwWarehousesWarehouseIdContacts Список контактов
 
-	Метод возвращает список контактов, привязанных к [складу продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
+	Метод возвращает список контактов, привязанных к [складу продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
 
-Только для складов с типом доставки `3` — Деливери WB ([DBW](/openapi/orders-dbw)).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для следующих методов DBW:
+Только для складов с типом доставки `3` — Деливери WB ([DBW](https://dev.wildberries.ru/openapi/orders-dbw)).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для следующих методов DBW:
 
 * получение и обновление списка контактов
 * получение и удаление идентификаторов маркировки
@@ -627,7 +685,9 @@ type DefaultApi interface {
 	/*
 	GetV3Offices Получить список складов WB
 
-	Метод возвращает список складов WB для привязки к складу продавца при его [создании](/openapi/item-management#tag/sellerWarehouses/operation/postV3Warehouses) или [редактировании](/openapi/item-management#tag/sellerWarehouses/operation/putV3WarehousesWarehouseId).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
+	Метод возвращает список складов WB для привязки к складу продавца при его [создании](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/postV3Warehouses) или [редактировании](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/putV3WarehousesWarehouseId).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -635,7 +695,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3OfficesRequest
@@ -649,7 +709,9 @@ type DefaultApi interface {
 	/*
 	GetV3Warehouses Получить список складов продавца
 
-	Метод возвращает список всех складов продавца. Может использоваться для работы с [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
+	Метод возвращает список всех складов продавца. Может использоваться для работы с [остатками товаров](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -657,7 +719,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3WarehousesRequest
@@ -673,7 +735,9 @@ type DefaultApi interface {
 
 	Метод заменяет данные ярлыка: имя и цвет.
 
-Новые данные можно получить в общем [списке](/openapi/item-management#tag/labels/operation/getV2Tags).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
+Новые данные можно получить в общем [списке](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -683,7 +747,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param id Числовой ID ярлыка
@@ -698,9 +762,13 @@ type DefaultApi interface {
 	/*
 	PostV1RecommendationsList Список рекомендаций в карточках товаров
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод возвращает список [рекомендаций](https://seller.wildberries.ru/recommendations-v3) в карточках товаров.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод возвращает список [рекомендаций](https://seller.wildberries.ru/recommendations-v3) в карточках товаров.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -717,9 +785,13 @@ type DefaultApi interface {
 	/*
 	PostV1RecommendationsSet Установить рекомендации для товаров
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод обновляет, добавляет или удаляет [рекомендации](https://seller.wildberries.ru/recommendations-v3) для товаров.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод обновляет, добавляет или удаляет [рекомендации](https://seller.wildberries.ru/recommendations-v3) для товаров.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -736,9 +808,15 @@ type DefaultApi interface {
 	/*
 	PostV1UploadTaskB2bWholesale Установить оптовые скидки для B2B-продаж
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+**Сервисному** токену
+
+Метод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)
+
+Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -756,22 +834,24 @@ type DefaultApi interface {
 	/*
 	PostV2Barcodes Генерация баркодов
 
-	Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload). Можно использовать, если у вас нет собственных баркодов.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
+	Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload). Можно использовать, если у вас нет собственных баркодов.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
 Исключение — методы:
 
-* [создания карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-* [создания карточек товаров с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-* [редактирования карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-* [восстановления карточек товаров из корзины](/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-* [получения списка рекомендаций в карточках товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-* [установки рекомендаций для товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2BarcodesRequest
@@ -785,10 +865,16 @@ type DefaultApi interface {
 	/*
 	PostV2CardsDeleteTrash Перенос карточек товаров в корзину
 
-	Метод переносит [карточки товаров в корзину](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash). При этом карточки товаров не удаляются, их можно [восстановить](/openapi/item-management#tag/listings/operation/postV2CardsRecover).После переноса в корзину карточке товара присваивается новый `imtID` — ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаровКарточки товаров удаляются автоматически, если лежат в корзине больше 30 дней, и на них нет остатков. Очистка корзины происходит каждую ночь по московскому времени.
+	Метод переносит [карточки товаров в корзину](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash). При этом карточки товаров не удаляются, их можно [восстановить](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover).
+
+После переноса в корзину карточке товара присваивается новый `imtID` — ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+
+Карточки товаров удаляются автоматически, если лежат в корзине больше 30 дней, и на них нет остатков. Очистка корзины происходит каждую ночь по московскому времени.
 Карточки товаров можно удалить в любое время в [личном кабинете](https://seller.wildberries.ru/new-goods/basket-cards).
 
-Карточка будет продаваться, пока по ней есть остатки на складе, даже если её переместили в корзину. Чтобы полностью снять карточку с продажи, обнулите остатки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Карточка будет продаваться, пока по ней есть остатки на складе, даже если её переместили в корзину. Чтобы полностью снять карточку с продажи, обнулите остатки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -811,8 +897,8 @@ type DefaultApi interface {
 	Метод возвращает список карточек товаров ([черновиков](https://seller.wildberries.ru/new-goods/error-cards)), при создании или редактировании которых произошли ошибки, с описанием этих ошибок.
 
 Данные в ответе возвращаются пакетами `batch`. Один пакет содержит:
-- все ошибки по одному массиву `variants` одного запроса при [создании](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) карточек товаров
-- все ошибки одного запроса при [создании с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) или [редактировании](/openapi/item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров
+- все ошибки по одному массиву `variants` одного запроса при [создании](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) карточек товаров
+- все ошибки одного запроса при [создании с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) или [редактировании](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров
 
 Чтобы получить более 100 пакетов, используйте пагинацию:
 1. Сделайте первый запрос:
@@ -830,10 +916,14 @@ type DefaultApi interface {
 
 2. Скопируйте `"updatedAt":"\*\*\*","batchUUID":"\*\*\*" `из `cursor` ответа и вставьте в `cursor` запроса.
 3. Повторите запрос.
-4. Повторяйте пункты 2 и 3, пока не получите в ответе `"next":false`. Это будет означать, что вы получили все пакеты.Чтобы удалить карточку товара из списка, сделайте ещё один запрос на создание, создание с присоединением или редактирование карточки товара с исправленными ошибками[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов:
+4. Повторяйте пункты 2 и 3, пока не получите в ответе `"next":false`. Это будет означать, что вы получили все пакеты.
 
-* [получения лимитов карточек товаров](/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
-* [получения несозданных карточек товаров с ошибками](/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
+Чтобы удалить карточку товара из списка, сделайте ещё один запрос на создание, создание с присоединением или редактирование карточки товара с исправленными ошибками
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов:
+
+* [получения лимитов карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
+* [получения несозданных карточек товаров с ошибками](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -841,7 +931,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2CardsErrorListRequest
@@ -855,7 +945,7 @@ type DefaultApi interface {
 	/*
 	PostV2CardsMoveNm Объединение и разъединение карточек товаров
 
-	Метод [объединяет и разъединяет](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Карточки товаров являются объединёнными, если у них одинаковый `imtID`.
+	Метод [объединяет и разъединяет](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Карточки товаров являются объединёнными, если у них одинаковый `imtID`.
 
 Для объединения карточек товаров сделайте запрос \*\*с указанием\*\* `imtID`. Можно объединять не более 30 карточек товаров.
 Для разъединения карточек товаров сделайте запрос \*\*без указания\*\* `imtID`. Для разъединенных карточек будут сгенерированы новые `imtID`.
@@ -863,22 +953,26 @@ type DefaultApi interface {
 Если вы разъедините одновременно несколько карточек товаров, эти карточки объединятся в одну и получат новый `imtID`.
 Чтобы присвоить каждой карточке товара уникальный `imtID`, необходимо передавать по одной карточке товара за запрос.
 
-Максимальный размер запроса 10 Мб.Объединить можно карточки товаров только в рамках одного предмета[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
+Максимальный размер запроса 10 Мб.
+
+Объединить можно карточки товаров только в рамках одного предмета
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
 Исключение — методы:
 
-* [создания карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-* [создания карточек товаров с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-* [редактирования карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-* [восстановления карточек товаров из корзины](/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-* [получения списка рекомендаций в карточках товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-* [установки рекомендаций для товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2CardsMoveNmRequest
@@ -892,7 +986,11 @@ type DefaultApi interface {
 	/*
 	PostV2CardsRecover Восстановление карточек товаров из корзины
 
-	Метод восстанавливает [карточки товаров из корзины](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).Карточка товара сохраняет тот же `imtID` — ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров — что был присвоен ей при [перемещении в корзину](/openapi/item-management#tag/listings/operation/postV2CardsDeleteTrash)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод восстанавливает [карточки товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).
+
+Карточка товара сохраняет тот же `imtID` — ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров — что был присвоен ей при [перемещении в корзину](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsDeleteTrash)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 5 запросов |
@@ -912,19 +1010,24 @@ type DefaultApi interface {
 	/*
 	PostV2CardsUpdate Редактирование карточек товаров
 
-	Метод обновляет данные карточек товаров. Также используйте его, чтобы добавлять новые размеры.Карточка товара перезаписывается при обновлении. Поэтому в запросе нужно передать в том числе те параметры карточки, которые вы не собираетесь обновлять. Их значения можно получить в [списке карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList) и [списке карточек товаров в корзине](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).С помощью этого метода нельзя обновлять или удалять:
+	Метод обновляет данные карточек товаров. Также используйте его, чтобы добавлять новые размеры.
+
+Карточка товара перезаписывается при обновлении. Поэтому в запросе нужно передать в том числе те параметры карточки, которые вы не собираетесь обновлять. Их значения можно получить в [списке карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList) и [списке карточек товаров в корзине](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).
+
+С помощью этого метода нельзя обновлять или удалять:
 - баркоды размеров товара. Можно только добавить дополнительные баркоды
 - параметры `photos`, `video` и `tags`
 - цены товаров. Цену можно задать, только если вы добавляете новые размеры
 При добавлении нового размера укажите его цену через параметр `price`. Если в запросе не указан `price`, цена размера будет `0` — в этом случае изменить её можно будет с помощью методов:
-- [Установить цены и скидки](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), если у [товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) `"editablePriceSize":false`
-- [Установить цены для размеров](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize), если у [товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) `"editablePriceSize":true`
+- [Установить цены и скидки](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), если у [товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) `"editablePriceSize":false`
+- [Установить цены для размеров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize), если у [товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) `"editablePriceSize":true`
 Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
 
 Одним запросом можно отредактировать максимум 3000 карточек товаров (`nmID`). Максимальный размер запроса 10 Мб.
-Если ответ `Успешно` (`200`), но какие-то карточки не обновились, проверьте [список несозданных карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
+Если ответ `Успешно` (`200`), но какие-то карточки не обновились, проверьте [список несозданных карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
 Синхронизация данных с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.
-[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 10 запросов | 6 сек | 5 запросов |
@@ -942,13 +1045,18 @@ type DefaultApi interface {
 	PostV2CardsUpload Создание карточек товаров
 
 	Метод создаёт карточки товаров c указанием описаний и характеристик товаров.
-Есть две формы запроса: для создания отдельных и объединённых карточек товаровГабариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
+
+Есть две формы запроса: для создания отдельных и объединённых карточек товаров
+
+Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
 
 Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.
-Одним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров по 30 карточек в каждой. Максимальный размер запроса 10 Мб.
-Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
+Одним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров по 30 карточек в каждой. Максимальный размер запроса 10 Мб.
+Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
 
-В песочнице карточка товара создаётся сразу, без ожидания.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+В песочнице карточка товара создаётся сразу, без ожидания.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 10 запросов | 6 сек | 5 запросов |
@@ -965,13 +1073,15 @@ type DefaultApi interface {
 	/*
 	PostV2CardsUploadAdd Создание карточек товаров с присоединением
 
-	Метод создаёт карточки товаров, присоединяя их к существующим отдельным карточкам и группам [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. В одной группе объединённых карточек товаров может быть не более 30 карточек, соответственно, создать с присоединением можно не более 29 карточек товаров за один запрос.
+	Метод создаёт карточки товаров, присоединяя их к существующим отдельным карточкам и группам [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. В одной группе объединённых карточек товаров может быть не более 30 карточек, соответственно, создать с присоединением можно не более 29 карточек товаров за один запрос.
 Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
 
-Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
+Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
 Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.
 
-В песочнице карточка товара создаётся сразу, без ожидания.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+В песочнице карточка товара создаётся сразу, без ожидания.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 10 запросов | 6 сек | 5 запросов |
@@ -991,7 +1101,11 @@ type DefaultApi interface {
 	/*
 	PostV2GetCardsList Список карточек товаров
 
-	Метод возвращает список созданных карточек товаров.В ответе метода не будет карточек, находящихся в корзине. Получить такие карточки можно через [отдельный метод](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash)Чтобы получить \*\*больше 100\*\* карточек товаров, используйте пагинацию:
+	Метод возвращает список созданных карточек товаров.
+
+В ответе метода не будет карточек, находящихся в корзине. Получить такие карточки можно через [отдельный метод](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash)
+
+Чтобы получить \*\*больше 100\*\* карточек товаров, используйте пагинацию:
 1. Сделайте первый запрос:
 
 ```
@@ -1017,7 +1131,9 @@ type DefaultApi interface {
 Чтобы получать только карточки товаров, которые были созданы или обновлены после предыдущей выгрузки данных:
 1. Сохраните поля `"cursor":{"updatedAt":"\*\*\*","nmID":"\*\*\*"}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `"sort":{"ascending":true}`.
 2. Укажите в первом запросе сохранённые поля `"cursor":{"updatedAt":"\*\*\*","nmID":"\*\*\*"}`. Продолжайте использовать сортировку по возрастанию.
-3. Сохраните поля `"cursor":{"updatedAt":"\*\*\*","nmID":"\*\*\*"}` из последнего ответа текущей выгрузки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+3. Сохраните поля `"cursor":{"updatedAt":"\*\*\*","nmID":"\*\*\*"}` из последнего ответа текущей выгрузки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -1059,22 +1175,24 @@ type DefaultApi interface {
 Чтобы получать только карточки товаров, которые были перенесены в корзину после предыдущей выгрузки данных:
 1. Сохраните поля `"cursor":{"trashedAt":"\*\*\*","nmID":\*\*\*}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `"sort":{"ascending":true}`.
 2. Укажите в первом запросе сохранённые поля `"cursor":{"trashedAt":"\*\*\*","nmID":"\*\*\*"}`. Продолжайте использовать сортировку по возрастанию.
-3. Сохраните поля `"cursor":{"trashedAt":"\*\*\*","nmID":\*\*\*}` из последнего ответа текущей выгрузки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
+3. Сохраните поля `"cursor":{"trashedAt":"\*\*\*","nmID":\*\*\*}` из последнего ответа текущей выгрузки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
 Исключение — методы:
 
-* [создания карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-* [создания карточек товаров с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-* [редактирования карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-* [восстановления карточек товаров из корзины](/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-* [получения списка рекомендаций в карточках товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-* [установки рекомендаций для товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2GetCardsTrashRequest
@@ -1088,13 +1206,15 @@ type DefaultApi interface {
 	/*
 	PostV2ListGoodsFilter Получить товары с ценами по артикулам
 
-	Метод возвращает информацию о товарах по их артикулам: цены, валюту, общие скидки, [скидки WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
+	Метод возвращает информацию о товарах по их артикулам: цены, валюту, общие скидки, [скидки WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
 
 В одном запросе можно указать более одного артикула.
 
 Используйте отдельные методы, чтобы получить информацию:
-- обо [всех товарах продавца, не указывая артикулы](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter)
-- о [размерах товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+- обо [всех товарах продавца, не указывая артикулы](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter)
+- о [размерах товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -1104,7 +1224,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2ListGoodsFilterRequest
@@ -1120,7 +1240,9 @@ type DefaultApi interface {
 
 	Метод добавляет один ярлык продавца. Можно создать максимум 15 ярлыков для одного продавца. Максимальная длина ярлыка — 15 символов.
 
-Созданный ярлык можно получить в общем [списке](/openapi/item-management#tag/labels/operation/getV2Tags).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
+Созданный ярлык можно получить в общем [списке](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -1130,7 +1252,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2TagRequest
@@ -1145,7 +1267,9 @@ type DefaultApi interface {
 	PostV2TagNomenclatureLink Управление ярлыками в карточке товара
 
 	Метод добавляет или снимает ярлык с карточки товара. К карточке можно добавить максимум 15 ярлыков.
-При удалении ярлыка из карточки товара он не удаляется из [списка ярлыков](/openapi/item-management#tag/labels/operation/getV2Tags) продавца.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
+При удалении ярлыка из карточки товара он не удаляется из [списка ярлыков](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags) продавца.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -1155,7 +1279,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2TagNomenclatureLinkRequest
@@ -1171,7 +1295,11 @@ type DefaultApi interface {
 
 	Метод устанавливает цены и скидки для товаров.
 
-Чтобы установить цены для размеров товара, используйте [отдельный метод](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize).Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+Чтобы установить цены для размеров товара, используйте [отдельный метод](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize).
+
+Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -1181,7 +1309,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2UploadTaskRequest
@@ -1195,7 +1323,11 @@ type DefaultApi interface {
 	/*
 	PostV2UploadTaskClubDiscount Установить скидки WB Клуба
 
-	Устанавливает скидки для товаров в рамках подписки [WB Клуб](https://seller.wildberries.ru/help-center/article/A-337).Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+	Устанавливает скидки для товаров в рамках подписки [WB Клуб](https://seller.wildberries.ru/help-center/article/A-337).
+
+Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -1205,7 +1337,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2UploadTaskClubDiscountRequest
@@ -1220,8 +1352,12 @@ type DefaultApi interface {
 	PostV2UploadTaskSize Установить цены для размеров
 
 	Метод устанавливает цены отдельно для размеров товаров.
-Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для [таких товаров](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm) `"editableSizePrice":true`.
-Чтобы установить цены и скидки для самих товаров, используйте [отдельный метод](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask).Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для [таких товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm) `"editableSizePrice":true`.
+Чтобы установить цены и скидки для самих товаров, используйте [отдельный метод](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask).
+
+Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -1231,7 +1367,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2UploadTaskSizeRequest
@@ -1255,7 +1391,9 @@ type DefaultApi interface {
 Требования к видео:
 \* максимум одно видео для одной карточки товара
 \* максимальный размер — 50 Мб
-\* форматы — MOV, MP4[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Медиафайлов**:
+\* форматы — MOV, MP4
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Медиафайлов**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -1265,7 +1403,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3MediaFileRequest
@@ -1279,7 +1417,11 @@ type DefaultApi interface {
 	/*
 	PostV3MediaSave Загрузить медиафайлы по ссылкам
 
-	Метод загружает набор медиафайлов в карточку товара через указание ссылок в запросе.Новые медиафайлы полностью заменяют старые. Чтобы добавить новые медиафайлы, укажите в запросе ссылки одновременно на новые и старые медиафайлы.Требования к ссылкам:
+	Метод загружает набор медиафайлов в карточку товара через указание ссылок в запросе.
+
+Новые медиафайлы полностью заменяют старые. Чтобы добавить новые медиафайлы, укажите в запросе ссылки одновременно на новые и старые медиафайлы.
+
+Требования к ссылкам:
 \* для доступа к файлу по ссылке не нужна авторизация
 \* ссылка ведёт прямо на файл. Убедитесь, что ссылка не ведёт на страницу предпросмотра или авторизации. Ссылка должна заканчиваться на имя файла с расширением — например, `/file\_name.jpg`. Если по ссылке открывается текстовая страница TXT или HTML, ссылка считается некорректной.
 Помните, что некоторые хранилища не формируют прямые ссылки и поэтому не подходят для использования. К таким хранилищам относится, например, \*\*Google Drive\*\*, который формирует ссылки только на предпросмотр файла либо на служебные страницы.
@@ -1293,7 +1435,9 @@ type DefaultApi interface {
 \* максимум одно видео для одной карточки товара
 \* максимальный размер — 50 Мб
 \* форматы — MOV, MP4
-Если видео или хотя бы одно изображение в запросе не соответствует требованиям, то даже при успешном ответе (`200`) ни одно изображение/видео не загрузится.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Медиафайлов**:
+Если видео или хотя бы одно изображение в запросе не соответствует требованиям, то даже при успешном ответе (`200`) ни одно изображение/видео не загрузится.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Медиафайлов**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -1303,7 +1447,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3MediaSaveRequest
@@ -1317,7 +1461,9 @@ type DefaultApi interface {
 	/*
 	PostV3StocksWarehouseId Получить остатки товаров
 
-	Метод возвращает данные об остатках товаров на [складах продавца](/openapi/item-management#tag/sellerWarehouses).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **остатков на складах продавца** кроме метода [удаления остатков](/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId):
+	Метод возвращает данные об остатках товаров на [складах продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **остатков на складах продавца** кроме метода [удаления остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId):
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -1325,7 +1471,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param warehouseId ID склада продавца
@@ -1340,7 +1486,9 @@ type DefaultApi interface {
 	/*
 	PostV3Warehouses Создать склад продавца
 
-	Метод создаёт склад продавца для работы с [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory), кроме сверхгабаритных (СГТ), по модели [FBS](/openapi/orders-fbs) (Fulfillment by Seller).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
+	Метод создаёт склад продавца для работы с [остатками товаров](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory), кроме сверхгабаритных (СГТ), по модели [FBS](https://dev.wildberries.ru/openapi/orders-fbs) (Fulfillment by Seller).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -1348,7 +1496,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3WarehousesRequest
@@ -1362,9 +1510,15 @@ type DefaultApi interface {
 	/*
 	PutV3DbwWarehousesWarehouseIdContacts Обновить список контактов
 
-	Метод обновляет список контактов [склада продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать **все** параметры списка контактов, в том числе те, которые вы не собираетесь обновлять.Только для складов с типом доставки `3` — Деливери WB (DBW).
+	Метод обновляет список контактов [склада продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
 
-К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для следующих методов DBW:
+Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать **все** параметры списка контактов, в том числе те, которые вы не собираетесь обновлять.
+
+Только для складов с типом доставки `3` — Деливери WB (DBW).
+
+К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для следующих методов DBW:
 
 * получение и обновление списка контактов
 * получение и удаление идентификаторов маркировки
@@ -1387,7 +1541,11 @@ type DefaultApi interface {
 	/*
 	PutV3StocksWarehouseId Обновить остатки товаров
 
-	Метод обновляет количество остатков товаров продавца [в списке](/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).Названия параметров запроса не валидируются. При отправке некорректных названий вы получите успешный ответ (`204`), но остатки не обновятся.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **остатков на складах продавца** кроме метода [удаления остатков](/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId):
+	Метод обновляет количество остатков товаров продавца [в списке](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).
+
+Названия параметров запроса не валидируются. При отправке некорректных названий вы получите успешный ответ (`204`), но остатки не обновятся.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **остатков на складах продавца** кроме метода [удаления остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId):
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -1395,7 +1553,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param warehouseId ID склада продавца
@@ -1409,7 +1567,9 @@ type DefaultApi interface {
 	/*
 	PutV3WarehousesWarehouseId Обновить склад продавца
 
-	Метод обновляет данные [склада продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses), кроме складов для сверхгабаритных товаров (СГТ, `"cargoType":2`).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
+	Метод обновляет данные [склада продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses), кроме складов для сверхгабаритных товаров (СГТ, `"cargoType":2`).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -1417,7 +1577,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param warehouseId ID склада продавца
@@ -1445,7 +1605,9 @@ func (r ApiDeleteV2TagIdRequest) Execute() (*ResponseContentError, *http.Respons
 /*
 DeleteV2TagId Удаление ярлыка
 
-Метод удаляет ярлык из [списка ярлыков](/openapi/item-management#tag/labels/operation/getV2Tags) продавца.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
+Метод удаляет ярлык из [списка ярлыков](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags) продавца.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -1455,7 +1617,7 @@ DeleteV2TagId Удаление ярлыка
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Числовой ID ярлыка
@@ -1632,7 +1794,11 @@ func (r ApiDeleteV3StocksWarehouseIdRequest) Execute() (*http.Response, error) {
 /*
 DeleteV3StocksWarehouseId Удалить остатки товаров
 
-Метод удаляет запись об остатках товаров продавца из [списка остатков](/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).**Действие необратимо**. Удаленный остаток будет необходимо загрузить повторно для возобновления продаж.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод удаляет запись об остатках товаров продавца из [списка остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).
+
+**Действие необратимо**. Удаленный остаток будет необходимо загрузить повторно для возобновления продаж.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 10 запросов | 6 сек | 2 запроса |
@@ -1640,7 +1806,7 @@ DeleteV3StocksWarehouseId Удалить остатки товаров
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param warehouseId ID склада продавца
@@ -1827,7 +1993,9 @@ func (r ApiDeleteV3WarehousesWarehouseIdRequest) Execute() (*http.Response, erro
 /*
 DeleteV3WarehousesWarehouseId Удалить склад продавца
 
-Метод удаляет [склад продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
+Метод удаляет [склад продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -1835,7 +2003,7 @@ DeleteV3WarehousesWarehouseId Удалить склад продавца
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param warehouseId ID склада продавца
@@ -2008,7 +2176,9 @@ func (r ApiGetV1BrandsRequest) Execute() (*BrandsResponse, *http.Response, error
 /*
 GetV1Brands Бренды
 
-Метод возвращает список брендов по ID предмета.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод возвращает список брендов по ID предмета.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов |
@@ -2209,7 +2379,11 @@ func (r ApiGetV2BufferGoodsTaskRequest) Execute() (*GetV2BufferGoodsTask200Respo
 /*
 GetV2BufferGoodsTask Детализация необработанной загрузки
 
-Метод возвращает информацию о товарах и ошибках в товарах из загрузки в обработке.Необработанная загрузка — это загрузка скидок в [календаре акций](/openapi/promotion#tag/promoCalendar). Такие скидки применятся к товарам только в момент старта акции.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+Метод возвращает информацию о товарах и ошибках в товарах из загрузки в обработке.
+
+Необработанная загрузка — это загрузка скидок в [календаре акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar). Такие скидки применятся к товарам только в момент старта акции.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -2219,7 +2393,7 @@ GetV2BufferGoodsTask Детализация необработанной заг�
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV2BufferGoodsTaskRequest
@@ -2396,7 +2570,11 @@ func (r ApiGetV2BufferTasksRequest) Execute() (*GetV2BufferTasks200Response, *ht
 /*
 GetV2BufferTasks Состояние необработанной загрузки
 
-Метод возвращает информацию про загрузку скидок в обработке.Необработанная загрузка — это загрузка скидок в [календаре акций](/openapi/promotion#tag/promoCalendar). Такие скидки применятся к товарам только в момент старта акции.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+Метод возвращает информацию про загрузку скидок в обработке.
+
+Необработанная загрузка — это загрузка скидок в [календаре акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar). Такие скидки применятся к товарам только в момент старта акции.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -2406,7 +2584,7 @@ GetV2BufferTasks Состояние необработанной загрузк�
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV2BufferTasksRequest
@@ -2566,14 +2744,16 @@ func (r ApiGetV2CardsLimitsRequest) Execute() (*GetV2CardsLimitsResponse200, *ht
 /*
 GetV2CardsLimits Лимиты карточек товаров
 
-Возвращает бесплатные и платные лимиты продавца на [создание карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload).
+Возвращает бесплатные и платные лимиты продавца на [создание карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload).
 
 Формула для получения количества карточек, которые можно создать:
 > (`freeLimits` + `paidLimits`) - количество созданных карточек
-Созданными считаются карточки, которые можно получить через методы [список карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList) и [список карточек товаров в корзине](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов:
+Созданными считаются карточки, которые можно получить через методы [список карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList) и [список карточек товаров в корзине](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).
 
-* [получения лимитов карточек товаров](/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
-* [получения несозданных карточек товаров с ошибками](/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов:
+
+* [получения лимитов карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
+* [получения несозданных карточек товаров с ошибками](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
 
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
@@ -2584,7 +2764,7 @@ GetV2CardsLimits Лимиты карточек товаров
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV2CardsLimitsRequest
@@ -2736,7 +2916,9 @@ func (r ApiGetV2DirectoryColorsRequest) Execute() (*GetV2DirectoryColorsResponse
 /*
 GetV2DirectoryColors Цвет
 
-Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Цвет`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**:
+Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Цвет`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -2746,7 +2928,7 @@ GetV2DirectoryColors Цвет
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV2DirectoryColorsRequest
@@ -2912,22 +3094,24 @@ func (r ApiGetV2DirectoryCountriesRequest) Execute() (*GetV2DirectoryCountriesRe
 /*
 GetV2DirectoryCountries Страна производства
 
-Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Страна производства`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
+Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Страна производства`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
 Исключение — методы:
 
-* [создания карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-* [создания карточек товаров с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-* [редактирования карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-* [восстановления карточек товаров из корзины](/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-* [получения списка рекомендаций в карточках товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-* [установки рекомендаций для товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV2DirectoryCountriesRequest
@@ -3093,7 +3277,9 @@ func (r ApiGetV2DirectoryKindsRequest) Execute() (*GetV2DirectoryKindsResponse20
 /*
 GetV2DirectoryKinds Пол
 
-Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Пол`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**:
+Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Пол`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -3103,7 +3289,7 @@ GetV2DirectoryKinds Пол
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV2DirectoryKindsRequest
@@ -3269,7 +3455,9 @@ func (r ApiGetV2DirectorySeasonsRequest) Execute() (*GetV2DirectorySeasonsRespon
 /*
 GetV2DirectorySeasons Сезон
 
-Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Сезон`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**:
+Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Сезон`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -3279,7 +3467,7 @@ GetV2DirectorySeasons Сезон
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV2DirectorySeasonsRequest
@@ -3459,22 +3647,24 @@ func (r ApiGetV2DirectoryTnvedRequest) Execute() (*GetV2DirectoryTnvedResponse20
 /*
 GetV2DirectoryTnved ТНВЭД-код
 
-Метод возвращает список ТНВЭД-кодов по ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
+Метод возвращает список ТНВЭД-кодов по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
 Исключение — методы:
 
-* [создания карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-* [создания карточек товаров с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-* [редактирования карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-* [восстановления карточек товаров из корзины](/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-* [получения списка рекомендаций в карточках товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-* [установки рекомендаций для товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV2DirectoryTnvedRequest
@@ -3647,7 +3837,9 @@ func (r ApiGetV2DirectoryVatRequest) Execute() (*GetV2DirectoryVatResponse200, *
 /*
 GetV2DirectoryVat Ставка НДС
 
-Метод возвращает возможные значения [характеристики](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Ставка НДС`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**:
+Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Ставка НДС`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -3657,7 +3849,7 @@ GetV2DirectoryVat Ставка НДС
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV2DirectoryVatRequest
@@ -3837,7 +4029,11 @@ func (r ApiGetV2HistoryGoodsTaskRequest) Execute() (*GetV2HistoryGoodsTask200Res
 /*
 GetV2HistoryGoodsTask Детализация обработанной загрузки
 
-Метод возвращает информацию о товарах и об ошибках в товарах в обработанной загрузке.Обработанная загрузка — это загрузка цен и скидок для [товаров](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), цен для [размеров товаров](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize) [скидок WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовых скидок для B2B-продаж](/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+Метод возвращает информацию о товарах и об ошибках в товарах в обработанной загрузке.
+
+Обработанная загрузка — это загрузка цен и скидок для [товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), цен для [размеров товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize) [скидок WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовых скидок для B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -3847,7 +4043,7 @@ GetV2HistoryGoodsTask Детализация обработанной загру
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV2HistoryGoodsTaskRequest
@@ -4024,7 +4220,11 @@ func (r ApiGetV2HistoryTasksRequest) Execute() (*GetV2HistoryTasks200Response, *
 /*
 GetV2HistoryTasks Состояние обработанной загрузки
 
-Метод возвращает информацию об обработанной загрузке цен и скидок.Обработанная загрузка — это загрузка цен и скидок для [товаров](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), цен для [размеров товаров](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize), [скидок WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовых скидок для B2B-продаж](/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+Метод возвращает информацию об обработанной загрузке цен и скидок.
+
+Обработанная загрузка — это загрузка цен и скидок для [товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), цен для [размеров товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize), [скидок WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовых скидок для B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -4034,7 +4234,7 @@ GetV2HistoryTasks Состояние обработанной загрузки
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV2HistoryTasksRequest
@@ -4215,15 +4415,17 @@ func (r ApiGetV2ListGoodsFilterRequest) Execute() (*GetV2ListGoodsFilter200Respo
 /*
 GetV2ListGoodsFilter Получить товары с ценами
 
-Метод возвращает информацию о товарах: цены, валюту, общие скидки, [скидки WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
+Метод возвращает информацию о товарах: цены, валюту, общие скидки, [скидки WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
 
 В одном запросе можно указать только один артикул.
 
 Чтобы получить информацию обо всех товарах продавца, не указывая артикулы, установите `limit=1000`, в параметре `offset` установите смещение по количеству записей. Количество нужно рассчитать по формуле: `offset` плюс `limit` из предыдущего запроса. Повторяйте запрос, пока вы не получите ответ с пустым массивом.
 
 Используйте отдельные методы, чтобы получить информацию:
-- о [нескольких товарах по артикулам](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter)
-- о [размерах товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+- о [нескольких товарах по артикулам](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter)
+- о [размерах товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -4233,7 +4435,7 @@ GetV2ListGoodsFilter Получить товары с ценами
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV2ListGoodsFilterRequest
@@ -4434,11 +4636,13 @@ func (r ApiGetV2ListGoodsSizeNmRequest) Execute() (*GetV2ListGoodsSizeNm200Respo
 /*
 GetV2ListGoodsSizeNm Получить размеры товара с ценами
 
-Метод возвращает информацию обо всех размерах одного товара: цены, валюту, общие скидки и скидки для [WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount).
+Метод возвращает информацию обо всех размерах одного товара: цены, валюту, общие скидки и скидки для [WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount).
 
 Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для таких товаров `"editableSizePrice":true`.
 
-Чтобы получить информацию о самом товаре, используйте [отдельный метод](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+Чтобы получить информацию о самом товаре, используйте [отдельный метод](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -4448,7 +4652,7 @@ GetV2ListGoodsSizeNm Получить размеры товара с ценам�
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV2ListGoodsSizeNmRequest
@@ -4664,22 +4868,24 @@ func (r ApiGetV2ObjectAllRequest) Execute() (*GetV2ObjectAllResponse200, *http.R
 /*
 GetV2ObjectAll Список предметов
 
-Метод возвращает список названий [родительских категорий предметов](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) и их предметов с ID. Например, у категории `Игрушки` будут предметы `Калейдоскопы`, `Куклы`, `Мячики`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
+Метод возвращает список названий [родительских категорий предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) и их предметов с ID. Например, у категории `Игрушки` будут предметы `Калейдоскопы`, `Куклы`, `Мячики`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
 Исключение — методы:
 
-* [создания карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-* [создания карточек товаров с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-* [редактирования карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-* [восстановления карточек товаров из корзины](/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-* [получения списка рекомендаций в карточках товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-* [установки рекомендаций для товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV2ObjectAllRequest
@@ -4853,22 +5059,26 @@ func (r ApiGetV2ObjectCharcsSubjectIdRequest) Execute() (*GetV2ObjectCharcsSubje
 /*
 GetV2ObjectCharcsSubjectId Характеристики предмета
 
-Метод возвращает параметры характеристик предмета: названия, типы данных, единицы измерения и так далее. В запросе необходимо указать ID [предмета](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll).Для получения значений характеристик [Цвет](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryColors), [Пол](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryKinds), [Страна производства](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryCountries), [Сезон](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectorySeasons), [Ставка НДС](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryVat) и [ТНВЭД-код](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryTnved) используйте отдельные методы[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
+Метод возвращает параметры характеристик предмета: названия, типы данных, единицы измерения и так далее. В запросе необходимо указать ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll).
+
+Для получения значений характеристик [Цвет](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryColors), [Пол](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryKinds), [Страна производства](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryCountries), [Сезон](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectorySeasons), [Ставка НДС](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryVat) и [ТНВЭД-код](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2DirectoryTnved) используйте отдельные методы
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
 Исключение — методы:
 
-* [создания карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-* [создания карточек товаров с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-* [редактирования карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-* [восстановления карточек товаров из корзины](/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-* [получения списка рекомендаций в карточках товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-* [установки рекомендаций для товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param subjectId ID предмета
@@ -5037,22 +5247,24 @@ func (r ApiGetV2ObjectParentAllRequest) Execute() (*GetV2ObjectParentAllResponse
 /*
 GetV2ObjectParentAll Родительские категории товаров
 
-Метод возвращает названия и ID всех родительских категорий для [создания карточек товаров](/openapi/item-management#tag/listingItems): например, `Электроника`, `Бытовая химия`, `Рукоделие`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
+Метод возвращает названия и ID всех родительских категорий для [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems): например, `Электроника`, `Бытовая химия`, `Рукоделие`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
 Исключение — методы:
 
-* [создания карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-* [создания карточек товаров с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-* [редактирования карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-* [восстановления карточек товаров из корзины](/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-* [получения списка рекомендаций в карточках товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-* [установки рекомендаций для товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV2ObjectParentAllRequest
@@ -5227,13 +5439,15 @@ GetV2QuarantineGoods Получить товары в карантине
 
 Метод возвращает информацию о товарах в карантине.
 
-Если новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в [детализации загрузки](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask).
+Если новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в [детализации загрузки](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask).
 
 Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).
 
-Для товаров с [поразмерной установкой цен](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize) карантин не применяется.
+Для товаров с [поразмерной установкой цен](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize) карантин не применяется.
 
-В [песочнице](/sandbox) товары автоматически удаляются из карантина через 3 дня.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+В [песочнице](https://dev.wildberries.ru/sandbox) товары автоматически удаляются из карантина через 3 дня.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -5243,7 +5457,7 @@ GetV2QuarantineGoods Получить товары в карантине
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV2QuarantineGoodsRequest
@@ -5431,7 +5645,9 @@ func (r ApiGetV2TagsRequest) Execute() (*GetV2TagsResponse200, *http.Response, e
 /*
 GetV2Tags Список ярлыков
 
-Метод возвращает список и характеристики всех ярлыков продавца для группировки и фильтрации товаров.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
+Метод возвращает список и характеристики всех ярлыков продавца для группировки и фильтрации товаров.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -5441,7 +5657,7 @@ GetV2Tags Список ярлыков
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV2TagsRequest
@@ -5598,9 +5814,11 @@ func (r ApiGetV3DbwWarehousesWarehouseIdContactsRequest) Execute() (*GetV3DbwWar
 /*
 GetV3DbwWarehousesWarehouseIdContacts Список контактов
 
-Метод возвращает список контактов, привязанных к [складу продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
+Метод возвращает список контактов, привязанных к [складу продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
 
-Только для складов с типом доставки `3` — Деливери WB ([DBW](/openapi/orders-dbw)).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для следующих методов DBW:
+Только для складов с типом доставки `3` — Деливери WB ([DBW](https://dev.wildberries.ru/openapi/orders-dbw)).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для следующих методов DBW:
 
 * получение и обновление списка контактов
 * получение и удаление идентификаторов маркировки
@@ -5779,7 +5997,9 @@ func (r ApiGetV3OfficesRequest) Execute() ([]Office, *http.Response, error) {
 /*
 GetV3Offices Получить список складов WB
 
-Метод возвращает список складов WB для привязки к складу продавца при его [создании](/openapi/item-management#tag/sellerWarehouses/operation/postV3Warehouses) или [редактировании](/openapi/item-management#tag/sellerWarehouses/operation/putV3WarehousesWarehouseId).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
+Метод возвращает список складов WB для привязки к складу продавца при его [создании](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/postV3Warehouses) или [редактировании](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/putV3WarehousesWarehouseId).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -5787,7 +6007,7 @@ GetV3Offices Получить список складов WB
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV3OfficesRequest
@@ -5932,7 +6152,9 @@ func (r ApiGetV3WarehousesRequest) Execute() ([]Warehouse, *http.Response, error
 /*
 GetV3Warehouses Получить список складов продавца
 
-Метод возвращает список всех складов продавца. Может использоваться для работы с [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
+Метод возвращает список всех складов продавца. Может использоваться для работы с [остатками товаров](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -5940,7 +6162,7 @@ GetV3Warehouses Получить список складов продавца
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV3WarehousesRequest
@@ -6094,7 +6316,9 @@ PatchV2TagId Изменение ярлыка
 
 Метод заменяет данные ярлыка: имя и цвет.
 
-Новые данные можно получить в общем [списке](/openapi/item-management#tag/labels/operation/getV2Tags).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
+Новые данные можно получить в общем [списке](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -6104,7 +6328,7 @@ PatchV2TagId Изменение ярлыка
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Числовой ID ярлыка
@@ -6285,9 +6509,13 @@ func (r ApiPostV1RecommendationsListRequest) Execute() (*GetRecomRes, *http.Resp
 /*
 PostV1RecommendationsList Список рекомендаций в карточках товаров
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод возвращает список [рекомендаций](https://seller.wildberries.ru/recommendations-v3) в карточках товаров.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод возвращает список [рекомендаций](https://seller.wildberries.ru/recommendations-v3) в карточках товаров.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -6440,9 +6668,13 @@ func (r ApiPostV1RecommendationsSetRequest) Execute() (*SetRecomRes, *http.Respo
 /*
 PostV1RecommendationsSet Установить рекомендации для товаров
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод обновляет, добавляет или удаляет [рекомендации](https://seller.wildberries.ru/recommendations-v3) для товаров.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод обновляет, добавляет или удаляет [рекомендации](https://seller.wildberries.ru/recommendations-v3) для товаров.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -6599,9 +6831,15 @@ func (r ApiPostV1UploadTaskB2bWholesaleRequest) Execute() (*PostV1UploadTaskB2bW
 /*
 PostV1UploadTaskB2bWholesale Установить оптовые скидки для B2B-продаж
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+**Сервисному** токену
+
+Метод устанавливает [оптовые скидки для бизнеса](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-enable-wholesale-discounts-for-business)
+
+Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -6772,22 +7010,24 @@ func (r ApiPostV2BarcodesRequest) Execute() (*PostV2BarcodesResponse200, *http.R
 /*
 PostV2Barcodes Генерация баркодов
 
-Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload). Можно использовать, если у вас нет собственных баркодов.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
+Метод генерирует массив уникальных баркодов для создания размера в [карточке товара](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload). Можно использовать, если у вас нет собственных баркодов.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
 Исключение — методы:
 
-* [создания карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-* [создания карточек товаров с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-* [редактирования карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-* [восстановления карточек товаров из корзины](/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-* [получения списка рекомендаций в карточках товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-* [установки рекомендаций для товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV2BarcodesRequest
@@ -6954,10 +7194,16 @@ func (r ApiPostV2CardsDeleteTrashRequest) Execute() (*PostV2CardsDeleteTrashResp
 /*
 PostV2CardsDeleteTrash Перенос карточек товаров в корзину
 
-Метод переносит [карточки товаров в корзину](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash). При этом карточки товаров не удаляются, их можно [восстановить](/openapi/item-management#tag/listings/operation/postV2CardsRecover).После переноса в корзину карточке товара присваивается новый `imtID` — ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаровКарточки товаров удаляются автоматически, если лежат в корзине больше 30 дней, и на них нет остатков. Очистка корзины происходит каждую ночь по московскому времени.
+Метод переносит [карточки товаров в корзину](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash). При этом карточки товаров не удаляются, их можно [восстановить](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover).
+
+После переноса в корзину карточке товара присваивается новый `imtID` — ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+
+Карточки товаров удаляются автоматически, если лежат в корзине больше 30 дней, и на них нет остатков. Очистка корзины происходит каждую ночь по московскому времени.
 Карточки товаров можно удалить в любое время в [личном кабинете](https://seller.wildberries.ru/new-goods/basket-cards).
 
-Карточка будет продаваться, пока по ней есть остатки на складе, даже если её переместили в корзину. Чтобы полностью снять карточку с продажи, обнулите остатки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Карточка будет продаваться, пока по ней есть остатки на складе, даже если её переместили в корзину. Чтобы полностью снять карточку с продажи, обнулите остатки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -7151,8 +7397,8 @@ PostV2CardsErrorList Список несозданных карточек тов
 Метод возвращает список карточек товаров ([черновиков](https://seller.wildberries.ru/new-goods/error-cards)), при создании или редактировании которых произошли ошибки, с описанием этих ошибок.
 
 Данные в ответе возвращаются пакетами `batch`. Один пакет содержит:
-- все ошибки по одному массиву `variants` одного запроса при [создании](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) карточек товаров
-- все ошибки одного запроса при [создании с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) или [редактировании](/openapi/item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров
+- все ошибки по одному массиву `variants` одного запроса при [создании](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) карточек товаров
+- все ошибки одного запроса при [создании с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) или [редактировании](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров
 
 Чтобы получить более 100 пакетов, используйте пагинацию:
 1. Сделайте первый запрос:
@@ -7170,10 +7416,14 @@ PostV2CardsErrorList Список несозданных карточек тов
 
 2. Скопируйте `"updatedAt":"\*\*\*","batchUUID":"\*\*\*" `из `cursor` ответа и вставьте в `cursor` запроса.
 3. Повторите запрос.
-4. Повторяйте пункты 2 и 3, пока не получите в ответе `"next":false`. Это будет означать, что вы получили все пакеты.Чтобы удалить карточку товара из списка, сделайте ещё один запрос на создание, создание с присоединением или редактирование карточки товара с исправленными ошибками[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов:
+4. Повторяйте пункты 2 и 3, пока не получите в ответе `"next":false`. Это будет означать, что вы получили все пакеты.
 
-* [получения лимитов карточек товаров](/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
-* [получения несозданных карточек товаров с ошибками](/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
+Чтобы удалить карточку товара из списка, сделайте ещё один запрос на создание, создание с присоединением или редактирование карточки товара с исправленными ошибками
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов:
+
+* [получения лимитов карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
+* [получения несозданных карточек товаров с ошибками](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
 
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
@@ -7181,7 +7431,7 @@ PostV2CardsErrorList Список несозданных карточек тов
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV2CardsErrorListRequest
@@ -7351,7 +7601,7 @@ func (r ApiPostV2CardsMoveNmRequest) Execute() (*ResponseItemList, *http.Respons
 /*
 PostV2CardsMoveNm Объединение и разъединение карточек товаров
 
-Метод [объединяет и разъединяет](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Карточки товаров являются объединёнными, если у них одинаковый `imtID`.
+Метод [объединяет и разъединяет](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Карточки товаров являются объединёнными, если у них одинаковый `imtID`.
 
 Для объединения карточек товаров сделайте запрос \*\*с указанием\*\* `imtID`. Можно объединять не более 30 карточек товаров.
 Для разъединения карточек товаров сделайте запрос \*\*без указания\*\* `imtID`. Для разъединенных карточек будут сгенерированы новые `imtID`.
@@ -7359,22 +7609,26 @@ PostV2CardsMoveNm Объединение и разъединение карто�
 Если вы разъедините одновременно несколько карточек товаров, эти карточки объединятся в одну и получат новый `imtID`.
 Чтобы присвоить каждой карточке товара уникальный `imtID`, необходимо передавать по одной карточке товара за запрос.
 
-Максимальный размер запроса 10 Мб.Объединить можно карточки товаров только в рамках одного предмета[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
+Максимальный размер запроса 10 Мб.
+
+Объединить можно карточки товаров только в рамках одного предмета
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
 Исключение — методы:
 
-* [создания карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-* [создания карточек товаров с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-* [редактирования карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-* [восстановления карточек товаров из корзины](/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-* [получения списка рекомендаций в карточках товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-* [установки рекомендаций для товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV2CardsMoveNmRequest
@@ -7546,7 +7800,11 @@ func (r ApiPostV2CardsRecoverRequest) Execute() (*PostV2CardsRecoverResponse200,
 /*
 PostV2CardsRecover Восстановление карточек товаров из корзины
 
-Метод восстанавливает [карточки товаров из корзины](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).Карточка товара сохраняет тот же `imtID` — ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров — что был присвоен ей при [перемещении в корзину](/openapi/item-management#tag/listings/operation/postV2CardsDeleteTrash)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод восстанавливает [карточки товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).
+
+Карточка товара сохраняет тот же `imtID` — ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров — что был присвоен ей при [перемещении в корзину](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsDeleteTrash)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 5 запросов |
@@ -7730,19 +7988,24 @@ func (r ApiPostV2CardsUpdateRequest) Execute() (*ResponseItemList, *http.Respons
 /*
 PostV2CardsUpdate Редактирование карточек товаров
 
-Метод обновляет данные карточек товаров. Также используйте его, чтобы добавлять новые размеры.Карточка товара перезаписывается при обновлении. Поэтому в запросе нужно передать в том числе те параметры карточки, которые вы не собираетесь обновлять. Их значения можно получить в [списке карточек товаров](/openapi/item-management#tag/listings/operation/postV2GetCardsList) и [списке карточек товаров в корзине](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).С помощью этого метода нельзя обновлять или удалять:
+Метод обновляет данные карточек товаров. Также используйте его, чтобы добавлять новые размеры.
+
+Карточка товара перезаписывается при обновлении. Поэтому в запросе нужно передать в том числе те параметры карточки, которые вы не собираетесь обновлять. Их значения можно получить в [списке карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList) и [списке карточек товаров в корзине](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash).
+
+С помощью этого метода нельзя обновлять или удалять:
 - баркоды размеров товара. Можно только добавить дополнительные баркоды
 - параметры `photos`, `video` и `tags`
 - цены товаров. Цену можно задать, только если вы добавляете новые размеры
 При добавлении нового размера укажите его цену через параметр `price`. Если в запросе не указан `price`, цена размера будет `0` — в этом случае изменить её можно будет с помощью методов:
-- [Установить цены и скидки](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), если у [товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) `"editablePriceSize":false`
-- [Установить цены для размеров](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize), если у [товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) `"editablePriceSize":true`
+- [Установить цены и скидки](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask), если у [товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) `"editablePriceSize":false`
+- [Установить цены для размеров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize), если у [товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) `"editablePriceSize":true`
 Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
 
 Одним запросом можно отредактировать максимум 3000 карточек товаров (`nmID`). Максимальный размер запроса 10 Мб.
-Если ответ `Успешно` (`200`), но какие-то карточки не обновились, проверьте [список несозданных карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
+Если ответ `Успешно` (`200`), но какие-то карточки не обновились, проверьте [список несозданных карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
 Синхронизация данных с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.
-[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 10 запросов | 6 сек | 5 запросов |
@@ -7918,13 +8181,18 @@ func (r ApiPostV2CardsUploadRequest) Execute() (*ResponseItemList, *http.Respons
 PostV2CardsUpload Создание карточек товаров
 
 Метод создаёт карточки товаров c указанием описаний и характеристик товаров.
-Есть две формы запроса: для создания отдельных и объединённых карточек товаровГабариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
+
+Есть две формы запроса: для создания отдельных и объединённых карточек товаров
+
+Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
 
 Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.
-Одним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров по 30 карточек в каждой. Максимальный размер запроса 10 Мб.
-Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
+Одним запросом можно создать максимум 100 отдельных карточек товаров или 100 групп [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров по 30 карточек в каждой. Максимальный размер запроса 10 Мб.
+Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
 
-В песочнице карточка товара создаётся сразу, без ожидания.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+В песочнице карточка товара создаётся сразу, без ожидания.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 10 запросов | 6 сек | 5 запросов |
@@ -8099,13 +8367,15 @@ func (r ApiPostV2CardsUploadAddRequest) Execute() (*ResponseItemList, *http.Resp
 /*
 PostV2CardsUploadAdd Создание карточек товаров с присоединением
 
-Метод создаёт карточки товаров, присоединяя их к существующим отдельным карточкам и группам [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. В одной группе объединённых карточек товаров может быть не более 30 карточек, соответственно, создать с присоединением можно не более 29 карточек товаров за один запрос.
+Метод создаёт карточки товаров, присоединяя их к существующим отдельным карточкам и группам [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. В одной группе объединённых карточек товаров может быть не более 30 карточек, соответственно, создать с присоединением можно не более 29 карточек товаров за один запрос.
 Габариты товаров можно указать только в `сантиметрах`, вес товара с упаковкой — в `килограммах`.
 
-Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
+Если ответ `Успешно` (`200`), но какие-то карточки не создались, проверьте [список несозданных карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList).
 Создание карточки товара происходит асинхронно. Синхронизация новой карточки с сервисами может занимать до 30 минут. В течение этого времени невозможно добавить остатки на склады и настроить цены.
 
-В песочнице карточка товара создаётся сразу, без ожидания.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+В песочнице карточка товара создаётся сразу, без ожидания.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 10 запросов | 6 сек | 5 запросов |
@@ -8290,7 +8560,11 @@ func (r ApiPostV2GetCardsListRequest) Execute() (*PostV2GetCardsListResponse200,
 /*
 PostV2GetCardsList Список карточек товаров
 
-Метод возвращает список созданных карточек товаров.В ответе метода не будет карточек, находящихся в корзине. Получить такие карточки можно через [отдельный метод](/openapi/item-management#tag/listings/operation/postV2GetCardsTrash)Чтобы получить \*\*больше 100\*\* карточек товаров, используйте пагинацию:
+Метод возвращает список созданных карточек товаров.
+
+В ответе метода не будет карточек, находящихся в корзине. Получить такие карточки можно через [отдельный метод](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsTrash)
+
+Чтобы получить \*\*больше 100\*\* карточек товаров, используйте пагинацию:
 1. Сделайте первый запрос:
 
 ```
@@ -8316,7 +8590,9 @@ PostV2GetCardsList Список карточек товаров
 Чтобы получать только карточки товаров, которые были созданы или обновлены после предыдущей выгрузки данных:
 1. Сохраните поля `"cursor":{"updatedAt":"\*\*\*","nmID":"\*\*\*"}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `"sort":{"ascending":true}`.
 2. Укажите в первом запросе сохранённые поля `"cursor":{"updatedAt":"\*\*\*","nmID":"\*\*\*"}`. Продолжайте использовать сортировку по возрастанию.
-3. Сохраните поля `"cursor":{"updatedAt":"\*\*\*","nmID":"\*\*\*"}` из последнего ответа текущей выгрузки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+3. Сохраните поля `"cursor":{"updatedAt":"\*\*\*","nmID":"\*\*\*"}` из последнего ответа текущей выгрузки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -8532,22 +8808,24 @@ PostV2GetCardsTrash Список карточек товаров в корзин
 Чтобы получать только карточки товаров, которые были перенесены в корзину после предыдущей выгрузки данных:
 1. Сохраните поля `"cursor":{"trashedAt":"\*\*\*","nmID":\*\*\*}` из последнего ответа предыдущей выгрузки. При выгрузке используйте сортировку по возрастанию: `"sort":{"ascending":true}`.
 2. Укажите в первом запросе сохранённые поля `"cursor":{"trashedAt":"\*\*\*","nmID":"\*\*\*"}`. Продолжайте использовать сортировку по возрастанию.
-3. Сохраните поля `"cursor":{"trashedAt":"\*\*\*","nmID":\*\*\*}` из последнего ответа текущей выгрузки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
+3. Сохраните поля `"cursor":{"trashedAt":"\*\*\*","nmID":\*\*\*}` из последнего ответа текущей выгрузки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 5 запросов |
 Исключение — методы:
 
-* [создания карточек товаров](/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
-* [создания карточек товаров с присоединением](/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
-* [редактирования карточек товаров](/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
-* [восстановления карточек товаров из корзины](/openapi/item-management#tag/listings/operation/postV2CardsRecover)
-* [получения списка рекомендаций в карточках товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
-* [установки рекомендаций для товаров](/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+* [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+* [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+* [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+* [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+* [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+* [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV2GetCardsTrashRequest
@@ -8728,13 +9006,15 @@ func (r ApiPostV2ListGoodsFilterRequest) Execute() (*GetV2ListGoodsFilter200Resp
 /*
 PostV2ListGoodsFilter Получить товары с ценами по артикулам
 
-Метод возвращает информацию о товарах по их артикулам: цены, валюту, общие скидки, [скидки WB Клуба](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
+Метод возвращает информацию о товарах по их артикулам: цены, валюту, общие скидки, [скидки WB Клуба](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskClubDiscount) и [оптовые скидки для B2B-продаж](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV1UploadTaskB2bWholesale).
 
 В одном запросе можно указать более одного артикула.
 
 Используйте отдельные методы, чтобы получить информацию:
-- обо [всех товарах продавца, не указывая артикулы](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter)
-- о [размерах товара](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+- обо [всех товарах продавца, не указывая артикулы](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter)
+- о [размерах товара](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -8744,7 +9024,7 @@ PostV2ListGoodsFilter Получить товары с ценами по арт�
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV2ListGoodsFilterRequest
@@ -8924,7 +9204,9 @@ PostV2Tag Создание ярлыка
 
 Метод добавляет один ярлык продавца. Можно создать максимум 15 ярлыков для одного продавца. Максимальная длина ярлыка — 15 символов.
 
-Созданный ярлык можно получить в общем [списке](/openapi/item-management#tag/labels/operation/getV2Tags).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
+Созданный ярлык можно получить в общем [списке](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -8934,7 +9216,7 @@ PostV2Tag Создание ярлыка
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV2TagRequest
@@ -9113,7 +9395,9 @@ func (r ApiPostV2TagNomenclatureLinkRequest) Execute() (*ResponseContentError, *
 PostV2TagNomenclatureLink Управление ярлыками в карточке товара
 
 Метод добавляет или снимает ярлык с карточки товара. К карточке можно добавить максимум 15 ярлыков.
-При удалении ярлыка из карточки товара он не удаляется из [списка ярлыков](/openapi/item-management#tag/labels/operation/getV2Tags) продавца.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
+При удалении ярлыка из карточки товара он не удаляется из [списка ярлыков](https://dev.wildberries.ru/openapi/item-management#tag/labels/operation/getV2Tags) продавца.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Ярлыков**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -9123,7 +9407,7 @@ PostV2TagNomenclatureLink Управление ярлыками в карточ�
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV2TagNomenclatureLinkRequest
@@ -9303,7 +9587,11 @@ PostV2UploadTask Установить цены и скидки
 
 Метод устанавливает цены и скидки для товаров.
 
-Чтобы установить цены для размеров товара, используйте [отдельный метод](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize).Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+Чтобы установить цены для размеров товара, используйте [отдельный метод](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTaskSize).
+
+Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -9313,7 +9601,7 @@ PostV2UploadTask Установить цены и скидки
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV2UploadTaskRequest
@@ -9513,7 +9801,11 @@ func (r ApiPostV2UploadTaskClubDiscountRequest) Execute() (*TaskCreated, *http.R
 /*
 PostV2UploadTaskClubDiscount Установить скидки WB Клуба
 
-Устанавливает скидки для товаров в рамках подписки [WB Клуб](https://seller.wildberries.ru/help-center/article/A-337).Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+Устанавливает скидки для товаров в рамках подписки [WB Клуб](https://seller.wildberries.ru/help-center/article/A-337).
+
+Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -9523,7 +9815,7 @@ PostV2UploadTaskClubDiscount Установить скидки WB Клуба
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV2UploadTaskClubDiscountRequest
@@ -9724,8 +10016,12 @@ func (r ApiPostV2UploadTaskSizeRequest) Execute() (*TaskCreated, *http.Response,
 PostV2UploadTaskSize Установить цены для размеров
 
 Метод устанавливает цены отдельно для размеров товаров.
-Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для [таких товаров](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm) `"editableSizePrice":true`.
-Чтобы установить цены и скидки для самих товаров, используйте [отдельный метод](/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask).Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
+Работает только для товаров из категорий, где можно устанавливать цены отдельно для разных размеров. Для [таких товаров](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsSizeNm) `"editableSizePrice":true`.
+Чтобы установить цены и скидки для самих товаров, используйте [отдельный метод](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/postV2UploadTask).
+
+Получить информацию о процессе установки цен и скидок можно с помощью методов [состояния](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryTasks) и [детализации](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) обработанной загрузки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Цены и скидки**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов |
@@ -9735,7 +10031,7 @@ PostV2UploadTaskSize Установить цены для размеров
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV2UploadTaskSizeRequest
@@ -9959,7 +10255,9 @@ PostV3MediaFile Загрузить медиафайл
 Требования к видео:
 \* максимум одно видео для одной карточки товара
 \* максимальный размер — 50 Мб
-\* форматы — MOV, MP4[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Медиафайлов**:
+\* форматы — MOV, MP4
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Медиафайлов**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -9969,7 +10267,7 @@ PostV3MediaFile Загрузить медиафайл
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV3MediaFileRequest
@@ -10165,7 +10463,11 @@ func (r ApiPostV3MediaSaveRequest) Execute() (*PostV3MediaSaveResponse200, *http
 /*
 PostV3MediaSave Загрузить медиафайлы по ссылкам
 
-Метод загружает набор медиафайлов в карточку товара через указание ссылок в запросе.Новые медиафайлы полностью заменяют старые. Чтобы добавить новые медиафайлы, укажите в запросе ссылки одновременно на новые и старые медиафайлы.Требования к ссылкам:
+Метод загружает набор медиафайлов в карточку товара через указание ссылок в запросе.
+
+Новые медиафайлы полностью заменяют старые. Чтобы добавить новые медиафайлы, укажите в запросе ссылки одновременно на новые и старые медиафайлы.
+
+Требования к ссылкам:
 \* для доступа к файлу по ссылке не нужна авторизация
 \* ссылка ведёт прямо на файл. Убедитесь, что ссылка не ведёт на страницу предпросмотра или авторизации. Ссылка должна заканчиваться на имя файла с расширением — например, `/file\_name.jpg`. Если по ссылке открывается текстовая страница TXT или HTML, ссылка считается некорректной.
 Помните, что некоторые хранилища не формируют прямые ссылки и поэтому не подходят для использования. К таким хранилищам относится, например, \*\*Google Drive\*\*, который формирует ссылки только на предпросмотр файла либо на служебные страницы.
@@ -10179,7 +10481,9 @@ PostV3MediaSave Загрузить медиафайлы по ссылкам
 \* максимум одно видео для одной карточки товара
 \* максимальный размер — 50 Мб
 \* форматы — MOV, MP4
-Если видео или хотя бы одно изображение в запросе не соответствует требованиям, то даже при успешном ответе (`200`) ни одно изображение/видео не загрузится.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Медиафайлов**:
+Если видео или хотя бы одно изображение в запросе не соответствует требованиям, то даже при успешном ответе (`200`) ни одно изображение/видео не загрузится.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **Медиафайлов**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов |
@@ -10189,7 +10493,7 @@ PostV3MediaSave Загрузить медиафайлы по ссылкам
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV3MediaSaveRequest
@@ -10390,7 +10694,9 @@ func (r ApiPostV3StocksWarehouseIdRequest) Execute() (*PostV3StocksWarehouseIdRe
 /*
 PostV3StocksWarehouseId Получить остатки товаров
 
-Метод возвращает данные об остатках товаров на [складах продавца](/openapi/item-management#tag/sellerWarehouses).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **остатков на складах продавца** кроме метода [удаления остатков](/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId):
+Метод возвращает данные об остатках товаров на [складах продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **остатков на складах продавца** кроме метода [удаления остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId):
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -10398,7 +10704,7 @@ PostV3StocksWarehouseId Получить остатки товаров
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param warehouseId ID склада продавца
@@ -10590,7 +10896,9 @@ func (r ApiPostV3WarehousesRequest) Execute() (*PostV3WarehousesResponse201, *ht
 /*
 PostV3Warehouses Создать склад продавца
 
-Метод создаёт склад продавца для работы с [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory), кроме сверхгабаритных (СГТ), по модели [FBS](/openapi/orders-fbs) (Fulfillment by Seller).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
+Метод создаёт склад продавца для работы с [остатками товаров](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory), кроме сверхгабаритных (СГТ), по модели [FBS](https://dev.wildberries.ru/openapi/orders-fbs) (Fulfillment by Seller).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -10598,7 +10906,7 @@ PostV3Warehouses Создать склад продавца
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV3WarehousesRequest
@@ -10799,9 +11107,15 @@ func (r ApiPutV3DbwWarehousesWarehouseIdContactsRequest) Execute() (*http.Respon
 /*
 PutV3DbwWarehousesWarehouseIdContacts Обновить список контактов
 
-Метод обновляет список контактов [склада продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать **все** параметры списка контактов, в том числе те, которые вы не собираетесь обновлять.Только для складов с типом доставки `3` — Деливери WB (DBW).
+Метод обновляет список контактов [склада продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses).
 
-К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для следующих методов DBW:
+Список контактов перезаписывается при обновлении. Поэтому в запросе нужно передать **все** параметры списка контактов, в том числе те, которые вы не собираетесь обновлять.
+
+Только для складов с типом доставки `3` — Деливери WB (DBW).
+
+К складу можно добавить максимум 5 контактов. Чтобы удалить контакты, отправьте пустой массив `contacts`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для следующих методов DBW:
 
 * получение и обновление списка контактов
 * получение и удаление идентификаторов маркировки
@@ -10981,7 +11295,11 @@ func (r ApiPutV3StocksWarehouseIdRequest) Execute() (*http.Response, error) {
 /*
 PutV3StocksWarehouseId Обновить остатки товаров
 
-Метод обновляет количество остатков товаров продавца [в списке](/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).Названия параметров запроса не валидируются. При отправке некорректных названий вы получите успешный ответ (`204`), но остатки не обновятся.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **остатков на складах продавца** кроме метода [удаления остатков](/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId):
+Метод обновляет количество остатков товаров продавца [в списке](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/postV3StocksWarehouseId).
+
+Названия параметров запроса не валидируются. При отправке некорректных названий вы получите успешный ответ (`204`), но остатки не обновятся.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **остатков на складах продавца** кроме метода [удаления остатков](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory/operation/deleteV3StocksWarehouseId):
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -10989,7 +11307,7 @@ PutV3StocksWarehouseId Обновить остатки товаров
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param warehouseId ID склада продавца
@@ -11190,7 +11508,9 @@ func (r ApiPutV3WarehousesWarehouseIdRequest) Execute() (*http.Response, error) 
 /*
 PutV3WarehousesWarehouseId Обновить склад продавца
 
-Метод обновляет данные [склада продавца](/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses), кроме складов для сверхгабаритных товаров (СГТ, `"cargoType":2`).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
+Метод обновляет данные [склада продавца](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses/operation/getV3Warehouses), кроме складов для сверхгабаритных товаров (СГТ, `"cargoType":2`).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **складов продавца**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -11198,7 +11518,7 @@ PutV3WarehousesWarehouseId Обновить склад продавца
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param warehouseId ID склада продавца

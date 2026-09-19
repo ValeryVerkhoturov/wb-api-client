@@ -1,7 +1,7 @@
 /*
 Тарифы
 
-Узнать больше о тарифах можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section)В разделе описаны методы получения: 1. [Комиссий](/openapi/rates#tag/fees) 2. [Тарифов на поставку](/openapi/rates#tag/supplyRates) 3. [Тарифов на остаток](/openapi/rates#tag/stockRates) 4. [Тарифов на возврат товаров продавцу](/openapi/rates#tag/returnCostToSeller)
+Узнать больше о тарифах можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section)  В разделе описаны методы получения: 1. [Комиссий](https://dev.wildberries.ru/openapi/rates#tag/fees) 2. [Тарифов на поставку](https://dev.wildberries.ru/openapi/rates#tag/supplyRates) 3. [Тарифов на остаток](https://dev.wildberries.ru/openapi/rates#tag/stockRates) 4. [Тарифов на возврат товаров продавцу](https://dev.wildberries.ru/openapi/rates#tag/returnCostToSeller)
 
 API version: rates
 */
@@ -24,7 +24,9 @@ type DefaultApi interface {
 	/*
 	GetV1AcceptanceCoefficients Тарифы на поставку
 
-	Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
@@ -47,7 +49,11 @@ type DefaultApi interface {
 	Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на:
 - доставку со склада или пункта приёма до покупателя
 - доставку от покупателя до пункта приёма
-- хранение на складе WBТарифы для коробов совпадают с тарифами для **Суперсейфа**[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+- хранение на складе WB
+
+Тарифы для коробов совпадают с тарифами для **Суперсейфа**
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |
@@ -67,7 +73,9 @@ type DefaultApi interface {
 	/*
 	GetV1TariffsCommission Комиссия по категориям товаров
 
-	Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) согласно модели продаж.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) согласно модели продаж.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса |
@@ -90,7 +98,11 @@ type DefaultApi interface {
 	Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories):
 - доставки со склада до покупателя
 - доставки от покупателя до склада
-- хранения на складе WBТарифы для монопаллет совпадают с тарифами для **Поштучных паллет**[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+- хранения на складе WB
+
+Тарифы для монопаллет совпадают с тарифами для **Поштучных паллет**
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |
@@ -112,7 +124,9 @@ type DefaultApi interface {
 
 	Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost):
 - на перевозку товаров со склада WB или из пункта приёма до продавца
-- на обратную перевозку возвратов, которые не забрал продавец[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+- на обратную перевозку возвратов, которые не забрал продавец
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |
@@ -152,7 +166,9 @@ func (r ApiGetV1AcceptanceCoefficientsRequest) Execute() ([]ModelsAcceptanceCoef
 /*
 GetV1AcceptanceCoefficients Тарифы на поставку
 
-Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
@@ -327,7 +343,11 @@ GetV1TariffsBox Тарифы для коробов
 Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на:
 - доставку со склада или пункта приёма до покупателя
 - доставку от покупателя до пункта приёма
-- хранение на складе WBТарифы для коробов совпадают с тарифами для **Суперсейфа**[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+- хранение на складе WB
+
+Тарифы для коробов совпадают с тарифами для **Суперсейфа**
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |
@@ -486,7 +506,9 @@ func (r ApiGetV1TariffsCommissionRequest) Execute() (*GetV1TariffsCommission200R
 /*
 GetV1TariffsCommission Комиссия по категориям товаров
 
-Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) согласно модели продаж.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) согласно модели продаж.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса |
@@ -647,7 +669,11 @@ GetV1TariffsPallet Тарифы для монопаллет
 Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories):
 - доставки со склада до покупателя
 - доставки от покупателя до склада
-- хранения на складе WBТарифы для монопаллет совпадают с тарифами для **Поштучных паллет**[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+- хранения на складе WB
+
+Тарифы для монопаллет совпадают с тарифами для **Поштучных паллет**
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |
@@ -808,7 +834,9 @@ GetV1TariffsReturn Тарифы на возврат
 
 Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost):
 - на перевозку товаров со склада WB или из пункта приёма до продавца
-- на обратную перевозку возвратов, которые не забрал продавец[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+- на обратную перевозку возвратов, которые не забрал продавец
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов |

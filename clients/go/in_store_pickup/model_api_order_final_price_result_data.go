@@ -1,7 +1,7 @@
 /*
 Самовывоз
 
-Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.  Вы можете протестировать методы Самовывоза в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceInStorePickup) для эмуляции действий пользователя
+Управление [сборочными заданиями](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.  Вы можете протестировать методы Самовывоза в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/marketplaceInStorePickup) для эмуляции действий пользователя
 
 API version: instorepickup
 */
@@ -17,7 +17,7 @@ import (
 // checks if the ApiOrderFinalPriceResultData type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ApiOrderFinalPriceResultData{}
 
-// ApiOrderFinalPriceResultData Данные сборочного задания.  Если `\"data\":{}`, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 1 минуты.  Если `data` отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов: - [Получить список новых сборочных заданий](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew) - [Получить информацию о завершенных сборочных заданиях](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrders)
+// ApiOrderFinalPriceResultData Данные сборочного задания.  Если `\"data\":{}`, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 1 минуты.  Если `data` отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов: - [Получить список новых сборочных заданий](https://dev.wildberries.ru/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew) - [Получить информацию о завершенных сборочных заданиях](https://dev.wildberries.ru/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrders)
 type ApiOrderFinalPriceResultData struct {
 	// Цена продавца в валюте продажи без учёта скидок, умноженная на 100. Предоставляется в информационных целях
 	OriginalPrice *int32 `json:"originalPrice,omitempty"`

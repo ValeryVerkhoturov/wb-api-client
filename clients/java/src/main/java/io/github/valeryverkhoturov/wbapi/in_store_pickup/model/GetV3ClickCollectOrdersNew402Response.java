@@ -1,6 +1,6 @@
 /*
  * Самовывоз
- * Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.  Вы можете протестировать методы Самовывоза в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceInStorePickup) для эмуляции действий пользователя
+ * Управление [сборочными заданиями](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.  Вы можете протестировать методы Самовывоза в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/marketplaceInStorePickup) для эмуляции действий пользователя
  *
  * The version of the OpenAPI document: instorepickup
  * 
@@ -88,7 +88,7 @@ public class GetV3ClickCollectOrdersNew402Response {
   }
 
   /**
-   * Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
+   * Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](https://dev.wildberries.ru/business-solutions)
    * @return detail
    */
   @jakarta.annotation.Nullable

@@ -1,7 +1,7 @@
 /*
 Документы и бухгалтерия
 
-Узнать больше о документах и бухгалтерии можно в [справочном центре](https://seller.wildberries.ru/instructions/category/ba929b64-1f89-4426-82d7-ce998ee552bd?goBackOption=prevRoute&categoryId=3c971375-9939-45e8-ab82-376019be8942)Просмотр [баланса](/openapi/documents-and-accounting#tag/balance), [финансовых отчётов](/openapi/documents-and-accounting#tag/financialReports) и [документов](/openapi/documents-and-accounting#tag/documents) продавца.
+Узнать больше о документах и бухгалтерии можно в [справочном центре](https://seller.wildberries.ru/instructions/category/ba929b64-1f89-4426-82d7-ce998ee552bd?goBackOption=prevRoute&categoryId=3c971375-9939-45e8-ab82-376019be8942)  Просмотр [баланса](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/balance), [финансовых отчётов](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports) и [документов](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents) продавца.
 
 API version: finances
 */
@@ -21,7 +21,7 @@ var _ MappedNullable = &GetV1AccountBalance402Response{}
 type GetV1AccountBalance402Response struct {
 	// Заголовок ошибки
 	Title *string `json:"title,omitempty"`
-	// Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
+	// Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](https://dev.wildberries.ru/business-solutions)
 	Detail *string `json:"detail,omitempty"`
 }
 

@@ -1,7 +1,7 @@
 /*
 Самовывоз
 
-Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.  Вы можете протестировать методы Самовывоза в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceInStorePickup) для эмуляции действий пользователя
+Управление [сборочными заданиями](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.  Вы можете протестировать методы Самовывоза в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/marketplaceInStorePickup) для эмуляции действий пользователя
 
 API version: instorepickup
 */
@@ -21,7 +21,7 @@ var _ MappedNullable = &GetV3ClickCollectOrdersNew402Response{}
 type GetV3ClickCollectOrdersNew402Response struct {
 	// Заголовок ошибки
 	Title *string `json:"title,omitempty"`
-	// Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
+	// Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](https://dev.wildberries.ru/business-solutions)
 	Detail *string `json:"detail,omitempty"`
 }
 

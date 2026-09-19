@@ -1,7 +1,7 @@
 /*
 Работа с товарами
 
-С помощью методов этого раздела вы можете: - [создавать](/openapi/item-management#tag/listingItems) и [редактировать](/openapi/item-management#tag/listings) карточки товаров - получать [категории, предметы, характеристики и бренды товаров](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics) - загружать [медиафайлы](/openapi/item-management#tag/mediaFiles) в карточки товаров - настраивать [ярлыки](/openapi/item-management#tag/labels) для поиска товаров - работать с [рекомендациями](/openapi/item-management#tag/recommendations) для товаров - устанавливать [цены и скидки](/openapi/item-management#tag/pricesAndDiscounts) - управлять [остатками товаров](/openapi/item-management#tag/sellerWarehousesInventory) и [складами](/openapi/item-management#tag/sellerWarehouses), если вы работаете по модели продаж со склада продавца Вы можете протестировать методы работы с товарами в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/itemManagement) для управления карточками товаровУзнать, как использовать методы в бизнес-кейсах, можно в [инструкции](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami) по **работе с товарами**
+С помощью методов этого раздела вы можете: - [создавать](https://dev.wildberries.ru/openapi/item-management#tag/listingItems) и [редактировать](https://dev.wildberries.ru/openapi/item-management#tag/listings) карточки товаров - получать [категории, предметы, характеристики и бренды товаров](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics) - загружать [медиафайлы](https://dev.wildberries.ru/openapi/item-management#tag/mediaFiles) в карточки товаров - настраивать [ярлыки](https://dev.wildberries.ru/openapi/item-management#tag/labels) для поиска товаров - работать с [рекомендациями](https://dev.wildberries.ru/openapi/item-management#tag/recommendations) для товаров - устанавливать [цены и скидки](https://dev.wildberries.ru/openapi/item-management#tag/pricesAndDiscounts) - управлять [остатками товаров](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehousesInventory) и [складами](https://dev.wildberries.ru/openapi/item-management#tag/sellerWarehouses), если вы работаете по модели продаж со склада продавца Вы можете протестировать методы работы с товарами в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/itemManagement) для управления карточками товаров  Узнать, как использовать методы в бизнес-кейсах, можно в [инструкции](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami) по **работе с товарами**
 
 API version: items
 */
@@ -19,7 +19,7 @@ var _ MappedNullable = &PostV2GetCardsListRequestSettingsFilter{}
 
 // PostV2GetCardsListRequestSettingsFilter Параметры фильтрации
 type PostV2GetCardsListRequestSettingsFilter struct {
-	// Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — только карточки без фото. С [16 июня](/release-notes?id=531) — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото. С [16 июня](/release-notes?id=531) 
+	// Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) 
 	WithPhoto *int32 `json:"withPhoto,omitempty"`
 	// Поиск по артикулу продавца, артикулу WB, баркоду
 	TextSearch *string `json:"textSearch,omitempty"`
@@ -31,7 +31,7 @@ type PostV2GetCardsListRequestSettingsFilter struct {
 	ObjectIDs []int32 `json:"objectIDs,omitempty"`
 	// Поиск по брендам
 	Brands []string `json:"brands,omitempty"`
-	// Поиск по [ID для объединённых карточек товаров](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+	// Поиск по [ID для объединённых карточек товаров](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
 	ImtID *int64 `json:"imtID,omitempty"`
 }
 

@@ -1,6 +1,6 @@
 /*
  * Самовывоз
- * Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.  Вы можете протестировать методы Самовывоза в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceInStorePickup) для эмуляции действий пользователя
+ * Управление [сборочными заданиями](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.  Вы можете протестировать методы Самовывоза в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/marketplaceInStorePickup) для эмуляции действий пользователя
  *
  * The version of the OpenAPI document: instorepickup
  * 
@@ -46,7 +46,7 @@ import java.util.Set;
 import io.github.valeryverkhoturov.wbapi.in_store_pickup.JSON;
 
 /**
- * Данные сборочного задания.  Если &#x60;\&quot;data\&quot;:{}&#x60;, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 1 минуты.  Если &#x60;data&#x60; отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов: - [Получить список новых сборочных заданий](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew) - [Получить информацию о завершенных сборочных заданиях](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrders)
+ * Данные сборочного задания.  Если &#x60;\&quot;data\&quot;:{}&#x60;, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 1 минуты.  Если &#x60;data&#x60; отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов: - [Получить список новых сборочных заданий](https://dev.wildberries.ru/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew) - [Получить информацию о завершенных сборочных заданиях](https://dev.wildberries.ru/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrders)
  */
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class ApiOrderFinalPriceResultData {

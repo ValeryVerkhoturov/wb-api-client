@@ -3,9 +3,9 @@ info:
   title: Самовывоз
   x-file-name: in-store-pickup
   description: |-
-    Управление [сборочными заданиями](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.
+    Управление [сборочными заданиями](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и [идентификаторами маркировки](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers) Самовывоза.
 
-    Вы можете протестировать методы Самовывоза в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceInStorePickup) для эмуляции действий пользователя
+    Вы можете протестировать методы Самовывоза в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/marketplaceInStorePickup) для эмуляции действий пользователя
   version: instorepickup
 servers:
 - url: https://marketplace-api.wildberries.ru
@@ -37,7 +37,9 @@ paths:
       - Сборочные задания Самовывоз
       summary: Получить список новых сборочных заданий
       description: |-
-        Метод возвращает список всех новых [сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders), которые есть у продавца на момент запроса.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий Самовывоз**:
+        Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders), которые есть у продавца на момент запроса.
+
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий Самовывоз**:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -45,7 +47,7 @@ paths:
 
         ---
 
-        В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       responses:
         '200':
           description: Успешно
@@ -95,7 +97,9 @@ paths:
       description: |-
         Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.
 
-        Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий Самовывоз**:
+        Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
+
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий Самовывоз**:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -103,7 +107,7 @@ paths:
 
         ---
 
-        В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       parameters:
       - name: limit
         in: query
@@ -183,7 +187,9 @@ paths:
       description: |-
         Метод возвращает:
         - цены продавца без учёта скидок
-        - суммы к оплате покупателем с учетом всех скидок и кэшбека[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки Самовывоз**:
+        - суммы к оплате покупателем с учетом всех скидок и кэшбека
+
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки Самовывоз**:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 150 запросов | 400 мс | 20 запросов |
@@ -191,7 +197,7 @@ paths:
 
         ---
 
-        В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       requestBody:
         content:
           application/json:
@@ -244,7 +250,9 @@ paths:
       - Сборочные задания Самовывоз
       summary: Перевести сборочные задания на сборку
       description: |-
-        Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new` — новый — в статус `confirm` — на сборке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+        Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new` — новый — в статус `confirm` — на сборке.
+
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -252,7 +260,7 @@ paths:
 
         ---
 
-        В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       requestBody:
         content:
           application/json:
@@ -304,7 +312,9 @@ paths:
       - Сборочные задания Самовывоз
       summary: Сообщить, что сборочные задания готовы к выдаче
       description: |-
-        Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` — на сборке — в статус `prepare` — готово к выдаче.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+        Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` — на сборке — в статус `prepare` — готово к выдаче.
+
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -312,7 +322,7 @@ paths:
 
         ---
 
-        В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       requestBody:
         content:
           application/json:
@@ -368,7 +378,9 @@ paths:
 
         Доступно только для сборочных заданий в статусах:
         - `confirm` — на сборке
-        - `prepare` — готов к выдаче[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий Самовывоз**:
+        - `prepare` — готов к выдаче
+
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий Самовывоз**:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -376,7 +388,7 @@ paths:
 
         ---
 
-        В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       requestBody:
         content:
           application/json:
@@ -438,7 +450,9 @@ paths:
       description: |-
         Метод сообщает, принадлежит ли проверяемый заказ покупателю или нет по переданному коду.
 
-        Доступно, если хотя бы одно сборочное задание из заказа находится в статусе prepare - готов к выдаче.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+        Доступно, если хотя бы одно сборочное задание из заказа находится в статусе prepare - готов к выдаче.
+
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 30 запросов | 2 сек | 20 запросов |
@@ -446,7 +460,7 @@ paths:
 
         ---
 
-        В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       requestBody:
         content:
           application/json:
@@ -524,7 +538,9 @@ paths:
       - Сборочные задания Самовывоз
       summary: Сообщить, что заказы приняты покупателями
       description: |-
-        Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `receive` — получено покупателем.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+        Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `receive` — получено покупателем.
+
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -532,7 +548,7 @@ paths:
 
         ---
 
-        В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       requestBody:
         content:
           application/json:
@@ -584,7 +600,9 @@ paths:
       - Сборочные задания Самовывоз
       summary: Сообщить об отказе от заказов
       description: |-
-        Метод переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `reject` — отказ при получении.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+        Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `reject` — отказ при получении.
+
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -592,7 +610,7 @@ paths:
 
         ---
 
-        В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       requestBody:
         content:
           application/json:
@@ -643,7 +661,7 @@ paths:
       tags:
       - Сборочные задания Самовывоз
       summary: Получить статусы сборочных заданий
-      description: "Метод возвращает статусы [сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) по их ID.\n\n`supplierStatus` — статус сборочного задания. Триггер его изменения - действие самого продавца.\nВозможные значения `supplierStatus`:\n| Статус | Описание | Как перевести сборочное задание в данный статус |\n| ------- | --------- | --------------------------------------|\n| `new` | \\*\\*Новое сборочное задание\\*\\* |\n| `confirm` | \\*\\*На сборке\\*\\* | [Перевести сборочное задание на сборку](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusConfirm)\n| `prepare` | \\*\\*Готов к выдаче\\*\\* | [Сообщить, что сборочное задание готово к выдаче](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusPrepare)\n| `receive` | \\*\\*Получено покупателем\\*\\* | [Сообщить, что заказ принят покупателем](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReceive)\n| `reject` | \\*\\*Отказ покупателя при получении\\*\\* | [Сообщить, что покупатель отказался от заказа](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReject)\n| `cancel` | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusCancel)\n| `cancel\\_shelf\\_life` | \\*\\*Отмена по истечении срока хранения\\*\\* | Переводится автоматически по возникновению события\n\n`wbStatus` — статус системы Wildberries.\nВозможные значения `wbStatus`:\n- `waiting` - сборочное задание в работе\n- `sold` - заказ получен покупателем\n- `canceled` - отмена сборочного задания\n- `canceled\\_by\\_client` - покупатель отменил заказ при получении\n- `declined\\_by\\_client` - покупатель отменил заказ в первый чаc\n\n Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку\n- `defect` - отмена заказа по причине брака\n- `ready\\_for\\_pickup` - заказ готов к выдаче[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 сек | 1 запрос | 1 сек | 10 запросов |\nОдин запрос с кодами ответов `4XX` учитывается как 10 запросов.\n\n---\n\nВ [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**."
+      description: "Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) по их ID.\n\n`supplierStatus` — статус сборочного задания. Триггер его изменения - действие самого продавца.\nВозможные значения `supplierStatus`:\n| Статус | Описание | Как перевести сборочное задание в данный статус |\n| ------- | --------- | --------------------------------------|\n| `new` | \\*\\*Новое сборочное задание\\*\\* |\n| `confirm` | \\*\\*На сборке\\*\\* | [Перевести сборочное задание на сборку](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusConfirm)\n| `prepare` | \\*\\*Готов к выдаче\\*\\* | [Сообщить, что сборочное задание готово к выдаче](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusPrepare)\n| `receive` | \\*\\*Получено покупателем\\*\\* | [Сообщить, что заказ принят покупателем](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReceive)\n| `reject` | \\*\\*Отказ покупателя при получении\\*\\* | [Сообщить, что покупатель отказался от заказа](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReject)\n| `cancel` | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusCancel)\n| `cancel\\_shelf\\_life` | \\*\\*Отмена по истечении срока хранения\\*\\* | Переводится автоматически по возникновению события\n\n`wbStatus` — статус системы Wildberries.\nВозможные значения `wbStatus`:\n- `waiting` - сборочное задание в работе\n- `sold` - заказ получен покупателем\n- `canceled` - отмена сборочного задания\n- `canceled\\_by\\_client` - покупатель отменил заказ при получении\n- `declined\\_by\\_client` - покупатель отменил заказ в первый чаc\n\n Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку\n- `defect` - отмена заказа по причине брака\n- `ready\\_for\\_pickup` - заказ готов к выдаче\n\n[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:\n| Период | Лимит | Интервал | Всплеск |\n| --- | --- | --- | --- |\n| 1 сек | 1 запрос | 1 сек | 10 запросов |\nОдин запрос с кодами ответов `4XX` учитывается как 10 запросов.\n\n---\n\nВ [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**."
       requestBody:
         content:
           application/json:
@@ -696,7 +714,9 @@ paths:
       - Сборочные задания Самовывоз
       summary: Отменить сборочные задания
       description: |-
-        Переводит [сборочные задания](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статусов](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new`, `confirm`, `prepare` в статус `cancel` — отменено продавцом.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+        Переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статусов](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new`, `confirm`, `prepare` в статус `cancel` — отменено продавцом.
+
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -704,7 +724,7 @@ paths:
 
         ---
 
-        В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       requestBody:
         content:
           application/json:
@@ -749,16 +769,18 @@ paths:
       - Идентификаторы маркировки Самовывоз
       summary: Получить идентификаторы маркировки сборочных заданий
       description: |-
-        Метод возвращает идентификаторы маркировки [сборочных заданий ](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и статусы их проверки.
+        Метод возвращает идентификаторы маркировки [сборочных заданий ](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и статусы их проверки.
 
-        Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.
+        Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.
         Возможные идентификаторы маркировки:
-        - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)
-        - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)
-        - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)
-        - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)
-        - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)
-        - `originCountryCode` — [числовой код страны происхождения товара](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки Самовывоз**:
+        - `imei` — [IMEI](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)
+        - `uin` — [УИН](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)
+        - `gtin` — [GTIN](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)
+        - `sgtin` — [код маркировки](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)
+        - `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)
+        - `originCountryCode` — [числовой код страны происхождения товара](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
+
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки Самовывоз**:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 150 запросов | 400 мс | 20 запросов |
@@ -813,14 +835,16 @@ paths:
       - Идентификаторы маркировки Самовывоз
       summary: Удалить идентификаторы маркировки сборочных заданий
       description: |-
-        Метод удаляет значения указанных [идентификаторов маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
+        Метод удаляет значения указанных [идентификаторов маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
 
         В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:
-        - `imei` — [IMEI](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)
-        - `uin` — [УИН](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)
-        - `gtin` — [GTIN](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)
-        - `sgtin` — [код маркировки](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)
-        - `customsDeclaration` — [номер ДТ](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки Самовывоз**:
+        - `imei` — [IMEI](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)
+        - `uin` — [УИН](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)
+        - `gtin` — [GTIN](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)
+        - `sgtin` — [код маркировки](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)
+        - `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`
+
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки Самовывоз**:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 150 запросов | 400 мс | 20 запросов |
@@ -828,7 +852,7 @@ paths:
 
         ---
 
-        В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       requestBody:
         required: true
         content:
@@ -881,10 +905,12 @@ paths:
       - Идентификаторы маркировки Самовывоз
       summary: Закрепить коды маркировки Честного знака за сборочными заданиями
       description: |-
-        Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
-        Закрепить код маркировки можно только за сборочным заданием в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `sgtin`.
+        Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
+        Закрепить код маркировки можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `sgtin`.
 
-        Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
+        Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
+
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 20 запросов | 3 сек | 500 запросов |
@@ -892,7 +918,7 @@ paths:
 
         ---
 
-        В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       requestBody:
         content:
           application/json:
@@ -945,8 +971,10 @@ paths:
       - Идентификаторы маркировки Самовывоз
       summary: Закрепить УИН за сборочными заданиями
       description: |-
-        Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один УИН.
-        Закрепить УИН можно только за сборочным заданием в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `uin`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
+        Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один УИН.
+        Закрепить УИН можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `uin`.
+
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 20 запросов | 3 сек | 500 запросов |
@@ -954,7 +982,7 @@ paths:
 
         ---
 
-        В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       requestBody:
         content:
           application/json:
@@ -1007,9 +1035,11 @@ paths:
       - Идентификаторы маркировки Самовывоз
       summary: Закрепить IMEI за сборочными заданиями
       description: |-
-        Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
+        Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
         У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — \*\*IMEI\*\* и \*\*IMEI2\*\* или \*\*IMEI1\*\* и \*\*IMEI2\*\* — укажите только \*\*IMEI\*\* или \*\*IMEI1\*\*. \*\*IMEI2\*\* указывать не нужно.
-        Закрепить IMEI можно только за сборочным заданием в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `imei`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
+        Закрепить IMEI можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `imei`.
+
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 20 запросов | 3 сек | 500 запросов |
@@ -1017,7 +1047,7 @@ paths:
 
         ---
 
-        В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       requestBody:
         content:
           application/json:
@@ -1070,8 +1100,10 @@ paths:
       - Идентификаторы маркировки Самовывоз
       summary: Закрепить GTIN за сборочными заданиями
       description: |-
-        Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один GTIN.
-        Закрепить GTIN можно только за сборочным заданием в [статусе](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `gtin`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
+        Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один GTIN.
+        Закрепить GTIN можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `gtin`.
+
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 20 запросов | 3 сек | 500 запросов |
@@ -1079,7 +1111,7 @@ paths:
 
         ---
 
-        В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       requestBody:
         content:
           application/json:
@@ -1129,11 +1161,13 @@ paths:
       summary: Закрепить номера ДТ за сборочными заданиями
       operationId: postV3ClickCollectOrdersMetaCustomsDeclaration
       description: |-
-        Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ.
+        Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ.
         Закрепить номер ДТ можно, только если выполняются все условия:
-        - сборочное задание имеет признак B2B-продажи — `"isB2b":true` в ответе метода [получения новых сборочных заданий](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)
-        - сборочное задание находится в [статусах](/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` или `prepare`
-        - поле `customsDeclaration` есть в [идентификаторах маркировки сборочного задания](/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
+        - сборочное задание имеет признак B2B-продажи — `"isB2b":true` в ответе метода [получения новых сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)
+        - сборочное задание находится в [статусах](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` или `prepare`
+        - поле `customsDeclaration` есть в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails)
+
+        [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
         | Период | Лимит | Интервал | Всплеск |
         | --- | --- | --- | --- |
         | 1 мин | 20 запросов | 3 сек | 500 запросов |
@@ -1141,7 +1175,7 @@ paths:
 
         ---
 
-        В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
       requestBody:
         required: true
         content:
@@ -1350,8 +1384,8 @@ components:
             Если `"data":{}`, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 1 минуты.
 
             Если `data` отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов:
-            - [Получить список новых сборочных заданий](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)
-            - [Получить информацию о завершенных сборочных заданиях](/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrders)
+            - [Получить список новых сборочных заданий](https://dev.wildberries.ru/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)
+            - [Получить информацию о завершенных сборочных заданиях](https://dev.wildberries.ru/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrders)
           type: object
           nullable: false
           properties:
@@ -2546,7 +2580,7 @@ components:
                 description: Заголовок ошибки
               detail:
                 type: string
-                description: Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
+                description: Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](https://dev.wildberries.ru/business-solutions)
           example:
             title: payment required
             detail: wb solution for business has insufficient funds on its balance. please top up the balance in the company's personal account https://dev.wildberries.ru/company

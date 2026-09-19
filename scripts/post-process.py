@@ -34,6 +34,13 @@ Passes applied to every spec:
    which reads badly in generated code doc-comments. Convert every
    `description` string to Markdown so docstrings and Javadoc/JSDoc render
    as intended.
+
+7. `absolutize_description_links` — Markdown links in descriptions point
+   at relative paths on the WB developer portal (e.g.
+   `[warehouses inventory](/openapi/reports#tag/warehousesInventoryReport)`).
+   Those don't resolve outside the portal, so we prefix them with
+   `https://dev.wildberries.ru`. Runs after the HTML→Markdown pass so it
+   sees the final link form.
 """
 from __future__ import annotations
 
@@ -334,8 +341,13 @@ def htmlize_descriptions_to_markdown(node: Any) -> int:
     if isinstance(node, dict):
         for k, v in list(node.items()):
             if k == "description" and isinstance(v, str) and _has_html(v):
+                # Do NOT pass strip=["div"]: stripping the div tag also
+                # strips its block-level semantics, collapsing adjacent
+                # `<div>…</div><div>…</div>` blocks into one line with no
+                # paragraph break. markdownify's default handling of
+                # `<div>` already emits `\n\n` between blocks.
                 node[k] = _clean_markdown(
-                    _html_to_markdown(v, heading_style="ATX", strip=["div"])
+                    _html_to_markdown(v, heading_style="ATX")
                 )
                 converted += 1
             else:
@@ -344,6 +356,30 @@ def htmlize_descriptions_to_markdown(node: Any) -> int:
         for v in node:
             converted += htmlize_descriptions_to_markdown(v)
     return converted
+
+
+WB_DEV_BASE = "https://dev.wildberries.ru"
+# Matches a Markdown link whose destination starts with `/` — a site-root
+# relative URL on the WB dev portal. Excludes `//host/...` protocol-relative
+# links and preserves any leading whitespace / punctuation before `[`.
+_REL_LINK_RE = re.compile(r"(\]\()(/(?!/)[^)\s]*)(\))")
+
+
+def absolutize_description_links(node: Any) -> int:
+    fixed = 0
+    if isinstance(node, dict):
+        for k, v in list(node.items()):
+            if k == "description" and isinstance(v, str) and "](/" in v:
+                new = _REL_LINK_RE.sub(rf"\g<1>{WB_DEV_BASE}\g<2>\g<3>", v)
+                if new != v:
+                    node[k] = new
+                    fixed += 1
+            else:
+                fixed += absolutize_description_links(v)
+    elif isinstance(node, list):
+        for v in node:
+            fixed += absolutize_description_links(v)
+    return fixed
 
 
 def sanitize_non_ascii_enums(node: Any) -> int:
@@ -391,6 +427,7 @@ def process_file(src: Path, dst: Path) -> dict:
         "hoisted_responses": name_inline_response_schemas(spec),
         "enums": sanitize_non_ascii_enums(spec),
         "descriptions_md": htmlize_descriptions_to_markdown(spec),
+        "links_absolutized": absolutize_description_links(spec),
     }
 
     dst.parent.mkdir(parents=True, exist_ok=True)
@@ -410,7 +447,8 @@ def main() -> int:
         return 1
 
     totals = {"arrays": 0, "inlined_arrays": 0, "renamed_schemas": 0,
-              "hoisted_responses": 0, "enums": 0, "descriptions_md": 0}
+              "hoisted_responses": 0, "enums": 0, "descriptions_md": 0,
+              "links_absolutized": 0}
     for spec_path in specs:
         target = dst_dir / spec_path.name
         stats = process_file(spec_path, target)
@@ -423,7 +461,8 @@ def main() -> int:
             f"renamed={stats['renamed_schemas']:>2} "
             f"hoisted-responses={stats['hoisted_responses']:>3} "
             f"enums={stats['enums']:>2} "
-            f"desc-md={stats['descriptions_md']:>4}"
+            f"desc-md={stats['descriptions_md']:>4} "
+            f"abs-links={stats['links_absolutized']:>4}"
         )
 
     print(

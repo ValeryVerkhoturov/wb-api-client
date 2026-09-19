@@ -1,7 +1,7 @@
 /*
 DBS
 
-Узнать больше о модели DBS можно в [справочном центре](https://seller.wildberries.ru/instructions/category/6572e024-7428-4db1-86a8-a4c7dbebbfcf?goBackOption=prevRoute&categoryId=5a8e1202-0865-45b7-acae-5d0afc7add56)Управление [сборочными заданиями](/openapi/dbs#tag/dbsAssemblyOrders) и [идентификаторами маркировки](/openapi/dbs#tag/dbsLabelIdentifiers) DBS (Delivery by Seller).  Вы можете протестировать методы DBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceDbs) для эмуляции действий пользователя
+Узнать больше о модели DBS можно в [справочном центре](https://seller.wildberries.ru/instructions/category/6572e024-7428-4db1-86a8-a4c7dbebbfcf?goBackOption=prevRoute&categoryId=5a8e1202-0865-45b7-acae-5d0afc7add56)  Управление [сборочными заданиями](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) и [идентификаторами маркировки](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers) DBS (Delivery by Seller).  Вы можете протестировать методы DBS в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/marketplaceDbs) для эмуляции действий пользователя
 
 API version: dbs
 */
@@ -17,7 +17,7 @@ import (
 // checks if the ApiOrderFinalPriceResultData type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ApiOrderFinalPriceResultData{}
 
-// ApiOrderFinalPriceResultData Данные сборочного задания.  Если `\"data\":{}`, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 1 минуты.  Если `data` отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов: - [Получить список новых сборочных заданий](/docs/openapi/dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew) - [Получить информацию о завершенных сборочных заданиях](/docs/openapi/dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrders)
+// ApiOrderFinalPriceResultData Данные сборочного задания.  Если `\"data\":{}`, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 1 минуты.  Если `data` отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов: - [Получить список новых сборочных заданий](https://dev.wildberries.ru/docs/openapi/dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew) - [Получить информацию о завершенных сборочных заданиях](https://dev.wildberries.ru/docs/openapi/dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrders)
 type ApiOrderFinalPriceResultData struct {
 	// Цена продавца в валюте продажи без учёта скидок, умноженная на 100. Предоставляется в информационных целях
 	OriginalPrice *int32 `json:"originalPrice,omitempty"`

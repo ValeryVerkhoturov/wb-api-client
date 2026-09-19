@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Общение с покупателями
- * Узнать больше об общении с покупателями можно в [справочном центре](https://seller.wildberries.ru/instructions/category/f7f6c465-dd12-422d-80a0-a6d9562115d5?goBackOption=prevRoute&categoryId=30817062-14cc-4a82-bc78-3600c2b0685b)С помощью методов общения с покупателями вы можете работать с: 1. [Вопросами](/openapi/customer-communication#tag/questions) и [отзывами](/openapi/customer-communication#tag/feedbacks) покупателей 2. [Закреплёнными отзывами](/openapi/customer-communication#tag/pinnedFeedbacks) 3. [Чатами с покупателями](/openapi/customer-communication#tag/buyersChat) 4. [Заявками покупателей на возврат](/openapi/customer-communication#tag/buyersReturns) Вы можете протестировать методы общения с покупателями в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/questionsAndFeedbacks) для управления тестовыми вопросами и отзывамиУзнать, как использовать методы в бизнес-кейсах, можно в [инструкции](/knowledge-base/articles/019d49a4-0b26-7620-8d0b-e3050b7cd01d/obshchenie-s-pokupateliami) по работе с разделом **Общение с покупателями**
+ * Узнать больше об общении с покупателями можно в [справочном центре](https://seller.wildberries.ru/instructions/category/f7f6c465-dd12-422d-80a0-a6d9562115d5?goBackOption=prevRoute&categoryId=30817062-14cc-4a82-bc78-3600c2b0685b)  С помощью методов общения с покупателями вы можете работать с: 1. [Вопросами](https://dev.wildberries.ru/openapi/customer-communication#tag/questions) и [отзывами](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks) покупателей 2. [Закреплёнными отзывами](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks) 3. [Чатами с покупателями](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat) 4. [Заявками покупателей на возврат](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns) Вы можете протестировать методы общения с покупателями в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/questionsAndFeedbacks) для управления тестовыми вопросами и отзывами  Узнать, как использовать методы в бизнес-кейсах, можно в [инструкции](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-0b26-7620-8d0b-e3050b7cd01d/obshchenie-s-pokupateliami) по работе с разделом **Общение с покупателями**
  *
  * The version of the OpenAPI document: communication
  * 
@@ -782,7 +782,7 @@ export interface GetV1FeedbackResponse200DataProductDetails {
      */
     'nmId'?: number;
     /**
-     * ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+     * ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
      * @type {number}
      * @memberof GetV1FeedbackResponse200DataProductDetails
      */
@@ -1262,7 +1262,7 @@ export interface GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails {
      */
     'nmId'?: number;
     /**
-     * ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+     * ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
      * @type {number}
      * @memberof GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails
      */
@@ -1391,7 +1391,7 @@ export interface GetV1NewFeedbacksQuestions402Response {
      */
     'title'?: string;
     /**
-     * Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
+     * Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](https://dev.wildberries.ru/business-solutions)
      * @type {string}
      * @memberof GetV1NewFeedbacksQuestions402Response
      */
@@ -1571,7 +1571,7 @@ export interface GetV1QuestionResponse200DataProductDetails {
      */
     'nmId'?: number;
     /**
-     * ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+     * ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
      * @type {number}
      * @memberof GetV1QuestionResponse200DataProductDetails
      */
@@ -1831,7 +1831,7 @@ export interface GetV1QuestionsResponse200DataQuestionsInnerProductDetails {
      */
     'nmId'?: number;
     /**
-     * ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+     * ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
      * @type {number}
      * @memberof GetV1QuestionsResponse200DataQuestionsInnerProductDetails
      */
@@ -2184,7 +2184,7 @@ export interface OpenapiPinReviewItem {
      */
     'pinMethod': OpenapiPinReviewItemPinMethodEnum;
     /**
-     * Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+     * Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
      * @type {string}
      * @memberof OpenapiPinReviewItem
      */
@@ -2248,7 +2248,7 @@ export interface OpenapiPinReviewItemResultDataInner {
      */
     'pinMethod': OpenapiPinReviewItemResultDataInnerPinMethodEnum;
     /**
-     * Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+     * Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
      * @type {string}
      * @memberof OpenapiPinReviewItemResultDataInner
      */
@@ -2293,7 +2293,7 @@ export interface OpenapiPinnedReviewItemResult {
      */
     'changeStateAt': string;
     /**
-     * ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+     * ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
      * @type {number}
      * @memberof OpenapiPinnedReviewItemResult
      */
@@ -2317,7 +2317,7 @@ export interface OpenapiPinnedReviewItemResult {
      */
     'pinMethod': DomainReviewPinMethod;
     /**
-     * Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+     * Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
      * @type {DomainReviewPinOn}
      * @memberof OpenapiPinnedReviewItemResult
      */
@@ -2335,7 +2335,7 @@ export interface OpenapiPinnedReviewItemResult {
      */
     'state': DomainReviewState;
     /**
-     * Причина открепления отзыва:   - `sysTariffUnpinned` — закончилась подписка или тарифная опция   - `sysLimitReached` — закончился общий лимит по подписке   - `sysNoratingUnpinned` — отзыв исключён из рейтинга. Например, удалён или забанен   - `sysAdditionalSlot` — к карточке или к группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек прикреплено максимальное количество отзывов 
+     * Причина открепления отзыва:   - `sysTariffUnpinned` — закончилась подписка или тарифная опция   - `sysLimitReached` — закончился общий лимит по подписке   - `sysNoratingUnpinned` — отзыв исключён из рейтинга. Например, удалён или забанен   - `sysAdditionalSlot` — к карточке или к группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек прикреплено максимальное количество отзывов 
      * @type {string}
      * @memberof OpenapiPinnedReviewItemResult
      */
@@ -2413,7 +2413,7 @@ export type OpenapiResultErrStatusEnum = typeof OpenapiResultErrStatusEnum[keyof
  */
 export interface OpenapiSellerLimit {
     /**
-     * Максимальное количество закреплённых отзывов в одной карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек
+     * Максимальное количество закреплённых отзывов в одной карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек
      * @type {number}
      * @memberof OpenapiSellerLimit
      */
@@ -2482,7 +2482,7 @@ export interface OpenapiSellerLimitsResponseData {
  */
 export interface OpenapiSellerLimitsResponseDataSubscription {
     /**
-     * Максимальное количество закреплённых отзывов в одной карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек
+     * Максимальное количество закреплённых отзывов в одной карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек
      * @type {number}
      * @memberof OpenapiSellerLimitsResponseDataSubscription
      */
@@ -2519,7 +2519,7 @@ export interface OpenapiSellerLimitsResponseDataSubscription {
  */
 export interface OpenapiSellerLimitsResponseDataTariff {
     /**
-     * Максимальное количество закреплённых отзывов в одной карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек
+     * Максимальное количество закреплённых отзывов в одной карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек
      * @type {number}
      * @memberof OpenapiSellerLimitsResponseDataTariff
      */
@@ -3107,7 +3107,7 @@ export interface StandardizedFQError {
 export const DefaultApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins). [Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Открепить отзывы
          * @param {Array<number>} requestBody Список &#x60;pinId&#x60; — ID операций закрепления отзывов
          * @param {*} [options] Override http request option.
@@ -3146,11 +3146,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Список закреплённых и откреплённых отзывов
          * @param {GetFeedbacksV1PinsStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет 
-         * @param {GetFeedbacksV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
-         * @param {number} [imtId] ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+         * @param {GetFeedbacksV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+         * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
          * @param {number} [nmId] Артикул WB
          * @param {number} [feedbackId] ID отзыва
          * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
@@ -3228,11 +3228,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Количество закреплённых и откреплённых отзывов
          * @param {GetFeedbacksV1PinsCountStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет 
-         * @param {GetFeedbacksV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
-         * @param {number} [imtId] ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+         * @param {GetFeedbacksV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+         * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
          * @param {number} [nmId] Артикул WB
          * @param {number} [feedbackId] ID отзыва
          * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
@@ -3300,7 +3300,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Лимиты закреплённых отзывов
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -3333,7 +3333,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+         * Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
          * @summary Заявки покупателей на возврат
          * @param {boolean} isArchive Состояние заявки:   * &#x60;false&#x60; — на рассмотрении   * &#x60;true&#x60; — в архиве 
          * @param {string} [id] ID заявки
@@ -3393,7 +3393,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает данные [отзыва](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает данные [отзыва](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Получить отзыв по ID
          * @param {string} id ID отзыва
          * @param {*} [options] Override http request option.
@@ -3433,7 +3433,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает список отзывов по заданным фильтрам. Вы можете: - получить данные обработанных и необработанных отзывов. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото) - сортировать отзывы по дате - настроить пагинацию и количество отзывов в ответе[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает список отзывов по заданным фильтрам. Вы можете: - получить данные обработанных и необработанных отзывов. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото) - сортировать отзывы по дате - настроить пагинацию и количество отзывов в ответе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Список отзывов
          * @param {boolean} isAnswered Вернуть только обработанные отзывы:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
          * @param {number} take Количество отзывов (max. 5 000)
@@ -3507,7 +3507,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает список архивных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Отзыв становится архивным, если: - на отзыв получен ответ - на отзыв не получен ответ в течение 30 дней - в отзыве нет текста и фото[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает список архивных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Отзыв становится архивным, если: - на отзыв получен ответ - на отзыв не получен ответ в течение 30 дней - в отзыве нет текста и фото  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Список архивных отзывов
          * @param {number} take Количество отзывов (max. 5 000)
          * @param {number} skip Количество отзывов для пропуска
@@ -3564,7 +3564,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает количество обработанных или необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает количество обработанных или необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Количество отзывов
          * @param {boolean} isAnswered Вернуть только обработанные отзывы:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
          * @param {number} [dateFrom] Дата начала периода в формате Unix timestamp
@@ -3614,7 +3614,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает: - количество необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает: - количество необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Необработанные отзывы
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -3647,7 +3647,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод проверяет наличие непросмотренных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод проверяет наличие непросмотренных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Непросмотренные отзывы и вопросы
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -3680,7 +3680,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает данные [вопроса](/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](/openapi/customer-communication#tag/questions/operation/patchV1Questions).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает данные [вопроса](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/patchV1Questions).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Получить вопрос по ID
          * @param {string} id ID вопроса
          * @param {*} [options] Override http request option.
@@ -3720,7 +3720,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает список вопросов по заданным фильтрам. Вы можете: - получить данные отвеченных и неотвеченных вопросов - сортировать вопросы по дате - настроить пагинацию и количество вопросов в ответеМожно получить максимум 10 000 вопросов в одном ответе[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает список вопросов по заданным фильтрам. Вы можете: - получить данные отвеченных и неотвеченных вопросов - сортировать вопросы по дате - настроить пагинацию и количество вопросов в ответе  Можно получить максимум 10 000 вопросов в одном ответе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Список вопросов
          * @param {boolean} isAnswered Есть ли ответ на вопрос:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
          * @param {number} take Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров &#x60;take&#x60; и &#x60;skip&#x60; не должна превышать 10 000) 
@@ -3794,7 +3794,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает количество отвеченных или неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает количество отвеченных или неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Количество вопросов
          * @param {number} [dateFrom] Дата начала периода в формате Unix timestamp
          * @param {number} [dateTo] Дата конца периода в формате Unix timestamp
@@ -3842,7 +3842,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает общее количество неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает общее количество неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Неотвеченные вопросы
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -3875,7 +3875,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+         * Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
          * @summary Список чатов
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -3908,7 +3908,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает файл или изображение из сообщения по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
+         * Метод возвращает файл или изображение из сообщения по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
          * @summary Получить файл из сообщения
          * @param {string} id ID файла, см. значение поля &#x60;downloadID&#x60; в методе [События чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents)
          * @param {*} [options] Override http request option.
@@ -3945,7 +3945,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает список событий всех [чатов с покупателями](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats). Чтобы получить все события: 1. Сделайте первый запрос без параметра `next`. 2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `totalEvents` не станет равным `0`. Это будет означать, что вы получили все события.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+         * Метод возвращает список событий всех [чатов с покупателями](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats). Чтобы получить все события: 1. Сделайте первый запрос без параметра `next`. 2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `totalEvents` не станет равным `0`. Это будет означать, что вы получили все события.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
          * @summary События чатов
          * @param {number} [next] Пагинатор. С какого момента получить следующий пакет данных. Формат Unix timestamp \\*\\*с миллисекундами\\*\\*
          * @param {*} [options] Override http request option.
@@ -3983,7 +3983,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод отправляет ответ на [заявку](/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+         * Метод отправляет ответ на [заявку](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
          * @summary Ответ на заявку покупателя
          * @param {PatchV1ClaimRequest} patchV1ClaimRequest Ответ на заявку
          * @param {*} [options] Override http request option.
@@ -4022,7 +4022,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.  Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод позволяет отредактировать уже отправленный [ответ на отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.  Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.  ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Отредактировать ответ на отзыв
          * @param {PatchV1FeedbacksAnswerRequest} [patchV1FeedbacksAnswerRequest] 
          * @param {*} [options] Override http request option.
@@ -4059,7 +4059,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * В зависимости от тела запроса, метод позволяет: - отметить [вопрос](/openapi/customer-communication#tag/questions/operation/getV1Questions) как просмотренный - отклонить вопрос - ответить на вопрос или отредактировать ответВсе ответы продавцов проходят предварительную модерацию перед публикациейОтредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * В зависимости от тела запроса, метод позволяет: - отметить [вопрос](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) как просмотренный - отклонить вопрос - ответить на вопрос или отредактировать ответ  Все ответы продавцов проходят предварительную модерацию перед публикацией  Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Работа с вопросами
          * @param {PatchV1QuestionsRequest} [patchV1QuestionsRequest] 
          * @param {*} [options] Override http request option.
@@ -4096,7 +4096,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Закрепить отзывы
          * @param {Array<OpenapiPinReviewItem>} openapiPinReviewItem 
          * @param {*} [options] Override http request option.
@@ -4135,7 +4135,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод позволяет ответить на [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод позволяет ответить на [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.  ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Ответить на отзыв
          * @param {PostV1FeedbacksAnswerRequest} [postV1FeedbacksAnswerRequest] 
          * @param {*} [options] Override http request option.
@@ -4172,7 +4172,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод запрашивает возврат товара, по которому оставлен [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Возврат доступен для отзывов с полем `\"isAbleReturnProductOrders\": true`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод запрашивает возврат товара, по которому оставлен [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Возврат доступен для отзывов с полем `\"isAbleReturnProductOrders\": true`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Возврат товара по ID отзыва
          * @param {PostV1FeedbacksOrderReturnRequest} postV1FeedbacksOrderReturnRequest 
          * @param {*} [options] Override http request option.
@@ -4211,7 +4211,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод отправляет сообщения в [чат с покупателем](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+         * Метод отправляет сообщения в [чат с покупателем](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
          * @summary Отправить сообщение
          * @param {string} replySign Подпись чата. Можно получить из [информации по чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./customer-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле &#x60;\\\&quot;isNewChat\\\&quot;: true&#x60;. 
          * @param {string} [message] Текст сообщения. Максимум 1000 символов.
@@ -4277,7 +4277,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration)
     return {
         /**
-         * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins). [Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Открепить отзывы
          * @param {Array<number>} requestBody Список &#x60;pinId&#x60; — ID операций закрепления отзывов
          * @param {*} [options] Override http request option.
@@ -4290,11 +4290,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Список закреплённых и откреплённых отзывов
          * @param {GetFeedbacksV1PinsStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет 
-         * @param {GetFeedbacksV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
-         * @param {number} [imtId] ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+         * @param {GetFeedbacksV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+         * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
          * @param {number} [nmId] Артикул WB
          * @param {number} [feedbackId] ID отзыва
          * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
@@ -4311,11 +4311,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Количество закреплённых и откреплённых отзывов
          * @param {GetFeedbacksV1PinsCountStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет 
-         * @param {GetFeedbacksV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
-         * @param {number} [imtId] ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+         * @param {GetFeedbacksV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+         * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
          * @param {number} [nmId] Артикул WB
          * @param {number} [feedbackId] ID отзыва
          * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
@@ -4330,7 +4330,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Лимиты закреплённых отзывов
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4342,7 +4342,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+         * Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
          * @summary Заявки покупателей на возврат
          * @param {boolean} isArchive Состояние заявки:   * &#x60;false&#x60; — на рассмотрении   * &#x60;true&#x60; — в архиве 
          * @param {string} [id] ID заявки
@@ -4359,7 +4359,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает данные [отзыва](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает данные [отзыва](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Получить отзыв по ID
          * @param {string} id ID отзыва
          * @param {*} [options] Override http request option.
@@ -4372,7 +4372,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает список отзывов по заданным фильтрам. Вы можете: - получить данные обработанных и необработанных отзывов. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото) - сортировать отзывы по дате - настроить пагинацию и количество отзывов в ответе[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает список отзывов по заданным фильтрам. Вы можете: - получить данные обработанных и необработанных отзывов. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото) - сортировать отзывы по дате - настроить пагинацию и количество отзывов в ответе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Список отзывов
          * @param {boolean} isAnswered Вернуть только обработанные отзывы:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
          * @param {number} take Количество отзывов (max. 5 000)
@@ -4391,7 +4391,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает список архивных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Отзыв становится архивным, если: - на отзыв получен ответ - на отзыв не получен ответ в течение 30 дней - в отзыве нет текста и фото[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает список архивных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Отзыв становится архивным, если: - на отзыв получен ответ - на отзыв не получен ответ в течение 30 дней - в отзыве нет текста и фото  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Список архивных отзывов
          * @param {number} take Количество отзывов (max. 5 000)
          * @param {number} skip Количество отзывов для пропуска
@@ -4407,7 +4407,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает количество обработанных или необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает количество обработанных или необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Количество отзывов
          * @param {boolean} isAnswered Вернуть только обработанные отзывы:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
          * @param {number} [dateFrom] Дата начала периода в формате Unix timestamp
@@ -4422,7 +4422,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает: - количество необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает: - количество необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Необработанные отзывы
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4434,7 +4434,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод проверяет наличие непросмотренных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод проверяет наличие непросмотренных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Непросмотренные отзывы и вопросы
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4446,7 +4446,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает данные [вопроса](/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](/openapi/customer-communication#tag/questions/operation/patchV1Questions).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает данные [вопроса](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/patchV1Questions).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Получить вопрос по ID
          * @param {string} id ID вопроса
          * @param {*} [options] Override http request option.
@@ -4459,7 +4459,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает список вопросов по заданным фильтрам. Вы можете: - получить данные отвеченных и неотвеченных вопросов - сортировать вопросы по дате - настроить пагинацию и количество вопросов в ответеМожно получить максимум 10 000 вопросов в одном ответе[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает список вопросов по заданным фильтрам. Вы можете: - получить данные отвеченных и неотвеченных вопросов - сортировать вопросы по дате - настроить пагинацию и количество вопросов в ответе  Можно получить максимум 10 000 вопросов в одном ответе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Список вопросов
          * @param {boolean} isAnswered Есть ли ответ на вопрос:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
          * @param {number} take Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров &#x60;take&#x60; и &#x60;skip&#x60; не должна превышать 10 000) 
@@ -4478,7 +4478,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает количество отвеченных или неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает количество отвеченных или неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Количество вопросов
          * @param {number} [dateFrom] Дата начала периода в формате Unix timestamp
          * @param {number} [dateTo] Дата конца периода в формате Unix timestamp
@@ -4493,7 +4493,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает общее количество неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает общее количество неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Неотвеченные вопросы
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4505,7 +4505,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+         * Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
          * @summary Список чатов
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4517,7 +4517,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает файл или изображение из сообщения по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
+         * Метод возвращает файл или изображение из сообщения по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
          * @summary Получить файл из сообщения
          * @param {string} id ID файла, см. значение поля &#x60;downloadID&#x60; в методе [События чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents)
          * @param {*} [options] Override http request option.
@@ -4530,7 +4530,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает список событий всех [чатов с покупателями](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats). Чтобы получить все события: 1. Сделайте первый запрос без параметра `next`. 2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `totalEvents` не станет равным `0`. Это будет означать, что вы получили все события.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+         * Метод возвращает список событий всех [чатов с покупателями](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats). Чтобы получить все события: 1. Сделайте первый запрос без параметра `next`. 2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `totalEvents` не станет равным `0`. Это будет означать, что вы получили все события.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
          * @summary События чатов
          * @param {number} [next] Пагинатор. С какого момента получить следующий пакет данных. Формат Unix timestamp \\*\\*с миллисекундами\\*\\*
          * @param {*} [options] Override http request option.
@@ -4543,7 +4543,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод отправляет ответ на [заявку](/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+         * Метод отправляет ответ на [заявку](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
          * @summary Ответ на заявку покупателя
          * @param {PatchV1ClaimRequest} patchV1ClaimRequest Ответ на заявку
          * @param {*} [options] Override http request option.
@@ -4556,7 +4556,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.  Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод позволяет отредактировать уже отправленный [ответ на отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.  Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.  ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Отредактировать ответ на отзыв
          * @param {PatchV1FeedbacksAnswerRequest} [patchV1FeedbacksAnswerRequest] 
          * @param {*} [options] Override http request option.
@@ -4569,7 +4569,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * В зависимости от тела запроса, метод позволяет: - отметить [вопрос](/openapi/customer-communication#tag/questions/operation/getV1Questions) как просмотренный - отклонить вопрос - ответить на вопрос или отредактировать ответВсе ответы продавцов проходят предварительную модерацию перед публикациейОтредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * В зависимости от тела запроса, метод позволяет: - отметить [вопрос](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) как просмотренный - отклонить вопрос - ответить на вопрос или отредактировать ответ  Все ответы продавцов проходят предварительную модерацию перед публикацией  Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Работа с вопросами
          * @param {PatchV1QuestionsRequest} [patchV1QuestionsRequest] 
          * @param {*} [options] Override http request option.
@@ -4582,7 +4582,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Закрепить отзывы
          * @param {Array<OpenapiPinReviewItem>} openapiPinReviewItem 
          * @param {*} [options] Override http request option.
@@ -4595,7 +4595,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод позволяет ответить на [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод позволяет ответить на [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.  ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Ответить на отзыв
          * @param {PostV1FeedbacksAnswerRequest} [postV1FeedbacksAnswerRequest] 
          * @param {*} [options] Override http request option.
@@ -4608,7 +4608,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод запрашивает возврат товара, по которому оставлен [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Возврат доступен для отзывов с полем `\"isAbleReturnProductOrders\": true`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод запрашивает возврат товара, по которому оставлен [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Возврат доступен для отзывов с полем `\"isAbleReturnProductOrders\": true`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Возврат товара по ID отзыва
          * @param {PostV1FeedbacksOrderReturnRequest} postV1FeedbacksOrderReturnRequest 
          * @param {*} [options] Override http request option.
@@ -4621,7 +4621,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод отправляет сообщения в [чат с покупателем](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+         * Метод отправляет сообщения в [чат с покупателем](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
          * @summary Отправить сообщение
          * @param {string} replySign Подпись чата. Можно получить из [информации по чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./customer-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле &#x60;\\\&quot;isNewChat\\\&quot;: true&#x60;. 
          * @param {string} [message] Текст сообщения. Максимум 1000 символов.
@@ -4646,7 +4646,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = DefaultApiFp(configuration)
     return {
         /**
-         * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins). [Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Открепить отзывы
          * @param {Array<number>} requestBody Список &#x60;pinId&#x60; — ID операций закрепления отзывов
          * @param {*} [options] Override http request option.
@@ -4656,11 +4656,11 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.deleteFeedbacksV1Pins(requestBody, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Список закреплённых и откреплённых отзывов
          * @param {GetFeedbacksV1PinsStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет 
-         * @param {GetFeedbacksV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
-         * @param {number} [imtId] ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+         * @param {GetFeedbacksV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+         * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
          * @param {number} [nmId] Артикул WB
          * @param {number} [feedbackId] ID отзыва
          * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
@@ -4674,11 +4674,11 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getFeedbacksV1Pins(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, next, limit, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Количество закреплённых и откреплённых отзывов
          * @param {GetFeedbacksV1PinsCountStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет 
-         * @param {GetFeedbacksV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
-         * @param {number} [imtId] ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+         * @param {GetFeedbacksV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+         * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
          * @param {number} [nmId] Артикул WB
          * @param {number} [feedbackId] ID отзыва
          * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
@@ -4690,7 +4690,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getFeedbacksV1PinsCount(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Лимиты закреплённых отзывов
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4699,7 +4699,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getFeedbacksV1PinsLimits(options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+         * Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
          * @summary Заявки покупателей на возврат
          * @param {boolean} isArchive Состояние заявки:   * &#x60;false&#x60; — на рассмотрении   * &#x60;true&#x60; — в архиве 
          * @param {string} [id] ID заявки
@@ -4713,7 +4713,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1Claims(isArchive, id, limit, offset, nmId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает данные [отзыва](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает данные [отзыва](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Получить отзыв по ID
          * @param {string} id ID отзыва
          * @param {*} [options] Override http request option.
@@ -4723,7 +4723,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1Feedback(id, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает список отзывов по заданным фильтрам. Вы можете: - получить данные обработанных и необработанных отзывов. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото) - сортировать отзывы по дате - настроить пагинацию и количество отзывов в ответе[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает список отзывов по заданным фильтрам. Вы можете: - получить данные обработанных и необработанных отзывов. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото) - сортировать отзывы по дате - настроить пагинацию и количество отзывов в ответе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Список отзывов
          * @param {boolean} isAnswered Вернуть только обработанные отзывы:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
          * @param {number} take Количество отзывов (max. 5 000)
@@ -4739,7 +4739,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1Feedbacks(isAnswered, take, skip, nmId, order, dateFrom, dateTo, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает список архивных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Отзыв становится архивным, если: - на отзыв получен ответ - на отзыв не получен ответ в течение 30 дней - в отзыве нет текста и фото[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает список архивных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Отзыв становится архивным, если: - на отзыв получен ответ - на отзыв не получен ответ в течение 30 дней - в отзыве нет текста и фото  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Список архивных отзывов
          * @param {number} take Количество отзывов (max. 5 000)
          * @param {number} skip Количество отзывов для пропуска
@@ -4752,7 +4752,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1FeedbacksArchive(take, skip, nmId, order, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает количество обработанных или необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает количество обработанных или необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Количество отзывов
          * @param {boolean} isAnswered Вернуть только обработанные отзывы:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
          * @param {number} [dateFrom] Дата начала периода в формате Unix timestamp
@@ -4764,7 +4764,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1FeedbacksCount(isAnswered, dateFrom, dateTo, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает: - количество необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает: - количество необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Необработанные отзывы
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4773,7 +4773,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1FeedbacksCountUnanswered(options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод проверяет наличие непросмотренных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод проверяет наличие непросмотренных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Непросмотренные отзывы и вопросы
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4782,7 +4782,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1NewFeedbacksQuestions(options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает данные [вопроса](/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](/openapi/customer-communication#tag/questions/operation/patchV1Questions).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает данные [вопроса](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/patchV1Questions).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Получить вопрос по ID
          * @param {string} id ID вопроса
          * @param {*} [options] Override http request option.
@@ -4792,7 +4792,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1Question(id, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает список вопросов по заданным фильтрам. Вы можете: - получить данные отвеченных и неотвеченных вопросов - сортировать вопросы по дате - настроить пагинацию и количество вопросов в ответеМожно получить максимум 10 000 вопросов в одном ответе[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает список вопросов по заданным фильтрам. Вы можете: - получить данные отвеченных и неотвеченных вопросов - сортировать вопросы по дате - настроить пагинацию и количество вопросов в ответе  Можно получить максимум 10 000 вопросов в одном ответе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Список вопросов
          * @param {boolean} isAnswered Есть ли ответ на вопрос:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
          * @param {number} take Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров &#x60;take&#x60; и &#x60;skip&#x60; не должна превышать 10 000) 
@@ -4808,7 +4808,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1Questions(isAnswered, take, skip, nmId, order, dateFrom, dateTo, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает количество отвеченных или неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает количество отвеченных или неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Количество вопросов
          * @param {number} [dateFrom] Дата начала периода в формате Unix timestamp
          * @param {number} [dateTo] Дата конца периода в формате Unix timestamp
@@ -4820,7 +4820,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1QuestionsCount(dateFrom, dateTo, isAnswered, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает общее количество неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод возвращает общее количество неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Неотвеченные вопросы
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4829,7 +4829,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1QuestionsCountUnanswered(options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+         * Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
          * @summary Список чатов
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4838,7 +4838,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1SellerChats(options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает файл или изображение из сообщения по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
+         * Метод возвращает файл или изображение из сообщения по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
          * @summary Получить файл из сообщения
          * @param {string} id ID файла, см. значение поля &#x60;downloadID&#x60; в методе [События чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents)
          * @param {*} [options] Override http request option.
@@ -4848,7 +4848,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1SellerDownloadId(id, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает список событий всех [чатов с покупателями](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats). Чтобы получить все события: 1. Сделайте первый запрос без параметра `next`. 2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `totalEvents` не станет равным `0`. Это будет означать, что вы получили все события.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+         * Метод возвращает список событий всех [чатов с покупателями](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats). Чтобы получить все события: 1. Сделайте первый запрос без параметра `next`. 2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `totalEvents` не станет равным `0`. Это будет означать, что вы получили все события.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
          * @summary События чатов
          * @param {number} [next] Пагинатор. С какого момента получить следующий пакет данных. Формат Unix timestamp \\*\\*с миллисекундами\\*\\*
          * @param {*} [options] Override http request option.
@@ -4858,7 +4858,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1SellerEvents(next, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод отправляет ответ на [заявку](/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+         * Метод отправляет ответ на [заявку](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
          * @summary Ответ на заявку покупателя
          * @param {PatchV1ClaimRequest} patchV1ClaimRequest Ответ на заявку
          * @param {*} [options] Override http request option.
@@ -4868,7 +4868,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.patchV1Claim(patchV1ClaimRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.  Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод позволяет отредактировать уже отправленный [ответ на отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.  Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.  ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Отредактировать ответ на отзыв
          * @param {PatchV1FeedbacksAnswerRequest} [patchV1FeedbacksAnswerRequest] 
          * @param {*} [options] Override http request option.
@@ -4878,7 +4878,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.patchV1FeedbacksAnswer(patchV1FeedbacksAnswerRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * В зависимости от тела запроса, метод позволяет: - отметить [вопрос](/openapi/customer-communication#tag/questions/operation/getV1Questions) как просмотренный - отклонить вопрос - ответить на вопрос или отредактировать ответВсе ответы продавцов проходят предварительную модерацию перед публикациейОтредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * В зависимости от тела запроса, метод позволяет: - отметить [вопрос](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) как просмотренный - отклонить вопрос - ответить на вопрос или отредактировать ответ  Все ответы продавцов проходят предварительную модерацию перед публикацией  Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Работа с вопросами
          * @param {PatchV1QuestionsRequest} [patchV1QuestionsRequest] 
          * @param {*} [options] Override http request option.
@@ -4888,7 +4888,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.patchV1Questions(patchV1QuestionsRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Закрепить отзывы
          * @param {Array<OpenapiPinReviewItem>} openapiPinReviewItem 
          * @param {*} [options] Override http request option.
@@ -4898,7 +4898,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.postFeedbacksV1Pins(openapiPinReviewItem, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод позволяет ответить на [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод позволяет ответить на [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.  ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Ответить на отзыв
          * @param {PostV1FeedbacksAnswerRequest} [postV1FeedbacksAnswerRequest] 
          * @param {*} [options] Override http request option.
@@ -4908,7 +4908,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.postV1FeedbacksAnswer(postV1FeedbacksAnswerRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод запрашивает возврат товара, по которому оставлен [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Возврат доступен для отзывов с полем `\"isAbleReturnProductOrders\": true`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+         * Метод запрашивает возврат товара, по которому оставлен [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Возврат доступен для отзывов с полем `\"isAbleReturnProductOrders\": true`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
          * @summary Возврат товара по ID отзыва
          * @param {PostV1FeedbacksOrderReturnRequest} postV1FeedbacksOrderReturnRequest 
          * @param {*} [options] Override http request option.
@@ -4918,7 +4918,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.postV1FeedbacksOrderReturn(postV1FeedbacksOrderReturnRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод отправляет сообщения в [чат с покупателем](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+         * Метод отправляет сообщения в [чат с покупателем](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
          * @summary Отправить сообщение
          * @param {string} replySign Подпись чата. Можно получить из [информации по чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./customer-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле &#x60;\\\&quot;isNewChat\\\&quot;: true&#x60;. 
          * @param {string} [message] Текст сообщения. Максимум 1000 символов.
@@ -4939,7 +4939,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
  */
 export interface DefaultApiInterface {
     /**
-     * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins). [Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Открепить отзывы
      * @param {Array<number>} requestBody Список &#x60;pinId&#x60; — ID операций закрепления отзывов
      * @param {*} [options] Override http request option.
@@ -4949,11 +4949,11 @@ export interface DefaultApiInterface {
     deleteFeedbacksV1Pins(requestBody: Array<number>, options?: RawAxiosRequestConfig): AxiosPromise<DeleteFeedbacksV1PinsResponse200>;
 
     /**
-     * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Список закреплённых и откреплённых отзывов
      * @param {GetFeedbacksV1PinsStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет 
-     * @param {GetFeedbacksV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
-     * @param {number} [imtId] ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+     * @param {GetFeedbacksV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+     * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
      * @param {number} [nmId] Артикул WB
      * @param {number} [feedbackId] ID отзыва
      * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
@@ -4967,11 +4967,11 @@ export interface DefaultApiInterface {
     getFeedbacksV1Pins(state?: GetFeedbacksV1PinsStateEnum, pinOn?: GetFeedbacksV1PinsPinOnEnum, imtId?: number, nmId?: number, feedbackId?: number, dateFrom?: string, dateTo?: string, next?: number, limit?: number, options?: RawAxiosRequestConfig): AxiosPromise<GetFeedbacksV1PinsResponse200>;
 
     /**
-     * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Количество закреплённых и откреплённых отзывов
      * @param {GetFeedbacksV1PinsCountStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет 
-     * @param {GetFeedbacksV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
-     * @param {number} [imtId] ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+     * @param {GetFeedbacksV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+     * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
      * @param {number} [nmId] Артикул WB
      * @param {number} [feedbackId] ID отзыва
      * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
@@ -4983,7 +4983,7 @@ export interface DefaultApiInterface {
     getFeedbacksV1PinsCount(state?: GetFeedbacksV1PinsCountStateEnum, pinOn?: GetFeedbacksV1PinsCountPinOnEnum, imtId?: number, nmId?: number, feedbackId?: number, dateFrom?: string, dateTo?: string, options?: RawAxiosRequestConfig): AxiosPromise<GetFeedbacksV1PinsCountResponse200>;
 
     /**
-     * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Лимиты закреплённых отзывов
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4992,7 +4992,7 @@ export interface DefaultApiInterface {
     getFeedbacksV1PinsLimits(options?: RawAxiosRequestConfig): AxiosPromise<GetFeedbacksV1PinsLimitsResponse200>;
 
     /**
-     * Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @summary Заявки покупателей на возврат
      * @param {boolean} isArchive Состояние заявки:   * &#x60;false&#x60; — на рассмотрении   * &#x60;true&#x60; — в архиве 
      * @param {string} [id] ID заявки
@@ -5006,7 +5006,7 @@ export interface DefaultApiInterface {
     getV1Claims(isArchive: boolean, id?: string, limit?: number, offset?: number, nmId?: number, options?: RawAxiosRequestConfig): AxiosPromise<GetV1Claims200Response>;
 
     /**
-     * Метод возвращает данные [отзыва](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает данные [отзыва](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Получить отзыв по ID
      * @param {string} id ID отзыва
      * @param {*} [options] Override http request option.
@@ -5016,7 +5016,7 @@ export interface DefaultApiInterface {
     getV1Feedback(id: string, options?: RawAxiosRequestConfig): AxiosPromise<GetV1FeedbackResponse200>;
 
     /**
-     * Метод возвращает список отзывов по заданным фильтрам. Вы можете: - получить данные обработанных и необработанных отзывов. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото) - сортировать отзывы по дате - настроить пагинацию и количество отзывов в ответе[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает список отзывов по заданным фильтрам. Вы можете: - получить данные обработанных и необработанных отзывов. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото) - сортировать отзывы по дате - настроить пагинацию и количество отзывов в ответе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Список отзывов
      * @param {boolean} isAnswered Вернуть только обработанные отзывы:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
      * @param {number} take Количество отзывов (max. 5 000)
@@ -5032,7 +5032,7 @@ export interface DefaultApiInterface {
     getV1Feedbacks(isAnswered: boolean, take: number, skip: number, nmId?: number, order?: GetV1FeedbacksOrderEnum, dateFrom?: number, dateTo?: number, options?: RawAxiosRequestConfig): AxiosPromise<GetV1FeedbacksResponse200>;
 
     /**
-     * Метод возвращает список архивных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Отзыв становится архивным, если: - на отзыв получен ответ - на отзыв не получен ответ в течение 30 дней - в отзыве нет текста и фото[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает список архивных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Отзыв становится архивным, если: - на отзыв получен ответ - на отзыв не получен ответ в течение 30 дней - в отзыве нет текста и фото  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Список архивных отзывов
      * @param {number} take Количество отзывов (max. 5 000)
      * @param {number} skip Количество отзывов для пропуска
@@ -5045,7 +5045,7 @@ export interface DefaultApiInterface {
     getV1FeedbacksArchive(take: number, skip: number, nmId?: number, order?: GetV1FeedbacksArchiveOrderEnum, options?: RawAxiosRequestConfig): AxiosPromise<GetV1FeedbacksArchiveResponse200>;
 
     /**
-     * Метод возвращает количество обработанных или необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает количество обработанных или необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Количество отзывов
      * @param {boolean} isAnswered Вернуть только обработанные отзывы:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
      * @param {number} [dateFrom] Дата начала периода в формате Unix timestamp
@@ -5057,7 +5057,7 @@ export interface DefaultApiInterface {
     getV1FeedbacksCount(isAnswered: boolean, dateFrom?: number, dateTo?: number, options?: RawAxiosRequestConfig): AxiosPromise<GetV1FeedbacksCountResponse200>;
 
     /**
-     * Метод возвращает: - количество необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает: - количество необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Необработанные отзывы
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5066,7 +5066,7 @@ export interface DefaultApiInterface {
     getV1FeedbacksCountUnanswered(options?: RawAxiosRequestConfig): AxiosPromise<GetV1FeedbacksCountUnansweredResponse200>;
 
     /**
-     * Метод проверяет наличие непросмотренных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод проверяет наличие непросмотренных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Непросмотренные отзывы и вопросы
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5075,7 +5075,7 @@ export interface DefaultApiInterface {
     getV1NewFeedbacksQuestions(options?: RawAxiosRequestConfig): AxiosPromise<GetV1NewFeedbacksQuestionsResponse200>;
 
     /**
-     * Метод возвращает данные [вопроса](/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](/openapi/customer-communication#tag/questions/operation/patchV1Questions).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает данные [вопроса](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/patchV1Questions).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Получить вопрос по ID
      * @param {string} id ID вопроса
      * @param {*} [options] Override http request option.
@@ -5085,7 +5085,7 @@ export interface DefaultApiInterface {
     getV1Question(id: string, options?: RawAxiosRequestConfig): AxiosPromise<GetV1QuestionResponse200>;
 
     /**
-     * Метод возвращает список вопросов по заданным фильтрам. Вы можете: - получить данные отвеченных и неотвеченных вопросов - сортировать вопросы по дате - настроить пагинацию и количество вопросов в ответеМожно получить максимум 10 000 вопросов в одном ответе[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает список вопросов по заданным фильтрам. Вы можете: - получить данные отвеченных и неотвеченных вопросов - сортировать вопросы по дате - настроить пагинацию и количество вопросов в ответе  Можно получить максимум 10 000 вопросов в одном ответе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Список вопросов
      * @param {boolean} isAnswered Есть ли ответ на вопрос:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
      * @param {number} take Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров &#x60;take&#x60; и &#x60;skip&#x60; не должна превышать 10 000) 
@@ -5101,7 +5101,7 @@ export interface DefaultApiInterface {
     getV1Questions(isAnswered: boolean, take: number, skip: number, nmId?: number, order?: string, dateFrom?: number, dateTo?: number, options?: RawAxiosRequestConfig): AxiosPromise<GetV1QuestionsResponse200>;
 
     /**
-     * Метод возвращает количество отвеченных или неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает количество отвеченных или неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Количество вопросов
      * @param {number} [dateFrom] Дата начала периода в формате Unix timestamp
      * @param {number} [dateTo] Дата конца периода в формате Unix timestamp
@@ -5113,7 +5113,7 @@ export interface DefaultApiInterface {
     getV1QuestionsCount(dateFrom?: number, dateTo?: number, isAnswered?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<GetV1QuestionsCountResponse200>;
 
     /**
-     * Метод возвращает общее количество неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает общее количество неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Неотвеченные вопросы
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5122,7 +5122,7 @@ export interface DefaultApiInterface {
     getV1QuestionsCountUnanswered(options?: RawAxiosRequestConfig): AxiosPromise<GetV1QuestionsCountUnansweredResponse200>;
 
     /**
-     * Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @summary Список чатов
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5131,7 +5131,7 @@ export interface DefaultApiInterface {
     getV1SellerChats(options?: RawAxiosRequestConfig): AxiosPromise<ChatsResponse>;
 
     /**
-     * Метод возвращает файл или изображение из сообщения по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
+     * Метод возвращает файл или изображение из сообщения по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
      * @summary Получить файл из сообщения
      * @param {string} id ID файла, см. значение поля &#x60;downloadID&#x60; в методе [События чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents)
      * @param {*} [options] Override http request option.
@@ -5141,7 +5141,7 @@ export interface DefaultApiInterface {
     getV1SellerDownloadId(id: string, options?: RawAxiosRequestConfig): AxiosPromise<File>;
 
     /**
-     * Метод возвращает список событий всех [чатов с покупателями](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats). Чтобы получить все события: 1. Сделайте первый запрос без параметра `next`. 2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `totalEvents` не станет равным `0`. Это будет означать, что вы получили все события.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод возвращает список событий всех [чатов с покупателями](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats). Чтобы получить все события: 1. Сделайте первый запрос без параметра `next`. 2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `totalEvents` не станет равным `0`. Это будет означать, что вы получили все события.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @summary События чатов
      * @param {number} [next] Пагинатор. С какого момента получить следующий пакет данных. Формат Unix timestamp \\*\\*с миллисекундами\\*\\*
      * @param {*} [options] Override http request option.
@@ -5151,7 +5151,7 @@ export interface DefaultApiInterface {
     getV1SellerEvents(next?: number, options?: RawAxiosRequestConfig): AxiosPromise<EventsResponse>;
 
     /**
-     * Метод отправляет ответ на [заявку](/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод отправляет ответ на [заявку](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @summary Ответ на заявку покупателя
      * @param {PatchV1ClaimRequest} patchV1ClaimRequest Ответ на заявку
      * @param {*} [options] Override http request option.
@@ -5161,7 +5161,7 @@ export interface DefaultApiInterface {
     patchV1Claim(patchV1ClaimRequest: PatchV1ClaimRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
-     * Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.  Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод позволяет отредактировать уже отправленный [ответ на отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.  Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.  ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Отредактировать ответ на отзыв
      * @param {PatchV1FeedbacksAnswerRequest} [patchV1FeedbacksAnswerRequest] 
      * @param {*} [options] Override http request option.
@@ -5171,7 +5171,7 @@ export interface DefaultApiInterface {
     patchV1FeedbacksAnswer(patchV1FeedbacksAnswerRequest?: PatchV1FeedbacksAnswerRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
-     * В зависимости от тела запроса, метод позволяет: - отметить [вопрос](/openapi/customer-communication#tag/questions/operation/getV1Questions) как просмотренный - отклонить вопрос - ответить на вопрос или отредактировать ответВсе ответы продавцов проходят предварительную модерацию перед публикациейОтредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * В зависимости от тела запроса, метод позволяет: - отметить [вопрос](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) как просмотренный - отклонить вопрос - ответить на вопрос или отредактировать ответ  Все ответы продавцов проходят предварительную модерацию перед публикацией  Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Работа с вопросами
      * @param {PatchV1QuestionsRequest} [patchV1QuestionsRequest] 
      * @param {*} [options] Override http request option.
@@ -5181,7 +5181,7 @@ export interface DefaultApiInterface {
     patchV1Questions(patchV1QuestionsRequest?: PatchV1QuestionsRequest, options?: RawAxiosRequestConfig): AxiosPromise<PatchV1QuestionsResponse200>;
 
     /**
-     * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Закрепить отзывы
      * @param {Array<OpenapiPinReviewItem>} openapiPinReviewItem 
      * @param {*} [options] Override http request option.
@@ -5191,7 +5191,7 @@ export interface DefaultApiInterface {
     postFeedbacksV1Pins(openapiPinReviewItem: Array<OpenapiPinReviewItem>, options?: RawAxiosRequestConfig): AxiosPromise<PostFeedbacksV1PinsResponse200>;
 
     /**
-     * Метод позволяет ответить на [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод позволяет ответить на [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.  ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Ответить на отзыв
      * @param {PostV1FeedbacksAnswerRequest} [postV1FeedbacksAnswerRequest] 
      * @param {*} [options] Override http request option.
@@ -5201,7 +5201,7 @@ export interface DefaultApiInterface {
     postV1FeedbacksAnswer(postV1FeedbacksAnswerRequest?: PostV1FeedbacksAnswerRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
-     * Метод запрашивает возврат товара, по которому оставлен [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Возврат доступен для отзывов с полем `\"isAbleReturnProductOrders\": true`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод запрашивает возврат товара, по которому оставлен [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Возврат доступен для отзывов с полем `\"isAbleReturnProductOrders\": true`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Возврат товара по ID отзыва
      * @param {PostV1FeedbacksOrderReturnRequest} postV1FeedbacksOrderReturnRequest 
      * @param {*} [options] Override http request option.
@@ -5211,7 +5211,7 @@ export interface DefaultApiInterface {
     postV1FeedbacksOrderReturn(postV1FeedbacksOrderReturnRequest: PostV1FeedbacksOrderReturnRequest, options?: RawAxiosRequestConfig): AxiosPromise<PostV1FeedbacksOrderReturnResponse200>;
 
     /**
-     * Метод отправляет сообщения в [чат с покупателем](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод отправляет сообщения в [чат с покупателем](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @summary Отправить сообщение
      * @param {string} replySign Подпись чата. Можно получить из [информации по чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./customer-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле &#x60;\\\&quot;isNewChat\\\&quot;: true&#x60;. 
      * @param {string} [message] Текст сообщения. Максимум 1000 символов.
@@ -5232,7 +5232,7 @@ export interface DefaultApiInterface {
  */
 export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     /**
-     * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins). [Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Открепить отзывы
      * @param {Array<number>} requestBody Список &#x60;pinId&#x60; — ID операций закрепления отзывов
      * @param {*} [options] Override http request option.
@@ -5244,11 +5244,11 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Список закреплённых и откреплённых отзывов
      * @param {GetFeedbacksV1PinsStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет 
-     * @param {GetFeedbacksV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
-     * @param {number} [imtId] ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+     * @param {GetFeedbacksV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+     * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
      * @param {number} [nmId] Артикул WB
      * @param {number} [feedbackId] ID отзыва
      * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
@@ -5264,11 +5264,11 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Количество закреплённых и откреплённых отзывов
      * @param {GetFeedbacksV1PinsCountStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет 
-     * @param {GetFeedbacksV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
-     * @param {number} [imtId] ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+     * @param {GetFeedbacksV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+     * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
      * @param {number} [nmId] Артикул WB
      * @param {number} [feedbackId] ID отзыва
      * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
@@ -5282,7 +5282,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Лимиты закреплённых отзывов
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5293,7 +5293,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @summary Заявки покупателей на возврат
      * @param {boolean} isArchive Состояние заявки:   * &#x60;false&#x60; — на рассмотрении   * &#x60;true&#x60; — в архиве 
      * @param {string} [id] ID заявки
@@ -5309,7 +5309,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает данные [отзыва](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает данные [отзыва](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Получить отзыв по ID
      * @param {string} id ID отзыва
      * @param {*} [options] Override http request option.
@@ -5321,7 +5321,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает список отзывов по заданным фильтрам. Вы можете: - получить данные обработанных и необработанных отзывов. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото) - сортировать отзывы по дате - настроить пагинацию и количество отзывов в ответе[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает список отзывов по заданным фильтрам. Вы можете: - получить данные обработанных и необработанных отзывов. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото) - сортировать отзывы по дате - настроить пагинацию и количество отзывов в ответе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Список отзывов
      * @param {boolean} isAnswered Вернуть только обработанные отзывы:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
      * @param {number} take Количество отзывов (max. 5 000)
@@ -5339,7 +5339,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает список архивных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Отзыв становится архивным, если: - на отзыв получен ответ - на отзыв не получен ответ в течение 30 дней - в отзыве нет текста и фото[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает список архивных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Отзыв становится архивным, если: - на отзыв получен ответ - на отзыв не получен ответ в течение 30 дней - в отзыве нет текста и фото  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Список архивных отзывов
      * @param {number} take Количество отзывов (max. 5 000)
      * @param {number} skip Количество отзывов для пропуска
@@ -5354,7 +5354,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает количество обработанных или необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает количество обработанных или необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период. Отзыв считается обработанным, если выполняется одно из условий: - на отзыв получен ответ - отзыв содержит только оценку (без текста и фото)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Количество отзывов
      * @param {boolean} isAnswered Вернуть только обработанные отзывы:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
      * @param {number} [dateFrom] Дата начала периода в формате Unix timestamp
@@ -5368,7 +5368,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает: - количество необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает: - количество необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Необработанные отзывы
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5379,7 +5379,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод проверяет наличие непросмотренных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод проверяет наличие непросмотренных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Непросмотренные отзывы и вопросы
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5390,7 +5390,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает данные [вопроса](/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](/openapi/customer-communication#tag/questions/operation/patchV1Questions).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает данные [вопроса](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/patchV1Questions).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Получить вопрос по ID
      * @param {string} id ID вопроса
      * @param {*} [options] Override http request option.
@@ -5402,7 +5402,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает список вопросов по заданным фильтрам. Вы можете: - получить данные отвеченных и неотвеченных вопросов - сортировать вопросы по дате - настроить пагинацию и количество вопросов в ответеМожно получить максимум 10 000 вопросов в одном ответе[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает список вопросов по заданным фильтрам. Вы можете: - получить данные отвеченных и неотвеченных вопросов - сортировать вопросы по дате - настроить пагинацию и количество вопросов в ответе  Можно получить максимум 10 000 вопросов в одном ответе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Список вопросов
      * @param {boolean} isAnswered Есть ли ответ на вопрос:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
      * @param {number} take Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров &#x60;take&#x60; и &#x60;skip&#x60; не должна превышать 10 000) 
@@ -5420,7 +5420,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает количество отвеченных или неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает количество отвеченных или неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Количество вопросов
      * @param {number} [dateFrom] Дата начала периода в формате Unix timestamp
      * @param {number} [dateTo] Дата конца периода в формате Unix timestamp
@@ -5434,7 +5434,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает общее количество неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает общее количество неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Неотвеченные вопросы
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5445,7 +5445,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @summary Список чатов
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5456,7 +5456,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает файл или изображение из сообщения по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
+     * Метод возвращает файл или изображение из сообщения по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
      * @summary Получить файл из сообщения
      * @param {string} id ID файла, см. значение поля &#x60;downloadID&#x60; в методе [События чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents)
      * @param {*} [options] Override http request option.
@@ -5468,7 +5468,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает список событий всех [чатов с покупателями](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats). Чтобы получить все события: 1. Сделайте первый запрос без параметра `next`. 2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `totalEvents` не станет равным `0`. Это будет означать, что вы получили все события.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод возвращает список событий всех [чатов с покупателями](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats). Чтобы получить все события: 1. Сделайте первый запрос без параметра `next`. 2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `totalEvents` не станет равным `0`. Это будет означать, что вы получили все события.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @summary События чатов
      * @param {number} [next] Пагинатор. С какого момента получить следующий пакет данных. Формат Unix timestamp \\*\\*с миллисекундами\\*\\*
      * @param {*} [options] Override http request option.
@@ -5480,7 +5480,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод отправляет ответ на [заявку](/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод отправляет ответ на [заявку](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @summary Ответ на заявку покупателя
      * @param {PatchV1ClaimRequest} patchV1ClaimRequest Ответ на заявку
      * @param {*} [options] Override http request option.
@@ -5492,7 +5492,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.  Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод позволяет отредактировать уже отправленный [ответ на отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.  Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.  ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Отредактировать ответ на отзыв
      * @param {PatchV1FeedbacksAnswerRequest} [patchV1FeedbacksAnswerRequest] 
      * @param {*} [options] Override http request option.
@@ -5504,7 +5504,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * В зависимости от тела запроса, метод позволяет: - отметить [вопрос](/openapi/customer-communication#tag/questions/operation/getV1Questions) как просмотренный - отклонить вопрос - ответить на вопрос или отредактировать ответВсе ответы продавцов проходят предварительную модерацию перед публикациейОтредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * В зависимости от тела запроса, метод позволяет: - отметить [вопрос](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) как просмотренный - отклонить вопрос - ответить на вопрос или отредактировать ответ  Все ответы продавцов проходят предварительную модерацию перед публикацией  Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Работа с вопросами
      * @param {PatchV1QuestionsRequest} [patchV1QuestionsRequest] 
      * @param {*} [options] Override http request option.
@@ -5516,7 +5516,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Закрепить отзывы
      * @param {Array<OpenapiPinReviewItem>} openapiPinReviewItem 
      * @param {*} [options] Override http request option.
@@ -5528,7 +5528,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод позволяет ответить на [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод позволяет ответить на [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.  ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Ответить на отзыв
      * @param {PostV1FeedbacksAnswerRequest} [postV1FeedbacksAnswerRequest] 
      * @param {*} [options] Override http request option.
@@ -5540,7 +5540,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод запрашивает возврат товара, по которому оставлен [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Возврат доступен для отзывов с полем `\"isAbleReturnProductOrders\": true`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод запрашивает возврат товара, по которому оставлен [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).  Возврат доступен для отзывов с полем `\"isAbleReturnProductOrders\": true`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Возврат товара по ID отзыва
      * @param {PostV1FeedbacksOrderReturnRequest} postV1FeedbacksOrderReturnRequest 
      * @param {*} [options] Override http request option.
@@ -5552,7 +5552,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод отправляет сообщения в [чат с покупателем](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод отправляет сообщения в [чат с покупателем](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @summary Отправить сообщение
      * @param {string} replySign Подпись чата. Можно получить из [информации по чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./customer-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле &#x60;\\\&quot;isNewChat\\\&quot;: true&#x60;. 
      * @param {string} [message] Текст сообщения. Максимум 1000 символов.

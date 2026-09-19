@@ -1,7 +1,7 @@
 /*
 Заказы FBS
 
-С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете: - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/fbsAssemblyOrders) и их статусах, отменять сборочные задания, получать стикеры - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий - управлять [поставками](/openapi/orders-fbs#tag/fbsSupplies) - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/fbsPasses) на склады WB Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceFbs) для эмуляции действий пользователяУзнать, как использовать методы в бизнес-кейсах, можно в [инструкции](/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs) по работе с **заказами FBS**Узнать больше о заказах FBS можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d)
+С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете: - получать информацию о [сборочных заданиях](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders) и их статусах, отменять сборочные задания, получать стикеры - добавлять, редактировать и удалять [идентификаторы маркировки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий - управлять [поставками](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies) - создавать, редактировать и удалять [пропуска](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses) на склады WB Вы можете протестировать методы заказов FBS в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/marketplaceFbs) для эмуляции действий пользователя  Узнать, как использовать методы в бизнес-кейсах, можно в [инструкции](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs) по работе с **заказами FBS**  Узнать больше о заказах FBS можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d)
 
 API version: order
 */
@@ -25,15 +25,17 @@ type FBSAPI interface {
 	/*
 	DeleteV3OrdersOrderIdMeta Удалить идентификаторы маркировки сборочного задания
 
-	Метод удаляет значение [идентификаторов маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) для переданного ключа.
+	Метод удаляет значение [идентификаторов маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) для переданного ключа.
 
 Возможные идентификаторы маркировки:
-- `imei` — [IMEI](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei)
-- `uin` — [УИН](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin)
-- `gtin` — [GTIN](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin)
-- `sgtin` — [код маркировки Честного знака](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin)
-- `customsDeclaration` — [номер ДТ](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration)
-Можно передать только один ключ.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки FBS**:
+- `imei` — [IMEI](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei)
+- `uin` — [УИН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin)
+- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin)
+- `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin)
+- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration)
+Можно передать только один ключ.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -41,7 +43,7 @@ type FBSAPI interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
@@ -55,7 +57,9 @@ type FBSAPI interface {
 	/*
 	DeleteV3PassesPassId Удалить пропуск
 
-	Метод удаляет пропуск продавца [из списка](/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+	Метод удаляет пропуск продавца [из списка](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -63,7 +67,7 @@ type FBSAPI interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param passId ID пропуска
@@ -77,7 +81,9 @@ type FBSAPI interface {
 	/*
 	DeleteV3SuppliesSupplyId Удалить поставку
 
-	Метод удаляет [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId), если она активна и за ней не закреплено ни одно [сборочное задание](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+	Метод удаляет [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId), если она активна и за ней не закреплено ни одно [сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -85,7 +91,7 @@ type FBSAPI interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
@@ -101,7 +107,9 @@ type FBSAPI interface {
 
 	Метод удаляет грузоместа из поставки.
 
-Можно удалить только пока поставка на сборке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Можно удалить только пока поставка на сборке.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -109,7 +117,7 @@ type FBSAPI interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
@@ -123,7 +131,9 @@ type FBSAPI interface {
 	/*
 	GetV3FbsDictionariesCountriesOksm Получить список стран ОКСМ
 
-	Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+	Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -143,7 +153,9 @@ type FBSAPI interface {
 
 	Метод возвращает сборочные задания, созданные более 3 месяцев назад.
 Часть сборочных заданий попадает в архив позже, чем через 3 месяца после создания, так как поставка переходит в архив только после того, как все заказы в ней будут завершены.
-Например, так происходит, если продавец не доставил один из заказов в поставке и заказ был отменён автоматически через несколько дней.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Например, так происходит, если продавец не доставил один из заказов в поставке и заказ был отменён автоматически через несколько дней.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -164,7 +176,9 @@ type FBSAPI interface {
 	Метод возвращает доступные пункты отгрузки поставок с фильтрами:
 - по населённым пунктам России
 - по типам товаров, которые принимает пункт отгрузки
-Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -183,7 +197,9 @@ type FBSAPI interface {
 	GetV3FbsSuppliesSupplyIdStickersSpot Получить QR-код СПОТ
 
 	Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.
-Вы можете получить QR-код, когда в методе [получения данных СПОТ](/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак `"status":"completed"`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Вы можете получить QR-код, когда в методе [получения данных СПОТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак `"status":"completed"`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -202,11 +218,13 @@ type FBSAPI interface {
 	/*
 	GetV3Orders Получить информацию о сборочных заданиях
 
-	Метод возвращает информацию о сборочных заданиях, созданных не более 3 месяцев назад, без их актуального [статуса](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus).
+	Метод возвращает информацию о сборочных заданиях, созданных не более 3 месяцев назад, без их актуального [статуса](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus).
 Чтобы получить данные за период, укажите в запросе даты начала и окончания периода. Максимум 30 календарных дней одним запросом.
 В ответе метода будут сборочные задания, созданные в указанный период.
 
-Чтобы получить сборочные задания, созданные более 3 месяцев назад, используйте метод получения [списка архивных заказов](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Чтобы получить сборочные задания, созданные более 3 месяцев назад, используйте метод получения [списка архивных заказов](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -214,7 +232,7 @@ type FBSAPI interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3OrdersRequest
@@ -228,10 +246,14 @@ type FBSAPI interface {
 	/*
 	GetV3OrdersNew Получить список новых сборочных заданий
 
-	Метод возвращает список всех новых [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders), которые есть у продавца на момент запроса.Наличие в сборочных заданиях идентификаторов маркировки, указанных в полях `requiredMeta` и `optionalMeta`, влияет только на возможность перевести поставку в доставку. Если ваш товар подлежит обязательной [маркировке](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs) средствами
+	Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders), которые есть у продавца на момент запроса.
+
+Наличие в сборочных заданиях идентификаторов маркировки, указанных в полях `requiredMeta` и `optionalMeta`, влияет только на возможность перевести поставку в доставку. Если ваш товар подлежит обязательной [маркировке](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs) средствами
 идентификации, необходимо указывать идентификаторы маркировки независимо от того, в каком поле они были получены (п. 4.6 [Оферты](https://seller.wildberries.ru/confirm-offer-condition/product/view)).
 
-Рекомендуем добавлять в сборочные задания все идентификаторы маркировки, полученные в полях `requiredMeta` и `optionalMeta`[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Рекомендуем добавлять в сборочные задания все идентификаторы маркировки, полученные в полях `requiredMeta` и `optionalMeta`
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -239,7 +261,7 @@ type FBSAPI interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3OrdersNewRequest
@@ -253,7 +275,9 @@ type FBSAPI interface {
 	/*
 	GetV3Passes Получить список пропусков
 
-	Метод возвращает список всех [созданных](/openapi/orders-fbs#tag/fbsPasses/operation/postV3Passes) пропусков продавца.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+	Метод возвращает список всех [созданных](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/postV3Passes) пропусков продавца.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -261,7 +285,7 @@ type FBSAPI interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3PassesRequest
@@ -275,7 +299,11 @@ type FBSAPI interface {
 	/*
 	GetV3PassesOffices Получить список складов, для которых требуется пропуск
 
-	Метод возвращает список складов для привязки к [пропуску продавца](/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes).Данные, которые возвращает метод, могут меняться. Рекомендуем периодически синхронизировать список[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+	Метод возвращает список складов для привязки к [пропуску продавца](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes).
+
+Данные, которые возвращает метод, могут меняться. Рекомендуем периодически синхронизировать список
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -283,7 +311,7 @@ type FBSAPI interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3PassesOfficesRequest
@@ -297,7 +325,9 @@ type FBSAPI interface {
 	/*
 	GetV3Supplies Получить список поставок
 
-	Метод возвращает список [поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+	Метод возвращает список [поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -305,7 +335,7 @@ type FBSAPI interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3SuppliesRequest
@@ -319,9 +349,11 @@ type FBSAPI interface {
 	/*
 	GetV3SuppliesOrdersReshipment Получить все сборочные задания для повторной отгрузки
 
-	Метод возвращает все [сборочные задания](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders), требующие повторной отгрузки.
+	Метод возвращает все [сборочные задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders), требующие повторной отгрузки.
 
-Повторная отгрузка требуется, если поставка была отсканирована в пункте приёмки, но при этом в ней всё ещё есть неотсканированные товары. Спустя определённое время необходимо доставить эти товары заново. Данные сборочные задания можно перевести в [другую активную поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Повторная отгрузка требуется, если поставка была отсканирована в пункте приёмки, но при этом в ней всё ещё есть неотсканированные товары. Спустя определённое время необходимо доставить эти товары заново. Данные сборочные задания можно перевести в [другую активную поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -329,7 +361,7 @@ type FBSAPI interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV3SuppliesOrdersReshipmentRequest
@@ -343,7 +375,9 @@ type FBSAPI interface {
 	/*
 	GetV3SuppliesSupplyId Получить информацию о поставке
 
-	Метод возвращает подробную информацию о поставке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+	Метод возвращает подробную информацию о поставке.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -351,7 +385,7 @@ type FBSAPI interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
@@ -366,14 +400,16 @@ type FBSAPI interface {
 	/*
 	GetV3SuppliesSupplyIdBarcode Получить QR-код поставки
 
-	Метод возвращает QR-код [поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) в форматах:
+	Метод возвращает QR-код [поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) в форматах:
 - SVG
 - ZPLV (вертикальный)
 - ZPLH (горизонтальный)
 - PNG
-QR-код поставки можно получить, только если поставка [передана в доставку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver).
+QR-код поставки можно получить, только если поставка [передана в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver).
 
-Размер — 580x400 px.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Размер — 580x400 px.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -381,7 +417,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
@@ -396,7 +432,9 @@ QR-код поставки можно получить, только если п
 	/*
 	GetV3SuppliesSupplyIdOrderIds Получить ID сборочных заданий поставки
 
-	Метод возвращает список ID сборочных заданий, закреплённых за поставкой.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+	Метод возвращает список ID сборочных заданий, закреплённых за поставкой.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -404,7 +442,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
@@ -419,7 +457,9 @@ QR-код поставки можно получить, только если п
 	/*
 	GetV3SuppliesSupplyIdTrbx Получить список грузомест поставки
 
-	Возвращает список грузомест поставки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+	Возвращает список грузомест поставки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -427,7 +467,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
@@ -444,11 +484,15 @@ QR-код поставки можно получить, только если п
 
 	Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.
 
-Для доставки транспортной компанией `"shippingType":"transportCompany"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).
+Для доставки транспортной компанией `"shippingType":"transportCompany"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).
 
-Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки `"shippingType":"transportCompany"` на `selfShipping`. Если вы хотите изменить способ доставки обратно на `transportCompany`, [добавьте ID ЭТрН](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) заново.Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.
+Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки `"shippingType":"transportCompany"` на `selfShipping`. Если вы хотите изменить способ доставки обратно на `transportCompany`, [добавьте ID ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) заново.
 
-В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.
+
+В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -466,11 +510,13 @@ QR-код поставки можно получить, только если п
 	/*
 	PatchV3FbsSuppliesWaybill Установить ID ЭТрН поставок
 
-	Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `"shippingType":"transportCompany"`.
+	Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `"shippingType":"transportCompany"`.
 
 Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.
 
-В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -488,8 +534,12 @@ QR-код поставки можно получить, только если п
 	/*
 	PatchV3OrdersOrderIdCancel Отменить сборочное задание
 
-	Метод отменяет [сборочное задание](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и переводит в [статус](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `cancel` — отменено продавцом.Сборочное задание можно отменить до его передачи Wildberries.
-Чтобы проверить, можно ли отменить сборочное задание, используйте метод [POST /api/v3/orders/status](/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isCancellable`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод отменяет [сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и переводит в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `cancel` — отменено продавцом.
+
+Сборочное задание можно отменить до его передачи Wildberries.
+Чтобы проверить, можно ли отменить сборочное задание, используйте метод [POST /api/v3/orders/status](https://dev.wildberries.ru/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isCancellable`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 20 запросов |
@@ -497,7 +547,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
@@ -511,7 +561,7 @@ QR-код поставки можно получить, только если п
 	/*
 	PatchV3SuppliesSupplyIdDeliver Передать поставку в доставку
 
-	Метод закрывает [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) и переводит все [сборочные задания](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) в ней в [статус](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя.
+	Метод закрывает [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) и переводит все [сборочные задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) в ней в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя.
 
 Если поставка не была передана в доставку, то при приёмке первого товара поставка автоматически закроется.
 
@@ -520,7 +570,9 @@ QR-код поставки можно получить, только если п
 - для всех сборочных заданий указана обязательная маркировка
 - маркировка всех сборочных заданий прошла проверку
 Если поставка содержит сборочные задания с обязательным УИН, убедитесь, что вы заранее создали и загрузили спецификацию с договором на доставку. [ГИИС ДМДК](https://minfin.gov.ru/ru/perfomance/jewels/dmdk) требуется около 30 минут для обработки изменений в статусах УИН.
-Обязательно [указывайте параметры отгрузки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) для поставок от продавцов РФ на пункты отгрузки в РФ. Если способ доставки, дата или пункт отгрузки не указаны, возвращается ошибка `409`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Обязательно [указывайте параметры отгрузки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) для поставок от продавцов РФ на пункты отгрузки в РФ. Если способ доставки, дата или пункт отгрузки не указаны, возвращается ошибка `409`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -528,7 +580,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
@@ -542,14 +594,22 @@ QR-код поставки можно получить, только если п
 	/*
 	PatchV3SuppliesSupplyIdOrders Добавить сборочные задания к поставке
 
-	Метод добавляет до 100 [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) к поставке и переводит их в [статус](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` — на сборке.
+	Метод добавляет до 100 [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) к поставке и переводит их в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` — на сборке.
 Может перемещать сборочные задания:
 - между активными поставками
-- из закрытой поставки в активную, если сборочные задания требуют [повторной отгрузки](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3SuppliesOrdersReshipment)В пустую поставку можно добавить сборочные задания любого габаритного типа. Поставка приобретает габаритный тип первого добавленного сборочного задания [из поля](./orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) `cargoType`.
+- из закрытой поставки в активную, если сборочные задания требуют [повторной отгрузки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3SuppliesOrdersReshipment)
 
-После этого в поставку можно добавить сборочные задания только того же габаритного типа, что и у поставки.В поставку нельзя добавить сборочные задания, поступившие на разные склады.В пустую поставку можно добавить сборочные задания трансграничных или внутренних поставок.
+В пустую поставку можно добавить сборочные задания любого габаритного типа. Поставка приобретает габаритный тип первого добавленного сборочного задания [из поля](./orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) `cargoType`.
+
+После этого в поставку можно добавить сборочные задания только того же габаритного типа, что и у поставки.
+
+В поставку нельзя добавить сборочные задания, поступившие на разные склады.
+
+В пустую поставку можно добавить сборочные задания трансграничных или внутренних поставок.
 После этого поставка приобретает тип первого добавленного сборочного задания из поля `crossBorderType`.
-Далее в неё можно добавить только сборочные задания такого же типа.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Далее в неё можно добавить только сборочные задания такого же типа.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -557,7 +617,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
@@ -576,7 +636,9 @@ QR-код поставки можно получить, только если п
 Вы можете получить данные СПОТ, только если выполняются все условия:
 - поставка находится на этапе доставки
 - продавец зарегистрирован в любой стране ЕАЭС кроме РФ
-- склад назначения находится в РФ[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+- склад назначения находится в РФ
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -595,7 +657,9 @@ QR-код поставки можно получить, только если п
 	PostV3OrdersClient Заказы с информацией по клиенту
 
 	Метод позволяет получать информацию о покупателе по ID сборочного задания.
-Только для трансграничных поставок из \*\*Турции\*\*.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Только для трансграничных поставок из \*\*Турции\*\*.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -603,7 +667,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3OrdersClientRequest
@@ -617,16 +681,18 @@ QR-код поставки можно получить, только если п
 	/*
 	PostV3OrdersMeta Получить идентификаторы маркировки сборочных заданий
 
-	Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и статусы их проверки.
+	Метод возвращает идентификаторы маркировки [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и статусы их проверки.
 
-Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3OrdersNew), поля `requiredMeta` и `optionalMeta`. Если поля `requiredMeta` и `optionalMeta` не содержат какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.
+Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3OrdersNew), поля `requiredMeta` и `optionalMeta`. Если поля `requiredMeta` и `optionalMeta` не содержат какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.
 Возможные идентификаторы маркировки:
-- `imei` — [IMEI](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei)
-- `uin` — [УИН](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin)
-- `gtin` — [GTIN](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin)
-- `sgtin` — [код маркировки Честного знака](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin)
-- `expiration` — [срок годности товара](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaExpiration)
-- `customsDeclaration` — [номер ДТ](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки FBS**:
+- `imei` — [IMEI](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei)
+- `uin` — [УИН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin)
+- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin)
+- `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin)
+- `expiration` — [срок годности товара](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaExpiration)
+- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -634,7 +700,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3OrdersMetaRequest
@@ -648,16 +714,16 @@ QR-код поставки можно получить, только если п
 	/*
 	PostV3OrdersStatus Получить статусы сборочных заданий
 
-	Метод возвращает статусы [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.
+	Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.
 
 `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.
 Возможные значения `supplierStatus`:
 | Статус | Описание | Как перевести сборочное задание в данный статус |
 |-------|----------------------|--------------------------------------|
 | `new` | \*\*Новое сборочное задание\*\* | |
-| `confirm` | \*\*На сборке\*\* |[Добавить сборочное задание к поставке](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)
-| `complete` | \*\*В доставке\*\* | [Передать поставку в доставку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) |
-| `cancel` | \*\*Отменено продавцом\*\* | [Отменить сборочное задание](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)|
+| `confirm` | \*\*На сборке\*\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)
+| `complete` | \*\*В доставке\*\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) |
+| `cancel` | \*\*Отменено продавцом\*\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)|
 | `cancel\_carrier` | \*\*Отменено перевозчиком\*\*
 Только для трансграничных поставок | Переводится перевозчиком |
 
@@ -673,7 +739,9 @@ QR-код поставки можно получить, только если п
 - `ready\_for\_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ)
 - `accepted\_by\_carrier` — продавец передал заказ в службу доставки в своей стране
 - `sent\_to\_carrier` — заказ отправлен на склад службы доставки в стране продавца
-- `canceled\_by\_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+- `canceled\_by\_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -681,7 +749,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3OrdersStatusRequest
@@ -695,8 +763,10 @@ QR-код поставки можно получить, только если п
 	/*
 	PostV3OrdersStatusHistory История статусов для сборочных заданий трансграничных поставок
 
-	Метод возвращает историю [статусов](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) для [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) трансграничных поставок.
-В песочнице этот метод всегда возвращает ответ `200`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+	Метод возвращает историю [статусов](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) для [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) трансграничных поставок.
+В песочнице этот метод всегда возвращает ответ `200`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -704,7 +774,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3OrdersStatusHistoryRequest
@@ -718,9 +788,9 @@ QR-код поставки можно получить, только если п
 	/*
 	PostV3OrdersStickers Получить стикеры сборочных заданий
 
-	Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders) в [статусах](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` — на сборке и `complete` — в доставке.
+	Метод возвращает список стикеров для [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders) в [статусах](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` — на сборке и `complete` — в доставке.
 
-Если за сборочным заданием не закреплён обязательный [номер декларации на товары (ДТ)](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration), получить стикеры для этого сборочного задания невозможно.
+Если за сборочным заданием не закреплён обязательный [номер декларации на товары (ДТ)](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration), получить стикеры для этого сборочного задания невозможно.
 
 За один запрос можно получить максимум 100 стикеров.
 Можно получить стикер в форматах:
@@ -730,7 +800,9 @@ QR-код поставки можно получить, только если п
 - PNG
 Доступны размеры:
 - 580x400 px при `width=58&height=40` в запросе
-- 400x300 px при `width=40&height=30` в запросе[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+- 400x300 px при `width=40&height=30` в запросе
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -738,7 +810,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3OrdersStickersRequest
@@ -752,14 +824,20 @@ QR-код поставки можно получить, только если п
 	/*
 	PostV3OrdersStickersCrossBorder Получить стикеры сборочных заданий трансграничных поставок
 
-	Метод возвращает список стикеров [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) трансграничных поставок в формате PDF.
+	Метод возвращает список стикеров [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) трансграничных поставок в формате PDF.
 
 Для каждого сборочного задания в ответе указывается статус генерации стикера:
 - `awaitingTrackNumber` — стикер не готов. Ожидается трек-номер от перевозчика.
-- `ready` — стикер готовСтикер может генерироваться с задержкой. Повторяйте запрос, пока не получите статус `ready`.Ограничения:
+- `ready` — стикер готов
+
+Стикер может генерироваться с задержкой. Повторяйте запрос, пока не получите статус `ready`.
+
+Ограничения:
 - За один запрос можно получить максимум 100 стикеров.
-- Можно получить стикеры только для сборочных заданий, находящихся на сборке или в доставке — [статусы](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm`, `complete`.
-В песочнице этот метод всегда возвращает ответ `200`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+- Можно получить стикеры только для сборочных заданий, находящихся на сборке или в доставке — [статусы](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm`, `complete`.
+В песочнице этот метод всегда возвращает ответ `200`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -777,13 +855,15 @@ QR-код поставки можно получить, только если п
 	/*
 	PostV3Passes Создать пропуск
 
-	Метод создаёт [пропуск продавца](/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes) с привязкой к складу WB.
-Пропуск действует 48 часов со времени создания.Максимум 1 запрос в 10 [минут](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца.
+	Метод создаёт [пропуск продавца](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes) с привязкой к складу WB.
+Пропуск действует 48 часов со времени создания.
+
+Максимум 1 запрос в 10 [минут](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца.
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3PassesRequest
@@ -797,12 +877,14 @@ QR-код поставки можно получить, только если п
 	/*
 	PostV3Supplies Создать новую поставку
 
-	Метод создаёт новую [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
+	Метод создаёт новую [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
 Ограничения:
-- Только для [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по модели FBS.
-- При добавлении в поставку все передаваемые сборочные задания в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `new` будут автоматически переведены в статус `confirm` — на сборке.
+- Только для [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по модели FBS.
+- При добавлении в поставку все передаваемые сборочные задания в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `new` будут автоматически переведены в статус `confirm` — на сборке.
 - Если вы переведёте сборочное задание в статус `cancel` — отмена продавцом, прикрепленное сборочное задание автоматически удалится из поставки.
-- Поставку можно собрать только из сборочных заданий (заказов) одного габаритного типа `cargoType`. Новая поставка не обладает габаритным признаком, она приобретает габаритный признак первого заказа, добавленного в поставку.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+- Поставку можно собрать только из сборочных заданий (заказов) одного габаритного типа `cargoType`. Новая поставка не обладает габаритным признаком, она приобретает габаритный признак первого заказа, добавленного в поставку.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -810,7 +892,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3SuppliesRequest
@@ -824,11 +906,13 @@ QR-код поставки можно получить, только если п
 	/*
 	PostV3SuppliesSupplyIdTrbx Добавить грузоместа к поставке
 
-	Метод добавляет требуемое количество [грузомест](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyIdTrbx) в [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
+	Метод добавляет требуемое количество [грузомест](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyIdTrbx) в [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
 
 Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ.
 
-Грузоместа можно добавить только в открытую поставку. В одном грузоместе может быть несколько заказов. Например, если в поставке 10 заказов, распределите их по коробам: система позволит создать не больше 5 грузомест. Для 20 заказов — не больше 10 грузомест, для 100 — не больше 50.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Грузоместа можно добавить только в открытую поставку. В одном грузоместе может быть несколько заказов. Например, если в поставке 10 заказов, распределите их по коробам: система позволит создать не больше 5 грузомест. Для 20 заказов — не больше 10 грузомест, для 100 — не больше 50.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -836,7 +920,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
@@ -857,7 +941,9 @@ QR-код поставки можно получить, только если п
 - ZPLH (горизонтальный)
 - PNG
 
-Размер стикеров — 580x400 px.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Размер стикеров — 580x400 px.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -865,7 +951,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param supplyId ID поставки
@@ -882,7 +968,9 @@ QR-код поставки можно получить, только если п
 
 	Метод добавляет данные СПОТ в поставку.
 
-СПОТ можно добавить только в [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком `"spotAvailable":true`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+СПОТ можно добавить только в [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком `"spotAvailable":true`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -900,8 +988,12 @@ QR-код поставки можно получить, только если п
 	/*
 	PutV3OrdersOrderIdMetaCustomsDeclaration Закрепить номер ДТ за сборочным заданием
 
-	Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta). У одного сборочного задания может быть только один номер ДТ.
-Закрепить номер ДТ можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `customsDeclaration`.Продавцам из Армении необходимо обязательно указывать номер декларации на товары (ДТ), произведённые вне ЕАЭС, если заказ из Армении доставляется в РФ.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
+	Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta). У одного сборочного задания может быть только один номер ДТ.
+Закрепить номер ДТ можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `customsDeclaration`.
+
+Продавцам из Армении необходимо обязательно указывать номер декларации на товары (ДТ), произведённые вне ЕАЭС, если заказ из Армении доставляется в РФ.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1000 запросов | 60 мс | 20 запросов |
@@ -909,7 +1001,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
@@ -923,11 +1015,13 @@ QR-код поставки можно получить, только если п
 	/*
 	PutV3OrdersOrderIdMetaExpiration Закрепить за сборочным заданием срок годности товара
 
-	Метод закрепляет за [сборочным заданием](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) срок годности товара. Товар годен до указанной даты.
-Закрепить срок годности можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `expiration`.
+	Метод закрепляет за [сборочным заданием](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) срок годности товара. Товар годен до указанной даты.
+Закрепить срок годности можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `expiration`.
 
-Получить загруженные данные можно в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
-Чтобы изменить срок годности, отправьте запрос с новой датой. Удалить срок годности сборочного задания невозможно.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
+Получить загруженные данные можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
+Чтобы изменить срок годности, отправьте запрос с новой датой. Удалить срок годности сборочного задания невозможно.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1000 запросов | 60 мс | 20 запросов |
@@ -935,7 +1029,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
@@ -949,9 +1043,11 @@ QR-код поставки можно получить, только если п
 	/*
 	PutV3OrdersOrderIdMetaGtin Закрепить GTIN за сборочным заданием
 
-	Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
+	Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
 У одного сборочного задания может быть только один GTIN.
-Закрепить GTIN можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `gtin`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
+Закрепить GTIN можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `gtin`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1000 запросов | 60 мс | 20 запросов |
@@ -959,7 +1055,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
@@ -973,9 +1069,11 @@ QR-код поставки можно получить, только если п
 	/*
 	PutV3OrdersOrderIdMetaImei Закрепить IMEI за сборочным заданием
 
-	Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
+	Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
 У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — \*\*IMEI\*\* и \*\*IMEI2\*\* или \*\*IMEI1\*\* и \*\*IMEI2\*\* — укажите только \*\*IMEI\*\* или \*\*IMEI1\*\*. \*\*IMEI2\*\* указывать не нужно.
-Закрепить IMEI можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `imei`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
+Закрепить IMEI можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `imei`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1000 запросов | 60 мс | 20 запросов |
@@ -983,7 +1081,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
@@ -997,11 +1095,13 @@ QR-код поставки можно получить, только если п
 	/*
 	PutV3OrdersOrderIdMetaSgtin Закрепить код маркировки Честного знака за сборочным заданием
 
-	Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в идентификаторах маркировки [сборочного задания](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders).
+	Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в идентификаторах маркировки [сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders).
 
-Закрепить код маркировки Честного знака можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `sgtin`.
+Закрепить код маркировки Честного знака можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `sgtin`.
 
-Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
+Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1000 запросов | 60 мс | 20 запросов |
@@ -1009,7 +1109,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
@@ -1023,9 +1123,11 @@ QR-код поставки можно получить, только если п
 	/*
 	PutV3OrdersOrderIdMetaUin Закрепить УИН за сборочным заданием
 
-	Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
+	Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
 У одного сборочного задания может быть только один УИН.
-Закрепить УИН можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `uin`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
+Закрепить УИН можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `uin`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1000 запросов | 60 мс | 20 запросов |
@@ -1033,7 +1135,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param orderId ID сборочного задания
@@ -1047,7 +1149,9 @@ QR-код поставки можно получить, только если п
 	/*
 	PutV3PassesPassId Обновить пропуск
 
-	Метод обновляет данные [пропуска продавца](/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes). В том числе, можно обновить данные привязанного склада WB.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+	Метод обновляет данные [пропуска продавца](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes). В том числе, можно обновить данные привязанного склада WB.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -1055,7 +1159,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param passId ID пропуска
@@ -1090,15 +1194,17 @@ func (r ApiDeleteV3OrdersOrderIdMetaRequest) Execute() (*http.Response, error) {
 /*
 DeleteV3OrdersOrderIdMeta Удалить идентификаторы маркировки сборочного задания
 
-Метод удаляет значение [идентификаторов маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) для переданного ключа.
+Метод удаляет значение [идентификаторов маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) для переданного ключа.
 
 Возможные идентификаторы маркировки:
-- `imei` — [IMEI](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei)
-- `uin` — [УИН](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin)
-- `gtin` — [GTIN](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin)
-- `sgtin` — [код маркировки Честного знака](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin)
-- `customsDeclaration` — [номер ДТ](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration)
-Можно передать только один ключ.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки FBS**:
+- `imei` — [IMEI](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei)
+- `uin` — [УИН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin)
+- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin)
+- `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin)
+- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration)
+Можно передать только один ключ.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -1106,7 +1212,7 @@ DeleteV3OrdersOrderIdMeta Удалить идентификаторы марки
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param orderId ID сборочного задания
@@ -1281,7 +1387,9 @@ func (r ApiDeleteV3PassesPassIdRequest) Execute() (*http.Response, error) {
 /*
 DeleteV3PassesPassId Удалить пропуск
 
-Метод удаляет пропуск продавца [из списка](/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Метод удаляет пропуск продавца [из списка](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -1289,7 +1397,7 @@ DeleteV3PassesPassId Удалить пропуск
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param passId ID пропуска
@@ -1449,7 +1557,9 @@ func (r ApiDeleteV3SuppliesSupplyIdRequest) Execute() (*http.Response, error) {
 /*
 DeleteV3SuppliesSupplyId Удалить поставку
 
-Метод удаляет [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId), если она активна и за ней не закреплено ни одно [сборочное задание](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Метод удаляет [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId), если она активна и за ней не закреплено ни одно [сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -1457,7 +1567,7 @@ DeleteV3SuppliesSupplyId Удалить поставку
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param supplyId ID поставки
@@ -1647,7 +1757,9 @@ DeleteV3SuppliesSupplyIdTrbx Удалить грузоместа из поста
 
 Метод удаляет грузоместа из поставки.
 
-Можно удалить только пока поставка на сборке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Можно удалить только пока поставка на сборке.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -1655,7 +1767,7 @@ DeleteV3SuppliesSupplyIdTrbx Удалить грузоместа из поста
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param supplyId ID поставки
@@ -1827,7 +1939,9 @@ func (r ApiGetV3FbsDictionariesCountriesOksmRequest) Execute() (*CountriesOKSMLi
 /*
 GetV3FbsDictionariesCountriesOksm Получить список стран ОКСМ
 
-Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -1992,7 +2106,9 @@ GetV3FbsOrdersArchive Получить список архивных сборо�
 
 Метод возвращает сборочные задания, созданные более 3 месяцев назад.
 Часть сборочных заданий попадает в архив позже, чем через 3 месяца после создания, так как поставка переходит в архив только после того, как все заказы в ней будут завершены.
-Например, так происходит, если продавец не доставил один из заказов в поставке и заказ был отменён автоматически через несколько дней.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Например, так происходит, если продавец не доставил один из заказов в поставке и заказ был отменён автоматически через несколько дней.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -2194,7 +2310,9 @@ GetV3FbsShippingPoints Получить список пунктов отгруз
 Метод возвращает доступные пункты отгрузки поставок с фильтрами:
 - по населённым пунктам России
 - по типам товаров, которые принимает пункт отгрузки
-Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -2364,7 +2482,9 @@ func (r ApiGetV3FbsSuppliesSupplyIdStickersSpotRequest) Execute() (*SupplySpotQR
 GetV3FbsSuppliesSupplyIdStickersSpot Получить QR-код СПОТ
 
 Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.
-Вы можете получить QR-код, когда в методе [получения данных СПОТ](/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак `"status":"completed"`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Вы можете получить QR-код, когда в методе [получения данных СПОТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак `"status":"completed"`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -2552,11 +2672,13 @@ func (r ApiGetV3OrdersRequest) Execute() (*GetV3OrdersResponse200, *http.Respons
 /*
 GetV3Orders Получить информацию о сборочных заданиях
 
-Метод возвращает информацию о сборочных заданиях, созданных не более 3 месяцев назад, без их актуального [статуса](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus).
+Метод возвращает информацию о сборочных заданиях, созданных не более 3 месяцев назад, без их актуального [статуса](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus).
 Чтобы получить данные за период, укажите в запросе даты начала и окончания периода. Максимум 30 календарных дней одним запросом.
 В ответе метода будут сборочные задания, созданные в указанный период.
 
-Чтобы получить сборочные задания, созданные более 3 месяцев назад, используйте метод получения [списка архивных заказов](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Чтобы получить сборочные задания, созданные более 3 месяцев назад, используйте метод получения [списка архивных заказов](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -2564,7 +2686,7 @@ GetV3Orders Получить информацию о сборочных зада
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV3OrdersRequest
@@ -2751,10 +2873,14 @@ func (r ApiGetV3OrdersNewRequest) Execute() (*GetV3OrdersNewResponse200, *http.R
 /*
 GetV3OrdersNew Получить список новых сборочных заданий
 
-Метод возвращает список всех новых [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders), которые есть у продавца на момент запроса.Наличие в сборочных заданиях идентификаторов маркировки, указанных в полях `requiredMeta` и `optionalMeta`, влияет только на возможность перевести поставку в доставку. Если ваш товар подлежит обязательной [маркировке](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs) средствами
+Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders), которые есть у продавца на момент запроса.
+
+Наличие в сборочных заданиях идентификаторов маркировки, указанных в полях `requiredMeta` и `optionalMeta`, влияет только на возможность перевести поставку в доставку. Если ваш товар подлежит обязательной [маркировке](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs) средствами
 идентификации, необходимо указывать идентификаторы маркировки независимо от того, в каком поле они были получены (п. 4.6 [Оферты](https://seller.wildberries.ru/confirm-offer-condition/product/view)).
 
-Рекомендуем добавлять в сборочные задания все идентификаторы маркировки, полученные в полях `requiredMeta` и `optionalMeta`[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Рекомендуем добавлять в сборочные задания все идентификаторы маркировки, полученные в полях `requiredMeta` и `optionalMeta`
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -2762,7 +2888,7 @@ GetV3OrdersNew Получить список новых сборочных за�
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV3OrdersNewRequest
@@ -2918,7 +3044,9 @@ func (r ApiGetV3PassesRequest) Execute() ([]Pass, *http.Response, error) {
 /*
 GetV3Passes Получить список пропусков
 
-Метод возвращает список всех [созданных](/openapi/orders-fbs#tag/fbsPasses/operation/postV3Passes) пропусков продавца.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Метод возвращает список всех [созданных](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/postV3Passes) пропусков продавца.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -2926,7 +3054,7 @@ GetV3Passes Получить список пропусков
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV3PassesRequest
@@ -3082,7 +3210,11 @@ func (r ApiGetV3PassesOfficesRequest) Execute() ([]PassOffice, *http.Response, e
 /*
 GetV3PassesOffices Получить список складов, для которых требуется пропуск
 
-Метод возвращает список складов для привязки к [пропуску продавца](/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes).Данные, которые возвращает метод, могут меняться. Рекомендуем периодически синхронизировать список[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Метод возвращает список складов для привязки к [пропуску продавца](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes).
+
+Данные, которые возвращает метод, могут меняться. Рекомендуем периодически синхронизировать список
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -3090,7 +3222,7 @@ GetV3PassesOffices Получить список складов, для кото
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV3PassesOfficesRequest
@@ -3260,7 +3392,9 @@ func (r ApiGetV3SuppliesRequest) Execute() (*GetV3SuppliesResponse200, *http.Res
 /*
 GetV3Supplies Получить список поставок
 
-Метод возвращает список [поставок](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Метод возвращает список [поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -3268,7 +3402,7 @@ GetV3Supplies Получить список поставок
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV3SuppliesRequest
@@ -3449,9 +3583,11 @@ func (r ApiGetV3SuppliesOrdersReshipmentRequest) Execute() (*GetV3SuppliesOrders
 /*
 GetV3SuppliesOrdersReshipment Получить все сборочные задания для повторной отгрузки
 
-Метод возвращает все [сборочные задания](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders), требующие повторной отгрузки.
+Метод возвращает все [сборочные задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders), требующие повторной отгрузки.
 
-Повторная отгрузка требуется, если поставка была отсканирована в пункте приёмки, но при этом в ней всё ещё есть неотсканированные товары. Спустя определённое время необходимо доставить эти товары заново. Данные сборочные задания можно перевести в [другую активную поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Повторная отгрузка требуется, если поставка была отсканирована в пункте приёмки, но при этом в ней всё ещё есть неотсканированные товары. Спустя определённое время необходимо доставить эти товары заново. Данные сборочные задания можно перевести в [другую активную поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -3459,7 +3595,7 @@ GetV3SuppliesOrdersReshipment Получить все сборочные зад�
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV3SuppliesOrdersReshipmentRequest
@@ -3627,7 +3763,9 @@ func (r ApiGetV3SuppliesSupplyIdRequest) Execute() (*Supply, *http.Response, err
 /*
 GetV3SuppliesSupplyId Получить информацию о поставке
 
-Метод возвращает подробную информацию о поставке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Метод возвращает подробную информацию о поставке.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -3635,7 +3773,7 @@ GetV3SuppliesSupplyId Получить информацию о поставке
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param supplyId ID поставки
@@ -3824,14 +3962,16 @@ func (r ApiGetV3SuppliesSupplyIdBarcodeRequest) Execute() (*GetV3SuppliesSupplyI
 /*
 GetV3SuppliesSupplyIdBarcode Получить QR-код поставки
 
-Метод возвращает QR-код [поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) в форматах:
+Метод возвращает QR-код [поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) в форматах:
 - SVG
 - ZPLV (вертикальный)
 - ZPLH (горизонтальный)
 - PNG
-QR-код поставки можно получить, только если поставка [передана в доставку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver).
+QR-код поставки можно получить, только если поставка [передана в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver).
 
-Размер — 580x400 px.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Размер — 580x400 px.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -3839,7 +3979,7 @@ QR-код поставки можно получить, только если п
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param supplyId ID поставки
@@ -4036,7 +4176,9 @@ func (r ApiGetV3SuppliesSupplyIdOrderIdsRequest) Execute() (*V3SupplyOrderIDsAPI
 /*
 GetV3SuppliesSupplyIdOrderIds Получить ID сборочных заданий поставки
 
-Метод возвращает список ID сборочных заданий, закреплённых за поставкой.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Метод возвращает список ID сборочных заданий, закреплённых за поставкой.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -4044,7 +4186,7 @@ GetV3SuppliesSupplyIdOrderIds Получить ID сборочных задан�
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param supplyId ID поставки
@@ -4212,7 +4354,9 @@ func (r ApiGetV3SuppliesSupplyIdTrbxRequest) Execute() (*GetV3SuppliesSupplyIdTr
 /*
 GetV3SuppliesSupplyIdTrbx Получить список грузомест поставки
 
-Возвращает список грузомест поставки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Возвращает список грузомест поставки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -4220,7 +4364,7 @@ GetV3SuppliesSupplyIdTrbx Получить список грузомест по�
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param supplyId ID поставки
@@ -4409,11 +4553,15 @@ PatchV3FbsSuppliesShippingMethod Установить параметры отг�
 
 Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.
 
-Для доставки транспортной компанией `"shippingType":"transportCompany"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).
+Для доставки транспортной компанией `"shippingType":"transportCompany"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).
 
-Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки `"shippingType":"transportCompany"` на `selfShipping`. Если вы хотите изменить способ доставки обратно на `transportCompany`, [добавьте ID ЭТрН](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) заново.Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.
+Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки `"shippingType":"transportCompany"` на `selfShipping`. Если вы хотите изменить способ доставки обратно на `transportCompany`, [добавьте ID ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) заново.
 
-В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.
+
+В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -4595,11 +4743,13 @@ func (r ApiPatchV3FbsSuppliesWaybillRequest) Execute() (*UpdateSuppliesResponse,
 /*
 PatchV3FbsSuppliesWaybill Установить ID ЭТрН поставок
 
-Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `"shippingType":"transportCompany"`.
+Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `"shippingType":"transportCompany"`.
 
 Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.
 
-В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -4765,8 +4915,12 @@ func (r ApiPatchV3OrdersOrderIdCancelRequest) Execute() (*http.Response, error) 
 /*
 PatchV3OrdersOrderIdCancel Отменить сборочное задание
 
-Метод отменяет [сборочное задание](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и переводит в [статус](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `cancel` — отменено продавцом.Сборочное задание можно отменить до его передачи Wildberries.
-Чтобы проверить, можно ли отменить сборочное задание, используйте метод [POST /api/v3/orders/status](/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isCancellable`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод отменяет [сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и переводит в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `cancel` — отменено продавцом.
+
+Сборочное задание можно отменить до его передачи Wildberries.
+Чтобы проверить, можно ли отменить сборочное задание, используйте метод [POST /api/v3/orders/status](https://dev.wildberries.ru/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isCancellable`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 100 запросов | 600 мс | 20 запросов |
@@ -4774,7 +4928,7 @@ PatchV3OrdersOrderIdCancel Отменить сборочное задание
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param orderId ID сборочного задания
@@ -4956,7 +5110,7 @@ func (r ApiPatchV3SuppliesSupplyIdDeliverRequest) Execute() (*http.Response, err
 /*
 PatchV3SuppliesSupplyIdDeliver Передать поставку в доставку
 
-Метод закрывает [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) и переводит все [сборочные задания](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) в ней в [статус](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя.
+Метод закрывает [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) и переводит все [сборочные задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) в ней в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя.
 
 Если поставка не была передана в доставку, то при приёмке первого товара поставка автоматически закроется.
 
@@ -4965,7 +5119,9 @@ PatchV3SuppliesSupplyIdDeliver Передать поставку в достав
 - для всех сборочных заданий указана обязательная маркировка
 - маркировка всех сборочных заданий прошла проверку
 Если поставка содержит сборочные задания с обязательным УИН, убедитесь, что вы заранее создали и загрузили спецификацию с договором на доставку. [ГИИС ДМДК](https://minfin.gov.ru/ru/perfomance/jewels/dmdk) требуется около 30 минут для обработки изменений в статусах УИН.
-Обязательно [указывайте параметры отгрузки](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) для поставок от продавцов РФ на пункты отгрузки в РФ. Если способ доставки, дата или пункт отгрузки не указаны, возвращается ошибка `409`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Обязательно [указывайте параметры отгрузки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) для поставок от продавцов РФ на пункты отгрузки в РФ. Если способ доставки, дата или пункт отгрузки не указаны, возвращается ошибка `409`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -4973,7 +5129,7 @@ PatchV3SuppliesSupplyIdDeliver Передать поставку в достав
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param supplyId ID поставки
@@ -5161,14 +5317,22 @@ func (r ApiPatchV3SuppliesSupplyIdOrdersRequest) Execute() (*http.Response, erro
 /*
 PatchV3SuppliesSupplyIdOrders Добавить сборочные задания к поставке
 
-Метод добавляет до 100 [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) к поставке и переводит их в [статус](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` — на сборке.
+Метод добавляет до 100 [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) к поставке и переводит их в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` — на сборке.
 Может перемещать сборочные задания:
 - между активными поставками
-- из закрытой поставки в активную, если сборочные задания требуют [повторной отгрузки](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3SuppliesOrdersReshipment)В пустую поставку можно добавить сборочные задания любого габаритного типа. Поставка приобретает габаритный тип первого добавленного сборочного задания [из поля](./orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) `cargoType`.
+- из закрытой поставки в активную, если сборочные задания требуют [повторной отгрузки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3SuppliesOrdersReshipment)
 
-После этого в поставку можно добавить сборочные задания только того же габаритного типа, что и у поставки.В поставку нельзя добавить сборочные задания, поступившие на разные склады.В пустую поставку можно добавить сборочные задания трансграничных или внутренних поставок.
+В пустую поставку можно добавить сборочные задания любого габаритного типа. Поставка приобретает габаритный тип первого добавленного сборочного задания [из поля](./orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) `cargoType`.
+
+После этого в поставку можно добавить сборочные задания только того же габаритного типа, что и у поставки.
+
+В поставку нельзя добавить сборочные задания, поступившие на разные склады.
+
+В пустую поставку можно добавить сборочные задания трансграничных или внутренних поставок.
 После этого поставка приобретает тип первого добавленного сборочного задания из поля `crossBorderType`.
-Далее в неё можно добавить только сборочные задания такого же типа.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Далее в неё можно добавить только сборочные задания такого же типа.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -5176,7 +5340,7 @@ PatchV3SuppliesSupplyIdOrders Добавить сборочные задания
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param supplyId ID поставки
@@ -5373,7 +5537,9 @@ PostV3FbsSuppliesSpotList Получить данные СПОТ для спис
 Вы можете получить данные СПОТ, только если выполняются все условия:
 - поставка находится на этапе доставки
 - продавец зарегистрирован в любой стране ЕАЭС кроме РФ
-- склад назначения находится в РФ[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+- склад назначения находится в РФ
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -5531,7 +5697,9 @@ func (r ApiPostV3OrdersClientRequest) Execute() (*CrossborderTurkeyClientInfoRes
 PostV3OrdersClient Заказы с информацией по клиенту
 
 Метод позволяет получать информацию о покупателе по ID сборочного задания.
-Только для трансграничных поставок из \*\*Турции\*\*.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Только для трансграничных поставок из \*\*Турции\*\*.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -5539,7 +5707,7 @@ PostV3OrdersClient Заказы с информацией по клиенту
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV3OrdersClientRequest
@@ -5728,16 +5896,18 @@ func (r ApiPostV3OrdersMetaRequest) Execute() (*V3OrdersMetaAPI, *http.Response,
 /*
 PostV3OrdersMeta Получить идентификаторы маркировки сборочных заданий
 
-Метод возвращает идентификаторы маркировки [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и статусы их проверки.
+Метод возвращает идентификаторы маркировки [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и статусы их проверки.
 
-Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3OrdersNew), поля `requiredMeta` и `optionalMeta`. Если поля `requiredMeta` и `optionalMeta` не содержат какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.
+Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3OrdersNew), поля `requiredMeta` и `optionalMeta`. Если поля `requiredMeta` и `optionalMeta` не содержат какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.
 Возможные идентификаторы маркировки:
-- `imei` — [IMEI](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei)
-- `uin` — [УИН](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin)
-- `gtin` — [GTIN](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin)
-- `sgtin` — [код маркировки Честного знака](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin)
-- `expiration` — [срок годности товара](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaExpiration)
-- `customsDeclaration` — [номер ДТ](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки FBS**:
+- `imei` — [IMEI](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei)
+- `uin` — [УИН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin)
+- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin)
+- `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin)
+- `expiration` — [срок годности товара](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaExpiration)
+- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -5745,7 +5915,7 @@ PostV3OrdersMeta Получить идентификаторы маркиров�
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV3OrdersMetaRequest
@@ -5934,16 +6104,16 @@ func (r ApiPostV3OrdersStatusRequest) Execute() (*PostV3OrdersStatusResponse200,
 /*
 PostV3OrdersStatus Получить статусы сборочных заданий
 
-Метод возвращает статусы [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.
+Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.
 
 `supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.
 Возможные значения `supplierStatus`:
 | Статус | Описание | Как перевести сборочное задание в данный статус |
 |-------|----------------------|--------------------------------------|
 | `new` | \*\*Новое сборочное задание\*\* | |
-| `confirm` | \*\*На сборке\*\* |[Добавить сборочное задание к поставке](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)
-| `complete` | \*\*В доставке\*\* | [Передать поставку в доставку](/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) |
-| `cancel` | \*\*Отменено продавцом\*\* | [Отменить сборочное задание](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)|
+| `confirm` | \*\*На сборке\*\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)
+| `complete` | \*\*В доставке\*\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) |
+| `cancel` | \*\*Отменено продавцом\*\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)|
 | `cancel\_carrier` | \*\*Отменено перевозчиком\*\*
 Только для трансграничных поставок | Переводится перевозчиком |
 
@@ -5959,7 +6129,9 @@ PostV3OrdersStatus Получить статусы сборочных задан
 - `ready\_for\_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ)
 - `accepted\_by\_carrier` — продавец передал заказ в службу доставки в своей стране
 - `sent\_to\_carrier` — заказ отправлен на склад службы доставки в стране продавца
-- `canceled\_by\_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+- `canceled\_by\_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -5967,7 +6139,7 @@ PostV3OrdersStatus Получить статусы сборочных задан
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV3OrdersStatusRequest
@@ -6142,8 +6314,10 @@ func (r ApiPostV3OrdersStatusHistoryRequest) Execute() (*PostV3OrdersStatusHisto
 /*
 PostV3OrdersStatusHistory История статусов для сборочных заданий трансграничных поставок
 
-Метод возвращает историю [статусов](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) для [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) трансграничных поставок.
-В песочнице этот метод всегда возвращает ответ `200`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Метод возвращает историю [статусов](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) для [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) трансграничных поставок.
+В песочнице этот метод всегда возвращает ответ `200`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -6151,7 +6325,7 @@ PostV3OrdersStatusHistory История статусов для сборочн�
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV3OrdersStatusHistoryRequest
@@ -6347,9 +6521,9 @@ func (r ApiPostV3OrdersStickersRequest) Execute() (*PostV3OrdersStickersResponse
 /*
 PostV3OrdersStickers Получить стикеры сборочных заданий
 
-Метод возвращает список стикеров для [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders) в [статусах](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` — на сборке и `complete` — в доставке.
+Метод возвращает список стикеров для [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders) в [статусах](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` — на сборке и `complete` — в доставке.
 
-Если за сборочным заданием не закреплён обязательный [номер декларации на товары (ДТ)](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration), получить стикеры для этого сборочного задания невозможно.
+Если за сборочным заданием не закреплён обязательный [номер декларации на товары (ДТ)](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration), получить стикеры для этого сборочного задания невозможно.
 
 За один запрос можно получить максимум 100 стикеров.
 Можно получить стикер в форматах:
@@ -6359,7 +6533,9 @@ PostV3OrdersStickers Получить стикеры сборочных зада
 - PNG
 Доступны размеры:
 - 580x400 px при `width=58&height=40` в запросе
-- 400x300 px при `width=40&height=30` в запросе[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+- 400x300 px при `width=40&height=30` в запросе
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -6367,7 +6543,7 @@ PostV3OrdersStickers Получить стикеры сборочных зада
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV3OrdersStickersRequest
@@ -6565,14 +6741,20 @@ func (r ApiPostV3OrdersStickersCrossBorderRequest) Execute() (*PostV3OrdersStick
 /*
 PostV3OrdersStickersCrossBorder Получить стикеры сборочных заданий трансграничных поставок
 
-Метод возвращает список стикеров [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) трансграничных поставок в формате PDF.
+Метод возвращает список стикеров [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) трансграничных поставок в формате PDF.
 
 Для каждого сборочного задания в ответе указывается статус генерации стикера:
 - `awaitingTrackNumber` — стикер не готов. Ожидается трек-номер от перевозчика.
-- `ready` — стикер готовСтикер может генерироваться с задержкой. Повторяйте запрос, пока не получите статус `ready`.Ограничения:
+- `ready` — стикер готов
+
+Стикер может генерироваться с задержкой. Повторяйте запрос, пока не получите статус `ready`.
+
+Ограничения:
 - За один запрос можно получить максимум 100 стикеров.
-- Можно получить стикеры только для сборочных заданий, находящихся на сборке или в доставке — [статусы](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm`, `complete`.
-В песочнице этот метод всегда возвращает ответ `200`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+- Можно получить стикеры только для сборочных заданий, находящихся на сборке или в доставке — [статусы](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm`, `complete`.
+В песочнице этот метод всегда возвращает ответ `200`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -6752,13 +6934,15 @@ func (r ApiPostV3PassesRequest) Execute() (*PostV3PassesResponse201, *http.Respo
 /*
 PostV3Passes Создать пропуск
 
-Метод создаёт [пропуск продавца](/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes) с привязкой к складу WB.
-Пропуск действует 48 часов со времени создания.Максимум 1 запрос в 10 [минут](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца.
+Метод создаёт [пропуск продавца](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes) с привязкой к складу WB.
+Пропуск действует 48 часов со времени создания.
+
+Максимум 1 запрос в 10 [минут](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца.
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV3PassesRequest
@@ -6947,12 +7131,14 @@ func (r ApiPostV3SuppliesRequest) Execute() (*PostV3SuppliesResponse201, *http.R
 /*
 PostV3Supplies Создать новую поставку
 
-Метод создаёт новую [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
+Метод создаёт новую [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
 Ограничения:
-- Только для [сборочных заданий](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по модели FBS.
-- При добавлении в поставку все передаваемые сборочные задания в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `new` будут автоматически переведены в статус `confirm` — на сборке.
+- Только для [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по модели FBS.
+- При добавлении в поставку все передаваемые сборочные задания в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `new` будут автоматически переведены в статус `confirm` — на сборке.
 - Если вы переведёте сборочное задание в статус `cancel` — отмена продавцом, прикрепленное сборочное задание автоматически удалится из поставки.
-- Поставку можно собрать только из сборочных заданий (заказов) одного габаритного типа `cargoType`. Новая поставка не обладает габаритным признаком, она приобретает габаритный признак первого заказа, добавленного в поставку.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+- Поставку можно собрать только из сборочных заданий (заказов) одного габаритного типа `cargoType`. Новая поставка не обладает габаритным признаком, она приобретает габаритный признак первого заказа, добавленного в поставку.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -6960,7 +7146,7 @@ PostV3Supplies Создать новую поставку
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV3SuppliesRequest
@@ -7139,11 +7325,13 @@ func (r ApiPostV3SuppliesSupplyIdTrbxRequest) Execute() (*PostV3SuppliesSupplyId
 /*
 PostV3SuppliesSupplyIdTrbx Добавить грузоместа к поставке
 
-Метод добавляет требуемое количество [грузомест](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyIdTrbx) в [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
+Метод добавляет требуемое количество [грузомест](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyIdTrbx) в [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
 
 Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ.
 
-Грузоместа можно добавить только в открытую поставку. В одном грузоместе может быть несколько заказов. Например, если в поставке 10 заказов, распределите их по коробам: система позволит создать не больше 5 грузомест. Для 20 заказов — не больше 10 грузомест, для 100 — не больше 50.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Грузоместа можно добавить только в открытую поставку. В одном грузоместе может быть несколько заказов. Например, если в поставке 10 заказов, распределите их по коробам: система позволит создать не больше 5 грузомест. Для 20 заказов — не больше 10 грузомест, для 100 — не больше 50.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -7151,7 +7339,7 @@ PostV3SuppliesSupplyIdTrbx Добавить грузоместа к постав
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param supplyId ID поставки
@@ -7354,7 +7542,9 @@ PostV3SuppliesSupplyIdTrbxStickers Получить стикеры грузом�
 - ZPLH (горизонтальный)
 - PNG
 
-Размер стикеров — 580x400 px.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Размер стикеров — 580x400 px.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -7362,7 +7552,7 @@ PostV3SuppliesSupplyIdTrbxStickers Получить стикеры грузом�
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param supplyId ID поставки
@@ -7558,7 +7748,9 @@ PutV3FbsSuppliesSupplyIdSpot Добавить данные СПОТ в пост�
 
 Метод добавляет данные СПОТ в поставку.
 
-СПОТ можно добавить только в [поставку](/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком `"spotAvailable":true`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+СПОТ можно добавить только в [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком `"spotAvailable":true`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -7730,8 +7922,12 @@ func (r ApiPutV3OrdersOrderIdMetaCustomsDeclarationRequest) Execute() (*http.Res
 /*
 PutV3OrdersOrderIdMetaCustomsDeclaration Закрепить номер ДТ за сборочным заданием
 
-Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta). У одного сборочного задания может быть только один номер ДТ.
-Закрепить номер ДТ можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `customsDeclaration`.Продавцам из Армении необходимо обязательно указывать номер декларации на товары (ДТ), произведённые вне ЕАЭС, если заказ из Армении доставляется в РФ.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
+Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta). У одного сборочного задания может быть только один номер ДТ.
+Закрепить номер ДТ можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `customsDeclaration`.
+
+Продавцам из Армении необходимо обязательно указывать номер декларации на товары (ДТ), произведённые вне ЕАЭС, если заказ из Армении доставляется в РФ.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1000 запросов | 60 мс | 20 запросов |
@@ -7739,7 +7935,7 @@ PutV3OrdersOrderIdMetaCustomsDeclaration Закрепить номер ДТ за
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param orderId ID сборочного задания
@@ -7932,11 +8128,13 @@ func (r ApiPutV3OrdersOrderIdMetaExpirationRequest) Execute() (*http.Response, e
 /*
 PutV3OrdersOrderIdMetaExpiration Закрепить за сборочным заданием срок годности товара
 
-Метод закрепляет за [сборочным заданием](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) срок годности товара. Товар годен до указанной даты.
-Закрепить срок годности можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `expiration`.
+Метод закрепляет за [сборочным заданием](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) срок годности товара. Товар годен до указанной даты.
+Закрепить срок годности можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `expiration`.
 
-Получить загруженные данные можно в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
-Чтобы изменить срок годности, отправьте запрос с новой датой. Удалить срок годности сборочного задания невозможно.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
+Получить загруженные данные можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
+Чтобы изменить срок годности, отправьте запрос с новой датой. Удалить срок годности сборочного задания невозможно.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1000 запросов | 60 мс | 20 запросов |
@@ -7944,7 +8142,7 @@ PutV3OrdersOrderIdMetaExpiration Закрепить за сборочным за
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param orderId ID сборочного задания
@@ -8137,9 +8335,11 @@ func (r ApiPutV3OrdersOrderIdMetaGtinRequest) Execute() (*http.Response, error) 
 /*
 PutV3OrdersOrderIdMetaGtin Закрепить GTIN за сборочным заданием
 
-Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
+Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
 У одного сборочного задания может быть только один GTIN.
-Закрепить GTIN можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `gtin`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
+Закрепить GTIN можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `gtin`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1000 запросов | 60 мс | 20 запросов |
@@ -8147,7 +8347,7 @@ PutV3OrdersOrderIdMetaGtin Закрепить GTIN за сборочным за�
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param orderId ID сборочного задания
@@ -8329,9 +8529,11 @@ func (r ApiPutV3OrdersOrderIdMetaImeiRequest) Execute() (*http.Response, error) 
 /*
 PutV3OrdersOrderIdMetaImei Закрепить IMEI за сборочным заданием
 
-Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
+Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
 У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — \*\*IMEI\*\* и \*\*IMEI2\*\* или \*\*IMEI1\*\* и \*\*IMEI2\*\* — укажите только \*\*IMEI\*\* или \*\*IMEI1\*\*. \*\*IMEI2\*\* указывать не нужно.
-Закрепить IMEI можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `imei`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
+Закрепить IMEI можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `imei`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1000 запросов | 60 мс | 20 запросов |
@@ -8339,7 +8541,7 @@ PutV3OrdersOrderIdMetaImei Закрепить IMEI за сборочным за�
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param orderId ID сборочного задания
@@ -8521,11 +8723,13 @@ func (r ApiPutV3OrdersOrderIdMetaSgtinRequest) Execute() (*http.Response, error)
 /*
 PutV3OrdersOrderIdMetaSgtin Закрепить код маркировки Честного знака за сборочным заданием
 
-Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в идентификаторах маркировки [сборочного задания](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders).
+Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в идентификаторах маркировки [сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders).
 
-Закрепить код маркировки Честного знака можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `sgtin`.
+Закрепить код маркировки Честного знака можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `sgtin`.
 
-Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
+Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1000 запросов | 60 мс | 20 запросов |
@@ -8533,7 +8737,7 @@ PutV3OrdersOrderIdMetaSgtin Закрепить код маркировки Че�
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param orderId ID сборочного задания
@@ -8726,9 +8930,11 @@ func (r ApiPutV3OrdersOrderIdMetaUinRequest) Execute() (*http.Response, error) {
 /*
 PutV3OrdersOrderIdMetaUin Закрепить УИН за сборочным заданием
 
-Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
+Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
 У одного сборочного задания может быть только один УИН.
-Закрепить УИН можно только за сборочным заданием в [статусе](/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `uin`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
+Закрепить УИН можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `uin`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1000 запросов | 60 мс | 20 запросов |
@@ -8736,7 +8942,7 @@ PutV3OrdersOrderIdMetaUin Закрепить УИН за сборочным за
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param orderId ID сборочного задания
@@ -8919,7 +9125,9 @@ func (r ApiPutV3PassesPassIdRequest) Execute() (*http.Response, error) {
 /*
 PutV3PassesPassId Обновить пропуск
 
-Метод обновляет данные [пропуска продавца](/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes). В том числе, можно обновить данные привязанного склада WB.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Метод обновляет данные [пропуска продавца](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes). В том числе, можно обновить данные привязанного склада WB.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -8927,7 +9135,7 @@ PutV3PassesPassId Обновить пропуск
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param passId ID пропуска

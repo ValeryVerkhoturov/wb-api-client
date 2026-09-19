@@ -1,7 +1,7 @@
 /*
 Маркетинг и продвижение
 
-Узнать больше о маркетинге и продвижении можно в [справочном центре](https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)Методы маркетинга и продвижения позволяют: 1. Получать информацию о кампаниях [продвижения](/openapi/promotion#tag/campaigns) и [медиакампаниях](/openapi/promotion#tag/media) 2. [Создавать](/openapi/promotion#tag/creatingCampaigns) и [управлять](/openapi/promotion#tag/campaignManagement) кампаниями 3. Управлять [финансами](/openapi/promotion#tag/finances) кампаний 4. Выгружать [статистику](/openapi/promotion#tag/statistics) кампаний продвижения и медиакампаний 5. Работать с [календарём акций](/openapi/promotion#tag/promoCalendar) Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.  Вы можете протестировать методы продвижения в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/promotion) для управления тестовым балансом
+Узнать больше о маркетинге и продвижении можно в [справочном центре](https://seller.wildberries.ru/instructions/category/59d92bd3-6ea0-40f2-b762-ca8835d7d42e?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)  Методы маркетинга и продвижения позволяют: 1. Получать информацию о кампаниях [продвижения](https://dev.wildberries.ru/openapi/promotion#tag/campaigns) и [медиакампаниях](https://dev.wildberries.ru/openapi/promotion#tag/media) 2. [Создавать](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns) и [управлять](https://dev.wildberries.ru/openapi/promotion#tag/campaignManagement) кампаниями 3. Управлять [финансами](https://dev.wildberries.ru/openapi/promotion#tag/finances) кампаний 4. Выгружать [статистику](https://dev.wildberries.ru/openapi/promotion#tag/statistics) кампаний продвижения и медиакампаний 5. Работать с [календарём акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar) Данные синхронизируются с базой раз в 3 минуты. Статусы кампаний меняются раз в минуту. Ставки кампаний меняются раз в 30 секунд.  Вы можете протестировать методы продвижения в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/promotion) для управления тестовым балансом
 
 API version: promotion
 */
@@ -21,7 +21,7 @@ var _ MappedNullable = &GetV1CalendarPromotions402Response{}
 type GetV1CalendarPromotions402Response struct {
 	// Заголовок ошибки
 	Title *string `json:"title,omitempty"`
-	// Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
+	// Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](https://dev.wildberries.ru/business-solutions)
 	Detail *string `json:"detail,omitempty"`
 }
 

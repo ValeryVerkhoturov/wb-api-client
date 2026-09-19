@@ -1,6 +1,6 @@
 /*
  * Тарифы
- * Узнать больше о тарифах можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section)В разделе описаны методы получения: 1. [Комиссий](/openapi/rates#tag/fees) 2. [Тарифов на поставку](/openapi/rates#tag/supplyRates) 3. [Тарифов на остаток](/openapi/rates#tag/stockRates) 4. [Тарифов на возврат товаров продавцу](/openapi/rates#tag/returnCostToSeller)
+ * Узнать больше о тарифах можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section)  В разделе описаны методы получения: 1. [Комиссий](https://dev.wildberries.ru/openapi/rates#tag/fees) 2. [Тарифов на поставку](https://dev.wildberries.ru/openapi/rates#tag/supplyRates) 3. [Тарифов на остаток](https://dev.wildberries.ru/openapi/rates#tag/stockRates) 4. [Тарифов на возврат товаров продавцу](https://dev.wildberries.ru/openapi/rates#tag/returnCostToSeller)
  *
  * The version of the OpenAPI document: rates
  * 
@@ -156,7 +156,7 @@ public class DefaultApi {
 
     /**
      * Тарифы на поставку
-     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @param warehouseIDs ID складов. По умолчанию возвращаются данные по всем складам (optional)
      * @return List&lt;ModelsAcceptanceCoefficient&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -180,7 +180,7 @@ public class DefaultApi {
 
     /**
      * Тарифы на поставку
-     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @param warehouseIDs ID складов. По умолчанию возвращаются данные по всем складам (optional)
      * @return ApiResponse&lt;List&lt;ModelsAcceptanceCoefficient&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -205,7 +205,7 @@ public class DefaultApi {
 
     /**
      * Тарифы на поставку (asynchronously)
-     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @param warehouseIDs ID складов. По умолчанию возвращаются данные по всем складам (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -309,7 +309,7 @@ public class DefaultApi {
 
     /**
      * Тарифы для коробов
-     * Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на: - доставку со склада или пункта приёма до покупателя - доставку от покупателя до пункта приёма - хранение на складе WBТарифы для коробов совпадают с тарифами для **Суперсейфа**[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на: - доставку со склада или пункта приёма до покупателя - доставку от покупателя до пункта приёма - хранение на складе WB  Тарифы для коробов совпадают с тарифами для **Суперсейфа**  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @param date Дата в формате ГГГГ-ММ-ДД (required)
      * @return RatesBoxResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -331,7 +331,7 @@ public class DefaultApi {
 
     /**
      * Тарифы для коробов
-     * Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на: - доставку со склада или пункта приёма до покупателя - доставку от покупателя до пункта приёма - хранение на складе WBТарифы для коробов совпадают с тарифами для **Суперсейфа**[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на: - доставку со склада или пункта приёма до покупателя - доставку от покупателя до пункта приёма - хранение на складе WB  Тарифы для коробов совпадают с тарифами для **Суперсейфа**  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @param date Дата в формате ГГГГ-ММ-ДД (required)
      * @return ApiResponse&lt;RatesBoxResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -354,7 +354,7 @@ public class DefaultApi {
 
     /**
      * Тарифы для коробов (asynchronously)
-     * Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на: - доставку со склада или пункта приёма до покупателя - доставку от покупателя до пункта приёма - хранение на складе WBТарифы для коробов совпадают с тарифами для **Суперсейфа**[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Для остатков товаров, которые поставляются на склад в коробах, метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories) на: - доставку со склада или пункта приёма до покупателя - доставку от покупателя до пункта приёма - хранение на складе WB  Тарифы для коробов совпадают с тарифами для **Суперсейфа**  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @param date Дата в формате ГГГГ-ММ-ДД (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -451,7 +451,7 @@ public class DefaultApi {
 
     /**
      * Комиссия по категориям товаров
-     * Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) согласно модели продаж.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) согласно модели продаж.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @param locale Язык полей ответа &#x60;parentName&#x60; и &#x60;subjectName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  (optional)
      * @return GetV1TariffsCommission200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -473,7 +473,7 @@ public class DefaultApi {
 
     /**
      * Комиссия по категориям товаров
-     * Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) согласно модели продаж.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) согласно модели продаж.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @param locale Язык полей ответа &#x60;parentName&#x60; и &#x60;subjectName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  (optional)
      * @return ApiResponse&lt;GetV1TariffsCommission200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -496,7 +496,7 @@ public class DefaultApi {
 
     /**
      * Комиссия по категориям товаров (asynchronously)
-     * Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) согласно модели продаж.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) согласно модели продаж.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @param locale Язык полей ответа &#x60;parentName&#x60; и &#x60;subjectName&#x60;:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -598,7 +598,7 @@ public class DefaultApi {
 
     /**
      * Тарифы для монопаллет
-     * Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories): - доставки со склада до покупателя - доставки от покупателя до склада - хранения на складе WBТарифы для монопаллет совпадают с тарифами для **Поштучных паллет**[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories): - доставки со склада до покупателя - доставки от покупателя до склада - хранения на складе WB  Тарифы для монопаллет совпадают с тарифами для **Поштучных паллет**  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @param date Дата в формате ГГГГ-ММ-ДД (required)
      * @return RatesPalletResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -620,7 +620,7 @@ public class DefaultApi {
 
     /**
      * Тарифы для монопаллет
-     * Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories): - доставки со склада до покупателя - доставки от покупателя до склада - хранения на складе WBТарифы для монопаллет совпадают с тарифами для **Поштучных паллет**[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories): - доставки со склада до покупателя - доставки от покупателя до склада - хранения на складе WB  Тарифы для монопаллет совпадают с тарифами для **Поштучных паллет**  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @param date Дата в формате ГГГГ-ММ-ДД (required)
      * @return ApiResponse&lt;RatesPalletResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -643,7 +643,7 @@ public class DefaultApi {
 
     /**
      * Тарифы для монопаллет (asynchronously)
-     * Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories): - доставки со склада до покупателя - доставки от покупателя до склада - хранения на складе WBТарифы для монопаллет совпадают с тарифами для **Поштучных паллет**[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Для товаров, которые поставляются на склад WB на монопаллетах, метод возвращает [стоимость](https://seller.wildberries.ru/dynamic-product-categories): - доставки со склада до покупателя - доставки от покупателя до склада - хранения на складе WB  Тарифы для монопаллет совпадают с тарифами для **Поштучных паллет**  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @param date Дата в формате ГГГГ-ММ-ДД (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -745,7 +745,7 @@ public class DefaultApi {
 
     /**
      * Тарифы на возврат
-     * Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost): - на перевозку товаров со склада WB или из пункта приёма до продавца - на обратную перевозку возвратов, которые не забрал продавец[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost): - на перевозку товаров со склада WB или из пункта приёма до продавца - на обратную перевозку возвратов, которые не забрал продавец  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @param date Дата в формате ГГГГ-ММ-ДД (required)
      * @return ReturnRatesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -767,7 +767,7 @@ public class DefaultApi {
 
     /**
      * Тарифы на возврат
-     * Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost): - на перевозку товаров со склада WB или из пункта приёма до продавца - на обратную перевозку возвратов, которые не забрал продавец[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost): - на перевозку товаров со склада WB или из пункта приёма до продавца - на обратную перевозку возвратов, которые не забрал продавец  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @param date Дата в формате ГГГГ-ММ-ДД (required)
      * @return ApiResponse&lt;ReturnRatesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -790,7 +790,7 @@ public class DefaultApi {
 
     /**
      * Тарифы на возврат (asynchronously)
-     * Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost): - на перевозку товаров со склада WB или из пункта приёма до продавца - на обратную перевозку возвратов, которые не забрал продавец[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод возвращает [тарифы](https://seller.wildberries.ru/dynamic-product-categories/return-cost): - на перевозку товаров со склада WB или из пункта приёма до продавца - на обратную перевозку возвратов, которые не забрал продавец  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Сервисный | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый с секретом | 1 мин | 60 запросов | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @param date Дата в формате ГГГГ-ММ-ДД (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

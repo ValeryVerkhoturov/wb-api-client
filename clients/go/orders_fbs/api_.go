@@ -1,7 +1,7 @@
 /*
 Заказы FBS
 
-С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете: - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/fbsAssemblyOrders) и их статусах, отменять сборочные задания, получать стикеры - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий - управлять [поставками](/openapi/orders-fbs#tag/fbsSupplies) - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/fbsPasses) на склады WB Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceFbs) для эмуляции действий пользователяУзнать, как использовать методы в бизнес-кейсах, можно в [инструкции](/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs) по работе с **заказами FBS**Узнать больше о заказах FBS можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d)
+С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете: - получать информацию о [сборочных заданиях](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders) и их статусах, отменять сборочные задания, получать стикеры - добавлять, редактировать и удалять [идентификаторы маркировки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий - управлять [поставками](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies) - создавать, редактировать и удалять [пропуска](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses) на склады WB Вы можете протестировать методы заказов FBS в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/marketplaceFbs) для эмуляции действий пользователя  Узнать, как использовать методы в бизнес-кейсах, можно в [инструкции](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs) по работе с **заказами FBS**  Узнать больше о заказах FBS можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d)
 
 API version: order
 */
@@ -24,8 +24,12 @@ type DefaultApi interface {
 	/*
 	GetMarketplaceV3FbsSettingsAutoreturns Получить настройки автовозврата продавца
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод возвращает информацию о настройках автовозврата, установленных продавцом.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
+
+Метод возвращает информацию о настройках автовозврата, установленных продавцом.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -43,8 +47,12 @@ type DefaultApi interface {
 	/*
 	GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted Получить предметы, которые не хранятся на складах WB
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
+
+Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -62,8 +70,12 @@ type DefaultApi interface {
 	/*
 	PatchMarketplaceV3FbsSettingsAutoreturns Обновить настройки автовозврата продавца
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод устанавливает настройки автовозврата продавца для малогабаритных товаров — `"cargoType":1`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
+
+Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `"cargoType":1`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -80,8 +92,12 @@ type DefaultApi interface {
 	/*
 	PatchMarketplaceV3FbsSettingsAutoreturnsItems Обновить настройки автовозврата товаров
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод устанавливает настройки автовозврата малогабаритных товаров — `"cargoType":1`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
+
+Метод устанавливает настройки автовозврата малогабаритных товаров — `"cargoType":1`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -99,8 +115,12 @@ type DefaultApi interface {
 	/*
 	PostMarketplaceV3FbsSettingsAutoreturnsItems Получить настройки автовозврата товаров
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод возвращает настройки автовозврата товаров.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
+
+Метод возвращает настройки автовозврата товаров.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -131,8 +151,12 @@ func (r ApiGetMarketplaceV3FbsSettingsAutoreturnsRequest) Execute() (*GetMarketp
 /*
 GetMarketplaceV3FbsSettingsAutoreturns Получить настройки автовозврата продавца
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод возвращает информацию о настройках автовозврата, установленных продавцом.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
+
+Метод возвращает информацию о настройках автовозврата, установленных продавцом.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -295,8 +319,12 @@ func (r ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest)
 /*
 GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted Получить предметы, которые не хранятся на складах WB
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
+
+Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -476,8 +504,12 @@ func (r ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest) Execute() (*http.Res
 /*
 PatchMarketplaceV3FbsSettingsAutoreturns Обновить настройки автовозврата продавца
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод устанавливает настройки автовозврата продавца для малогабаритных товаров — `"cargoType":1`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
+
+Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `"cargoType":1`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -634,8 +666,12 @@ func (r ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest) Execute() (*Pat
 /*
 PatchMarketplaceV3FbsSettingsAutoreturnsItems Обновить настройки автовозврата товаров
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод устанавливает настройки автовозврата малогабаритных товаров — `"cargoType":1`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
+
+Метод устанавливает настройки автовозврата малогабаритных товаров — `"cargoType":1`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
@@ -803,8 +839,12 @@ func (r ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest) Execute() (*Post
 /*
 PostMarketplaceV3FbsSettingsAutoreturnsItems Получить настройки автовозврата товаров
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод возвращает настройки автовозврата товаров.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
+
+Метод возвращает настройки автовозврата товаров.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 300 запросов | 200 мс | 20 запросов |

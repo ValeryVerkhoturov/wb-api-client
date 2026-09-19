@@ -1,7 +1,7 @@
 /*
 Аналитика и данные
 
-Узнать больше об аналитике и данных можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics)В разделе описаны методы получения: 1. [Воронки продаж](/openapi/analytics#tag/salesFunnel) 2. [Ленты заказов](/openapi/analytics#tag/orderFeed) 3. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/searchQueriesForYourItems) 4. [Истории остатков](/openapi/analytics#tag/stocksReport) 5. [Оценки товара](/openapi/analytics#tag/itemRating) 6. [Аналитики продавца в формате CSV](/openapi/analytics#tag/sellerAnalyticsCsv)
+Узнать больше об аналитике и данных можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics)  В разделе описаны методы получения: 1. [Воронки продаж](https://dev.wildberries.ru/openapi/analytics#tag/salesFunnel) 2. [Ленты заказов](https://dev.wildberries.ru/openapi/analytics#tag/orderFeed) 3. [Поисковых запросов по вашим товарам](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems) 4. [Истории остатков](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport) 5. [Оценки товара](https://dev.wildberries.ru/openapi/analytics#tag/itemRating) 6. [Аналитики продавца в формате CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv)
 
 API version: analytics
 */
@@ -24,13 +24,17 @@ type DefaultApi interface {
 	/*
 	PostAnalyticsV1StocksReportSellerWarehouses Остатки на складах продавца
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод возвращает текущие остатки товаров на складах продавца.
+**Сервисному** токену
+
+Метод возвращает текущие остатки товаров на складах продавца.
 
 Данные обновляются 1 раз в 30 минут.
 
-1 строка ответа — данные об 1 размере товара на 1 складе продавца.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+1 строка ответа — данные об 1 размере товара на 1 складе продавца.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 3 запроса | 20 сек | 1 запрос |
@@ -59,7 +63,9 @@ type DefaultApi interface {
 
 Заказы отдаются по времени текущего статуса, от самого нового к самому раннему.
 
-Можно использовать пагинацию.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Можно использовать пагинацию.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -79,14 +85,18 @@ type DefaultApi interface {
 	/*
 	PostV1StocksReportWbWarehouses Остатки на складах WB
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
 **Сервисному** токену,
-**Базовому** токену **с секретом**Метод возвращает текущие остатки товаров на складах WB.
+**Базовому** токену **с секретом**
+
+Метод возвращает текущие остатки товаров на складах WB.
 
 Данные обновляются 1 раз в 30 минут.
 
-1 строка ответа — данные об 1 размере товара на 1 складе WB.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+1 строка ответа — данные об 1 размере товара на 1 складе WB.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 3 запроса | 20 сек | 1 запрос |
@@ -103,11 +113,15 @@ type DefaultApi interface {
 	/*
 	PostV2ItemRating Получить отчёт
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод формирует набор данных об оценках товаров.
+**Сервисному** токену
 
-Данные отчёта обновляются 1 раз в час.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод формирует набор данных об оценках товаров.
+
+Данные отчёта обновляются 1 раз в час.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -127,9 +141,13 @@ type DefaultApi interface {
 	Метод формирует данные для таблицы:
 - о заказах по каждому поисковому запросу для конкретного товара
 - о позициях товара в результатах поиска по каждому запросу
-Данные указаны в рамках периода для [запрошенного товара](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и сгруппированы по дням. Максимальный период — 7 дней.
+Данные указаны в рамках периода для [запрошенного товара](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и сгруппированы по дням. Максимальный период — 7 дней.
 
-Данные отчёта обновляются 1 раз в час.Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные отчёта обновляются 1 раз в час.
+
+Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -155,7 +173,9 @@ type DefaultApi interface {
 - `topOrderBy` — способ выбора топа запросов
 Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
 
-Данные отчёта обновляются 1 раз в час.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные отчёта обновляются 1 раз в час.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -181,13 +201,15 @@ type DefaultApi interface {
 - данными по видимости и переходам в карточку
 - данными для таблицы по группам
 Для получения дополнительных данных в таблице используйте отдельный запрос для:
-- [пагинации по группам](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableGroups)
-- [получения по товарам в группе](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableDetails)
+- [пагинации по группам](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableGroups)
+- [получения по товарам в группе](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableDetails)
 Дополнительный параметр выбора списка товаров в таблице:
 - `positionCluster` — средняя позиция в поиске
 Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
 
-Данные отчёта обновляются 1 раз в час.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные отчёта обновляются 1 раз в час.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -207,7 +229,7 @@ type DefaultApi interface {
 	/*
 	PostV2SearchReportTableDetails Пагинация по товарам в группе
 
-	Метод формирует дополнительные данные к [основному отчёту](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по товарам в группе. Пагинация возможна вне зависимости от наличия фильтров.
+	Метод формирует дополнительные данные к [основному отчёту](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по товарам в группе. Пагинация возможна вне зависимости от наличия фильтров.
 
 Фильтры для пагинации по товарам в группе или без фильтров:
 - кортеж `subjectId`,`brandName`,`tagId` — фильтр для группы
@@ -216,7 +238,9 @@ type DefaultApi interface {
 - `positionCluster` — средняя позиция в поиске
 Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
 
-Данные отчёта обновляются 1 раз в час.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные отчёта обновляются 1 раз в час.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -236,13 +260,15 @@ type DefaultApi interface {
 	/*
 	PostV2SearchReportTableGroups Пагинация по группам
 
-	Метод формирует дополнительные данные к [основному отчёту](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.
+	Метод формирует дополнительные данные к [основному отчёту](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.
 
 Дополнительный параметр выбора списка товаров в таблице:
 - `positionCluster` — средняя позиция в поиске
 Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
 
-Данные отчёта обновляются 1 раз в час.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные отчёта обновляются 1 раз в час.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -266,7 +292,9 @@ type DefaultApi interface {
 
 Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `"regionName":"Свой склад"` и `"offices":[]`.
 
-Данные отчёта обновляются 1 раз в 2 часа.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные отчёта обновляются 1 раз в 2 часа.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -290,7 +318,9 @@ type DefaultApi interface {
 
 Группа товаров описывается кортежем `subjectID, brandName, tagID`.
 
-Данные отчёта обновляются 1 раз в 2 часа.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные отчёта обновляются 1 раз в 2 часа.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -314,7 +344,9 @@ type DefaultApi interface {
 
 Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.
 
-Данные отчёта обновляются 1 раз в 2 часа.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные отчёта обновляются 1 раз в 2 часа.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -341,10 +373,12 @@ type DefaultApi interface {
 2. Товар имеет размеры и `"includeOffice":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам.
 3. Товар не имеет размера и `"includeOffice":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров.
 4. Товар не имеет размера и `"includeOffice":false`, тогда тело ответа будет пустым.
-Товар не имеет размера, если у него единственный размер с `"techSize":"0"`. В ответах метода получения данных по [товарам](/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `"hasSizes":false`.
+Товар не имеет размера, если у него единственный размер с `"techSize":"0"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `"hasSizes":false`.
 Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `"regionName":"Свой склад"` и `"officeName":""`.
 
-Данные отчёта обновляются 1 раз в 2 часа.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные отчёта обновляются 1 раз в 2 часа.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -377,11 +411,15 @@ type DefaultApi interface {
 Малая часть этих данных может появляться в течение нескольких дней.
 
 Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.
-Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/documents-and-accounting#tag/financialReports).
+Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).
 
 Параметры `brandNames`, `subjectIds`, `tagIds` могут быть пустыми `[]`, тогда группировка происходит по всем карточкам продавца.
 
-Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](/openapi/analytics#tag/sellerAnalyticsCsv) — тип `GROUPED_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.
+
+Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv) — тип `GROUPED_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -412,7 +450,7 @@ type DefaultApi interface {
 Малая часть этих данных может появляться в течение нескольких дней.
 
 Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.
-Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/documents-and-accounting#tag/financialReports).
+Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).
 
 Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все карточки продавца.
 
@@ -423,7 +461,9 @@ type DefaultApi interface {
 В данных предыдущего периода:
 \* Данные в `pastPeriod` указаны за такой же период, что и в `selectedPeriod`
 \* Если дата начала `pastPeriod` раньше, чем год назад от текущей даты, она будет приведена к виду: `pastPeriod.start = текущая дата — 365 дней`
-Можно использовать пагинацию.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Можно использовать пагинацию.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -455,7 +495,11 @@ type DefaultApi interface {
 Малая часть этих данных может появляться в течение нескольких дней.
 
 Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.
-Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/documents-and-accounting#tag/financialReports).Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](/openapi/analytics#tag/sellerAnalyticsCsv) — тип `DETAIL_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).
+
+Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv) — тип `DETAIL_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -494,13 +538,17 @@ func (r ApiPostAnalyticsV1StocksReportSellerWarehousesRequest) Execute() (*PostA
 /*
 PostAnalyticsV1StocksReportSellerWarehouses Остатки на складах продавца
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод возвращает текущие остатки товаров на складах продавца.
+**Сервисному** токену
+
+Метод возвращает текущие остатки товаров на складах продавца.
 
 Данные обновляются 1 раз в 30 минут.
 
-1 строка ответа — данные об 1 размере товара на 1 складе продавца.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+1 строка ответа — данные об 1 размере товара на 1 складе продавца.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 3 запроса | 20 сек | 1 запрос |
@@ -668,7 +716,9 @@ PostV1OrderFeed Получить отчёт
 
 Заказы отдаются по времени текущего статуса, от самого нового к самому раннему.
 
-Можно использовать пагинацию.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Можно использовать пагинацию.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -824,14 +874,18 @@ func (r ApiPostV1StocksReportWbWarehousesRequest) Execute() (*PostV1StocksReport
 /*
 PostV1StocksReportWbWarehouses Остатки на складах WB
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
 **Сервисному** токену,
-**Базовому** токену **с секретом**Метод возвращает текущие остатки товаров на складах WB.
+**Базовому** токену **с секретом**
+
+Метод возвращает текущие остатки товаров на складах WB.
 
 Данные обновляются 1 раз в 30 минут.
 
-1 строка ответа — данные об 1 размере товара на 1 складе WB.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+1 строка ответа — данные об 1 размере товара на 1 складе WB.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 3 запроса | 20 сек | 1 запрос |
@@ -998,11 +1052,15 @@ func (r ApiPostV2ItemRatingRequest) Execute() (*PostV2ItemRatingResponse200, *ht
 /*
 PostV2ItemRating Получить отчёт
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод формирует набор данных об оценках товаров.
+**Сервисному** токену
 
-Данные отчёта обновляются 1 раз в час.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод формирует набор данных об оценках товаров.
+
+Данные отчёта обновляются 1 раз в час.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -1161,9 +1219,13 @@ PostV2SearchReportProductOrders Заказы и позиции по поиско
 Метод формирует данные для таблицы:
 - о заказах по каждому поисковому запросу для конкретного товара
 - о позициях товара в результатах поиска по каждому запросу
-Данные указаны в рамках периода для [запрошенного товара](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и сгруппированы по дням. Максимальный период — 7 дней.
+Данные указаны в рамках периода для [запрошенного товара](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportProductSearchTexts) и сгруппированы по дням. Максимальный период — 7 дней.
 
-Данные отчёта обновляются 1 раз в час.Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные отчёта обновляются 1 раз в час.
+
+Можно получить отчёт максимум за последние 365 дней с момента выполнения запроса
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -1339,7 +1401,9 @@ PostV2SearchReportProductSearchTexts Поисковые запросы по то
 - `topOrderBy` — способ выбора топа запросов
 Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
 
-Данные отчёта обновляются 1 раз в час.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные отчёта обновляются 1 раз в час.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -1515,13 +1579,15 @@ PostV2SearchReportReport Основная страница
 - данными по видимости и переходам в карточку
 - данными для таблицы по группам
 Для получения дополнительных данных в таблице используйте отдельный запрос для:
-- [пагинации по группам](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableGroups)
-- [получения по товарам в группе](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableDetails)
+- [пагинации по группам](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableGroups)
+- [получения по товарам в группе](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportTableDetails)
 Дополнительный параметр выбора списка товаров в таблице:
 - `positionCluster` — средняя позиция в поиске
 Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
 
-Данные отчёта обновляются 1 раз в час.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные отчёта обновляются 1 раз в час.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -1691,7 +1757,7 @@ func (r ApiPostV2SearchReportTableDetailsRequest) Execute() (*PostV2SearchReport
 /*
 PostV2SearchReportTableDetails Пагинация по товарам в группе
 
-Метод формирует дополнительные данные к [основному отчёту](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по товарам в группе. Пагинация возможна вне зависимости от наличия фильтров.
+Метод формирует дополнительные данные к [основному отчёту](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по товарам в группе. Пагинация возможна вне зависимости от наличия фильтров.
 
 Фильтры для пагинации по товарам в группе или без фильтров:
 - кортеж `subjectId`,`brandName`,`tagId` — фильтр для группы
@@ -1700,7 +1766,9 @@ PostV2SearchReportTableDetails Пагинация по товарам в гру�
 - `positionCluster` — средняя позиция в поиске
 Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
 
-Данные отчёта обновляются 1 раз в час.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные отчёта обновляются 1 раз в час.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -1870,13 +1938,15 @@ func (r ApiPostV2SearchReportTableGroupsRequest) Execute() (*PostV2SearchReportT
 /*
 PostV2SearchReportTableGroups Пагинация по группам
 
-Метод формирует дополнительные данные к [основному отчёту](/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.
+Метод формирует дополнительные данные к [основному отчёту](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems/operation/postV2SearchReportReport) с пагинацией по группам. Пагинация возможна только при наличии фильтра по бренду, предмету или ярлыку.
 
 Дополнительный параметр выбора списка товаров в таблице:
 - `positionCluster` — средняя позиция в поиске
 Параметры `includeSubstitutedSKUs` и `includeSearchTexts` не могут одновременно иметь значение `false`.
 
-Данные отчёта обновляются 1 раз в час.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные отчёта обновляются 1 раз в час.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -2050,7 +2120,9 @@ PostV2StocksReportOffices Данные по складам
 
 Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `"regionName":"Свой склад"` и `"offices":[]`.
 
-Данные отчёта обновляются 1 раз в 2 часа.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные отчёта обновляются 1 раз в 2 часа.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -2224,7 +2296,9 @@ PostV2StocksReportProductsGroups Данные по группам
 
 Группа товаров описывается кортежем `subjectID, brandName, tagID`.
 
-Данные отчёта обновляются 1 раз в 2 часа.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные отчёта обновляются 1 раз в 2 часа.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -2398,7 +2472,9 @@ PostV2StocksReportProductsProducts Данные по товарам
 
 Можно получить данные как по отдельным товарам, так и в рамках всего отчёта — если в запросе отсутствуют фильтры: `nmIDs`, `subjectID`, `brandName`, `tagID`.
 
-Данные отчёта обновляются 1 раз в 2 часа.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные отчёта обновляются 1 раз в 2 часа.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -2575,10 +2651,12 @@ PostV2StocksReportProductsSizes Данные по размерам
 2. Товар имеет размеры и `"includeOffice":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам.
 3. Товар не имеет размера и `"includeOffice":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров.
 4. Товар не имеет размера и `"includeOffice":false`, тогда тело ответа будет пустым.
-Товар не имеет размера, если у него единственный размер с `"techSize":"0"`. В ответах метода получения данных по [товарам](/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `"hasSizes":false`.
+Товар не имеет размера, если у него единственный размер с `"techSize":"0"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `"hasSizes":false`.
 Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `"regionName":"Свой склад"` и `"officeName":""`.
 
-Данные отчёта обновляются 1 раз в 2 часа.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные отчёта обновляются 1 раз в 2 часа.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -2761,11 +2839,15 @@ PostV3SalesFunnelGroupedHistory Статистика групп карточек
 Малая часть этих данных может появляться в течение нескольких дней.
 
 Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.
-Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/documents-and-accounting#tag/financialReports).
+Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).
 
 Параметры `brandNames`, `subjectIds`, `tagIds` могут быть пустыми `[]`, тогда группировка происходит по всем карточкам продавца.
 
-Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](/openapi/analytics#tag/sellerAnalyticsCsv) — тип `GROUPED_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Произведение количества предметов, брендов, ярлыков в запросе может быть не больше 16. Например, 4 бренда и 4 предмета или 2 предмета, 2 ярлыка и 4 бренда.
+
+Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv) — тип `GROUPED_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -2946,7 +3028,7 @@ PostV3SalesFunnelProducts Статистика карточек товаров �
 Малая часть этих данных может появляться в течение нескольких дней.
 
 Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.
-Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/documents-and-accounting#tag/financialReports).
+Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).
 
 Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все карточки продавца.
 
@@ -2957,7 +3039,9 @@ PostV3SalesFunnelProducts Статистика карточек товаров �
 В данных предыдущего периода:
 \* Данные в `pastPeriod` указаны за такой же период, что и в `selectedPeriod`
 \* Если дата начала `pastPeriod` раньше, чем год назад от текущей даты, она будет приведена к виду: `pastPeriod.start = текущая дата — 365 дней`
-Можно использовать пагинацию.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Можно использовать пагинацию.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |
@@ -3139,7 +3223,11 @@ PostV3SalesFunnelProductsHistory Статистика карточек това�
 Малая часть этих данных может появляться в течение нескольких дней.
 
 Выкупы, отмены и возвраты отображаются в отчёте за тот день, когда товар был заказан. Например, если заказ был сделан 1 января, а покупатель вернул товар 10 января, данные об этом возврате появятся в отчёте за 1 января.
-Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](/openapi/documents-and-accounting#tag/financialReports).Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](/openapi/analytics#tag/sellerAnalyticsCsv) — тип `DETAIL_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Окончательные итоги продаж вы можете отслеживать с помощью [детализаций к отчётам реализации](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports).
+
+Чтобы получать отчёты за период до года, используйте методы [Аналитика продавца CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv) — тип `DETAIL_HISTORY_REPORT`. Отчёты этого типа доступны только с подпиской [Джем](https://seller.wildberries.ru/monetization/jam)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса |

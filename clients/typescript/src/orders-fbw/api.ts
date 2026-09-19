@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Поставки FBW
- * Узнать больше о поставках FBW можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)В разделе описаны методы получения: - [информации для формирования поставок](/openapi/orders-fbw#tag/informationForFormingSupplies) - [информации о поставках](/openapi/orders-fbw#tag/suppliesInformation) Вы можете создавать карточки товара в песочнице [Контента](/openapi/api-information#tag/authorization/Kategorii-tokenov), а потом использовать баркоды товаров в [песочнице](/sandbox) Поставок
+ * Узнать больше о поставках FBW можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)  В разделе описаны методы получения: - [информации для формирования поставок](https://dev.wildberries.ru/openapi/orders-fbw#tag/informationForFormingSupplies) - [информации о поставках](https://dev.wildberries.ru/openapi/orders-fbw#tag/suppliesInformation) Вы можете создавать карточки товара в песочнице [Контента](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov), а потом использовать баркоды товаров в [песочнице](https://dev.wildberries.ru/sandbox) Поставок
  *
  * The version of the OpenAPI document: ordersfbw
  * 
@@ -1304,7 +1304,7 @@ export interface PostV1AcceptanceOptions402Response {
      */
     'title'?: string;
     /**
-     * Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
+     * Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](https://dev.wildberries.ru/business-solutions)
      * @type {string}
      * @memberof PostV1AcceptanceOptions402Response
      */
@@ -1428,7 +1428,7 @@ export interface Response4XX {
 export const DefaultApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод удаляет черновик поставки по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет черновик поставки по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
          * @summary Удалить черновик
          * @param {string} draftId ID черновика
          * @param {*} [options] Override http request option.
@@ -1466,7 +1466,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод удаляет товары из черновика поставки по списку баркодов.Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет товары из черновика поставки по списку баркодов.  Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
          * @summary Удалить товары из черновика
          * @param {string} draftId ID черновика
          * @param {ModelsDraftDeleteitemsRequest} modelsDraftDeleteitemsRequest 
@@ -1510,7 +1510,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод возвращает список черновиков поставок.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список черновиков поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
          * @summary Список черновиков
          * @param {number} [limit] Количество черновиков в ответе
          * @param {number} [offset] Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
@@ -1564,7 +1564,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод возвращает список товаров черновика.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список товаров черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
          * @summary Список товаров в черновике
          * @param {string} draftId ID черновика
          * @param {*} [options] Override http request option.
@@ -1602,7 +1602,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает детали поставки по ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+         * Метод возвращает детали поставки по ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
          * @summary Детали поставки
          * @param {number} iD ID поставки или заказа
          * @param {boolean} [isPreorderID] Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки 
@@ -1645,7 +1645,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает информацию о товарах в поставке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+         * Метод возвращает информацию о товарах в поставке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
          * @summary Товары поставки
          * @param {number} iD ID поставки или заказа
          * @param {number} [limit] Количество записей в ответе
@@ -1698,7 +1698,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает информацию об упаковке поставки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+         * Метод возвращает информацию об упаковке поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
          * @summary Упаковка поставки
          * @param {number} iD ID поставки
          * @param {*} [options] Override http request option.
@@ -1736,7 +1736,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токенуМетод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.  Для поставок принятых не позднее года назад.  \\*\\*Типы расхождений:\\*\\*  Расхождение в большую сторону:  1. Избыток товара с заявленным баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"re-sorting\"` Расхождение в меньшую сторону:  1. Не хватает товара: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"re-sorting\"`[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.  Для поставок принятых не позднее года назад.  \\*\\*Типы расхождений:\\*\\*  Расхождение в большую сторону:  1. Избыток товара с заявленным баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"re-sorting\"` Расхождение в меньшую сторону:  1. Не хватает товара: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"re-sorting\"`  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |
          * @summary Расхождения в поставке
          * @param {number} supplyId ID поставки
          * @param {*} [options] Override http request option.
@@ -1774,7 +1774,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
+         * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
          * @summary Транзитные направления
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1808,7 +1808,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+         * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
          * @summary Список складов
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1841,7 +1841,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+         * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
          * @summary Опции приёмки
          * @param {Array<ModelsGood>} modelsGood 
          * @param {number} [warehouseID] ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*
@@ -1885,7 +1885,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод создаёт пустой черновик поставки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод создаёт пустой черновик поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
          * @summary Создать черновик
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1919,7 +1919,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод добавляет товары в черновик поставки.Метод работает по принципу атомарности: - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{\"results\":[]}` - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод добавляет товары в черновик поставки.  Метод работает по принципу атомарности: - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{\"results\":[]}` - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
          * @summary Добавить товары в черновик
          * @param {string} draftId ID черновика
          * @param {ModelsDraftAdditemsRequest} modelsDraftAdditemsRequest 
@@ -1963,7 +1963,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Метод возвращает список поставок, по умолчанию — последние 1000 поставок.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+         * Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
          * @summary Список поставок
          * @param {ModelsSuppliesFiltersRequest} modelsSuppliesFiltersRequest 
          * @param {number} [limit] Количество записей в ответе
@@ -2023,7 +2023,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration)
     return {
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод удаляет черновик поставки по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет черновик поставки по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
          * @summary Удалить черновик
          * @param {string} draftId ID черновика
          * @param {*} [options] Override http request option.
@@ -2036,7 +2036,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод удаляет товары из черновика поставки по списку баркодов.Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет товары из черновика поставки по списку баркодов.  Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
          * @summary Удалить товары из черновика
          * @param {string} draftId ID черновика
          * @param {ModelsDraftDeleteitemsRequest} modelsDraftDeleteitemsRequest 
@@ -2050,7 +2050,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод возвращает список черновиков поставок.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список черновиков поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
          * @summary Список черновиков
          * @param {number} [limit] Количество черновиков в ответе
          * @param {number} [offset] Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
@@ -2066,7 +2066,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод возвращает список товаров черновика.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список товаров черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
          * @summary Список товаров в черновике
          * @param {string} draftId ID черновика
          * @param {*} [options] Override http request option.
@@ -2079,7 +2079,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает детали поставки по ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+         * Метод возвращает детали поставки по ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
          * @summary Детали поставки
          * @param {number} iD ID поставки или заказа
          * @param {boolean} [isPreorderID] Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки 
@@ -2093,7 +2093,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает информацию о товарах в поставке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+         * Метод возвращает информацию о товарах в поставке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
          * @summary Товары поставки
          * @param {number} iD ID поставки или заказа
          * @param {number} [limit] Количество записей в ответе
@@ -2109,7 +2109,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает информацию об упаковке поставки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+         * Метод возвращает информацию об упаковке поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
          * @summary Упаковка поставки
          * @param {number} iD ID поставки
          * @param {*} [options] Override http request option.
@@ -2122,7 +2122,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токенуМетод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.  Для поставок принятых не позднее года назад.  \\*\\*Типы расхождений:\\*\\*  Расхождение в большую сторону:  1. Избыток товара с заявленным баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"re-sorting\"` Расхождение в меньшую сторону:  1. Не хватает товара: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"re-sorting\"`[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.  Для поставок принятых не позднее года назад.  \\*\\*Типы расхождений:\\*\\*  Расхождение в большую сторону:  1. Избыток товара с заявленным баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"re-sorting\"` Расхождение в меньшую сторону:  1. Не хватает товара: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"re-sorting\"`  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |
          * @summary Расхождения в поставке
          * @param {number} supplyId ID поставки
          * @param {*} [options] Override http request option.
@@ -2135,7 +2135,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
+         * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
          * @summary Транзитные направления
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2147,7 +2147,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+         * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
          * @summary Список складов
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2159,7 +2159,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+         * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
          * @summary Опции приёмки
          * @param {Array<ModelsGood>} modelsGood 
          * @param {number} [warehouseID] ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*
@@ -2173,7 +2173,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод создаёт пустой черновик поставки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод создаёт пустой черновик поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
          * @summary Создать черновик
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2185,7 +2185,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод добавляет товары в черновик поставки.Метод работает по принципу атомарности: - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{\"results\":[]}` - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод добавляет товары в черновик поставки.  Метод работает по принципу атомарности: - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{\"results\":[]}` - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
          * @summary Добавить товары в черновик
          * @param {string} draftId ID черновика
          * @param {ModelsDraftAdditemsRequest} modelsDraftAdditemsRequest 
@@ -2199,7 +2199,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Метод возвращает список поставок, по умолчанию — последние 1000 поставок.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+         * Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
          * @summary Список поставок
          * @param {ModelsSuppliesFiltersRequest} modelsSuppliesFiltersRequest 
          * @param {number} [limit] Количество записей в ответе
@@ -2224,7 +2224,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = DefaultApiFp(configuration)
     return {
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод удаляет черновик поставки по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет черновик поставки по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
          * @summary Удалить черновик
          * @param {string} draftId ID черновика
          * @param {*} [options] Override http request option.
@@ -2234,7 +2234,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.deleteV1DraftsDraftId(draftId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод удаляет товары из черновика поставки по списку баркодов.Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет товары из черновика поставки по списку баркодов.  Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
          * @summary Удалить товары из черновика
          * @param {string} draftId ID черновика
          * @param {ModelsDraftDeleteitemsRequest} modelsDraftDeleteitemsRequest 
@@ -2245,7 +2245,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.deleteV1DraftsDraftIdItems(draftId, modelsDraftDeleteitemsRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод возвращает список черновиков поставок.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список черновиков поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
          * @summary Список черновиков
          * @param {number} [limit] Количество черновиков в ответе
          * @param {number} [offset] Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
@@ -2258,7 +2258,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1Drafts(limit, offset, sort, order, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод возвращает список товаров черновика.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список товаров черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
          * @summary Список товаров в черновике
          * @param {string} draftId ID черновика
          * @param {*} [options] Override http request option.
@@ -2268,7 +2268,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1DraftsDraftIdItems(draftId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает детали поставки по ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+         * Метод возвращает детали поставки по ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
          * @summary Детали поставки
          * @param {number} iD ID поставки или заказа
          * @param {boolean} [isPreorderID] Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки 
@@ -2279,7 +2279,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1SuppliesId(iD, isPreorderID, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает информацию о товарах в поставке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+         * Метод возвращает информацию о товарах в поставке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
          * @summary Товары поставки
          * @param {number} iD ID поставки или заказа
          * @param {number} [limit] Количество записей в ответе
@@ -2292,7 +2292,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1SuppliesIdGoods(iD, limit, offset, isPreorderID, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает информацию об упаковке поставки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+         * Метод возвращает информацию об упаковке поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
          * @summary Упаковка поставки
          * @param {number} iD ID поставки
          * @param {*} [options] Override http request option.
@@ -2302,7 +2302,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1SuppliesIdPackage(iD, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токенуМетод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.  Для поставок принятых не позднее года назад.  \\*\\*Типы расхождений:\\*\\*  Расхождение в большую сторону:  1. Избыток товара с заявленным баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"re-sorting\"` Расхождение в меньшую сторону:  1. Не хватает товара: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"re-sorting\"`[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.  Для поставок принятых не позднее года назад.  \\*\\*Типы расхождений:\\*\\*  Расхождение в большую сторону:  1. Избыток товара с заявленным баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"re-sorting\"` Расхождение в меньшую сторону:  1. Не хватает товара: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"re-sorting\"`  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |
          * @summary Расхождения в поставке
          * @param {number} supplyId ID поставки
          * @param {*} [options] Override http request option.
@@ -2312,7 +2312,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1SuppliesSupplyIdDiscrepanciesQuantity(supplyId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
+         * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
          * @summary Транзитные направления
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2321,7 +2321,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1TransitTariffs(options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+         * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
          * @summary Список складов
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2330,7 +2330,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getV1Warehouses(options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+         * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
          * @summary Опции приёмки
          * @param {Array<ModelsGood>} modelsGood 
          * @param {number} [warehouseID] ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*
@@ -2341,7 +2341,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.postV1AcceptanceOptions(modelsGood, warehouseID, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод создаёт пустой черновик поставки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод создаёт пустой черновик поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
          * @summary Создать черновик
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2350,7 +2350,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.postV1Drafts(options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод добавляет товары в черновик поставки.Метод работает по принципу атомарности: - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{\"results\":[]}` - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+         * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод добавляет товары в черновик поставки.  Метод работает по принципу атомарности: - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{\"results\":[]}` - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
          * @summary Добавить товары в черновик
          * @param {string} draftId ID черновика
          * @param {ModelsDraftAdditemsRequest} modelsDraftAdditemsRequest 
@@ -2361,7 +2361,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.postV1DraftsDraftIdItems(draftId, modelsDraftAdditemsRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * Метод возвращает список поставок, по умолчанию — последние 1000 поставок.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+         * Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
          * @summary Список поставок
          * @param {ModelsSuppliesFiltersRequest} modelsSuppliesFiltersRequest 
          * @param {number} [limit] Количество записей в ответе
@@ -2382,7 +2382,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
  */
 export interface DefaultApiInterface {
     /**
-     * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод удаляет черновик поставки по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет черновик поставки по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
      * @summary Удалить черновик
      * @param {string} draftId ID черновика
      * @param {*} [options] Override http request option.
@@ -2392,7 +2392,7 @@ export interface DefaultApiInterface {
     deleteV1DraftsDraftId(draftId: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
-     * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод удаляет товары из черновика поставки по списку баркодов.Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет товары из черновика поставки по списку баркодов.  Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
      * @summary Удалить товары из черновика
      * @param {string} draftId ID черновика
      * @param {ModelsDraftDeleteitemsRequest} modelsDraftDeleteitemsRequest 
@@ -2403,7 +2403,7 @@ export interface DefaultApiInterface {
     deleteV1DraftsDraftIdItems(draftId: string, modelsDraftDeleteitemsRequest: ModelsDraftDeleteitemsRequest, options?: RawAxiosRequestConfig): AxiosPromise<ModelsDraftDeleteItemsErrorResponse>;
 
     /**
-     * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод возвращает список черновиков поставок.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список черновиков поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
      * @summary Список черновиков
      * @param {number} [limit] Количество черновиков в ответе
      * @param {number} [offset] Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
@@ -2416,7 +2416,7 @@ export interface DefaultApiInterface {
     getV1Drafts(limit?: number, offset?: number, sort?: GetV1DraftsSortEnum, order?: GetV1DraftsOrderEnum, options?: RawAxiosRequestConfig): AxiosPromise<ModelsListDraftsResponse>;
 
     /**
-     * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод возвращает список товаров черновика.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список товаров черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
      * @summary Список товаров в черновике
      * @param {string} draftId ID черновика
      * @param {*} [options] Override http request option.
@@ -2426,7 +2426,7 @@ export interface DefaultApiInterface {
     getV1DraftsDraftIdItems(draftId: string, options?: RawAxiosRequestConfig): AxiosPromise<ModelsListDraftItemsResponse>;
 
     /**
-     * Метод возвращает детали поставки по ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+     * Метод возвращает детали поставки по ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
      * @summary Детали поставки
      * @param {number} iD ID поставки или заказа
      * @param {boolean} [isPreorderID] Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки 
@@ -2437,7 +2437,7 @@ export interface DefaultApiInterface {
     getV1SuppliesId(iD: number, isPreorderID?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<ModelsSupplyDetails>;
 
     /**
-     * Метод возвращает информацию о товарах в поставке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+     * Метод возвращает информацию о товарах в поставке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
      * @summary Товары поставки
      * @param {number} iD ID поставки или заказа
      * @param {number} [limit] Количество записей в ответе
@@ -2450,7 +2450,7 @@ export interface DefaultApiInterface {
     getV1SuppliesIdGoods(iD: number, limit?: number, offset?: number, isPreorderID?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<Array<ModelsGoodInSupply>>;
 
     /**
-     * Метод возвращает информацию об упаковке поставки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+     * Метод возвращает информацию об упаковке поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
      * @summary Упаковка поставки
      * @param {number} iD ID поставки
      * @param {*} [options] Override http request option.
@@ -2460,7 +2460,7 @@ export interface DefaultApiInterface {
     getV1SuppliesIdPackage(iD: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<ModelsBox>>;
 
     /**
-     * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токенуМетод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.  Для поставок принятых не позднее года назад.  \\*\\*Типы расхождений:\\*\\*  Расхождение в большую сторону:  1. Избыток товара с заявленным баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"re-sorting\"` Расхождение в меньшую сторону:  1. Не хватает товара: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"re-sorting\"`[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.  Для поставок принятых не позднее года назад.  \\*\\*Типы расхождений:\\*\\*  Расхождение в большую сторону:  1. Избыток товара с заявленным баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"re-sorting\"` Расхождение в меньшую сторону:  1. Не хватает товара: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"re-sorting\"`  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |
      * @summary Расхождения в поставке
      * @param {number} supplyId ID поставки
      * @param {*} [options] Override http request option.
@@ -2470,7 +2470,7 @@ export interface DefaultApiInterface {
     getV1SuppliesSupplyIdDiscrepanciesQuantity(supplyId: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<ModelsItemDiscrepancyResponse>>;
 
     /**
-     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
+     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
      * @summary Транзитные направления
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2479,7 +2479,7 @@ export interface DefaultApiInterface {
     getV1TransitTariffs(options?: RawAxiosRequestConfig): AxiosPromise<Array<ModelsTransitTariff>>;
 
     /**
-     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
      * @summary Список складов
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2488,7 +2488,7 @@ export interface DefaultApiInterface {
     getV1Warehouses(options?: RawAxiosRequestConfig): AxiosPromise<Array<ModelsWarehousesResultItems>>;
 
     /**
-     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
      * @summary Опции приёмки
      * @param {Array<ModelsGood>} modelsGood 
      * @param {number} [warehouseID] ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*
@@ -2499,7 +2499,7 @@ export interface DefaultApiInterface {
     postV1AcceptanceOptions(modelsGood: Array<ModelsGood>, warehouseID?: number, options?: RawAxiosRequestConfig): AxiosPromise<ModelsOptionsResultModel>;
 
     /**
-     * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод создаёт пустой черновик поставки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод создаёт пустой черновик поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
      * @summary Создать черновик
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2508,7 +2508,7 @@ export interface DefaultApiInterface {
     postV1Drafts(options?: RawAxiosRequestConfig): AxiosPromise<ModelsDraftCreateResponse>;
 
     /**
-     * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод добавляет товары в черновик поставки.Метод работает по принципу атомарности: - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{\"results\":[]}` - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод добавляет товары в черновик поставки.  Метод работает по принципу атомарности: - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{\"results\":[]}` - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
      * @summary Добавить товары в черновик
      * @param {string} draftId ID черновика
      * @param {ModelsDraftAdditemsRequest} modelsDraftAdditemsRequest 
@@ -2519,7 +2519,7 @@ export interface DefaultApiInterface {
     postV1DraftsDraftIdItems(draftId: string, modelsDraftAdditemsRequest: ModelsDraftAdditemsRequest, options?: RawAxiosRequestConfig): AxiosPromise<ModelsDraftAddItemsErrorResponse>;
 
     /**
-     * Метод возвращает список поставок, по умолчанию — последние 1000 поставок.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+     * Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
      * @summary Список поставок
      * @param {ModelsSuppliesFiltersRequest} modelsSuppliesFiltersRequest 
      * @param {number} [limit] Количество записей в ответе
@@ -2540,7 +2540,7 @@ export interface DefaultApiInterface {
  */
 export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     /**
-     * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод удаляет черновик поставки по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет черновик поставки по его ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
      * @summary Удалить черновик
      * @param {string} draftId ID черновика
      * @param {*} [options] Override http request option.
@@ -2552,7 +2552,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод удаляет товары из черновика поставки по списку баркодов.Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод удаляет товары из черновика поставки по списку баркодов.  Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
      * @summary Удалить товары из черновика
      * @param {string} draftId ID черновика
      * @param {ModelsDraftDeleteitemsRequest} modelsDraftDeleteitemsRequest 
@@ -2565,7 +2565,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод возвращает список черновиков поставок.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список черновиков поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
      * @summary Список черновиков
      * @param {number} [limit] Количество черновиков в ответе
      * @param {number} [offset] Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
@@ -2580,7 +2580,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод возвращает список товаров черновика.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает список товаров черновика.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
      * @summary Список товаров в черновике
      * @param {string} draftId ID черновика
      * @param {*} [options] Override http request option.
@@ -2592,7 +2592,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает детали поставки по ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+     * Метод возвращает детали поставки по ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
      * @summary Детали поставки
      * @param {number} iD ID поставки или заказа
      * @param {boolean} [isPreorderID] Поиск по:   - &#x60;true&#x60; — ID заказа, если в &#x60;ID&#x60; передаёте ID заказа   - &#x60;false&#x60; — ID поставки, если в &#x60;ID&#x60; передаёте ID поставки 
@@ -2605,7 +2605,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает информацию о товарах в поставке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+     * Метод возвращает информацию о товарах в поставке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
      * @summary Товары поставки
      * @param {number} iD ID поставки или заказа
      * @param {number} [limit] Количество записей в ответе
@@ -2620,7 +2620,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает информацию об упаковке поставки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+     * Метод возвращает информацию об упаковке поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
      * @summary Упаковка поставки
      * @param {number} iD ID поставки
      * @param {*} [options] Override http request option.
@@ -2632,7 +2632,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токенуМетод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.  Для поставок принятых не позднее года назад.  \\*\\*Типы расхождений:\\*\\*  Расхождение в большую сторону:  1. Избыток товара с заявленным баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"re-sorting\"` Расхождение в меньшую сторону:  1. Не хватает товара: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"re-sorting\"`[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.  Для поставок принятых не позднее года назад.  \\*\\*Типы расхождений:\\*\\*  Расхождение в большую сторону:  1. Избыток товара с заявленным баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"surplus\"` 2. Избыток товара с несоответствующим заявленному баркодом: - `\"discrepancyType\": \"surplus\"` - `\"discrepancyLabel\": \"re-sorting\"` Расхождение в меньшую сторону:  1. Не хватает товара: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"shortage\"` 2. Некоторые баркоды не соответствуют заявленным: - `\"discrepancyType\": \"shortage\"` - `\"discrepancyLabel\": \"re-sorting\"`  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 1 запрос |
      * @summary Расхождения в поставке
      * @param {number} supplyId ID поставки
      * @param {*} [options] Override http request option.
@@ -2644,7 +2644,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
+     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 10 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |
      * @summary Транзитные направления
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2655,7 +2655,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
      * @summary Список складов
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2666,7 +2666,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
      * @summary Опции приёмки
      * @param {Array<ModelsGood>} modelsGood 
      * @param {number} [warehouseID] ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*
@@ -2679,7 +2679,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод создаёт пустой черновик поставки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод создаёт пустой черновик поставки.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
      * @summary Создать черновик
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2690,7 +2690,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токенуМетод добавляет товары в черновик поставки.Метод работает по принципу атомарности: - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{\"results\":[]}` - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод добавляет товары в черновик поставки.  Метод работает по принципу атомарности: - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{\"results\":[]}` - если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 30 запросов | 2 сек | 10 запросов |
      * @summary Добавить товары в черновик
      * @param {string} draftId ID черновика
      * @param {ModelsDraftAdditemsRequest} modelsDraftAdditemsRequest 
@@ -2703,7 +2703,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
     }
 
     /**
-     * Метод возвращает список поставок, по умолчанию — последние 1000 поставок.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+     * Метод возвращает список поставок, по умолчанию — последние 1000 поставок.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Сервисный | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый с секретом | 1 мин | 30 запросов | 2 сек | 10 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
      * @summary Список поставок
      * @param {ModelsSuppliesFiltersRequest} modelsSuppliesFiltersRequest 
      * @param {number} [limit] Количество записей в ответе

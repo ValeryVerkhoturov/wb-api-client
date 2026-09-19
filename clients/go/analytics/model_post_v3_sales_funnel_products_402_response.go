@@ -1,7 +1,7 @@
 /*
 Аналитика и данные
 
-Узнать больше об аналитике и данных можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics)В разделе описаны методы получения: 1. [Воронки продаж](/openapi/analytics#tag/salesFunnel) 2. [Ленты заказов](/openapi/analytics#tag/orderFeed) 3. [Поисковых запросов по вашим товарам](/openapi/analytics#tag/searchQueriesForYourItems) 4. [Истории остатков](/openapi/analytics#tag/stocksReport) 5. [Оценки товара](/openapi/analytics#tag/itemRating) 6. [Аналитики продавца в формате CSV](/openapi/analytics#tag/sellerAnalyticsCsv)
+Узнать больше об аналитике и данных можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/subcategory/seller-analytics)  В разделе описаны методы получения: 1. [Воронки продаж](https://dev.wildberries.ru/openapi/analytics#tag/salesFunnel) 2. [Ленты заказов](https://dev.wildberries.ru/openapi/analytics#tag/orderFeed) 3. [Поисковых запросов по вашим товарам](https://dev.wildberries.ru/openapi/analytics#tag/searchQueriesForYourItems) 4. [Истории остатков](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport) 5. [Оценки товара](https://dev.wildberries.ru/openapi/analytics#tag/itemRating) 6. [Аналитики продавца в формате CSV](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv)
 
 API version: analytics
 */
@@ -21,7 +21,7 @@ var _ MappedNullable = &PostV3SalesFunnelProducts402Response{}
 type PostV3SalesFunnelProducts402Response struct {
 	// Заголовок ошибки
 	Title *string `json:"title,omitempty"`
-	// Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
+	// Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](https://dev.wildberries.ru/business-solutions)
 	Detail *string `json:"detail,omitempty"`
 }
 

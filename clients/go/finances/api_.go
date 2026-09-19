@@ -1,7 +1,7 @@
 /*
 Документы и бухгалтерия
 
-Узнать больше о документах и бухгалтерии можно в [справочном центре](https://seller.wildberries.ru/instructions/category/ba929b64-1f89-4426-82d7-ce998ee552bd?goBackOption=prevRoute&categoryId=3c971375-9939-45e8-ab82-376019be8942)Просмотр [баланса](/openapi/documents-and-accounting#tag/balance), [финансовых отчётов](/openapi/documents-and-accounting#tag/financialReports) и [документов](/openapi/documents-and-accounting#tag/documents) продавца.
+Узнать больше о документах и бухгалтерии можно в [справочном центре](https://seller.wildberries.ru/instructions/category/ba929b64-1f89-4426-82d7-ce998ee552bd?goBackOption=prevRoute&categoryId=3c971375-9939-45e8-ab82-376019be8942)  Просмотр [баланса](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/balance), [финансовых отчётов](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/financialReports) и [документов](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents) продавца.
 
 API version: finances
 */
@@ -27,7 +27,7 @@ type DefaultApi interface {
 
 	Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов.
 
-[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -47,7 +47,9 @@ type DefaultApi interface {
 	/*
 	GetV1DocumentsCategories Категории документов
 
-	Метод возвращает категории документов для получения [списка документов продавца](/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод возвращает категории документов для получения [списка документов продавца](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов |
@@ -67,7 +69,9 @@ type DefaultApi interface {
 	/*
 	GetV1DocumentsDownload Получить документ
 
-	Метод загружает один документ из [списка документов продавца](/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод загружает один документ из [списка документов продавца](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов |
@@ -87,7 +91,9 @@ type DefaultApi interface {
 	/*
 	GetV1DocumentsList Список документов
 
-	Метод возвращает список документов продавца. Вы можете получить [один](/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsDownload) или [несколько](/openapi/documents-and-accounting#tag/documents/operation/postV1DocumentsDownloadAll) документов из полученного списка.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод возвращает список документов продавца. Вы можете получить [один](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsDownload) или [несколько](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/postV1DocumentsDownloadAll) документов из полученного списка.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов |
@@ -107,9 +113,13 @@ type DefaultApi interface {
 	/*
 	PostV1AcquiringDetailed Детализации к отчётам об издержках на приём платежей за период
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -126,9 +136,13 @@ type DefaultApi interface {
 	/*
 	PostV1AcquiringDetailedReportId Детализации к отчётам об издержках на приём платежей по ID отчётов
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -146,9 +160,13 @@ type DefaultApi interface {
 	/*
 	PostV1AcquiringList Список отчётов об издержках на приём платежей
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -165,7 +183,9 @@ type DefaultApi interface {
 	/*
 	PostV1DocumentsDownloadAll Получить документы
 
-	Метод загружает несколько документов из [списка документов продавца](/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод загружает несколько документов из [списка документов продавца](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов |
@@ -187,7 +207,11 @@ type DefaultApi interface {
 
 	Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период.
 
-Данные доступны с 29 января 2024 года.Вы можете выгрузить данные в [Google Таблицы](/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные доступны с 29 января 2024 года.
+
+Вы можете выгрузить данные в [Google Таблицы](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -207,11 +231,15 @@ type DefaultApi interface {
 	/*
 	PostV1SalesReportsDetailedReportId Детализации к отчётам реализации по ID отчётов
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов.
+**Сервисному** токену
 
-Данные доступны с 29 января 2024 года.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов.
+
+Данные доступны с 29 января 2024 года.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -229,11 +257,15 @@ type DefaultApi interface {
 	/*
 	PostV1SalesReportsList Список отчётов реализации
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements).
+**Сервисному** токену
 
-Данные доступны с 29 января 2024 года.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements).
+
+Данные доступны с 29 января 2024 года.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -265,7 +297,7 @@ GetV1AccountBalance Получить баланс продавца
 
 Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов.
 
-[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -434,7 +466,9 @@ func (r ApiGetV1DocumentsCategoriesRequest) Execute() (*GetCategories, *http.Res
 /*
 GetV1DocumentsCategories Категории документов
 
-Метод возвращает категории документов для получения [списка документов продавца](/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод возвращает категории документов для получения [списка документов продавца](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов |
@@ -616,7 +650,9 @@ func (r ApiGetV1DocumentsDownloadRequest) Execute() (*GetDoc, *http.Response, er
 /*
 GetV1DocumentsDownload Получить документ
 
-Метод загружает один документ из [списка документов продавца](/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод загружает один документ из [списка документов продавца](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов |
@@ -860,7 +896,9 @@ func (r ApiGetV1DocumentsListRequest) Execute() (*GetList, *http.Response, error
 /*
 GetV1DocumentsList Список документов
 
-Метод возвращает список документов продавца. Вы можете получить [один](/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsDownload) или [несколько](/openapi/documents-and-accounting#tag/documents/operation/postV1DocumentsDownloadAll) документов из полученного списка.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод возвращает список документов продавца. Вы можете получить [один](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsDownload) или [несколько](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/postV1DocumentsDownloadAll) документов из полученного списка.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов |
@@ -1081,9 +1119,13 @@ func (r ApiPostV1AcquiringDetailedRequest) Execute() ([]AcquiringReportsDetailed
 /*
 PostV1AcquiringDetailed Детализации к отчётам об издержках на приём платежей за период
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) за указанный период.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -1265,9 +1307,13 @@ func (r ApiPostV1AcquiringDetailedReportIdRequest) Execute() ([]AcquiringReports
 /*
 PostV1AcquiringDetailedReportId Детализации к отчётам об издержках на приём платежей по ID отчётов
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод возвращает детализации к [отчётам об издержках на приём платежей](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports) по ID отчётов.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -1462,9 +1508,13 @@ func (r ApiPostV1AcquiringListRequest) Execute() ([]AcquiringReportListRes, *htt
 /*
 PostV1AcquiringList Список отчётов об издержках на приём платежей
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод возвращает список отчётов об издержках на приём платежей по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/acquiring-reports).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -1634,7 +1684,9 @@ func (r ApiPostV1DocumentsDownloadAllRequest) Execute() (*GetDocs, *http.Respons
 /*
 PostV1DocumentsDownloadAll Получить документы
 
-Метод загружает несколько документов из [списка документов продавца](/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод загружает несколько документов из [списка документов продавца](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 5 мин | 1 запрос | 5 мин | 5 запросов |
@@ -1817,7 +1869,11 @@ PostV1SalesReportsDetailed Детализации к отчётам реализ
 
 Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) за указанный период.
 
-Данные доступны с 29 января 2024 года.Вы можете выгрузить данные в [Google Таблицы](/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Данные доступны с 29 января 2024 года.
+
+Вы можете выгрузить данные в [Google Таблицы](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -2002,11 +2058,15 @@ func (r ApiPostV1SalesReportsDetailedReportIdRequest) Execute() ([]SalesReportsD
 /*
 PostV1SalesReportsDetailedReportId Детализации к отчётам реализации по ID отчётов
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов.
+**Сервисному** токену
 
-Данные доступны с 29 января 2024 года.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод возвращает детализации к [отчётам реализации](https://seller.wildberries.ru/suppliers-mutual-settlements) по ID отчётов.
+
+Данные доступны с 29 января 2024 года.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -2201,11 +2261,15 @@ func (r ApiPostV1SalesReportsListRequest) Execute() ([]SalesReportListRes, *http
 /*
 PostV1SalesReportsList Список отчётов реализации
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements).
+**Сервисному** токену
 
-Данные доступны с 29 января 2024 года.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод возвращает список отчётов релизации по формату [таблицы отчётов](https://seller.wildberries.ru/suppliers-mutual-settlements).
+
+Данные доступны с 29 января 2024 года.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |

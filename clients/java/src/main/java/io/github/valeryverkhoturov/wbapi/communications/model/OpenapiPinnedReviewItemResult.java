@@ -1,6 +1,6 @@
 /*
  * Общение с покупателями
- * Узнать больше об общении с покупателями можно в [справочном центре](https://seller.wildberries.ru/instructions/category/f7f6c465-dd12-422d-80a0-a6d9562115d5?goBackOption=prevRoute&categoryId=30817062-14cc-4a82-bc78-3600c2b0685b)С помощью методов общения с покупателями вы можете работать с: 1. [Вопросами](/openapi/customer-communication#tag/questions) и [отзывами](/openapi/customer-communication#tag/feedbacks) покупателей 2. [Закреплёнными отзывами](/openapi/customer-communication#tag/pinnedFeedbacks) 3. [Чатами с покупателями](/openapi/customer-communication#tag/buyersChat) 4. [Заявками покупателей на возврат](/openapi/customer-communication#tag/buyersReturns) Вы можете протестировать методы общения с покупателями в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/questionsAndFeedbacks) для управления тестовыми вопросами и отзывамиУзнать, как использовать методы в бизнес-кейсах, можно в [инструкции](/knowledge-base/articles/019d49a4-0b26-7620-8d0b-e3050b7cd01d/obshchenie-s-pokupateliami) по работе с разделом **Общение с покупателями**
+ * Узнать больше об общении с покупателями можно в [справочном центре](https://seller.wildberries.ru/instructions/category/f7f6c465-dd12-422d-80a0-a6d9562115d5?goBackOption=prevRoute&categoryId=30817062-14cc-4a82-bc78-3600c2b0685b)  С помощью методов общения с покупателями вы можете работать с: 1. [Вопросами](https://dev.wildberries.ru/openapi/customer-communication#tag/questions) и [отзывами](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks) покупателей 2. [Закреплёнными отзывами](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks) 3. [Чатами с покупателями](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat) 4. [Заявками покупателей на возврат](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns) Вы можете протестировать методы общения с покупателями в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/questionsAndFeedbacks) для управления тестовыми вопросами и отзывами  Узнать, как использовать методы в бизнес-кейсах, можно в [инструкции](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-0b26-7620-8d0b-e3050b7cd01d/obshchenie-s-pokupateliami) по работе с разделом **Общение с покупателями**
  *
  * The version of the OpenAPI document: communication
  * 
@@ -95,7 +95,7 @@ public class OpenapiPinnedReviewItemResult {
   private DomainReviewState state;
 
   /**
-   * Причина открепления отзыва:   - &#x60;sysTariffUnpinned&#x60; — закончилась подписка или тарифная опция   - &#x60;sysLimitReached&#x60; — закончился общий лимит по подписке   - &#x60;sysNoratingUnpinned&#x60; — отзыв исключён из рейтинга. Например, удалён или забанен   - &#x60;sysAdditionalSlot&#x60; — к карточке или к группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек прикреплено максимальное количество отзывов 
+   * Причина открепления отзыва:   - &#x60;sysTariffUnpinned&#x60; — закончилась подписка или тарифная опция   - &#x60;sysLimitReached&#x60; — закончился общий лимит по подписке   - &#x60;sysNoratingUnpinned&#x60; — отзыв исключён из рейтинга. Например, удалён или забанен   - &#x60;sysAdditionalSlot&#x60; — к карточке или к группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек прикреплено максимальное количество отзывов 
    */
   @JsonAdapter(UnpinnedCauseEnum.Adapter.class)
   public enum UnpinnedCauseEnum {
@@ -183,7 +183,7 @@ public class OpenapiPinnedReviewItemResult {
   }
 
   /**
-   * ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+   * ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
    * @return imtId
    */
   @jakarta.annotation.Nonnull
@@ -259,7 +259,7 @@ public class OpenapiPinnedReviewItemResult {
   }
 
   /**
-   * Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+   * Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
    * @return pinOn
    */
   @jakarta.annotation.Nonnull
@@ -316,7 +316,7 @@ public class OpenapiPinnedReviewItemResult {
   }
 
   /**
-   * Причина открепления отзыва:   - &#x60;sysTariffUnpinned&#x60; — закончилась подписка или тарифная опция   - &#x60;sysLimitReached&#x60; — закончился общий лимит по подписке   - &#x60;sysNoratingUnpinned&#x60; — отзыв исключён из рейтинга. Например, удалён или забанен   - &#x60;sysAdditionalSlot&#x60; — к карточке или к группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек прикреплено максимальное количество отзывов 
+   * Причина открепления отзыва:   - &#x60;sysTariffUnpinned&#x60; — закончилась подписка или тарифная опция   - &#x60;sysLimitReached&#x60; — закончился общий лимит по подписке   - &#x60;sysNoratingUnpinned&#x60; — отзыв исключён из рейтинга. Например, удалён или забанен   - &#x60;sysAdditionalSlot&#x60; — к карточке или к группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек прикреплено максимальное количество отзывов 
    * @return unpinnedCause
    */
   @jakarta.annotation.Nullable

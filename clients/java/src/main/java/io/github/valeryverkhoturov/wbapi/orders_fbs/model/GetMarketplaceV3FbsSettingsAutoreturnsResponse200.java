@@ -1,6 +1,6 @@
 /*
  * Заказы FBS
- * С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете: - получать информацию о [сборочных заданиях](/openapi/orders-fbs#tag/fbsAssemblyOrders) и их статусах, отменять сборочные задания, получать стикеры - добавлять, редактировать и удалять [идентификаторы маркировки](/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий - управлять [поставками](/openapi/orders-fbs#tag/fbsSupplies) - создавать, редактировать и удалять [пропуска](/openapi/orders-fbs#tag/fbsPasses) на склады WB Вы можете протестировать методы заказов FBS в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/marketplaceFbs) для эмуляции действий пользователяУзнать, как использовать методы в бизнес-кейсах, можно в [инструкции](/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs) по работе с **заказами FBS**Узнать больше о заказах FBS можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d)
+ * С помощью методов раздела Заказы FBS (Fulfillment by Seller) вы можете: - получать информацию о [сборочных заданиях](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders) и их статусах, отменять сборочные задания, получать стикеры - добавлять, редактировать и удалять [идентификаторы маркировки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers) сборочных заданий - управлять [поставками](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies) - создавать, редактировать и удалять [пропуска](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses) на склады WB Вы можете протестировать методы заказов FBS в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/marketplaceFbs) для эмуляции действий пользователя  Узнать, как использовать методы в бизнес-кейсах, можно в [инструкции](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-0771-7571-aea9-11d5b597f34c/zakazy-fbs) по работе с **заказами FBS**  Узнать больше о заказах FBS можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/category/b3e60238-fd4c-49ce-8668-ff688725a12d)
  *
  * The version of the OpenAPI document: order
  * 
@@ -51,7 +51,7 @@ import io.github.valeryverkhoturov.wbapi.orders_fbs.JSON;
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class GetMarketplaceV3FbsSettingsAutoreturnsResponse200 {
   /**
-   * Тип автовозврата:   - &#x60;allToWarehouse&#x60; — все товары отправляются на склад WB, кроме товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - &#x60;allToPickupPoint&#x60; — все товары отправляются на пункт выдачи заказов   - &#x60;manual&#x60; — используются ручные настройки 
+   * Тип автовозврата:   - &#x60;allToWarehouse&#x60; — все товары отправляются на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - &#x60;allToPickupPoint&#x60; — все товары отправляются на пункт выдачи заказов   - &#x60;manual&#x60; — используются ручные настройки 
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -118,7 +118,7 @@ public class GetMarketplaceV3FbsSettingsAutoreturnsResponse200 {
   }
 
   /**
-   * Тип автовозврата:   - &#x60;allToWarehouse&#x60; — все товары отправляются на склад WB, кроме товаров тех [предметов](/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - &#x60;allToPickupPoint&#x60; — все товары отправляются на пункт выдачи заказов   - &#x60;manual&#x60; — используются ручные настройки 
+   * Тип автовозврата:   - &#x60;allToWarehouse&#x60; — все товары отправляются на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - &#x60;allToPickupPoint&#x60; — все товары отправляются на пункт выдачи заказов   - &#x60;manual&#x60; — используются ручные настройки 
    * @return type
    */
   @jakarta.annotation.Nonnull

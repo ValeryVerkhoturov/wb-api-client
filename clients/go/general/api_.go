@@ -1,7 +1,7 @@
 /*
 Общее
 
-В этом разделе: - [общая информация о WB API](/openapi/api-information#tag/introduction) - как [начать работу с WB API](/openapi/api-information#tag/introduction/Kak-nachat-rabotu-s-API) - как [авторизоваться](/openapi/api-information#tag/authorization) и [создавать токены](/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](/openapi/api-information#tag/introduction/Status-kody-HTTP) - [лимиты запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) - как обратиться в [поддержку](/openapi/api-information#tag/introduction/Podderzhka) С помощью методов этого раздела вы можете: - проверить [подключение к WB API](/openapi/api-information#tag/connectionCheck/operation/getPing) - получить [новости портала продавцов](/openapi/api-information#tag/newsApi/operation/getV2News) - получить [информацию о продавце](/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo) - [управлять пользователями продавца](/openapi/api-information#tag/sellerUserManagement)
+В этом разделе: - [общая информация о WB API](https://dev.wildberries.ru/openapi/api-information#tag/introduction) - как [начать работу с WB API](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Kak-nachat-rabotu-s-API) - как [авторизоваться](https://dev.wildberries.ru/openapi/api-information#tag/authorization) и [создавать токены](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Status-kody-HTTP) - [лимиты запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) - как обратиться в [поддержку](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Podderzhka) С помощью методов этого раздела вы можете: - проверить [подключение к WB API](https://dev.wildberries.ru/openapi/api-information#tag/connectionCheck/operation/getPing) - получить [новости портала продавцов](https://dev.wildberries.ru/openapi/api-information#tag/newsApi/operation/getV2News) - получить [информацию о продавце](https://dev.wildberries.ru/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo) - [управлять пользователями продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement)
 
 API version: general
 */
@@ -24,8 +24,12 @@ type DefaultApi interface {
 	/*
 	DeleteV1User Удалить пользователя
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод удаляет пользователя из [списка сотрудников продавца](/openapi/api-information#tag/sellerUserManagement/operation/getV1Users). Этому пользователю будет закрыт доступ в профиль продавца.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
+
+Метод удаляет пользователя из [списка сотрудников продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement/operation/getV1Users). Этому пользователю будет закрыт доступ в профиль продавца.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -41,8 +45,14 @@ type DefaultApi interface {
 	/*
 	GetV1Rating Получить рейтинг продавца
 
-	Для доступа к методу используйте [токен](/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) для категории **Вопросы и отзывы**Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Сервисному** токенуМетод возвращает пользовательский рейтинг продавца и количество отзывов.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Для доступа к методу используйте [токен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) для категории **Вопросы и отзывы**
+
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Сервисному** токену
+
+Метод возвращает пользовательский рейтинг продавца и количество отзывов.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -59,7 +69,11 @@ type DefaultApi interface {
 	/*
 	GetV1SellerInfo Получить информацию о продавце
 
-	Информацию о продавце можно получить с токеном любой [категории](/openapi/api-information#tag/authorization/Kategorii-tokenov)Метод позволяет получать наименование продавца и ID его профиля.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Информацию о продавце можно получить с токеном любой [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)
+
+Метод позволяет получать наименование продавца и ID его профиля.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
@@ -79,8 +93,12 @@ type DefaultApi interface {
 	/*
 	GetV1Subscriptions Получить информацию о подписке Джем
 
-	Информацию о подписке Джем можно получить с токеном любой [категории](/openapi/api-information#tag/authorization/Kategorii-tokenov)Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Сервисному** токенуМетод возвращает информацию о подписке [Джем](https://seller.wildberries.ru/monetization/jam):
+	Информацию о подписке Джем можно получить с токеном любой [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)
+
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Сервисному** токену
+
+Метод возвращает информацию о подписке [Джем](https://seller.wildberries.ru/monetization/jam):
 - Если продавец никогда не подключал подписку Джем, возвращается пустой ответ `200`.
 - Если продавец активировал и никогда не отменял подписку, возвращается:
 - дата активации подписки `since`
@@ -90,7 +108,9 @@ type DefaultApi interface {
 - дата окончания текущего оплаченного периода `till`
 - Если подписка неактивна, возвращается:
 - дата первой активации подписки `since`
-- дата окончания последнего оплаченного периода `till`[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+- дата окончания последнего оплаченного периода `till`
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 10 запросов |
@@ -107,10 +127,16 @@ type DefaultApi interface {
 	/*
 	GetV1TariffConstructorOptions Получить информацию об опциях Конструктора тарифов
 
-	Информацию об опциях Конструктора тарифов можно получить с токеном любой [категории](/openapi/api-information#tag/authorization/Kategorii-tokenov)Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Сервисному** токенуМетод возвращает информацию обо всех опциях и пакетах опций, которые продавец подключил в [Конструкторе тарифов](https://seller.wildberries.ru/tariff-constructor).
+	Информацию об опциях Конструктора тарифов можно получить с токеном любой [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)
 
-Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Сервисному** токену
+
+Метод возвращает информацию обо всех опциях и пакетах опций, которые продавец подключил в [Конструкторе тарифов](https://seller.wildberries.ru/tariff-constructor).
+
+Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 10 запросов |
@@ -127,8 +153,10 @@ type DefaultApi interface {
 	/*
 	GetV1Users Получить список активных или приглашённых пользователей продавца
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод возвращает список активных или приглашённых пользователей профиля продавца.
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
+
+Метод возвращает список активных или приглашённых пользователей профиля продавца.
 
 Чтобы выбрать список, укажите значение параметра `isInviteOnly`:
 - `isInviteOnly=true` — список приглашённых пользователей, которые ещё не активировали доступ
@@ -137,7 +165,9 @@ type DefaultApi interface {
 - роль пользователя
 - разделы, к которым есть доступы
 - статус приглашения
-Список приглашённых пользователей в ответе всегда отсортирован по дате создания: от новых до старых.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Список приглашённых пользователей в ответе всегда отсортирован по дате создания: от новых до старых.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 5 запросов |
@@ -154,8 +184,10 @@ type DefaultApi interface {
 	/*
 	PostV1Invite Создать приглашение для нового пользователя
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод создаёт приглашение для нового пользователя с настройкой доступов к разделам профиля продавца.
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
+
+Метод создаёт приглашение для нового пользователя с настройкой доступов к разделам профиля продавца.
 Как выдаются права доступа:
 - Если `access` пустой (`[]`) или не указан — по умолчанию выдаются все доступы, кроме доступов к витрине (`showcase`) и \*\*Джем\*\* (`changeJam`)
 - Если в `access` указана часть разделов профиля, то кроме тех доступов, что указаны в запросе, также выдаются все доступы по умолчанию
@@ -163,7 +195,9 @@ type DefaultApi interface {
 - Если в `access` дважды указан один и тот же раздел (`code`):
 - при разных значениях `disabled` (`true` и `false`) доступ не будет выдан
 - при одинаковых значениях `"disabled": true` доступ не будет выдан
-- при одинаковых значениях `"disabled": false` доступ будет выдан[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+- при одинаковых значениях `"disabled": false` доступ будет выдан
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 5 запросов |
@@ -180,10 +214,14 @@ type DefaultApi interface {
 	/*
 	PutV1UsersAccess Изменить права доступа пользователей
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод меняет права доступа одному или нескольким пользователям.
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
 
-Обновляются только права доступа, переданные в параметрах запроса. Остальные поля остаются без изменений.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод меняет права доступа одному или нескольким пользователям.
+
+Обновляются только права доступа, переданные в параметрах запроса. Остальные поля остаются без изменений.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 5 запросов |
@@ -219,8 +257,12 @@ func (r ApiDeleteV1UserRequest) Execute() (*http.Response, error) {
 /*
 DeleteV1User Удалить пользователя
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод удаляет пользователя из [списка сотрудников продавца](/openapi/api-information#tag/sellerUserManagement/operation/getV1Users). Этому пользователю будет закрыт доступ в профиль продавца.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
+
+Метод удаляет пользователя из [списка сотрудников продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement/operation/getV1Users). Этому пользователю будет закрыт доступ в профиль продавца.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 10 запросов |
@@ -372,8 +414,14 @@ func (r ApiGetV1RatingRequest) Execute() (*SupplierRatingModel, *http.Response, 
 /*
 GetV1Rating Получить рейтинг продавца
 
-Для доступа к методу используйте [токен](/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) для категории **Вопросы и отзывы**Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Сервисному** токенуМетод возвращает пользовательский рейтинг продавца и количество отзывов.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Для доступа к методу используйте [токен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) для категории **Вопросы и отзывы**
+
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Сервисному** токену
+
+Метод возвращает пользовательский рейтинг продавца и количество отзывов.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -532,7 +580,11 @@ func (r ApiGetV1SellerInfoRequest) Execute() (*GetV1SellerInfoResponse200, *http
 /*
 GetV1SellerInfo Получить информацию о продавце
 
-Информацию о продавце можно получить с токеном любой [категории](/openapi/api-information#tag/authorization/Kategorii-tokenov)Метод позволяет получать наименование продавца и ID его профиля.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Информацию о продавце можно получить с токеном любой [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)
+
+Метод позволяет получать наименование продавца и ID его профиля.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
@@ -683,8 +735,12 @@ func (r ApiGetV1SubscriptionsRequest) Execute() (*SubscriptionsJamInfo, *http.Re
 /*
 GetV1Subscriptions Получить информацию о подписке Джем
 
-Информацию о подписке Джем можно получить с токеном любой [категории](/openapi/api-information#tag/authorization/Kategorii-tokenov)Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Сервисному** токенуМетод возвращает информацию о подписке [Джем](https://seller.wildberries.ru/monetization/jam):
+Информацию о подписке Джем можно получить с токеном любой [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)
+
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Сервисному** токену
+
+Метод возвращает информацию о подписке [Джем](https://seller.wildberries.ru/monetization/jam):
 - Если продавец никогда не подключал подписку Джем, возвращается пустой ответ `200`.
 - Если продавец активировал и никогда не отменял подписку, возвращается:
 - дата активации подписки `since`
@@ -694,7 +750,9 @@ GetV1Subscriptions Получить информацию о подписке Д�
 - дата окончания текущего оплаченного периода `till`
 - Если подписка неактивна, возвращается:
 - дата первой активации подписки `since`
-- дата окончания последнего оплаченного периода `till`[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+- дата окончания последнего оплаченного периода `till`
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 10 запросов |
@@ -860,10 +918,16 @@ func (r ApiGetV1TariffConstructorOptionsRequest) Execute() (*PlanBuilderOptionsI
 /*
 GetV1TariffConstructorOptions Получить информацию об опциях Конструктора тарифов
 
-Информацию об опциях Конструктора тарифов можно получить с токеном любой [категории](/openapi/api-information#tag/authorization/Kategorii-tokenov)Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Сервисному** токенуМетод возвращает информацию обо всех опциях и пакетах опций, которые продавец подключил в [Конструкторе тарифов](https://seller.wildberries.ru/tariff-constructor).
+Информацию об опциях Конструктора тарифов можно получить с токеном любой [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)
 
-Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Сервисному** токену
+
+Метод возвращает информацию обо всех опциях и пакетах опций, которые продавец подключил в [Конструкторе тарифов](https://seller.wildberries.ru/tariff-constructor).
+
+Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 10 запросов |
@@ -1060,8 +1124,10 @@ func (r ApiGetV1UsersRequest) Execute() (*GetUsersResponse, *http.Response, erro
 /*
 GetV1Users Получить список активных или приглашённых пользователей продавца
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод возвращает список активных или приглашённых пользователей профиля продавца.
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
+
+Метод возвращает список активных или приглашённых пользователей профиля продавца.
 
 Чтобы выбрать список, укажите значение параметра `isInviteOnly`:
 - `isInviteOnly=true` — список приглашённых пользователей, которые ещё не активировали доступ
@@ -1070,7 +1136,9 @@ GetV1Users Получить список активных или приглаш�
 - роль пользователя
 - разделы, к которым есть доступы
 - статус приглашения
-Список приглашённых пользователей в ответе всегда отсортирован по дате создания: от новых до старых.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Список приглашённых пользователей в ответе всегда отсортирован по дате создания: от новых до старых.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 5 запросов |
@@ -1253,8 +1321,10 @@ func (r ApiPostV1InviteRequest) Execute() (*CreateInviteResponse, *http.Response
 /*
 PostV1Invite Создать приглашение для нового пользователя
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод создаёт приглашение для нового пользователя с настройкой доступов к разделам профиля продавца.
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
+
+Метод создаёт приглашение для нового пользователя с настройкой доступов к разделам профиля продавца.
 Как выдаются права доступа:
 - Если `access` пустой (`[]`) или не указан — по умолчанию выдаются все доступы, кроме доступов к витрине (`showcase`) и \*\*Джем\*\* (`changeJam`)
 - Если в `access` указана часть разделов профиля, то кроме тех доступов, что указаны в запросе, также выдаются все доступы по умолчанию
@@ -1262,7 +1332,9 @@ PostV1Invite Создать приглашение для нового поль�
 - Если в `access` дважды указан один и тот же раздел (`code`):
 - при разных значениях `disabled` (`true` и `false`) доступ не будет выдан
 - при одинаковых значениях `"disabled": true` доступ не будет выдан
-- при одинаковых значениях `"disabled": false` доступ будет выдан[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+- при одинаковых значениях `"disabled": false` доступ будет выдан
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 5 запросов |
@@ -1432,10 +1504,14 @@ func (r ApiPutV1UsersAccessRequest) Execute() (*http.Response, error) {
 /*
 PutV1UsersAccess Изменить права доступа пользователей
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод меняет права доступа одному или нескольким пользователям.
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
 
-Обновляются только права доступа, переданные в параметрах запроса. Остальные поля остаются без изменений.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод меняет права доступа одному или нескольким пользователям.
+
+Обновляются только права доступа, переданные в параметрах запроса. Остальные поля остаются без изменений.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 5 запросов |

@@ -1,7 +1,7 @@
 /*
 Тарифы
 
-Узнать больше о тарифах можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section)В разделе описаны методы получения: 1. [Комиссий](/openapi/rates#tag/fees) 2. [Тарифов на поставку](/openapi/rates#tag/supplyRates) 3. [Тарифов на остаток](/openapi/rates#tag/stockRates) 4. [Тарифов на возврат товаров продавцу](/openapi/rates#tag/returnCostToSeller)
+Узнать больше о тарифах можно в [справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/fees-site-section)  В разделе описаны методы получения: 1. [Комиссий](https://dev.wildberries.ru/openapi/rates#tag/fees) 2. [Тарифов на поставку](https://dev.wildberries.ru/openapi/rates#tag/supplyRates) 3. [Тарифов на остаток](https://dev.wildberries.ru/openapi/rates#tag/stockRates) 4. [Тарифов на возврат товаров продавцу](https://dev.wildberries.ru/openapi/rates#tag/returnCostToSeller)
 
 API version: rates
 */
@@ -21,7 +21,7 @@ var _ MappedNullable = &GetV1TariffsCommission402Response{}
 type GetV1TariffsCommission402Response struct {
 	// Заголовок ошибки
 	Title *string `json:"title,omitempty"`
-	// Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](/business-solutions)
+	// Детали ошибки. Ошибка возвращается только сервисам из [Каталога решений для бизнеса](https://dev.wildberries.ru/business-solutions)
 	Detail *string `json:"detail,omitempty"`
 }
 

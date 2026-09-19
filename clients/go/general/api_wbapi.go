@@ -1,7 +1,7 @@
 /*
 Общее
 
-В этом разделе: - [общая информация о WB API](/openapi/api-information#tag/introduction) - как [начать работу с WB API](/openapi/api-information#tag/introduction/Kak-nachat-rabotu-s-API) - как [авторизоваться](/openapi/api-information#tag/authorization) и [создавать токены](/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](/openapi/api-information#tag/introduction/Status-kody-HTTP) - [лимиты запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) - как обратиться в [поддержку](/openapi/api-information#tag/introduction/Podderzhka) С помощью методов этого раздела вы можете: - проверить [подключение к WB API](/openapi/api-information#tag/connectionCheck/operation/getPing) - получить [новости портала продавцов](/openapi/api-information#tag/newsApi/operation/getV2News) - получить [информацию о продавце](/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo) - [управлять пользователями продавца](/openapi/api-information#tag/sellerUserManagement)
+В этом разделе: - [общая информация о WB API](https://dev.wildberries.ru/openapi/api-information#tag/introduction) - как [начать работу с WB API](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Kak-nachat-rabotu-s-API) - как [авторизоваться](https://dev.wildberries.ru/openapi/api-information#tag/authorization) и [создавать токены](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) - основные [статус-коды ответов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Status-kody-HTTP) - [лимиты запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) - как обратиться в [поддержку](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Podderzhka) С помощью методов этого раздела вы можете: - проверить [подключение к WB API](https://dev.wildberries.ru/openapi/api-information#tag/connectionCheck/operation/getPing) - получить [новости портала продавцов](https://dev.wildberries.ru/openapi/api-information#tag/newsApi/operation/getV2News) - получить [информацию о продавце](https://dev.wildberries.ru/openapi/api-information#tag/sellerInformation/operation/getV1SellerInfo) - [управлять пользователями продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement)
 
 API version: general
 */
@@ -27,7 +27,11 @@ type WBAPIAPI interface {
 	Метод проверяет:
 1. Успешно ли запрос доходит до WB API
 2. Валидность токена авторизации и URL запроса
-3. Совпадают ли категория токена и сервисМетод не предназначен для проверки доступности сервисов WBУ каждого сервиса есть свой вариант метода в зависимости от домена:
+3. Совпадают ли категория токена и сервис
+
+Метод не предназначен для проверки доступности сервисов WB
+
+У каждого сервиса есть свой вариант метода в зависимости от домена:
 | Категория | URL запроса |
 |---------------|-----------------------|
 | Контент | `https://content-api.wildberries.ru/ping`
@@ -48,10 +52,14 @@ type WBAPIAPI interface {
 | Документы | `https://documents-api.wildberries.ru/ping` |
 | Финансы | `https://finance-api.wildberries.ru/ping` |
 | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` |
-| Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+| Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
-| 30 сек | 3 запроса | 10 сек | 99 запросов |Лимит действует отдельно для каждого варианта метода в зависимости от домена
+| 30 сек | 3 запроса | 10 сек | 99 запросов |
+
+Лимит действует отдельно для каждого варианта метода в зависимости от домена
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetPingRequest
@@ -81,7 +89,11 @@ GetPing Проверка подключения
 Метод проверяет:
 1. Успешно ли запрос доходит до WB API
 2. Валидность токена авторизации и URL запроса
-3. Совпадают ли категория токена и сервисМетод не предназначен для проверки доступности сервисов WBУ каждого сервиса есть свой вариант метода в зависимости от домена:
+3. Совпадают ли категория токена и сервис
+
+Метод не предназначен для проверки доступности сервисов WB
+
+У каждого сервиса есть свой вариант метода в зависимости от домена:
 | Категория | URL запроса |
 |---------------|-----------------------|
 | Контент | `https://content-api.wildberries.ru/ping`
@@ -102,10 +114,14 @@ GetPing Проверка подключения
 | Документы | `https://documents-api.wildberries.ru/ping` |
 | Финансы | `https://finance-api.wildberries.ru/ping` |
 | Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` |
-| Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+| Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
-| 30 сек | 3 запроса | 10 сек | 99 запросов |Лимит действует отдельно для каждого варианта метода в зависимости от домена
+| 30 сек | 3 запроса | 10 сек | 99 запросов |
+
+Лимит действует отдельно для каждого варианта метода в зависимости от домена
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetPingRequest

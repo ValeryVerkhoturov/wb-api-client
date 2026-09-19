@@ -1,7 +1,7 @@
 /*
 Поставки FBW
 
-Узнать больше о поставках FBW можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)В разделе описаны методы получения: - [информации для формирования поставок](/openapi/orders-fbw#tag/informationForFormingSupplies) - [информации о поставках](/openapi/orders-fbw#tag/suppliesInformation) Вы можете создавать карточки товара в песочнице [Контента](/openapi/api-information#tag/authorization/Kategorii-tokenov), а потом использовать баркоды товаров в [песочнице](/sandbox) Поставок
+Узнать больше о поставках FBW можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)  В разделе описаны методы получения: - [информации для формирования поставок](https://dev.wildberries.ru/openapi/orders-fbw#tag/informationForFormingSupplies) - [информации о поставках](https://dev.wildberries.ru/openapi/orders-fbw#tag/suppliesInformation) Вы можете создавать карточки товара в песочнице [Контента](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov), а потом использовать баркоды товаров в [песочнице](https://dev.wildberries.ru/sandbox) Поставок
 
 API version: ordersfbw
 */
@@ -25,9 +25,13 @@ type DefaultApi interface {
 	/*
 	DeleteV1DraftsDraftId Удалить черновик
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод удаляет черновик поставки по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод удаляет черновик поставки по его ID.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -44,9 +48,15 @@ type DefaultApi interface {
 	/*
 	DeleteV1DraftsDraftIdItems Удалить товары из черновика
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод удаляет товары из черновика поставки по списку баркодов.Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод удаляет товары из черновика поставки по списку баркодов.
+
+Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -64,9 +74,13 @@ type DefaultApi interface {
 	/*
 	GetV1Drafts Список черновиков
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод возвращает список черновиков поставок.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод возвращает список черновиков поставок.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -83,9 +97,13 @@ type DefaultApi interface {
 	/*
 	GetV1DraftsDraftIdItems Список товаров в черновике
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод возвращает список товаров черновика.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод возвращает список товаров черновика.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -103,7 +121,9 @@ type DefaultApi interface {
 	/*
 	GetV1SuppliesId Детали поставки
 
-	Метод возвращает детали поставки по ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод возвращает детали поставки по ID.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -124,7 +144,9 @@ type DefaultApi interface {
 	/*
 	GetV1SuppliesIdGoods Товары поставки
 
-	Метод возвращает информацию о товарах в поставке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод возвращает информацию о товарах в поставке.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -145,7 +167,9 @@ type DefaultApi interface {
 	/*
 	GetV1SuppliesIdPackage Упаковка поставки
 
-	Метод возвращает информацию об упаковке поставки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод возвращает информацию об упаковке поставки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -166,8 +190,10 @@ type DefaultApi interface {
 	/*
 	GetV1SuppliesSupplyIdDiscrepanciesQuantity Расхождения в поставке
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
+
+Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.
 
 Для поставок принятых не позднее года назад.
 
@@ -188,7 +214,9 @@ type DefaultApi interface {
 - `"discrepancyLabel": "shortage"`
 2. Некоторые баркоды не соответствуют заявленным:
 - `"discrepancyType": "shortage"`
-- `"discrepancyLabel": "re-sorting"`[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+- `"discrepancyLabel": "re-sorting"`
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -206,7 +234,9 @@ type DefaultApi interface {
 	/*
 	GetV1TransitTariffs Транзитные направления
 
-	Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов |
@@ -226,7 +256,9 @@ type DefaultApi interface {
 	/*
 	GetV1Warehouses Список складов
 
-	Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
@@ -236,7 +268,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1WarehousesRequest
@@ -250,7 +282,9 @@ type DefaultApi interface {
 	/*
 	PostV1AcceptanceOptions Опции приёмки
 
-	Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
@@ -260,7 +294,7 @@ type DefaultApi interface {
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1AcceptanceOptionsRequest
@@ -274,9 +308,13 @@ type DefaultApi interface {
 	/*
 	PostV1Drafts Создать черновик
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод создаёт пустой черновик поставки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод создаёт пустой черновик поставки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -293,11 +331,17 @@ type DefaultApi interface {
 	/*
 	PostV1DraftsDraftIdItems Добавить товары в черновик
 
-	Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод добавляет товары в черновик поставки.Метод работает по принципу атомарности:
+**Сервисному** токену
+
+Метод добавляет товары в черновик поставки.
+
+Метод работает по принципу атомарности:
 - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{"results":[]}`
-- если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+- если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -315,7 +359,9 @@ type DefaultApi interface {
 	/*
 	PostV1Supplies Список поставок
 
-	Метод возвращает список поставок, по умолчанию — последние 1000 поставок.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод возвращает список поставок, по умолчанию — последние 1000 поставок.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -349,9 +395,13 @@ func (r ApiDeleteV1DraftsDraftIdRequest) Execute() (*http.Response, error) {
 /*
 DeleteV1DraftsDraftId Удалить черновик
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод удаляет черновик поставки по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод удаляет черновик поставки по его ID.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -506,9 +556,15 @@ func (r ApiDeleteV1DraftsDraftIdItemsRequest) Execute() (*ModelsDraftDeleteItems
 /*
 DeleteV1DraftsDraftIdItems Удалить товары из черновика
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод удаляет товары из черновика поставки по списку баркодов.Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод удаляет товары из черновика поставки по списку баркодов.
+
+Баркоды не валидируются. Если в запросе вы передали некорректные баркоды, вы не получите ошибку. При этом корректные баркоды будут удалены из черновика.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -700,9 +756,13 @@ func (r ApiGetV1DraftsRequest) Execute() (*ModelsListDraftsResponse, *http.Respo
 /*
 GetV1Drafts Список черновиков
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод возвращает список черновиков поставок.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод возвращает список черновиков поставок.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -872,9 +932,13 @@ func (r ApiGetV1DraftsDraftIdItemsRequest) Execute() (*ModelsListDraftItemsRespo
 /*
 GetV1DraftsDraftIdItems Список товаров в черновике
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод возвращает список товаров черновика.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод возвращает список товаров черновика.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -1041,7 +1105,9 @@ func (r ApiGetV1SuppliesIdRequest) Execute() (*ModelsSupplyDetails, *http.Respon
 /*
 GetV1SuppliesId Детали поставки
 
-Метод возвращает детали поставки по ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод возвращает детали поставки по ID.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -1242,7 +1308,9 @@ func (r ApiGetV1SuppliesIdGoodsRequest) Execute() ([]ModelsGoodInSupply, *http.R
 /*
 GetV1SuppliesIdGoods Товары поставки
 
-Метод возвращает информацию о товарах в поставке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод возвращает информацию о товарах в поставке.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -1423,7 +1491,9 @@ func (r ApiGetV1SuppliesIdPackageRequest) Execute() ([]ModelsBox, *http.Response
 /*
 GetV1SuppliesIdPackage Упаковка поставки
 
-Метод возвращает информацию об упаковке поставки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод возвращает информацию об упаковке поставки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -1586,8 +1656,10 @@ func (r ApiGetV1SuppliesSupplyIdDiscrepanciesQuantityRequest) Execute() ([]Model
 /*
 GetV1SuppliesSupplyIdDiscrepanciesQuantity Расхождения в поставке
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токенуМетод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену
+
+Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.
 
 Для поставок принятых не позднее года назад.
 
@@ -1608,7 +1680,9 @@ GetV1SuppliesSupplyIdDiscrepanciesQuantity Расхождения в поста�
 - `"discrepancyLabel": "shortage"`
 2. Некоторые баркоды не соответствуют заявленным:
 - `"discrepancyType": "shortage"`
-- `"discrepancyLabel": "re-sorting"`[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+- `"discrepancyLabel": "re-sorting"`
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
@@ -1767,7 +1841,9 @@ func (r ApiGetV1TransitTariffsRequest) Execute() ([]ModelsTransitTariff, *http.R
 /*
 GetV1TransitTariffs Транзитные направления
 
-Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 6 запросов | 10 сек | 10 запросов |
@@ -1904,7 +1980,9 @@ func (r ApiGetV1WarehousesRequest) Execute() ([]ModelsWarehousesResultItems, *ht
 /*
 GetV1Warehouses Список складов
 
-Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
@@ -1914,7 +1992,7 @@ GetV1Warehouses Список складов
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetV1WarehousesRequest
@@ -2072,7 +2150,9 @@ func (r ApiPostV1AcceptanceOptionsRequest) Execute() (*ModelsOptionsResultModel,
 /*
 PostV1AcceptanceOptions Опции приёмки
 
-Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов |
@@ -2082,7 +2162,7 @@ PostV1AcceptanceOptions Опции приёмки
 
 ---
 
-В [песочнице](/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostV1AcceptanceOptionsRequest
@@ -2260,9 +2340,13 @@ func (r ApiPostV1DraftsRequest) Execute() (*ModelsDraftCreateResponse, *http.Res
 /*
 PostV1Drafts Создать черновик
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод создаёт пустой черновик поставки.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+**Сервисному** токену
+
+Метод создаёт пустой черновик поставки.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -2403,11 +2487,17 @@ func (r ApiPostV1DraftsDraftIdItemsRequest) Execute() (*ModelsDraftAddItemsError
 /*
 PostV1DraftsDraftIdItems Добавить товары в черновик
 
-Метод [доступен](/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
 **Персональному** токену,
-**Сервисному** токенуМетод добавляет товары в черновик поставки.Метод работает по принципу атомарности:
+**Сервисному** токену
+
+Метод добавляет товары в черновик поставки.
+
+Метод работает по принципу атомарности:
 - если все баркоды прошли валидацию успешно, то все товары добавятся в черновик. В ответе вернётся `{"results":[]}`
-- если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+- если хотя бы один баркод не прошел валидацию, ни один товар в черновик не добавится. В ответе вернётся список невалидных баркодов
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- |
 | 1 мин | 30 запросов | 2 сек | 10 запросов |
@@ -2591,7 +2681,9 @@ func (r ApiPostV1SuppliesRequest) Execute() ([]ModelsSupply, *http.Response, err
 /*
 PostV1Supplies Список поставок
 
-Метод возвращает список поставок, по умолчанию — последние 1000 поставок.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод возвращает список поставок, по умолчанию — последние 1000 поставок.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 30 запросов | 2 сек | 10 запросов |

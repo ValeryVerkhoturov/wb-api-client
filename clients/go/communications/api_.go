@@ -1,7 +1,7 @@
 /*
 Общение с покупателями
 
-Узнать больше об общении с покупателями можно в [справочном центре](https://seller.wildberries.ru/instructions/category/f7f6c465-dd12-422d-80a0-a6d9562115d5?goBackOption=prevRoute&categoryId=30817062-14cc-4a82-bc78-3600c2b0685b)С помощью методов общения с покупателями вы можете работать с: 1. [Вопросами](/openapi/customer-communication#tag/questions) и [отзывами](/openapi/customer-communication#tag/feedbacks) покупателей 2. [Закреплёнными отзывами](/openapi/customer-communication#tag/pinnedFeedbacks) 3. [Чатами с покупателями](/openapi/customer-communication#tag/buyersChat) 4. [Заявками покупателей на возврат](/openapi/customer-communication#tag/buyersReturns) Вы можете протестировать методы общения с покупателями в [песочнице](/sandbox). Также в песочнице доступны [специальные методы](/docs/openapi-other/sandbox-environment#tag/questionsAndFeedbacks) для управления тестовыми вопросами и отзывамиУзнать, как использовать методы в бизнес-кейсах, можно в [инструкции](/knowledge-base/articles/019d49a4-0b26-7620-8d0b-e3050b7cd01d/obshchenie-s-pokupateliami) по работе с разделом **Общение с покупателями**
+Узнать больше об общении с покупателями можно в [справочном центре](https://seller.wildberries.ru/instructions/category/f7f6c465-dd12-422d-80a0-a6d9562115d5?goBackOption=prevRoute&categoryId=30817062-14cc-4a82-bc78-3600c2b0685b)  С помощью методов общения с покупателями вы можете работать с: 1. [Вопросами](https://dev.wildberries.ru/openapi/customer-communication#tag/questions) и [отзывами](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks) покупателей 2. [Закреплёнными отзывами](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks) 3. [Чатами с покупателями](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat) 4. [Заявками покупателей на возврат](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns) Вы можете протестировать методы общения с покупателями в [песочнице](https://dev.wildberries.ru/sandbox). Также в песочнице доступны [специальные методы](https://dev.wildberries.ru/docs/openapi-other/sandbox-environment#tag/questionsAndFeedbacks) для управления тестовыми вопросами и отзывами  Узнать, как использовать методы в бизнес-кейсах, можно в [инструкции](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-0b26-7620-8d0b-e3050b7cd01d/obshchenie-s-pokupateliami) по работе с разделом **Общение с покупателями**
 
 API version: communication
 */
@@ -27,9 +27,10 @@ type DefaultApi interface {
 	/*
 	DeleteFeedbacksV1Pins Открепить отзывы
 
-	Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.
-Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
-[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+	Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.
+Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -51,7 +52,9 @@ type DefaultApi interface {
 
 	Метод предоставляет список закреплённых и откреплённых отзывов.
 
-Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -71,7 +74,9 @@ type DefaultApi interface {
 	/*
 	GetFeedbacksV1PinsCount Количество закреплённых и откреплённых отзывов
 
-	Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+	Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -91,7 +96,9 @@ type DefaultApi interface {
 	/*
 	GetFeedbacksV1PinsLimits Лимиты закреплённых отзывов
 
-	Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+	Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -111,7 +118,9 @@ type DefaultApi interface {
 	/*
 	GetV1Claims Заявки покупателей на возврат
 
-	Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов |
@@ -131,7 +140,9 @@ type DefaultApi interface {
 	/*
 	GetV1Feedback Получить отзыв по ID
 
-	Метод возвращает данные [отзыва](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+	Метод возвращает данные [отзыва](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -157,7 +168,9 @@ type DefaultApi interface {
 - на отзыв получен ответ
 - отзыв содержит только оценку (без текста и фото)
 - сортировать отзывы по дате
-- настроить пагинацию и количество отзывов в ответе[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+- настроить пагинацию и количество отзывов в ответе
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -177,12 +190,14 @@ type DefaultApi interface {
 	/*
 	GetV1FeedbacksArchive Список архивных отзывов
 
-	Метод возвращает список архивных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).
+	Метод возвращает список архивных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).
 
 Отзыв становится архивным, если:
 - на отзыв получен ответ
 - на отзыв не получен ответ в течение 30 дней
-- в отзыве нет текста и фото[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+- в отзыве нет текста и фото
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -202,10 +217,12 @@ type DefaultApi interface {
 	/*
 	GetV1FeedbacksCount Количество отзывов
 
-	Метод возвращает количество обработанных или необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период.
+	Метод возвращает количество обработанных или необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период.
 Отзыв считается обработанным, если выполняется одно из условий:
 - на отзыв получен ответ
-- отзыв содержит только оценку (без текста и фото)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+- отзыв содержит только оценку (без текста и фото)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -226,7 +243,9 @@ type DefaultApi interface {
 	GetV1FeedbacksCountUnanswered Необработанные отзывы
 
 	Метод возвращает:
-- количество необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+- количество необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -246,7 +265,9 @@ type DefaultApi interface {
 	/*
 	GetV1NewFeedbacksQuestions Непросмотренные отзывы и вопросы
 
-	Метод проверяет наличие непросмотренных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+	Метод проверяет наличие непросмотренных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -266,7 +287,9 @@ type DefaultApi interface {
 	/*
 	GetV1Question Получить вопрос по ID
 
-	Метод возвращает данные [вопроса](/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](/openapi/customer-communication#tag/questions/operation/patchV1Questions).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+	Метод возвращает данные [вопроса](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/patchV1Questions).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -289,7 +312,11 @@ type DefaultApi interface {
 	Метод возвращает список вопросов по заданным фильтрам. Вы можете:
 - получить данные отвеченных и неотвеченных вопросов
 - сортировать вопросы по дате
-- настроить пагинацию и количество вопросов в ответеМожно получить максимум 10 000 вопросов в одном ответе[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+- настроить пагинацию и количество вопросов в ответе
+
+Можно получить максимум 10 000 вопросов в одном ответе
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -309,7 +336,9 @@ type DefaultApi interface {
 	/*
 	GetV1QuestionsCount Количество вопросов
 
-	Метод возвращает количество отвеченных или неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+	Метод возвращает количество отвеченных или неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -329,7 +358,9 @@ type DefaultApi interface {
 	/*
 	GetV1QuestionsCountUnanswered Неотвеченные вопросы
 
-	Метод возвращает общее количество неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+	Метод возвращает общее количество неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -349,7 +380,9 @@ type DefaultApi interface {
 	/*
 	GetV1SellerChats Список чатов
 
-	Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов |
@@ -369,7 +402,9 @@ type DefaultApi interface {
 	/*
 	GetV1SellerDownloadId Получить файл из сообщения
 
-	Метод возвращает файл или изображение из сообщения по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод возвращает файл или изображение из сообщения по его ID.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов |
@@ -390,10 +425,12 @@ type DefaultApi interface {
 	/*
 	GetV1SellerEvents События чатов
 
-	Метод возвращает список событий всех [чатов с покупателями](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).
+	Метод возвращает список событий всех [чатов с покупателями](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).
 Чтобы получить все события:
 1. Сделайте первый запрос без параметра `next`.
-2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `totalEvents` не станет равным `0`. Это будет означать, что вы получили все события.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `totalEvents` не станет равным `0`. Это будет означать, что вы получили все события.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов |
@@ -413,7 +450,9 @@ type DefaultApi interface {
 	/*
 	PatchV1Claim Ответ на заявку покупателя
 
-	Метод отправляет ответ на [заявку](/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод отправляет ответ на [заявку](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов |
@@ -432,9 +471,13 @@ type DefaultApi interface {
 	/*
 	PatchV1FeedbacksAnswer Отредактировать ответ на отзыв
 
-	Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.
+	Метод позволяет отредактировать уже отправленный [ответ на отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.
 
-Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.
+
+ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -454,9 +497,15 @@ type DefaultApi interface {
 	PatchV1Questions Работа с вопросами
 
 	В зависимости от тела запроса, метод позволяет:
-- отметить [вопрос](/openapi/customer-communication#tag/questions/operation/getV1Questions) как просмотренный
+- отметить [вопрос](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) как просмотренный
 - отклонить вопрос
-- ответить на вопрос или отредактировать ответВсе ответы продавцов проходят предварительную модерацию перед публикациейОтредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+- ответить на вопрос или отредактировать ответ
+
+Все ответы продавцов проходят предварительную модерацию перед публикацией
+
+Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -476,10 +525,12 @@ type DefaultApi interface {
 	/*
 	PostFeedbacksV1Pins Закрепить отзывы
 
-	Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.
-Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
+	Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.
+Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
 
-Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \*\*Закрепление отзыва\*\*.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \*\*Закрепление отзыва\*\*.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -499,7 +550,11 @@ type DefaultApi interface {
 	/*
 	PostV1FeedbacksAnswer Ответить на отзыв
 
-	Метод позволяет ответить на [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+	Метод позволяет ответить на [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.
+
+ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -518,9 +573,11 @@ type DefaultApi interface {
 	/*
 	PostV1FeedbacksOrderReturn Возврат товара по ID отзыва
 
-	Метод запрашивает возврат товара, по которому оставлен [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).
+	Метод запрашивает возврат товара, по которому оставлен [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).
 
-Возврат доступен для отзывов с полем `"isAbleReturnProductOrders": true`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+Возврат доступен для отзывов с полем `"isAbleReturnProductOrders": true`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -540,7 +597,9 @@ type DefaultApi interface {
 	/*
 	PostV1SellerMessage Отправить сообщение
 
-	Метод отправляет сообщения в [чат с покупателем](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+	Метод отправляет сообщения в [чат с покупателем](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов |
@@ -580,9 +639,10 @@ func (r ApiDeleteFeedbacksV1PinsRequest) Execute() (*DeleteFeedbacksV1PinsRespon
 /*
 DeleteFeedbacksV1Pins Открепить отзывы
 
-Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.
-Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
-[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.
+Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -771,13 +831,13 @@ func (r ApiGetFeedbacksV1PinsRequest) State(state string) ApiGetFeedbacksV1PinsR
 	return r
 }
 
-// Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+// Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
 func (r ApiGetFeedbacksV1PinsRequest) PinOn(pinOn string) ApiGetFeedbacksV1PinsRequest {
 	r.pinOn = &pinOn
 	return r
 }
 
-// ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+// ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
 func (r ApiGetFeedbacksV1PinsRequest) ImtId(imtId int32) ApiGetFeedbacksV1PinsRequest {
 	r.imtId = &imtId
 	return r
@@ -828,7 +888,9 @@ GetFeedbacksV1Pins Список закреплённых и откреплённ
 
 Метод предоставляет список закреплённых и откреплённых отзывов.
 
-Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -1037,13 +1099,13 @@ func (r ApiGetFeedbacksV1PinsCountRequest) State(state string) ApiGetFeedbacksV1
 	return r
 }
 
-// Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+// Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
 func (r ApiGetFeedbacksV1PinsCountRequest) PinOn(pinOn string) ApiGetFeedbacksV1PinsCountRequest {
 	r.pinOn = &pinOn
 	return r
 }
 
-// ID для [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+// ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
 func (r ApiGetFeedbacksV1PinsCountRequest) ImtId(imtId int32) ApiGetFeedbacksV1PinsCountRequest {
 	r.imtId = &imtId
 	return r
@@ -1080,7 +1142,9 @@ func (r ApiGetFeedbacksV1PinsCountRequest) Execute() (*GetFeedbacksV1PinsCountRe
 /*
 GetFeedbacksV1PinsCount Количество закреплённых и откреплённых отзывов
 
-Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -1274,7 +1338,9 @@ func (r ApiGetFeedbacksV1PinsLimitsRequest) Execute() (*GetFeedbacksV1PinsLimits
 /*
 GetFeedbacksV1PinsLimits Лимиты закреплённых отзывов
 
-Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -1471,7 +1537,9 @@ func (r ApiGetV1ClaimsRequest) Execute() (*GetV1Claims200Response, *http.Respons
 /*
 GetV1Claims Заявки покупателей на возврат
 
-Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов |
@@ -1673,7 +1741,9 @@ func (r ApiGetV1FeedbackRequest) Execute() (*GetV1FeedbackResponse200, *http.Res
 /*
 GetV1Feedback Получить отзыв по ID
 
-Метод возвращает данные [отзыва](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+Метод возвращает данные [отзыва](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -1905,7 +1975,9 @@ GetV1Feedbacks Список отзывов
 - на отзыв получен ответ
 - отзыв содержит только оценку (без текста и фото)
 - сортировать отзывы по дате
-- настроить пагинацию и количество отзывов в ответе[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+- настроить пагинацию и количество отзывов в ответе
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -2130,12 +2202,14 @@ func (r ApiGetV1FeedbacksArchiveRequest) Execute() (*GetV1FeedbacksArchiveRespon
 /*
 GetV1FeedbacksArchive Список архивных отзывов
 
-Метод возвращает список архивных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).
+Метод возвращает список архивных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).
 
 Отзыв становится архивным, если:
 - на отзыв получен ответ
 - на отзыв не получен ответ в течение 30 дней
-- в отзыве нет текста и фото[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+- в отзыве нет текста и фото
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -2354,10 +2428,12 @@ func (r ApiGetV1FeedbacksCountRequest) Execute() (*GetV1FeedbacksCountResponse20
 /*
 GetV1FeedbacksCount Количество отзывов
 
-Метод возвращает количество обработанных или необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период.
+Метод возвращает количество обработанных или необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период.
 Отзыв считается обработанным, если выполняется одно из условий:
 - на отзыв получен ответ
-- отзыв содержит только оценку (без текста и фото)[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+- отзыв содержит только оценку (без текста и фото)
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -2541,7 +2617,9 @@ func (r ApiGetV1FeedbacksCountUnansweredRequest) Execute() (*GetV1FeedbacksCount
 GetV1FeedbacksCountUnanswered Необработанные отзывы
 
 Метод возвращает:
-- количество необработанных [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+- количество необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -2703,7 +2781,9 @@ func (r ApiGetV1NewFeedbacksQuestionsRequest) Execute() (*GetV1NewFeedbacksQuest
 /*
 GetV1NewFeedbacksQuestions Непросмотренные отзывы и вопросы
 
-Метод проверяет наличие непросмотренных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+Метод проверяет наличие непросмотренных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -2872,7 +2952,9 @@ func (r ApiGetV1QuestionRequest) Execute() (*GetV1QuestionResponse200, *http.Res
 /*
 GetV1Question Получить вопрос по ID
 
-Метод возвращает данные [вопроса](/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](/openapi/customer-communication#tag/questions/operation/patchV1Questions).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+Метод возвращает данные [вопроса](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/patchV1Questions).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -3101,7 +3183,11 @@ GetV1Questions Список вопросов
 Метод возвращает список вопросов по заданным фильтрам. Вы можете:
 - получить данные отвеченных и неотвеченных вопросов
 - сортировать вопросы по дате
-- настроить пагинацию и количество вопросов в ответеМожно получить максимум 10 000 вопросов в одном ответе[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+- настроить пагинацию и количество вопросов в ответе
+
+Можно получить максимум 10 000 вопросов в одном ответе
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -3319,7 +3405,9 @@ func (r ApiGetV1QuestionsCountRequest) Execute() (*GetV1QuestionsCountResponse20
 /*
 GetV1QuestionsCount Количество вопросов
 
-Метод возвращает количество отвеченных или неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+Метод возвращает количество отвеченных или неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -3504,7 +3592,9 @@ func (r ApiGetV1QuestionsCountUnansweredRequest) Execute() (*GetV1QuestionsCount
 /*
 GetV1QuestionsCountUnanswered Неотвеченные вопросы
 
-Метод возвращает общее количество неотвеченных [вопросов](/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+Метод возвращает общее количество неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -3666,7 +3756,9 @@ func (r ApiGetV1SellerChatsRequest) Execute() (*ChatsResponse, *http.Response, e
 /*
 GetV1SellerChats Список чатов
 
-Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов |
@@ -3829,7 +3921,9 @@ func (r ApiGetV1SellerDownloadIdRequest) Execute() (*os.File, *http.Response, er
 /*
 GetV1SellerDownloadId Получить файл из сообщения
 
-Метод возвращает файл или изображение из сообщения по его ID.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод возвращает файл или изображение из сообщения по его ID.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов |
@@ -4023,10 +4117,12 @@ func (r ApiGetV1SellerEventsRequest) Execute() (*EventsResponse, *http.Response,
 /*
 GetV1SellerEvents События чатов
 
-Метод возвращает список событий всех [чатов с покупателями](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).
+Метод возвращает список событий всех [чатов с покупателями](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).
 Чтобы получить все события:
 1. Сделайте первый запрос без параметра `next`.
-2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `totalEvents` не станет равным `0`. Это будет означать, что вы получили все события.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `totalEvents` не станет равным `0`. Это будет означать, что вы получили все события.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов |
@@ -4209,7 +4305,9 @@ func (r ApiPatchV1ClaimRequest) Execute() (*http.Response, error) {
 /*
 PatchV1Claim Ответ на заявку покупателя
 
-Метод отправляет ответ на [заявку](/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод отправляет ответ на [заявку](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов |
@@ -4382,9 +4480,13 @@ func (r ApiPatchV1FeedbacksAnswerRequest) Execute() (*http.Response, error) {
 /*
 PatchV1FeedbacksAnswer Отредактировать ответ на отзыв
 
-Метод позволяет отредактировать уже отправленный [ответ на отзыв](/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.
+Метод позволяет отредактировать уже отправленный [ответ на отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.
 
-Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.
+
+ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -4544,9 +4646,15 @@ func (r ApiPatchV1QuestionsRequest) Execute() (*PatchV1QuestionsResponse200, *ht
 PatchV1Questions Работа с вопросами
 
 В зависимости от тела запроса, метод позволяет:
-- отметить [вопрос](/openapi/customer-communication#tag/questions/operation/getV1Questions) как просмотренный
+- отметить [вопрос](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) как просмотренный
 - отклонить вопрос
-- ответить на вопрос или отредактировать ответВсе ответы продавцов проходят предварительную модерацию перед публикациейОтредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+- ответить на вопрос или отредактировать ответ
+
+Все ответы продавцов проходят предварительную модерацию перед публикацией
+
+Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -4749,10 +4857,12 @@ func (r ApiPostFeedbacksV1PinsRequest) Execute() (*PostFeedbacksV1PinsResponse20
 /*
 PostFeedbacksV1Pins Закрепить отзывы
 
-Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.
-Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
+Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.
+Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
 
-Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \*\*Закрепление отзыва\*\*.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \*\*Закрепление отзыва\*\*.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -4939,7 +5049,11 @@ func (r ApiPostV1FeedbacksAnswerRequest) Execute() (*http.Response, error) {
 /*
 PostV1FeedbacksAnswer Ответить на отзыв
 
-Метод позволяет ответить на [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+Метод позволяет ответить на [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.
+
+ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -5109,9 +5223,11 @@ func (r ApiPostV1FeedbacksOrderReturnRequest) Execute() (*PostV1FeedbacksOrderRe
 /*
 PostV1FeedbacksOrderReturn Возврат товара по ID отзыва
 
-Метод запрашивает возврат товара, по которому оставлен [отзыв](/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).
+Метод запрашивает возврат товара, по которому оставлен [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).
 
-Возврат доступен для отзывов с полем `"isAbleReturnProductOrders": true`.[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+Возврат доступен для отзывов с полем `"isAbleReturnProductOrders": true`.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
@@ -5321,7 +5437,9 @@ func (r ApiPostV1SellerMessageRequest) Execute() (*MessageResponse, *http.Respon
 /*
 PostV1SellerMessage Отправить сообщение
 
-Метод отправляет сообщения в [чат с покупателем](/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).[Лимит запросов](/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+Метод отправляет сообщения в [чат с покупателем](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
 | --- | --- | --- | --- | --- |
 | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов |
