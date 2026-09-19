@@ -76,13 +76,11 @@ def inject_bearer_auth(spec: dict) -> None:
     """Replace every existing security scheme with a single `BearerAuth`
     (HTTP bearer, JWT). WB's raw spec declares a `HeaderApiKey` scheme
     (apiKey in header) that carries the same JWT, so leaving it in place
-    would make openapi-generator emit BOTH auth code paths — a
-    `ctx.Value(ContextAccessToken)` block for BearerAuth AND a
-    `ctx.Value(ContextAPIKeys)` block for HeaderApiKey. Since we route
-    the token via `Configuration.AccessToken` in the Go client (and any
-    caller can set the same header manually in other languages), we drop
-    all pre-existing schemes and rewire every `security` requirement to
-    point at BearerAuth only.
+    would make openapi-generator emit an extra auth code path (a
+    context-value-based apiKey handler) on top of the bearer one. Since
+    we route the token via `Configuration.AccessToken` / equivalents in
+    all four languages, we drop every pre-existing scheme and rewire
+    every `security` requirement to point at BearerAuth only.
     """
     components = spec.setdefault("components", {})
     schemes = components.setdefault("securitySchemes", {})

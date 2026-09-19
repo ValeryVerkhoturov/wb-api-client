@@ -24,6 +24,21 @@ export interface ConfigurationParameters {
     formDataCtor?: new () => any;
 }
 
+/**
+ * Small wrapper around a string that hides its value under console.log,
+ * util.inspect, and template literals. Call {@link exposeSecret} to get
+ * the raw value — this is intentionally a friction point so that leaks
+ * become explicit.
+ */
+export class SecretString {
+    private readonly _value: string;
+    constructor(value: string) { this._value = value; }
+    exposeSecret(): string { return this._value; }
+    toString(): string { return "<REDACTED>"; }
+    toJSON(): string { return "<REDACTED>"; }
+    [Symbol.for("nodejs.util.inspect.custom")](): string { return "<REDACTED>"; }
+}
+
 export class Configuration {
     /**
      * parameter for apiKey security
@@ -92,6 +107,18 @@ export class Configuration {
         this.baseOptions = param.baseOptions;
         this.formDataCtor = param.formDataCtor;
     }
+
+    /**
+     * Store the WB bearer JWT on this Configuration wrapped in a
+     * {@link SecretString} so it redacts under logs, and wire the
+     * accessToken field to a callback that {@link SecretString.exposeSecret}s
+     * the value at request time.
+     */
+    setAccessToken(token: string): void {
+        const secret = new SecretString(token);
+        this.accessToken = () => secret.exposeSecret();
+    }
+
 
     /**
      * Check if the given MIME is a JSON MIME.

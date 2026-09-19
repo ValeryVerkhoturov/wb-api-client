@@ -173,14 +173,18 @@ export * from "./common";
 EOF
 done
 
-# Go — one module, one go.mod. Before `go mod tidy` runs, patch every
-# sub-package to expose an `AccessToken *secrecy.SecretString` field on
-# Configuration and consume it from the request builder; tidy then picks
-# up github.com/negrel/secrecy as a real dependency. gofmt runs last
-# because both openapi-generator's Go output and our injected fields
-# arrive with misaligned struct tags and inconsistent spacing.
+# Consolidated secret-string injection: wraps the bearer JWT in a
+# language-appropriate redacting type across all four clients so accidental
+# logs don't leak the token. See scripts/inject-secret.py for per-language
+# specifics. Must run AFTER language splicing (needs the generated
+# Configuration/ApiClient files in place) and BEFORE `go mod tidy` (which
+# reads the freshly-added github.com/negrel/secrecy import).
+python3 "${REPO_ROOT}/scripts/inject-secret.py" "${CLIENTS_DIR}"
+
+# Go — one module, one go.mod. gofmt runs last because both openapi-
+# generator's Go output and our injected fields arrive with misaligned
+# struct tags and inconsistent spacing.
 cp "${TEMPLATE_DIR}/go/go.mod" "${CLIENTS_DIR}/go/go.mod"
-python3 "${REPO_ROOT}/scripts/go-inject-secrecy.py" "${CLIENTS_DIR}/go"
 if command -v docker >/dev/null 2>&1; then
   # gofmt -w on the whole tree in a single pass consistently leaves 18
   # api_*.go files unformatted here — the doc-comment indentation

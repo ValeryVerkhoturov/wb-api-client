@@ -18,8 +18,9 @@ import logging
 from logging import FileHandler
 import multiprocessing
 import sys
-from typing import Any, ClassVar, Dict, List, Literal, Optional, TypedDict
+from typing import Any, ClassVar, Dict, List, Literal, Optional, TypedDict, Union
 from typing_extensions import NotRequired, Self
+from pydantic import SecretStr
 
 import urllib3
 
@@ -174,7 +175,7 @@ class Configuration:
         api_key_prefix: Optional[Dict[str, str]]=None,
         username: Optional[str]=None,
         password: Optional[str]=None,
-        access_token: Optional[str]=None,
+        access_token: Optional[Union[str, SecretStr]]=None,
         server_index: Optional[int]=None, 
         server_variables: Optional[ServerVariablesT]=None,
         server_operation_index: Optional[Dict[int, int]]=None,
@@ -224,6 +225,8 @@ class Configuration:
         self.password = password
         """Password for HTTP basic authentication
         """
+        if access_token is not None and not isinstance(access_token, SecretStr):
+            access_token = SecretStr(access_token)
         self.access_token = access_token
         """Access token
         """
@@ -491,7 +494,7 @@ class Configuration:
                 'in': 'header',
                 'format': 'JWT',
                 'key': 'Authorization',
-                'value': 'Bearer ' + self.access_token
+                'value': 'Bearer ' + self.access_token.get_secret_value()
             }
         return auth
 

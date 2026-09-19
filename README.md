@@ -18,7 +18,7 @@ pip install wb-api-client
 from wb_api_client.items import Configuration, ApiClient
 from wb_api_client.items.api import DefaultApi
 
-cfg = Configuration(access_token="<your WB JWT>")
+cfg = Configuration(access_token="<your WB JWT>")  # auto-wrapped in pydantic.SecretStr
 api = DefaultApi(ApiClient(cfg))
 ```
 
@@ -29,7 +29,9 @@ npm install @valeryverkhoturov/wb-api-client
 ```ts
 import { Configuration, DefaultApi } from "@valeryverkhoturov/wb-api-client/items";
 
-const api = new DefaultApi(new Configuration({ accessToken: "<your WB JWT>" }));
+const cfg = new Configuration({});
+cfg.setAccessToken("<your WB JWT>");                // wraps in SecretString internally
+const api = new DefaultApi(cfg);
 ```
 
 **Go:**
@@ -37,16 +39,12 @@ const api = new DefaultApi(new Configuration({ accessToken: "<your WB JWT>" }));
 go get github.com/ValeryVerkhoturov/wb-api-client/clients/go@latest
 ```
 ```go
-import (
-  wbitems "github.com/ValeryVerkhoturov/wb-api-client/clients/go/items"
-)
+import wbitems "github.com/ValeryVerkhoturov/wb-api-client/clients/go/items"
 
 cfg := wbitems.NewConfiguration()
-cfg.SetAccessToken("<your WB JWT>")
+cfg.SetAccessToken("<your WB JWT>")                 // stored as *secrecy.SecretString
 client := wbitems.NewAPIClient(cfg)
 ```
-
-The `AccessToken` field is a `*secrecy.SecretString` from [`github.com/negrel/secrecy`](https://github.com/negrel/secrecy), so the token redacts under `fmt`/`log` unless you explicitly call `.ExposeSecret()`. Setting the token on `Configuration` is the only supported way — the `ContextAccessToken` context-value pattern that openapi-generator emits by default has been removed.
 
 **Java (Maven Central):**
 ```xml
@@ -58,13 +56,26 @@ The `AccessToken` field is a `*secrecy.SecretString` from [`github.com/negrel/se
 ```
 ```java
 import io.github.valeryverkhoturov.wbapi.items.ApiClient;
-import io.github.valeryverkhoturov.wbapi.items.Configuration;
+import io.github.valeryverkhoturov.wbapi.items.SecretString;
 import io.github.valeryverkhoturov.wbapi.items.api.DefaultApi;
 
-ApiClient client = Configuration.getDefaultApiClient();
-client.setBearerToken("<your WB JWT>");
+ApiClient client = new ApiClient();
+client.setBearerToken(new SecretString("<your WB JWT>"));
 DefaultApi api = new DefaultApi(client);
 ```
+
+### Secret redaction
+
+In every language the bearer JWT is stored inside a "secret-string" wrapper so it redacts under logs / `print` / `console.log` / `System.out.println` / `fmt.Printf` unless you explicitly ask for the raw value:
+
+| Language | Wrapper type | Redacted under | Explicit expose |
+|---|---|---|---|
+| Python | [`pydantic.SecretStr`](https://docs.pydantic.dev/latest/api/types/#pydantic.types.SecretStr) | `print(cfg.access_token)` → `**********` | `.get_secret_value()` |
+| TypeScript | `SecretString` class (internal, exposed) | `console.log(new SecretString("…"))` → `<REDACTED>` | `.exposeSecret()` |
+| Go | [`secrecy.SecretString`](https://github.com/negrel/secrecy) | `fmt.Printf("%v", cfg.AccessToken)` → `<!SECRET_LEAKED!>` | `.ExposeSecret()` |
+| Java | `SecretString` class (per sub-module) | `System.out.println(s)` → `<REDACTED>` | `.exposeSecret()` |
+
+Passing the token through the wrapper is the only supported path.
 
 ## Local development
 

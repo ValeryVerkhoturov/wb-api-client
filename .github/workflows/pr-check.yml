@@ -82,15 +82,22 @@ jobs:
 
       - name: Diff against committed tree
         id: diff
-        # `git diff --exit-code` prints the diff and exits non-zero when
-        # there is drift. We wrap it so the workflow shows the diff and
-        # then still fails with a clear step summary.
+        # `git diff --exit-code` exits non-zero when there is drift.
+        # Print both the file-list (--stat) and the full diff to the CI
+        # log so the failure is diagnosable without opening the step
+        # summary. Truncate the full diff to a sensible size — a full
+        # regeneration diff can be tens of megabytes if something big
+        # changed (e.g. a spec-wide description rewrite).
         run: |
           set +e
           git diff --stat -- swaggers/ clients/ > /tmp/diff.stat
-          git diff --exit-code -- swaggers/ clients/ > /tmp/diff.full
-          rc=$?
+          git diff -- swaggers/ clients/ > /tmp/diff.full
+          rc=$(( $(wc -c < /tmp/diff.full) > 0 ))
           if [[ $rc -ne 0 ]]; then
+            echo "── drift summary ──────────────────────────────"
+            cat /tmp/diff.stat
+            echo "── first 500 lines of diff ────────────────────"
+            head -500 /tmp/diff.full
             {
               echo "## ❌ Generated code is stale"
               echo ""
