@@ -1,0 +1,12 @@
+# The Go template emits one package per output directory. Per-slug
+# packageName is injected by generate.sh (e.g. `wbapi_items`), and the
+# publish workflow tags each slug as `clients/go/<slug>/vX.Y.Z` so
+# `go get github.com/ValeryVerkhoturov/wb-api-client/clients/go/<slug>`
+# resolves that version. go.mod inside each dir is rewritten there too.
+generatorName: go
+generateInterfaces: true
+withGoMod: true
+isGoSubmodule: false
+# Deterministic output — the PR check workflow diffs the regenerated tree
+# against the committed one, so any per-run varying header would flap.
+hideGenerationTimestamp: true

@@ -1,0 +1,10 @@
+# Per-slug npmName is injected by generate.sh so each of the 13 packages
+# gets its own name under the @valeryverkhoturov npm scope.
+generatorName: typescript-axios
+supportsES6: true
+withInterfaces: true
+useSingleRequestParameter: false
+withoutRuntimeChecks: false
+# Deterministic output — the PR check workflow diffs the regenerated tree
+# against the committed one, so any per-run varying header would flap.
+hideGenerationTimestamp: true

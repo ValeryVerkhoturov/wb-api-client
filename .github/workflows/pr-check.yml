@@ -1,0 +1,100 @@
+name: PR — generated code in sync
+
+# Regenerate every client from scratch inside a PR and fail if the tree
+# differs from what's committed. Catches:
+#   - swaggers/*.yaml edited without regenerating post-processed + clients
+#   - post-process.py / generate.sh / generator-configs/ / templates/
+#     changed without regenerating
+#   - hand-edits to clients/** that don't survive a clean generate
+#
+# The regeneration uses the SAME version string that's currently baked
+# into the committed clients (extracted from clients/python/pyproject.toml)
+# so the diff surfaces only substantive drift, not version-number noise.
+
+on:
+  pull_request:
+    paths:
+      - "swaggers/**"
+      - "scripts/**"
+      - "generator-configs/**"
+      - "templates/**"
+      - "clients/**"
+      - ".github/workflows/pr-check.yml"
+
+# Cancel in-progress runs on the same PR when a new push arrives — the
+# older run's result would be stale anyway.
+concurrency:
+  group: pr-check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write     # to leave a summary comment on failure
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extract committed version
+        id: ver
+        # Pull the version straight from the committed Python manifest so
+        # regeneration produces the same version-stamped strings. If this
+        # runs before the first release commit lands, fall back to a fixed
+        # placeholder that at least keeps the check meaningful.
+        run: |
+          if [[ -f clients/python/pyproject.toml ]]; then
+            v="$(grep -m1 '^version' clients/python/pyproject.toml | sed -E 's/.*"([^"]+)".*/\1/')"
+          else
+            v="0.0.0.dev0"
+          fi
+          echo "version=${v}" >> "$GITHUB_OUTPUT"
+          echo "Regenerating at version ${v}"
+
+      - name: Set up Python (post-processor)
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r scripts/requirements.txt
+
+      - name: Post-process specs
+        run: python scripts/post-process.py
+
+      - name: Regenerate all four language clients
+        # openapi-generator runs inside Docker, which ubuntu-latest ships.
+        # generate.sh also runs `go mod tidy` in a Go container to refresh
+        # clients/go/go.sum.
+        run: ./scripts/generate.sh "${{ steps.ver.outputs.version }}"
+
+      - name: Diff against committed tree
+        id: diff
+        # `git diff --exit-code` prints the diff and exits non-zero when
+        # there is drift. We wrap it so the workflow shows the diff and
+        # then still fails with a clear step summary.
+        run: |
+          set +e
+          git diff --stat -- swaggers/ clients/ > /tmp/diff.stat
+          git diff --exit-code -- swaggers/ clients/ > /tmp/diff.full
+          rc=$?
+          if [[ $rc -ne 0 ]]; then
+            {
+              echo "## ❌ Generated code is stale"
+              echo ""
+              echo "Regenerating from \`swaggers/\`, \`scripts/\`, \`generator-configs/\` and \`templates/\` at version \`${{ steps.ver.outputs.version }}\` produced a different tree than what's committed."
+              echo ""
+              echo "### Files affected"
+              echo '```'
+              cat /tmp/diff.stat
+              echo '```'
+              echo ""
+              echo "### To fix"
+              echo '```bash'
+              echo "python scripts/post-process.py"
+              echo "./scripts/generate.sh ${{ steps.ver.outputs.version }}"
+              echo "git add swaggers/ clients/ && git commit"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+          echo "✓ generated tree matches committed" >> "$GITHUB_STEP_SUMMARY"

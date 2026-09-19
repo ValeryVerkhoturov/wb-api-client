@@ -1,0 +1,118 @@
+name: Publish clients
+
+# Reusable workflow. Regeneration and commit happen in daily-check.yml; by
+# the time this runs the tag already exists and `clients/<lang>` is
+# committed at that tag. This workflow is a pure publish step — download
+# the tagged source, build the language-specific package artifact, push to
+# the appropriate registry.
+#
+# Each language branch is self-contained so a broken publish for one
+# language does not block the others (fail-fast: false in the caller).
+
+on:
+  workflow_call:
+    inputs:
+      lang:
+        type: string
+        required: true
+      version:
+        type: string
+        required: true
+      ref:
+        # Tag to check out. daily-check.yml passes `v<version>` so the
+        # source we publish exactly matches what's committed at that tag.
+        type: string
+        required: true
+  workflow_dispatch:
+    inputs:
+      lang:
+        type: choice
+        options: [python, typescript, go, java]
+        required: true
+      version:
+        type: string
+        required: true
+      ref:
+        type: string
+        required: true
+
+jobs:
+  publish-python:
+    if: inputs.lang == 'python'
+    runs-on: ubuntu-latest
+    environment: pypi              # protects the PyPI trusted-publisher config
+    permissions:
+      id-token: write              # OIDC → PyPI trusted publishing
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install build twine
+      - name: Build & publish wb-api-client
+        working-directory: clients/python
+        run: |
+          python -m build
+          twine upload --skip-existing dist/*
+
+  publish-typescript:
+    if: inputs.lang == 'typescript'
+    runs-on: ubuntu-latest
+    environment: npm
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
+      - name: Build & publish @valeryverkhoturov/wb-api-client
+        working-directory: clients/typescript
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npm install
+          npm run build
+          npm publish --access public
+
+  publish-go:
+    if: inputs.lang == 'go'
+    runs-on: ubuntu-latest
+    # No-op job: Go modules resolve versions directly from the repo's
+    # tags — the tag was already pushed in daily-check.yml, so
+    # `go get github.com/ValeryVerkhoturov/wb-api-client/clients/go@vX.Y.Z`
+    # already works. This job exists so the matrix stays symmetric and
+    # anyone reading the workflow can see Go is intentionally handled.
+    steps:
+      - name: Confirm tag reachable
+        run: |
+          echo "Go module release: github.com/ValeryVerkhoturov/wb-api-client/clients/go@${{ inputs.ref }}"
+          echo "No registry publish needed — proxy.golang.org fetches from the tag."
+
+  publish-java:
+    if: inputs.lang == 'java'
+    runs-on: ubuntu-latest
+    environment: maven-central
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          server-id: central
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
+          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+      - name: Deploy to Maven Central
+        working-directory: clients/java
+        env:
+          MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+        run: mvn --batch-mode -DskipTests deploy

@@ -1,0 +1,23 @@
+# Generated clients (clients/{python,typescript,go,java}) ARE committed.
+# The daily-check workflow regenerates them, commits, tags, then publishes.
+# Rationale: consumers can browse and pin exact source at a tag; Go modules
+# specifically resolve from `go get` against the checked-in tree.
+
+# Build byproducts inside the committed client trees
+clients/**/dist/
+clients/**/node_modules/
+clients/**/target/
+clients/**/build/
+clients/**/*.egg-info/
+
+# Local generator scratch
+clients/.tmp/
+.openapi-generator/
+.openapi-generator-cli.jar
+.venv/
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+.vscode/

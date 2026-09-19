@@ -1,0 +1,13 @@
+# openapi-generator config for the `python` template.
+# The generate.sh script fills in packageVersion at build time; the slug is
+# baked into the output directory name via CLI args and the sub-package
+# module name below.
+# Per-slug packageName / projectName are injected by generate.sh so each of
+# the 13 packages installs into its own top-level module and publishes to
+# its own PyPI project. Only cross-package settings live here.
+generatorName: python
+library: urllib3
+packageUrl: https://github.com/ValeryVerkhoturov/wb-api-client
+# Deterministic output — the PR check workflow diffs the regenerated tree
+# against the committed one, so any per-run varying header would flap.
+hideGenerationTimestamp: true
