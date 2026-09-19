@@ -25,13 +25,13 @@ type OrderNew struct {
 	Ddate *string `json:"ddate,omitempty"`
 	// Рекомендуемая дата доставки СГТ в сортировочный центр или на склад. Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2`
 	SellerDate NullableString `json:"sellerDate,omitempty"`
-	// Цена продавца в валюте продажи с учётом скидки продавца, без учёта скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях 
+	// Цена продавца в валюте продажи с учётом скидки продавца, без учёта скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях
 	SalePrice NullableInt32 `json:"salePrice,omitempty"`
-	// Список идентификаторов маркировки, которые [необходимо добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку 
+	// Список идентификаторов маркировки, которые [необходимо добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку
 	RequiredMeta []string `json:"requiredMeta,omitempty"`
 	// Список идентификаторов маркировки, которые [можно добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание. Поставку со сборочным заданием без этих идентификаторов маркировки можно перевести в доставку, но они могут потребоваться, например, при возврате товара покупателем
 	OptionalMeta []string `json:"optionalMeta,omitempty"`
-	// Тип доставки: - `fbs` — доставка на склад Wildberries (FBS) 
+	// Тип доставки: - `fbs` — доставка на склад Wildberries (FBS)
 	DeliveryType *string `json:"deliveryType,omitempty"`
 	// Комментарий покупателя
 	Comment *string `json:"comment,omitempty"`
@@ -61,7 +61,7 @@ type OrderNew struct {
 	NmId *int32 `json:"nmId,omitempty"`
 	// ID размера товара в системе WB
 	ChrtId *int32 `json:"chrtId,omitempty"`
-	// Цена в валюте продажи с учётом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи — в поле `currencyCode`. Предоставляется в информационных целях 
+	// Цена в валюте продажи с учётом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи — в поле `currencyCode`. Предоставляется в информационных целях
 	Price *int32 `json:"price,omitempty"`
 	// Сумма к оплате покупателем в валюте продажи с учетом всех скидок, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
 	FinalPrice *int32 `json:"finalPrice,omitempty"`
@@ -73,15 +73,15 @@ type OrderNew struct {
 	CurrencyCode *int32 `json:"currencyCode,omitempty"`
 	// Код валюты страны продавца
 	ConvertedCurrencyCode *int32 `json:"convertedCurrencyCode,omitempty"`
-	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) 
+	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
 	CargoType *int32 `json:"cargoType,omitempty"`
-	// Тип сборочного задания:   - `0` — внутренняя поставка   - `1` — трансграничная поставка 
+	// Тип сборочного задания:   - `0` — внутренняя поставка   - `1` — трансграничная поставка
 	CrossBorderType *int32 `json:"crossBorderType,omitempty"`
-	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
+	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
-	// Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да 
-	IsPickupPointShipmentAllowed *bool `json:"isPickupPointShipmentAllowed,omitempty"`
-	Options *OrderOptions `json:"options,omitempty"`
+	// Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да
+	IsPickupPointShipmentAllowed *bool         `json:"isPickupPointShipmentAllowed,omitempty"`
+	Options                      *OrderOptions `json:"options,omitempty"`
 }
 
 // NewOrderNew instantiates a new OrderNew object
@@ -133,6 +133,7 @@ func (o *OrderNew) HasAddress() bool {
 func (o *OrderNew) SetAddress(v OrderAddress) {
 	o.Address.Set(&v)
 }
+
 // SetAddressNil sets the value for Address to be an explicit nil
 func (o *OrderNew) SetAddressNil() {
 	o.Address.Set(nil)
@@ -207,6 +208,7 @@ func (o *OrderNew) HasSellerDate() bool {
 func (o *OrderNew) SetSellerDate(v string) {
 	o.SellerDate.Set(&v)
 }
+
 // SetSellerDateNil sets the value for SellerDate to be an explicit nil
 func (o *OrderNew) SetSellerDateNil() {
 	o.SellerDate.Set(nil)
@@ -249,6 +251,7 @@ func (o *OrderNew) HasSalePrice() bool {
 func (o *OrderNew) SetSalePrice(v int32) {
 	o.SalePrice.Set(&v)
 }
+
 // SetSalePriceNil sets the value for SalePrice to be an explicit nil
 func (o *OrderNew) SetSalePriceNil() {
 	o.SalePrice.Set(nil)
@@ -421,6 +424,7 @@ func (o *OrderNew) HasScanPrice() bool {
 func (o *OrderNew) SetScanPrice(v float32) {
 	o.ScanPrice.Set(&v)
 }
+
 // SetScanPriceNil sets the value for ScanPrice to be an explicit nil
 func (o *OrderNew) SetScanPriceNil() {
 	o.ScanPrice.Set(nil)
@@ -1169,7 +1173,7 @@ func (o *OrderNew) SetOptions(v OrderOptions) {
 }
 
 func (o OrderNew) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1312,5 +1316,3 @@ func (v *NullableOrderNew) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

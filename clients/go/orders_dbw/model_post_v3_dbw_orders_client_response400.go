@@ -181,6 +181,7 @@ func (o *PostV3DbwOrdersClientResponse400) HasDetail() bool {
 func (o *PostV3DbwOrdersClientResponse400) SetDetail(v string) {
 	o.Detail.Set(&v)
 }
+
 // SetDetailNil sets the value for Detail to be an explicit nil
 func (o *PostV3DbwOrdersClientResponse400) SetDetailNil() {
 	o.Detail.Set(nil)
@@ -288,7 +289,7 @@ func (o *PostV3DbwOrdersClientResponse400) SetTitle(v string) {
 }
 
 func (o PostV3DbwOrdersClientResponse400) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -356,5 +357,3 @@ func (v *NullablePostV3DbwOrdersClientResponse400) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

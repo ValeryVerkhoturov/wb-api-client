@@ -24,7 +24,7 @@ type ResponseItemList struct {
 	// Флаг ошибки
 	Error *bool `json:"error,omitempty"`
 	// Описание ошибки
-	ErrorText *string `json:"errorText,omitempty"`
+	ErrorText        *string                           `json:"errorText,omitempty"`
 	AdditionalErrors *ResponseItemListAdditionalErrors `json:"additionalErrors,omitempty"`
 }
 
@@ -175,7 +175,7 @@ func (o *ResponseItemList) SetAdditionalErrors(v ResponseItemListAdditionalError
 }
 
 func (o ResponseItemList) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullableResponseItemList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

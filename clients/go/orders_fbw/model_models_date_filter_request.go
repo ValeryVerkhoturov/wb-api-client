@@ -11,8 +11,8 @@ API version: ordersfbw
 package orders_fbw
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -25,7 +25,7 @@ type ModelsDateFilterRequest struct {
 	From *string `json:"from,omitempty"`
 	// Дата окончания периода
 	Till *string `json:"till,omitempty"`
-	// Тип дат:   - `factDate` — дата фактической отгрузки поставки   - `createDate` — дата создания поставки   - `supplyDate` — плановая дата отгрузки поставки   - `updatedDate` — дата изменения поставки 
+	// Тип дат:   - `factDate` — дата фактической отгрузки поставки   - `createDate` — дата создания поставки   - `supplyDate` — плановая дата отгрузки поставки   - `updatedDate` — дата изменения поставки
 	Type string `json:"type"`
 }
 
@@ -138,7 +138,7 @@ func (o *ModelsDateFilterRequest) SetType(v string) {
 }
 
 func (o ModelsDateFilterRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,10 +170,10 @@ func (o *ModelsDateFilterRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -229,5 +229,3 @@ func (v *NullableModelsDateFilterRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

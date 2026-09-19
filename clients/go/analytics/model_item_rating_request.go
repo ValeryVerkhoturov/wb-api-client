@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,8 +21,8 @@ var _ MappedNullable = &ItemRatingRequest{}
 
 // ItemRatingRequest Параметры запроса
 type ItemRatingRequest struct {
-	CurrentPeriod PeriodItemRating `json:"currentPeriod"`
-	PastPeriod *PastPeriodItemRating `json:"pastPeriod,omitempty"`
+	CurrentPeriod PeriodItemRating      `json:"currentPeriod"`
+	PastPeriod    *PastPeriodItemRating `json:"pastPeriod,omitempty"`
 	// Список артикулов WB для фильтрации
 	NmIds []int32 `json:"nmIds,omitempty"`
 	// Список ID предметов для фильтрации
@@ -31,11 +31,11 @@ type ItemRatingRequest struct {
 	BrandNames []string `json:"brandNames,omitempty"`
 	// Список ID ярлыков для фильтрации
 	TagIds []int64 `json:"tagIds,omitempty"`
-	// Не возвращать товары без продаж:   - `true` — да, возвращаются только товары с продажами за период, указанный в объекте `currentPeriod`   - `false` — нет, возвращаются все товары, если не указаны другие параметры 
+	// Не возвращать товары без продаж:   - `true` — да, возвращаются только товары с продажами за период, указанный в объекте `currentPeriod`   - `false` — нет, возвращаются все товары, если не указаны другие параметры
 	IsNotIncludeNmsWithoutSales *bool `json:"isNotIncludeNmsWithoutSales,omitempty"`
-	// Возвращаются ли в ответе только скрытые товары:   - `true` — да, возвращаются только скрытые из каталога товары   - `false` — нет, возвращаются все товары, если не указаны другие параметры 
-	OnlyShadowedNms *bool `json:"onlyShadowedNms,omitempty"`
-	OrderBy OrderByItemRating `json:"orderBy"`
+	// Возвращаются ли в ответе только скрытые товары:   - `true` — да, возвращаются только скрытые из каталога товары   - `false` — нет, возвращаются все товары, если не указаны другие параметры
+	OnlyShadowedNms *bool             `json:"onlyShadowedNms,omitempty"`
+	OrderBy         OrderByItemRating `json:"orderBy"`
 	// Количество товаров в ответе
 	Limit *int32 `json:"limit,omitempty"`
 	// Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
@@ -405,7 +405,7 @@ func (o *ItemRatingRequest) SetOffset(v int32) {
 }
 
 func (o ItemRatingRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -459,10 +459,10 @@ func (o *ItemRatingRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -518,5 +518,3 @@ func (v *NullableItemRatingRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

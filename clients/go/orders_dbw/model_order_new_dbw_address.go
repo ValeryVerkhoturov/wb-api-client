@@ -141,7 +141,7 @@ func (o *OrderNewDBWAddress) SetLatitude(v float32) {
 }
 
 func (o OrderNewDBWAddress) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,5 +197,3 @@ func (v *NullableOrderNewDBWAddress) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

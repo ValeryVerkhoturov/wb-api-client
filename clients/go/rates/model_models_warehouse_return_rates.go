@@ -19,7 +19,7 @@ var _ MappedNullable = &ModelsWarehouseReturnRates{}
 
 // ModelsWarehouseReturnRates struct for ModelsWarehouseReturnRates
 type ModelsWarehouseReturnRates struct {
-	// **Стоимость возврата при грузовой доставке, доставка на ПВЗ (базовая цена за 1 л), ₽** Применяется для крупногабаритных товаров, когда:   - продавец хочет вывезти товары со склада WB;   - на складе обнаружили бракованные товары;   - покупатель возвращает товар, но его нельзя вернуть в продажу. 
+	// **Стоимость возврата при грузовой доставке, доставка на ПВЗ (базовая цена за 1 л), ₽** Применяется для крупногабаритных товаров, когда:   - продавец хочет вывезти товары со склада WB;   - на складе обнаружили бракованные товары;   - покупатель возвращает товар, но его нельзя вернуть в продажу.
 	DeliveryDumpKgtOfficeBase *string `json:"deliveryDumpKgtOfficeBase,omitempty"`
 	// \\*\\*Стоимость возврата при грузовой доставке, доставка на ПВЗ (доп. литр), ₽\\*\\* Стоимость за каждый дополнительный литр.
 	DeliveryDumpKgtOfficeLiter *string `json:"deliveryDumpKgtOfficeLiter,omitempty"`
@@ -29,11 +29,11 @@ type ModelsWarehouseReturnRates struct {
 	DeliveryDumpSrgOfficeExpr *string `json:"deliveryDumpSrgOfficeExpr,omitempty"`
 	// \\*\\*Стоимость возврата неопознанного складом товара за каждую единицу, обратная логистика невостребованного возврата, ₽\\*\\* Доставка невостребованного возврата обратно на склад WB.
 	DeliveryDumpSrgReturnExpr *string `json:"deliveryDumpSrgReturnExpr,omitempty"`
-	// **Стоимость возврата, доставка курьером (базовая цена за 1 л), ₽**  Применяется, когда:   - продавец хочет вывезти товары со склада Wildberries   - на складе обнаружили бракованные товары   - покупатель возвращает товар, но его нельзя вернуть в продажу   - подключён автовозврат товаров, продаваемых по схеме Маркетплейс 
+	// **Стоимость возврата, доставка курьером (базовая цена за 1 л), ₽**  Применяется, когда:   - продавец хочет вывезти товары со склада Wildberries   - на складе обнаружили бракованные товары   - покупатель возвращает товар, но его нельзя вернуть в продажу   - подключён автовозврат товаров, продаваемых по схеме Маркетплейс
 	DeliveryDumpSupCourierBase *string `json:"deliveryDumpSupCourierBase,omitempty"`
 	// \\*\\*Стоимость возврата, доставка курьером (доп. л), ₽\\*\\*  Стоимость за каждый дополнительный литр.
 	DeliveryDumpSupCourierLiter *string `json:"deliveryDumpSupCourierLiter,omitempty"`
-	// **Стоимость возврата, доставка на ПВЗ (базовая цена за 1 л), ₽**  Применяется, когда:   - продавец хочет вывезти товары со склада Wildberries   - на складе обнаружили бракованные товары   - покупатель возвращает товар, но его нельзя вернуть в продажу   - подключён автовозврат товаров, продаваемых по схеме Маркетплейс 
+	// **Стоимость возврата, доставка на ПВЗ (базовая цена за 1 л), ₽**  Применяется, когда:   - продавец хочет вывезти товары со склада Wildberries   - на складе обнаружили бракованные товары   - покупатель возвращает товар, но его нельзя вернуть в продажу   - подключён автовозврат товаров, продаваемых по схеме Маркетплейс
 	DeliveryDumpSupOfficeBase *string `json:"deliveryDumpSupOfficeBase,omitempty"`
 	// \\*\\*Стоимость возврата, доставка на ПВЗ (доп. литр), ₽\\*\\* Стоимость за каждый дополнительный литр
 	DeliveryDumpSupOfficeLiter *string `json:"deliveryDumpSupOfficeLiter,omitempty"`
@@ -413,7 +413,7 @@ func (o *ModelsWarehouseReturnRates) SetWarehouseName(v string) {
 }
 
 func (o ModelsWarehouseReturnRates) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -493,5 +493,3 @@ func (v *NullableModelsWarehouseReturnRates) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

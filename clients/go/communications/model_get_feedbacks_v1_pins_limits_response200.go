@@ -11,8 +11,8 @@ API version: communication
 package communications
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -69,7 +69,7 @@ func (o *GetFeedbacksV1PinsLimitsResponse200) SetData(v OpenapiSellerLimitsRespo
 }
 
 func (o GetFeedbacksV1PinsLimitsResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -95,10 +95,10 @@ func (o *GetFeedbacksV1PinsLimitsResponse200) UnmarshalJSON(data []byte) (err er
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -154,5 +154,3 @@ func (v *NullableGetFeedbacksV1PinsLimitsResponse200) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

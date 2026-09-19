@@ -346,7 +346,7 @@ class Api:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'HeaderApiKey'
+            'BearerAuth'
         ]
 
         return self.api_client.param_serialize(
@@ -645,7 +645,7 @@ class Api:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'HeaderApiKey'
+            'BearerAuth'
         ]
 
         return self.api_client.param_serialize(
@@ -925,7 +925,7 @@ class Api:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'HeaderApiKey'
+            'BearerAuth'
         ]
 
         return self.api_client.param_serialize(
@@ -1205,7 +1205,7 @@ class Api:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'HeaderApiKey'
+            'BearerAuth'
         ]
 
         return self.api_client.param_serialize(
@@ -1485,7 +1485,7 @@ class Api:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'HeaderApiKey'
+            'BearerAuth'
         ]
 
         return self.api_client.param_serialize(
@@ -1765,7 +1765,7 @@ class Api:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'HeaderApiKey'
+            'BearerAuth'
         ]
 
         return self.api_client.param_serialize(
@@ -2079,7 +2079,7 @@ class Api:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'HeaderApiKey'
+            'BearerAuth'
         ]
 
         return self.api_client.param_serialize(
@@ -2359,7 +2359,7 @@ class Api:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'HeaderApiKey'
+            'BearerAuth'
         ]
 
         return self.api_client.param_serialize(
@@ -2704,7 +2704,7 @@ class Api:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'HeaderApiKey'
+            'BearerAuth'
         ]
 
         return self.api_client.param_serialize(
@@ -2999,7 +2999,7 @@ class Api:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'HeaderApiKey'
+            'BearerAuth'
         ]
 
         return self.api_client.param_serialize(
@@ -3279,7 +3279,7 @@ class Api:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'HeaderApiKey'
+            'BearerAuth'
         ]
 
         return self.api_client.param_serialize(
@@ -3591,7 +3591,7 @@ class Api:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'HeaderApiKey'
+            'BearerAuth'
         ]
 
         return self.api_client.param_serialize(
@@ -3909,7 +3909,7 @@ class Api:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'HeaderApiKey'
+            'BearerAuth'
         ]
 
         return self.api_client.param_serialize(

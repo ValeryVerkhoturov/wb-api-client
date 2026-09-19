@@ -12,19 +12,19 @@ package analytics
 
 import (
 	"encoding/json"
-	"gopkg.in/validator.v2"
 	"fmt"
+	"gopkg.in/validator.v2"
 )
 
 // PostV2NmReportDownloadsRequest - struct for PostV2NmReportDownloadsRequest
 type PostV2NmReportDownloadsRequest struct {
 	InventoryHistoryReportReq *InventoryHistoryReportReq
 	InventoryMetricsReportReq *InventoryMetricsReportReq
-	SalesFunnelGroupReq *SalesFunnelGroupReq
-	SalesFunnelItemReq *SalesFunnelItemReq
-	SearchReportGroupReq *SearchReportGroupReq
-	SearchReportItemReq *SearchReportItemReq
-	SearchReportTextReq *SearchReportTextReq
+	SalesFunnelGroupReq       *SalesFunnelGroupReq
+	SalesFunnelItemReq        *SalesFunnelItemReq
+	SearchReportGroupReq      *SearchReportGroupReq
+	SearchReportItemReq       *SearchReportItemReq
+	SearchReportTextReq       *SearchReportTextReq
 }
 
 // InventoryHistoryReportReqAsPostV2NmReportDownloadsRequest is a convenience function that returns InventoryHistoryReportReq wrapped in PostV2NmReportDownloadsRequest
@@ -75,7 +75,6 @@ func SearchReportTextReqAsPostV2NmReportDownloadsRequest(v *SearchReportTextReq)
 		SearchReportTextReq: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *PostV2NmReportDownloadsRequest) UnmarshalJSON(data []byte) error {
@@ -252,7 +251,7 @@ func (src PostV2NmReportDownloadsRequest) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *PostV2NmReportDownloadsRequest) GetActualInstance() (interface{}) {
+func (obj *PostV2NmReportDownloadsRequest) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -323,5 +322,3 @@ func (v *NullablePostV2NmReportDownloadsRequest) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

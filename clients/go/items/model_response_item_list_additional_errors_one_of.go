@@ -71,6 +71,7 @@ func (o *ResponseItemListAdditionalErrorsOneOf) HasString() bool {
 func (o *ResponseItemListAdditionalErrorsOneOf) SetString(v string) {
 	o.String.Set(&v)
 }
+
 // SetStringNil sets the value for String to be an explicit nil
 func (o *ResponseItemListAdditionalErrorsOneOf) SetStringNil() {
 	o.String.Set(nil)
@@ -82,7 +83,7 @@ func (o *ResponseItemListAdditionalErrorsOneOf) UnsetString() {
 }
 
 func (o ResponseItemListAdditionalErrorsOneOf) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -132,5 +133,3 @@ func (v *NullableResponseItemListAdditionalErrorsOneOf) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

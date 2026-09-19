@@ -15,14 +15,14 @@ import (
 	"fmt"
 )
 
-// StockType Тип складов хранения товаров:   - `\"\"` — все   - `wb` — склады WB   - `mp` — склады продавца 
+// StockType Тип складов хранения товаров:   - `\"\"` — все   - `wb` — склады WB   - `mp` — склады продавца
 type StockType string
 
 // List of StockType
 const (
 	EMPTY StockType = ""
-	WB StockType = "wb"
-	MP StockType = "mp"
+	WB    StockType = "wb"
+	MP    StockType = "mp"
 )
 
 // All allowed values of StockType enum
@@ -110,4 +110,3 @@ func (v *NullableStockType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

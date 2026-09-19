@@ -54,7 +54,7 @@ paths:
       tags:
       - Проверка подключения к WB API
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Проверка подключения
       description: |-
         Метод проверяет:
@@ -119,7 +119,7 @@ paths:
       tags:
       - API новостей
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Получение новостей портала продавцов
       description: |-
         Метод позволяет получать новости портала продавцов.
@@ -210,7 +210,7 @@ paths:
       tags:
       - Информация о продавце
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Получить информацию о продавце
       description: |-
         Информацию о продавце можно получить с токеном любой [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)
@@ -254,7 +254,7 @@ paths:
       tags:
       - Информация о продавце
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Получить рейтинг продавца
       description: |-
         Для доступа к методу используйте [токен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) для категории **Вопросы и отзывы**
@@ -304,7 +304,7 @@ paths:
       tags:
       - Информация о продавце
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Получить информацию о подписке Джем
       description: |-
         Информацию о подписке Джем можно получить с токеном любой [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)
@@ -364,7 +364,7 @@ paths:
       tags:
       - Информация о продавце
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Получить информацию об опциях Конструктора тарифов
       description: |-
         Информацию об опциях Конструктора тарифов можно получить с токеном любой [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)
@@ -449,7 +449,7 @@ paths:
       tags:
       - Управление пользователями продавца
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Создать приглашение для нового пользователя
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
@@ -515,7 +515,7 @@ paths:
       tags:
       - Управление пользователями продавца
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Получить список активных или приглашённых пользователей продавца
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
@@ -843,7 +843,7 @@ paths:
       tags:
       - Управление пользователями продавца
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Изменить права доступа пользователей
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
@@ -899,7 +899,7 @@ paths:
       tags:
       - Управление пользователями продавца
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Удалить пользователя
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
@@ -945,10 +945,6 @@ paths:
           $ref: '#/components/responses/429'
 components:
   securitySchemes:
-    HeaderApiKey:
-      type: apiKey
-      name: Authorization
-      in: header
     BearerAuth:
       type: http
       scheme: bearer

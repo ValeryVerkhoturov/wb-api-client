@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,18 +21,18 @@ var _ MappedNullable = &SearchReportItemReqParams{}
 
 // SearchReportItemReqParams Параметры отчёта
 type SearchReportItemReqParams struct {
-	CurrentPeriod Period `json:"currentPeriod"`
-	PastPeriod *PastPeriod `json:"pastPeriod,omitempty"`
+	CurrentPeriod Period      `json:"currentPeriod"`
+	PastPeriod    *PastPeriod `json:"pastPeriod,omitempty"`
 	// ID предмета. Используйте значение `0`, чтобы получить отчёт по всем предметам
 	SubjectId *int32 `json:"subjectId,omitempty"`
 	// Бренд
 	BrandName *string `json:"brandName,omitempty"`
 	// ID ярлыка. Чтобы получить отчёт по всем ярлыкам, укажите значение 0
 	TagId *int64 `json:"tagId,omitempty"`
-	// Артикулы WB, по которым составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах 
-	NmIds []int64 `json:"nmIds,omitempty"`
+	// Артикулы WB, по которым составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах
+	NmIds           []int64         `json:"nmIds,omitempty"`
 	PositionCluster PositionCluster `json:"positionCluster"`
-	OrderBy OrderBy `json:"orderBy"`
+	OrderBy         OrderBy         `json:"orderBy"`
 	// Показать данные по прямым запросам с [подменным артикулом](https://seller.wildberries.ru/help-center/article/A-524)
 	IncludeSubstitutedSKUs *bool `json:"includeSubstitutedSKUs,omitempty"`
 	// Показать данные по поисковым запросам без учёта подменного артикула
@@ -366,7 +366,7 @@ func (o *SearchReportItemReqParams) SetIncludeSearchTexts(v bool) {
 }
 
 func (o SearchReportItemReqParams) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -417,10 +417,10 @@ func (o *SearchReportItemReqParams) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -476,5 +476,3 @@ func (v *NullableSearchReportItemReqParams) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -11,8 +11,8 @@ API version: ordersdbw
 package orders_dbw
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,9 +21,9 @@ var _ MappedNullable = &ApiMetaDeleteResponsesResultsInnerErrorsInner{}
 
 // ApiMetaDeleteResponsesResultsInnerErrorsInner struct for ApiMetaDeleteResponsesResultsInnerErrorsInner
 type ApiMetaDeleteResponsesResultsInnerErrorsInner struct {
-	// Код ошибки:   - `404`   - `409` 
+	// Код ошибки:   - `404`   - `409`
 	Code int32 `json:"code"`
-	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI 
+	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI
 	Detail string `json:"detail"`
 }
 
@@ -97,7 +97,7 @@ func (o *ApiMetaDeleteResponsesResultsInnerErrorsInner) SetDetail(v string) {
 }
 
 func (o ApiMetaDeleteResponsesResultsInnerErrorsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -125,10 +125,10 @@ func (o *ApiMetaDeleteResponsesResultsInnerErrorsInner) UnmarshalJSON(data []byt
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -184,5 +184,3 @@ func (v *NullableApiMetaDeleteResponsesResultsInnerErrorsInner) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

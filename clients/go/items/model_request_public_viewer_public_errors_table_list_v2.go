@@ -20,7 +20,7 @@ var _ MappedNullable = &RequestPublicViewerPublicErrorsTableListV2{}
 // RequestPublicViewerPublicErrorsTableListV2 struct for RequestPublicViewerPublicErrorsTableListV2
 type RequestPublicViewerPublicErrorsTableListV2 struct {
 	Cursor *SwaggerPublicErrorsCursorInput `json:"cursor,omitempty"`
-	Order *SwaggerPublicErrorsOrderV2 `json:"order,omitempty"`
+	Order  *SwaggerPublicErrorsOrderV2     `json:"order,omitempty"`
 }
 
 // NewRequestPublicViewerPublicErrorsTableListV2 instantiates a new RequestPublicViewerPublicErrorsTableListV2 object
@@ -105,7 +105,7 @@ func (o *RequestPublicViewerPublicErrorsTableListV2) SetOrder(v SwaggerPublicErr
 }
 
 func (o RequestPublicViewerPublicErrorsTableListV2) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableRequestPublicViewerPublicErrorsTableListV2) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

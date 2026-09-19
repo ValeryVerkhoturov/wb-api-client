@@ -15,6 +15,8 @@ import (
 	"fmt"
 	"net/http"
 	"strings"
+
+	"github.com/negrel/secrecy"
 )
 
 // contextKeys are used to identify the type of value in the context.
@@ -28,11 +30,6 @@ func (c contextKey) String() string {
 }
 
 var (
-	// ContextAccessToken takes a string oauth2 access token as authentication for the request.
-	ContextAccessToken = contextKey("accesstoken")
-
-	// ContextAPIKeys takes a string apikey as authentication for the request
-	ContextAPIKeys = contextKey("apiKeys")
 
 	// ContextServerIndex uses a server configuration from the index.
 	ContextServerIndex = contextKey("serverIndex")
@@ -68,9 +65,9 @@ type ServerVariable struct {
 
 // ServerConfiguration stores the information about a server
 type ServerConfiguration struct {
-	URL string
+	URL         string
 	Description string
-	Variables map[string]ServerVariable
+	Variables   map[string]ServerVariable
 }
 
 // ServerConfigurations stores multiple ServerConfiguration items
@@ -78,11 +75,12 @@ type ServerConfigurations []ServerConfiguration
 
 // Configuration stores the configuration of the API client
 type Configuration struct {
-	Host             string            `json:"host,omitempty"`
-	Scheme           string            `json:"scheme,omitempty"`
-	DefaultHeader    map[string]string `json:"defaultHeader,omitempty"`
-	UserAgent        string            `json:"userAgent,omitempty"`
-	Debug            bool              `json:"debug,omitempty"`
+	AccessToken      *secrecy.SecretString `json:"-"`
+	Host             string                `json:"host,omitempty"`
+	Scheme           string                `json:"scheme,omitempty"`
+	DefaultHeader    map[string]string     `json:"defaultHeader,omitempty"`
+	UserAgent        string                `json:"userAgent,omitempty"`
+	Debug            bool                  `json:"debug,omitempty"`
 	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
@@ -91,133 +89,133 @@ type Configuration struct {
 // NewConfiguration returns a new Configuration object
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
-		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.0.0.dev0/go",
-		Debug:            false,
-		Servers:          ServerConfigurations{
+		DefaultHeader: make(map[string]string),
+		UserAgent:     "OpenAPI-Generator/0.0.0.dev0/go",
+		Debug:         false,
+		Servers: ServerConfigurations{
 			{
-				URL: "",
+				URL:         "",
 				Description: "No description provided",
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
 			"DefaultApiService.PostAnalyticsV1StocksReportSellerWarehouses": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV1OrderFeed": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV1StocksReportWbWarehouses": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV2ItemRating": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV2SearchReportProductOrders": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV2SearchReportProductSearchTexts": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV2SearchReportReport": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV2SearchReportTableDetails": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV2SearchReportTableGroups": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV2StocksReportOffices": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV2StocksReportProductsGroups": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV2StocksReportProductsProducts": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV2StocksReportProductsSizes": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV3SalesFunnelGroupedHistory": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV3SalesFunnelProducts": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV3SalesFunnelProductsHistory": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"CSVAPIService.GetV2NmReportDownloads": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"CSVAPIService.GetV2NmReportDownloadsFileDownloadId": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"CSVAPIService.PostV2NmReportDownloads": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"CSVAPIService.PostV2NmReportDownloadsRetry": {
 				{
-					URL: "https://seller-analytics-api.wildberries.ru",
+					URL:         "https://seller-analytics-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
@@ -338,4 +336,11 @@ func (c *Configuration) ServerURLWithContext(ctx context.Context, endpoint strin
 	}
 
 	return sc.URL(index, variables)
+}
+
+// SetAccessToken stores the WB bearer JWT on the Configuration,
+// wrapped in a secrecy.SecretString so it redacts under fmt/log.
+func (c *Configuration) SetAccessToken(token string) {
+	s := secrecy.NewSecretString([]byte(token))
+	c.AccessToken = &s
 }

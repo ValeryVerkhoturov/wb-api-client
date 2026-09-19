@@ -11,8 +11,8 @@ API version: promotion
 package promotion
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,9 +22,9 @@ var _ MappedNullable = &PostV1BidsMinResponse200BidsInnerBidsInner{}
 // PostV1BidsMinResponse200BidsInnerBidsInner struct for PostV1BidsMinResponse200BidsInnerBidsInner
 type PostV1BidsMinResponse200BidsInnerBidsInner struct {
 	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
-	Currency string `json:"currency"`
-	Type PlacementType `json:"type"`
-	// Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
+	Currency string        `json:"currency"`
+	Type     PlacementType `json:"type"`
+	// Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Value int32 `json:"value"`
 }
 
@@ -123,7 +123,7 @@ func (o *PostV1BidsMinResponse200BidsInnerBidsInner) SetValue(v int32) {
 }
 
 func (o PostV1BidsMinResponse200BidsInnerBidsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -153,10 +153,10 @@ func (o *PostV1BidsMinResponse200BidsInnerBidsInner) UnmarshalJSON(data []byte) 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -212,5 +212,3 @@ func (v *NullablePostV1BidsMinResponse200BidsInnerBidsInner) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

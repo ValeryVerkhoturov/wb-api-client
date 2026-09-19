@@ -175,7 +175,7 @@ func (o *GetV2ObjectAllResponse200DataInner) SetParentName(v string) {
 }
 
 func (o GetV2ObjectAllResponse200DataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullableGetV2ObjectAllResponse200DataInner) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -11,8 +11,8 @@ API version: order
 package orders_fbs
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,9 +21,9 @@ var _ MappedNullable = &PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest{}
 
 // PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest struct for PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 type PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest struct {
-	// Список ID размеров товаров в системе WB 
+	// Список ID размеров товаров в системе WB
 	ChrtIds []int32 `json:"chrtIds"`
-	// Тип автовозврата малогабаритных товаров:   - `byWarehouse` — все товары отправляются на склад WB   - `byPickupPoint` — все товары отправляются на пункт выдачи заказов 
+	// Тип автовозврата малогабаритных товаров:   - `byWarehouse` — все товары отправляются на склад WB   - `byPickupPoint` — все товары отправляются на пункт выдачи заказов
 	Type string `json:"type"`
 }
 
@@ -97,7 +97,7 @@ func (o *PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest) SetType(v string)
 }
 
 func (o PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -125,10 +125,10 @@ func (o *PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest) UnmarshalJSON(dat
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -184,5 +184,3 @@ func (v *NullablePatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest) Unmarshal
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -174,6 +174,7 @@ func (o *GetV2ObjectCharcsSubjectIdResponse200) HasAdditionalErrors() bool {
 func (o *GetV2ObjectCharcsSubjectIdResponse200) SetAdditionalErrors(v string) {
 	o.AdditionalErrors.Set(&v)
 }
+
 // SetAdditionalErrorsNil sets the value for AdditionalErrors to be an explicit nil
 func (o *GetV2ObjectCharcsSubjectIdResponse200) SetAdditionalErrorsNil() {
 	o.AdditionalErrors.Set(nil)
@@ -185,7 +186,7 @@ func (o *GetV2ObjectCharcsSubjectIdResponse200) UnsetAdditionalErrors() {
 }
 
 func (o GetV2ObjectCharcsSubjectIdResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -244,5 +245,3 @@ func (v *NullableGetV2ObjectCharcsSubjectIdResponse200) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

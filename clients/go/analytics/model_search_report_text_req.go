@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -26,8 +26,8 @@ type SearchReportTextReq struct {
 	// Тип отчёта `SEARCH_QUERIES_PREMIUM_REPORT_TEXT` — Отчёт по текстам поисковых запросов
 	ReportType string `json:"reportType"`
 	// Название отчёта. Если не указано, сформируется автоматически
-	UserReportName *string `json:"userReportName,omitempty"`
-	Params SearchReportTextReqParams `json:"params"`
+	UserReportName *string                   `json:"userReportName,omitempty"`
+	Params         SearchReportTextReqParams `json:"params"`
 }
 
 type _SearchReportTextReq SearchReportTextReq
@@ -157,7 +157,7 @@ func (o *SearchReportTextReq) SetParams(v SearchReportTextReqParams) {
 }
 
 func (o SearchReportTextReq) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,10 +190,10 @@ func (o *SearchReportTextReq) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -249,5 +249,3 @@ func (v *NullableSearchReportTextReq) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

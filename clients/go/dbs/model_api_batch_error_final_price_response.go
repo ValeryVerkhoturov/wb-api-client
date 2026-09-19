@@ -11,8 +11,8 @@ API version: dbs
 package dbs
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,9 +21,9 @@ var _ MappedNullable = &ApiBatchErrorFinalPriceResponse{}
 
 // ApiBatchErrorFinalPriceResponse struct for ApiBatchErrorFinalPriceResponse
 type ApiBatchErrorFinalPriceResponse struct {
-	// Код ошибки:   - `404` — `NotFound`   - `400` — `StatusMismatch`   - `422` — `PriceNotCalculated` 
+	// Код ошибки:   - `404` — `NotFound`   - `400` — `StatusMismatch`   - `422` — `PriceNotCalculated`
 	Code int32 `json:"code"`
-	// - `NotFound` — сборочное задание не найдено (`404`) - `StatusMismatch` — операция невозможна для этого статуса сборочного задания (`400`) - `PriceNotCalculated` — операция невозможна для сборочных заданий, созданных ранее 23.07.2026 (`422`) 
+	// - `NotFound` — сборочное задание не найдено (`404`) - `StatusMismatch` — операция невозможна для этого статуса сборочного задания (`400`) - `PriceNotCalculated` — операция невозможна для сборочных заданий, созданных ранее 23.07.2026 (`422`)
 	Detail string `json:"detail"`
 }
 
@@ -97,7 +97,7 @@ func (o *ApiBatchErrorFinalPriceResponse) SetDetail(v string) {
 }
 
 func (o ApiBatchErrorFinalPriceResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -125,10 +125,10 @@ func (o *ApiBatchErrorFinalPriceResponse) UnmarshalJSON(data []byte) (err error)
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -184,5 +184,3 @@ func (v *NullableApiBatchErrorFinalPriceResponse) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,9 +21,9 @@ var _ MappedNullable = &OrderBy{}
 
 // OrderBy Параметры сортировки
 type OrderBy struct {
-	// Поле для сортировки:   - `openCard` — Перешли в карточку   - `addToCart` — Положили в корзину   - `orderCount` — Заказали товаров, шт   - `orderSum` — Заказали на сумму   - `buyoutCount` — Выкупили товаров, шт   - `buyoutSum` — Выкупили на сумму   - `cancelCount` — Отменили и вернули товаров, шт   - `cancelSum` — Отменили и вернули на сумму   - `avgPrice` — Средняя цена   - `stockMpQty` — Остатки на складах продавца, шт   - `stockWbQty` — Остатки на складах WB, шт   - `shareOrderPercent` — Доля в выручке   - `addToWishlist` — Добавили в **Отложенные**   - `timeToReady` — Среднее время доставки   - `localizationPercent` — Локальные заказы в рамках одного региона   - `wbClub.orderCount` — Заказали товаров с WB Клубом, шт   - `wbClub.orderSum` — Заказали с WB Клубом на сумму   - `wbClub.buyoutSum` — Выкупили товаров с WB Клубом, шт   - `wbClub.buyoutCount` — Процент выкупа с WB Клубом   - `wbClub.cancelSum` — Отменили и вернули товаров с WB Клубом на сумму   - `wbClub.avgPrice` — Средняя цена с WB Клубом   - `wbClub.buyoutPercent` — Процент выкупа с WB Клубом   - `wbClub.avgOrderCountPerDay` — Среднее количество заказов в день с WB Клубом, шт   - `wbClub.cancelCount` — Отменили и вернули товаров с WB Клубом, шт 
+	// Поле для сортировки:   - `openCard` — Перешли в карточку   - `addToCart` — Положили в корзину   - `orderCount` — Заказали товаров, шт   - `orderSum` — Заказали на сумму   - `buyoutCount` — Выкупили товаров, шт   - `buyoutSum` — Выкупили на сумму   - `cancelCount` — Отменили и вернули товаров, шт   - `cancelSum` — Отменили и вернули на сумму   - `avgPrice` — Средняя цена   - `stockMpQty` — Остатки на складах продавца, шт   - `stockWbQty` — Остатки на складах WB, шт   - `shareOrderPercent` — Доля в выручке   - `addToWishlist` — Добавили в **Отложенные**   - `timeToReady` — Среднее время доставки   - `localizationPercent` — Локальные заказы в рамках одного региона   - `wbClub.orderCount` — Заказали товаров с WB Клубом, шт   - `wbClub.orderSum` — Заказали с WB Клубом на сумму   - `wbClub.buyoutSum` — Выкупили товаров с WB Клубом, шт   - `wbClub.buyoutCount` — Процент выкупа с WB Клубом   - `wbClub.cancelSum` — Отменили и вернули товаров с WB Клубом на сумму   - `wbClub.avgPrice` — Средняя цена с WB Клубом   - `wbClub.buyoutPercent` — Процент выкупа с WB Клубом   - `wbClub.avgOrderCountPerDay` — Среднее количество заказов в день с WB Клубом, шт   - `wbClub.cancelCount` — Отменили и вернули товаров с WB Клубом, шт
 	Field string `json:"field"`
-	// Порядок сортировки:   - `asc` — по возрастанию   - `desc` — по убыванию 
+	// Порядок сортировки:   - `asc` — по возрастанию   - `desc` — по убыванию
 	Mode string `json:"mode"`
 }
 
@@ -101,7 +101,7 @@ func (o *OrderBy) SetMode(v string) {
 }
 
 func (o OrderBy) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -129,10 +129,10 @@ func (o *OrderBy) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -188,5 +188,3 @@ func (v *NullableOrderBy) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

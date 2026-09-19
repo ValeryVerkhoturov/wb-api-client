@@ -19,9 +19,9 @@ var _ MappedNullable = &GetV1NewFeedbacksQuestionsResponse200Data{}
 
 // GetV1NewFeedbacksQuestionsResponse200Data struct for GetV1NewFeedbacksQuestionsResponse200Data
 type GetV1NewFeedbacksQuestionsResponse200Data struct {
-	// Есть ли непросмотренные вопросы:    - `true` — да    - `false` — нет 
+	// Есть ли непросмотренные вопросы:    - `true` — да    - `false` — нет
 	HasNewQuestions *bool `json:"hasNewQuestions,omitempty"`
-	// Есть ли непросмотренные отзывы:  - `true` — да  - `false` — нет 
+	// Есть ли непросмотренные отзывы:  - `true` — да  - `false` — нет
 	HasNewFeedbacks *bool `json:"hasNewFeedbacks,omitempty"`
 }
 
@@ -107,7 +107,7 @@ func (o *GetV1NewFeedbacksQuestionsResponse200Data) SetHasNewFeedbacks(v bool) {
 }
 
 func (o GetV1NewFeedbacksQuestionsResponse200Data) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableGetV1NewFeedbacksQuestionsResponse200Data) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

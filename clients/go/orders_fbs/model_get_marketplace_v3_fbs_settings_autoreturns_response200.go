@@ -11,8 +11,8 @@ API version: order
 package orders_fbs
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &GetMarketplaceV3FbsSettingsAutoreturnsResponse200{}
 
 // GetMarketplaceV3FbsSettingsAutoreturnsResponse200 struct for GetMarketplaceV3FbsSettingsAutoreturnsResponse200
 type GetMarketplaceV3FbsSettingsAutoreturnsResponse200 struct {
-	// Тип автовозврата:   - `allToWarehouse` — все товары отправляются на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов   - `manual` — используются ручные настройки 
+	// Тип автовозврата:   - `allToWarehouse` — все товары отправляются на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов   - `manual` — используются ручные настройки
 	Type string `json:"type"`
 }
 
@@ -70,7 +70,7 @@ func (o *GetMarketplaceV3FbsSettingsAutoreturnsResponse200) SetType(v string) {
 }
 
 func (o GetMarketplaceV3FbsSettingsAutoreturnsResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -96,10 +96,10 @@ func (o *GetMarketplaceV3FbsSettingsAutoreturnsResponse200) UnmarshalJSON(data [
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -155,5 +155,3 @@ func (v *NullableGetMarketplaceV3FbsSettingsAutoreturnsResponse200) UnmarshalJSO
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

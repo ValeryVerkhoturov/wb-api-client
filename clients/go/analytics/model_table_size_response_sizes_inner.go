@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -26,7 +26,7 @@ type TableSizeResponseSizesInner struct {
 	// ID размера
 	ChrtID int32 `json:"chrtID"`
 	// Склады
-	Offices []TableOfficeItem `json:"offices,omitempty"`
+	Offices []TableOfficeItem                  `json:"offices,omitempty"`
 	Metrics TableSizeResponseSizesInnerMetrics `json:"metrics"`
 }
 
@@ -157,7 +157,7 @@ func (o *TableSizeResponseSizesInner) SetMetrics(v TableSizeResponseSizesInnerMe
 }
 
 func (o TableSizeResponseSizesInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,10 +190,10 @@ func (o *TableSizeResponseSizesInner) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -249,5 +249,3 @@ func (v *NullableTableSizeResponseSizesInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

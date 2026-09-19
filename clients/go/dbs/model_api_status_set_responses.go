@@ -20,8 +20,8 @@ var _ MappedNullable = &ApiStatusSetResponses{}
 // ApiStatusSetResponses struct for ApiStatusSetResponses
 type ApiStatusSetResponses struct {
 	// Уникальный ID запроса
-	RequestId *string `json:"requestId,omitempty"`
-	Results []ApiStatusSetResponse `json:"results,omitempty"`
+	RequestId *string                `json:"requestId,omitempty"`
+	Results   []ApiStatusSetResponse `json:"results,omitempty"`
 }
 
 // NewApiStatusSetResponses instantiates a new ApiStatusSetResponses object
@@ -106,7 +106,7 @@ func (o *ApiStatusSetResponses) SetResults(v []ApiStatusSetResponse) {
 }
 
 func (o ApiStatusSetResponses) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,5 +159,3 @@ func (v *NullableApiStatusSetResponses) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

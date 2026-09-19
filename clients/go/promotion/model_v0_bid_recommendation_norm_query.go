@@ -20,10 +20,10 @@ var _ MappedNullable = &V0BidRecommendationNormQuery{}
 // V0BidRecommendationNormQuery struct for V0BidRecommendationNormQuery
 type V0BidRecommendationNormQuery struct {
 	// Поисковый кластер
-	NormQuery *string `json:"normQuery,omitempty"`
-	ReachMax *V0BidRecommendationReachMax `json:"reachMax,omitempty"`
+	NormQuery   *string                         `json:"normQuery,omitempty"`
+	ReachMax    *V0BidRecommendationReachMax    `json:"reachMax,omitempty"`
 	ReachMedium *V0BidRecommendationReachMedium `json:"reachMedium,omitempty"`
-	ReachMin *V0BidRecommendationReachMin `json:"reachMin,omitempty"`
+	ReachMin    *V0BidRecommendationReachMin    `json:"reachMin,omitempty"`
 }
 
 // NewV0BidRecommendationNormQuery instantiates a new V0BidRecommendationNormQuery object
@@ -172,7 +172,7 @@ func (o *V0BidRecommendationNormQuery) SetReachMin(v V0BidRecommendationReachMin
 }
 
 func (o V0BidRecommendationNormQuery) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -231,5 +231,3 @@ func (v *NullableV0BidRecommendationNormQuery) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -11,8 +11,8 @@ API version: items
 package items
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,7 +23,7 @@ var _ MappedNullable = &RequestMoveNmsImtConn{}
 type RequestMoveNmsImtConn struct {
 	// Существующий `imtID`, под которым необходимо [объединить](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров
 	TargetIMT int32 `json:"targetIMT"`
-	// `nmID`, которые необходимо объединить 
+	// `nmID`, которые необходимо объединить
 	NmIDs []int32 `json:"nmIDs"`
 }
 
@@ -97,7 +97,7 @@ func (o *RequestMoveNmsImtConn) SetNmIDs(v []int32) {
 }
 
 func (o RequestMoveNmsImtConn) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -125,10 +125,10 @@ func (o *RequestMoveNmsImtConn) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -184,5 +184,3 @@ func (v *NullableRequestMoveNmsImtConn) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

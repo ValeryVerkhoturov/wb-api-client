@@ -11,8 +11,8 @@ API version: items
 package items
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &SetRecomRes{}
 
 // SetRecomRes struct for SetRecomRes
 type SetRecomRes struct {
-	// Есть ли ошибки:   - `false` — ошибок нет. Запрос полностью успешен   - `true` — ошибки есть 
+	// Есть ли ошибки:   - `false` — ошибок нет. Запрос полностью успешен   - `true` — ошибки есть
 	IsError bool `json:"isError"`
 	// Ошибки. При `\"isError\":true`
 	Errors []SetRecomResErrorsInner `json:"errors,omitempty"`
@@ -104,7 +104,7 @@ func (o *SetRecomRes) SetErrors(v []SetRecomResErrorsInner) {
 }
 
 func (o SetRecomRes) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -133,10 +133,10 @@ func (o *SetRecomRes) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -192,5 +192,3 @@ func (v *NullableSetRecomRes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -22,8 +22,8 @@ type Http409SupplyDeliverError struct {
 	// Код ошибки
 	Code *string `json:"code,omitempty"`
 	// Описание ошибки
-	Message *string `json:"message,omitempty"`
-	Data NullableHttp409SupplyDeliverErrorData `json:"data,omitempty"`
+	Message *string                               `json:"message,omitempty"`
+	Data    NullableHttp409SupplyDeliverErrorData `json:"data,omitempty"`
 }
 
 // NewHttp409SupplyDeliverError instantiates a new Http409SupplyDeliverError object
@@ -139,6 +139,7 @@ func (o *Http409SupplyDeliverError) HasData() bool {
 func (o *Http409SupplyDeliverError) SetData(v Http409SupplyDeliverErrorData) {
 	o.Data.Set(&v)
 }
+
 // SetDataNil sets the value for Data to be an explicit nil
 func (o *Http409SupplyDeliverError) SetDataNil() {
 	o.Data.Set(nil)
@@ -150,7 +151,7 @@ func (o *Http409SupplyDeliverError) UnsetData() {
 }
 
 func (o Http409SupplyDeliverError) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -206,5 +207,3 @@ func (v *NullableHttp409SupplyDeliverError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

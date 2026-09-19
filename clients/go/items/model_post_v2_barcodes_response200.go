@@ -174,6 +174,7 @@ func (o *PostV2BarcodesResponse200) HasAdditionalErrors() bool {
 func (o *PostV2BarcodesResponse200) SetAdditionalErrors(v string) {
 	o.AdditionalErrors.Set(&v)
 }
+
 // SetAdditionalErrorsNil sets the value for AdditionalErrors to be an explicit nil
 func (o *PostV2BarcodesResponse200) SetAdditionalErrorsNil() {
 	o.AdditionalErrors.Set(nil)
@@ -185,7 +186,7 @@ func (o *PostV2BarcodesResponse200) UnsetAdditionalErrors() {
 }
 
 func (o PostV2BarcodesResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -244,5 +245,3 @@ func (v *NullablePostV2BarcodesResponse200) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

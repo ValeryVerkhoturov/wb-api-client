@@ -21,9 +21,9 @@ var _ MappedNullable = &GetV1FeedbackResponse200DataAnswer{}
 type GetV1FeedbackResponse200DataAnswer struct {
 	// Текст ответа
 	Text *string `json:"text,omitempty"`
-	// Статус:   - `none` — новый   - `wbRu`— отображается на сайте   - `reviewRequired` — ответ проходит проверку   - `rejected` — ответ отклонён 
+	// Статус:   - `none` — новый   - `wbRu`— отображается на сайте   - `reviewRequired` — ответ проходит проверку   - `rejected` — ответ отклонён
 	State *string `json:"state,omitempty"`
-	// Можно ли отредактировать ответ:   - `false` — нет   - `true` — да 
+	// Можно ли отредактировать ответ:   - `false` — нет   - `true` — да
 	Editable *bool `json:"editable,omitempty"`
 }
 
@@ -141,7 +141,7 @@ func (o *GetV1FeedbackResponse200DataAnswer) SetEditable(v bool) {
 }
 
 func (o GetV1FeedbackResponse200DataAnswer) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,5 +197,3 @@ func (v *NullableGetV1FeedbackResponse200DataAnswer) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

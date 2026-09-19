@@ -209,7 +209,7 @@ func (o *GetV1AnalyticsBannedProducsBlockedResponse200ReportInner) SetReason(v s
 }
 
 func (o GetV1AnalyticsBannedProducsBlockedResponse200ReportInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -271,5 +271,3 @@ func (v *NullableGetV1AnalyticsBannedProducsBlockedResponse200ReportInner) Unmar
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

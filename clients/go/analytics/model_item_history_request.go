@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,10 +22,10 @@ var _ MappedNullable = &ItemHistoryRequest{}
 // ItemHistoryRequest struct for ItemHistoryRequest
 type ItemHistoryRequest struct {
 	SelectedPeriod ItemsRequestSelectedPeriod `json:"selectedPeriod"`
-	// Артикулы WB, по которым нужно составить отчёт 
+	// Артикулы WB, по которым нужно составить отчёт
 	NmIds []int32 `json:"nmIds"`
 	// Скрыть удалённые товары
-	SkipDeletedNm *bool `json:"skipDeletedNm,omitempty"`
+	SkipDeletedNm    *bool  `json:"skipDeletedNm,omitempty"`
 	AggregationLevel *Level `json:"aggregationLevel,omitempty"`
 }
 
@@ -167,7 +167,7 @@ func (o *ItemHistoryRequest) SetAggregationLevel(v Level) {
 }
 
 func (o ItemHistoryRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -201,10 +201,10 @@ func (o *ItemHistoryRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -260,5 +260,3 @@ func (v *NullableItemHistoryRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

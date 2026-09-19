@@ -12,16 +12,16 @@ package promotion
 
 import (
 	"encoding/json"
-	"gopkg.in/validator.v2"
 	"fmt"
+	"gopkg.in/validator.v2"
 )
 
 // PostV1StatsResponse200Inner - struct for PostV1StatsResponse200Inner
 type PostV1StatsResponse200Inner struct {
-	Stat *Stat
+	Stat                 *Stat
 	StatCampaignNotFound *StatCampaignNotFound
-	StatDate *StatDate
-	StatInterval *StatInterval
+	StatDate             *StatDate
+	StatInterval         *StatInterval
 }
 
 // StatAsPostV1StatsResponse200Inner is a convenience function that returns Stat wrapped in PostV1StatsResponse200Inner
@@ -51,7 +51,6 @@ func StatIntervalAsPostV1StatsResponse200Inner(v *StatInterval) PostV1StatsRespo
 		StatInterval: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *PostV1StatsResponse200Inner) UnmarshalJSON(data []byte) error {
@@ -162,7 +161,7 @@ func (src PostV1StatsResponse200Inner) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *PostV1StatsResponse200Inner) GetActualInstance() (interface{}) {
+func (obj *PostV1StatsResponse200Inner) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -221,5 +220,3 @@ func (v *NullablePostV1StatsResponse200Inner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

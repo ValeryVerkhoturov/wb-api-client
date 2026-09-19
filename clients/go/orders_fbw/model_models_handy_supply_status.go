@@ -20,12 +20,12 @@ type ModelsHandySupplyStatus int32
 
 // List of models.HandySupplyStatus
 const (
-	NotPlanned ModelsHandySupplyStatus = 1
-	Planned ModelsHandySupplyStatus = 2
+	NotPlanned  ModelsHandySupplyStatus = 1
+	Planned     ModelsHandySupplyStatus = 2
 	AllowUnload ModelsHandySupplyStatus = 3
-	Accepting ModelsHandySupplyStatus = 4
-	Accepted ModelsHandySupplyStatus = 5
-	Virtual ModelsHandySupplyStatus = 6
+	Accepting   ModelsHandySupplyStatus = 4
+	Accepted    ModelsHandySupplyStatus = 5
+	Virtual     ModelsHandySupplyStatus = 6
 )
 
 // All allowed values of ModelsHandySupplyStatus enum
@@ -116,4 +116,3 @@ func (v *NullableModelsHandySupplyStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

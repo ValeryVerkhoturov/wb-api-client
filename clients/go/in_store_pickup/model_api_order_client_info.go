@@ -19,7 +19,7 @@ var _ MappedNullable = &ApiOrderClientInfo{}
 
 // ApiOrderClientInfo struct for ApiOrderClientInfo
 type ApiOrderClientInfo struct {
-	// Телефон для связи с покупателем. Чтобы связаться с покупателем наберите этот номер и введите добавочный код. Данный номер не является прямым номером покупателя 
+	// Телефон для связи с покупателем. Чтобы связаться с покупателем наберите этот номер и введите добавочный код. Данный номер не является прямым номером покупателя
 	Phone *string `json:"phone,omitempty"`
 	// Имя покупателя
 	FirstName *string `json:"firstName,omitempty"`
@@ -175,7 +175,7 @@ func (o *ApiOrderClientInfo) SetPhoneCode(v int32) {
 }
 
 func (o ApiOrderClientInfo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullableApiOrderClientInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

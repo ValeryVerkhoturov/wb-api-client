@@ -25,7 +25,7 @@ type V0BidsRecommendationsCpcResponse2 struct {
 	Levels []V0BidRecommendationCPCLevels `json:"levels,omitempty"`
 	// Артикул WB
 	NmId *int64 `json:"nmId,omitempty"`
-	// Тип оплаты:   - `cpc` — за клики 
+	// Тип оплаты:   - `cpc` — за клики
 	PaymentType *string `json:"paymentType,omitempty"`
 }
 
@@ -175,7 +175,7 @@ func (o *V0BidsRecommendationsCpcResponse2) SetPaymentType(v string) {
 }
 
 func (o V0BidsRecommendationsCpcResponse2) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullableV0BidsRecommendationsCpcResponse2) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

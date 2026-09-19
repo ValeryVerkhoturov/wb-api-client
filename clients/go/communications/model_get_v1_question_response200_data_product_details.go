@@ -243,7 +243,7 @@ func (o *GetV1QuestionResponse200DataProductDetails) SetBrandName(v string) {
 }
 
 func (o GetV1QuestionResponse200DataProductDetails) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -308,5 +308,3 @@ func (v *NullableGetV1QuestionResponse200DataProductDetails) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

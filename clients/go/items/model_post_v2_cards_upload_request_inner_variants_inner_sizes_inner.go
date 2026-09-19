@@ -175,7 +175,7 @@ func (o *PostV2CardsUploadRequestInnerVariantsInnerSizesInner) SetSkus(v []strin
 }
 
 func (o PostV2CardsUploadRequestInnerVariantsInnerSizesInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullablePostV2CardsUploadRequestInnerVariantsInnerSizesInner) Unmarshal
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

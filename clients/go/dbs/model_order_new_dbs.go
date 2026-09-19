@@ -20,12 +20,12 @@ var _ MappedNullable = &OrderNewDBS{}
 
 // OrderNewDBS struct for OrderNewDBS
 type OrderNewDBS struct {
-	// Цена в валюте продажи с учетом скидки продавца, без учета скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях 
+	// Цена в валюте продажи с учетом скидки продавца, без учета скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях
 	SalePrice NullableInt32 `json:"salePrice,omitempty"`
 	// Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei) обязательно для [предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) `Смартфоны`, `\"subjectId\":515`
 	RequiredMeta []string `json:"requiredMeta,omitempty"`
 	// Комментарий покупателя
-	Comment *string `json:"comment,omitempty"`
+	Comment *string             `json:"comment,omitempty"`
 	Options *OrderNewDBSOptions `json:"options,omitempty"`
 	Address *OrderNewDBSAddress `json:"address,omitempty"`
 	// ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUID`
@@ -40,7 +40,7 @@ type OrderNewDBS struct {
 	Rid interface{} `json:"rid,omitempty"`
 	// Дата создания сборочного задания
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
-	// Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца 
+	// Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца
 	DeliveryType *string `json:"deliveryType,omitempty"`
 	// Массив баркодов товара
 	Skus []string `json:"skus,omitempty"`
@@ -64,9 +64,9 @@ type OrderNewDBS struct {
 	CurrencyCode *int32 `json:"currencyCode,omitempty"`
 	// Код валюты страны продавца
 	ConvertedCurrencyCode *int32 `json:"convertedCurrencyCode,omitempty"`
-	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) 
+	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
 	CargoType *int32 `json:"cargoType,omitempty"`
-	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
+	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
 	// ID стикера. Отображается только для заказов в ПВЗ
 	WbStickerId *int32 `json:"wbStickerId,omitempty"`
@@ -121,6 +121,7 @@ func (o *OrderNewDBS) HasSalePrice() bool {
 func (o *OrderNewDBS) SetSalePrice(v int32) {
 	o.SalePrice.Set(&v)
 }
+
 // SetSalePriceNil sets the value for SalePrice to be an explicit nil
 func (o *OrderNewDBS) SetSalePriceNil() {
 	o.SalePrice.Set(nil)
@@ -934,7 +935,7 @@ func (o *OrderNewDBS) SetWbStickerId(v int32) {
 }
 
 func (o OrderNewDBS) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1059,5 +1060,3 @@ func (v *NullableOrderNewDBS) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

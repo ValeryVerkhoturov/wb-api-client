@@ -21,7 +21,7 @@ var _ MappedNullable = &GetTasksResponseData{}
 type GetTasksResponseData struct {
 	// ID задания
 	Id *string `json:"id,omitempty"`
-	// Статус задания:   * `new` — новое   * `processing` —  обрабатывается   * `done` — отчёт готов   * `purged` — отчёт удалён   * `canceled` — отклонено 
+	// Статус задания:   * `new` — новое   * `processing` —  обрабатывается   * `done` — отчёт готов   * `purged` — отчёт удалён   * `canceled` — отклонено
 	Status *string `json:"status,omitempty"`
 }
 
@@ -107,7 +107,7 @@ func (o *GetTasksResponseData) SetStatus(v string) {
 }
 
 func (o GetTasksResponseData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableGetTasksResponseData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,9 +21,9 @@ var _ MappedNullable = &OrderByMainAndDetails{}
 
 // OrderByMainAndDetails Параметры сортировки
 type OrderByMainAndDetails struct {
-	// Поле для сортировки:   - `avgPosition` — по средней позиции   - `addToCart` — по добавлениям в корзину   - `openCard` — по открытию карточки (переход на страницу товара)   - `orders` — по количеству заказов   - `cartToOrder` — по конверсии в заказ из поиска   - `openToCart` — по конверсии в корзину из поиска   - `visibility` — по видимости товара   - `minPrice` — по минимальной цене   - `maxPrice` — по максимальной цене 
+	// Поле для сортировки:   - `avgPosition` — по средней позиции   - `addToCart` — по добавлениям в корзину   - `openCard` — по открытию карточки (переход на страницу товара)   - `orders` — по количеству заказов   - `cartToOrder` — по конверсии в заказ из поиска   - `openToCart` — по конверсии в корзину из поиска   - `visibility` — по видимости товара   - `minPrice` — по минимальной цене   - `maxPrice` — по максимальной цене
 	Field string `json:"field"`
-	// Порядок сортировки:   - `asc` — по возрастанию   - `desc` — по убыванию 
+	// Порядок сортировки:   - `asc` — по возрастанию   - `desc` — по убыванию
 	Mode string `json:"mode"`
 }
 
@@ -97,7 +97,7 @@ func (o *OrderByMainAndDetails) SetMode(v string) {
 }
 
 func (o OrderByMainAndDetails) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -125,10 +125,10 @@ func (o *OrderByMainAndDetails) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -184,5 +184,3 @@ func (v *NullableOrderByMainAndDetails) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

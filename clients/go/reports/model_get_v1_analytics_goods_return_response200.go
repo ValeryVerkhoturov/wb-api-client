@@ -73,7 +73,7 @@ func (o *GetV1AnalyticsGoodsReturnResponse200) SetReport(v []GetV1AnalyticsGoods
 }
 
 func (o GetV1AnalyticsGoodsReturnResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,5 +123,3 @@ func (v *NullableGetV1AnalyticsGoodsReturnResponse200) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

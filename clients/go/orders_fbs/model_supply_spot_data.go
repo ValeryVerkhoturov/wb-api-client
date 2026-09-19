@@ -11,8 +11,8 @@ API version: order
 package orders_fbs
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &SupplySpotData{}
 
 // SupplySpotData struct for SupplySpotData
 type SupplySpotData struct {
-	// Статус СПОТ:   - `pending` — ожидается результат формирования ДОПП — документа о предстоящей поставке   - `completed` — ДОПП успешно сформирован. Можно [получить QR-код](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdStickersSpot)   - `failed` — ошибка формирования ДОПП. Подробнее в поле `errorCode` 
+	// Статус СПОТ:   - `pending` — ожидается результат формирования ДОПП — документа о предстоящей поставке   - `completed` — ДОПП успешно сформирован. Можно [получить QR-код](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdStickersSpot)   - `failed` — ошибка формирования ДОПП. Подробнее в поле `errorCode`
 	Status string `json:"status"`
 	// Наименование перевозчика
 	CarrierName string `json:"carrierName"`
@@ -33,7 +33,7 @@ type SupplySpotData struct {
 	VehicleRegistrationNumber string `json:"vehicleRegistrationNumber"`
 	// Регистрационный номер прицепа
 	TrailerRegistrationNumber *string `json:"trailerRegistrationNumber,omitempty"`
-	// Код ошибки от сервиса формирования ДОПП — документа о предстоящей поставке. Возвращается при `\"status\": \"failed\"`. Чтобы исправить ошибку, проверьте данные СПОТ и [добавьте их в поставку](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdSpot) ещё раз 
+	// Код ошибки от сервиса формирования ДОПП — документа о предстоящей поставке. Возвращается при `\"status\": \"failed\"`. Чтобы исправить ошибку, проверьте данные СПОТ и [добавьте их в поставку](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdSpot) ещё раз
 	ErrorCode *string `json:"errorCode,omitempty"`
 }
 
@@ -246,7 +246,7 @@ func (o *SupplySpotData) SetErrorCode(v string) {
 }
 
 func (o SupplySpotData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -286,10 +286,10 @@ func (o *SupplySpotData) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -345,5 +345,3 @@ func (v *NullableSupplySpotData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

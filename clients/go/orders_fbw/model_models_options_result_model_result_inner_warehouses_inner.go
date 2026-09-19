@@ -21,13 +21,13 @@ var _ MappedNullable = &ModelsOptionsResultModelResultInnerWarehousesInner{}
 type ModelsOptionsResultModelResultInnerWarehousesInner struct {
 	// ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/informationForFormingSupplies/operation/getV1Warehouses)
 	WarehouseID *int32 `json:"warehouseID,omitempty"`
-	// Тип упаковки **Короб**:   - `true` — доступен   - `false` — недоступен 
+	// Тип упаковки **Короб**:   - `true` — доступен   - `false` — недоступен
 	CanBox *bool `json:"canBox,omitempty"`
-	// Тип упаковки **Монопаллета**:   - `true` — доступен   - `false` — недоступен 
+	// Тип упаковки **Монопаллета**:   - `true` — доступен   - `false` — недоступен
 	CanMonopallet *bool `json:"canMonopallet,omitempty"`
-	// Тип упаковки **Суперсейф**:   - `true` — доступен   - `false` — недоступен 
+	// Тип упаковки **Суперсейф**:   - `true` — доступен   - `false` — недоступен
 	CanSupersafe *bool `json:"canSupersafe,omitempty"`
-	// Тип поставки **Поштучная палета**:   - `true` — доступен   - `false` — недоступен 
+	// Тип поставки **Поштучная палета**:   - `true` — доступен   - `false` — недоступен
 	IsBoxOnPallet *bool `json:"isBoxOnPallet,omitempty"`
 }
 
@@ -209,7 +209,7 @@ func (o *ModelsOptionsResultModelResultInnerWarehousesInner) SetIsBoxOnPallet(v 
 }
 
 func (o ModelsOptionsResultModelResultInnerWarehousesInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -271,5 +271,3 @@ func (v *NullableModelsOptionsResultModelResultInnerWarehousesInner) UnmarshalJS
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

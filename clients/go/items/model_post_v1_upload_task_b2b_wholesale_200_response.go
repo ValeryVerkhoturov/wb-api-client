@@ -11,8 +11,8 @@ API version: items
 package items
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,7 +23,7 @@ var _ MappedNullable = &PostV1UploadTaskB2bWholesale200Response{}
 type PostV1UploadTaskB2bWholesale200Response struct {
 	// ID загрузки
 	Id int32 `json:"id"`
-	// Дублирование загрузки: `true` — такая загрузка уже есть 
+	// Дублирование загрузки: `true` — такая загрузка уже есть
 	AlreadyExists bool `json:"alreadyExists"`
 	// Результаты обработки запроса
 	Results []PostV1UploadTaskB2bWholesale200ResponseResultsInner `json:"results"`
@@ -124,7 +124,7 @@ func (o *PostV1UploadTaskB2bWholesale200Response) SetResults(v []PostV1UploadTas
 }
 
 func (o PostV1UploadTaskB2bWholesale200Response) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -154,10 +154,10 @@ func (o *PostV1UploadTaskB2bWholesale200Response) UnmarshalJSON(data []byte) (er
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -213,5 +213,3 @@ func (v *NullablePostV1UploadTaskB2bWholesale200Response) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

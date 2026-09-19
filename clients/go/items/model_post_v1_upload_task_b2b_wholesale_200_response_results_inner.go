@@ -11,8 +11,8 @@ API version: items
 package items
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,9 +23,9 @@ var _ MappedNullable = &PostV1UploadTaskB2bWholesale200ResponseResultsInner{}
 type PostV1UploadTaskB2bWholesale200ResponseResultsInner struct {
 	// Артикул WB
 	NmId int32 `json:"nmId"`
-	// Успешна ли установка скидки на товар:   - `false` — неуспешна   - `true` — успешна 
-	Success bool `json:"success"`
-	Error *PostV1UploadTaskB2bWholesale200ResponseResultsInnerError `json:"error,omitempty"`
+	// Успешна ли установка скидки на товар:   - `false` — неуспешна   - `true` — успешна
+	Success bool                                                      `json:"success"`
+	Error   *PostV1UploadTaskB2bWholesale200ResponseResultsInnerError `json:"error,omitempty"`
 }
 
 type _PostV1UploadTaskB2bWholesale200ResponseResultsInner PostV1UploadTaskB2bWholesale200ResponseResultsInner
@@ -130,7 +130,7 @@ func (o *PostV1UploadTaskB2bWholesale200ResponseResultsInner) SetError(v PostV1U
 }
 
 func (o PostV1UploadTaskB2bWholesale200ResponseResultsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -161,10 +161,10 @@ func (o *PostV1UploadTaskB2bWholesale200ResponseResultsInner) UnmarshalJSON(data
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -220,5 +220,3 @@ func (v *NullablePostV1UploadTaskB2bWholesale200ResponseResultsInner) UnmarshalJ
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

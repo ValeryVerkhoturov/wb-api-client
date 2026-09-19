@@ -39,7 +39,7 @@ type SizeGood struct {
 	ClubDiscount *int32 `json:"clubDiscount,omitempty"`
 	// Размер товара
 	TechSizeName *string `json:"techSizeName,omitempty"`
-	// Можно ли устанавливать цены отдельно для разных размеров (зависит от категории товара):   - `true` — можно   - `false` — нельзя 
+	// Можно ли устанавливать цены отдельно для разных размеров (зависит от категории товара):   - `true` — можно   - `false` — нельзя
 	EditableSizePrice *bool `json:"editableSizePrice,omitempty"`
 }
 
@@ -413,7 +413,7 @@ func (o *SizeGood) SetEditableSizePrice(v bool) {
 }
 
 func (o SizeGood) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -493,5 +493,3 @@ func (v *NullableSizeGood) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

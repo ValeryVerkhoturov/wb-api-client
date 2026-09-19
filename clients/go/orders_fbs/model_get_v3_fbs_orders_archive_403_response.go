@@ -12,14 +12,14 @@ package orders_fbs
 
 import (
 	"encoding/json"
-	"gopkg.in/validator.v2"
 	"fmt"
+	"gopkg.in/validator.v2"
 )
 
 // GetV3FbsOrdersArchive403Response - struct for GetV3FbsOrdersArchive403Response
 type GetV3FbsOrdersArchive403Response struct {
 	ArhiveOrderError400 *ArhiveOrderError400
-	Response4XX *Response4XX
+	Response4XX         *Response4XX
 }
 
 // ArhiveOrderError400AsGetV3FbsOrdersArchive403Response is a convenience function that returns ArhiveOrderError400 wrapped in GetV3FbsOrdersArchive403Response
@@ -35,7 +35,6 @@ func Response4XXAsGetV3FbsOrdersArchive403Response(v *Response4XX) GetV3FbsOrder
 		Response4XX: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *GetV3FbsOrdersArchive403Response) UnmarshalJSON(data []byte) error {
@@ -102,7 +101,7 @@ func (src GetV3FbsOrdersArchive403Response) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *GetV3FbsOrdersArchive403Response) GetActualInstance() (interface{}) {
+func (obj *GetV3FbsOrdersArchive403Response) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -153,5 +152,3 @@ func (v *NullableGetV3FbsOrdersArchive403Response) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

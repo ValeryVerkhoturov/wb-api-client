@@ -17,7 +17,7 @@ import (
 // checks if the V0BidRecommendationReachMin type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &V0BidRecommendationReachMin{}
 
-// V0BidRecommendationReachMin Минимальный охват: 50-60% 
+// V0BidRecommendationReachMin Минимальный охват: 50-60%
 type V0BidRecommendationReachMin struct {
 	// Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	BidKopecks *int32 `json:"bidKopecks,omitempty"`
@@ -107,7 +107,7 @@ func (o *V0BidRecommendationReachMin) SetBidKopecksMin(v int32) {
 }
 
 func (o V0BidRecommendationReachMin) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableV0BidRecommendationReachMin) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

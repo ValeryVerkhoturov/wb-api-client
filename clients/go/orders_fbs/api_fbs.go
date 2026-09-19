@@ -19,35 +19,34 @@ import (
 	"strings"
 )
 
-
 type FBSAPI interface {
 
 	/*
-	DeleteV3OrdersOrderIdMeta Удалить идентификаторы маркировки сборочного задания
+			DeleteV3OrdersOrderIdMeta Удалить идентификаторы маркировки сборочного задания
 
-	Метод удаляет значение [идентификаторов маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) для переданного ключа.
+			Метод удаляет значение [идентификаторов маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) для переданного ключа.
 
-Возможные идентификаторы маркировки:
-- `imei` — [IMEI](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei)
-- `uin` — [УИН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin)
-- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin)
-- `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin)
-- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration)
-Можно передать только один ключ.
+		Возможные идентификаторы маркировки:
+		- `imei` — [IMEI](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei)
+		- `uin` — [УИН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin)
+		- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin)
+		- `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin)
+		- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration)
+		Можно передать только один ключ.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param orderId ID сборочного задания
-	@return ApiDeleteV3OrdersOrderIdMetaRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param orderId ID сборочного задания
+			@return ApiDeleteV3OrdersOrderIdMetaRequest
 	*/
 	DeleteV3OrdersOrderIdMeta(ctx context.Context, orderId int64) ApiDeleteV3OrdersOrderIdMetaRequest
 
@@ -55,23 +54,23 @@ type FBSAPI interface {
 	DeleteV3OrdersOrderIdMetaExecute(r ApiDeleteV3OrdersOrderIdMetaRequest) (*http.Response, error)
 
 	/*
-	DeleteV3PassesPassId Удалить пропуск
+			DeleteV3PassesPassId Удалить пропуск
 
-	Метод удаляет пропуск продавца [из списка](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes).
+			Метод удаляет пропуск продавца [из списка](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param passId ID пропуска
-	@return ApiDeleteV3PassesPassIdRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param passId ID пропуска
+			@return ApiDeleteV3PassesPassIdRequest
 	*/
 	DeleteV3PassesPassId(ctx context.Context, passId int64) ApiDeleteV3PassesPassIdRequest
 
@@ -79,23 +78,23 @@ type FBSAPI interface {
 	DeleteV3PassesPassIdExecute(r ApiDeleteV3PassesPassIdRequest) (*http.Response, error)
 
 	/*
-	DeleteV3SuppliesSupplyId Удалить поставку
+			DeleteV3SuppliesSupplyId Удалить поставку
 
-	Метод удаляет [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId), если она активна и за ней не закреплено ни одно [сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders).
+			Метод удаляет [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId), если она активна и за ней не закреплено ни одно [сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param supplyId ID поставки
-	@return ApiDeleteV3SuppliesSupplyIdRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param supplyId ID поставки
+			@return ApiDeleteV3SuppliesSupplyIdRequest
 	*/
 	DeleteV3SuppliesSupplyId(ctx context.Context, supplyId string) ApiDeleteV3SuppliesSupplyIdRequest
 
@@ -103,25 +102,25 @@ type FBSAPI interface {
 	DeleteV3SuppliesSupplyIdExecute(r ApiDeleteV3SuppliesSupplyIdRequest) (*http.Response, error)
 
 	/*
-	DeleteV3SuppliesSupplyIdTrbx Удалить грузоместа из поставки
+			DeleteV3SuppliesSupplyIdTrbx Удалить грузоместа из поставки
 
-	Метод удаляет грузоместа из поставки.
+			Метод удаляет грузоместа из поставки.
 
-Можно удалить только пока поставка на сборке.
+		Можно удалить только пока поставка на сборке.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param supplyId ID поставки
-	@return ApiDeleteV3SuppliesSupplyIdTrbxRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param supplyId ID поставки
+			@return ApiDeleteV3SuppliesSupplyIdTrbxRequest
 	*/
 	DeleteV3SuppliesSupplyIdTrbx(ctx context.Context, supplyId string) ApiDeleteV3SuppliesSupplyIdTrbxRequest
 
@@ -129,18 +128,18 @@ type FBSAPI interface {
 	DeleteV3SuppliesSupplyIdTrbxExecute(r ApiDeleteV3SuppliesSupplyIdTrbxRequest) (*http.Response, error)
 
 	/*
-	GetV3FbsDictionariesCountriesOksm Получить список стран ОКСМ
+			GetV3FbsDictionariesCountriesOksm Получить список стран ОКСМ
 
-	Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.
+			Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3FbsDictionariesCountriesOksmRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV3FbsDictionariesCountriesOksmRequest
 	*/
 	GetV3FbsDictionariesCountriesOksm(ctx context.Context) ApiGetV3FbsDictionariesCountriesOksmRequest
 
@@ -149,20 +148,20 @@ type FBSAPI interface {
 	GetV3FbsDictionariesCountriesOksmExecute(r ApiGetV3FbsDictionariesCountriesOksmRequest) (*CountriesOKSMList, *http.Response, error)
 
 	/*
-	GetV3FbsOrdersArchive Получить список архивных сборочных заданий
+			GetV3FbsOrdersArchive Получить список архивных сборочных заданий
 
-	Метод возвращает сборочные задания, созданные более 3 месяцев назад.
-Часть сборочных заданий попадает в архив позже, чем через 3 месяца после создания, так как поставка переходит в архив только после того, как все заказы в ней будут завершены.
-Например, так происходит, если продавец не доставил один из заказов в поставке и заказ был отменён автоматически через несколько дней.
+			Метод возвращает сборочные задания, созданные более 3 месяцев назад.
+		Часть сборочных заданий попадает в архив позже, чем через 3 месяца после создания, так как поставка переходит в архив только после того, как все заказы в ней будут завершены.
+		Например, так происходит, если продавец не доставил один из заказов в поставке и заказ был отменён автоматически через несколько дней.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3FbsOrdersArchiveRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV3FbsOrdersArchiveRequest
 	*/
 	GetV3FbsOrdersArchive(ctx context.Context) ApiGetV3FbsOrdersArchiveRequest
 
@@ -171,21 +170,21 @@ type FBSAPI interface {
 	GetV3FbsOrdersArchiveExecute(r ApiGetV3FbsOrdersArchiveRequest) (*V3ArchiveOrders, *http.Response, error)
 
 	/*
-	GetV3FbsShippingPoints Получить список пунктов отгрузки поставок
+			GetV3FbsShippingPoints Получить список пунктов отгрузки поставок
 
-	Метод возвращает доступные пункты отгрузки поставок с фильтрами:
-- по населённым пунктам России
-- по типам товаров, которые принимает пункт отгрузки
-Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
+			Метод возвращает доступные пункты отгрузки поставок с фильтрами:
+		- по населённым пунктам России
+		- по типам товаров, которые принимает пункт отгрузки
+		Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3FbsShippingPointsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV3FbsShippingPointsRequest
 	*/
 	GetV3FbsShippingPoints(ctx context.Context) ApiGetV3FbsShippingPointsRequest
 
@@ -194,20 +193,20 @@ type FBSAPI interface {
 	GetV3FbsShippingPointsExecute(r ApiGetV3FbsShippingPointsRequest) (*ShippingPointsResponse, *http.Response, error)
 
 	/*
-	GetV3FbsSuppliesSupplyIdStickersSpot Получить QR-код СПОТ
+			GetV3FbsSuppliesSupplyIdStickersSpot Получить QR-код СПОТ
 
-	Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.
-Вы можете получить QR-код, когда в методе [получения данных СПОТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак `"status":"completed"`.
+			Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64.
+		Вы можете получить QR-код, когда в методе [получения данных СПОТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак `"status":"completed"`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param supplyId ID поставки
-	@return ApiGetV3FbsSuppliesSupplyIdStickersSpotRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param supplyId ID поставки
+			@return ApiGetV3FbsSuppliesSupplyIdStickersSpotRequest
 	*/
 	GetV3FbsSuppliesSupplyIdStickersSpot(ctx context.Context, supplyId string) ApiGetV3FbsSuppliesSupplyIdStickersSpotRequest
 
@@ -216,26 +215,26 @@ type FBSAPI interface {
 	GetV3FbsSuppliesSupplyIdStickersSpotExecute(r ApiGetV3FbsSuppliesSupplyIdStickersSpotRequest) (*SupplySpotQRCode, *http.Response, error)
 
 	/*
-	GetV3Orders Получить информацию о сборочных заданиях
+			GetV3Orders Получить информацию о сборочных заданиях
 
-	Метод возвращает информацию о сборочных заданиях, созданных не более 3 месяцев назад, без их актуального [статуса](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus).
-Чтобы получить данные за период, укажите в запросе даты начала и окончания периода. Максимум 30 календарных дней одним запросом.
-В ответе метода будут сборочные задания, созданные в указанный период.
+			Метод возвращает информацию о сборочных заданиях, созданных не более 3 месяцев назад, без их актуального [статуса](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus).
+		Чтобы получить данные за период, укажите в запросе даты начала и окончания периода. Максимум 30 календарных дней одним запросом.
+		В ответе метода будут сборочные задания, созданные в указанный период.
 
-Чтобы получить сборочные задания, созданные более 3 месяцев назад, используйте метод получения [списка архивных заказов](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive).
+		Чтобы получить сборочные задания, созданные более 3 месяцев назад, используйте метод получения [списка архивных заказов](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3OrdersRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV3OrdersRequest
 	*/
 	GetV3Orders(ctx context.Context) ApiGetV3OrdersRequest
 
@@ -244,27 +243,27 @@ type FBSAPI interface {
 	GetV3OrdersExecute(r ApiGetV3OrdersRequest) (*GetV3OrdersResponse200, *http.Response, error)
 
 	/*
-	GetV3OrdersNew Получить список новых сборочных заданий
+			GetV3OrdersNew Получить список новых сборочных заданий
 
-	Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders), которые есть у продавца на момент запроса.
+			Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders), которые есть у продавца на момент запроса.
 
-Наличие в сборочных заданиях идентификаторов маркировки, указанных в полях `requiredMeta` и `optionalMeta`, влияет только на возможность перевести поставку в доставку. Если ваш товар подлежит обязательной [маркировке](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs) средствами
-идентификации, необходимо указывать идентификаторы маркировки независимо от того, в каком поле они были получены (п. 4.6 [Оферты](https://seller.wildberries.ru/confirm-offer-condition/product/view)).
+		Наличие в сборочных заданиях идентификаторов маркировки, указанных в полях `requiredMeta` и `optionalMeta`, влияет только на возможность перевести поставку в доставку. Если ваш товар подлежит обязательной [маркировке](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs) средствами
+		идентификации, необходимо указывать идентификаторы маркировки независимо от того, в каком поле они были получены (п. 4.6 [Оферты](https://seller.wildberries.ru/confirm-offer-condition/product/view)).
 
-Рекомендуем добавлять в сборочные задания все идентификаторы маркировки, полученные в полях `requiredMeta` и `optionalMeta`
+		Рекомендуем добавлять в сборочные задания все идентификаторы маркировки, полученные в полях `requiredMeta` и `optionalMeta`
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3OrdersNewRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV3OrdersNewRequest
 	*/
 	GetV3OrdersNew(ctx context.Context) ApiGetV3OrdersNewRequest
 
@@ -273,22 +272,22 @@ type FBSAPI interface {
 	GetV3OrdersNewExecute(r ApiGetV3OrdersNewRequest) (*GetV3OrdersNewResponse200, *http.Response, error)
 
 	/*
-	GetV3Passes Получить список пропусков
+			GetV3Passes Получить список пропусков
 
-	Метод возвращает список всех [созданных](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/postV3Passes) пропусков продавца.
+			Метод возвращает список всех [созданных](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/postV3Passes) пропусков продавца.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3PassesRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV3PassesRequest
 	*/
 	GetV3Passes(ctx context.Context) ApiGetV3PassesRequest
 
@@ -297,24 +296,24 @@ type FBSAPI interface {
 	GetV3PassesExecute(r ApiGetV3PassesRequest) ([]Pass, *http.Response, error)
 
 	/*
-	GetV3PassesOffices Получить список складов, для которых требуется пропуск
+			GetV3PassesOffices Получить список складов, для которых требуется пропуск
 
-	Метод возвращает список складов для привязки к [пропуску продавца](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes).
+			Метод возвращает список складов для привязки к [пропуску продавца](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes).
 
-Данные, которые возвращает метод, могут меняться. Рекомендуем периодически синхронизировать список
+		Данные, которые возвращает метод, могут меняться. Рекомендуем периодически синхронизировать список
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3PassesOfficesRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV3PassesOfficesRequest
 	*/
 	GetV3PassesOffices(ctx context.Context) ApiGetV3PassesOfficesRequest
 
@@ -323,22 +322,22 @@ type FBSAPI interface {
 	GetV3PassesOfficesExecute(r ApiGetV3PassesOfficesRequest) ([]PassOffice, *http.Response, error)
 
 	/*
-	GetV3Supplies Получить список поставок
+			GetV3Supplies Получить список поставок
 
-	Метод возвращает список [поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
+			Метод возвращает список [поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3SuppliesRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV3SuppliesRequest
 	*/
 	GetV3Supplies(ctx context.Context) ApiGetV3SuppliesRequest
 
@@ -347,24 +346,24 @@ type FBSAPI interface {
 	GetV3SuppliesExecute(r ApiGetV3SuppliesRequest) (*GetV3SuppliesResponse200, *http.Response, error)
 
 	/*
-	GetV3SuppliesOrdersReshipment Получить все сборочные задания для повторной отгрузки
+			GetV3SuppliesOrdersReshipment Получить все сборочные задания для повторной отгрузки
 
-	Метод возвращает все [сборочные задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders), требующие повторной отгрузки.
+			Метод возвращает все [сборочные задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders), требующие повторной отгрузки.
 
-Повторная отгрузка требуется, если поставка была отсканирована в пункте приёмки, но при этом в ней всё ещё есть неотсканированные товары. Спустя определённое время необходимо доставить эти товары заново. Данные сборочные задания можно перевести в [другую активную поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders).
+		Повторная отгрузка требуется, если поставка была отсканирована в пункте приёмки, но при этом в ней всё ещё есть неотсканированные товары. Спустя определённое время необходимо доставить эти товары заново. Данные сборочные задания можно перевести в [другую активную поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3SuppliesOrdersReshipmentRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV3SuppliesOrdersReshipmentRequest
 	*/
 	GetV3SuppliesOrdersReshipment(ctx context.Context) ApiGetV3SuppliesOrdersReshipmentRequest
 
@@ -373,23 +372,23 @@ type FBSAPI interface {
 	GetV3SuppliesOrdersReshipmentExecute(r ApiGetV3SuppliesOrdersReshipmentRequest) (*GetV3SuppliesOrdersReshipmentResponse200, *http.Response, error)
 
 	/*
-	GetV3SuppliesSupplyId Получить информацию о поставке
+			GetV3SuppliesSupplyId Получить информацию о поставке
 
-	Метод возвращает подробную информацию о поставке.
+			Метод возвращает подробную информацию о поставке.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param supplyId ID поставки
-	@return ApiGetV3SuppliesSupplyIdRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param supplyId ID поставки
+			@return ApiGetV3SuppliesSupplyIdRequest
 	*/
 	GetV3SuppliesSupplyId(ctx context.Context, supplyId string) ApiGetV3SuppliesSupplyIdRequest
 
@@ -398,30 +397,30 @@ type FBSAPI interface {
 	GetV3SuppliesSupplyIdExecute(r ApiGetV3SuppliesSupplyIdRequest) (*Supply, *http.Response, error)
 
 	/*
-	GetV3SuppliesSupplyIdBarcode Получить QR-код поставки
+			GetV3SuppliesSupplyIdBarcode Получить QR-код поставки
 
-	Метод возвращает QR-код [поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) в форматах:
-- SVG
-- ZPLV (вертикальный)
-- ZPLH (горизонтальный)
-- PNG
-QR-код поставки можно получить, только если поставка [передана в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver).
+			Метод возвращает QR-код [поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) в форматах:
+		- SVG
+		- ZPLV (вертикальный)
+		- ZPLH (горизонтальный)
+		- PNG
+		QR-код поставки можно получить, только если поставка [передана в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver).
 
-Размер — 580x400 px.
+		Размер — 580x400 px.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param supplyId ID поставки
-	@return ApiGetV3SuppliesSupplyIdBarcodeRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param supplyId ID поставки
+			@return ApiGetV3SuppliesSupplyIdBarcodeRequest
 	*/
 	GetV3SuppliesSupplyIdBarcode(ctx context.Context, supplyId string) ApiGetV3SuppliesSupplyIdBarcodeRequest
 
@@ -430,23 +429,23 @@ QR-код поставки можно получить, только если п
 	GetV3SuppliesSupplyIdBarcodeExecute(r ApiGetV3SuppliesSupplyIdBarcodeRequest) (*GetV3SuppliesSupplyIdBarcodeResponse200, *http.Response, error)
 
 	/*
-	GetV3SuppliesSupplyIdOrderIds Получить ID сборочных заданий поставки
+			GetV3SuppliesSupplyIdOrderIds Получить ID сборочных заданий поставки
 
-	Метод возвращает список ID сборочных заданий, закреплённых за поставкой.
+			Метод возвращает список ID сборочных заданий, закреплённых за поставкой.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param supplyId ID поставки
-	@return ApiGetV3SuppliesSupplyIdOrderIdsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param supplyId ID поставки
+			@return ApiGetV3SuppliesSupplyIdOrderIdsRequest
 	*/
 	GetV3SuppliesSupplyIdOrderIds(ctx context.Context, supplyId string) ApiGetV3SuppliesSupplyIdOrderIdsRequest
 
@@ -455,23 +454,23 @@ QR-код поставки можно получить, только если п
 	GetV3SuppliesSupplyIdOrderIdsExecute(r ApiGetV3SuppliesSupplyIdOrderIdsRequest) (*V3SupplyOrderIDsAPI, *http.Response, error)
 
 	/*
-	GetV3SuppliesSupplyIdTrbx Получить список грузомест поставки
+			GetV3SuppliesSupplyIdTrbx Получить список грузомест поставки
 
-	Возвращает список грузомест поставки.
+			Возвращает список грузомест поставки.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param supplyId ID поставки
-	@return ApiGetV3SuppliesSupplyIdTrbxRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param supplyId ID поставки
+			@return ApiGetV3SuppliesSupplyIdTrbxRequest
 	*/
 	GetV3SuppliesSupplyIdTrbx(ctx context.Context, supplyId string) ApiGetV3SuppliesSupplyIdTrbxRequest
 
@@ -480,26 +479,26 @@ QR-код поставки можно получить, только если п
 	GetV3SuppliesSupplyIdTrbxExecute(r ApiGetV3SuppliesSupplyIdTrbxRequest) (*GetV3SuppliesSupplyIdTrbxResponse200, *http.Response, error)
 
 	/*
-	PatchV3FbsSuppliesShippingMethod Установить параметры отгрузки поставок
+			PatchV3FbsSuppliesShippingMethod Установить параметры отгрузки поставок
 
-	Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.
+			Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.
 
-Для доставки транспортной компанией `"shippingType":"transportCompany"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).
+		Для доставки транспортной компанией `"shippingType":"transportCompany"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).
 
-Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки `"shippingType":"transportCompany"` на `selfShipping`. Если вы хотите изменить способ доставки обратно на `transportCompany`, [добавьте ID ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) заново.
+		Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки `"shippingType":"transportCompany"` на `selfShipping`. Если вы хотите изменить способ доставки обратно на `transportCompany`, [добавьте ID ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) заново.
 
-Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.
+		Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.
 
-В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.
+		В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPatchV3FbsSuppliesShippingMethodRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPatchV3FbsSuppliesShippingMethodRequest
 	*/
 	PatchV3FbsSuppliesShippingMethod(ctx context.Context) ApiPatchV3FbsSuppliesShippingMethodRequest
 
@@ -508,22 +507,22 @@ QR-код поставки можно получить, только если п
 	PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsSuppliesShippingMethodRequest) (*UpdateSuppliesResponse, *http.Response, error)
 
 	/*
-	PatchV3FbsSuppliesWaybill Установить ID ЭТрН поставок
+			PatchV3FbsSuppliesWaybill Установить ID ЭТрН поставок
 
-	Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `"shippingType":"transportCompany"`.
+			Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `"shippingType":"transportCompany"`.
 
-Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.
+		Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.
 
-В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.
+		В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPatchV3FbsSuppliesWaybillRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPatchV3FbsSuppliesWaybillRequest
 	*/
 	PatchV3FbsSuppliesWaybill(ctx context.Context) ApiPatchV3FbsSuppliesWaybillRequest
 
@@ -532,26 +531,26 @@ QR-код поставки можно получить, только если п
 	PatchV3FbsSuppliesWaybillExecute(r ApiPatchV3FbsSuppliesWaybillRequest) (*UpdateSuppliesResponse, *http.Response, error)
 
 	/*
-	PatchV3OrdersOrderIdCancel Отменить сборочное задание
+			PatchV3OrdersOrderIdCancel Отменить сборочное задание
 
-	Метод отменяет [сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и переводит в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `cancel` — отменено продавцом.
+			Метод отменяет [сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и переводит в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `cancel` — отменено продавцом.
 
-Сборочное задание можно отменить до его передачи Wildberries.
-Чтобы проверить, можно ли отменить сборочное задание, используйте метод [POST /api/v3/orders/status](https://dev.wildberries.ru/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isCancellable`.
+		Сборочное задание можно отменить до его передачи Wildberries.
+		Чтобы проверить, можно ли отменить сборочное задание, используйте метод [POST /api/v3/orders/status](https://dev.wildberries.ru/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isCancellable`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 100 запросов | 600 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 100 запросов | 600 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param orderId ID сборочного задания
-	@return ApiPatchV3OrdersOrderIdCancelRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param orderId ID сборочного задания
+			@return ApiPatchV3OrdersOrderIdCancelRequest
 	*/
 	PatchV3OrdersOrderIdCancel(ctx context.Context, orderId int64) ApiPatchV3OrdersOrderIdCancelRequest
 
@@ -559,32 +558,32 @@ QR-код поставки можно получить, только если п
 	PatchV3OrdersOrderIdCancelExecute(r ApiPatchV3OrdersOrderIdCancelRequest) (*http.Response, error)
 
 	/*
-	PatchV3SuppliesSupplyIdDeliver Передать поставку в доставку
+			PatchV3SuppliesSupplyIdDeliver Передать поставку в доставку
 
-	Метод закрывает [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) и переводит все [сборочные задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) в ней в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя.
+			Метод закрывает [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) и переводит все [сборочные задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) в ней в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `complete` — в доставке. После закрытия поставки добавить новые сборочные задания к ней нельзя.
 
-Если поставка не была передана в доставку, то при приёмке первого товара поставка автоматически закроется.
+		Если поставка не была передана в доставку, то при приёмке первого товара поставка автоматически закроется.
 
-Передать поставку в доставку можно, только если в ней:
-- есть хотя бы одно сборочное задание
-- для всех сборочных заданий указана обязательная маркировка
-- маркировка всех сборочных заданий прошла проверку
-Если поставка содержит сборочные задания с обязательным УИН, убедитесь, что вы заранее создали и загрузили спецификацию с договором на доставку. [ГИИС ДМДК](https://minfin.gov.ru/ru/perfomance/jewels/dmdk) требуется около 30 минут для обработки изменений в статусах УИН.
-Обязательно [указывайте параметры отгрузки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) для поставок от продавцов РФ на пункты отгрузки в РФ. Если способ доставки, дата или пункт отгрузки не указаны, возвращается ошибка `409`.
+		Передать поставку в доставку можно, только если в ней:
+		- есть хотя бы одно сборочное задание
+		- для всех сборочных заданий указана обязательная маркировка
+		- маркировка всех сборочных заданий прошла проверку
+		Если поставка содержит сборочные задания с обязательным УИН, убедитесь, что вы заранее создали и загрузили спецификацию с договором на доставку. [ГИИС ДМДК](https://minfin.gov.ru/ru/perfomance/jewels/dmdk) требуется около 30 минут для обработки изменений в статусах УИН.
+		Обязательно [указывайте параметры отгрузки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) для поставок от продавцов РФ на пункты отгрузки в РФ. Если способ доставки, дата или пункт отгрузки не указаны, возвращается ошибка `409`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param supplyId ID поставки
-	@return ApiPatchV3SuppliesSupplyIdDeliverRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param supplyId ID поставки
+			@return ApiPatchV3SuppliesSupplyIdDeliverRequest
 	*/
 	PatchV3SuppliesSupplyIdDeliver(ctx context.Context, supplyId string) ApiPatchV3SuppliesSupplyIdDeliverRequest
 
@@ -592,36 +591,36 @@ QR-код поставки можно получить, только если п
 	PatchV3SuppliesSupplyIdDeliverExecute(r ApiPatchV3SuppliesSupplyIdDeliverRequest) (*http.Response, error)
 
 	/*
-	PatchV3SuppliesSupplyIdOrders Добавить сборочные задания к поставке
+			PatchV3SuppliesSupplyIdOrders Добавить сборочные задания к поставке
 
-	Метод добавляет до 100 [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) к поставке и переводит их в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` — на сборке.
-Может перемещать сборочные задания:
-- между активными поставками
-- из закрытой поставки в активную, если сборочные задания требуют [повторной отгрузки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3SuppliesOrdersReshipment)
+			Метод добавляет до 100 [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) к поставке и переводит их в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` — на сборке.
+		Может перемещать сборочные задания:
+		- между активными поставками
+		- из закрытой поставки в активную, если сборочные задания требуют [повторной отгрузки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3SuppliesOrdersReshipment)
 
-В пустую поставку можно добавить сборочные задания любого габаритного типа. Поставка приобретает габаритный тип первого добавленного сборочного задания [из поля](./orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) `cargoType`.
+		В пустую поставку можно добавить сборочные задания любого габаритного типа. Поставка приобретает габаритный тип первого добавленного сборочного задания [из поля](./orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) `cargoType`.
 
-После этого в поставку можно добавить сборочные задания только того же габаритного типа, что и у поставки.
+		После этого в поставку можно добавить сборочные задания только того же габаритного типа, что и у поставки.
 
-В поставку нельзя добавить сборочные задания, поступившие на разные склады.
+		В поставку нельзя добавить сборочные задания, поступившие на разные склады.
 
-В пустую поставку можно добавить сборочные задания трансграничных или внутренних поставок.
-После этого поставка приобретает тип первого добавленного сборочного задания из поля `crossBorderType`.
-Далее в неё можно добавить только сборочные задания такого же типа.
+		В пустую поставку можно добавить сборочные задания трансграничных или внутренних поставок.
+		После этого поставка приобретает тип первого добавленного сборочного задания из поля `crossBorderType`.
+		Далее в неё можно добавить только сборочные задания такого же типа.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param supplyId ID поставки
-	@return ApiPatchV3SuppliesSupplyIdOrdersRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param supplyId ID поставки
+			@return ApiPatchV3SuppliesSupplyIdOrdersRequest
 	*/
 	PatchV3SuppliesSupplyIdOrders(ctx context.Context, supplyId string) ApiPatchV3SuppliesSupplyIdOrdersRequest
 
@@ -629,23 +628,23 @@ QR-код поставки можно получить, только если п
 	PatchV3SuppliesSupplyIdOrdersExecute(r ApiPatchV3SuppliesSupplyIdOrdersRequest) (*http.Response, error)
 
 	/*
-	PostV3FbsSuppliesSpotList Получить данные СПОТ для списка поставок
+			PostV3FbsSuppliesSpotList Получить данные СПОТ для списка поставок
 
-	Метод возвращает данные СПОТ для списка поставок.
+			Метод возвращает данные СПОТ для списка поставок.
 
-Вы можете получить данные СПОТ, только если выполняются все условия:
-- поставка находится на этапе доставки
-- продавец зарегистрирован в любой стране ЕАЭС кроме РФ
-- склад назначения находится в РФ
+		Вы можете получить данные СПОТ, только если выполняются все условия:
+		- поставка находится на этапе доставки
+		- продавец зарегистрирован в любой стране ЕАЭС кроме РФ
+		- склад назначения находится в РФ
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3FbsSuppliesSpotListRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3FbsSuppliesSpotListRequest
 	*/
 	PostV3FbsSuppliesSpotList(ctx context.Context) ApiPostV3FbsSuppliesSpotListRequest
 
@@ -654,23 +653,23 @@ QR-код поставки можно получить, только если п
 	PostV3FbsSuppliesSpotListExecute(r ApiPostV3FbsSuppliesSpotListRequest) (*SupplySpotDataResponse, *http.Response, error)
 
 	/*
-	PostV3OrdersClient Заказы с информацией по клиенту
+			PostV3OrdersClient Заказы с информацией по клиенту
 
-	Метод позволяет получать информацию о покупателе по ID сборочного задания.
-Только для трансграничных поставок из \*\*Турции\*\*.
+			Метод позволяет получать информацию о покупателе по ID сборочного задания.
+		Только для трансграничных поставок из \*\*Турции\*\*.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3OrdersClientRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3OrdersClientRequest
 	*/
 	PostV3OrdersClient(ctx context.Context) ApiPostV3OrdersClientRequest
 
@@ -679,31 +678,31 @@ QR-код поставки можно получить, только если п
 	PostV3OrdersClientExecute(r ApiPostV3OrdersClientRequest) (*CrossborderTurkeyClientInfoResp, *http.Response, error)
 
 	/*
-	PostV3OrdersMeta Получить идентификаторы маркировки сборочных заданий
+			PostV3OrdersMeta Получить идентификаторы маркировки сборочных заданий
 
-	Метод возвращает идентификаторы маркировки [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и статусы их проверки.
+			Метод возвращает идентификаторы маркировки [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и статусы их проверки.
 
-Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3OrdersNew), поля `requiredMeta` и `optionalMeta`. Если поля `requiredMeta` и `optionalMeta` не содержат какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.
-Возможные идентификаторы маркировки:
-- `imei` — [IMEI](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei)
-- `uin` — [УИН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin)
-- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin)
-- `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin)
-- `expiration` — [срок годности товара](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaExpiration)
-- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration)
+		Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3OrdersNew), поля `requiredMeta` и `optionalMeta`. Если поля `requiredMeta` и `optionalMeta` не содержат какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.
+		Возможные идентификаторы маркировки:
+		- `imei` — [IMEI](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaImei)
+		- `uin` — [УИН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin)
+		- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaGtin)
+		- `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaSgtin)
+		- `expiration` — [срок годности товара](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaExpiration)
+		- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration)
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3OrdersMetaRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3OrdersMetaRequest
 	*/
 	PostV3OrdersMeta(ctx context.Context) ApiPostV3OrdersMetaRequest
 
@@ -712,47 +711,47 @@ QR-код поставки можно получить, только если п
 	PostV3OrdersMetaExecute(r ApiPostV3OrdersMetaRequest) (*V3OrdersMetaAPI, *http.Response, error)
 
 	/*
-	PostV3OrdersStatus Получить статусы сборочных заданий
+			PostV3OrdersStatus Получить статусы сборочных заданий
 
-	Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.
+			Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.
 
-`supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.
-Возможные значения `supplierStatus`:
-| Статус | Описание | Как перевести сборочное задание в данный статус |
-|-------|----------------------|--------------------------------------|
-| `new` | \*\*Новое сборочное задание\*\* | |
-| `confirm` | \*\*На сборке\*\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)
-| `complete` | \*\*В доставке\*\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) |
-| `cancel` | \*\*Отменено продавцом\*\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)|
-| `cancel\_carrier` | \*\*Отменено перевозчиком\*\*
-Только для трансграничных поставок | Переводится перевозчиком |
+		`supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.
+		Возможные значения `supplierStatus`:
+		| Статус | Описание | Как перевести сборочное задание в данный статус |
+		|-------|----------------------|--------------------------------------|
+		| `new` | \*\*Новое сборочное задание\*\* | |
+		| `confirm` | \*\*На сборке\*\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)
+		| `complete` | \*\*В доставке\*\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) |
+		| `cancel` | \*\*Отменено продавцом\*\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)|
+		| `cancel\_carrier` | \*\*Отменено перевозчиком\*\*
+		Только для трансграничных поставок | Переводится перевозчиком |
 
-`wbStatus` — статус системы Wildberries.
-Возможные значения `wbStatus`:
-- `waiting` — сборочное задание в работе
-- `sorted` — сборочное задание отсортировано
-- `sold` — заказ получен покупателем
-- `canceled` — отмена сборочного задания
-- `canceled\_by\_client` — покупатель отменил заказ при получении
-- `declined\_by\_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку
-- `defect` — отмена заказа по причине брака
-- `ready\_for\_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ)
-- `accepted\_by\_carrier` — продавец передал заказ в службу доставки в своей стране
-- `sent\_to\_carrier` — заказ отправлен на склад службы доставки в стране продавца
-- `canceled\_by\_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок
+		`wbStatus` — статус системы Wildberries.
+		Возможные значения `wbStatus`:
+		- `waiting` — сборочное задание в работе
+		- `sorted` — сборочное задание отсортировано
+		- `sold` — заказ получен покупателем
+		- `canceled` — отмена сборочного задания
+		- `canceled\_by\_client` — покупатель отменил заказ при получении
+		- `declined\_by\_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку
+		- `defect` — отмена заказа по причине брака
+		- `ready\_for\_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ)
+		- `accepted\_by\_carrier` — продавец передал заказ в службу доставки в своей стране
+		- `sent\_to\_carrier` — заказ отправлен на склад службы доставки в стране продавца
+		- `canceled\_by\_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3OrdersStatusRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3OrdersStatusRequest
 	*/
 	PostV3OrdersStatus(ctx context.Context) ApiPostV3OrdersStatusRequest
 
@@ -761,23 +760,23 @@ QR-код поставки можно получить, только если п
 	PostV3OrdersStatusExecute(r ApiPostV3OrdersStatusRequest) (*PostV3OrdersStatusResponse200, *http.Response, error)
 
 	/*
-	PostV3OrdersStatusHistory История статусов для сборочных заданий трансграничных поставок
+			PostV3OrdersStatusHistory История статусов для сборочных заданий трансграничных поставок
 
-	Метод возвращает историю [статусов](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) для [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) трансграничных поставок.
-В песочнице этот метод всегда возвращает ответ `200`.
+			Метод возвращает историю [статусов](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) для [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) трансграничных поставок.
+		В песочнице этот метод всегда возвращает ответ `200`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3OrdersStatusHistoryRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3OrdersStatusHistoryRequest
 	*/
 	PostV3OrdersStatusHistory(ctx context.Context) ApiPostV3OrdersStatusHistoryRequest
 
@@ -786,34 +785,34 @@ QR-код поставки можно получить, только если п
 	PostV3OrdersStatusHistoryExecute(r ApiPostV3OrdersStatusHistoryRequest) (*PostV3OrdersStatusHistoryResponse200, *http.Response, error)
 
 	/*
-	PostV3OrdersStickers Получить стикеры сборочных заданий
+			PostV3OrdersStickers Получить стикеры сборочных заданий
 
-	Метод возвращает список стикеров для [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders) в [статусах](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` — на сборке и `complete` — в доставке.
+			Метод возвращает список стикеров для [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders) в [статусах](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` — на сборке и `complete` — в доставке.
 
-Если за сборочным заданием не закреплён обязательный [номер декларации на товары (ДТ)](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration), получить стикеры для этого сборочного задания невозможно.
+		Если за сборочным заданием не закреплён обязательный [номер декларации на товары (ДТ)](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaCustomsDeclaration), получить стикеры для этого сборочного задания невозможно.
 
-За один запрос можно получить максимум 100 стикеров.
-Можно получить стикер в форматах:
-- SVG
-- ZPLV (вертикальный)
-- ZPLH (горизонтальный)
-- PNG
-Доступны размеры:
-- 580x400 px при `width=58&height=40` в запросе
-- 400x300 px при `width=40&height=30` в запросе
+		За один запрос можно получить максимум 100 стикеров.
+		Можно получить стикер в форматах:
+		- SVG
+		- ZPLV (вертикальный)
+		- ZPLH (горизонтальный)
+		- PNG
+		Доступны размеры:
+		- 580x400 px при `width=58&height=40` в запросе
+		- 400x300 px при `width=40&height=30` в запросе
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3OrdersStickersRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3OrdersStickersRequest
 	*/
 	PostV3OrdersStickers(ctx context.Context) ApiPostV3OrdersStickersRequest
 
@@ -822,29 +821,29 @@ QR-код поставки можно получить, только если п
 	PostV3OrdersStickersExecute(r ApiPostV3OrdersStickersRequest) (*PostV3OrdersStickersResponse200, *http.Response, error)
 
 	/*
-	PostV3OrdersStickersCrossBorder Получить стикеры сборочных заданий трансграничных поставок
+			PostV3OrdersStickersCrossBorder Получить стикеры сборочных заданий трансграничных поставок
 
-	Метод возвращает список стикеров [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) трансграничных поставок в формате PDF.
+			Метод возвращает список стикеров [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) трансграничных поставок в формате PDF.
 
-Для каждого сборочного задания в ответе указывается статус генерации стикера:
-- `awaitingTrackNumber` — стикер не готов. Ожидается трек-номер от перевозчика.
-- `ready` — стикер готов
+		Для каждого сборочного задания в ответе указывается статус генерации стикера:
+		- `awaitingTrackNumber` — стикер не готов. Ожидается трек-номер от перевозчика.
+		- `ready` — стикер готов
 
-Стикер может генерироваться с задержкой. Повторяйте запрос, пока не получите статус `ready`.
+		Стикер может генерироваться с задержкой. Повторяйте запрос, пока не получите статус `ready`.
 
-Ограничения:
-- За один запрос можно получить максимум 100 стикеров.
-- Можно получить стикеры только для сборочных заданий, находящихся на сборке или в доставке — [статусы](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm`, `complete`.
-В песочнице этот метод всегда возвращает ответ `200`.
+		Ограничения:
+		- За один запрос можно получить максимум 100 стикеров.
+		- Можно получить стикеры только для сборочных заданий, находящихся на сборке или в доставке — [статусы](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm`, `complete`.
+		В песочнице этот метод всегда возвращает ответ `200`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3OrdersStickersCrossBorderRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3OrdersStickersCrossBorderRequest
 	*/
 	PostV3OrdersStickersCrossBorder(ctx context.Context) ApiPostV3OrdersStickersCrossBorderRequest
 
@@ -853,20 +852,20 @@ QR-код поставки можно получить, только если п
 	PostV3OrdersStickersCrossBorderExecute(r ApiPostV3OrdersStickersCrossBorderRequest) (*PostV3OrdersStickersCrossBorderResponse200, *http.Response, error)
 
 	/*
-	PostV3Passes Создать пропуск
+			PostV3Passes Создать пропуск
 
-	Метод создаёт [пропуск продавца](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes) с привязкой к складу WB.
-Пропуск действует 48 часов со времени создания.
+			Метод создаёт [пропуск продавца](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes) с привязкой к складу WB.
+		Пропуск действует 48 часов со времени создания.
 
-Максимум 1 запрос в 10 [минут](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца.
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		Максимум 1 запрос в 10 [минут](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца.
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3PassesRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3PassesRequest
 	*/
 	PostV3Passes(ctx context.Context) ApiPostV3PassesRequest
 
@@ -875,27 +874,27 @@ QR-код поставки можно получить, только если п
 	PostV3PassesExecute(r ApiPostV3PassesRequest) (*PostV3PassesResponse201, *http.Response, error)
 
 	/*
-	PostV3Supplies Создать новую поставку
+			PostV3Supplies Создать новую поставку
 
-	Метод создаёт новую [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
-Ограничения:
-- Только для [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по модели FBS.
-- При добавлении в поставку все передаваемые сборочные задания в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `new` будут автоматически переведены в статус `confirm` — на сборке.
-- Если вы переведёте сборочное задание в статус `cancel` — отмена продавцом, прикрепленное сборочное задание автоматически удалится из поставки.
-- Поставку можно собрать только из сборочных заданий (заказов) одного габаритного типа `cargoType`. Новая поставка не обладает габаритным признаком, она приобретает габаритный признак первого заказа, добавленного в поставку.
+			Метод создаёт новую [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
+		Ограничения:
+		- Только для [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по модели FBS.
+		- При добавлении в поставку все передаваемые сборочные задания в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `new` будут автоматически переведены в статус `confirm` — на сборке.
+		- Если вы переведёте сборочное задание в статус `cancel` — отмена продавцом, прикрепленное сборочное задание автоматически удалится из поставки.
+		- Поставку можно собрать только из сборочных заданий (заказов) одного габаритного типа `cargoType`. Новая поставка не обладает габаритным признаком, она приобретает габаритный признак первого заказа, добавленного в поставку.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3SuppliesRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3SuppliesRequest
 	*/
 	PostV3Supplies(ctx context.Context) ApiPostV3SuppliesRequest
 
@@ -904,27 +903,27 @@ QR-код поставки можно получить, только если п
 	PostV3SuppliesExecute(r ApiPostV3SuppliesRequest) (*PostV3SuppliesResponse201, *http.Response, error)
 
 	/*
-	PostV3SuppliesSupplyIdTrbx Добавить грузоместа к поставке
+			PostV3SuppliesSupplyIdTrbx Добавить грузоместа к поставке
 
-	Метод добавляет требуемое количество [грузомест](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyIdTrbx) в [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
+			Метод добавляет требуемое количество [грузомест](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyIdTrbx) в [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId).
 
-Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ.
+		Грузоместа необходимо добавлять только в поставки, отгружаемые на ПВЗ.
 
-Грузоместа можно добавить только в открытую поставку. В одном грузоместе может быть несколько заказов. Например, если в поставке 10 заказов, распределите их по коробам: система позволит создать не больше 5 грузомест. Для 20 заказов — не больше 10 грузомест, для 100 — не больше 50.
+		Грузоместа можно добавить только в открытую поставку. В одном грузоместе может быть несколько заказов. Например, если в поставке 10 заказов, распределите их по коробам: система позволит создать не больше 5 грузомест. Для 20 заказов — не больше 10 грузомест, для 100 — не больше 50.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param supplyId ID поставки
-	@return ApiPostV3SuppliesSupplyIdTrbxRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param supplyId ID поставки
+			@return ApiPostV3SuppliesSupplyIdTrbxRequest
 	*/
 	PostV3SuppliesSupplyIdTrbx(ctx context.Context, supplyId string) ApiPostV3SuppliesSupplyIdTrbxRequest
 
@@ -933,29 +932,29 @@ QR-код поставки можно получить, только если п
 	PostV3SuppliesSupplyIdTrbxExecute(r ApiPostV3SuppliesSupplyIdTrbxRequest) (*PostV3SuppliesSupplyIdTrbxResponse201, *http.Response, error)
 
 	/*
-	PostV3SuppliesSupplyIdTrbxStickers Получить стикеры грузомест поставки
+			PostV3SuppliesSupplyIdTrbxStickers Получить стикеры грузомест поставки
 
-	Метод возвращает QR-стикеры в форматах:
-- SVG
-- ZPLV (вертикальный)
-- ZPLH (горизонтальный)
-- PNG
+			Метод возвращает QR-стикеры в форматах:
+		- SVG
+		- ZPLV (вертикальный)
+		- ZPLH (горизонтальный)
+		- PNG
 
-Размер стикеров — 580x400 px.
+		Размер стикеров — 580x400 px.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param supplyId ID поставки
-	@return ApiPostV3SuppliesSupplyIdTrbxStickersRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param supplyId ID поставки
+			@return ApiPostV3SuppliesSupplyIdTrbxStickersRequest
 	*/
 	PostV3SuppliesSupplyIdTrbxStickers(ctx context.Context, supplyId string) ApiPostV3SuppliesSupplyIdTrbxStickersRequest
 
@@ -964,21 +963,21 @@ QR-код поставки можно получить, только если п
 	PostV3SuppliesSupplyIdTrbxStickersExecute(r ApiPostV3SuppliesSupplyIdTrbxStickersRequest) (*PostV3SuppliesSupplyIdTrbxStickersResponse200, *http.Response, error)
 
 	/*
-	PutV3FbsSuppliesSupplyIdSpot Добавить данные СПОТ в поставку
+			PutV3FbsSuppliesSupplyIdSpot Добавить данные СПОТ в поставку
 
-	Метод добавляет данные СПОТ в поставку.
+			Метод добавляет данные СПОТ в поставку.
 
-СПОТ можно добавить только в [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком `"spotAvailable":true`.
+		СПОТ можно добавить только в [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком `"spotAvailable":true`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param supplyId ID поставки
-	@return ApiPutV3FbsSuppliesSupplyIdSpotRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param supplyId ID поставки
+			@return ApiPutV3FbsSuppliesSupplyIdSpotRequest
 	*/
 	PutV3FbsSuppliesSupplyIdSpot(ctx context.Context, supplyId string) ApiPutV3FbsSuppliesSupplyIdSpotRequest
 
@@ -986,26 +985,26 @@ QR-код поставки можно получить, только если п
 	PutV3FbsSuppliesSupplyIdSpotExecute(r ApiPutV3FbsSuppliesSupplyIdSpotRequest) (*http.Response, error)
 
 	/*
-	PutV3OrdersOrderIdMetaCustomsDeclaration Закрепить номер ДТ за сборочным заданием
+			PutV3OrdersOrderIdMetaCustomsDeclaration Закрепить номер ДТ за сборочным заданием
 
-	Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta). У одного сборочного задания может быть только один номер ДТ.
-Закрепить номер ДТ можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `customsDeclaration`.
+			Метод обновляет номер ДТ — декларации на товары — в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta). У одного сборочного задания может быть только один номер ДТ.
+		Закрепить номер ДТ можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `customsDeclaration`.
 
-Продавцам из Армении необходимо обязательно указывать номер декларации на товары (ДТ), произведённые вне ЕАЭС, если заказ из Армении доставляется в РФ.
+		Продавцам из Армении необходимо обязательно указывать номер декларации на товары (ДТ), произведённые вне ЕАЭС, если заказ из Армении доставляется в РФ.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 1000 запросов | 60 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 1000 запросов | 60 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param orderId ID сборочного задания
-	@return ApiPutV3OrdersOrderIdMetaCustomsDeclarationRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param orderId ID сборочного задания
+			@return ApiPutV3OrdersOrderIdMetaCustomsDeclarationRequest
 	*/
 	PutV3OrdersOrderIdMetaCustomsDeclaration(ctx context.Context, orderId int64) ApiPutV3OrdersOrderIdMetaCustomsDeclarationRequest
 
@@ -1013,27 +1012,27 @@ QR-код поставки можно получить, только если п
 	PutV3OrdersOrderIdMetaCustomsDeclarationExecute(r ApiPutV3OrdersOrderIdMetaCustomsDeclarationRequest) (*http.Response, error)
 
 	/*
-	PutV3OrdersOrderIdMetaExpiration Закрепить за сборочным заданием срок годности товара
+			PutV3OrdersOrderIdMetaExpiration Закрепить за сборочным заданием срок годности товара
 
-	Метод закрепляет за [сборочным заданием](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) срок годности товара. Товар годен до указанной даты.
-Закрепить срок годности можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `expiration`.
+			Метод закрепляет за [сборочным заданием](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) срок годности товара. Товар годен до указанной даты.
+		Закрепить срок годности можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `expiration`.
 
-Получить загруженные данные можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
-Чтобы изменить срок годности, отправьте запрос с новой датой. Удалить срок годности сборочного задания невозможно.
+		Получить загруженные данные можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
+		Чтобы изменить срок годности, отправьте запрос с новой датой. Удалить срок годности сборочного задания невозможно.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 1000 запросов | 60 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 1000 запросов | 60 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param orderId ID сборочного задания
-	@return ApiPutV3OrdersOrderIdMetaExpirationRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param orderId ID сборочного задания
+			@return ApiPutV3OrdersOrderIdMetaExpirationRequest
 	*/
 	PutV3OrdersOrderIdMetaExpiration(ctx context.Context, orderId int64) ApiPutV3OrdersOrderIdMetaExpirationRequest
 
@@ -1041,25 +1040,25 @@ QR-код поставки можно получить, только если п
 	PutV3OrdersOrderIdMetaExpirationExecute(r ApiPutV3OrdersOrderIdMetaExpirationRequest) (*http.Response, error)
 
 	/*
-	PutV3OrdersOrderIdMetaGtin Закрепить GTIN за сборочным заданием
+			PutV3OrdersOrderIdMetaGtin Закрепить GTIN за сборочным заданием
 
-	Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
-У одного сборочного задания может быть только один GTIN.
-Закрепить GTIN можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `gtin`.
+			Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
+		У одного сборочного задания может быть только один GTIN.
+		Закрепить GTIN можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `gtin`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 1000 запросов | 60 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 1000 запросов | 60 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param orderId ID сборочного задания
-	@return ApiPutV3OrdersOrderIdMetaGtinRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param orderId ID сборочного задания
+			@return ApiPutV3OrdersOrderIdMetaGtinRequest
 	*/
 	PutV3OrdersOrderIdMetaGtin(ctx context.Context, orderId int64) ApiPutV3OrdersOrderIdMetaGtinRequest
 
@@ -1067,25 +1066,25 @@ QR-код поставки можно получить, только если п
 	PutV3OrdersOrderIdMetaGtinExecute(r ApiPutV3OrdersOrderIdMetaGtinRequest) (*http.Response, error)
 
 	/*
-	PutV3OrdersOrderIdMetaImei Закрепить IMEI за сборочным заданием
+			PutV3OrdersOrderIdMetaImei Закрепить IMEI за сборочным заданием
 
-	Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
-У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — \*\*IMEI\*\* и \*\*IMEI2\*\* или \*\*IMEI1\*\* и \*\*IMEI2\*\* — укажите только \*\*IMEI\*\* или \*\*IMEI1\*\*. \*\*IMEI2\*\* указывать не нужно.
-Закрепить IMEI можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `imei`.
+			Метод обновляет IMEI в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
+		У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — \*\*IMEI\*\* и \*\*IMEI2\*\* или \*\*IMEI1\*\* и \*\*IMEI2\*\* — укажите только \*\*IMEI\*\* или \*\*IMEI1\*\*. \*\*IMEI2\*\* указывать не нужно.
+		Закрепить IMEI можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `imei`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 1000 запросов | 60 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 1000 запросов | 60 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param orderId ID сборочного задания
-	@return ApiPutV3OrdersOrderIdMetaImeiRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param orderId ID сборочного задания
+			@return ApiPutV3OrdersOrderIdMetaImeiRequest
 	*/
 	PutV3OrdersOrderIdMetaImei(ctx context.Context, orderId int64) ApiPutV3OrdersOrderIdMetaImeiRequest
 
@@ -1093,27 +1092,27 @@ QR-код поставки можно получить, только если п
 	PutV3OrdersOrderIdMetaImeiExecute(r ApiPutV3OrdersOrderIdMetaImeiRequest) (*http.Response, error)
 
 	/*
-	PutV3OrdersOrderIdMetaSgtin Закрепить код маркировки Честного знака за сборочным заданием
+			PutV3OrdersOrderIdMetaSgtin Закрепить код маркировки Честного знака за сборочным заданием
 
-	Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в идентификаторах маркировки [сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders).
+			Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в идентификаторах маркировки [сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders).
 
-Закрепить код маркировки Честного знака можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `sgtin`.
+		Закрепить код маркировки Честного знака можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `sgtin`.
 
-Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
+		Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 1000 запросов | 60 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 1000 запросов | 60 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param orderId ID сборочного задания
-	@return ApiPutV3OrdersOrderIdMetaSgtinRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param orderId ID сборочного задания
+			@return ApiPutV3OrdersOrderIdMetaSgtinRequest
 	*/
 	PutV3OrdersOrderIdMetaSgtin(ctx context.Context, orderId int64) ApiPutV3OrdersOrderIdMetaSgtinRequest
 
@@ -1121,25 +1120,25 @@ QR-код поставки можно получить, только если п
 	PutV3OrdersOrderIdMetaSgtinExecute(r ApiPutV3OrdersOrderIdMetaSgtinRequest) (*http.Response, error)
 
 	/*
-	PutV3OrdersOrderIdMetaUin Закрепить УИН за сборочным заданием
+			PutV3OrdersOrderIdMetaUin Закрепить УИН за сборочным заданием
 
-	Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
-У одного сборочного задания может быть только один УИН.
-Закрепить УИН можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `uin`.
+			Метод обновляет УИН, уникальный идентификационный номер, в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta).
+		У одного сборочного задания может быть только один УИН.
+		Закрепить УИН можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsLabelIdentifiers/operation/postV3OrdersMeta) есть поле `uin`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 1000 запросов | 60 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 1000 запросов | 60 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param orderId ID сборочного задания
-	@return ApiPutV3OrdersOrderIdMetaUinRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param orderId ID сборочного задания
+			@return ApiPutV3OrdersOrderIdMetaUinRequest
 	*/
 	PutV3OrdersOrderIdMetaUin(ctx context.Context, orderId int64) ApiPutV3OrdersOrderIdMetaUinRequest
 
@@ -1147,23 +1146,23 @@ QR-код поставки можно получить, только если п
 	PutV3OrdersOrderIdMetaUinExecute(r ApiPutV3OrdersOrderIdMetaUinRequest) (*http.Response, error)
 
 	/*
-	PutV3PassesPassId Обновить пропуск
+			PutV3PassesPassId Обновить пропуск
 
-	Метод обновляет данные [пропуска продавца](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes). В том числе, можно обновить данные привязанного склада WB.
+			Метод обновляет данные [пропуска продавца](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsPasses/operation/getV3Passes). В том числе, можно обновить данные привязанного склада WB.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param passId ID пропуска
-	@return ApiPutV3PassesPassIdRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param passId ID пропуска
+			@return ApiPutV3PassesPassIdRequest
 	*/
 	PutV3PassesPassId(ctx context.Context, passId int64) ApiPutV3PassesPassIdRequest
 
@@ -1175,10 +1174,10 @@ QR-код поставки можно получить, только если п
 type FBSAPIService service
 
 type ApiDeleteV3OrdersOrderIdMetaRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
-	orderId int64
-	key *string
+	orderId    int64
+	key        *string
 }
 
 // Название идентификаторов маркировки для удаления. Передаётся только одно значение.
@@ -1214,24 +1213,24 @@ DeleteV3OrdersOrderIdMeta Удалить идентификаторы марки
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param orderId ID сборочного задания
- @return ApiDeleteV3OrdersOrderIdMetaRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param orderId ID сборочного задания
+	@return ApiDeleteV3OrdersOrderIdMetaRequest
 */
 func (a *FBSAPIService) DeleteV3OrdersOrderIdMeta(ctx context.Context, orderId int64) ApiDeleteV3OrdersOrderIdMetaRequest {
 	return ApiDeleteV3OrdersOrderIdMetaRequest{
 		ApiService: a,
-		ctx: ctx,
-		orderId: orderId,
+		ctx:        ctx,
+		orderId:    orderId,
 	}
 }
 
 // Execute executes the request
 func (a *FBSAPIService) DeleteV3OrdersOrderIdMetaExecute(r ApiDeleteV3OrdersOrderIdMetaRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.DeleteV3OrdersOrderIdMeta")
@@ -1267,20 +1266,6 @@ func (a *FBSAPIService) DeleteV3OrdersOrderIdMetaExecute(r ApiDeleteV3OrdersOrde
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1310,8 +1295,8 @@ func (a *FBSAPIService) DeleteV3OrdersOrderIdMetaExecute(r ApiDeleteV3OrdersOrde
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1321,8 +1306,8 @@ func (a *FBSAPIService) DeleteV3OrdersOrderIdMetaExecute(r ApiDeleteV3OrdersOrde
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1332,8 +1317,8 @@ func (a *FBSAPIService) DeleteV3OrdersOrderIdMetaExecute(r ApiDeleteV3OrdersOrde
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1343,8 +1328,8 @@ func (a *FBSAPIService) DeleteV3OrdersOrderIdMetaExecute(r ApiDeleteV3OrdersOrde
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1354,8 +1339,8 @@ func (a *FBSAPIService) DeleteV3OrdersOrderIdMetaExecute(r ApiDeleteV3OrdersOrde
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1365,8 +1350,8 @@ func (a *FBSAPIService) DeleteV3OrdersOrderIdMetaExecute(r ApiDeleteV3OrdersOrde
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1375,9 +1360,9 @@ func (a *FBSAPIService) DeleteV3OrdersOrderIdMetaExecute(r ApiDeleteV3OrdersOrde
 }
 
 type ApiDeleteV3PassesPassIdRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
-	passId int64
+	passId     int64
 }
 
 func (r ApiDeleteV3PassesPassIdRequest) Execute() (*http.Response, error) {
@@ -1399,24 +1384,24 @@ DeleteV3PassesPassId Удалить пропуск
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param passId ID пропуска
- @return ApiDeleteV3PassesPassIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param passId ID пропуска
+	@return ApiDeleteV3PassesPassIdRequest
 */
 func (a *FBSAPIService) DeleteV3PassesPassId(ctx context.Context, passId int64) ApiDeleteV3PassesPassIdRequest {
 	return ApiDeleteV3PassesPassIdRequest{
 		ApiService: a,
-		ctx: ctx,
-		passId: passId,
+		ctx:        ctx,
+		passId:     passId,
 	}
 }
 
 // Execute executes the request
 func (a *FBSAPIService) DeleteV3PassesPassIdExecute(r ApiDeleteV3PassesPassIdRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.DeleteV3PassesPassId")
@@ -1448,20 +1433,6 @@ func (a *FBSAPIService) DeleteV3PassesPassIdExecute(r ApiDeleteV3PassesPassIdReq
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1491,8 +1462,8 @@ func (a *FBSAPIService) DeleteV3PassesPassIdExecute(r ApiDeleteV3PassesPassIdReq
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1502,8 +1473,8 @@ func (a *FBSAPIService) DeleteV3PassesPassIdExecute(r ApiDeleteV3PassesPassIdReq
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1513,8 +1484,8 @@ func (a *FBSAPIService) DeleteV3PassesPassIdExecute(r ApiDeleteV3PassesPassIdReq
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1524,8 +1495,8 @@ func (a *FBSAPIService) DeleteV3PassesPassIdExecute(r ApiDeleteV3PassesPassIdReq
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1535,8 +1506,8 @@ func (a *FBSAPIService) DeleteV3PassesPassIdExecute(r ApiDeleteV3PassesPassIdReq
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1545,9 +1516,9 @@ func (a *FBSAPIService) DeleteV3PassesPassIdExecute(r ApiDeleteV3PassesPassIdReq
 }
 
 type ApiDeleteV3SuppliesSupplyIdRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
-	supplyId string
+	supplyId   string
 }
 
 func (r ApiDeleteV3SuppliesSupplyIdRequest) Execute() (*http.Response, error) {
@@ -1569,24 +1540,24 @@ DeleteV3SuppliesSupplyId Удалить поставку
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param supplyId ID поставки
- @return ApiDeleteV3SuppliesSupplyIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param supplyId ID поставки
+	@return ApiDeleteV3SuppliesSupplyIdRequest
 */
 func (a *FBSAPIService) DeleteV3SuppliesSupplyId(ctx context.Context, supplyId string) ApiDeleteV3SuppliesSupplyIdRequest {
 	return ApiDeleteV3SuppliesSupplyIdRequest{
 		ApiService: a,
-		ctx: ctx,
-		supplyId: supplyId,
+		ctx:        ctx,
+		supplyId:   supplyId,
 	}
 }
 
 // Execute executes the request
 func (a *FBSAPIService) DeleteV3SuppliesSupplyIdExecute(r ApiDeleteV3SuppliesSupplyIdRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.DeleteV3SuppliesSupplyId")
@@ -1618,20 +1589,6 @@ func (a *FBSAPIService) DeleteV3SuppliesSupplyIdExecute(r ApiDeleteV3SuppliesSup
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1661,8 +1618,8 @@ func (a *FBSAPIService) DeleteV3SuppliesSupplyIdExecute(r ApiDeleteV3SuppliesSup
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1672,8 +1629,8 @@ func (a *FBSAPIService) DeleteV3SuppliesSupplyIdExecute(r ApiDeleteV3SuppliesSup
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1683,8 +1640,8 @@ func (a *FBSAPIService) DeleteV3SuppliesSupplyIdExecute(r ApiDeleteV3SuppliesSup
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1694,8 +1651,8 @@ func (a *FBSAPIService) DeleteV3SuppliesSupplyIdExecute(r ApiDeleteV3SuppliesSup
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1705,8 +1662,8 @@ func (a *FBSAPIService) DeleteV3SuppliesSupplyIdExecute(r ApiDeleteV3SuppliesSup
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1716,8 +1673,8 @@ func (a *FBSAPIService) DeleteV3SuppliesSupplyIdExecute(r ApiDeleteV3SuppliesSup
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1727,8 +1684,8 @@ func (a *FBSAPIService) DeleteV3SuppliesSupplyIdExecute(r ApiDeleteV3SuppliesSup
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1737,9 +1694,9 @@ func (a *FBSAPIService) DeleteV3SuppliesSupplyIdExecute(r ApiDeleteV3SuppliesSup
 }
 
 type ApiDeleteV3SuppliesSupplyIdTrbxRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
-	supplyId string
+	ctx                                 context.Context
+	ApiService                          FBSAPI
+	supplyId                            string
 	deleteV3SuppliesSupplyIdTrbxRequest *DeleteV3SuppliesSupplyIdTrbxRequest
 }
 
@@ -1769,24 +1726,24 @@ DeleteV3SuppliesSupplyIdTrbx Удалить грузоместа из поста
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param supplyId ID поставки
- @return ApiDeleteV3SuppliesSupplyIdTrbxRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param supplyId ID поставки
+	@return ApiDeleteV3SuppliesSupplyIdTrbxRequest
 */
 func (a *FBSAPIService) DeleteV3SuppliesSupplyIdTrbx(ctx context.Context, supplyId string) ApiDeleteV3SuppliesSupplyIdTrbxRequest {
 	return ApiDeleteV3SuppliesSupplyIdTrbxRequest{
 		ApiService: a,
-		ctx: ctx,
-		supplyId: supplyId,
+		ctx:        ctx,
+		supplyId:   supplyId,
 	}
 }
 
 // Execute executes the request
 func (a *FBSAPIService) DeleteV3SuppliesSupplyIdTrbxExecute(r ApiDeleteV3SuppliesSupplyIdTrbxRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.DeleteV3SuppliesSupplyIdTrbx")
@@ -1820,20 +1777,6 @@ func (a *FBSAPIService) DeleteV3SuppliesSupplyIdTrbxExecute(r ApiDeleteV3Supplie
 	}
 	// body params
 	localVarPostBody = r.deleteV3SuppliesSupplyIdTrbxRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1863,8 +1806,8 @@ func (a *FBSAPIService) DeleteV3SuppliesSupplyIdTrbxExecute(r ApiDeleteV3Supplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1874,8 +1817,8 @@ func (a *FBSAPIService) DeleteV3SuppliesSupplyIdTrbxExecute(r ApiDeleteV3Supplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1885,8 +1828,8 @@ func (a *FBSAPIService) DeleteV3SuppliesSupplyIdTrbxExecute(r ApiDeleteV3Supplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1896,8 +1839,8 @@ func (a *FBSAPIService) DeleteV3SuppliesSupplyIdTrbxExecute(r ApiDeleteV3Supplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1907,8 +1850,8 @@ func (a *FBSAPIService) DeleteV3SuppliesSupplyIdTrbxExecute(r ApiDeleteV3Supplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1918,8 +1861,8 @@ func (a *FBSAPIService) DeleteV3SuppliesSupplyIdTrbxExecute(r ApiDeleteV3Supplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1928,7 +1871,7 @@ func (a *FBSAPIService) DeleteV3SuppliesSupplyIdTrbxExecute(r ApiDeleteV3Supplie
 }
 
 type ApiGetV3FbsDictionariesCountriesOksmRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
 }
 
@@ -1947,24 +1890,25 @@ GetV3FbsDictionariesCountriesOksm Получить список стран ОК�
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV3FbsDictionariesCountriesOksmRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3FbsDictionariesCountriesOksmRequest
 */
 func (a *FBSAPIService) GetV3FbsDictionariesCountriesOksm(ctx context.Context) ApiGetV3FbsDictionariesCountriesOksmRequest {
 	return ApiGetV3FbsDictionariesCountriesOksmRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CountriesOKSMList
+//
+//	@return CountriesOKSMList
 func (a *FBSAPIService) GetV3FbsDictionariesCountriesOksmExecute(r ApiGetV3FbsDictionariesCountriesOksmRequest) (*CountriesOKSMList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CountriesOKSMList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CountriesOKSMList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.GetV3FbsDictionariesCountriesOksm")
@@ -2024,8 +1968,8 @@ func (a *FBSAPIService) GetV3FbsDictionariesCountriesOksmExecute(r ApiGetV3FbsDi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2035,8 +1979,8 @@ func (a *FBSAPIService) GetV3FbsDictionariesCountriesOksmExecute(r ApiGetV3FbsDi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2046,8 +1990,8 @@ func (a *FBSAPIService) GetV3FbsDictionariesCountriesOksmExecute(r ApiGetV3FbsDi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2065,12 +2009,12 @@ func (a *FBSAPIService) GetV3FbsDictionariesCountriesOksmExecute(r ApiGetV3FbsDi
 }
 
 type ApiGetV3FbsOrdersArchiveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
-	year *int32
-	month *int32
-	next *int64
-	limit *int32
+	year       *int32
+	month      *int32
+	next       *int64
+	limit      *int32
 }
 
 // Год создания заказа
@@ -2114,24 +2058,25 @@ GetV3FbsOrdersArchive Получить список архивных сборо�
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV3FbsOrdersArchiveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3FbsOrdersArchiveRequest
 */
 func (a *FBSAPIService) GetV3FbsOrdersArchive(ctx context.Context) ApiGetV3FbsOrdersArchiveRequest {
 	return ApiGetV3FbsOrdersArchiveRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return V3ArchiveOrders
+//
+//	@return V3ArchiveOrders
 func (a *FBSAPIService) GetV3FbsOrdersArchiveExecute(r ApiGetV3FbsOrdersArchiveRequest) (*V3ArchiveOrders, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *V3ArchiveOrders
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *V3ArchiveOrders
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.GetV3FbsOrdersArchive")
@@ -2219,8 +2164,8 @@ func (a *FBSAPIService) GetV3FbsOrdersArchiveExecute(r ApiGetV3FbsOrdersArchiveR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2230,8 +2175,8 @@ func (a *FBSAPIService) GetV3FbsOrdersArchiveExecute(r ApiGetV3FbsOrdersArchiveR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2241,8 +2186,8 @@ func (a *FBSAPIService) GetV3FbsOrdersArchiveExecute(r ApiGetV3FbsOrdersArchiveR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2252,8 +2197,8 @@ func (a *FBSAPIService) GetV3FbsOrdersArchiveExecute(r ApiGetV3FbsOrdersArchiveR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2263,8 +2208,8 @@ func (a *FBSAPIService) GetV3FbsOrdersArchiveExecute(r ApiGetV3FbsOrdersArchiveR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2282,10 +2227,10 @@ func (a *FBSAPIService) GetV3FbsOrdersArchiveExecute(r ApiGetV3FbsOrdersArchiveR
 }
 
 type ApiGetV3FbsShippingPointsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
-	city *string
-	cargoType *int32
+	city       *string
+	cargoType  *int32
 }
 
 // Населённый пункт отгрузки поставки, кириллица
@@ -2294,7 +2239,7 @@ func (r ApiGetV3FbsShippingPointsRequest) City(city string) ApiGetV3FbsShippingP
 	return r
 }
 
-// Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) 
+// Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+)
 func (r ApiGetV3FbsShippingPointsRequest) CargoType(cargoType int32) ApiGetV3FbsShippingPointsRequest {
 	r.cargoType = &cargoType
 	return r
@@ -2318,24 +2263,25 @@ GetV3FbsShippingPoints Получить список пунктов отгруз
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV3FbsShippingPointsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3FbsShippingPointsRequest
 */
 func (a *FBSAPIService) GetV3FbsShippingPoints(ctx context.Context) ApiGetV3FbsShippingPointsRequest {
 	return ApiGetV3FbsShippingPointsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ShippingPointsResponse
+//
+//	@return ShippingPointsResponse
 func (a *FBSAPIService) GetV3FbsShippingPointsExecute(r ApiGetV3FbsShippingPointsRequest) (*ShippingPointsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ShippingPointsResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ShippingPointsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.GetV3FbsShippingPoints")
@@ -2374,20 +2320,6 @@ func (a *FBSAPIService) GetV3FbsShippingPointsExecute(r ApiGetV3FbsShippingPoint
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2417,8 +2349,8 @@ func (a *FBSAPIService) GetV3FbsShippingPointsExecute(r ApiGetV3FbsShippingPoint
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2428,8 +2360,8 @@ func (a *FBSAPIService) GetV3FbsShippingPointsExecute(r ApiGetV3FbsShippingPoint
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2439,8 +2371,8 @@ func (a *FBSAPIService) GetV3FbsShippingPointsExecute(r ApiGetV3FbsShippingPoint
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2450,8 +2382,8 @@ func (a *FBSAPIService) GetV3FbsShippingPointsExecute(r ApiGetV3FbsShippingPoint
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2469,9 +2401,9 @@ func (a *FBSAPIService) GetV3FbsShippingPointsExecute(r ApiGetV3FbsShippingPoint
 }
 
 type ApiGetV3FbsSuppliesSupplyIdStickersSpotRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
-	supplyId string
+	supplyId   string
 }
 
 func (r ApiGetV3FbsSuppliesSupplyIdStickersSpotRequest) Execute() (*SupplySpotQRCode, *http.Response, error) {
@@ -2490,26 +2422,27 @@ GetV3FbsSuppliesSupplyIdStickersSpot Получить QR-код СПОТ
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param supplyId ID поставки
- @return ApiGetV3FbsSuppliesSupplyIdStickersSpotRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param supplyId ID поставки
+	@return ApiGetV3FbsSuppliesSupplyIdStickersSpotRequest
 */
 func (a *FBSAPIService) GetV3FbsSuppliesSupplyIdStickersSpot(ctx context.Context, supplyId string) ApiGetV3FbsSuppliesSupplyIdStickersSpotRequest {
 	return ApiGetV3FbsSuppliesSupplyIdStickersSpotRequest{
 		ApiService: a,
-		ctx: ctx,
-		supplyId: supplyId,
+		ctx:        ctx,
+		supplyId:   supplyId,
 	}
 }
 
 // Execute executes the request
-//  @return SupplySpotQRCode
+//
+//	@return SupplySpotQRCode
 func (a *FBSAPIService) GetV3FbsSuppliesSupplyIdStickersSpotExecute(r ApiGetV3FbsSuppliesSupplyIdStickersSpotRequest) (*SupplySpotQRCode, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SupplySpotQRCode
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SupplySpotQRCode
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.GetV3FbsSuppliesSupplyIdStickersSpot")
@@ -2570,8 +2503,8 @@ func (a *FBSAPIService) GetV3FbsSuppliesSupplyIdStickersSpotExecute(r ApiGetV3Fb
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2581,8 +2514,8 @@ func (a *FBSAPIService) GetV3FbsSuppliesSupplyIdStickersSpotExecute(r ApiGetV3Fb
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2592,8 +2525,8 @@ func (a *FBSAPIService) GetV3FbsSuppliesSupplyIdStickersSpotExecute(r ApiGetV3Fb
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2603,8 +2536,8 @@ func (a *FBSAPIService) GetV3FbsSuppliesSupplyIdStickersSpotExecute(r ApiGetV3Fb
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2614,8 +2547,8 @@ func (a *FBSAPIService) GetV3FbsSuppliesSupplyIdStickersSpotExecute(r ApiGetV3Fb
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2633,12 +2566,12 @@ func (a *FBSAPIService) GetV3FbsSuppliesSupplyIdStickersSpotExecute(r ApiGetV3Fb
 }
 
 type ApiGetV3OrdersRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
-	limit *int32
-	next *int64
-	dateFrom *int32
-	dateTo *int32
+	limit      *int32
+	next       *int64
+	dateFrom   *int32
+	dateTo     *int32
 }
 
 // Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
@@ -2653,7 +2586,7 @@ func (r ApiGetV3OrdersRequest) Next(next int64) ApiGetV3OrdersRequest {
 	return r
 }
 
-// Дата начала периода в формате Unix timestamp. По умолчанию — дата за 30 дней до запроса. Часовой пояс — UTC 
+// Дата начала периода в формате Unix timestamp. По умолчанию — дата за 30 дней до запроса. Часовой пояс — UTC
 func (r ApiGetV3OrdersRequest) DateFrom(dateFrom int32) ApiGetV3OrdersRequest {
 	r.dateFrom = &dateFrom
 	return r
@@ -2688,24 +2621,25 @@ GetV3Orders Получить информацию о сборочных зада
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV3OrdersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3OrdersRequest
 */
 func (a *FBSAPIService) GetV3Orders(ctx context.Context) ApiGetV3OrdersRequest {
 	return ApiGetV3OrdersRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV3OrdersResponse200
+//
+//	@return GetV3OrdersResponse200
 func (a *FBSAPIService) GetV3OrdersExecute(r ApiGetV3OrdersRequest) (*GetV3OrdersResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV3OrdersResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV3OrdersResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.GetV3Orders")
@@ -2756,20 +2690,6 @@ func (a *FBSAPIService) GetV3OrdersExecute(r ApiGetV3OrdersRequest) (*GetV3Order
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2799,8 +2719,8 @@ func (a *FBSAPIService) GetV3OrdersExecute(r ApiGetV3OrdersRequest) (*GetV3Order
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2810,8 +2730,8 @@ func (a *FBSAPIService) GetV3OrdersExecute(r ApiGetV3OrdersRequest) (*GetV3Order
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2821,8 +2741,8 @@ func (a *FBSAPIService) GetV3OrdersExecute(r ApiGetV3OrdersRequest) (*GetV3Order
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2832,8 +2752,8 @@ func (a *FBSAPIService) GetV3OrdersExecute(r ApiGetV3OrdersRequest) (*GetV3Order
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2843,8 +2763,8 @@ func (a *FBSAPIService) GetV3OrdersExecute(r ApiGetV3OrdersRequest) (*GetV3Order
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2862,7 +2782,7 @@ func (a *FBSAPIService) GetV3OrdersExecute(r ApiGetV3OrdersRequest) (*GetV3Order
 }
 
 type ApiGetV3OrdersNewRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
 }
 
@@ -2890,24 +2810,25 @@ GetV3OrdersNew Получить список новых сборочных за�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV3OrdersNewRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3OrdersNewRequest
 */
 func (a *FBSAPIService) GetV3OrdersNew(ctx context.Context) ApiGetV3OrdersNewRequest {
 	return ApiGetV3OrdersNewRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV3OrdersNewResponse200
+//
+//	@return GetV3OrdersNewResponse200
 func (a *FBSAPIService) GetV3OrdersNewExecute(r ApiGetV3OrdersNewRequest) (*GetV3OrdersNewResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV3OrdersNewResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV3OrdersNewResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.GetV3OrdersNew")
@@ -2938,20 +2859,6 @@ func (a *FBSAPIService) GetV3OrdersNewExecute(r ApiGetV3OrdersNewRequest) (*GetV
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2981,8 +2888,8 @@ func (a *FBSAPIService) GetV3OrdersNewExecute(r ApiGetV3OrdersNewRequest) (*GetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2992,8 +2899,8 @@ func (a *FBSAPIService) GetV3OrdersNewExecute(r ApiGetV3OrdersNewRequest) (*GetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3003,8 +2910,8 @@ func (a *FBSAPIService) GetV3OrdersNewExecute(r ApiGetV3OrdersNewRequest) (*GetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3014,8 +2921,8 @@ func (a *FBSAPIService) GetV3OrdersNewExecute(r ApiGetV3OrdersNewRequest) (*GetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3033,7 +2940,7 @@ func (a *FBSAPIService) GetV3OrdersNewExecute(r ApiGetV3OrdersNewRequest) (*GetV
 }
 
 type ApiGetV3PassesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
 }
 
@@ -3056,24 +2963,25 @@ GetV3Passes Получить список пропусков
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV3PassesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3PassesRequest
 */
 func (a *FBSAPIService) GetV3Passes(ctx context.Context) ApiGetV3PassesRequest {
 	return ApiGetV3PassesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Pass
+//
+//	@return []Pass
 func (a *FBSAPIService) GetV3PassesExecute(r ApiGetV3PassesRequest) ([]Pass, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Pass
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Pass
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.GetV3Passes")
@@ -3104,20 +3012,6 @@ func (a *FBSAPIService) GetV3PassesExecute(r ApiGetV3PassesRequest) ([]Pass, *ht
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3147,8 +3041,8 @@ func (a *FBSAPIService) GetV3PassesExecute(r ApiGetV3PassesRequest) ([]Pass, *ht
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3158,8 +3052,8 @@ func (a *FBSAPIService) GetV3PassesExecute(r ApiGetV3PassesRequest) ([]Pass, *ht
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3169,8 +3063,8 @@ func (a *FBSAPIService) GetV3PassesExecute(r ApiGetV3PassesRequest) ([]Pass, *ht
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3180,8 +3074,8 @@ func (a *FBSAPIService) GetV3PassesExecute(r ApiGetV3PassesRequest) ([]Pass, *ht
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3199,7 +3093,7 @@ func (a *FBSAPIService) GetV3PassesExecute(r ApiGetV3PassesRequest) ([]Pass, *ht
 }
 
 type ApiGetV3PassesOfficesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
 }
 
@@ -3224,24 +3118,25 @@ GetV3PassesOffices Получить список складов, для кото
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV3PassesOfficesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3PassesOfficesRequest
 */
 func (a *FBSAPIService) GetV3PassesOffices(ctx context.Context) ApiGetV3PassesOfficesRequest {
 	return ApiGetV3PassesOfficesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []PassOffice
+//
+//	@return []PassOffice
 func (a *FBSAPIService) GetV3PassesOfficesExecute(r ApiGetV3PassesOfficesRequest) ([]PassOffice, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []PassOffice
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []PassOffice
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.GetV3PassesOffices")
@@ -3272,20 +3167,6 @@ func (a *FBSAPIService) GetV3PassesOfficesExecute(r ApiGetV3PassesOfficesRequest
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3315,8 +3196,8 @@ func (a *FBSAPIService) GetV3PassesOfficesExecute(r ApiGetV3PassesOfficesRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3326,8 +3207,8 @@ func (a *FBSAPIService) GetV3PassesOfficesExecute(r ApiGetV3PassesOfficesRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3337,8 +3218,8 @@ func (a *FBSAPIService) GetV3PassesOfficesExecute(r ApiGetV3PassesOfficesRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3348,8 +3229,8 @@ func (a *FBSAPIService) GetV3PassesOfficesExecute(r ApiGetV3PassesOfficesRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3367,10 +3248,10 @@ func (a *FBSAPIService) GetV3PassesOfficesExecute(r ApiGetV3PassesOfficesRequest
 }
 
 type ApiGetV3SuppliesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
-	limit *int32
-	next *int64
+	limit      *int32
+	next       *int64
 }
 
 // Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
@@ -3404,24 +3285,25 @@ GetV3Supplies Получить список поставок
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV3SuppliesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3SuppliesRequest
 */
 func (a *FBSAPIService) GetV3Supplies(ctx context.Context) ApiGetV3SuppliesRequest {
 	return ApiGetV3SuppliesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV3SuppliesResponse200
+//
+//	@return GetV3SuppliesResponse200
 func (a *FBSAPIService) GetV3SuppliesExecute(r ApiGetV3SuppliesRequest) (*GetV3SuppliesResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV3SuppliesResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV3SuppliesResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.GetV3Supplies")
@@ -3466,20 +3348,6 @@ func (a *FBSAPIService) GetV3SuppliesExecute(r ApiGetV3SuppliesRequest) (*GetV3S
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3509,8 +3377,8 @@ func (a *FBSAPIService) GetV3SuppliesExecute(r ApiGetV3SuppliesRequest) (*GetV3S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3520,8 +3388,8 @@ func (a *FBSAPIService) GetV3SuppliesExecute(r ApiGetV3SuppliesRequest) (*GetV3S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3531,8 +3399,8 @@ func (a *FBSAPIService) GetV3SuppliesExecute(r ApiGetV3SuppliesRequest) (*GetV3S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3542,8 +3410,8 @@ func (a *FBSAPIService) GetV3SuppliesExecute(r ApiGetV3SuppliesRequest) (*GetV3S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3553,8 +3421,8 @@ func (a *FBSAPIService) GetV3SuppliesExecute(r ApiGetV3SuppliesRequest) (*GetV3S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3572,7 +3440,7 @@ func (a *FBSAPIService) GetV3SuppliesExecute(r ApiGetV3SuppliesRequest) (*GetV3S
 }
 
 type ApiGetV3SuppliesOrdersReshipmentRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
 }
 
@@ -3597,24 +3465,25 @@ GetV3SuppliesOrdersReshipment Получить все сборочные зад�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV3SuppliesOrdersReshipmentRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3SuppliesOrdersReshipmentRequest
 */
 func (a *FBSAPIService) GetV3SuppliesOrdersReshipment(ctx context.Context) ApiGetV3SuppliesOrdersReshipmentRequest {
 	return ApiGetV3SuppliesOrdersReshipmentRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV3SuppliesOrdersReshipmentResponse200
+//
+//	@return GetV3SuppliesOrdersReshipmentResponse200
 func (a *FBSAPIService) GetV3SuppliesOrdersReshipmentExecute(r ApiGetV3SuppliesOrdersReshipmentRequest) (*GetV3SuppliesOrdersReshipmentResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV3SuppliesOrdersReshipmentResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV3SuppliesOrdersReshipmentResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.GetV3SuppliesOrdersReshipment")
@@ -3645,20 +3514,6 @@ func (a *FBSAPIService) GetV3SuppliesOrdersReshipmentExecute(r ApiGetV3SuppliesO
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3688,8 +3543,8 @@ func (a *FBSAPIService) GetV3SuppliesOrdersReshipmentExecute(r ApiGetV3SuppliesO
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3699,8 +3554,8 @@ func (a *FBSAPIService) GetV3SuppliesOrdersReshipmentExecute(r ApiGetV3SuppliesO
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3710,8 +3565,8 @@ func (a *FBSAPIService) GetV3SuppliesOrdersReshipmentExecute(r ApiGetV3SuppliesO
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3721,8 +3576,8 @@ func (a *FBSAPIService) GetV3SuppliesOrdersReshipmentExecute(r ApiGetV3SuppliesO
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3732,8 +3587,8 @@ func (a *FBSAPIService) GetV3SuppliesOrdersReshipmentExecute(r ApiGetV3SuppliesO
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3751,9 +3606,9 @@ func (a *FBSAPIService) GetV3SuppliesOrdersReshipmentExecute(r ApiGetV3SuppliesO
 }
 
 type ApiGetV3SuppliesSupplyIdRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
-	supplyId string
+	supplyId   string
 }
 
 func (r ApiGetV3SuppliesSupplyIdRequest) Execute() (*Supply, *http.Response, error) {
@@ -3775,26 +3630,27 @@ GetV3SuppliesSupplyId Получить информацию о поставке
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param supplyId ID поставки
- @return ApiGetV3SuppliesSupplyIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param supplyId ID поставки
+	@return ApiGetV3SuppliesSupplyIdRequest
 */
 func (a *FBSAPIService) GetV3SuppliesSupplyId(ctx context.Context, supplyId string) ApiGetV3SuppliesSupplyIdRequest {
 	return ApiGetV3SuppliesSupplyIdRequest{
 		ApiService: a,
-		ctx: ctx,
-		supplyId: supplyId,
+		ctx:        ctx,
+		supplyId:   supplyId,
 	}
 }
 
 // Execute executes the request
-//  @return Supply
+//
+//	@return Supply
 func (a *FBSAPIService) GetV3SuppliesSupplyIdExecute(r ApiGetV3SuppliesSupplyIdRequest) (*Supply, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Supply
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Supply
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.GetV3SuppliesSupplyId")
@@ -3826,20 +3682,6 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdExecute(r ApiGetV3SuppliesSupplyIdR
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3869,8 +3711,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdExecute(r ApiGetV3SuppliesSupplyIdR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3880,8 +3722,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdExecute(r ApiGetV3SuppliesSupplyIdR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3891,8 +3733,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdExecute(r ApiGetV3SuppliesSupplyIdR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3902,8 +3744,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdExecute(r ApiGetV3SuppliesSupplyIdR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3913,8 +3755,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdExecute(r ApiGetV3SuppliesSupplyIdR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3924,8 +3766,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdExecute(r ApiGetV3SuppliesSupplyIdR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3943,10 +3785,10 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdExecute(r ApiGetV3SuppliesSupplyIdR
 }
 
 type ApiGetV3SuppliesSupplyIdBarcodeRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
-	supplyId string
-	type_ *string
+	supplyId   string
+	type_      *string
 }
 
 // Тип стикера
@@ -3981,26 +3823,27 @@ QR-код поставки можно получить, только если п
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param supplyId ID поставки
- @return ApiGetV3SuppliesSupplyIdBarcodeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param supplyId ID поставки
+	@return ApiGetV3SuppliesSupplyIdBarcodeRequest
 */
 func (a *FBSAPIService) GetV3SuppliesSupplyIdBarcode(ctx context.Context, supplyId string) ApiGetV3SuppliesSupplyIdBarcodeRequest {
 	return ApiGetV3SuppliesSupplyIdBarcodeRequest{
 		ApiService: a,
-		ctx: ctx,
-		supplyId: supplyId,
+		ctx:        ctx,
+		supplyId:   supplyId,
 	}
 }
 
 // Execute executes the request
-//  @return GetV3SuppliesSupplyIdBarcodeResponse200
+//
+//	@return GetV3SuppliesSupplyIdBarcodeResponse200
 func (a *FBSAPIService) GetV3SuppliesSupplyIdBarcodeExecute(r ApiGetV3SuppliesSupplyIdBarcodeRequest) (*GetV3SuppliesSupplyIdBarcodeResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV3SuppliesSupplyIdBarcodeResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV3SuppliesSupplyIdBarcodeResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.GetV3SuppliesSupplyIdBarcode")
@@ -4036,20 +3879,6 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdBarcodeExecute(r ApiGetV3SuppliesSu
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4079,8 +3908,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdBarcodeExecute(r ApiGetV3SuppliesSu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4090,8 +3919,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdBarcodeExecute(r ApiGetV3SuppliesSu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4101,8 +3930,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdBarcodeExecute(r ApiGetV3SuppliesSu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4112,8 +3941,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdBarcodeExecute(r ApiGetV3SuppliesSu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4123,8 +3952,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdBarcodeExecute(r ApiGetV3SuppliesSu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4134,8 +3963,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdBarcodeExecute(r ApiGetV3SuppliesSu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4145,8 +3974,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdBarcodeExecute(r ApiGetV3SuppliesSu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4164,9 +3993,9 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdBarcodeExecute(r ApiGetV3SuppliesSu
 }
 
 type ApiGetV3SuppliesSupplyIdOrderIdsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
-	supplyId string
+	supplyId   string
 }
 
 func (r ApiGetV3SuppliesSupplyIdOrderIdsRequest) Execute() (*V3SupplyOrderIDsAPI, *http.Response, error) {
@@ -4188,26 +4017,27 @@ GetV3SuppliesSupplyIdOrderIds Получить ID сборочных задан�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param supplyId ID поставки
- @return ApiGetV3SuppliesSupplyIdOrderIdsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param supplyId ID поставки
+	@return ApiGetV3SuppliesSupplyIdOrderIdsRequest
 */
 func (a *FBSAPIService) GetV3SuppliesSupplyIdOrderIds(ctx context.Context, supplyId string) ApiGetV3SuppliesSupplyIdOrderIdsRequest {
 	return ApiGetV3SuppliesSupplyIdOrderIdsRequest{
 		ApiService: a,
-		ctx: ctx,
-		supplyId: supplyId,
+		ctx:        ctx,
+		supplyId:   supplyId,
 	}
 }
 
 // Execute executes the request
-//  @return V3SupplyOrderIDsAPI
+//
+//	@return V3SupplyOrderIDsAPI
 func (a *FBSAPIService) GetV3SuppliesSupplyIdOrderIdsExecute(r ApiGetV3SuppliesSupplyIdOrderIdsRequest) (*V3SupplyOrderIDsAPI, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *V3SupplyOrderIDsAPI
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *V3SupplyOrderIDsAPI
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.GetV3SuppliesSupplyIdOrderIds")
@@ -4268,8 +4098,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdOrderIdsExecute(r ApiGetV3SuppliesS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4279,8 +4109,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdOrderIdsExecute(r ApiGetV3SuppliesS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4290,8 +4120,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdOrderIdsExecute(r ApiGetV3SuppliesS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4301,8 +4131,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdOrderIdsExecute(r ApiGetV3SuppliesS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4312,8 +4142,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdOrderIdsExecute(r ApiGetV3SuppliesS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4323,8 +4153,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdOrderIdsExecute(r ApiGetV3SuppliesS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4342,9 +4172,9 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdOrderIdsExecute(r ApiGetV3SuppliesS
 }
 
 type ApiGetV3SuppliesSupplyIdTrbxRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
-	supplyId string
+	supplyId   string
 }
 
 func (r ApiGetV3SuppliesSupplyIdTrbxRequest) Execute() (*GetV3SuppliesSupplyIdTrbxResponse200, *http.Response, error) {
@@ -4366,26 +4196,27 @@ GetV3SuppliesSupplyIdTrbx Получить список грузомест по�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param supplyId ID поставки
- @return ApiGetV3SuppliesSupplyIdTrbxRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param supplyId ID поставки
+	@return ApiGetV3SuppliesSupplyIdTrbxRequest
 */
 func (a *FBSAPIService) GetV3SuppliesSupplyIdTrbx(ctx context.Context, supplyId string) ApiGetV3SuppliesSupplyIdTrbxRequest {
 	return ApiGetV3SuppliesSupplyIdTrbxRequest{
 		ApiService: a,
-		ctx: ctx,
-		supplyId: supplyId,
+		ctx:        ctx,
+		supplyId:   supplyId,
 	}
 }
 
 // Execute executes the request
-//  @return GetV3SuppliesSupplyIdTrbxResponse200
+//
+//	@return GetV3SuppliesSupplyIdTrbxResponse200
 func (a *FBSAPIService) GetV3SuppliesSupplyIdTrbxExecute(r ApiGetV3SuppliesSupplyIdTrbxRequest) (*GetV3SuppliesSupplyIdTrbxResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV3SuppliesSupplyIdTrbxResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV3SuppliesSupplyIdTrbxResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.GetV3SuppliesSupplyIdTrbx")
@@ -4417,20 +4248,6 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdTrbxExecute(r ApiGetV3SuppliesSuppl
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4460,8 +4277,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdTrbxExecute(r ApiGetV3SuppliesSuppl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4471,8 +4288,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdTrbxExecute(r ApiGetV3SuppliesSuppl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4482,8 +4299,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdTrbxExecute(r ApiGetV3SuppliesSuppl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4493,8 +4310,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdTrbxExecute(r ApiGetV3SuppliesSuppl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4504,8 +4321,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdTrbxExecute(r ApiGetV3SuppliesSuppl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4515,8 +4332,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdTrbxExecute(r ApiGetV3SuppliesSuppl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4534,8 +4351,8 @@ func (a *FBSAPIService) GetV3SuppliesSupplyIdTrbxExecute(r ApiGetV3SuppliesSuppl
 }
 
 type ApiPatchV3FbsSuppliesShippingMethodRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
+	ctx                                     context.Context
+	ApiService                              FBSAPI
 	patchV3FbsSuppliesShippingMethodRequest *PatchV3FbsSuppliesShippingMethodRequest
 }
 
@@ -4567,24 +4384,25 @@ PatchV3FbsSuppliesShippingMethod Установить параметры отг�
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPatchV3FbsSuppliesShippingMethodRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPatchV3FbsSuppliesShippingMethodRequest
 */
 func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethod(ctx context.Context) ApiPatchV3FbsSuppliesShippingMethodRequest {
 	return ApiPatchV3FbsSuppliesShippingMethodRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UpdateSuppliesResponse
+//
+//	@return UpdateSuppliesResponse
 func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsSuppliesShippingMethodRequest) (*UpdateSuppliesResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpdateSuppliesResponse
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpdateSuppliesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PatchV3FbsSuppliesShippingMethod")
@@ -4620,20 +4438,6 @@ func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsS
 	}
 	// body params
 	localVarPostBody = r.patchV3FbsSuppliesShippingMethodRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4663,8 +4467,8 @@ func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4674,8 +4478,8 @@ func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4685,8 +4489,8 @@ func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4696,8 +4500,8 @@ func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4707,8 +4511,8 @@ func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4726,8 +4530,8 @@ func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsS
 }
 
 type ApiPatchV3FbsSuppliesWaybillRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
+	ctx                              context.Context
+	ApiService                       FBSAPI
 	patchV3FbsSuppliesWaybillRequest *PatchV3FbsSuppliesWaybillRequest
 }
 
@@ -4755,24 +4559,25 @@ PatchV3FbsSuppliesWaybill Установить ID ЭТрН поставок
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPatchV3FbsSuppliesWaybillRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPatchV3FbsSuppliesWaybillRequest
 */
 func (a *FBSAPIService) PatchV3FbsSuppliesWaybill(ctx context.Context) ApiPatchV3FbsSuppliesWaybillRequest {
 	return ApiPatchV3FbsSuppliesWaybillRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UpdateSuppliesResponse
+//
+//	@return UpdateSuppliesResponse
 func (a *FBSAPIService) PatchV3FbsSuppliesWaybillExecute(r ApiPatchV3FbsSuppliesWaybillRequest) (*UpdateSuppliesResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpdateSuppliesResponse
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpdateSuppliesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PatchV3FbsSuppliesWaybill")
@@ -4808,20 +4613,6 @@ func (a *FBSAPIService) PatchV3FbsSuppliesWaybillExecute(r ApiPatchV3FbsSupplies
 	}
 	// body params
 	localVarPostBody = r.patchV3FbsSuppliesWaybillRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4851,8 +4642,8 @@ func (a *FBSAPIService) PatchV3FbsSuppliesWaybillExecute(r ApiPatchV3FbsSupplies
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4862,8 +4653,8 @@ func (a *FBSAPIService) PatchV3FbsSuppliesWaybillExecute(r ApiPatchV3FbsSupplies
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4873,8 +4664,8 @@ func (a *FBSAPIService) PatchV3FbsSuppliesWaybillExecute(r ApiPatchV3FbsSupplies
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4884,8 +4675,8 @@ func (a *FBSAPIService) PatchV3FbsSuppliesWaybillExecute(r ApiPatchV3FbsSupplies
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4903,9 +4694,9 @@ func (a *FBSAPIService) PatchV3FbsSuppliesWaybillExecute(r ApiPatchV3FbsSupplies
 }
 
 type ApiPatchV3OrdersOrderIdCancelRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
-	orderId int64
+	orderId    int64
 }
 
 func (r ApiPatchV3OrdersOrderIdCancelRequest) Execute() (*http.Response, error) {
@@ -4930,24 +4721,24 @@ PatchV3OrdersOrderIdCancel Отменить сборочное задание
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param orderId ID сборочного задания
- @return ApiPatchV3OrdersOrderIdCancelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param orderId ID сборочного задания
+	@return ApiPatchV3OrdersOrderIdCancelRequest
 */
 func (a *FBSAPIService) PatchV3OrdersOrderIdCancel(ctx context.Context, orderId int64) ApiPatchV3OrdersOrderIdCancelRequest {
 	return ApiPatchV3OrdersOrderIdCancelRequest{
 		ApiService: a,
-		ctx: ctx,
-		orderId: orderId,
+		ctx:        ctx,
+		orderId:    orderId,
 	}
 }
 
 // Execute executes the request
 func (a *FBSAPIService) PatchV3OrdersOrderIdCancelExecute(r ApiPatchV3OrdersOrderIdCancelRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PatchV3OrdersOrderIdCancel")
@@ -4979,20 +4770,6 @@ func (a *FBSAPIService) PatchV3OrdersOrderIdCancelExecute(r ApiPatchV3OrdersOrde
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -5022,8 +4799,8 @@ func (a *FBSAPIService) PatchV3OrdersOrderIdCancelExecute(r ApiPatchV3OrdersOrde
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5033,8 +4810,8 @@ func (a *FBSAPIService) PatchV3OrdersOrderIdCancelExecute(r ApiPatchV3OrdersOrde
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -5044,8 +4821,8 @@ func (a *FBSAPIService) PatchV3OrdersOrderIdCancelExecute(r ApiPatchV3OrdersOrde
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5055,8 +4832,8 @@ func (a *FBSAPIService) PatchV3OrdersOrderIdCancelExecute(r ApiPatchV3OrdersOrde
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5066,8 +4843,8 @@ func (a *FBSAPIService) PatchV3OrdersOrderIdCancelExecute(r ApiPatchV3OrdersOrde
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -5077,8 +4854,8 @@ func (a *FBSAPIService) PatchV3OrdersOrderIdCancelExecute(r ApiPatchV3OrdersOrde
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5088,8 +4865,8 @@ func (a *FBSAPIService) PatchV3OrdersOrderIdCancelExecute(r ApiPatchV3OrdersOrde
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -5098,9 +4875,9 @@ func (a *FBSAPIService) PatchV3OrdersOrderIdCancelExecute(r ApiPatchV3OrdersOrde
 }
 
 type ApiPatchV3SuppliesSupplyIdDeliverRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService FBSAPI
-	supplyId string
+	supplyId   string
 }
 
 func (r ApiPatchV3SuppliesSupplyIdDeliverRequest) Execute() (*http.Response, error) {
@@ -5131,24 +4908,24 @@ PatchV3SuppliesSupplyIdDeliver Передать поставку в достав
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param supplyId ID поставки
- @return ApiPatchV3SuppliesSupplyIdDeliverRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param supplyId ID поставки
+	@return ApiPatchV3SuppliesSupplyIdDeliverRequest
 */
 func (a *FBSAPIService) PatchV3SuppliesSupplyIdDeliver(ctx context.Context, supplyId string) ApiPatchV3SuppliesSupplyIdDeliverRequest {
 	return ApiPatchV3SuppliesSupplyIdDeliverRequest{
 		ApiService: a,
-		ctx: ctx,
-		supplyId: supplyId,
+		ctx:        ctx,
+		supplyId:   supplyId,
 	}
 }
 
 // Execute executes the request
 func (a *FBSAPIService) PatchV3SuppliesSupplyIdDeliverExecute(r ApiPatchV3SuppliesSupplyIdDeliverRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PatchV3SuppliesSupplyIdDeliver")
@@ -5180,20 +4957,6 @@ func (a *FBSAPIService) PatchV3SuppliesSupplyIdDeliverExecute(r ApiPatchV3Suppli
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -5223,8 +4986,8 @@ func (a *FBSAPIService) PatchV3SuppliesSupplyIdDeliverExecute(r ApiPatchV3Suppli
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5234,8 +4997,8 @@ func (a *FBSAPIService) PatchV3SuppliesSupplyIdDeliverExecute(r ApiPatchV3Suppli
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -5245,8 +5008,8 @@ func (a *FBSAPIService) PatchV3SuppliesSupplyIdDeliverExecute(r ApiPatchV3Suppli
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5256,8 +5019,8 @@ func (a *FBSAPIService) PatchV3SuppliesSupplyIdDeliverExecute(r ApiPatchV3Suppli
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5267,8 +5030,8 @@ func (a *FBSAPIService) PatchV3SuppliesSupplyIdDeliverExecute(r ApiPatchV3Suppli
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -5278,8 +5041,8 @@ func (a *FBSAPIService) PatchV3SuppliesSupplyIdDeliverExecute(r ApiPatchV3Suppli
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5289,8 +5052,8 @@ func (a *FBSAPIService) PatchV3SuppliesSupplyIdDeliverExecute(r ApiPatchV3Suppli
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -5299,9 +5062,9 @@ func (a *FBSAPIService) PatchV3SuppliesSupplyIdDeliverExecute(r ApiPatchV3Suppli
 }
 
 type ApiPatchV3SuppliesSupplyIdOrdersRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
-	supplyId string
+	ctx                                  context.Context
+	ApiService                           FBSAPI
+	supplyId                             string
 	patchV3SuppliesSupplyIdOrdersRequest *PatchV3SuppliesSupplyIdOrdersRequest
 }
 
@@ -5342,24 +5105,24 @@ PatchV3SuppliesSupplyIdOrders Добавить сборочные задания
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param supplyId ID поставки
- @return ApiPatchV3SuppliesSupplyIdOrdersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param supplyId ID поставки
+	@return ApiPatchV3SuppliesSupplyIdOrdersRequest
 */
 func (a *FBSAPIService) PatchV3SuppliesSupplyIdOrders(ctx context.Context, supplyId string) ApiPatchV3SuppliesSupplyIdOrdersRequest {
 	return ApiPatchV3SuppliesSupplyIdOrdersRequest{
 		ApiService: a,
-		ctx: ctx,
-		supplyId: supplyId,
+		ctx:        ctx,
+		supplyId:   supplyId,
 	}
 }
 
 // Execute executes the request
 func (a *FBSAPIService) PatchV3SuppliesSupplyIdOrdersExecute(r ApiPatchV3SuppliesSupplyIdOrdersRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PatchV3SuppliesSupplyIdOrders")
@@ -5396,20 +5159,6 @@ func (a *FBSAPIService) PatchV3SuppliesSupplyIdOrdersExecute(r ApiPatchV3Supplie
 	}
 	// body params
 	localVarPostBody = r.patchV3SuppliesSupplyIdOrdersRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -5439,8 +5188,8 @@ func (a *FBSAPIService) PatchV3SuppliesSupplyIdOrdersExecute(r ApiPatchV3Supplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5450,8 +5199,8 @@ func (a *FBSAPIService) PatchV3SuppliesSupplyIdOrdersExecute(r ApiPatchV3Supplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -5461,8 +5210,8 @@ func (a *FBSAPIService) PatchV3SuppliesSupplyIdOrdersExecute(r ApiPatchV3Supplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5472,8 +5221,8 @@ func (a *FBSAPIService) PatchV3SuppliesSupplyIdOrdersExecute(r ApiPatchV3Supplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5483,8 +5232,8 @@ func (a *FBSAPIService) PatchV3SuppliesSupplyIdOrdersExecute(r ApiPatchV3Supplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -5494,8 +5243,8 @@ func (a *FBSAPIService) PatchV3SuppliesSupplyIdOrdersExecute(r ApiPatchV3Supplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5505,8 +5254,8 @@ func (a *FBSAPIService) PatchV3SuppliesSupplyIdOrdersExecute(r ApiPatchV3Supplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -5515,8 +5264,8 @@ func (a *FBSAPIService) PatchV3SuppliesSupplyIdOrdersExecute(r ApiPatchV3Supplie
 }
 
 type ApiPostV3FbsSuppliesSpotListRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
+	ctx                              context.Context
+	ApiService                       FBSAPI
 	postV3FbsSuppliesSpotListRequest *PostV3FbsSuppliesSpotListRequest
 }
 
@@ -5545,24 +5294,25 @@ PostV3FbsSuppliesSpotList Получить данные СПОТ для спис
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3FbsSuppliesSpotListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3FbsSuppliesSpotListRequest
 */
 func (a *FBSAPIService) PostV3FbsSuppliesSpotList(ctx context.Context) ApiPostV3FbsSuppliesSpotListRequest {
 	return ApiPostV3FbsSuppliesSpotListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return SupplySpotDataResponse
+//
+//	@return SupplySpotDataResponse
 func (a *FBSAPIService) PostV3FbsSuppliesSpotListExecute(r ApiPostV3FbsSuppliesSpotListRequest) (*SupplySpotDataResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SupplySpotDataResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SupplySpotDataResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PostV3FbsSuppliesSpotList")
@@ -5627,8 +5377,8 @@ func (a *FBSAPIService) PostV3FbsSuppliesSpotListExecute(r ApiPostV3FbsSuppliesS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5638,8 +5388,8 @@ func (a *FBSAPIService) PostV3FbsSuppliesSpotListExecute(r ApiPostV3FbsSuppliesS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5649,8 +5399,8 @@ func (a *FBSAPIService) PostV3FbsSuppliesSpotListExecute(r ApiPostV3FbsSuppliesS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5660,8 +5410,8 @@ func (a *FBSAPIService) PostV3FbsSuppliesSpotListExecute(r ApiPostV3FbsSuppliesS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5679,8 +5429,8 @@ func (a *FBSAPIService) PostV3FbsSuppliesSpotListExecute(r ApiPostV3FbsSuppliesS
 }
 
 type ApiPostV3OrdersClientRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
+	ctx              context.Context
+	ApiService       FBSAPI
 	ordersRequestAPI *OrdersRequestAPI
 }
 
@@ -5709,24 +5459,25 @@ PostV3OrdersClient Заказы с информацией по клиенту
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3OrdersClientRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3OrdersClientRequest
 */
 func (a *FBSAPIService) PostV3OrdersClient(ctx context.Context) ApiPostV3OrdersClientRequest {
 	return ApiPostV3OrdersClientRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CrossborderTurkeyClientInfoResp
+//
+//	@return CrossborderTurkeyClientInfoResp
 func (a *FBSAPIService) PostV3OrdersClientExecute(r ApiPostV3OrdersClientRequest) (*CrossborderTurkeyClientInfoResp, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CrossborderTurkeyClientInfoResp
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CrossborderTurkeyClientInfoResp
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PostV3OrdersClient")
@@ -5762,20 +5513,6 @@ func (a *FBSAPIService) PostV3OrdersClientExecute(r ApiPostV3OrdersClientRequest
 	}
 	// body params
 	localVarPostBody = r.ordersRequestAPI
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5805,8 +5542,8 @@ func (a *FBSAPIService) PostV3OrdersClientExecute(r ApiPostV3OrdersClientRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5816,8 +5553,8 @@ func (a *FBSAPIService) PostV3OrdersClientExecute(r ApiPostV3OrdersClientRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -5827,8 +5564,8 @@ func (a *FBSAPIService) PostV3OrdersClientExecute(r ApiPostV3OrdersClientRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5838,8 +5575,8 @@ func (a *FBSAPIService) PostV3OrdersClientExecute(r ApiPostV3OrdersClientRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5849,8 +5586,8 @@ func (a *FBSAPIService) PostV3OrdersClientExecute(r ApiPostV3OrdersClientRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5860,8 +5597,8 @@ func (a *FBSAPIService) PostV3OrdersClientExecute(r ApiPostV3OrdersClientRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5879,8 +5616,8 @@ func (a *FBSAPIService) PostV3OrdersClientExecute(r ApiPostV3OrdersClientRequest
 }
 
 type ApiPostV3OrdersMetaRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
+	ctx                   context.Context
+	ApiService            FBSAPI
 	v3GetMetaMultiRequest *V3GetMetaMultiRequest
 }
 
@@ -5917,24 +5654,25 @@ PostV3OrdersMeta Получить идентификаторы маркиров�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3OrdersMetaRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3OrdersMetaRequest
 */
 func (a *FBSAPIService) PostV3OrdersMeta(ctx context.Context) ApiPostV3OrdersMetaRequest {
 	return ApiPostV3OrdersMetaRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return V3OrdersMetaAPI
+//
+//	@return V3OrdersMetaAPI
 func (a *FBSAPIService) PostV3OrdersMetaExecute(r ApiPostV3OrdersMetaRequest) (*V3OrdersMetaAPI, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *V3OrdersMetaAPI
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *V3OrdersMetaAPI
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PostV3OrdersMeta")
@@ -5970,20 +5708,6 @@ func (a *FBSAPIService) PostV3OrdersMetaExecute(r ApiPostV3OrdersMetaRequest) (*
 	}
 	// body params
 	localVarPostBody = r.v3GetMetaMultiRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -6013,8 +5737,8 @@ func (a *FBSAPIService) PostV3OrdersMetaExecute(r ApiPostV3OrdersMetaRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6024,8 +5748,8 @@ func (a *FBSAPIService) PostV3OrdersMetaExecute(r ApiPostV3OrdersMetaRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -6035,8 +5759,8 @@ func (a *FBSAPIService) PostV3OrdersMetaExecute(r ApiPostV3OrdersMetaRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6046,8 +5770,8 @@ func (a *FBSAPIService) PostV3OrdersMetaExecute(r ApiPostV3OrdersMetaRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6057,8 +5781,8 @@ func (a *FBSAPIService) PostV3OrdersMetaExecute(r ApiPostV3OrdersMetaRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6068,8 +5792,8 @@ func (a *FBSAPIService) PostV3OrdersMetaExecute(r ApiPostV3OrdersMetaRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6087,8 +5811,8 @@ func (a *FBSAPIService) PostV3OrdersMetaExecute(r ApiPostV3OrdersMetaRequest) (*
 }
 
 type ApiPostV3OrdersStatusRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
+	ctx                       context.Context
+	ApiService                FBSAPI
 	postV3OrdersStatusRequest *PostV3OrdersStatusRequest
 }
 
@@ -6141,24 +5865,25 @@ PostV3OrdersStatus Получить статусы сборочных задан
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3OrdersStatusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3OrdersStatusRequest
 */
 func (a *FBSAPIService) PostV3OrdersStatus(ctx context.Context) ApiPostV3OrdersStatusRequest {
 	return ApiPostV3OrdersStatusRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PostV3OrdersStatusResponse200
+//
+//	@return PostV3OrdersStatusResponse200
 func (a *FBSAPIService) PostV3OrdersStatusExecute(r ApiPostV3OrdersStatusRequest) (*PostV3OrdersStatusResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PostV3OrdersStatusResponse200
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PostV3OrdersStatusResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PostV3OrdersStatus")
@@ -6191,20 +5916,6 @@ func (a *FBSAPIService) PostV3OrdersStatusExecute(r ApiPostV3OrdersStatusRequest
 	}
 	// body params
 	localVarPostBody = r.postV3OrdersStatusRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -6234,8 +5945,8 @@ func (a *FBSAPIService) PostV3OrdersStatusExecute(r ApiPostV3OrdersStatusRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6245,8 +5956,8 @@ func (a *FBSAPIService) PostV3OrdersStatusExecute(r ApiPostV3OrdersStatusRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -6256,8 +5967,8 @@ func (a *FBSAPIService) PostV3OrdersStatusExecute(r ApiPostV3OrdersStatusRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6267,8 +5978,8 @@ func (a *FBSAPIService) PostV3OrdersStatusExecute(r ApiPostV3OrdersStatusRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6278,8 +5989,8 @@ func (a *FBSAPIService) PostV3OrdersStatusExecute(r ApiPostV3OrdersStatusRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6297,8 +6008,8 @@ func (a *FBSAPIService) PostV3OrdersStatusExecute(r ApiPostV3OrdersStatusRequest
 }
 
 type ApiPostV3OrdersStatusHistoryRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
+	ctx                              context.Context
+	ApiService                       FBSAPI
 	postV3OrdersStatusHistoryRequest *PostV3OrdersStatusHistoryRequest
 }
 
@@ -6327,24 +6038,25 @@ PostV3OrdersStatusHistory История статусов для сборочн�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3OrdersStatusHistoryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3OrdersStatusHistoryRequest
 */
 func (a *FBSAPIService) PostV3OrdersStatusHistory(ctx context.Context) ApiPostV3OrdersStatusHistoryRequest {
 	return ApiPostV3OrdersStatusHistoryRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PostV3OrdersStatusHistoryResponse200
+//
+//	@return PostV3OrdersStatusHistoryResponse200
 func (a *FBSAPIService) PostV3OrdersStatusHistoryExecute(r ApiPostV3OrdersStatusHistoryRequest) (*PostV3OrdersStatusHistoryResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PostV3OrdersStatusHistoryResponse200
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PostV3OrdersStatusHistoryResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PostV3OrdersStatusHistory")
@@ -6377,20 +6089,6 @@ func (a *FBSAPIService) PostV3OrdersStatusHistoryExecute(r ApiPostV3OrdersStatus
 	}
 	// body params
 	localVarPostBody = r.postV3OrdersStatusHistoryRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -6420,8 +6118,8 @@ func (a *FBSAPIService) PostV3OrdersStatusHistoryExecute(r ApiPostV3OrdersStatus
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -6431,8 +6129,8 @@ func (a *FBSAPIService) PostV3OrdersStatusHistoryExecute(r ApiPostV3OrdersStatus
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6442,8 +6140,8 @@ func (a *FBSAPIService) PostV3OrdersStatusHistoryExecute(r ApiPostV3OrdersStatus
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6453,8 +6151,8 @@ func (a *FBSAPIService) PostV3OrdersStatusHistoryExecute(r ApiPostV3OrdersStatus
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6464,8 +6162,8 @@ func (a *FBSAPIService) PostV3OrdersStatusHistoryExecute(r ApiPostV3OrdersStatus
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6483,11 +6181,11 @@ func (a *FBSAPIService) PostV3OrdersStatusHistoryExecute(r ApiPostV3OrdersStatus
 }
 
 type ApiPostV3OrdersStickersRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
-	type_ *string
-	width *int32
-	height *int32
+	ctx                         context.Context
+	ApiService                  FBSAPI
+	type_                       *string
+	width                       *int32
+	height                      *int32
 	postV3OrdersStickersRequest *PostV3OrdersStickersRequest
 }
 
@@ -6545,24 +6243,25 @@ PostV3OrdersStickers Получить стикеры сборочных зада
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3OrdersStickersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3OrdersStickersRequest
 */
 func (a *FBSAPIService) PostV3OrdersStickers(ctx context.Context) ApiPostV3OrdersStickersRequest {
 	return ApiPostV3OrdersStickersRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PostV3OrdersStickersResponse200
+//
+//	@return PostV3OrdersStickersResponse200
 func (a *FBSAPIService) PostV3OrdersStickersExecute(r ApiPostV3OrdersStickersRequest) (*PostV3OrdersStickersResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PostV3OrdersStickersResponse200
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PostV3OrdersStickersResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PostV3OrdersStickers")
@@ -6607,20 +6306,6 @@ func (a *FBSAPIService) PostV3OrdersStickersExecute(r ApiPostV3OrdersStickersReq
 	}
 	// body params
 	localVarPostBody = r.postV3OrdersStickersRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -6650,8 +6335,8 @@ func (a *FBSAPIService) PostV3OrdersStickersExecute(r ApiPostV3OrdersStickersReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6661,8 +6346,8 @@ func (a *FBSAPIService) PostV3OrdersStickersExecute(r ApiPostV3OrdersStickersReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -6672,8 +6357,8 @@ func (a *FBSAPIService) PostV3OrdersStickersExecute(r ApiPostV3OrdersStickersReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6683,8 +6368,8 @@ func (a *FBSAPIService) PostV3OrdersStickersExecute(r ApiPostV3OrdersStickersReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -6694,8 +6379,8 @@ func (a *FBSAPIService) PostV3OrdersStickersExecute(r ApiPostV3OrdersStickersReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6705,8 +6390,8 @@ func (a *FBSAPIService) PostV3OrdersStickersExecute(r ApiPostV3OrdersStickersReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6724,8 +6409,8 @@ func (a *FBSAPIService) PostV3OrdersStickersExecute(r ApiPostV3OrdersStickersReq
 }
 
 type ApiPostV3OrdersStickersCrossBorderRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
+	ctx                                    context.Context
+	ApiService                             FBSAPI
 	postV3OrdersStickersCrossBorderRequest *PostV3OrdersStickersCrossBorderRequest
 }
 
@@ -6760,24 +6445,25 @@ PostV3OrdersStickersCrossBorder Получить стикеры сборочны
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3OrdersStickersCrossBorderRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3OrdersStickersCrossBorderRequest
 */
 func (a *FBSAPIService) PostV3OrdersStickersCrossBorder(ctx context.Context) ApiPostV3OrdersStickersCrossBorderRequest {
 	return ApiPostV3OrdersStickersCrossBorderRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PostV3OrdersStickersCrossBorderResponse200
+//
+//	@return PostV3OrdersStickersCrossBorderResponse200
 func (a *FBSAPIService) PostV3OrdersStickersCrossBorderExecute(r ApiPostV3OrdersStickersCrossBorderRequest) (*PostV3OrdersStickersCrossBorderResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PostV3OrdersStickersCrossBorderResponse200
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PostV3OrdersStickersCrossBorderResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PostV3OrdersStickersCrossBorder")
@@ -6810,20 +6496,6 @@ func (a *FBSAPIService) PostV3OrdersStickersCrossBorderExecute(r ApiPostV3Orders
 	}
 	// body params
 	localVarPostBody = r.postV3OrdersStickersCrossBorderRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -6853,8 +6525,8 @@ func (a *FBSAPIService) PostV3OrdersStickersCrossBorderExecute(r ApiPostV3Orders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6864,8 +6536,8 @@ func (a *FBSAPIService) PostV3OrdersStickersCrossBorderExecute(r ApiPostV3Orders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -6875,8 +6547,8 @@ func (a *FBSAPIService) PostV3OrdersStickersCrossBorderExecute(r ApiPostV3Orders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6886,8 +6558,8 @@ func (a *FBSAPIService) PostV3OrdersStickersCrossBorderExecute(r ApiPostV3Orders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6897,8 +6569,8 @@ func (a *FBSAPIService) PostV3OrdersStickersCrossBorderExecute(r ApiPostV3Orders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6916,8 +6588,8 @@ func (a *FBSAPIService) PostV3OrdersStickersCrossBorderExecute(r ApiPostV3Orders
 }
 
 type ApiPostV3PassesRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
+	ctx                 context.Context
+	ApiService          FBSAPI
 	postV3PassesRequest *PostV3PassesRequest
 }
 
@@ -6944,24 +6616,25 @@ PostV3Passes Создать пропуск
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3PassesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3PassesRequest
 */
 func (a *FBSAPIService) PostV3Passes(ctx context.Context) ApiPostV3PassesRequest {
 	return ApiPostV3PassesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PostV3PassesResponse201
+//
+//	@return PostV3PassesResponse201
 func (a *FBSAPIService) PostV3PassesExecute(r ApiPostV3PassesRequest) (*PostV3PassesResponse201, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PostV3PassesResponse201
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PostV3PassesResponse201
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PostV3Passes")
@@ -6997,20 +6670,6 @@ func (a *FBSAPIService) PostV3PassesExecute(r ApiPostV3PassesRequest) (*PostV3Pa
 	}
 	// body params
 	localVarPostBody = r.postV3PassesRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -7040,8 +6699,8 @@ func (a *FBSAPIService) PostV3PassesExecute(r ApiPostV3PassesRequest) (*PostV3Pa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7051,8 +6710,8 @@ func (a *FBSAPIService) PostV3PassesExecute(r ApiPostV3PassesRequest) (*PostV3Pa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -7062,8 +6721,8 @@ func (a *FBSAPIService) PostV3PassesExecute(r ApiPostV3PassesRequest) (*PostV3Pa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7073,8 +6732,8 @@ func (a *FBSAPIService) PostV3PassesExecute(r ApiPostV3PassesRequest) (*PostV3Pa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7084,8 +6743,8 @@ func (a *FBSAPIService) PostV3PassesExecute(r ApiPostV3PassesRequest) (*PostV3Pa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7095,8 +6754,8 @@ func (a *FBSAPIService) PostV3PassesExecute(r ApiPostV3PassesRequest) (*PostV3Pa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7114,8 +6773,8 @@ func (a *FBSAPIService) PostV3PassesExecute(r ApiPostV3PassesRequest) (*PostV3Pa
 }
 
 type ApiPostV3SuppliesRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
+	ctx                   context.Context
+	ApiService            FBSAPI
 	postV3SuppliesRequest *PostV3SuppliesRequest
 }
 
@@ -7148,24 +6807,25 @@ PostV3Supplies Создать новую поставку
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3SuppliesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3SuppliesRequest
 */
 func (a *FBSAPIService) PostV3Supplies(ctx context.Context) ApiPostV3SuppliesRequest {
 	return ApiPostV3SuppliesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PostV3SuppliesResponse201
+//
+//	@return PostV3SuppliesResponse201
 func (a *FBSAPIService) PostV3SuppliesExecute(r ApiPostV3SuppliesRequest) (*PostV3SuppliesResponse201, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PostV3SuppliesResponse201
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PostV3SuppliesResponse201
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PostV3Supplies")
@@ -7201,20 +6861,6 @@ func (a *FBSAPIService) PostV3SuppliesExecute(r ApiPostV3SuppliesRequest) (*Post
 	}
 	// body params
 	localVarPostBody = r.postV3SuppliesRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -7244,8 +6890,8 @@ func (a *FBSAPIService) PostV3SuppliesExecute(r ApiPostV3SuppliesRequest) (*Post
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7255,8 +6901,8 @@ func (a *FBSAPIService) PostV3SuppliesExecute(r ApiPostV3SuppliesRequest) (*Post
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -7266,8 +6912,8 @@ func (a *FBSAPIService) PostV3SuppliesExecute(r ApiPostV3SuppliesRequest) (*Post
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7277,8 +6923,8 @@ func (a *FBSAPIService) PostV3SuppliesExecute(r ApiPostV3SuppliesRequest) (*Post
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7288,8 +6934,8 @@ func (a *FBSAPIService) PostV3SuppliesExecute(r ApiPostV3SuppliesRequest) (*Post
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7307,9 +6953,9 @@ func (a *FBSAPIService) PostV3SuppliesExecute(r ApiPostV3SuppliesRequest) (*Post
 }
 
 type ApiPostV3SuppliesSupplyIdTrbxRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
-	supplyId string
+	ctx                               context.Context
+	ApiService                        FBSAPI
+	supplyId                          string
 	postV3SuppliesSupplyIdTrbxRequest *PostV3SuppliesSupplyIdTrbxRequest
 }
 
@@ -7341,26 +6987,27 @@ PostV3SuppliesSupplyIdTrbx Добавить грузоместа к постав
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param supplyId ID поставки
- @return ApiPostV3SuppliesSupplyIdTrbxRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param supplyId ID поставки
+	@return ApiPostV3SuppliesSupplyIdTrbxRequest
 */
 func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbx(ctx context.Context, supplyId string) ApiPostV3SuppliesSupplyIdTrbxRequest {
 	return ApiPostV3SuppliesSupplyIdTrbxRequest{
 		ApiService: a,
-		ctx: ctx,
-		supplyId: supplyId,
+		ctx:        ctx,
+		supplyId:   supplyId,
 	}
 }
 
 // Execute executes the request
-//  @return PostV3SuppliesSupplyIdTrbxResponse201
+//
+//	@return PostV3SuppliesSupplyIdTrbxResponse201
 func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxExecute(r ApiPostV3SuppliesSupplyIdTrbxRequest) (*PostV3SuppliesSupplyIdTrbxResponse201, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PostV3SuppliesSupplyIdTrbxResponse201
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PostV3SuppliesSupplyIdTrbxResponse201
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PostV3SuppliesSupplyIdTrbx")
@@ -7394,20 +7041,6 @@ func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxExecute(r ApiPostV3SuppliesSup
 	}
 	// body params
 	localVarPostBody = r.postV3SuppliesSupplyIdTrbxRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -7437,8 +7070,8 @@ func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxExecute(r ApiPostV3SuppliesSup
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7448,8 +7081,8 @@ func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxExecute(r ApiPostV3SuppliesSup
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -7459,8 +7092,8 @@ func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxExecute(r ApiPostV3SuppliesSup
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7470,8 +7103,8 @@ func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxExecute(r ApiPostV3SuppliesSup
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7481,8 +7114,8 @@ func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxExecute(r ApiPostV3SuppliesSup
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7492,8 +7125,8 @@ func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxExecute(r ApiPostV3SuppliesSup
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7511,10 +7144,10 @@ func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxExecute(r ApiPostV3SuppliesSup
 }
 
 type ApiPostV3SuppliesSupplyIdTrbxStickersRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
-	supplyId string
-	type_ *string
+	ctx                                       context.Context
+	ApiService                                FBSAPI
+	supplyId                                  string
+	type_                                     *string
 	postV3SuppliesSupplyIdTrbxStickersRequest *PostV3SuppliesSupplyIdTrbxStickersRequest
 }
 
@@ -7554,26 +7187,27 @@ PostV3SuppliesSupplyIdTrbxStickers Получить стикеры грузом�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param supplyId ID поставки
- @return ApiPostV3SuppliesSupplyIdTrbxStickersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param supplyId ID поставки
+	@return ApiPostV3SuppliesSupplyIdTrbxStickersRequest
 */
 func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxStickers(ctx context.Context, supplyId string) ApiPostV3SuppliesSupplyIdTrbxStickersRequest {
 	return ApiPostV3SuppliesSupplyIdTrbxStickersRequest{
 		ApiService: a,
-		ctx: ctx,
-		supplyId: supplyId,
+		ctx:        ctx,
+		supplyId:   supplyId,
 	}
 }
 
 // Execute executes the request
-//  @return PostV3SuppliesSupplyIdTrbxStickersResponse200
+//
+//	@return PostV3SuppliesSupplyIdTrbxStickersResponse200
 func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxStickersExecute(r ApiPostV3SuppliesSupplyIdTrbxStickersRequest) (*PostV3SuppliesSupplyIdTrbxStickersResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PostV3SuppliesSupplyIdTrbxStickersResponse200
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PostV3SuppliesSupplyIdTrbxStickersResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PostV3SuppliesSupplyIdTrbxStickers")
@@ -7611,20 +7245,6 @@ func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxStickersExecute(r ApiPostV3Sup
 	}
 	// body params
 	localVarPostBody = r.postV3SuppliesSupplyIdTrbxStickersRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -7654,8 +7274,8 @@ func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxStickersExecute(r ApiPostV3Sup
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7665,8 +7285,8 @@ func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxStickersExecute(r ApiPostV3Sup
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -7676,8 +7296,8 @@ func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxStickersExecute(r ApiPostV3Sup
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7687,8 +7307,8 @@ func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxStickersExecute(r ApiPostV3Sup
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7698,8 +7318,8 @@ func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxStickersExecute(r ApiPostV3Sup
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7709,8 +7329,8 @@ func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxStickersExecute(r ApiPostV3Sup
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7728,9 +7348,9 @@ func (a *FBSAPIService) PostV3SuppliesSupplyIdTrbxStickersExecute(r ApiPostV3Sup
 }
 
 type ApiPutV3FbsSuppliesSupplyIdSpotRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
-	supplyId string
+	ctx                                 context.Context
+	ApiService                          FBSAPI
+	supplyId                            string
 	putV3FbsSuppliesSupplyIdSpotRequest *PutV3FbsSuppliesSupplyIdSpotRequest
 }
 
@@ -7756,24 +7376,24 @@ PutV3FbsSuppliesSupplyIdSpot Добавить данные СПОТ в пост�
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param supplyId ID поставки
- @return ApiPutV3FbsSuppliesSupplyIdSpotRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param supplyId ID поставки
+	@return ApiPutV3FbsSuppliesSupplyIdSpotRequest
 */
 func (a *FBSAPIService) PutV3FbsSuppliesSupplyIdSpot(ctx context.Context, supplyId string) ApiPutV3FbsSuppliesSupplyIdSpotRequest {
 	return ApiPutV3FbsSuppliesSupplyIdSpotRequest{
 		ApiService: a,
-		ctx: ctx,
-		supplyId: supplyId,
+		ctx:        ctx,
+		supplyId:   supplyId,
 	}
 }
 
 // Execute executes the request
 func (a *FBSAPIService) PutV3FbsSuppliesSupplyIdSpotExecute(r ApiPutV3FbsSuppliesSupplyIdSpotRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PutV3FbsSuppliesSupplyIdSpot")
@@ -7839,8 +7459,8 @@ func (a *FBSAPIService) PutV3FbsSuppliesSupplyIdSpotExecute(r ApiPutV3FbsSupplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7850,8 +7470,8 @@ func (a *FBSAPIService) PutV3FbsSuppliesSupplyIdSpotExecute(r ApiPutV3FbsSupplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7861,8 +7481,8 @@ func (a *FBSAPIService) PutV3FbsSuppliesSupplyIdSpotExecute(r ApiPutV3FbsSupplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7872,8 +7492,8 @@ func (a *FBSAPIService) PutV3FbsSuppliesSupplyIdSpotExecute(r ApiPutV3FbsSupplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -7883,8 +7503,8 @@ func (a *FBSAPIService) PutV3FbsSuppliesSupplyIdSpotExecute(r ApiPutV3FbsSupplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7894,8 +7514,8 @@ func (a *FBSAPIService) PutV3FbsSuppliesSupplyIdSpotExecute(r ApiPutV3FbsSupplie
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -7904,9 +7524,9 @@ func (a *FBSAPIService) PutV3FbsSuppliesSupplyIdSpotExecute(r ApiPutV3FbsSupplie
 }
 
 type ApiPutV3OrdersOrderIdMetaCustomsDeclarationRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
-	orderId int64
+	ctx                                             context.Context
+	ApiService                                      FBSAPI
+	orderId                                         int64
 	putV3OrdersOrderIdMetaCustomsDeclarationRequest *PutV3OrdersOrderIdMetaCustomsDeclarationRequest
 }
 
@@ -7937,24 +7557,24 @@ PutV3OrdersOrderIdMetaCustomsDeclaration Закрепить номер ДТ за
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param orderId ID сборочного задания
- @return ApiPutV3OrdersOrderIdMetaCustomsDeclarationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param orderId ID сборочного задания
+	@return ApiPutV3OrdersOrderIdMetaCustomsDeclarationRequest
 */
 func (a *FBSAPIService) PutV3OrdersOrderIdMetaCustomsDeclaration(ctx context.Context, orderId int64) ApiPutV3OrdersOrderIdMetaCustomsDeclarationRequest {
 	return ApiPutV3OrdersOrderIdMetaCustomsDeclarationRequest{
 		ApiService: a,
-		ctx: ctx,
-		orderId: orderId,
+		ctx:        ctx,
+		orderId:    orderId,
 	}
 }
 
 // Execute executes the request
 func (a *FBSAPIService) PutV3OrdersOrderIdMetaCustomsDeclarationExecute(r ApiPutV3OrdersOrderIdMetaCustomsDeclarationRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PutV3OrdersOrderIdMetaCustomsDeclaration")
@@ -7991,20 +7611,6 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaCustomsDeclarationExecute(r ApiPut
 	}
 	// body params
 	localVarPostBody = r.putV3OrdersOrderIdMetaCustomsDeclarationRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -8034,8 +7640,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaCustomsDeclarationExecute(r ApiPut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8045,8 +7651,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaCustomsDeclarationExecute(r ApiPut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -8056,8 +7662,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaCustomsDeclarationExecute(r ApiPut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8067,8 +7673,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaCustomsDeclarationExecute(r ApiPut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8078,8 +7684,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaCustomsDeclarationExecute(r ApiPut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -8089,8 +7695,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaCustomsDeclarationExecute(r ApiPut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8100,8 +7706,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaCustomsDeclarationExecute(r ApiPut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -8110,9 +7716,9 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaCustomsDeclarationExecute(r ApiPut
 }
 
 type ApiPutV3OrdersOrderIdMetaExpirationRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
-	orderId int64
+	ctx                                     context.Context
+	ApiService                              FBSAPI
+	orderId                                 int64
 	putV3OrdersOrderIdMetaExpirationRequest *PutV3OrdersOrderIdMetaExpirationRequest
 }
 
@@ -8144,24 +7750,24 @@ PutV3OrdersOrderIdMetaExpiration Закрепить за сборочным за
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param orderId ID сборочного задания
- @return ApiPutV3OrdersOrderIdMetaExpirationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param orderId ID сборочного задания
+	@return ApiPutV3OrdersOrderIdMetaExpirationRequest
 */
 func (a *FBSAPIService) PutV3OrdersOrderIdMetaExpiration(ctx context.Context, orderId int64) ApiPutV3OrdersOrderIdMetaExpirationRequest {
 	return ApiPutV3OrdersOrderIdMetaExpirationRequest{
 		ApiService: a,
-		ctx: ctx,
-		orderId: orderId,
+		ctx:        ctx,
+		orderId:    orderId,
 	}
 }
 
 // Execute executes the request
 func (a *FBSAPIService) PutV3OrdersOrderIdMetaExpirationExecute(r ApiPutV3OrdersOrderIdMetaExpirationRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PutV3OrdersOrderIdMetaExpiration")
@@ -8198,20 +7804,6 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaExpirationExecute(r ApiPutV3Orders
 	}
 	// body params
 	localVarPostBody = r.putV3OrdersOrderIdMetaExpirationRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -8241,8 +7833,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaExpirationExecute(r ApiPutV3Orders
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8252,8 +7844,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaExpirationExecute(r ApiPutV3Orders
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -8263,8 +7855,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaExpirationExecute(r ApiPutV3Orders
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8274,8 +7866,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaExpirationExecute(r ApiPutV3Orders
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8285,8 +7877,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaExpirationExecute(r ApiPutV3Orders
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -8296,8 +7888,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaExpirationExecute(r ApiPutV3Orders
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8307,8 +7899,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaExpirationExecute(r ApiPutV3Orders
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -8317,9 +7909,9 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaExpirationExecute(r ApiPutV3Orders
 }
 
 type ApiPutV3OrdersOrderIdMetaGtinRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
-	orderId int64
+	ctx                               context.Context
+	ApiService                        FBSAPI
+	orderId                           int64
 	putV3OrdersOrderIdMetaGtinRequest *PutV3OrdersOrderIdMetaGtinRequest
 }
 
@@ -8349,24 +7941,24 @@ PutV3OrdersOrderIdMetaGtin Закрепить GTIN за сборочным за�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param orderId ID сборочного задания
- @return ApiPutV3OrdersOrderIdMetaGtinRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param orderId ID сборочного задания
+	@return ApiPutV3OrdersOrderIdMetaGtinRequest
 */
 func (a *FBSAPIService) PutV3OrdersOrderIdMetaGtin(ctx context.Context, orderId int64) ApiPutV3OrdersOrderIdMetaGtinRequest {
 	return ApiPutV3OrdersOrderIdMetaGtinRequest{
 		ApiService: a,
-		ctx: ctx,
-		orderId: orderId,
+		ctx:        ctx,
+		orderId:    orderId,
 	}
 }
 
 // Execute executes the request
 func (a *FBSAPIService) PutV3OrdersOrderIdMetaGtinExecute(r ApiPutV3OrdersOrderIdMetaGtinRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PutV3OrdersOrderIdMetaGtin")
@@ -8403,20 +7995,6 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaGtinExecute(r ApiPutV3OrdersOrderI
 	}
 	// body params
 	localVarPostBody = r.putV3OrdersOrderIdMetaGtinRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -8446,8 +8024,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaGtinExecute(r ApiPutV3OrdersOrderI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8457,8 +8035,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaGtinExecute(r ApiPutV3OrdersOrderI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -8468,8 +8046,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaGtinExecute(r ApiPutV3OrdersOrderI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8479,8 +8057,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaGtinExecute(r ApiPutV3OrdersOrderI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -8490,8 +8068,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaGtinExecute(r ApiPutV3OrdersOrderI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8501,8 +8079,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaGtinExecute(r ApiPutV3OrdersOrderI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -8511,9 +8089,9 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaGtinExecute(r ApiPutV3OrdersOrderI
 }
 
 type ApiPutV3OrdersOrderIdMetaImeiRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
-	orderId int64
+	ctx                               context.Context
+	ApiService                        FBSAPI
+	orderId                           int64
 	putV3OrdersOrderIdMetaImeiRequest *PutV3OrdersOrderIdMetaImeiRequest
 }
 
@@ -8543,24 +8121,24 @@ PutV3OrdersOrderIdMetaImei Закрепить IMEI за сборочным за�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param orderId ID сборочного задания
- @return ApiPutV3OrdersOrderIdMetaImeiRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param orderId ID сборочного задания
+	@return ApiPutV3OrdersOrderIdMetaImeiRequest
 */
 func (a *FBSAPIService) PutV3OrdersOrderIdMetaImei(ctx context.Context, orderId int64) ApiPutV3OrdersOrderIdMetaImeiRequest {
 	return ApiPutV3OrdersOrderIdMetaImeiRequest{
 		ApiService: a,
-		ctx: ctx,
-		orderId: orderId,
+		ctx:        ctx,
+		orderId:    orderId,
 	}
 }
 
 // Execute executes the request
 func (a *FBSAPIService) PutV3OrdersOrderIdMetaImeiExecute(r ApiPutV3OrdersOrderIdMetaImeiRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PutV3OrdersOrderIdMetaImei")
@@ -8597,20 +8175,6 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaImeiExecute(r ApiPutV3OrdersOrderI
 	}
 	// body params
 	localVarPostBody = r.putV3OrdersOrderIdMetaImeiRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -8640,8 +8204,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaImeiExecute(r ApiPutV3OrdersOrderI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8651,8 +8215,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaImeiExecute(r ApiPutV3OrdersOrderI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -8662,8 +8226,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaImeiExecute(r ApiPutV3OrdersOrderI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8673,8 +8237,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaImeiExecute(r ApiPutV3OrdersOrderI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -8684,8 +8248,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaImeiExecute(r ApiPutV3OrdersOrderI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8695,8 +8259,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaImeiExecute(r ApiPutV3OrdersOrderI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -8705,9 +8269,9 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaImeiExecute(r ApiPutV3OrdersOrderI
 }
 
 type ApiPutV3OrdersOrderIdMetaSgtinRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
-	orderId int64
+	ctx                                context.Context
+	ApiService                         FBSAPI
+	orderId                            int64
 	putV3OrdersOrderIdMetaSgtinRequest *PutV3OrdersOrderIdMetaSgtinRequest
 }
 
@@ -8739,24 +8303,24 @@ PutV3OrdersOrderIdMetaSgtin Закрепить код маркировки Че�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param orderId ID сборочного задания
- @return ApiPutV3OrdersOrderIdMetaSgtinRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param orderId ID сборочного задания
+	@return ApiPutV3OrdersOrderIdMetaSgtinRequest
 */
 func (a *FBSAPIService) PutV3OrdersOrderIdMetaSgtin(ctx context.Context, orderId int64) ApiPutV3OrdersOrderIdMetaSgtinRequest {
 	return ApiPutV3OrdersOrderIdMetaSgtinRequest{
 		ApiService: a,
-		ctx: ctx,
-		orderId: orderId,
+		ctx:        ctx,
+		orderId:    orderId,
 	}
 }
 
 // Execute executes the request
 func (a *FBSAPIService) PutV3OrdersOrderIdMetaSgtinExecute(r ApiPutV3OrdersOrderIdMetaSgtinRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PutV3OrdersOrderIdMetaSgtin")
@@ -8793,20 +8357,6 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaSgtinExecute(r ApiPutV3OrdersOrder
 	}
 	// body params
 	localVarPostBody = r.putV3OrdersOrderIdMetaSgtinRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -8836,8 +8386,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaSgtinExecute(r ApiPutV3OrdersOrder
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8847,8 +8397,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaSgtinExecute(r ApiPutV3OrdersOrder
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -8858,8 +8408,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaSgtinExecute(r ApiPutV3OrdersOrder
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8869,8 +8419,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaSgtinExecute(r ApiPutV3OrdersOrder
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8880,8 +8430,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaSgtinExecute(r ApiPutV3OrdersOrder
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -8891,8 +8441,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaSgtinExecute(r ApiPutV3OrdersOrder
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8902,8 +8452,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaSgtinExecute(r ApiPutV3OrdersOrder
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -8912,9 +8462,9 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaSgtinExecute(r ApiPutV3OrdersOrder
 }
 
 type ApiPutV3OrdersOrderIdMetaUinRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
-	orderId int64
+	ctx                              context.Context
+	ApiService                       FBSAPI
+	orderId                          int64
 	putV3OrdersOrderIdMetaUinRequest *PutV3OrdersOrderIdMetaUinRequest
 }
 
@@ -8944,24 +8494,24 @@ PutV3OrdersOrderIdMetaUin Закрепить УИН за сборочным за
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param orderId ID сборочного задания
- @return ApiPutV3OrdersOrderIdMetaUinRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param orderId ID сборочного задания
+	@return ApiPutV3OrdersOrderIdMetaUinRequest
 */
 func (a *FBSAPIService) PutV3OrdersOrderIdMetaUin(ctx context.Context, orderId int64) ApiPutV3OrdersOrderIdMetaUinRequest {
 	return ApiPutV3OrdersOrderIdMetaUinRequest{
 		ApiService: a,
-		ctx: ctx,
-		orderId: orderId,
+		ctx:        ctx,
+		orderId:    orderId,
 	}
 }
 
 // Execute executes the request
 func (a *FBSAPIService) PutV3OrdersOrderIdMetaUinExecute(r ApiPutV3OrdersOrderIdMetaUinRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PutV3OrdersOrderIdMetaUin")
@@ -8998,20 +8548,6 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaUinExecute(r ApiPutV3OrdersOrderId
 	}
 	// body params
 	localVarPostBody = r.putV3OrdersOrderIdMetaUinRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -9041,8 +8577,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaUinExecute(r ApiPutV3OrdersOrderId
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9052,8 +8588,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaUinExecute(r ApiPutV3OrdersOrderId
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -9063,8 +8599,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaUinExecute(r ApiPutV3OrdersOrderId
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9074,8 +8610,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaUinExecute(r ApiPutV3OrdersOrderId
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -9085,8 +8621,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaUinExecute(r ApiPutV3OrdersOrderId
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9096,8 +8632,8 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaUinExecute(r ApiPutV3OrdersOrderId
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -9106,9 +8642,9 @@ func (a *FBSAPIService) PutV3OrdersOrderIdMetaUinExecute(r ApiPutV3OrdersOrderId
 }
 
 type ApiPutV3PassesPassIdRequest struct {
-	ctx context.Context
-	ApiService FBSAPI
-	passId int64
+	ctx                      context.Context
+	ApiService               FBSAPI
+	passId                   int64
 	putV3PassesPassIdRequest *PutV3PassesPassIdRequest
 }
 
@@ -9137,24 +8673,24 @@ PutV3PassesPassId Обновить пропуск
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param passId ID пропуска
- @return ApiPutV3PassesPassIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param passId ID пропуска
+	@return ApiPutV3PassesPassIdRequest
 */
 func (a *FBSAPIService) PutV3PassesPassId(ctx context.Context, passId int64) ApiPutV3PassesPassIdRequest {
 	return ApiPutV3PassesPassIdRequest{
 		ApiService: a,
-		ctx: ctx,
-		passId: passId,
+		ctx:        ctx,
+		passId:     passId,
 	}
 }
 
 // Execute executes the request
 func (a *FBSAPIService) PutV3PassesPassIdExecute(r ApiPutV3PassesPassIdRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PutV3PassesPassId")
@@ -9191,20 +8727,6 @@ func (a *FBSAPIService) PutV3PassesPassIdExecute(r ApiPutV3PassesPassIdRequest) 
 	}
 	// body params
 	localVarPostBody = r.putV3PassesPassIdRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -9234,8 +8756,8 @@ func (a *FBSAPIService) PutV3PassesPassIdExecute(r ApiPutV3PassesPassIdRequest) 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9245,8 +8767,8 @@ func (a *FBSAPIService) PutV3PassesPassIdExecute(r ApiPutV3PassesPassIdRequest) 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -9256,8 +8778,8 @@ func (a *FBSAPIService) PutV3PassesPassIdExecute(r ApiPutV3PassesPassIdRequest) 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9267,8 +8789,8 @@ func (a *FBSAPIService) PutV3PassesPassIdExecute(r ApiPutV3PassesPassIdRequest) 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -9278,8 +8800,8 @@ func (a *FBSAPIService) PutV3PassesPassIdExecute(r ApiPutV3PassesPassIdRequest) 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9289,8 +8811,8 @@ func (a *FBSAPIService) PutV3PassesPassIdExecute(r ApiPutV3PassesPassIdRequest) 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

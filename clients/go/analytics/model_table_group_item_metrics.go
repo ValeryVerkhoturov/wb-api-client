@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,12 +22,12 @@ var _ MappedNullable = &TableGroupItemMetrics{}
 // TableGroupItemMetrics Метрики товара в таблице
 type TableGroupItemMetrics struct {
 	AvgPosition TableGroupItemMetricsAvgPosition `json:"avgPosition"`
-	OpenCard VisibilityInfoOpenCard `json:"openCard"`
-	AddToCart TableGroupItemMetricsAddToCart `json:"addToCart"`
-	OpenToCart TableGroupItemMetricsOpenToCart `json:"openToCart"`
-	Orders TableGroupItemMetricsOrders `json:"orders"`
+	OpenCard    VisibilityInfoOpenCard           `json:"openCard"`
+	AddToCart   TableGroupItemMetricsAddToCart   `json:"addToCart"`
+	OpenToCart  TableGroupItemMetricsOpenToCart  `json:"openToCart"`
+	Orders      TableGroupItemMetricsOrders      `json:"orders"`
 	CartToOrder TableGroupItemMetricsCartToOrder `json:"cartToOrder"`
-	Visibility TableGroupItemMetricsVisibility `json:"visibility"`
+	Visibility  TableGroupItemMetricsVisibility  `json:"visibility"`
 }
 
 type _TableGroupItemMetrics TableGroupItemMetrics
@@ -225,7 +225,7 @@ func (o *TableGroupItemMetrics) SetVisibility(v TableGroupItemMetricsVisibility)
 }
 
 func (o TableGroupItemMetrics) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -263,10 +263,10 @@ func (o *TableGroupItemMetrics) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -322,5 +322,3 @@ func (v *NullableTableGroupItemMetrics) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

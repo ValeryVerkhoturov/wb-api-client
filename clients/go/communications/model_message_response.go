@@ -20,7 +20,7 @@ var _ MappedNullable = &MessageResponse{}
 // MessageResponse struct for MessageResponse
 type MessageResponse struct {
 	// Ошибки загрузки файлов, если есть
-	Errors []string `json:"errors,omitempty"`
+	Errors []string               `json:"errors,omitempty"`
 	Result *MessageResponseResult `json:"result,omitempty"`
 }
 
@@ -106,7 +106,7 @@ func (o *MessageResponse) SetResult(v MessageResponseResult) {
 }
 
 func (o MessageResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,5 +159,3 @@ func (v *NullableMessageResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

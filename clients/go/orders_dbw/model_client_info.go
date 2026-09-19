@@ -21,7 +21,7 @@ var _ MappedNullable = &ClientInfo{}
 type ClientInfo struct {
 	// Подменный номер для связи с покупателем. Пустое значение `\"\"` указывает, что номер ещё не назначен
 	ReplacementPhone *string `json:"replacementPhone,omitempty"`
-	// Номер телефона для связи с покупателем:   - если в поле `phoneCode` не указан добавочный код, вы можете позвонить покупателю по указанному номеру. Дополнительные номера телефонов для связи без кодов указаны в поле `additionalPhones`   - если в поле `phoneCode` указан добавочный код, используйте его, чтобы связаться с покупателем по указанному номеру и добавочному коду 
+	// Номер телефона для связи с покупателем:   - если в поле `phoneCode` не указан добавочный код, вы можете позвонить покупателю по указанному номеру. Дополнительные номера телефонов для связи без кодов указаны в поле `additionalPhones`   - если в поле `phoneCode` указан добавочный код, используйте его, чтобы связаться с покупателем по указанному номеру и добавочному коду
 	Phone *string `json:"phone,omitempty"`
 	// Имя покупателя
 	FirstName *string `json:"firstName,omitempty"`
@@ -311,7 +311,7 @@ func (o *ClientInfo) SetPhoneCode(v int32) {
 }
 
 func (o ClientInfo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -382,5 +382,3 @@ func (v *NullableClientInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

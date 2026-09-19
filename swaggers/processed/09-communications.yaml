@@ -51,7 +51,7 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Непросмотренные отзывы и вопросы
       description: |-
         Метод проверяет наличие непросмотренных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.
@@ -106,7 +106,7 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Неотвеченные вопросы
       description: |-
         Метод возвращает общее количество неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.
@@ -161,7 +161,7 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Количество вопросов
       description: |-
         Метод возвращает количество отвеченных или неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.
@@ -252,7 +252,7 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Список вопросов
       description: |-
         Метод возвращает список вопросов по заданным фильтрам. Вы можете:
@@ -384,7 +384,7 @@ paths:
       x-readonly-method: false
       x-category: questionsandfeedback
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Работа с вопросами
       description: |-
         В зависимости от тела запроса, метод позволяет:
@@ -541,7 +541,7 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Получить вопрос по ID
       description: |-
         Метод возвращает данные [вопроса](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/patchV1Questions).
@@ -635,7 +635,7 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Необработанные отзывы
       description: |-
         Метод возвращает:
@@ -691,7 +691,7 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Количество отзывов
       description: |-
         Метод возвращает количество обработанных или необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период.
@@ -785,7 +785,7 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Список отзывов
       description: |-
         Метод возвращает список отзывов по заданным фильтрам. Вы можете:
@@ -965,7 +965,7 @@ paths:
       tags:
       - Отзывы
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Ответить на отзыв
       description: |-
         Метод позволяет ответить на [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.
@@ -1031,7 +1031,7 @@ paths:
       tags:
       - Отзывы
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Отредактировать ответ на отзыв
       description: |-
         Метод позволяет отредактировать уже отправленный [ответ на отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.
@@ -1090,7 +1090,7 @@ paths:
       x-readonly-method: false
       x-category: questionsandfeedback
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Возврат товара по ID отзыва
       description: |-
         Метод запрашивает возврат товара, по которому оставлен [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).
@@ -1170,7 +1170,7 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Получить отзыв по ID
       description: |-
         Метод возвращает данные [отзыва](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.
@@ -1283,7 +1283,7 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Список архивных отзывов
       description: |-
         Метод возвращает список архивных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).
@@ -1440,7 +1440,7 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Список закреплённых и откреплённых отзывов
       description: |-
         Метод предоставляет список закреплённых и откреплённых отзывов.
@@ -1562,7 +1562,7 @@ paths:
       x-readonly-method: false
       x-category: questionsandfeedback
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Закрепить отзывы
       description: |-
         Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.
@@ -1643,7 +1643,7 @@ paths:
       x-readonly-method: false
       x-category: questionsandfeedback
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Открепить отзывы
       description: |-
         Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.
@@ -1707,7 +1707,7 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Количество закреплённых и откреплённых отзывов
       description: |-
         Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.
@@ -1816,7 +1816,7 @@ paths:
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Лимиты закреплённых отзывов
       description: |-
         Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.
@@ -1853,7 +1853,7 @@ paths:
       servers:
       - url: https://buyer-chat-api.wildberries.ru
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Список чатов
       description: |-
         Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).
@@ -1890,7 +1890,7 @@ paths:
       servers:
       - url: https://buyer-chat-api.wildberries.ru
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: События чатов
       description: |-
         Метод возвращает список событий всех [чатов с покупателями](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).
@@ -2026,7 +2026,7 @@ paths:
       servers:
       - url: https://buyer-chat-api.wildberries.ru
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Отправить сообщение
       description: |-
         Метод отправляет сообщения в [чат с покупателем](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).
@@ -2136,7 +2136,7 @@ paths:
       servers:
       - url: https://buyer-chat-api.wildberries.ru
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Чат с покупателями
       summary: Получить файл из сообщения
@@ -2217,7 +2217,7 @@ paths:
       x-readonly-method: true
       x-category: returns
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Возвраты покупателями
       summary: Заявки покупателей на возврат
@@ -2258,7 +2258,7 @@ paths:
       x-readonly-method: false
       x-category: returns
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Возвраты покупателями
       summary: Ответ на заявку покупателя
@@ -4586,10 +4586,6 @@ components:
         type: integer
         example: 196320101
   securitySchemes:
-    HeaderApiKey:
-      type: apiKey
-      name: Authorization
-      in: header
     BearerAuth:
       type: http
       scheme: bearer

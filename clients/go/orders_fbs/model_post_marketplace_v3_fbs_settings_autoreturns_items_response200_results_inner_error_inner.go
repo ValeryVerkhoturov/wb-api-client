@@ -11,8 +11,8 @@ API version: order
 package orders_fbs
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,7 +23,7 @@ var _ MappedNullable = &PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200R
 type PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner struct {
 	// Код ошибки
 	Code int32 `json:"code"`
-	// Дополнительная информация об ошибке 
+	// Дополнительная информация об ошибке
 	Detail string `json:"detail"`
 }
 
@@ -97,7 +97,7 @@ func (o *PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErro
 }
 
 func (o PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -125,10 +125,10 @@ func (o *PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErro
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -184,5 +184,3 @@ func (v *NullablePostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsI
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

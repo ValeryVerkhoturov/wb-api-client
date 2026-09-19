@@ -11,15 +11,15 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
 // checks if the TableCommonMetricsAvgStockTurnover type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TableCommonMetricsAvgStockTurnover{}
 
-// TableCommonMetricsAvgStockTurnover Оборачиваемость средних остатков. Особые случаи:   1. `\"hours\":-1` — бесконечная длительность   2. `\"hours\":-2` — нулевая длительность   3. `\"hours\":-3` — нерассчитанная длительность 
+// TableCommonMetricsAvgStockTurnover Оборачиваемость средних остатков. Особые случаи:   1. `\"hours\":-1` — бесконечная длительность   2. `\"hours\":-2` — нулевая длительность   3. `\"hours\":-3` — нерассчитанная длительность
 type TableCommonMetricsAvgStockTurnover struct {
 	// Количество дней
 	Days int32 `json:"days"`
@@ -97,7 +97,7 @@ func (o *TableCommonMetricsAvgStockTurnover) SetHours(v int32) {
 }
 
 func (o TableCommonMetricsAvgStockTurnover) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -125,10 +125,10 @@ func (o *TableCommonMetricsAvgStockTurnover) UnmarshalJSON(data []byte) (err err
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -184,5 +184,3 @@ func (v *NullableTableCommonMetricsAvgStockTurnover) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

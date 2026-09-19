@@ -11,8 +11,8 @@ API version: finances
 package finances
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -29,7 +29,7 @@ type SalesReportsDetailedReq struct {
 	Limit *int32 `json:"limit,omitempty"`
 	// ID строки ответа. Необходим для получения отчёта частями. Начинайте загрузку отчёта с `\"rrdid\":0`. В последующих запросах передавайте значение `rrdId` из последней строки предыдущего ответа. Повторяйте запрос, пока не получите ответ `204`
 	RrdId *int32 `json:"rrdId,omitempty"`
-	// Периодичность отчётов:   - `weekly` — еженедельные   - `daily` — ежедневные 
+	// Периодичность отчётов:   - `weekly` — еженедельные   - `daily` — ежедневные
 	Period *string `json:"period,omitempty"`
 	// Список полей, которые вернутся в ответе. Если параметр не указан, возвращаются все поля
 	Fields []string `json:"fields,omitempty"`
@@ -245,7 +245,7 @@ func (o *SalesReportsDetailedReq) SetFields(v []string) {
 }
 
 func (o SalesReportsDetailedReq) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -285,10 +285,10 @@ func (o *SalesReportsDetailedReq) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -344,5 +344,3 @@ func (v *NullableSalesReportsDetailedReq) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

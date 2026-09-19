@@ -113,7 +113,6 @@ HTTPSignatureAuthSetting = TypedDict(
 AuthSettings = TypedDict(
     "AuthSettings",
     {
-        "HeaderApiKey": APIKeyAuthSetting,
         "BearerAuth": BearerFormatAuthSetting,
     },
     total=False,
@@ -164,25 +163,6 @@ class Configuration:
     :param retries: Number of retries for API requests.
 
     :Example:
-
-    API Key Authentication Example.
-    Given the following security scheme in the OpenAPI specification:
-      components:
-        securitySchemes:
-          cookieAuth:         # name for the security scheme
-            type: apiKey
-            in: cookie
-            name: JSESSIONID  # cookie name
-
-    You can programmatically set the cookie:
-
-conf = wb_api_client.orders_dbw.Configuration(
-    api_key={'cookieAuth': 'abc123'}
-    api_key_prefix={'cookieAuth': 'JSESSIONID'}
-)
-
-    The following cookie will be added to the HTTP request:
-       Cookie: JSESSIONID abc123
     """
 
     _default: ClassVar[Optional[Self]] = None
@@ -505,15 +485,6 @@ conf = wb_api_client.orders_dbw.Configuration(
         :return: The Auth Settings information dict.
         """
         auth: AuthSettings = {}
-        if 'HeaderApiKey' in self.api_key:
-            auth['HeaderApiKey'] = {
-                'type': 'api_key',
-                'in': 'header',
-                'key': 'Authorization',
-                'value': self.get_api_key_with_prefix(
-                    'HeaderApiKey',
-                ),
-            }
         if self.access_token is not None:
             auth['BearerAuth'] = {
                 'type': 'bearer',

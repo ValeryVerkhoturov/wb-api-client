@@ -19,7 +19,7 @@ var _ MappedNullable = &PostV2TagRequest{}
 
 // PostV2TagRequest struct for PostV2TagRequest
 type PostV2TagRequest struct {
-	// Цвет ярлыка.  Доступные цвета:   - `D1CFD7` — серый   - `FEE0E0` — красный   - `ECDAFF` — фиолетовый   - `E4EAFF` — синий   - `DEF1DD` — зеленый   - `FFECC7` — желтый 
+	// Цвет ярлыка.  Доступные цвета:   - `D1CFD7` — серый   - `FEE0E0` — красный   - `ECDAFF` — фиолетовый   - `E4EAFF` — синий   - `DEF1DD` — зеленый   - `FFECC7` — желтый
 	Color *string `json:"color,omitempty"`
 	// Имя ярлыка
 	Name *string `json:"name,omitempty"`
@@ -107,7 +107,7 @@ func (o *PostV2TagRequest) SetName(v string) {
 }
 
 func (o PostV2TagRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullablePostV2TagRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

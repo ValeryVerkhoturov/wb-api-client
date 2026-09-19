@@ -27,7 +27,7 @@ type ModelsWarehousesReturnRates struct {
 	DtNextDeliveryDumpSrg *string `json:"dtNextDeliveryDumpSrg,omitempty"`
 	// Дата начала следующего тарифа при обычной доставке
 	DtNextDeliveryDumpSup *string `json:"dtNextDeliveryDumpSup,omitempty"`
-	// Тарифы на возврат, сгруппированные по складам:   - стоимость возврата брака и возврата по инициативе продавца при грузовой доставке.   - стоимость возврата неопознанного складом товара.   - стоимость возврата брака, возврата по инициативе продавца и автовозвратов Маркетплейс (в пункт выдачи и обратно).  Можно получить стоимость возврата в пункт выдачи (ПВЗ) и обратной логистики — если продавец не забрал товары из пункта выдачи за 7 дней. 
+	// Тарифы на возврат, сгруппированные по складам:   - стоимость возврата брака и возврата по инициативе продавца при грузовой доставке.   - стоимость возврата неопознанного складом товара.   - стоимость возврата брака, возврата по инициативе продавца и автовозвратов Маркетплейс (в пункт выдачи и обратно).  Можно получить стоимость возврата в пункт выдачи (ПВЗ) и обратной логистики — если продавец не забрал товары из пункта выдачи за 7 дней.
 	WarehouseList []ModelsWarehouseReturnRates `json:"warehouseList,omitempty"`
 }
 
@@ -210,7 +210,7 @@ func (o *ModelsWarehousesReturnRates) SetWarehouseList(v []ModelsWarehouseReturn
 }
 
 func (o ModelsWarehousesReturnRates) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -272,5 +272,3 @@ func (v *NullableModelsWarehousesReturnRates) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

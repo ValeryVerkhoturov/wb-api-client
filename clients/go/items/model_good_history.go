@@ -35,9 +35,9 @@ type GoodHistory struct {
 	Discount *int32 `json:"discount,omitempty"`
 	// Скидка WB Клуба, %
 	ClubDiscount NullableInt32 `json:"clubDiscount,omitempty"`
-	// Статус товара:   * `2` — товар без ошибок, цена и/или скидка обновилась   * `3` — есть ошибки, данные не обновились 
+	// Статус товара:   * `2` — товар без ошибок, цена и/или скидка обновилась   * `3` — есть ошибки, данные не обновились
 	Status *int32 `json:"status,omitempty"`
-	// Текст ошибки. Например:   - `New price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1). Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine). 
+	// Текст ошибки. Например:   - `New price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1). Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).
 	ErrorText NullableString `json:"errorText,omitempty"`
 }
 
@@ -154,6 +154,7 @@ func (o *GoodHistory) HasSizeID() bool {
 func (o *GoodHistory) SetSizeID(v int32) {
 	o.SizeID.Set(&v)
 }
+
 // SetSizeIDNil sets the value for SizeID to be an explicit nil
 func (o *GoodHistory) SetSizeIDNil() {
 	o.SizeID.Set(nil)
@@ -228,6 +229,7 @@ func (o *GoodHistory) HasPrice() bool {
 func (o *GoodHistory) SetPrice(v int32) {
 	o.Price.Set(&v)
 }
+
 // SetPriceNil sets the value for Price to be an explicit nil
 func (o *GoodHistory) SetPriceNil() {
 	o.Price.Set(nil)
@@ -334,6 +336,7 @@ func (o *GoodHistory) HasClubDiscount() bool {
 func (o *GoodHistory) SetClubDiscount(v int32) {
 	o.ClubDiscount.Set(&v)
 }
+
 // SetClubDiscountNil sets the value for ClubDiscount to be an explicit nil
 func (o *GoodHistory) SetClubDiscountNil() {
 	o.ClubDiscount.Set(nil)
@@ -408,6 +411,7 @@ func (o *GoodHistory) HasErrorText() bool {
 func (o *GoodHistory) SetErrorText(v string) {
 	o.ErrorText.Set(&v)
 }
+
 // SetErrorTextNil sets the value for ErrorText to be an explicit nil
 func (o *GoodHistory) SetErrorTextNil() {
 	o.ErrorText.Set(nil)
@@ -419,7 +423,7 @@ func (o *GoodHistory) UnsetErrorText() {
 }
 
 func (o GoodHistory) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -496,5 +500,3 @@ func (v *NullableGoodHistory) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -11,8 +11,8 @@ API version: dbs
 package dbs
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,8 +22,8 @@ var _ MappedNullable = &ApiB2bClientInfoResponses{}
 // ApiB2bClientInfoResponses struct for ApiB2bClientInfoResponses
 type ApiB2bClientInfoResponses struct {
 	// Уникальный ID запроса
-	RequestId string `json:"requestId"`
-	Results []ApiB2bClientInfoResponse `json:"results,omitempty"`
+	RequestId string                     `json:"requestId"`
+	Results   []ApiB2bClientInfoResponse `json:"results,omitempty"`
 }
 
 type _ApiB2bClientInfoResponses ApiB2bClientInfoResponses
@@ -103,7 +103,7 @@ func (o *ApiB2bClientInfoResponses) SetResults(v []ApiB2bClientInfoResponse) {
 }
 
 func (o ApiB2bClientInfoResponses) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -132,10 +132,10 @@ func (o *ApiB2bClientInfoResponses) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -191,5 +191,3 @@ func (v *NullableApiB2bClientInfoResponses) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

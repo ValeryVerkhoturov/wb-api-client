@@ -109,7 +109,7 @@ func (o *GetV3SuppliesOrdersReshipmentResponse200OrdersInner) SetOrderID(v inter
 }
 
 func (o GetV3SuppliesOrdersReshipmentResponse200OrdersInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -162,5 +162,3 @@ func (v *NullableGetV3SuppliesOrdersReshipmentResponse200OrdersInner) UnmarshalJ
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

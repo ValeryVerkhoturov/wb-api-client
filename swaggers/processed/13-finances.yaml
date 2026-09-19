@@ -31,7 +31,7 @@ paths:
       x-readonly-method: true
       x-category: finance
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Получить баланс продавца
       description: |-
         Метод возвращает данные виджета баланса на [главной странице](https://seller.wildberries.ru) портала продавцов.
@@ -70,7 +70,7 @@ paths:
       - personal
       - service
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Финансовые отчёты
       summary: Список отчётов реализации
@@ -130,7 +130,7 @@ paths:
       - personal
       - service
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Финансовые отчёты
       summary: Детализации к отчётам реализации по ID отчётов
@@ -199,7 +199,7 @@ paths:
       x-readonly-method: true
       x-category: finance
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Финансовые отчёты
       summary: Детализации к отчётам реализации за период
@@ -253,7 +253,7 @@ paths:
       - personal
       - service
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Финансовые отчёты
       summary: Список отчётов об издержках на приём платежей
@@ -311,7 +311,7 @@ paths:
       - personal
       - service
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Финансовые отчёты
       summary: Детализации к отчётам об издержках на приём платежей по ID отчётов
@@ -381,7 +381,7 @@ paths:
       - personal
       - service
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Финансовые отчёты
       summary: Детализации к отчётам об издержках на приём платежей за период
@@ -441,7 +441,7 @@ paths:
       tags:
       - Документы
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Категории документов
       description: |-
         Метод возвращает категории документов для получения [списка документов продавца](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).
@@ -478,7 +478,7 @@ paths:
       x-readonly-method: true
       x-category: documents
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Документы
       summary: Список документов
@@ -590,7 +590,7 @@ paths:
       x-readonly-method: true
       x-category: documents
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Документы
       summary: Получить документ
@@ -644,7 +644,7 @@ paths:
       x-readonly-method: true
       x-category: documents
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Документы
       summary: Получить документы
@@ -2253,10 +2253,6 @@ components:
                 requestId: 0cf25b67-865e-4126-b971-1ff2e17fe84a
                 origin: docs-public-api
   securitySchemes:
-    HeaderApiKey:
-      type: apiKey
-      name: Authorization
-      in: header
     BearerAuth:
       type: http
       scheme: bearer

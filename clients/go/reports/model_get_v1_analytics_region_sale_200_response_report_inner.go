@@ -345,7 +345,7 @@ func (o *GetV1AnalyticsRegionSale200ResponseReportInner) SetSaleItemInvoiceQty(v
 }
 
 func (o GetV1AnalyticsRegionSale200ResponseReportInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -419,5 +419,3 @@ func (v *NullableGetV1AnalyticsRegionSale200ResponseReportInner) UnmarshalJSON(s
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

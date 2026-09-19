@@ -15,13 +15,13 @@ import (
 	"fmt"
 )
 
-// PlacementType Места размещения:   - `search` — поиск   - `recommendation` — рекомендации   - `combined` — поиск и рекомендации 
+// PlacementType Места размещения:   - `search` — поиск   - `recommendation` — рекомендации   - `combined` — поиск и рекомендации
 type PlacementType string
 
 // List of PlacementType
 const (
-	COMBINED PlacementType = "combined"
-	SEARCH PlacementType = "search"
+	COMBINED       PlacementType = "combined"
+	SEARCH         PlacementType = "search"
 	RECOMMENDATION PlacementType = "recommendation"
 )
 
@@ -110,4 +110,3 @@ func (v *NullablePlacementType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

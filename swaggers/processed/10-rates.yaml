@@ -101,7 +101,7 @@ paths:
       x-readonly-method: true
       x-category: commonapi
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Тарифы на поставку
       summary: Тарифы на поставку
@@ -345,10 +345,6 @@ components:
           subjectID: 6461
           subjectName: Dental equipment
   securitySchemes:
-    HeaderApiKey:
-      type: apiKey
-      name: Authorization
-      in: header
     BearerAuth:
       type: http
       scheme: bearer

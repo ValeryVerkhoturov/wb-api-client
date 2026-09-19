@@ -11,8 +11,8 @@ API version: order
 package orders_fbs
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -25,7 +25,7 @@ type PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner struct
 	ChrtId int32 `json:"chrtId"`
 	// Детали ошибки
 	Error []PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner `json:"error,omitempty"`
-	// - `true` — настройки автовозврата товара обновлены 
+	// - `true` — настройки автовозврата товара обновлены
 	Success *bool `json:"success,omitempty"`
 }
 
@@ -138,7 +138,7 @@ func (o *PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) S
 }
 
 func (o PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,10 +170,10 @@ func (o *PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) U
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -229,5 +229,3 @@ func (v *NullablePatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200Results
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -25,7 +25,7 @@ type NmReportGetReportsResponseDataInner struct {
 	Id string `json:"id"`
 	// Дата и время завершения генерации
 	CreatedAt string `json:"createdAt"`
-	// Статус отчёта:  * `WAITING` — в очереди на обработку * `PROCESSING` — генерируется * `SUCCESS —` готов * `RETRY` — ожидает повторной обработки * `FAILED` — не получилось сгенерировать, сгенерируйте повторно 
+	// Статус отчёта:  * `WAITING` — в очереди на обработку * `PROCESSING` — генерируется * `SUCCESS —` готов * `RETRY` — ожидает повторной обработки * `FAILED` — не получилось сгенерировать, сгенерируйте повторно
 	Status string `json:"status"`
 	// Название отчёта
 	Name string `json:"name"`
@@ -232,7 +232,7 @@ func (o *NmReportGetReportsResponseDataInner) SetEndDate(v string) {
 }
 
 func (o NmReportGetReportsResponseDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -270,10 +270,10 @@ func (o *NmReportGetReportsResponseDataInner) UnmarshalJSON(data []byte) (err er
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -329,5 +329,3 @@ func (v *NullableNmReportGetReportsResponseDataInner) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

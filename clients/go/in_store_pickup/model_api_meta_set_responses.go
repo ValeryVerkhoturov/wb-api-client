@@ -11,8 +11,8 @@ API version: instorepickup
 package in_store_pickup
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,8 +22,8 @@ var _ MappedNullable = &ApiMetaSetResponses{}
 // ApiMetaSetResponses struct for ApiMetaSetResponses
 type ApiMetaSetResponses struct {
 	// Уникальный ID запроса
-	RequestId interface{} `json:"requestId"`
-	Results []ApiMetaSetResponse `json:"results"`
+	RequestId interface{}          `json:"requestId"`
+	Results   []ApiMetaSetResponse `json:"results"`
 }
 
 type _ApiMetaSetResponses ApiMetaSetResponses
@@ -98,7 +98,7 @@ func (o *ApiMetaSetResponses) SetResults(v []ApiMetaSetResponse) {
 }
 
 func (o ApiMetaSetResponses) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -128,10 +128,10 @@ func (o *ApiMetaSetResponses) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -187,5 +187,3 @@ func (v *NullableApiMetaSetResponses) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

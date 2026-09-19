@@ -64,7 +64,7 @@ paths:
       x-readonly-method: true
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Списки кампаний
       description: |-
         Метод возвращает списки всех [рекламных кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.
@@ -112,7 +112,7 @@ paths:
       x-readonly-method: true
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Информация о кампаниях
       description: |-
         Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.
@@ -373,7 +373,7 @@ paths:
       x-readonly-method: false
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Создать кампанию
       description: |-
         Метод создаёт кампанию:
@@ -486,7 +486,7 @@ paths:
       x-readonly-method: true
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Предметы для кампаний
       description: |-
         Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
@@ -547,7 +547,7 @@ paths:
       x-readonly-method: true
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Карточки товаров для кампаний
       description: |-
         Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.
@@ -607,7 +607,7 @@ paths:
       x-readonly-method: false
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Удаление кампании
       description: |-
         Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `4` — готова к запуску.
@@ -661,7 +661,7 @@ paths:
       x-readonly-method: false
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Переименование кампании
       description: |-
         Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.
@@ -739,7 +739,7 @@ paths:
       x-readonly-method: false
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Запуск кампании
       description: |-
         Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах `4` — готово к запуску — или `11` — пауза.
@@ -806,7 +806,7 @@ paths:
       x-readonly-method: false
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Пауза кампании
       description: |-
         Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `9` — активна — на паузу.
@@ -870,7 +870,7 @@ paths:
       x-readonly-method: false
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Завершение кампании
       description: |-
         Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах:
@@ -931,7 +931,7 @@ paths:
       x-readonly-method: false
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Изменение мест размещения в кампаниях с ручной ставкой
       description: |-
         Метод меняет места размещения в кампаниях с ручной ставкой и моделью оплаты за показы — `cpm`.
@@ -1033,7 +1033,7 @@ paths:
       x-readonly-method: false
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Изменение ставок в кампаниях
       description: |-
         Метод меняет ставки карточек товаров по артикулам WB в кампаниях:
@@ -1161,7 +1161,7 @@ paths:
       x-readonly-method: true
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Баланс
       description: |-
         Метод возвращает информацию о:
@@ -1220,7 +1220,7 @@ paths:
       x-readonly-method: true
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Остатки бюджетов кампаний
       description: |-
         Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
@@ -1283,7 +1283,7 @@ paths:
       deprecated: true
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Бюджет кампании
       description: |-
         Метод будет отключен [16 ноября](https://dev.wildberries.ru/release-notes?id=582).
@@ -1345,7 +1345,7 @@ paths:
       x-readonly-method: false
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Пополнение бюджета кампании
       description: |-
         Метод пополняет [бюджет](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV2Budget) кампании.
@@ -1455,7 +1455,7 @@ paths:
       x-readonly-method: true
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Получение истории затрат
       description: |-
         Метод формирует список фактических затрат на рекламные кампании за заданный период.
@@ -1540,7 +1540,7 @@ paths:
       x-readonly-method: true
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Получение истории пополнений счёта
       description: |-
         Метод возвращает историю пополнений счёта \*\*WB Продвижение\*\* за заданный период.
@@ -1618,7 +1618,7 @@ paths:
       x-readonly-method: false
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Изменение списка карточек товаров в кампаниях
       description: |-
         Метод добавляет и удаляет карточки товаров в кампаниях.
@@ -2566,7 +2566,7 @@ paths:
       x-readonly-method: true
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Количество медиакампаний
       description: |-
         Метод возвращает количество [медиакампаний](https://dev.wildberries.ru/openapi/promotion#tag/media/operation/getV1Advert) продавца с группировкой по статусам.
@@ -2607,7 +2607,7 @@ paths:
       x-readonly-method: true
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Список медиакампаний
       description: |-
         Метод возвращает список всех [медиакампаний](https://dev.wildberries.ru/openapi/promotion#tag/media/operation/getV1Advert) продавца по их типам и статусам.
@@ -2716,7 +2716,7 @@ paths:
       x-readonly-method: true
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Информация о медиакампании
       description: |-
         Метод возвращает информацию о кампании [WB Медиа](https://cmp.wildberries.ru/cmpf/list). Вместо карточек товаров в медиакампаниях продвигаются рекламные баннеры продавца на сайте и в приложении WB.
@@ -2774,7 +2774,7 @@ paths:
       x-readonly-method: true
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Статистика кампаний
       description: |-
         Метод формирует статистику для кампаний независимо от типа.
@@ -3198,7 +3198,7 @@ paths:
       x-readonly-method: true
       x-category: advert
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Статистика медиакампаний
       description: |-
         Метод формирует статистику кампаний сервиса [WB Медиа](https://cmp.wildberries.ru/cmpf/statistics). Статистику можно группировать по датам и/или интервалам.
@@ -3277,7 +3277,7 @@ paths:
       tags:
       - Календарь акций
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Список акций
       description: |-
         Метод возвращает список [акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.
@@ -3318,7 +3318,7 @@ paths:
       tags:
       - Календарь акций
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Детальная информация об акциях
       description: |-
         Метод возвращает подробную информацию об [акции](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) по ID.
@@ -3355,7 +3355,7 @@ paths:
       tags:
       - Календарь акций
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Список товаров для участия в акции
       description: |-
         Метод формирует список товаров, подходящих для участия в [акции](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails). Эти товары можно добавить в акцию с помощью [отдельного метода](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/postV1CalendarPromotionsUpload).
@@ -3396,7 +3396,7 @@ paths:
       tags:
       - Календарь акций
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Добавить товар в акцию
       description: |-
         Метод создаёт задание на загрузку товара в [акцию](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails).
@@ -6913,10 +6913,6 @@ components:
         timestamp: '2026-05-25T02:47:09Z'
       description: Неверный тип токена
   securitySchemes:
-    HeaderApiKey:
-      type: apiKey
-      name: Authorization
-      in: header
     BearerAuth:
       type: http
       scheme: bearer

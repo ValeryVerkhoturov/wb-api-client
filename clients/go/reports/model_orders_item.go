@@ -63,7 +63,7 @@ type OrdersItem struct {
 	FinishedPrice *float32 `json:"finishedPrice,omitempty"`
 	// Цена со скидкой продавца, в том числе со скидкой WB Клуба
 	PriceWithDisc *float32 `json:"priceWithDisc,omitempty"`
-	// Отмена заказа:   - `true` — заказ отменен 
+	// Отмена заказа:   - `true` — заказ отменен
 	IsCancel *bool `json:"isCancel,omitempty"`
 	// Дата и время отмены заказа. Если заказ не был отменен, то \"0001-01-01T00:00:00\".Если часовой пояс не указан, то берётся Московское время UTC+3.
 	CancelDate *string `json:"cancelDate,omitempty"`
@@ -957,7 +957,7 @@ func (o *OrdersItem) SetSrid(v string) {
 }
 
 func (o OrdersItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1085,5 +1085,3 @@ func (v *NullableOrdersItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

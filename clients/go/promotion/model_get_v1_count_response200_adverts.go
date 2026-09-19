@@ -19,9 +19,9 @@ var _ MappedNullable = &GetV1CountResponse200Adverts{}
 
 // GetV1CountResponse200Adverts struct for GetV1CountResponse200Adverts
 type GetV1CountResponse200Adverts struct {
-	// Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам 
+	// Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам
 	Type *int32 `json:"type,omitempty"`
-	// Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза 
+	// Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза
 	Status *int32 `json:"status,omitempty"`
 	// Количество медиакампаний
 	Count *int32 `json:"count,omitempty"`
@@ -141,7 +141,7 @@ func (o *GetV1CountResponse200Adverts) SetCount(v int32) {
 }
 
 func (o GetV1CountResponse200Adverts) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,5 +197,3 @@ func (v *NullableGetV1CountResponse200Adverts) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

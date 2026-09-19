@@ -19,7 +19,7 @@ var _ MappedNullable = &OrderOptions{}
 
 // OrderOptions Опции заказа
 type OrderOptions struct {
-	// Признак B2B-продажи:   - `false` — не B2B-продажа   - `true` — B2B-продажа 
+	// Признак B2B-продажи:   - `false` — не B2B-продажа   - `true` — B2B-продажа
 	IsB2B *bool `json:"isB2B,omitempty"`
 }
 
@@ -73,7 +73,7 @@ func (o *OrderOptions) SetIsB2B(v bool) {
 }
 
 func (o OrderOptions) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,5 +123,3 @@ func (v *NullableOrderOptions) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,7 +19,7 @@ var _ MappedNullable = &ExciseReportRequest{}
 
 // ExciseReportRequest struct for ExciseReportRequest
 type ExciseReportRequest struct {
-	// Код стран по стандарту ISO 3166-2. Чтобы получить данные по всем странам, оставьте параметр пустым 
+	// Код стран по стандарту ISO 3166-2. Чтобы получить данные по всем странам, оставьте параметр пустым
 	Countries []string `json:"countries,omitempty"`
 }
 
@@ -73,7 +73,7 @@ func (o *ExciseReportRequest) SetCountries(v []string) {
 }
 
 func (o ExciseReportRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,5 +123,3 @@ func (v *NullableExciseReportRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

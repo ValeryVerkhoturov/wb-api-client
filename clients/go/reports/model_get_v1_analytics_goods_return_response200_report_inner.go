@@ -31,7 +31,7 @@ type GetV1AnalyticsGoodsReturnResponse200ReportInner struct {
 	DstOfficeId *int32 `json:"dstOfficeId,omitempty"`
 	// Дата и время истечения срока хранения возврата
 	ExpiredDt NullableString `json:"expiredDt,omitempty"`
-	// Тип статуса возврата:    * `0` — архивный   * `1` — активный 
+	// Тип статуса возврата:    * `0` — архивный   * `1` — активный
 	IsStatusActive *int32 `json:"isStatusActive,omitempty"`
 	// Артикул WB
 	NmId *int32 `json:"nmId,omitempty"`
@@ -172,6 +172,7 @@ func (o *GetV1AnalyticsGoodsReturnResponse200ReportInner) HasCompletedDt() bool 
 func (o *GetV1AnalyticsGoodsReturnResponse200ReportInner) SetCompletedDt(v string) {
 	o.CompletedDt.Set(&v)
 }
+
 // SetCompletedDtNil sets the value for CompletedDt to be an explicit nil
 func (o *GetV1AnalyticsGoodsReturnResponse200ReportInner) SetCompletedDtNil() {
 	o.CompletedDt.Set(nil)
@@ -278,6 +279,7 @@ func (o *GetV1AnalyticsGoodsReturnResponse200ReportInner) HasExpiredDt() bool {
 func (o *GetV1AnalyticsGoodsReturnResponse200ReportInner) SetExpiredDt(v string) {
 	o.ExpiredDt.Set(&v)
 }
+
 // SetExpiredDtNil sets the value for ExpiredDt to be an explicit nil
 func (o *GetV1AnalyticsGoodsReturnResponse200ReportInner) SetExpiredDtNil() {
 	o.ExpiredDt.Set(nil)
@@ -448,6 +450,7 @@ func (o *GetV1AnalyticsGoodsReturnResponse200ReportInner) HasReadyToReturnDt() b
 func (o *GetV1AnalyticsGoodsReturnResponse200ReportInner) SetReadyToReturnDt(v string) {
 	o.ReadyToReturnDt.Set(&v)
 }
+
 // SetReadyToReturnDtNil sets the value for ReadyToReturnDt to be an explicit nil
 func (o *GetV1AnalyticsGoodsReturnResponse200ReportInner) SetReadyToReturnDtNil() {
 	o.ReadyToReturnDt.Set(nil)
@@ -715,7 +718,7 @@ func (o *GetV1AnalyticsGoodsReturnResponse200ReportInner) SetTechSize(v string) 
 }
 
 func (o GetV1AnalyticsGoodsReturnResponse200ReportInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -819,5 +822,3 @@ func (v *NullableGetV1AnalyticsGoodsReturnResponse200ReportInner) UnmarshalJSON(
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

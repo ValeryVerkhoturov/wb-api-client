@@ -11,8 +11,8 @@ API version: promotion
 package promotion
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,7 +22,7 @@ var _ MappedNullable = &V1SetNormQueryBidsResponse{}
 // V1SetNormQueryBidsResponse struct for V1SetNormQueryBidsResponse
 type V1SetNormQueryBidsResponse struct {
 	Success []V1SetNormQueryBidsSuccessResponseItem `json:"success"`
-	Failed []NormQueryBidFailResponseItem `json:"failed"`
+	Failed  []NormQueryBidFailResponseItem          `json:"failed"`
 }
 
 type _V1SetNormQueryBidsResponse V1SetNormQueryBidsResponse
@@ -95,7 +95,7 @@ func (o *V1SetNormQueryBidsResponse) SetFailed(v []NormQueryBidFailResponseItem)
 }
 
 func (o V1SetNormQueryBidsResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,10 +123,10 @@ func (o *V1SetNormQueryBidsResponse) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -182,5 +182,3 @@ func (v *NullableV1SetNormQueryBidsResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

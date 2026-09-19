@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -26,12 +26,12 @@ type FeedbacksIncreaseItem struct {
 	// Всего оценок
 	Total int32 `json:"total"`
 	// Динамика по сравнению с предыдущим периодом, %
-	Dynamics int32 `json:"dynamics"`
-	FiveStar FeedbacksIncreaseItemFiveStar `json:"fiveStar"`
-	FourStar FeedbacksIncreaseItemFourStar `json:"fourStar"`
+	Dynamics  int32                          `json:"dynamics"`
+	FiveStar  FeedbacksIncreaseItemFiveStar  `json:"fiveStar"`
+	FourStar  FeedbacksIncreaseItemFourStar  `json:"fourStar"`
 	ThreeStar FeedbacksIncreaseItemThreeStar `json:"threeStar"`
-	TwoStar FeedbacksIncreaseItemTwoStar `json:"twoStar"`
-	OneStar FeedbacksIncreaseItemOneStar `json:"oneStar"`
+	TwoStar   FeedbacksIncreaseItemTwoStar   `json:"twoStar"`
+	OneStar   FeedbacksIncreaseItemOneStar   `json:"oneStar"`
 }
 
 type _FeedbacksIncreaseItem FeedbacksIncreaseItem
@@ -254,7 +254,7 @@ func (o *FeedbacksIncreaseItem) SetOneStar(v FeedbacksIncreaseItemOneStar) {
 }
 
 func (o FeedbacksIncreaseItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -294,10 +294,10 @@ func (o *FeedbacksIncreaseItem) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -353,5 +353,3 @@ func (v *NullableFeedbacksIncreaseItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

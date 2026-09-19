@@ -243,7 +243,7 @@ func (o *GetV1QuestionsResponse200DataQuestionsInnerProductDetails) SetBrandName
 }
 
 func (o GetV1QuestionsResponse200DataQuestionsInnerProductDetails) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -308,5 +308,3 @@ func (v *NullableGetV1QuestionsResponse200DataQuestionsInnerProductDetails) Unma
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

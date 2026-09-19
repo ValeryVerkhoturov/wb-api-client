@@ -31,9 +31,9 @@ type GetV1UpdResponse200Inner struct {
 	CampName *string `json:"campName,omitempty"`
 	// Тип кампании
 	AdvertType *int32 `json:"advertType,omitempty"`
-	// Источник списания:  - `Баланс`  - `Бонусы`  - `Счёт`  - `Кэшбэк` 
+	// Источник списания:  - `Баланс`  - `Бонусы`  - `Счёт`  - `Кэшбэк`
 	PaymentType *string `json:"paymentType,omitempty"`
-	// Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе 
+	// Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе
 	AdvertStatus *int32 `json:"advertStatus,omitempty"`
 }
 
@@ -118,6 +118,7 @@ func (o *GetV1UpdResponse200Inner) HasUpdTime() bool {
 func (o *GetV1UpdResponse200Inner) SetUpdTime(v string) {
 	o.UpdTime.Set(&v)
 }
+
 // SetUpdTimeNil sets the value for UpdTime to be an explicit nil
 func (o *GetV1UpdResponse200Inner) SetUpdTimeNil() {
 	o.UpdTime.Set(nil)
@@ -321,7 +322,7 @@ func (o *GetV1UpdResponse200Inner) SetAdvertStatus(v int32) {
 }
 
 func (o GetV1UpdResponse200Inner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -392,5 +393,3 @@ func (v *NullableGetV1UpdResponse200Inner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

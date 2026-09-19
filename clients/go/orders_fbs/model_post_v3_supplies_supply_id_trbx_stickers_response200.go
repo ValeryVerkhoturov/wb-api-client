@@ -72,7 +72,7 @@ func (o *PostV3SuppliesSupplyIdTrbxStickersResponse200) SetStickers(v []TrbxStic
 }
 
 func (o PostV3SuppliesSupplyIdTrbxStickersResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -122,5 +122,3 @@ func (v *NullablePostV3SuppliesSupplyIdTrbxStickersResponse200) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

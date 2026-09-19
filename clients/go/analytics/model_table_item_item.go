@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -42,15 +42,15 @@ type TableItemItem struct {
 	// Рейтинг карточки товара
 	Rating float32 `json:"rating"`
 	// Рейтинг по отзывам
-	FeedbackRating float32 `json:"feedbackRating"`
-	Price TableItemItemAllOfPrice `json:"price"`
-	AvgPosition TableGroupItemMetricsAvgPosition `json:"avgPosition"`
-	OpenCard VisibilityInfoOpenCard `json:"openCard"`
-	AddToCart TableGroupItemMetricsAddToCart `json:"addToCart"`
-	OpenToCart TableGroupItemMetricsOpenToCart `json:"openToCart"`
-	Orders TableGroupItemMetricsOrders `json:"orders"`
-	CartToOrder TableGroupItemMetricsCartToOrder `json:"cartToOrder"`
-	Visibility TableGroupItemMetricsVisibility `json:"visibility"`
+	FeedbackRating float32                          `json:"feedbackRating"`
+	Price          TableItemItemAllOfPrice          `json:"price"`
+	AvgPosition    TableGroupItemMetricsAvgPosition `json:"avgPosition"`
+	OpenCard       VisibilityInfoOpenCard           `json:"openCard"`
+	AddToCart      TableGroupItemMetricsAddToCart   `json:"addToCart"`
+	OpenToCart     TableGroupItemMetricsOpenToCart  `json:"openToCart"`
+	Orders         TableGroupItemMetricsOrders      `json:"orders"`
+	CartToOrder    TableGroupItemMetricsCartToOrder `json:"cartToOrder"`
+	Visibility     TableGroupItemMetricsVisibility  `json:"visibility"`
 }
 
 type _TableItemItem TableItemItem
@@ -583,7 +583,7 @@ func (o *TableItemItem) SetVisibility(v TableGroupItemMetricsVisibility) {
 }
 
 func (o TableItemItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -650,10 +650,10 @@ func (o *TableItemItem) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -709,5 +709,3 @@ func (v *NullableTableItemItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

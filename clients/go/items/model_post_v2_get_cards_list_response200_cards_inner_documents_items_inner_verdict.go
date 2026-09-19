@@ -20,9 +20,9 @@ var _ MappedNullable = &PostV2GetCardsListResponse200CardsInnerDocumentsItemsInn
 
 // PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict Результат проверки документа. Возвращается, когда проверка завершена
 type PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict struct {
-	// - `true` — документ проверен - `false` — документ не проверен 
+	// - `true` — документ проверен - `false` — документ не проверен
 	Verified *bool `json:"verified,omitempty"`
-	// Результат проверки документа:   - `1` — проверка пройдена   - `2` — проверка не пройдена 
+	// Результат проверки документа:   - `1` — проверка пройдена   - `2` — проверка не пройдена
 	Status *int32 `json:"status,omitempty"`
 	// Ошибка при проверке, возвращается для `status: 2`. Возможные значения: - `document\\_missing` — Документ не загружен - `document\\_not\\_found` — Документ не найден в реестре - `document\\_inactive` — У документа нет юридической силы - `document\\_expired` — Истёк срок действия документа - `applicant\\_mismatch` — Данные заявителя в документе и карточке различаются - `trade\\_name\\_mismatch` — Торговое наименование в карточке отличается от документа - `unknown` — Проверка не пройдена - `document\\_type\\_mismatch` — Номер документа не соответствует указанному типу документа - `document\\_dates\\_mismatch` — Неверная дата регистрации или окончания действия документа
 	Reason NullableString `json:"reason,omitempty"`
@@ -145,6 +145,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict) HasR
 func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict) SetReason(v string) {
 	o.Reason.Set(&v)
 }
+
 // SetReasonNil sets the value for Reason to be an explicit nil
 func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict) SetReasonNil() {
 	o.Reason.Set(nil)
@@ -221,7 +222,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict) SetC
 }
 
 func (o PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -283,5 +284,3 @@ func (v *NullablePostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdi
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

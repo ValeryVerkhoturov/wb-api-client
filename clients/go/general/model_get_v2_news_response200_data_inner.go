@@ -210,7 +210,7 @@ func (o *GetV2NewsResponse200DataInner) SetTypes(v []GetV2NewsResponse200DataInn
 }
 
 func (o GetV2NewsResponse200DataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -272,5 +272,3 @@ func (v *NullableGetV2NewsResponse200DataInner) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

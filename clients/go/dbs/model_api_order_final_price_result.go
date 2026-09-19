@@ -11,8 +11,8 @@ API version: dbs
 package dbs
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,8 +22,8 @@ var _ MappedNullable = &ApiOrderFinalPriceResult{}
 // ApiOrderFinalPriceResult struct for ApiOrderFinalPriceResult
 type ApiOrderFinalPriceResult struct {
 	// ID сборочного задания
-	OrderId int32 `json:"orderId"`
-	Data *ApiOrderFinalPriceResultData `json:"data,omitempty"`
+	OrderId int32                         `json:"orderId"`
+	Data    *ApiOrderFinalPriceResultData `json:"data,omitempty"`
 	// Детали ошибки
 	Errors []ApiBatchErrorFinalPriceResponse `json:"errors,omitempty"`
 	// Есть ли ошибки
@@ -171,7 +171,7 @@ func (o *ApiOrderFinalPriceResult) SetIsError(v bool) {
 }
 
 func (o ApiOrderFinalPriceResult) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -206,10 +206,10 @@ func (o *ApiOrderFinalPriceResult) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -265,5 +265,3 @@ func (v *NullableApiOrderFinalPriceResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

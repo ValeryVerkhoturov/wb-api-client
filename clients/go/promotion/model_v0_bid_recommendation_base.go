@@ -20,8 +20,8 @@ var _ MappedNullable = &V0BidRecommendationBase{}
 // V0BidRecommendationBase Рекомендуемые ставки для карточек товаров
 type V0BidRecommendationBase struct {
 	CompetitiveBid *V0BidRecommendationBaseBidCompetitiveBid `json:"competitiveBid,omitempty"`
-	LeadersBid *V0BidRecommendationBaseBidLeadersBid `json:"leadersBid,omitempty"`
-	Top2 *V0BidRecommendationBaseBidTop2 `json:"top2,omitempty"`
+	LeadersBid     *V0BidRecommendationBaseBidLeadersBid     `json:"leadersBid,omitempty"`
+	Top2           *V0BidRecommendationBaseBidTop2           `json:"top2,omitempty"`
 }
 
 // NewV0BidRecommendationBase instantiates a new V0BidRecommendationBase object
@@ -138,7 +138,7 @@ func (o *V0BidRecommendationBase) SetTop2(v V0BidRecommendationBaseBidTop2) {
 }
 
 func (o V0BidRecommendationBase) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,5 +194,3 @@ func (v *NullableV0BidRecommendationBase) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

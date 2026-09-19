@@ -11,10 +11,10 @@ API version: items
 package items
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the ModelsErrorTableListPublicRespV2Item type satisfies the MappedNullable interface at compile time
@@ -206,7 +206,7 @@ func (o *ModelsErrorTableListPublicRespV2Item) SetUpdatedAt(v time.Time) {
 }
 
 func (o ModelsErrorTableListPublicRespV2Item) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -242,10 +242,10 @@ func (o *ModelsErrorTableListPublicRespV2Item) UnmarshalJSON(data []byte) (err e
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -301,5 +301,3 @@ func (v *NullableModelsErrorTableListPublicRespV2Item) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

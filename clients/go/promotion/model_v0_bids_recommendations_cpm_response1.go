@@ -20,13 +20,13 @@ var _ MappedNullable = &V0BidsRecommendationsCpmResponse1{}
 // V0BidsRecommendationsCpmResponse1 struct for V0BidsRecommendationsCpmResponse1
 type V0BidsRecommendationsCpmResponse1 struct {
 	// ID кампании
-	AdvertId *int64 `json:"advertId,omitempty"`
-	Base *V0BidRecommendationBase `json:"base,omitempty"`
+	AdvertId *int64                   `json:"advertId,omitempty"`
+	Base     *V0BidRecommendationBase `json:"base,omitempty"`
 	// Артикул WB
 	NmId *int64 `json:"nmId,omitempty"`
 	// Рекомендуемые ставки для поисковых кластеров
 	NormQueries []V0BidRecommendationNormQuery `json:"normQueries,omitempty"`
-	// Тип оплаты:   - `cpm` — за показы 
+	// Тип оплаты:   - `cpm` — за показы
 	PaymentType *string `json:"paymentType,omitempty"`
 }
 
@@ -208,7 +208,7 @@ func (o *V0BidsRecommendationsCpmResponse1) SetPaymentType(v string) {
 }
 
 func (o V0BidsRecommendationsCpmResponse1) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -270,5 +270,3 @@ func (v *NullableV0BidsRecommendationsCpmResponse1) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -141,7 +141,7 @@ func (o *PostV2GetCardsTrashResponse200Cursor) SetTotal(v int32) {
 }
 
 func (o PostV2GetCardsTrashResponse200Cursor) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,5 +197,3 @@ func (v *NullablePostV2GetCardsTrashResponse200Cursor) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

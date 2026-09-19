@@ -20,9 +20,9 @@ var _ MappedNullable = &ModelsOptionsResultModelResultInner{}
 // ModelsOptionsResultModelResultInner struct for ModelsOptionsResultModelResultInner
 type ModelsOptionsResultModelResultInner struct {
 	// Баркод из карточки товара
-	Barcode *string `json:"barcode,omitempty"`
-	Error *ModelsOptionsResultModelResultInnerError `json:"error,omitempty"`
-	// Наличие ошибки:   - `true` — ошибка есть   - Поля нет — ошибка отсутствует 
+	Barcode *string                                   `json:"barcode,omitempty"`
+	Error   *ModelsOptionsResultModelResultInnerError `json:"error,omitempty"`
+	// Наличие ошибки:   - `true` — ошибка есть   - Поля нет — ошибка отсутствует
 	IsError *bool `json:"isError,omitempty"`
 	// Список складов. При наличии ошибки будет `null`
 	Warehouses []ModelsOptionsResultModelResultInnerWarehousesInner `json:"warehouses,omitempty"`
@@ -175,7 +175,7 @@ func (o *ModelsOptionsResultModelResultInner) SetWarehouses(v []ModelsOptionsRes
 }
 
 func (o ModelsOptionsResultModelResultInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullableModelsOptionsResultModelResultInner) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,7 +21,7 @@ type DomainReviewPinMethod string
 // List of domain.ReviewPinMethod
 const (
 	PinMethodSubscription DomainReviewPinMethod = "subscription"
-	PinMethodTariff DomainReviewPinMethod = "tariff"
+	PinMethodTariff       DomainReviewPinMethod = "tariff"
 )
 
 // All allowed values of DomainReviewPinMethod enum
@@ -108,4 +108,3 @@ func (v *NullableDomainReviewPinMethod) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -72,7 +72,7 @@ func (o *GetV1CalendarPromotionsDetails200Response) SetData(v GetV1CalendarPromo
 }
 
 func (o GetV1CalendarPromotionsDetails200Response) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -122,5 +122,3 @@ func (v *NullableGetV1CalendarPromotionsDetails200Response) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

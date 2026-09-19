@@ -12,13 +12,13 @@ package analytics
 
 import (
 	"encoding/json"
-	"gopkg.in/validator.v2"
 	"fmt"
+	"gopkg.in/validator.v2"
 )
 
 // PostV2NmReportDownloads429Response - struct for PostV2NmReportDownloads429Response
 type PostV2NmReportDownloads429Response struct {
-	Response429Download *Response429Download
+	Response429Download      *Response429Download
 	Response429DownloadDaily *Response429DownloadDaily
 }
 
@@ -35,7 +35,6 @@ func Response429DownloadDailyAsPostV2NmReportDownloads429Response(v *Response429
 		Response429DownloadDaily: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *PostV2NmReportDownloads429Response) UnmarshalJSON(data []byte) error {
@@ -102,7 +101,7 @@ func (src PostV2NmReportDownloads429Response) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *PostV2NmReportDownloads429Response) GetActualInstance() (interface{}) {
+func (obj *PostV2NmReportDownloads429Response) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -153,5 +152,3 @@ func (v *NullablePostV2NmReportDownloads429Response) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

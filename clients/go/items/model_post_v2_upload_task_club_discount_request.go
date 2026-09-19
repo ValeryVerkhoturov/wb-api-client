@@ -11,8 +11,8 @@ API version: items
 package items
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &PostV2UploadTaskClubDiscountRequest{}
 
 // PostV2UploadTaskClubDiscountRequest struct for PostV2UploadTaskClubDiscountRequest
 type PostV2UploadTaskClubDiscountRequest struct {
-	// Товары и скидки WB Клуба для них. Максимум 1 000 товаров. 
+	// Товары и скидки WB Клуба для них. Максимум 1 000 товаров.
 	Data []ClubDiscReq `json:"data"`
 }
 
@@ -70,7 +70,7 @@ func (o *PostV2UploadTaskClubDiscountRequest) SetData(v []ClubDiscReq) {
 }
 
 func (o PostV2UploadTaskClubDiscountRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -96,10 +96,10 @@ func (o *PostV2UploadTaskClubDiscountRequest) UnmarshalJSON(data []byte) (err er
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -155,5 +155,3 @@ func (v *NullablePostV2UploadTaskClubDiscountRequest) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

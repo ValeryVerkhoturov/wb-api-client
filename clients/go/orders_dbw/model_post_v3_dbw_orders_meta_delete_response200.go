@@ -11,8 +11,8 @@ API version: ordersdbw
 package orders_dbw
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,8 +22,8 @@ var _ MappedNullable = &PostV3DbwOrdersMetaDeleteResponse200{}
 // PostV3DbwOrdersMetaDeleteResponse200 struct for PostV3DbwOrdersMetaDeleteResponse200
 type PostV3DbwOrdersMetaDeleteResponse200 struct {
 	// Уникальный ID запроса. Отображается для ответов с ошибками
-	RequestId *string `json:"requestId,omitempty"`
-	Results []ApiMetaDeleteResponsesResultsInner `json:"results"`
+	RequestId *string                              `json:"requestId,omitempty"`
+	Results   []ApiMetaDeleteResponsesResultsInner `json:"results"`
 }
 
 type _PostV3DbwOrdersMetaDeleteResponse200 PostV3DbwOrdersMetaDeleteResponse200
@@ -103,7 +103,7 @@ func (o *PostV3DbwOrdersMetaDeleteResponse200) SetResults(v []ApiMetaDeleteRespo
 }
 
 func (o PostV3DbwOrdersMetaDeleteResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -132,10 +132,10 @@ func (o *PostV3DbwOrdersMetaDeleteResponse200) UnmarshalJSON(data []byte) (err e
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -191,5 +191,3 @@ func (v *NullablePostV3DbwOrdersMetaDeleteResponse200) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -145,7 +145,7 @@ func (o *PostV2GetCardsTrashRequestSettingsCursor) SetNmID(v int32) {
 }
 
 func (o PostV2GetCardsTrashRequestSettingsCursor) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -201,5 +201,3 @@ func (v *NullablePostV2GetCardsTrashRequestSettingsCursor) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

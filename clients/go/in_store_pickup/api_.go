@@ -18,28 +18,27 @@ import (
 	"net/url"
 )
 
-
 type DefaultApi interface {
 
 	/*
-	GetV3ClickCollectOrders Получить информацию о завершённых сборочных заданиях
+			GetV3ClickCollectOrders Получить информацию о завершённых сборочных заданиях
 
-	Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.
+			Метод возвращает информацию о завершённых сборочных заданиях после продажи или отмены заказа.
 
-Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
+		Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий Самовывоз**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий Самовывоз**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3ClickCollectOrdersRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV3ClickCollectOrdersRequest
 	*/
 	GetV3ClickCollectOrders(ctx context.Context) ApiGetV3ClickCollectOrdersRequest
 
@@ -48,22 +47,22 @@ type DefaultApi interface {
 	GetV3ClickCollectOrdersExecute(r ApiGetV3ClickCollectOrdersRequest) (*ApiOrders, *http.Response, error)
 
 	/*
-	GetV3ClickCollectOrdersNew Получить список новых сборочных заданий
+			GetV3ClickCollectOrdersNew Получить список новых сборочных заданий
 
-	Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders), которые есть у продавца на момент запроса.
+			Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders), которые есть у продавца на момент запроса.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий Самовывоз**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий Самовывоз**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3ClickCollectOrdersNewRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV3ClickCollectOrdersNewRequest
 	*/
 	GetV3ClickCollectOrdersNew(ctx context.Context) ApiGetV3ClickCollectOrdersNewRequest
 
@@ -72,26 +71,26 @@ type DefaultApi interface {
 	GetV3ClickCollectOrdersNewExecute(r ApiGetV3ClickCollectOrdersNewRequest) (*ApiNewOrders, *http.Response, error)
 
 	/*
-	PostV3ClickCollectOrdersClient Информация о покупателе
+			PostV3ClickCollectOrdersClient Информация о покупателе
 
-	Метод возвращает информацию о покупателе по ID сборочного задания.
+			Метод возвращает информацию о покупателе по ID сборочного задания.
 
-Доступно только для сборочных заданий в статусах:
-- `confirm` — на сборке
-- `prepare` — готов к выдаче
+		Доступно только для сборочных заданий в статусах:
+		- `confirm` — на сборке
+		- `prepare` — готов к выдаче
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий Самовывоз**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий Самовывоз**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersClientRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3ClickCollectOrdersClientRequest
 	*/
 	PostV3ClickCollectOrdersClient(ctx context.Context) ApiPostV3ClickCollectOrdersClientRequest
 
@@ -100,24 +99,24 @@ type DefaultApi interface {
 	PostV3ClickCollectOrdersClientExecute(r ApiPostV3ClickCollectOrdersClientRequest) (*ApiOrderClientInfoResp, *http.Response, error)
 
 	/*
-	PostV3ClickCollectOrdersClientIdentity Проверить, что заказ принадлежит покупателю
+			PostV3ClickCollectOrdersClientIdentity Проверить, что заказ принадлежит покупателю
 
-	Метод сообщает, принадлежит ли проверяемый заказ покупателю или нет по переданному коду.
+			Метод сообщает, принадлежит ли проверяемый заказ покупателю или нет по переданному коду.
 
-Доступно, если хотя бы одно сборочное задание из заказа находится в статусе prepare - готов к выдаче.
+		Доступно, если хотя бы одно сборочное задание из заказа находится в статусе prepare - готов к выдаче.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 30 запросов | 2 сек | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 30 запросов | 2 сек | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersClientIdentityRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3ClickCollectOrdersClientIdentityRequest
 	*/
 	PostV3ClickCollectOrdersClientIdentity(ctx context.Context) ApiPostV3ClickCollectOrdersClientIdentityRequest
 
@@ -126,24 +125,24 @@ type DefaultApi interface {
 	PostV3ClickCollectOrdersClientIdentityExecute(r ApiPostV3ClickCollectOrdersClientIdentityRequest) (*ApiCheckedIdentity, *http.Response, error)
 
 	/*
-	PostV3ClickCollectOrdersFinalPrice Получить цены продавца и суммы к оплате
+			PostV3ClickCollectOrdersFinalPrice Получить цены продавца и суммы к оплате
 
-	Метод возвращает:
-- цены продавца без учёта скидок
-- суммы к оплате покупателем с учетом всех скидок и кэшбека
+			Метод возвращает:
+		- цены продавца без учёта скидок
+		- суммы к оплате покупателем с учетом всех скидок и кэшбека
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки Самовывоз**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 150 запросов | 400 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки Самовывоз**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 150 запросов | 400 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersFinalPriceRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3ClickCollectOrdersFinalPriceRequest
 	*/
 	PostV3ClickCollectOrdersFinalPrice(ctx context.Context) ApiPostV3ClickCollectOrdersFinalPriceRequest
 
@@ -152,26 +151,26 @@ type DefaultApi interface {
 	PostV3ClickCollectOrdersFinalPriceExecute(r ApiPostV3ClickCollectOrdersFinalPriceRequest) (*ApiOrdersFinalPriceResponse, *http.Response, error)
 
 	/*
-	PostV3ClickCollectOrdersMetaCustomsDeclaration Закрепить номера ДТ за сборочными заданиями
+			PostV3ClickCollectOrdersMetaCustomsDeclaration Закрепить номера ДТ за сборочными заданиями
 
-	Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ.
-Закрепить номер ДТ можно, только если выполняются все условия:
-- сборочное задание имеет признак B2B-продажи — `"isB2b":true` в ответе метода [получения новых сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)
-- сборочное задание находится в [статусах](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` или `prepare`
-- поле `customsDeclaration` есть в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails)
+			Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ.
+		Закрепить номер ДТ можно, только если выполняются все условия:
+		- сборочное задание имеет признак B2B-продажи — `"isB2b":true` в ответе метода [получения новых сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew)
+		- сборочное задание находится в [статусах](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` или `prepare`
+		- поле `customsDeclaration` есть в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails)
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 20 запросов | 3 сек | 500 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 20 запросов | 3 сек | 500 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest
 	*/
 	PostV3ClickCollectOrdersMetaCustomsDeclaration(ctx context.Context) ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest
 
@@ -180,29 +179,29 @@ type DefaultApi interface {
 	PostV3ClickCollectOrdersMetaCustomsDeclarationExecute(r ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest) (*ApiCustomsDeclarationSetResponse, *http.Response, error)
 
 	/*
-	PostV3ClickCollectOrdersMetaDelete Удалить идентификаторы маркировки сборочных заданий
+			PostV3ClickCollectOrdersMetaDelete Удалить идентификаторы маркировки сборочных заданий
 
-	Метод удаляет значения указанных [идентификаторов маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
+			Метод удаляет значения указанных [идентификаторов маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
 
-В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:
-- `imei` — [IMEI](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)
-- `uin` — [УИН](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)
-- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)
-- `sgtin` — [код маркировки](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)
-- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`
+		В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:
+		- `imei` — [IMEI](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)
+		- `uin` — [УИН](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)
+		- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)
+		- `sgtin` — [код маркировки](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)
+		- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки Самовывоз**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 150 запросов | 400 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки Самовывоз**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 150 запросов | 400 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersMetaDeleteRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3ClickCollectOrdersMetaDeleteRequest
 	*/
 	PostV3ClickCollectOrdersMetaDelete(ctx context.Context) ApiPostV3ClickCollectOrdersMetaDeleteRequest
 
@@ -211,27 +210,27 @@ type DefaultApi interface {
 	PostV3ClickCollectOrdersMetaDeleteExecute(r ApiPostV3ClickCollectOrdersMetaDeleteRequest) (*ApiOrdersResponses, *http.Response, error)
 
 	/*
-	PostV3ClickCollectOrdersMetaDetails Получить идентификаторы маркировки сборочных заданий
+			PostV3ClickCollectOrdersMetaDetails Получить идентификаторы маркировки сборочных заданий
 
-	Метод возвращает идентификаторы маркировки [сборочных заданий ](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и статусы их проверки.
+			Метод возвращает идентификаторы маркировки [сборочных заданий ](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) и статусы их проверки.
 
-Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.
-Возможные идентификаторы маркировки:
-- `imei` — [IMEI](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)
-- `uin` — [УИН](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)
-- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)
-- `sgtin` — [код маркировки](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)
-- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)
-- `originCountryCode` — [числовой код страны происхождения товара](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
+		Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.
+		Возможные идентификаторы маркировки:
+		- `imei` — [IMEI](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)
+		- `uin` — [УИН](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)
+		- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)
+		- `sgtin` — [код маркировки](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)
+		- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)
+		- `originCountryCode` — [числовой код страны происхождения товара](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки Самовывоз**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 150 запросов | 400 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки Самовывоз**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 150 запросов | 400 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersMetaDetailsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3ClickCollectOrdersMetaDetailsRequest
 	*/
 	PostV3ClickCollectOrdersMetaDetails(ctx context.Context) ApiPostV3ClickCollectOrdersMetaDetailsRequest
 
@@ -240,23 +239,23 @@ type DefaultApi interface {
 	PostV3ClickCollectOrdersMetaDetailsExecute(r ApiPostV3ClickCollectOrdersMetaDetailsRequest) (*ApiOrdersMetaDetailsResponse, *http.Response, error)
 
 	/*
-	PostV3ClickCollectOrdersMetaGtin Закрепить GTIN за сборочными заданиями
+			PostV3ClickCollectOrdersMetaGtin Закрепить GTIN за сборочными заданиями
 
-	Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один GTIN.
-Закрепить GTIN можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `gtin`.
+			Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один GTIN.
+		Закрепить GTIN можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `gtin`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 20 запросов | 3 сек | 500 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 20 запросов | 3 сек | 500 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersMetaGtinRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3ClickCollectOrdersMetaGtinRequest
 	*/
 	PostV3ClickCollectOrdersMetaGtin(ctx context.Context) ApiPostV3ClickCollectOrdersMetaGtinRequest
 
@@ -265,24 +264,24 @@ type DefaultApi interface {
 	PostV3ClickCollectOrdersMetaGtinExecute(r ApiPostV3ClickCollectOrdersMetaGtinRequest) (*ApiMetaSetResponses, *http.Response, error)
 
 	/*
-	PostV3ClickCollectOrdersMetaImei Закрепить IMEI за сборочными заданиями
+			PostV3ClickCollectOrdersMetaImei Закрепить IMEI за сборочными заданиями
 
-	Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
-У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — \*\*IMEI\*\* и \*\*IMEI2\*\* или \*\*IMEI1\*\* и \*\*IMEI2\*\* — укажите только \*\*IMEI\*\* или \*\*IMEI1\*\*. \*\*IMEI2\*\* указывать не нужно.
-Закрепить IMEI можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `imei`.
+			Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
+		У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — \*\*IMEI\*\* и \*\*IMEI2\*\* или \*\*IMEI1\*\* и \*\*IMEI2\*\* — укажите только \*\*IMEI\*\* или \*\*IMEI1\*\*. \*\*IMEI2\*\* указывать не нужно.
+		Закрепить IMEI можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `imei`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 20 запросов | 3 сек | 500 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 20 запросов | 3 сек | 500 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersMetaImeiRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3ClickCollectOrdersMetaImeiRequest
 	*/
 	PostV3ClickCollectOrdersMetaImei(ctx context.Context) ApiPostV3ClickCollectOrdersMetaImeiRequest
 
@@ -291,25 +290,25 @@ type DefaultApi interface {
 	PostV3ClickCollectOrdersMetaImeiExecute(r ApiPostV3ClickCollectOrdersMetaImeiRequest) (*ApiMetaSetResponses, *http.Response, error)
 
 	/*
-	PostV3ClickCollectOrdersMetaSgtin Закрепить коды маркировки Честного знака за сборочными заданиями
+			PostV3ClickCollectOrdersMetaSgtin Закрепить коды маркировки Честного знака за сборочными заданиями
 
-	Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
-Закрепить код маркировки можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `sgtin`.
+			Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
+		Закрепить код маркировки можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `sgtin`.
 
-Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
+		Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 20 запросов | 3 сек | 500 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 20 запросов | 3 сек | 500 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersMetaSgtinRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3ClickCollectOrdersMetaSgtinRequest
 	*/
 	PostV3ClickCollectOrdersMetaSgtin(ctx context.Context) ApiPostV3ClickCollectOrdersMetaSgtinRequest
 
@@ -318,23 +317,23 @@ type DefaultApi interface {
 	PostV3ClickCollectOrdersMetaSgtinExecute(r ApiPostV3ClickCollectOrdersMetaSgtinRequest) (*ApiMetaSetResponses, *http.Response, error)
 
 	/*
-	PostV3ClickCollectOrdersMetaUin Закрепить УИН за сборочными заданиями
+			PostV3ClickCollectOrdersMetaUin Закрепить УИН за сборочными заданиями
 
-	Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один УИН.
-Закрепить УИН можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `uin`.
+			Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails). У одного сборочного задания может быть только один УИН.
+		Закрепить УИН можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaDetails) есть поле `uin`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 20 запросов | 3 сек | 500 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки Самовывоз**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 20 запросов | 3 сек | 500 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersMetaUinRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3ClickCollectOrdersMetaUinRequest
 	*/
 	PostV3ClickCollectOrdersMetaUin(ctx context.Context) ApiPostV3ClickCollectOrdersMetaUinRequest
 
@@ -343,22 +342,22 @@ type DefaultApi interface {
 	PostV3ClickCollectOrdersMetaUinExecute(r ApiPostV3ClickCollectOrdersMetaUinRequest) (*ApiMetaSetResponses, *http.Response, error)
 
 	/*
-	PostV3ClickCollectOrdersStatusCancel Отменить сборочные задания
+			PostV3ClickCollectOrdersStatusCancel Отменить сборочные задания
 
-	Переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статусов](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new`, `confirm`, `prepare` в статус `cancel` — отменено продавцом.
+			Переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статусов](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new`, `confirm`, `prepare` в статус `cancel` — отменено продавцом.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 10 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 сек | 1 запрос | 1 сек | 10 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersStatusCancelRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3ClickCollectOrdersStatusCancelRequest
 	*/
 	PostV3ClickCollectOrdersStatusCancel(ctx context.Context) ApiPostV3ClickCollectOrdersStatusCancelRequest
 
@@ -367,22 +366,22 @@ type DefaultApi interface {
 	PostV3ClickCollectOrdersStatusCancelExecute(r ApiPostV3ClickCollectOrdersStatusCancelRequest) (*ApiStatusSetResponses, *http.Response, error)
 
 	/*
-	PostV3ClickCollectOrdersStatusConfirm Перевести сборочные задания на сборку
+			PostV3ClickCollectOrdersStatusConfirm Перевести сборочные задания на сборку
 
-	Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new` — новый — в статус `confirm` — на сборке.
+			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `new` — новый — в статус `confirm` — на сборке.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 10 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 сек | 1 запрос | 1 сек | 10 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersStatusConfirmRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3ClickCollectOrdersStatusConfirmRequest
 	*/
 	PostV3ClickCollectOrdersStatusConfirm(ctx context.Context) ApiPostV3ClickCollectOrdersStatusConfirmRequest
 
@@ -391,46 +390,46 @@ type DefaultApi interface {
 	PostV3ClickCollectOrdersStatusConfirmExecute(r ApiPostV3ClickCollectOrdersStatusConfirmRequest) (*ApiStatusSetResponses, *http.Response, error)
 
 	/*
-	PostV3ClickCollectOrdersStatusInfo Получить статусы сборочных заданий
+			PostV3ClickCollectOrdersStatusInfo Получить статусы сборочных заданий
 
-	Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) по их ID.
+			Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) по их ID.
 
-`supplierStatus` — статус сборочного задания. Триггер его изменения - действие самого продавца.
-Возможные значения `supplierStatus`:
-| Статус | Описание | Как перевести сборочное задание в данный статус |
-| ------- | --------- | --------------------------------------|
-| `new` | \*\*Новое сборочное задание\*\* |
-| `confirm` | \*\*На сборке\*\* | [Перевести сборочное задание на сборку](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusConfirm)
-| `prepare` | \*\*Готов к выдаче\*\* | [Сообщить, что сборочное задание готово к выдаче](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusPrepare)
-| `receive` | \*\*Получено покупателем\*\* | [Сообщить, что заказ принят покупателем](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReceive)
-| `reject` | \*\*Отказ покупателя при получении\*\* | [Сообщить, что покупатель отказался от заказа](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReject)
-| `cancel` | \*\*Отменено продавцом\*\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusCancel)
-| `cancel\_shelf\_life` | \*\*Отмена по истечении срока хранения\*\* | Переводится автоматически по возникновению события
+		`supplierStatus` — статус сборочного задания. Триггер его изменения - действие самого продавца.
+		Возможные значения `supplierStatus`:
+		| Статус | Описание | Как перевести сборочное задание в данный статус |
+		| ------- | --------- | --------------------------------------|
+		| `new` | \*\*Новое сборочное задание\*\* |
+		| `confirm` | \*\*На сборке\*\* | [Перевести сборочное задание на сборку](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusConfirm)
+		| `prepare` | \*\*Готов к выдаче\*\* | [Сообщить, что сборочное задание готово к выдаче](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusPrepare)
+		| `receive` | \*\*Получено покупателем\*\* | [Сообщить, что заказ принят покупателем](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReceive)
+		| `reject` | \*\*Отказ покупателя при получении\*\* | [Сообщить, что покупатель отказался от заказа](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusReject)
+		| `cancel` | \*\*Отменено продавцом\*\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusCancel)
+		| `cancel\_shelf\_life` | \*\*Отмена по истечении срока хранения\*\* | Переводится автоматически по возникновению события
 
-`wbStatus` — статус системы Wildberries.
-Возможные значения `wbStatus`:
-- `waiting` - сборочное задание в работе
-- `sold` - заказ получен покупателем
-- `canceled` - отмена сборочного задания
-- `canceled\_by\_client` - покупатель отменил заказ при получении
-- `declined\_by\_client` - покупатель отменил заказ в первый чаc
+		`wbStatus` — статус системы Wildberries.
+		Возможные значения `wbStatus`:
+		- `waiting` - сборочное задание в работе
+		- `sold` - заказ получен покупателем
+		- `canceled` - отмена сборочного задания
+		- `canceled\_by\_client` - покупатель отменил заказ при получении
+		- `declined\_by\_client` - покупатель отменил заказ в первый чаc
 
- Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку
-- `defect` - отмена заказа по причине брака
-- `ready\_for\_pickup` - заказ готов к выдаче
+		 Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку
+		- `defect` - отмена заказа по причине брака
+		- `ready\_for\_pickup` - заказ готов к выдаче
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 10 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 сек | 1 запрос | 1 сек | 10 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersStatusInfoRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3ClickCollectOrdersStatusInfoRequest
 	*/
 	PostV3ClickCollectOrdersStatusInfo(ctx context.Context) ApiPostV3ClickCollectOrdersStatusInfoRequest
 
@@ -439,22 +438,22 @@ type DefaultApi interface {
 	PostV3ClickCollectOrdersStatusInfoExecute(r ApiPostV3ClickCollectOrdersStatusInfoRequest) (*ApiOrderStatusesV2, *http.Response, error)
 
 	/*
-	PostV3ClickCollectOrdersStatusPrepare Сообщить, что сборочные задания готовы к выдаче
+			PostV3ClickCollectOrdersStatusPrepare Сообщить, что сборочные задания готовы к выдаче
 
-	Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` — на сборке — в статус `prepare` — готово к выдаче.
+			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `confirm` — на сборке — в статус `prepare` — готово к выдаче.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 10 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 сек | 1 запрос | 1 сек | 10 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersStatusPrepareRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3ClickCollectOrdersStatusPrepareRequest
 	*/
 	PostV3ClickCollectOrdersStatusPrepare(ctx context.Context) ApiPostV3ClickCollectOrdersStatusPrepareRequest
 
@@ -463,22 +462,22 @@ type DefaultApi interface {
 	PostV3ClickCollectOrdersStatusPrepareExecute(r ApiPostV3ClickCollectOrdersStatusPrepareRequest) (*ApiMetaDetailsResponse, *http.Response, error)
 
 	/*
-	PostV3ClickCollectOrdersStatusReceive Сообщить, что заказы приняты покупателями
+			PostV3ClickCollectOrdersStatusReceive Сообщить, что заказы приняты покупателями
 
-	Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `receive` — получено покупателем.
+			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `receive` — получено покупателем.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 10 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 сек | 1 запрос | 1 сек | 10 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersStatusReceiveRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3ClickCollectOrdersStatusReceiveRequest
 	*/
 	PostV3ClickCollectOrdersStatusReceive(ctx context.Context) ApiPostV3ClickCollectOrdersStatusReceiveRequest
 
@@ -487,22 +486,22 @@ type DefaultApi interface {
 	PostV3ClickCollectOrdersStatusReceiveExecute(r ApiPostV3ClickCollectOrdersStatusReceiveRequest) (*ApiStatusSetResponses, *http.Response, error)
 
 	/*
-	PostV3ClickCollectOrdersStatusReject Сообщить об отказе от заказов
+			PostV3ClickCollectOrdersStatusReject Сообщить об отказе от заказов
 
-	Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `reject` — отказ при получении.
+			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersStatusInfo) `prepare` — готово к выдаче — в статус `reject` — отказ при получении.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 10 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 сек | 1 запрос | 1 сек | 10 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3ClickCollectOrdersStatusRejectRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3ClickCollectOrdersStatusRejectRequest
 	*/
 	PostV3ClickCollectOrdersStatusReject(ctx context.Context) ApiPostV3ClickCollectOrdersStatusRejectRequest
 
@@ -515,21 +514,21 @@ type DefaultApi interface {
 type DefaultApiService service
 
 type ApiGetV3ClickCollectOrdersRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
-	limit *int32
-	next *int32
-	dateFrom *int32
-	dateTo *int32
+	limit      *int32
+	next       *int32
+	dateFrom   *int32
+	dateTo     *int32
 }
 
-// Количество элементов в ответе 
+// Количество элементов в ответе
 func (r ApiGetV3ClickCollectOrdersRequest) Limit(limit int32) ApiGetV3ClickCollectOrdersRequest {
 	r.limit = &limit
 	return r
 }
 
-// Параметр пагинации. Чтобы получить полный список данных, укажите &#x60;0&#x60; в первом запросе. Чтобы получить следующий пакет данных, используйте значение &#x60;next&#x60; из ответа 
+// Параметр пагинации. Чтобы получить полный список данных, укажите &#x60;0&#x60; в первом запросе. Чтобы получить следующий пакет данных, используйте значение &#x60;next&#x60; из ответа
 func (r ApiGetV3ClickCollectOrdersRequest) Next(next int32) ApiGetV3ClickCollectOrdersRequest {
 	r.next = &next
 	return r
@@ -568,24 +567,25 @@ GetV3ClickCollectOrders Получить информацию о завершё�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV3ClickCollectOrdersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3ClickCollectOrdersRequest
 */
 func (a *DefaultApiService) GetV3ClickCollectOrders(ctx context.Context) ApiGetV3ClickCollectOrdersRequest {
 	return ApiGetV3ClickCollectOrdersRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiOrders
+//
+//	@return ApiOrders
 func (a *DefaultApiService) GetV3ClickCollectOrdersExecute(r ApiGetV3ClickCollectOrdersRequest) (*ApiOrders, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiOrders
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiOrders
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV3ClickCollectOrders")
@@ -667,8 +667,8 @@ func (a *DefaultApiService) GetV3ClickCollectOrdersExecute(r ApiGetV3ClickCollec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -678,8 +678,8 @@ func (a *DefaultApiService) GetV3ClickCollectOrdersExecute(r ApiGetV3ClickCollec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -689,8 +689,8 @@ func (a *DefaultApiService) GetV3ClickCollectOrdersExecute(r ApiGetV3ClickCollec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -700,8 +700,8 @@ func (a *DefaultApiService) GetV3ClickCollectOrdersExecute(r ApiGetV3ClickCollec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -711,8 +711,8 @@ func (a *DefaultApiService) GetV3ClickCollectOrdersExecute(r ApiGetV3ClickCollec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -730,7 +730,7 @@ func (a *DefaultApiService) GetV3ClickCollectOrdersExecute(r ApiGetV3ClickCollec
 }
 
 type ApiGetV3ClickCollectOrdersNewRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
 }
 
@@ -753,24 +753,25 @@ GetV3ClickCollectOrdersNew Получить список новых сбороч
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV3ClickCollectOrdersNewRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3ClickCollectOrdersNewRequest
 */
 func (a *DefaultApiService) GetV3ClickCollectOrdersNew(ctx context.Context) ApiGetV3ClickCollectOrdersNewRequest {
 	return ApiGetV3ClickCollectOrdersNewRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiNewOrders
+//
+//	@return ApiNewOrders
 func (a *DefaultApiService) GetV3ClickCollectOrdersNewExecute(r ApiGetV3ClickCollectOrdersNewRequest) (*ApiNewOrders, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiNewOrders
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiNewOrders
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV3ClickCollectOrdersNew")
@@ -830,8 +831,8 @@ func (a *DefaultApiService) GetV3ClickCollectOrdersNewExecute(r ApiGetV3ClickCol
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -841,8 +842,8 @@ func (a *DefaultApiService) GetV3ClickCollectOrdersNewExecute(r ApiGetV3ClickCol
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -852,8 +853,8 @@ func (a *DefaultApiService) GetV3ClickCollectOrdersNewExecute(r ApiGetV3ClickCol
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -863,8 +864,8 @@ func (a *DefaultApiService) GetV3ClickCollectOrdersNewExecute(r ApiGetV3ClickCol
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -882,8 +883,8 @@ func (a *DefaultApiService) GetV3ClickCollectOrdersNewExecute(r ApiGetV3ClickCol
 }
 
 type ApiPostV3ClickCollectOrdersClientRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx              context.Context
+	ApiService       DefaultApi
 	apiOrdersRequest *ApiOrdersRequest
 }
 
@@ -915,24 +916,25 @@ PostV3ClickCollectOrdersClient Информация о покупателе
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3ClickCollectOrdersClientRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersClientRequest
 */
 func (a *DefaultApiService) PostV3ClickCollectOrdersClient(ctx context.Context) ApiPostV3ClickCollectOrdersClientRequest {
 	return ApiPostV3ClickCollectOrdersClientRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiOrderClientInfoResp
+//
+//	@return ApiOrderClientInfoResp
 func (a *DefaultApiService) PostV3ClickCollectOrdersClientExecute(r ApiPostV3ClickCollectOrdersClientRequest) (*ApiOrderClientInfoResp, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiOrderClientInfoResp
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiOrderClientInfoResp
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV3ClickCollectOrdersClient")
@@ -997,8 +999,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersClientExecute(r ApiPostV3Cli
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1008,8 +1010,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersClientExecute(r ApiPostV3Cli
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1019,8 +1021,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersClientExecute(r ApiPostV3Cli
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1030,8 +1032,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersClientExecute(r ApiPostV3Cli
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1041,8 +1043,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersClientExecute(r ApiPostV3Cli
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1060,8 +1062,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersClientExecute(r ApiPostV3Cli
 }
 
 type ApiPostV3ClickCollectOrdersClientIdentityRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                     context.Context
+	ApiService              DefaultApi
 	apiCheckIdentityRequest *ApiCheckIdentityRequest
 }
 
@@ -1091,24 +1093,25 @@ PostV3ClickCollectOrdersClientIdentity Проверить, что заказ п�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3ClickCollectOrdersClientIdentityRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersClientIdentityRequest
 */
 func (a *DefaultApiService) PostV3ClickCollectOrdersClientIdentity(ctx context.Context) ApiPostV3ClickCollectOrdersClientIdentityRequest {
 	return ApiPostV3ClickCollectOrdersClientIdentityRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiCheckedIdentity
+//
+//	@return ApiCheckedIdentity
 func (a *DefaultApiService) PostV3ClickCollectOrdersClientIdentityExecute(r ApiPostV3ClickCollectOrdersClientIdentityRequest) (*ApiCheckedIdentity, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiCheckedIdentity
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiCheckedIdentity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV3ClickCollectOrdersClientIdentity")
@@ -1173,8 +1176,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersClientIdentityExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1184,8 +1187,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersClientIdentityExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1195,8 +1198,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersClientIdentityExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1206,8 +1209,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersClientIdentityExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1217,8 +1220,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersClientIdentityExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1228,8 +1231,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersClientIdentityExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1239,8 +1242,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersClientIdentityExecute(r ApiP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1258,8 +1261,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersClientIdentityExecute(r ApiP
 }
 
 type ApiPostV3ClickCollectOrdersFinalPriceRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx              context.Context
+	ApiService       DefaultApi
 	apiOrdersRequest *ApiOrdersRequest
 }
 
@@ -1289,24 +1292,25 @@ PostV3ClickCollectOrdersFinalPrice Получить цены продавца и
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3ClickCollectOrdersFinalPriceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersFinalPriceRequest
 */
 func (a *DefaultApiService) PostV3ClickCollectOrdersFinalPrice(ctx context.Context) ApiPostV3ClickCollectOrdersFinalPriceRequest {
 	return ApiPostV3ClickCollectOrdersFinalPriceRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiOrdersFinalPriceResponse
+//
+//	@return ApiOrdersFinalPriceResponse
 func (a *DefaultApiService) PostV3ClickCollectOrdersFinalPriceExecute(r ApiPostV3ClickCollectOrdersFinalPriceRequest) (*ApiOrdersFinalPriceResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiOrdersFinalPriceResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiOrdersFinalPriceResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV3ClickCollectOrdersFinalPrice")
@@ -1368,8 +1372,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersFinalPriceExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1379,8 +1383,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersFinalPriceExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1390,8 +1394,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersFinalPriceExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1401,8 +1405,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersFinalPriceExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1420,8 +1424,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersFinalPriceExecute(r ApiPostV
 }
 
 type ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                                                   context.Context
+	ApiService                                            DefaultApi
 	postV3ClickCollectOrdersMetaCustomsDeclarationRequest *PostV3ClickCollectOrdersMetaCustomsDeclarationRequest
 }
 
@@ -1453,24 +1457,25 @@ PostV3ClickCollectOrdersMetaCustomsDeclaration Закрепить номера �
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest
 */
 func (a *DefaultApiService) PostV3ClickCollectOrdersMetaCustomsDeclaration(ctx context.Context) ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest {
 	return ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiCustomsDeclarationSetResponse
+//
+//	@return ApiCustomsDeclarationSetResponse
 func (a *DefaultApiService) PostV3ClickCollectOrdersMetaCustomsDeclarationExecute(r ApiPostV3ClickCollectOrdersMetaCustomsDeclarationRequest) (*ApiCustomsDeclarationSetResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiCustomsDeclarationSetResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiCustomsDeclarationSetResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV3ClickCollectOrdersMetaCustomsDeclaration")
@@ -1506,20 +1511,6 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaCustomsDeclarationExecut
 	}
 	// body params
 	localVarPostBody = r.postV3ClickCollectOrdersMetaCustomsDeclarationRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1549,8 +1540,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaCustomsDeclarationExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1560,8 +1551,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaCustomsDeclarationExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1571,8 +1562,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaCustomsDeclarationExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1582,8 +1573,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaCustomsDeclarationExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1601,8 +1592,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaCustomsDeclarationExecut
 }
 
 type ApiPostV3ClickCollectOrdersMetaDeleteRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                        context.Context
+	ApiService                 DefaultApi
 	apiOrdersMetaDeleteRequest *ApiOrdersMetaDeleteRequest
 }
 
@@ -1637,24 +1628,25 @@ PostV3ClickCollectOrdersMetaDelete Удалить идентификаторы �
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3ClickCollectOrdersMetaDeleteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersMetaDeleteRequest
 */
 func (a *DefaultApiService) PostV3ClickCollectOrdersMetaDelete(ctx context.Context) ApiPostV3ClickCollectOrdersMetaDeleteRequest {
 	return ApiPostV3ClickCollectOrdersMetaDeleteRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiOrdersResponses
+//
+//	@return ApiOrdersResponses
 func (a *DefaultApiService) PostV3ClickCollectOrdersMetaDeleteExecute(r ApiPostV3ClickCollectOrdersMetaDeleteRequest) (*ApiOrdersResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiOrdersResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiOrdersResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV3ClickCollectOrdersMetaDelete")
@@ -1719,8 +1711,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaDeleteExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1730,8 +1722,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaDeleteExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1741,8 +1733,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaDeleteExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1752,8 +1744,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaDeleteExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1763,8 +1755,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaDeleteExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1782,8 +1774,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaDeleteExecute(r ApiPostV
 }
 
 type ApiPostV3ClickCollectOrdersMetaDetailsRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                context.Context
+	ApiService         DefaultApi
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -1816,24 +1808,25 @@ PostV3ClickCollectOrdersMetaDetails Получить идентификатор�
 | 1 мин | 150 запросов | 400 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3ClickCollectOrdersMetaDetailsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersMetaDetailsRequest
 */
 func (a *DefaultApiService) PostV3ClickCollectOrdersMetaDetails(ctx context.Context) ApiPostV3ClickCollectOrdersMetaDetailsRequest {
 	return ApiPostV3ClickCollectOrdersMetaDetailsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiOrdersMetaDetailsResponse
+//
+//	@return ApiOrdersMetaDetailsResponse
 func (a *DefaultApiService) PostV3ClickCollectOrdersMetaDetailsExecute(r ApiPostV3ClickCollectOrdersMetaDetailsRequest) (*ApiOrdersMetaDetailsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiOrdersMetaDetailsResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiOrdersMetaDetailsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV3ClickCollectOrdersMetaDetails")
@@ -1898,8 +1891,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaDetailsExecute(r ApiPost
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1909,8 +1902,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaDetailsExecute(r ApiPost
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1920,8 +1913,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaDetailsExecute(r ApiPost
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1931,8 +1924,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaDetailsExecute(r ApiPost
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1950,8 +1943,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaDetailsExecute(r ApiPost
 }
 
 type ApiPostV3ClickCollectOrdersMetaGtinRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                     context.Context
+	ApiService              DefaultApi
 	apiOrdersGTINSetRequest *ApiOrdersGTINSetRequest
 }
 
@@ -1980,24 +1973,25 @@ PostV3ClickCollectOrdersMetaGtin Закрепить GTIN за сборочным
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3ClickCollectOrdersMetaGtinRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersMetaGtinRequest
 */
 func (a *DefaultApiService) PostV3ClickCollectOrdersMetaGtin(ctx context.Context) ApiPostV3ClickCollectOrdersMetaGtinRequest {
 	return ApiPostV3ClickCollectOrdersMetaGtinRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiMetaSetResponses
+//
+//	@return ApiMetaSetResponses
 func (a *DefaultApiService) PostV3ClickCollectOrdersMetaGtinExecute(r ApiPostV3ClickCollectOrdersMetaGtinRequest) (*ApiMetaSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiMetaSetResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiMetaSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV3ClickCollectOrdersMetaGtin")
@@ -2062,8 +2056,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaGtinExecute(r ApiPostV3C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2073,8 +2067,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaGtinExecute(r ApiPostV3C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2084,8 +2078,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaGtinExecute(r ApiPostV3C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2095,8 +2089,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaGtinExecute(r ApiPostV3C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2106,8 +2100,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaGtinExecute(r ApiPostV3C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2125,8 +2119,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaGtinExecute(r ApiPostV3C
 }
 
 type ApiPostV3ClickCollectOrdersMetaImeiRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                     context.Context
+	ApiService              DefaultApi
 	apiOrdersIMEISetRequest *ApiOrdersIMEISetRequest
 }
 
@@ -2156,24 +2150,25 @@ PostV3ClickCollectOrdersMetaImei Закрепить IMEI за сборочным
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3ClickCollectOrdersMetaImeiRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersMetaImeiRequest
 */
 func (a *DefaultApiService) PostV3ClickCollectOrdersMetaImei(ctx context.Context) ApiPostV3ClickCollectOrdersMetaImeiRequest {
 	return ApiPostV3ClickCollectOrdersMetaImeiRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiMetaSetResponses
+//
+//	@return ApiMetaSetResponses
 func (a *DefaultApiService) PostV3ClickCollectOrdersMetaImeiExecute(r ApiPostV3ClickCollectOrdersMetaImeiRequest) (*ApiMetaSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiMetaSetResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiMetaSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV3ClickCollectOrdersMetaImei")
@@ -2238,8 +2233,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaImeiExecute(r ApiPostV3C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2249,8 +2244,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaImeiExecute(r ApiPostV3C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2260,8 +2255,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaImeiExecute(r ApiPostV3C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2271,8 +2266,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaImeiExecute(r ApiPostV3C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2282,8 +2277,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaImeiExecute(r ApiPostV3C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2301,8 +2296,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaImeiExecute(r ApiPostV3C
 }
 
 type ApiPostV3ClickCollectOrdersMetaSgtinRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                       context.Context
+	ApiService                DefaultApi
 	apiOrdersSGTINsSetRequest *ApiOrdersSGTINsSetRequest
 }
 
@@ -2333,24 +2328,25 @@ PostV3ClickCollectOrdersMetaSgtin Закрепить коды маркировк
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3ClickCollectOrdersMetaSgtinRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersMetaSgtinRequest
 */
 func (a *DefaultApiService) PostV3ClickCollectOrdersMetaSgtin(ctx context.Context) ApiPostV3ClickCollectOrdersMetaSgtinRequest {
 	return ApiPostV3ClickCollectOrdersMetaSgtinRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiMetaSetResponses
+//
+//	@return ApiMetaSetResponses
 func (a *DefaultApiService) PostV3ClickCollectOrdersMetaSgtinExecute(r ApiPostV3ClickCollectOrdersMetaSgtinRequest) (*ApiMetaSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiMetaSetResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiMetaSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV3ClickCollectOrdersMetaSgtin")
@@ -2415,8 +2411,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaSgtinExecute(r ApiPostV3
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2426,8 +2422,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaSgtinExecute(r ApiPostV3
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2437,8 +2433,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaSgtinExecute(r ApiPostV3
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2448,8 +2444,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaSgtinExecute(r ApiPostV3
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2459,8 +2455,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaSgtinExecute(r ApiPostV3
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2478,8 +2474,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaSgtinExecute(r ApiPostV3
 }
 
 type ApiPostV3ClickCollectOrdersMetaUinRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                    context.Context
+	ApiService             DefaultApi
 	apiOrdersUINSetRequest *ApiOrdersUINSetRequest
 }
 
@@ -2508,24 +2504,25 @@ PostV3ClickCollectOrdersMetaUin Закрепить УИН за сборочны�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3ClickCollectOrdersMetaUinRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersMetaUinRequest
 */
 func (a *DefaultApiService) PostV3ClickCollectOrdersMetaUin(ctx context.Context) ApiPostV3ClickCollectOrdersMetaUinRequest {
 	return ApiPostV3ClickCollectOrdersMetaUinRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiMetaSetResponses
+//
+//	@return ApiMetaSetResponses
 func (a *DefaultApiService) PostV3ClickCollectOrdersMetaUinExecute(r ApiPostV3ClickCollectOrdersMetaUinRequest) (*ApiMetaSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiMetaSetResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiMetaSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV3ClickCollectOrdersMetaUin")
@@ -2590,8 +2587,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaUinExecute(r ApiPostV3Cl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2601,8 +2598,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaUinExecute(r ApiPostV3Cl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2612,8 +2609,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaUinExecute(r ApiPostV3Cl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2623,8 +2620,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaUinExecute(r ApiPostV3Cl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2634,8 +2631,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaUinExecute(r ApiPostV3Cl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2653,8 +2650,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersMetaUinExecute(r ApiPostV3Cl
 }
 
 type ApiPostV3ClickCollectOrdersStatusCancelRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                context.Context
+	ApiService         DefaultApi
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -2682,24 +2679,25 @@ PostV3ClickCollectOrdersStatusCancel Отменить сборочные зад�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3ClickCollectOrdersStatusCancelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersStatusCancelRequest
 */
 func (a *DefaultApiService) PostV3ClickCollectOrdersStatusCancel(ctx context.Context) ApiPostV3ClickCollectOrdersStatusCancelRequest {
 	return ApiPostV3ClickCollectOrdersStatusCancelRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiStatusSetResponses
+//
+//	@return ApiStatusSetResponses
 func (a *DefaultApiService) PostV3ClickCollectOrdersStatusCancelExecute(r ApiPostV3ClickCollectOrdersStatusCancelRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV3ClickCollectOrdersStatusCancel")
@@ -2761,8 +2759,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusCancelExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2772,8 +2770,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusCancelExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2783,8 +2781,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusCancelExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2794,8 +2792,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusCancelExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2805,8 +2803,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusCancelExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2824,8 +2822,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusCancelExecute(r ApiPos
 }
 
 type ApiPostV3ClickCollectOrdersStatusConfirmRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                context.Context
+	ApiService         DefaultApi
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -2853,24 +2851,25 @@ PostV3ClickCollectOrdersStatusConfirm Перевести сборочные за
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3ClickCollectOrdersStatusConfirmRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersStatusConfirmRequest
 */
 func (a *DefaultApiService) PostV3ClickCollectOrdersStatusConfirm(ctx context.Context) ApiPostV3ClickCollectOrdersStatusConfirmRequest {
 	return ApiPostV3ClickCollectOrdersStatusConfirmRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiStatusSetResponses
+//
+//	@return ApiStatusSetResponses
 func (a *DefaultApiService) PostV3ClickCollectOrdersStatusConfirmExecute(r ApiPostV3ClickCollectOrdersStatusConfirmRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV3ClickCollectOrdersStatusConfirm")
@@ -2932,8 +2931,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusConfirmExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2943,8 +2942,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusConfirmExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2954,8 +2953,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusConfirmExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2965,8 +2964,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusConfirmExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2976,8 +2975,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusConfirmExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2995,8 +2994,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusConfirmExecute(r ApiPo
 }
 
 type ApiPostV3ClickCollectOrdersStatusInfoRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                context.Context
+	ApiService         DefaultApi
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -3034,7 +3033,8 @@ PostV3ClickCollectOrdersStatusInfo Получить статусы сбороч�
 - `canceled\_by\_client` - покупатель отменил заказ при получении
 - `declined\_by\_client` - покупатель отменил заказ в первый чаc
 
- Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку
+	Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку
+
 - `defect` - отмена заказа по причине брака
 - `ready\_for\_pickup` - заказ готов к выдаче
 
@@ -3048,24 +3048,25 @@ PostV3ClickCollectOrdersStatusInfo Получить статусы сбороч�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3ClickCollectOrdersStatusInfoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersStatusInfoRequest
 */
 func (a *DefaultApiService) PostV3ClickCollectOrdersStatusInfo(ctx context.Context) ApiPostV3ClickCollectOrdersStatusInfoRequest {
 	return ApiPostV3ClickCollectOrdersStatusInfoRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiOrderStatusesV2
+//
+//	@return ApiOrderStatusesV2
 func (a *DefaultApiService) PostV3ClickCollectOrdersStatusInfoExecute(r ApiPostV3ClickCollectOrdersStatusInfoRequest) (*ApiOrderStatusesV2, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiOrderStatusesV2
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiOrderStatusesV2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV3ClickCollectOrdersStatusInfo")
@@ -3130,8 +3131,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusInfoExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3141,8 +3142,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusInfoExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3152,8 +3153,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusInfoExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3163,8 +3164,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusInfoExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3174,8 +3175,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusInfoExecute(r ApiPostV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3193,8 +3194,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusInfoExecute(r ApiPostV
 }
 
 type ApiPostV3ClickCollectOrdersStatusPrepareRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                context.Context
+	ApiService         DefaultApi
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -3222,24 +3223,25 @@ PostV3ClickCollectOrdersStatusPrepare Сообщить, что сборочны�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3ClickCollectOrdersStatusPrepareRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersStatusPrepareRequest
 */
 func (a *DefaultApiService) PostV3ClickCollectOrdersStatusPrepare(ctx context.Context) ApiPostV3ClickCollectOrdersStatusPrepareRequest {
 	return ApiPostV3ClickCollectOrdersStatusPrepareRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiMetaDetailsResponse
+//
+//	@return ApiMetaDetailsResponse
 func (a *DefaultApiService) PostV3ClickCollectOrdersStatusPrepareExecute(r ApiPostV3ClickCollectOrdersStatusPrepareRequest) (*ApiMetaDetailsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiMetaDetailsResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiMetaDetailsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV3ClickCollectOrdersStatusPrepare")
@@ -3301,8 +3303,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusPrepareExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3312,8 +3314,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusPrepareExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3323,8 +3325,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusPrepareExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3334,8 +3336,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusPrepareExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3345,8 +3347,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusPrepareExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3364,8 +3366,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusPrepareExecute(r ApiPo
 }
 
 type ApiPostV3ClickCollectOrdersStatusReceiveRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                context.Context
+	ApiService         DefaultApi
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -3393,24 +3395,25 @@ PostV3ClickCollectOrdersStatusReceive Сообщить, что заказы пр
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3ClickCollectOrdersStatusReceiveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersStatusReceiveRequest
 */
 func (a *DefaultApiService) PostV3ClickCollectOrdersStatusReceive(ctx context.Context) ApiPostV3ClickCollectOrdersStatusReceiveRequest {
 	return ApiPostV3ClickCollectOrdersStatusReceiveRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiStatusSetResponses
+//
+//	@return ApiStatusSetResponses
 func (a *DefaultApiService) PostV3ClickCollectOrdersStatusReceiveExecute(r ApiPostV3ClickCollectOrdersStatusReceiveRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV3ClickCollectOrdersStatusReceive")
@@ -3472,8 +3475,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusReceiveExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3483,8 +3486,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusReceiveExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3494,8 +3497,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusReceiveExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3505,8 +3508,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusReceiveExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3516,8 +3519,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusReceiveExecute(r ApiPo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3535,8 +3538,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusReceiveExecute(r ApiPo
 }
 
 type ApiPostV3ClickCollectOrdersStatusRejectRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                context.Context
+	ApiService         DefaultApi
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -3564,24 +3567,25 @@ PostV3ClickCollectOrdersStatusReject Сообщить об отказе от з�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3ClickCollectOrdersStatusRejectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3ClickCollectOrdersStatusRejectRequest
 */
 func (a *DefaultApiService) PostV3ClickCollectOrdersStatusReject(ctx context.Context) ApiPostV3ClickCollectOrdersStatusRejectRequest {
 	return ApiPostV3ClickCollectOrdersStatusRejectRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiStatusSetResponses
+//
+//	@return ApiStatusSetResponses
 func (a *DefaultApiService) PostV3ClickCollectOrdersStatusRejectExecute(r ApiPostV3ClickCollectOrdersStatusRejectRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV3ClickCollectOrdersStatusReject")
@@ -3643,8 +3647,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusRejectExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3654,8 +3658,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusRejectExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3665,8 +3669,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusRejectExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3676,8 +3680,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusRejectExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3687,8 +3691,8 @@ func (a *DefaultApiService) PostV3ClickCollectOrdersStatusRejectExecute(r ApiPos
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

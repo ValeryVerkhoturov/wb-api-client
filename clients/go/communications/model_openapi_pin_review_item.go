@@ -11,8 +11,8 @@ API version: communication
 package communications
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,9 +21,9 @@ var _ MappedNullable = &OpenapiPinReviewItem{}
 
 // OpenapiPinReviewItem struct for OpenapiPinReviewItem
 type OpenapiPinReviewItem struct {
-	// Метод закрепления:   - `subscription` — подписка Джем   - `tariff` — тарифная опция 
+	// Метод закрепления:   - `subscription` — подписка Джем   - `tariff` — тарифная опция
 	PinMethod string `json:"pinMethod"`
-	// Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+	// Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
 	PinOn string `json:"pinOn"`
 	// ID отзыва
 	FeedbackId string `json:"feedbackId"`
@@ -124,7 +124,7 @@ func (o *OpenapiPinReviewItem) SetFeedbackId(v string) {
 }
 
 func (o OpenapiPinReviewItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -154,10 +154,10 @@ func (o *OpenapiPinReviewItem) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -213,5 +213,3 @@ func (v *NullableOpenapiPinReviewItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

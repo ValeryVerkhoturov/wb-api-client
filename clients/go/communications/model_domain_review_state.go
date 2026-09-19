@@ -20,7 +20,7 @@ type DomainReviewState string
 
 // List of domain.ReviewState
 const (
-	StatePinned DomainReviewState = "pinned"
+	StatePinned   DomainReviewState = "pinned"
 	StateUnpinned DomainReviewState = "unpinned"
 )
 
@@ -108,4 +108,3 @@ func (v *NullableDomainReviewState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

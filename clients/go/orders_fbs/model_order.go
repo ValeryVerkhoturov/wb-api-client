@@ -23,7 +23,7 @@ type Order struct {
 	Address NullableOrderAddress `json:"address,omitempty"`
 	// Цена приёмки в копейках. Отображается после фактической приёмки заказа
 	ScanPrice NullableFloat32 `json:"scanPrice,omitempty"`
-	// Тип доставки: - `fbs` — доставка на склад Wildberries (FBS) 
+	// Тип доставки: - `fbs` — доставка на склад Wildberries (FBS)
 	DeliveryType *string `json:"deliveryType,omitempty"`
 	// ID поставки. Возвращается, если заказ закреплён за поставкой
 	SupplyId *string `json:"supplyId,omitempty"`
@@ -51,7 +51,7 @@ type Order struct {
 	NmId *int32 `json:"nmId,omitempty"`
 	// ID размера товара в системе WB
 	ChrtId *int32 `json:"chrtId,omitempty"`
-	// Цена в валюте продажи с учётом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи — в поле `currencyCode`. Предоставляется в информационных целях 
+	// Цена в валюте продажи с учётом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи — в поле `currencyCode`. Предоставляется в информационных целях
 	Price *int32 `json:"price,omitempty"`
 	// Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях
 	ConvertedPrice *int32 `json:"convertedPrice,omitempty"`
@@ -59,15 +59,15 @@ type Order struct {
 	CurrencyCode *int32 `json:"currencyCode,omitempty"`
 	// Код валюты страны продавца
 	ConvertedCurrencyCode *int32 `json:"convertedCurrencyCode,omitempty"`
-	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) 
+	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
 	CargoType *int32 `json:"cargoType,omitempty"`
-	// Тип сборочного задания:   - `0` — внутренняя поставка   - `1` — трансграничная поставка 
+	// Тип сборочного задания:   - `0` — внутренняя поставка   - `1` — трансграничная поставка
 	CrossBorderType *int32 `json:"crossBorderType,omitempty"`
 	// Комментарий покупателя
 	Comment *string `json:"comment,omitempty"`
-	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
-	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
-	Options *OrderOptions `json:"options,omitempty"`
+	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
+	IsZeroOrder *bool         `json:"isZeroOrder,omitempty"`
+	Options     *OrderOptions `json:"options,omitempty"`
 }
 
 // NewOrder instantiates a new Order object
@@ -119,6 +119,7 @@ func (o *Order) HasAddress() bool {
 func (o *Order) SetAddress(v OrderAddress) {
 	o.Address.Set(&v)
 }
+
 // SetAddressNil sets the value for Address to be an explicit nil
 func (o *Order) SetAddressNil() {
 	o.Address.Set(nil)
@@ -161,6 +162,7 @@ func (o *Order) HasScanPrice() bool {
 func (o *Order) SetScanPrice(v float32) {
 	o.ScanPrice.Set(&v)
 }
+
 // SetScanPriceNil sets the value for ScanPrice to be an explicit nil
 func (o *Order) SetScanPriceNil() {
 	o.ScanPrice.Set(nil)
@@ -909,7 +911,7 @@ func (o *Order) SetOptions(v OrderOptions) {
 }
 
 func (o Order) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1031,5 +1033,3 @@ func (v *NullableOrder) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,7 +19,7 @@ var _ MappedNullable = &PostV2GetCardsListRequestSettings{}
 
 // PostV2GetCardsListRequestSettings Настройки
 type PostV2GetCardsListRequestSettings struct {
-	Sort *PostV2GetCardsListRequestSettingsSort `json:"sort,omitempty"`
+	Sort   *PostV2GetCardsListRequestSettingsSort   `json:"sort,omitempty"`
 	Filter *PostV2GetCardsListRequestSettingsFilter `json:"filter,omitempty"`
 	Cursor *PostV2GetCardsListRequestSettingsCursor `json:"cursor,omitempty"`
 }
@@ -138,7 +138,7 @@ func (o *PostV2GetCardsListRequestSettings) SetCursor(v PostV2GetCardsListReques
 }
 
 func (o PostV2GetCardsListRequestSettings) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,5 +194,3 @@ func (v *NullablePostV2GetCardsListRequestSettings) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

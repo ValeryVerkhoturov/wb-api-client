@@ -37,17 +37,17 @@ type PostV2GetCardsListResponse200CardsInner struct {
 	Title *string `json:"title,omitempty"`
 	// Описание товара
 	Description *string `json:"description,omitempty"`
-	// Требуется ли код маркировки [Честного знака](https://честныйзнак.рф/) для этого товара:   - `false` — не требуется   - `true` — требуется 
+	// Требуется ли код маркировки [Честного знака](https://честныйзнак.рф/) для этого товара:   - `false` — не требуется   - `true` — требуется
 	NeedKiz *bool `json:"needKiz,omitempty"`
-	// Есть ли подтверждение от продавца, что обязательный код маркировки [Честного знака](https://честныйзнак.рф/) нанесён на товар:   - `true` — да   - `false` — нет  Является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, указано в поле `needKiz` 
+	// Есть ли подтверждение от продавца, что обязательный код маркировки [Честного знака](https://честныйзнак.рф/) нанесён на товар:   - `true` — да   - `false` — нет  Является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, указано в поле `needKiz`
 	KizMarked *bool `json:"kizMarked,omitempty"`
 	// Массив фото
 	Photos []PostV2GetCardsListResponse200CardsInnerPhotosInner `json:"photos,omitempty"`
 	// URL видео
-	Video *string `json:"video,omitempty"`
-	Wholesale *PostV2GetCardsListResponse200CardsInnerWholesale `json:"wholesale,omitempty"`
+	Video      *string                                            `json:"video,omitempty"`
+	Wholesale  *PostV2GetCardsListResponse200CardsInnerWholesale  `json:"wholesale,omitempty"`
 	Dimensions *PostV2GetCardsListResponse200CardsInnerDimensions `json:"dimensions,omitempty"`
-	Documents *PostV2GetCardsListResponse200CardsInnerDocuments `json:"documents,omitempty"`
+	Documents  *PostV2GetCardsListResponse200CardsInnerDocuments  `json:"documents,omitempty"`
 	// Характеристики
 	Characteristics []PostV2GetCardsListResponse200CardsInnerCharacteristicsInner `json:"characteristics,omitempty"`
 	// Размеры товара
@@ -754,7 +754,7 @@ func (o *PostV2GetCardsListResponse200CardsInner) SetUpdatedAt(v string) {
 }
 
 func (o PostV2GetCardsListResponse200CardsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -864,5 +864,3 @@ func (v *NullablePostV2GetCardsListResponse200CardsInner) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

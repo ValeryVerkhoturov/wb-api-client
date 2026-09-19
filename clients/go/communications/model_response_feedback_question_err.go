@@ -26,7 +26,7 @@ type ResponseFeedbackQuestionErr struct {
 	ErrorText *string `json:"errorText,omitempty"`
 	// Дополнительные ошибки
 	AdditionalErrors []string `json:"additionalErrors,omitempty"`
-	// 
+	//
 	RequestId *string `json:"requestId,omitempty"`
 }
 
@@ -210,7 +210,7 @@ func (o *ResponseFeedbackQuestionErr) SetRequestId(v string) {
 }
 
 func (o ResponseFeedbackQuestionErr) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -272,5 +272,3 @@ func (v *NullableResponseFeedbackQuestionErr) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

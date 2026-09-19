@@ -20,7 +20,7 @@ var _ MappedNullable = &GetV3OrdersResponse200{}
 // GetV3OrdersResponse200 struct for GetV3OrdersResponse200
 type GetV3OrdersResponse200 struct {
 	// Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
-	Next *int64 `json:"next,omitempty"`
+	Next   *int64  `json:"next,omitempty"`
 	Orders []Order `json:"orders,omitempty"`
 }
 
@@ -106,7 +106,7 @@ func (o *GetV3OrdersResponse200) SetOrders(v []Order) {
 }
 
 func (o GetV3OrdersResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,5 +159,3 @@ func (v *NullableGetV3OrdersResponse200) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

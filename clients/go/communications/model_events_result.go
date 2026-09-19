@@ -27,8 +27,8 @@ type EventsResult struct {
 	// Время старейшего события в ответе
 	OldestEventTime *time.Time `json:"oldestEventTime,omitempty"`
 	// Количество событий
-	TotalEvents *int32 `json:"totalEvents,omitempty"`
-	Events []Event `json:"events,omitempty"`
+	TotalEvents *int32  `json:"totalEvents,omitempty"`
+	Events      []Event `json:"events,omitempty"`
 }
 
 // NewEventsResult instantiates a new EventsResult object
@@ -209,7 +209,7 @@ func (o *EventsResult) SetEvents(v []Event) {
 }
 
 func (o EventsResult) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -271,5 +271,3 @@ func (v *NullableEventsResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

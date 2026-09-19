@@ -108,7 +108,7 @@ func (o *StatsBlok1DailyStatsInner) SetAppTypeStats(v []StatsBlok1DailyStatsInne
 }
 
 func (o StatsBlok1DailyStatsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -161,5 +161,3 @@ func (v *NullableStatsBlok1DailyStatsInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

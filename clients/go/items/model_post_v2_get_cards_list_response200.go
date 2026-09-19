@@ -20,8 +20,8 @@ var _ MappedNullable = &PostV2GetCardsListResponse200{}
 // PostV2GetCardsListResponse200 struct for PostV2GetCardsListResponse200
 type PostV2GetCardsListResponse200 struct {
 	// Список карточек товаров
-	Cards []PostV2GetCardsListResponse200CardsInner `json:"cards,omitempty"`
-	Cursor *PostV2GetCardsListResponse200Cursor `json:"cursor,omitempty"`
+	Cards  []PostV2GetCardsListResponse200CardsInner `json:"cards,omitempty"`
+	Cursor *PostV2GetCardsListResponse200Cursor      `json:"cursor,omitempty"`
 }
 
 // NewPostV2GetCardsListResponse200 instantiates a new PostV2GetCardsListResponse200 object
@@ -106,7 +106,7 @@ func (o *PostV2GetCardsListResponse200) SetCursor(v PostV2GetCardsListResponse20
 }
 
 func (o PostV2GetCardsListResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,5 +159,3 @@ func (v *NullablePostV2GetCardsListResponse200) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

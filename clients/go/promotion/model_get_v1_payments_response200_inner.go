@@ -25,11 +25,11 @@ type GetV1PaymentsResponse200Inner struct {
 	Date *string `json:"date,omitempty"`
 	// Сумма платежа
 	Sum *int32 `json:"sum,omitempty"`
-	// Тип источника списания: - `0` — Счёт - `1` — Баланс - `3` — Картой 
+	// Тип источника списания: - `0` — Счёт - `1` — Баланс - `3` — Картой
 	Type *int32 `json:"type,omitempty"`
-	// Статус: - `0` — ошибка - `1` — обработано 
+	// Статус: - `0` — ошибка - `1` — обработано
 	StatusId *int32 `json:"statusId,omitempty"`
-	// Статус операции при оплате картой: - `success` — успех - `fail` — неуспех - `pending` — в ожидании ответа - `unknown` — неизвестно 
+	// Статус операции при оплате картой: - `success` — успех - `fail` — неуспех - `pending` — в ожидании ответа - `unknown` — неизвестно
 	CardStatus *string `json:"cardStatus,omitempty"`
 	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency *string `json:"currency,omitempty"`
@@ -277,7 +277,7 @@ func (o *GetV1PaymentsResponse200Inner) SetCurrency(v string) {
 }
 
 func (o GetV1PaymentsResponse200Inner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -345,5 +345,3 @@ func (v *NullableGetV1PaymentsResponse200Inner) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

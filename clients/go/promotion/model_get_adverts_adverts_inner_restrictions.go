@@ -19,7 +19,7 @@ var _ MappedNullable = &GetAdvertsAdvertsInnerRestrictions{}
 
 // GetAdvertsAdvertsInnerRestrictions Ограничения кампании
 type GetAdvertsAdvertsInnerRestrictions struct {
-	// Можно ли изменять список товаров кампании:   - `true` — да   - `false` — нет 
+	// Можно ли изменять список товаров кампании:   - `true` — да   - `false` — нет
 	CanChangeNms *bool `json:"can_change_nms,omitempty"`
 }
 
@@ -73,7 +73,7 @@ func (o *GetAdvertsAdvertsInnerRestrictions) SetCanChangeNms(v bool) {
 }
 
 func (o GetAdvertsAdvertsInnerRestrictions) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,5 +123,3 @@ func (v *NullableGetAdvertsAdvertsInnerRestrictions) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

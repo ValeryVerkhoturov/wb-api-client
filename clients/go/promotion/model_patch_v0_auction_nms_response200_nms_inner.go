@@ -11,8 +11,8 @@ API version: promotion
 package promotion
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,8 +22,8 @@ var _ MappedNullable = &PatchV0AuctionNmsResponse200NmsInner{}
 // PatchV0AuctionNmsResponse200NmsInner struct for PatchV0AuctionNmsResponse200NmsInner
 type PatchV0AuctionNmsResponse200NmsInner struct {
 	// ID кампании
-	AdvertId int64 `json:"advert_id"`
-	Nms PatchV0AuctionNmsResponse200NmsInnerNms `json:"nms"`
+	AdvertId int64                                   `json:"advert_id"`
+	Nms      PatchV0AuctionNmsResponse200NmsInnerNms `json:"nms"`
 }
 
 type _PatchV0AuctionNmsResponse200NmsInner PatchV0AuctionNmsResponse200NmsInner
@@ -96,7 +96,7 @@ func (o *PatchV0AuctionNmsResponse200NmsInner) SetNms(v PatchV0AuctionNmsRespons
 }
 
 func (o PatchV0AuctionNmsResponse200NmsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -124,10 +124,10 @@ func (o *PatchV0AuctionNmsResponse200NmsInner) UnmarshalJSON(data []byte) (err e
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -183,5 +183,3 @@ func (v *NullablePatchV0AuctionNmsResponse200NmsInner) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

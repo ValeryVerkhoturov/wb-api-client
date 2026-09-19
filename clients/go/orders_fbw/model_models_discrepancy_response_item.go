@@ -11,8 +11,8 @@ API version: ordersfbw
 package orders_fbw
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,7 +23,7 @@ var _ MappedNullable = &ModelsDiscrepancyResponseItem{}
 type ModelsDiscrepancyResponseItem struct {
 	// Баркод, заявленный при формировании поставки
 	DeclaredSku string `json:"declaredSku"`
-	// Тип расхождения в целом по коробу:  - `surplus` — товара в коробе больше заявленного  - `shortage` — товара в коробе меньше заявленного  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки 
+	// Тип расхождения в целом по коробу:  - `surplus` — товара в коробе больше заявленного  - `shortage` — товара в коробе меньше заявленного  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки
 	DiscrepancyType string `json:"discrepancyType"`
 	// Количество товара, заявленное при формировании поставки
 	DeclaredAmount int32 `json:"declaredAmount"`
@@ -234,7 +234,7 @@ func (o *ModelsDiscrepancyResponseItem) SetSkuScans(v []ModelsItemScans) {
 }
 
 func (o ModelsDiscrepancyResponseItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -274,10 +274,10 @@ func (o *ModelsDiscrepancyResponseItem) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -333,5 +333,3 @@ func (v *NullableModelsDiscrepancyResponseItem) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

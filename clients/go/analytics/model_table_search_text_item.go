@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -38,19 +38,19 @@ type TableSearchTextItem struct {
 	// Рейтинг карточки товара
 	Rating float32 `json:"rating"`
 	// Рейтинг по отзывам
-	FeedbackRating float32 `json:"feedbackRating"`
-	Price TableItemItemAllOfPrice `json:"price"`
-	Frequency TableSearchTextItemAllOfFrequency `json:"frequency"`
+	FeedbackRating float32                           `json:"feedbackRating"`
+	Price          TableItemItemAllOfPrice           `json:"price"`
+	Frequency      TableSearchTextItemAllOfFrequency `json:"frequency"`
 	// Количество обращений с поисковым запросом за неделю
-	WeekFrequency int32 `json:"weekFrequency"`
+	WeekFrequency  int32                                  `json:"weekFrequency"`
 	MedianPosition TableSearchTextItemAllOfMedianPosition `json:"medianPosition"`
-	AvgPosition TableGroupItemMetricsAvgPosition `json:"avgPosition"`
-	OpenCard TableSearchTextItemAllOfOpenCard `json:"openCard"`
-	AddToCart TableSearchTextItemAllOfAddToCart `json:"addToCart"`
-	OpenToCart TableSearchTextItemAllOfOpenToCart `json:"openToCart"`
-	Orders TableSearchTextItemAllOfOrders `json:"orders"`
-	CartToOrder TableSearchTextItemAllOfCartToOrder `json:"cartToOrder"`
-	Visibility TableSearchTextItemAllOfVisibility `json:"visibility"`
+	AvgPosition    TableGroupItemMetricsAvgPosition       `json:"avgPosition"`
+	OpenCard       TableSearchTextItemAllOfOpenCard       `json:"openCard"`
+	AddToCart      TableSearchTextItemAllOfAddToCart      `json:"addToCart"`
+	OpenToCart     TableSearchTextItemAllOfOpenToCart     `json:"openToCart"`
+	Orders         TableSearchTextItemAllOfOrders         `json:"orders"`
+	CartToOrder    TableSearchTextItemAllOfCartToOrder    `json:"cartToOrder"`
+	Visibility     TableSearchTextItemAllOfVisibility     `json:"visibility"`
 }
 
 type _TableSearchTextItem TableSearchTextItem
@@ -573,7 +573,7 @@ func (o *TableSearchTextItem) SetVisibility(v TableSearchTextItemAllOfVisibility
 }
 
 func (o TableSearchTextItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -637,10 +637,10 @@ func (o *TableSearchTextItem) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -696,5 +696,3 @@ func (v *NullableTableSearchTextItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

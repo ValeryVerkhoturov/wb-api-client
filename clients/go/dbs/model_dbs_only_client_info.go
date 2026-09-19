@@ -277,7 +277,7 @@ func (o *DbsOnlyClientInfo) SetAdditionalPhoneCodes(v []string) {
 }
 
 func (o DbsOnlyClientInfo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -345,5 +345,3 @@ func (v *NullableDbsOnlyClientInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

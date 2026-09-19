@@ -175,7 +175,7 @@ func (o *PostV2GetCardsTrashResponse200CardsInnerSizesInner) SetSkus(v []string)
 }
 
 func (o PostV2GetCardsTrashResponse200CardsInnerSizesInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullablePostV2GetCardsTrashResponse200CardsInnerSizesInner) UnmarshalJS
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

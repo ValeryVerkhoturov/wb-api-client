@@ -142,7 +142,7 @@ func (o *ResponseError) SetErrorText(v string) {
 }
 
 func (o ResponseError) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -198,5 +198,3 @@ func (v *NullableResponseError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

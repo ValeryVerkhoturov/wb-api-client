@@ -11,8 +11,8 @@ API version: promotion
 package promotion
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,7 +22,7 @@ var _ MappedNullable = &AdvertNMsSettings{}
 // AdvertNMsSettings struct for AdvertNMsSettings
 type AdvertNMsSettings struct {
 	BidsKopecks AdvertBidsKopecks `json:"bids_kopecks"`
-	Subject AdvertSubcategory `json:"subject"`
+	Subject     AdvertSubcategory `json:"subject"`
 	// Артикул WB
 	NmId int64 `json:"nm_id"`
 }
@@ -122,7 +122,7 @@ func (o *AdvertNMsSettings) SetNmId(v int64) {
 }
 
 func (o AdvertNMsSettings) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -152,10 +152,10 @@ func (o *AdvertNMsSettings) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -211,5 +211,3 @@ func (v *NullableAdvertNMsSettings) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

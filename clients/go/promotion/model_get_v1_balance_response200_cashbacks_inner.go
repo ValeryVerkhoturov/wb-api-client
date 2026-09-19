@@ -141,7 +141,7 @@ func (o *GetV1BalanceResponse200CashbacksInner) SetExpirationDate(v string) {
 }
 
 func (o GetV1BalanceResponse200CashbacksInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,5 +197,3 @@ func (v *NullableGetV1BalanceResponse200CashbacksInner) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

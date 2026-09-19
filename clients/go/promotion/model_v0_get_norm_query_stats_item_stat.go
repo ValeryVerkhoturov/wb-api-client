@@ -21,7 +21,7 @@ var _ MappedNullable = &V0GetNormQueryStatsItemStat{}
 type V0GetNormQueryStatsItemStat struct {
 	// Поисковый кластер
 	NormQuery *string `json:"norm_query,omitempty"`
-	// Количество просмотров.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` 
+	// Количество просмотров.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
 	Views NullableInt32 `json:"views,omitempty"`
 	// Количество кликов
 	Clicks *int32 `json:"clicks,omitempty"`
@@ -29,17 +29,17 @@ type V0GetNormQueryStatsItemStat struct {
 	Atbs *int32 `json:"atbs,omitempty"`
 	// Количество заказов
 	Orders *int32 `json:"orders,omitempty"`
-	// Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` 
+	// Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
 	Ctr NullableFloat64 `json:"ctr,omitempty"`
 	// Стоимость одного клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Cpc *float64 `json:"cpc,omitempty"`
-	// Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` 
+	// Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
 	Cpm NullableFloat64 `json:"cpm,omitempty"`
 	// Средняя позиция товара на страницах поисковой выдачи
 	AvgPos *float64 `json:"avg_pos,omitempty"`
 	// Количество заказанных товаров, шт.
 	Shks *int32 `json:"shks,omitempty"`
-	// Затраты на продвижение товаров в конкретном поисковом кластере кампании 
+	// Затраты на продвижение товаров в конкретном поисковом кластере кампании
 	Spend *float64 `json:"spend,omitempty"`
 	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency *string `json:"currency,omitempty"`
@@ -126,6 +126,7 @@ func (o *V0GetNormQueryStatsItemStat) HasViews() bool {
 func (o *V0GetNormQueryStatsItemStat) SetViews(v int32) {
 	o.Views.Set(&v)
 }
+
 // SetViewsNil sets the value for Views to be an explicit nil
 func (o *V0GetNormQueryStatsItemStat) SetViewsNil() {
 	o.Views.Set(nil)
@@ -264,6 +265,7 @@ func (o *V0GetNormQueryStatsItemStat) HasCtr() bool {
 func (o *V0GetNormQueryStatsItemStat) SetCtr(v float64) {
 	o.Ctr.Set(&v)
 }
+
 // SetCtrNil sets the value for Ctr to be an explicit nil
 func (o *V0GetNormQueryStatsItemStat) SetCtrNil() {
 	o.Ctr.Set(nil)
@@ -338,6 +340,7 @@ func (o *V0GetNormQueryStatsItemStat) HasCpm() bool {
 func (o *V0GetNormQueryStatsItemStat) SetCpm(v float64) {
 	o.Cpm.Set(&v)
 }
+
 // SetCpmNil sets the value for Cpm to be an explicit nil
 func (o *V0GetNormQueryStatsItemStat) SetCpmNil() {
 	o.Cpm.Set(nil)
@@ -477,7 +480,7 @@ func (o *V0GetNormQueryStatsItemStat) SetCurrency(v string) {
 }
 
 func (o V0GetNormQueryStatsItemStat) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -560,5 +563,3 @@ func (v *NullableV0GetNormQueryStatsItemStat) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

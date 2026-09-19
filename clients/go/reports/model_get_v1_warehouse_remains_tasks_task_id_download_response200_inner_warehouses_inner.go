@@ -21,7 +21,7 @@ var _ MappedNullable = &GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner
 type GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner struct {
 	// Название склада
 	WarehouseName *string `json:"warehouseName,omitempty"`
-	// Количество, шт. 
+	// Количество, шт.
 	Quantity *int32 `json:"quantity,omitempty"`
 }
 
@@ -107,7 +107,7 @@ func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner
 }
 
 func (o GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableGetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehou
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,8 +20,8 @@ var _ MappedNullable = &PostV3DbsOrdersStatusReceiveResponse200{}
 // PostV3DbsOrdersStatusReceiveResponse200 struct for PostV3DbsOrdersStatusReceiveResponse200
 type PostV3DbsOrdersStatusReceiveResponse200 struct {
 	// Уникальный ID запроса
-	RequestId *string `json:"requestId,omitempty"`
-	Results []PostV3DbsOrdersStatusReceiveResponse200ResultsInner `json:"results,omitempty"`
+	RequestId *string                                               `json:"requestId,omitempty"`
+	Results   []PostV3DbsOrdersStatusReceiveResponse200ResultsInner `json:"results,omitempty"`
 }
 
 // NewPostV3DbsOrdersStatusReceiveResponse200 instantiates a new PostV3DbsOrdersStatusReceiveResponse200 object
@@ -106,7 +106,7 @@ func (o *PostV3DbsOrdersStatusReceiveResponse200) SetResults(v []PostV3DbsOrders
 }
 
 func (o PostV3DbsOrdersStatusReceiveResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,5 +159,3 @@ func (v *NullablePostV3DbsOrdersStatusReceiveResponse200) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

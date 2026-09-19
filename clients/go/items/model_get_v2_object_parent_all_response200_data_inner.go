@@ -141,7 +141,7 @@ func (o *GetV2ObjectParentAllResponse200DataInner) SetIsVisible(v bool) {
 }
 
 func (o GetV2ObjectParentAllResponse200DataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,5 +197,3 @@ func (v *NullableGetV2ObjectParentAllResponse200DataInner) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -25,7 +25,7 @@ type StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner struct {
 	Clicks *int32 `json:"clicks,omitempty"`
 	// Количество добавлений товаров в корзину
 	Atbs *int32 `json:"atbs,omitempty"`
-	// CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании 
+	// CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании
 	Ctr *float32 `json:"ctr,omitempty"`
 }
 
@@ -175,7 +175,7 @@ func (o *StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner) SetCtr(v float32)
 }
 
 func (o StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullableStatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner) Unmarshal
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

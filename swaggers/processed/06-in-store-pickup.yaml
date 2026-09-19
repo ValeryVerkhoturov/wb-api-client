@@ -1155,7 +1155,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Идентификаторы маркировки Самовывоз
       summary: Закрепить номера ДТ за сборочными заданиями
@@ -1243,10 +1243,6 @@ paths:
           $ref: '#/components/responses/429'
 components:
   securitySchemes:
-    HeaderApiKey:
-      type: apiKey
-      name: Authorization
-      in: header
     BearerAuth:
       type: http
       scheme: bearer

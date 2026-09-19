@@ -11,8 +11,8 @@ API version: promotion
 package promotion
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,10 +21,10 @@ var _ MappedNullable = &AdvertSettings{}
 
 // AdvertSettings Настройки кампании
 type AdvertSettings struct {
-	// Тип оплаты: - `cpm` — за показы - `cpc` — за клик 
+	// Тип оплаты: - `cpm` — за показы - `cpc` — за клик
 	PaymentType string `json:"payment_type"`
 	// Название кампании
-	Name string `json:"name"`
+	Name       string                                                 `json:"name"`
 	Placements PutV0AuctionPlacementsRequestPlacementsInnerPlacements `json:"placements"`
 }
 
@@ -123,7 +123,7 @@ func (o *AdvertSettings) SetPlacements(v PutV0AuctionPlacementsRequestPlacements
 }
 
 func (o AdvertSettings) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -153,10 +153,10 @@ func (o *AdvertSettings) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -212,5 +212,3 @@ func (v *NullableAdvertSettings) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

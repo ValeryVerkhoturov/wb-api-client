@@ -11,8 +11,8 @@ API version: order
 package orders_fbs
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,8 +22,8 @@ var _ MappedNullable = &SupplySpotDataResponseSuppliesInner{}
 // SupplySpotDataResponseSuppliesInner struct for SupplySpotDataResponseSuppliesInner
 type SupplySpotDataResponseSuppliesInner struct {
 	// ID поставки
-	Id string `json:"id"`
-	Spot *SupplySpotDataResponseSuppliesInnerSpot `json:"spot,omitempty"`
+	Id    string                                    `json:"id"`
+	Spot  *SupplySpotDataResponseSuppliesInnerSpot  `json:"spot,omitempty"`
 	Error *SupplySpotDataResponseSuppliesInnerError `json:"error,omitempty"`
 }
 
@@ -136,7 +136,7 @@ func (o *SupplySpotDataResponseSuppliesInner) SetError(v SupplySpotDataResponseS
 }
 
 func (o SupplySpotDataResponseSuppliesInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -168,10 +168,10 @@ func (o *SupplySpotDataResponseSuppliesInner) UnmarshalJSON(data []byte) (err er
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -227,5 +227,3 @@ func (v *NullableSupplySpotDataResponseSuppliesInner) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -11,18 +11,18 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
 // checks if the TableDetailsRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TableDetailsRequest{}
 
-// TableDetailsRequest Параметры запроса для пагинации по товарам в группе:   - `currentPeriod` — текущий период   - `pastPeriod` — предыдущий период для сравнения 
+// TableDetailsRequest Параметры запроса для пагинации по товарам в группе:   - `currentPeriod` — текущий период   - `pastPeriod` — предыдущий период для сравнения
 type TableDetailsRequest struct {
-	CurrentPeriod Period `json:"currentPeriod"`
-	PastPeriod *PastPeriod `json:"pastPeriod,omitempty"`
+	CurrentPeriod Period      `json:"currentPeriod"`
+	PastPeriod    *PastPeriod `json:"pastPeriod,omitempty"`
 	// ID предмета
 	SubjectId *int32 `json:"subjectId,omitempty"`
 	// Название товара
@@ -30,9 +30,9 @@ type TableDetailsRequest struct {
 	// ID ярлыка
 	TagId *int64 `json:"tagId,omitempty"`
 	// Список артикулов WB
-	NmIds []int32 `json:"nmIds,omitempty"`
+	NmIds   []int32               `json:"nmIds,omitempty"`
 	OrderBy OrderByMainAndDetails `json:"orderBy"`
-	// Товары с какой средней позицией в поиске показывать в отчёте:   - `all` — все   - `firstHundred` — от 1 до 100   - `secondHundred` — от 101 до 200   - `below` — от 201 и ниже 
+	// Товары с какой средней позицией в поиске показывать в отчёте:   - `all` — все   - `firstHundred` — от 1 до 100   - `secondHundred` — от 101 до 200   - `below` — от 201 и ниже
 	PositionCluster string `json:"positionCluster"`
 	// Показать данные по прямым запросам с [подменным артикулом](https://seller.wildberries.ru/help-center/article/A-524)
 	IncludeSubstitutedSKUs *bool `json:"includeSubstitutedSKUs,omitempty"`
@@ -421,7 +421,7 @@ func (o *TableDetailsRequest) SetOffset(v int32) {
 }
 
 func (o TableDetailsRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -476,10 +476,10 @@ func (o *TableDetailsRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -535,5 +535,3 @@ func (v *NullableTableDetailsRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

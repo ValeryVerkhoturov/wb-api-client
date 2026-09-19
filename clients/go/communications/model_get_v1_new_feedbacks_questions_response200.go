@@ -175,7 +175,7 @@ func (o *GetV1NewFeedbacksQuestionsResponse200) SetAdditionalErrors(v []string) 
 }
 
 func (o GetV1NewFeedbacksQuestionsResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullableGetV1NewFeedbacksQuestionsResponse200) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

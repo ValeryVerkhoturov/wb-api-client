@@ -12,14 +12,14 @@ package items
 
 import (
 	"encoding/json"
-	"gopkg.in/validator.v2"
 	"fmt"
+	"gopkg.in/validator.v2"
 )
 
 // PostV2CardsMoveNm400Response - struct for PostV2CardsMoveNm400Response
 type PostV2CardsMoveNm400Response struct {
 	ResponseIncorrectDate *ResponseIncorrectDate
-	ResponseItemList *ResponseItemList
+	ResponseItemList      *ResponseItemList
 }
 
 // ResponseIncorrectDateAsPostV2CardsMoveNm400Response is a convenience function that returns ResponseIncorrectDate wrapped in PostV2CardsMoveNm400Response
@@ -35,7 +35,6 @@ func ResponseItemListAsPostV2CardsMoveNm400Response(v *ResponseItemList) PostV2C
 		ResponseItemList: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *PostV2CardsMoveNm400Response) UnmarshalJSON(data []byte) error {
@@ -102,7 +101,7 @@ func (src PostV2CardsMoveNm400Response) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *PostV2CardsMoveNm400Response) GetActualInstance() (interface{}) {
+func (obj *PostV2CardsMoveNm400Response) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -153,5 +152,3 @@ func (v *NullablePostV2CardsMoveNm400Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

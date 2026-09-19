@@ -73,8 +73,21 @@ yaml.width = 4096  # avoid line wrapping that fights with git diffs
 
 
 def inject_bearer_auth(spec: dict) -> None:
+    """Replace every existing security scheme with a single `BearerAuth`
+    (HTTP bearer, JWT). WB's raw spec declares a `HeaderApiKey` scheme
+    (apiKey in header) that carries the same JWT, so leaving it in place
+    would make openapi-generator emit BOTH auth code paths — a
+    `ctx.Value(ContextAccessToken)` block for BearerAuth AND a
+    `ctx.Value(ContextAPIKeys)` block for HeaderApiKey. Since we route
+    the token via `Configuration.AccessToken` in the Go client (and any
+    caller can set the same header manually in other languages), we drop
+    all pre-existing schemes and rewire every `security` requirement to
+    point at BearerAuth only.
+    """
     components = spec.setdefault("components", {})
     schemes = components.setdefault("securitySchemes", {})
+    existing = [name for name in schemes.keys() if name != SECURITY_SCHEME_NAME]
+
     schemes[SECURITY_SCHEME_NAME] = {
         "type": "http",
         "scheme": "bearer",
@@ -84,7 +97,25 @@ def inject_bearer_auth(spec: dict) -> None:
             "Настройки → Доступ к API. Sent as `Authorization: Bearer <token>`."
         ),
     }
+    # Drop every other scheme. Even if none of them are referenced anywhere
+    # below, their mere presence in components.securitySchemes makes some
+    # generators (Go) emit auth handling code for them.
+    for name in existing:
+        del schemes[name]
+
     spec["security"] = [{SECURITY_SCHEME_NAME: []}]
+
+    # Walk paths/operations and normalize every `security` list to the
+    # single BearerAuth entry, so per-operation overrides don't reintroduce
+    # the dropped scheme names.
+    for path_item in (spec.get("paths") or {}).values():
+        if not isinstance(path_item, dict):
+            continue
+        for method, op in path_item.items():
+            if method not in {"get", "post", "put", "patch", "delete", "head", "options"}:
+                continue
+            if isinstance(op, dict) and "security" in op:
+                op["security"] = [{SECURITY_SCHEME_NAME: []}]
 
 
 def fix_untyped_arrays(node: Any) -> int:

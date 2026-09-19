@@ -11,10 +11,10 @@ API version: general
 package general
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the SubscriptionsJamInfo type satisfies the MappedNullable interface at compile time
@@ -22,11 +22,11 @@ var _ MappedNullable = &SubscriptionsJamInfo{}
 
 // SubscriptionsJamInfo Информация о подписке Джем
 type SubscriptionsJamInfo struct {
-	// Статус подписки:   - `active` — активна   - `inactive` — истекла или отменена 
+	// Статус подписки:   - `active` — активна   - `inactive` — истекла или отменена
 	State string `json:"state"`
-	// Источник подключения подписки:   - `constructor` — покупка через раздел **Конструктор тарифов**   - `jam` — покупка через раздел **Подписка «Джем»** 
+	// Источник подключения подписки:   - `constructor` — покупка через раздел **Конструктор тарифов**   - `jam` — покупка через раздел **Подписка «Джем»**
 	ActivationSource string `json:"activationSource"`
-	// Уровень подписки:   - `standard`   - `advanced`   - `premium` 
+	// Уровень подписки:   - `standard`   - `advanced`   - `premium`
 	Level string `json:"level"`
 	// Дата и время первой активации подписки. Не меняется при продлении или повторной активации
 	Since time.Time `json:"since"`
@@ -179,7 +179,7 @@ func (o *SubscriptionsJamInfo) SetTill(v time.Time) {
 }
 
 func (o SubscriptionsJamInfo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -213,10 +213,10 @@ func (o *SubscriptionsJamInfo) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -272,5 +272,3 @@ func (v *NullableSubscriptionsJamInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -11,8 +11,8 @@ API version: promotion
 package promotion
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -24,7 +24,7 @@ type V0GetNormQueryStatsItem struct {
 	// ID кампании
 	AdvertId int32 `json:"advert_id"`
 	// Артикул WB
-	NmId int32 `json:"nm_id"`
+	NmId  int32                         `json:"nm_id"`
 	Stats []V0GetNormQueryStatsItemStat `json:"stats,omitempty"`
 }
 
@@ -130,7 +130,7 @@ func (o *V0GetNormQueryStatsItem) SetStats(v []V0GetNormQueryStatsItemStat) {
 }
 
 func (o V0GetNormQueryStatsItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -161,10 +161,10 @@ func (o *V0GetNormQueryStatsItem) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -220,5 +220,3 @@ func (v *NullableV0GetNormQueryStatsItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

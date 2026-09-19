@@ -22,7 +22,7 @@ var _ MappedNullable = &SellerTaskMetadata{}
 type SellerTaskMetadata struct {
 	// ID загрузки
 	UploadID *int32 `json:"uploadID,omitempty"`
-	// Статус загрузки:   * `3` — обработана, в товарах нет ошибок, цены и скидки обновились   * `4` — отменена   * `5` — обработана, но в товарах есть ошибки. Для товаров без ошибок цены и скидки обновились, а ошибки в остальных товарах можно получить с помощью метода [Детализация обработанной загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)   * `6` — обработана, но во всех товарах есть ошибки. Их тоже можно получить с помощью метода [Детализация обработанной загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) 
+	// Статус загрузки:   * `3` — обработана, в товарах нет ошибок, цены и скидки обновились   * `4` — отменена   * `5` — обработана, но в товарах есть ошибки. Для товаров без ошибок цены и скидки обновились, а ошибки в остальных товарах можно получить с помощью метода [Детализация обработанной загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)   * `6` — обработана, но во всех товарах есть ошибки. Их тоже можно получить с помощью метода [Детализация обработанной загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)
 	Status *int32 `json:"status,omitempty"`
 	// Дата и время, когда загрузка создана
 	UploadDate *time.Time `json:"uploadDate,omitempty"`
@@ -244,7 +244,7 @@ func (o *SellerTaskMetadata) SetSuccessGoodsNumber(v int32) {
 }
 
 func (o SellerTaskMetadata) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -309,5 +309,3 @@ func (v *NullableSellerTaskMetadata) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

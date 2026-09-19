@@ -38,14 +38,15 @@ go get github.com/ValeryVerkhoturov/wb-api-client/clients/go@latest
 ```
 ```go
 import (
-  "context"
   wbitems "github.com/ValeryVerkhoturov/wb-api-client/clients/go/items"
 )
 
 cfg := wbitems.NewConfiguration()
+cfg.SetAccessToken("<your WB JWT>")
 client := wbitems.NewAPIClient(cfg)
-ctx := context.WithValue(context.Background(), wbitems.ContextAccessToken, "<your WB JWT>")
 ```
+
+The `AccessToken` field is a `*secrecy.SecretString` from [`github.com/negrel/secrecy`](https://github.com/negrel/secrecy), so the token redacts under `fmt`/`log` unless you explicitly call `.ExposeSecret()`. Setting the token on `Configuration` is the only supported way — the `ContextAccessToken` context-value pattern that openapi-generator emits by default has been removed.
 
 **Java (Maven Central):**
 ```xml

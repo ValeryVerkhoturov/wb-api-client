@@ -15,6 +15,8 @@ import (
 	"fmt"
 	"net/http"
 	"strings"
+
+	"github.com/negrel/secrecy"
 )
 
 // contextKeys are used to identify the type of value in the context.
@@ -28,11 +30,6 @@ func (c contextKey) String() string {
 }
 
 var (
-	// ContextAccessToken takes a string oauth2 access token as authentication for the request.
-	ContextAccessToken = contextKey("accesstoken")
-
-	// ContextAPIKeys takes a string apikey as authentication for the request
-	ContextAPIKeys = contextKey("apiKeys")
 
 	// ContextServerIndex uses a server configuration from the index.
 	ContextServerIndex = contextKey("serverIndex")
@@ -68,9 +65,9 @@ type ServerVariable struct {
 
 // ServerConfiguration stores the information about a server
 type ServerConfiguration struct {
-	URL string
+	URL         string
 	Description string
-	Variables map[string]ServerVariable
+	Variables   map[string]ServerVariable
 }
 
 // ServerConfigurations stores multiple ServerConfiguration items
@@ -78,11 +75,12 @@ type ServerConfigurations []ServerConfiguration
 
 // Configuration stores the configuration of the API client
 type Configuration struct {
-	Host             string            `json:"host,omitempty"`
-	Scheme           string            `json:"scheme,omitempty"`
-	DefaultHeader    map[string]string `json:"defaultHeader,omitempty"`
-	UserAgent        string            `json:"userAgent,omitempty"`
-	Debug            bool              `json:"debug,omitempty"`
+	AccessToken      *secrecy.SecretString `json:"-"`
+	Host             string                `json:"host,omitempty"`
+	Scheme           string                `json:"scheme,omitempty"`
+	DefaultHeader    map[string]string     `json:"defaultHeader,omitempty"`
+	UserAgent        string                `json:"userAgent,omitempty"`
+	Debug            bool                  `json:"debug,omitempty"`
 	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
@@ -91,105 +89,105 @@ type Configuration struct {
 // NewConfiguration returns a new Configuration object
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
-		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.0.0.dev0/go",
-		Debug:            false,
-		Servers:          ServerConfigurations{
+		DefaultHeader: make(map[string]string),
+		UserAgent:     "OpenAPI-Generator/0.0.0.dev0/go",
+		Debug:         false,
+		Servers: ServerConfigurations{
 			{
-				URL: "",
+				URL:         "",
 				Description: "No description provided",
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
 			"DefaultApiService.DeleteV1DraftsDraftId": {
 				{
-					URL: "https://supplies-api.wildberries.ru",
+					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.DeleteV1DraftsDraftIdItems": {
 				{
-					URL: "https://supplies-api.wildberries.ru",
+					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV1Drafts": {
 				{
-					URL: "https://supplies-api.wildberries.ru",
+					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV1DraftsDraftIdItems": {
 				{
-					URL: "https://supplies-api.wildberries.ru",
+					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV1SuppliesId": {
 				{
-					URL: "https://supplies-api.wildberries.ru",
+					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV1SuppliesIdGoods": {
 				{
-					URL: "https://supplies-api.wildberries.ru",
+					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV1SuppliesIdPackage": {
 				{
-					URL: "https://supplies-api.wildberries.ru",
+					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV1SuppliesSupplyIdDiscrepanciesQuantity": {
 				{
-					URL: "https://supplies-api.wildberries.ru",
+					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV1TransitTariffs": {
 				{
-					URL: "https://supplies-api.wildberries.ru",
+					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV1Warehouses": {
 				{
-					URL: "https://supplies-api.wildberries.ru",
+					URL:         "https://supplies-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://supplies-api-sandbox.wildberries.ru",
+					URL:         "https://supplies-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.PostV1AcceptanceOptions": {
 				{
-					URL: "https://supplies-api.wildberries.ru",
+					URL:         "https://supplies-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://supplies-api-sandbox.wildberries.ru",
+					URL:         "https://supplies-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.PostV1Drafts": {
 				{
-					URL: "https://supplies-api.wildberries.ru",
+					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV1DraftsDraftIdItems": {
 				{
-					URL: "https://supplies-api.wildberries.ru",
+					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV1Supplies": {
 				{
-					URL: "https://supplies-api.wildberries.ru",
+					URL:         "https://supplies-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
@@ -310,4 +308,11 @@ func (c *Configuration) ServerURLWithContext(ctx context.Context, endpoint strin
 	}
 
 	return sc.URL(index, variables)
+}
+
+// SetAccessToken stores the WB bearer JWT on the Configuration,
+// wrapped in a secrecy.SecretString so it redacts under fmt/log.
+func (c *Configuration) SetAccessToken(token string) {
+	s := secrecy.NewSecretString([]byte(token))
+	c.AccessToken = &s
 }

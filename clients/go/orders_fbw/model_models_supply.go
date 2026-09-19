@@ -33,11 +33,11 @@ type ModelsSupply struct {
 	FactDate NullableString `json:"factDate,omitempty"`
 	// Дата изменения поставки
 	UpdatedDate NullableString `json:"updatedDate,omitempty"`
-	// ID статуса поставки:   - `1` — Не запланировано   - `2` — Запланировано   - `3` — Отгрузка разрешена   - `4` — Идёт приёмка   - `5` — Принято   - `6` — Отгружено на воротах 
+	// ID статуса поставки:   - `1` — Не запланировано   - `2` — Запланировано   - `3` — Отгрузка разрешена   - `4` — Идёт приёмка   - `5` — Принято   - `6` — Отгружено на воротах
 	StatusID *int32 `json:"statusID,omitempty"`
-	// ID типа поставки:   - `0` — Без коробов (виртуальная поставка)   - `1` и `2` — Короба   - `5` — Монопаллеты   - `6` — Суперсейф 
+	// ID типа поставки:   - `0` — Без коробов (виртуальная поставка)   - `1` и `2` — Короба   - `5` — Монопаллеты   - `6` — Суперсейф
 	BoxTypeID interface{} `json:"boxTypeID,omitempty"`
-	// Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `\"boxTypeID\": 2` 
+	// Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `\"boxTypeID\": 2`
 	IsBoxOnPallet *bool `json:"isBoxOnPallet,omitempty"`
 }
 
@@ -122,6 +122,7 @@ func (o *ModelsSupply) HasSupplyID() bool {
 func (o *ModelsSupply) SetSupplyID(v int32) {
 	o.SupplyID.Set(&v)
 }
+
 // SetSupplyIDNil sets the value for SupplyID to be an explicit nil
 func (o *ModelsSupply) SetSupplyIDNil() {
 	o.SupplyID.Set(nil)
@@ -228,6 +229,7 @@ func (o *ModelsSupply) HasSupplyDate() bool {
 func (o *ModelsSupply) SetSupplyDate(v string) {
 	o.SupplyDate.Set(&v)
 }
+
 // SetSupplyDateNil sets the value for SupplyDate to be an explicit nil
 func (o *ModelsSupply) SetSupplyDateNil() {
 	o.SupplyDate.Set(nil)
@@ -270,6 +272,7 @@ func (o *ModelsSupply) HasFactDate() bool {
 func (o *ModelsSupply) SetFactDate(v string) {
 	o.FactDate.Set(&v)
 }
+
 // SetFactDateNil sets the value for FactDate to be an explicit nil
 func (o *ModelsSupply) SetFactDateNil() {
 	o.FactDate.Set(nil)
@@ -312,6 +315,7 @@ func (o *ModelsSupply) HasUpdatedDate() bool {
 func (o *ModelsSupply) SetUpdatedDate(v string) {
 	o.UpdatedDate.Set(&v)
 }
+
 // SetUpdatedDateNil sets the value for UpdatedDate to be an explicit nil
 func (o *ModelsSupply) SetUpdatedDateNil() {
 	o.UpdatedDate.Set(nil)
@@ -420,7 +424,7 @@ func (o *ModelsSupply) SetIsBoxOnPallet(v bool) {
 }
 
 func (o ModelsSupply) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -497,5 +501,3 @@ func (v *NullableModelsSupply) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

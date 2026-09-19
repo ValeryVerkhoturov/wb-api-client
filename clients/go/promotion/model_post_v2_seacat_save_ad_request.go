@@ -11,8 +11,8 @@ API version: promotion
 package promotion
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,13 +23,13 @@ var _ MappedNullable = &PostV2SeacatSaveAdRequest{}
 type PostV2SeacatSaveAdRequest struct {
 	// Название кампании
 	Name string `json:"name"`
-	// Карточки товаров для кампании. Доступные карточки товаров можно получить с помощью метода [Карточки товаров для кампаний](./promotion#tag/creatingCampaigns/operation/postV2SupplierNms). Максимум 50 товаров (`nm`) 
+	// Карточки товаров для кампании. Доступные карточки товаров можно получить с помощью метода [Карточки товаров для кампаний](./promotion#tag/creatingCampaigns/operation/postV2SupplierNms). Максимум 50 товаров (`nm`)
 	Nms []int32 `json:"nms,omitempty"`
-	// Тип ставки:   - `manual` — ручная   - `unified` — единая 
+	// Тип ставки:   - `manual` — ручная   - `unified` — единая
 	BidType *string `json:"bid_type,omitempty"`
-	// Тип оплаты: - `cpm` — за показы - `cpc` — за клик. При создании с этим типом оплаты в кампании автоматически устанавливается минимальная ставка 
+	// Тип оплаты: - `cpm` — за показы - `cpc` — за клик. При создании с этим типом оплаты в кампании автоматически устанавливается минимальная ставка
 	PaymentType *string `json:"payment_type,omitempty"`
-	// Места размещения:   - `search` — в поиске   - `recommendations` — в рекомендациях  Укажите только для кампании с ручной ставкой 
+	// Места размещения:   - `search` — в поиске   - `recommendations` — в рекомендациях  Укажите только для кампании с ручной ставкой
 	PlacementTypes []string `json:"placement_types,omitempty"`
 }
 
@@ -214,7 +214,7 @@ func (o *PostV2SeacatSaveAdRequest) SetPlacementTypes(v []string) {
 }
 
 func (o PostV2SeacatSaveAdRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -252,10 +252,10 @@ func (o *PostV2SeacatSaveAdRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -311,5 +311,3 @@ func (v *NullablePostV2SeacatSaveAdRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

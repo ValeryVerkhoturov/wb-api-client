@@ -11,8 +11,8 @@ API version: general
 package general
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,7 +23,7 @@ var _ MappedNullable = &GetUsersResponseUsersInner{}
 type GetUsersResponseUsersInner struct {
 	// ID пользователя
 	Id int32 `json:"id"`
-	// Роль пользователя:   * `user` — пользователь, который активировал доступ   * ` ` (пустая строка) — пользователь, который не активировал доступ 
+	// Роль пользователя:   * `user` — пользователь, который активировал доступ   * ` ` (пустая строка) — пользователь, который не активировал доступ
 	Role string `json:"role"`
 	// Должность пользователя
 	Position string `json:"position"`
@@ -42,7 +42,7 @@ type GetUsersResponseUsersInner struct {
 	// Может ли пользователь одобрять возвраты товаров
 	GoodsReturn bool `json:"goodsReturn"`
 	// Приглашён ли пользователь
-	IsInvitee bool `json:"isInvitee"`
+	IsInvitee   bool                                          `json:"isInvitee"`
 	InviteeInfo NullableGetUsersResponseUsersInnerInviteeInfo `json:"inviteeInfo"`
 	// Настройки доступа к разделам профиля продавца
 	Access []GetUsersResponseUsersInnerAccessInner `json:"access"`
@@ -395,7 +395,7 @@ func (o *GetUsersResponseUsersInner) SetAccess(v []GetUsersResponseUsersInnerAcc
 }
 
 func (o GetUsersResponseUsersInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -445,10 +445,10 @@ func (o *GetUsersResponseUsersInner) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -504,5 +504,3 @@ func (v *NullableGetUsersResponseUsersInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

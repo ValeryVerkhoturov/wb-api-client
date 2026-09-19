@@ -20,7 +20,7 @@ var _ MappedNullable = &OpenapiSellerLimitsResponseData{}
 // OpenapiSellerLimitsResponseData struct for OpenapiSellerLimitsResponseData
 type OpenapiSellerLimitsResponseData struct {
 	Subscription NullableOpenapiSellerLimitsResponseDataSubscription `json:"subscription,omitempty"`
-	Tariff NullableOpenapiSellerLimitsResponseDataTariff `json:"tariff,omitempty"`
+	Tariff       NullableOpenapiSellerLimitsResponseDataTariff       `json:"tariff,omitempty"`
 }
 
 // NewOpenapiSellerLimitsResponseData instantiates a new OpenapiSellerLimitsResponseData object
@@ -72,6 +72,7 @@ func (o *OpenapiSellerLimitsResponseData) HasSubscription() bool {
 func (o *OpenapiSellerLimitsResponseData) SetSubscription(v OpenapiSellerLimitsResponseDataSubscription) {
 	o.Subscription.Set(&v)
 }
+
 // SetSubscriptionNil sets the value for Subscription to be an explicit nil
 func (o *OpenapiSellerLimitsResponseData) SetSubscriptionNil() {
 	o.Subscription.Set(nil)
@@ -114,6 +115,7 @@ func (o *OpenapiSellerLimitsResponseData) HasTariff() bool {
 func (o *OpenapiSellerLimitsResponseData) SetTariff(v OpenapiSellerLimitsResponseDataTariff) {
 	o.Tariff.Set(&v)
 }
+
 // SetTariffNil sets the value for Tariff to be an explicit nil
 func (o *OpenapiSellerLimitsResponseData) SetTariffNil() {
 	o.Tariff.Set(nil)
@@ -125,7 +127,7 @@ func (o *OpenapiSellerLimitsResponseData) UnsetTariff() {
 }
 
 func (o OpenapiSellerLimitsResponseData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -178,5 +180,3 @@ func (v *NullableOpenapiSellerLimitsResponseData) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

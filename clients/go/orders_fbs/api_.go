@@ -18,25 +18,24 @@ import (
 	"net/url"
 )
 
-
 type DefaultApi interface {
 
 	/*
-	GetMarketplaceV3FbsSettingsAutoreturns Получить настройки автовозврата продавца
+			GetMarketplaceV3FbsSettingsAutoreturns Получить настройки автовозврата продавца
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену
 
-Метод возвращает информацию о настройках автовозврата, установленных продавцом.
+		Метод возвращает информацию о настройках автовозврата, установленных продавцом.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetMarketplaceV3FbsSettingsAutoreturnsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetMarketplaceV3FbsSettingsAutoreturnsRequest
 	*/
 	GetMarketplaceV3FbsSettingsAutoreturns(ctx context.Context) ApiGetMarketplaceV3FbsSettingsAutoreturnsRequest
 
@@ -45,21 +44,21 @@ type DefaultApi interface {
 	GetMarketplaceV3FbsSettingsAutoreturnsExecute(r ApiGetMarketplaceV3FbsSettingsAutoreturnsRequest) (*GetMarketplaceV3FbsSettingsAutoreturnsResponse200, *http.Response, error)
 
 	/*
-	GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted Получить предметы, которые не хранятся на складах WB
+			GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted Получить предметы, которые не хранятся на складах WB
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену
 
-Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.
+		Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest
 	*/
 	GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted(ctx context.Context) ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest
 
@@ -68,21 +67,21 @@ type DefaultApi interface {
 	GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedExecute(r ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest) (*GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200, *http.Response, error)
 
 	/*
-	PatchMarketplaceV3FbsSettingsAutoreturns Обновить настройки автовозврата продавца
+			PatchMarketplaceV3FbsSettingsAutoreturns Обновить настройки автовозврата продавца
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену
 
-Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `"cargoType":1`.
+		Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `"cargoType":1`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest
 	*/
 	PatchMarketplaceV3FbsSettingsAutoreturns(ctx context.Context) ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest
 
@@ -90,21 +89,21 @@ type DefaultApi interface {
 	PatchMarketplaceV3FbsSettingsAutoreturnsExecute(r ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest) (*http.Response, error)
 
 	/*
-	PatchMarketplaceV3FbsSettingsAutoreturnsItems Обновить настройки автовозврата товаров
+			PatchMarketplaceV3FbsSettingsAutoreturnsItems Обновить настройки автовозврата товаров
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену
 
-Метод устанавливает настройки автовозврата малогабаритных товаров — `"cargoType":1`.
+		Метод устанавливает настройки автовозврата малогабаритных товаров — `"cargoType":1`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 	*/
 	PatchMarketplaceV3FbsSettingsAutoreturnsItems(ctx context.Context) ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 
@@ -113,21 +112,21 @@ type DefaultApi interface {
 	PatchMarketplaceV3FbsSettingsAutoreturnsItemsExecute(r ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest) (*PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200, *http.Response, error)
 
 	/*
-	PostMarketplaceV3FbsSettingsAutoreturnsItems Получить настройки автовозврата товаров
+			PostMarketplaceV3FbsSettingsAutoreturnsItems Получить настройки автовозврата товаров
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену
 
-Метод возвращает настройки автовозврата товаров.
+		Метод возвращает настройки автовозврата товаров.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 	*/
 	PostMarketplaceV3FbsSettingsAutoreturnsItems(ctx context.Context) ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 
@@ -140,7 +139,7 @@ type DefaultApi interface {
 type DefaultApiService service
 
 type ApiGetMarketplaceV3FbsSettingsAutoreturnsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
 }
 
@@ -162,24 +161,25 @@ GetMarketplaceV3FbsSettingsAutoreturns Получить настройки ав�
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetMarketplaceV3FbsSettingsAutoreturnsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetMarketplaceV3FbsSettingsAutoreturnsRequest
 */
 func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturns(ctx context.Context) ApiGetMarketplaceV3FbsSettingsAutoreturnsRequest {
 	return ApiGetMarketplaceV3FbsSettingsAutoreturnsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetMarketplaceV3FbsSettingsAutoreturnsResponse200
+//
+//	@return GetMarketplaceV3FbsSettingsAutoreturnsResponse200
 func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsExecute(r ApiGetMarketplaceV3FbsSettingsAutoreturnsRequest) (*GetMarketplaceV3FbsSettingsAutoreturnsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetMarketplaceV3FbsSettingsAutoreturnsResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetMarketplaceV3FbsSettingsAutoreturnsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetMarketplaceV3FbsSettingsAutoreturns")
@@ -210,20 +210,6 @@ func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsExecute(r ApiG
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -253,8 +239,8 @@ func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -264,8 +250,8 @@ func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -275,8 +261,8 @@ func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsExecute(r ApiG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -294,10 +280,10 @@ func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsExecute(r ApiG
 }
 
 type ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
-	next *int64
-	limit *int32
+	next       *int64
+	limit      *int32
 }
 
 // Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
@@ -330,24 +316,25 @@ GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted Получить �
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest
 */
 func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted(ctx context.Context) ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest {
 	return ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
+//
+//	@return GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
 func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedExecute(r ApiGetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedRequest) (*GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted")
@@ -392,20 +379,6 @@ func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesR
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -435,8 +408,8 @@ func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -446,8 +419,8 @@ func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -457,8 +430,8 @@ func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -468,8 +441,8 @@ func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -487,8 +460,8 @@ func (a *DefaultApiService) GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesR
 }
 
 type ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                                             context.Context
+	ApiService                                      DefaultApi
 	patchMarketplaceV3FbsSettingsAutoreturnsRequest *PatchMarketplaceV3FbsSettingsAutoreturnsRequest
 }
 
@@ -515,22 +488,22 @@ PatchMarketplaceV3FbsSettingsAutoreturns Обновить настройки а�
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest
 */
 func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturns(ctx context.Context) ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest {
 	return ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsExecute(r ApiPatchMarketplaceV3FbsSettingsAutoreturnsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PatchMarketplaceV3FbsSettingsAutoreturns")
@@ -563,20 +536,6 @@ func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsExecute(r Ap
 	}
 	// body params
 	localVarPostBody = r.patchMarketplaceV3FbsSettingsAutoreturnsRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -606,8 +565,8 @@ func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -617,8 +576,8 @@ func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -628,8 +587,8 @@ func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -639,8 +598,8 @@ func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -649,8 +608,8 @@ func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsExecute(r Ap
 }
 
 type ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                                                  context.Context
+	ApiService                                           DefaultApi
 	patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest *PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 }
 
@@ -677,24 +636,25 @@ PatchMarketplaceV3FbsSettingsAutoreturnsItems Обновить настройк�
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 */
 func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsItems(ctx context.Context) ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest {
 	return ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
+//
+//	@return PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
 func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsItemsExecute(r ApiPatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest) (*PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PatchMarketplaceV3FbsSettingsAutoreturnsItems")
@@ -727,20 +687,6 @@ func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsItemsExecute
 	}
 	// body params
 	localVarPostBody = r.patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -770,8 +716,8 @@ func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsItemsExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -781,8 +727,8 @@ func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsItemsExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -792,8 +738,8 @@ func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsItemsExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -803,8 +749,8 @@ func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsItemsExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -822,8 +768,8 @@ func (a *DefaultApiService) PatchMarketplaceV3FbsSettingsAutoreturnsItemsExecute
 }
 
 type ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                                                 context.Context
+	ApiService                                          DefaultApi
 	postMarketplaceV3FbsSettingsAutoreturnsItemsRequest *PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 }
 
@@ -850,24 +796,25 @@ PostMarketplaceV3FbsSettingsAutoreturnsItems Получить настройки
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
 */
 func (a *DefaultApiService) PostMarketplaceV3FbsSettingsAutoreturnsItems(ctx context.Context) ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest {
 	return ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
+//
+//	@return PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
 func (a *DefaultApiService) PostMarketplaceV3FbsSettingsAutoreturnsItemsExecute(r ApiPostMarketplaceV3FbsSettingsAutoreturnsItemsRequest) (*PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostMarketplaceV3FbsSettingsAutoreturnsItems")
@@ -900,20 +847,6 @@ func (a *DefaultApiService) PostMarketplaceV3FbsSettingsAutoreturnsItemsExecute(
 	}
 	// body params
 	localVarPostBody = r.postMarketplaceV3FbsSettingsAutoreturnsItemsRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -943,8 +876,8 @@ func (a *DefaultApiService) PostMarketplaceV3FbsSettingsAutoreturnsItemsExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -954,8 +887,8 @@ func (a *DefaultApiService) PostMarketplaceV3FbsSettingsAutoreturnsItemsExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -965,8 +898,8 @@ func (a *DefaultApiService) PostMarketplaceV3FbsSettingsAutoreturnsItemsExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -976,8 +909,8 @@ func (a *DefaultApiService) PostMarketplaceV3FbsSettingsAutoreturnsItemsExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

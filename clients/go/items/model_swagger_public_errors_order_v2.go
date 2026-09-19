@@ -19,7 +19,7 @@ var _ MappedNullable = &SwaggerPublicErrorsOrderV2{}
 
 // SwaggerPublicErrorsOrderV2 Порядок выдачи пакетов
 type SwaggerPublicErrorsOrderV2 struct {
-	// - `false` — сортировка по убыванию - `true` — сортировка по возрастанию 
+	// - `false` — сортировка по убыванию - `true` — сортировка по возрастанию
 	Ascending *bool `json:"ascending,omitempty"`
 }
 
@@ -77,7 +77,7 @@ func (o *SwaggerPublicErrorsOrderV2) SetAscending(v bool) {
 }
 
 func (o SwaggerPublicErrorsOrderV2) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -127,5 +127,3 @@ func (v *NullableSwaggerPublicErrorsOrderV2) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

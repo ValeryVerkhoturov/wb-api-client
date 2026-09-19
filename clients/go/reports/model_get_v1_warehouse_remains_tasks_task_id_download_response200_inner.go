@@ -311,7 +311,7 @@ func (o *GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner) SetWarehouses
 }
 
 func (o GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -382,5 +382,3 @@ func (v *NullableGetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner) Unmar
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

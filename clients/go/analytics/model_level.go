@@ -20,7 +20,7 @@ type Level string
 
 // List of Level
 const (
-	DAY Level = "day"
+	DAY  Level = "day"
 	WEEK Level = "week"
 )
 
@@ -108,4 +108,3 @@ func (v *NullableLevel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

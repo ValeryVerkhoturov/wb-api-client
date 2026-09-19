@@ -88,6 +88,7 @@ func (o *DeliveryDatesInfoRespOrdersInner) HasDTimeFrom() bool {
 func (o *DeliveryDatesInfoRespOrdersInner) SetDTimeFrom(v string) {
 	o.DTimeFrom.Set(&v)
 }
+
 // SetDTimeFromNil sets the value for DTimeFrom to be an explicit nil
 func (o *DeliveryDatesInfoRespOrdersInner) SetDTimeFromNil() {
 	o.DTimeFrom.Set(nil)
@@ -130,6 +131,7 @@ func (o *DeliveryDatesInfoRespOrdersInner) HasDTimeTo() bool {
 func (o *DeliveryDatesInfoRespOrdersInner) SetDTimeTo(v string) {
 	o.DTimeTo.Set(&v)
 }
+
 // SetDTimeToNil sets the value for DTimeTo to be an explicit nil
 func (o *DeliveryDatesInfoRespOrdersInner) SetDTimeToNil() {
 	o.DTimeTo.Set(nil)
@@ -172,6 +174,7 @@ func (o *DeliveryDatesInfoRespOrdersInner) HasDTimeFromOld() bool {
 func (o *DeliveryDatesInfoRespOrdersInner) SetDTimeFromOld(v string) {
 	o.DTimeFromOld.Set(&v)
 }
+
 // SetDTimeFromOldNil sets the value for DTimeFromOld to be an explicit nil
 func (o *DeliveryDatesInfoRespOrdersInner) SetDTimeFromOldNil() {
 	o.DTimeFromOld.Set(nil)
@@ -214,6 +217,7 @@ func (o *DeliveryDatesInfoRespOrdersInner) HasDTimeToOld() bool {
 func (o *DeliveryDatesInfoRespOrdersInner) SetDTimeToOld(v string) {
 	o.DTimeToOld.Set(&v)
 }
+
 // SetDTimeToOldNil sets the value for DTimeToOld to be an explicit nil
 func (o *DeliveryDatesInfoRespOrdersInner) SetDTimeToOldNil() {
 	o.DTimeToOld.Set(nil)
@@ -256,6 +260,7 @@ func (o *DeliveryDatesInfoRespOrdersInner) HasDDateOld() bool {
 func (o *DeliveryDatesInfoRespOrdersInner) SetDDateOld(v string) {
 	o.DDateOld.Set(&v)
 }
+
 // SetDDateOldNil sets the value for DDateOld to be an explicit nil
 func (o *DeliveryDatesInfoRespOrdersInner) SetDDateOldNil() {
 	o.DDateOld.Set(nil)
@@ -330,6 +335,7 @@ func (o *DeliveryDatesInfoRespOrdersInner) HasDDateFrom() bool {
 func (o *DeliveryDatesInfoRespOrdersInner) SetDDateFrom(v string) {
 	o.DDateFrom.Set(&v)
 }
+
 // SetDDateFromNil sets the value for DDateFrom to be an explicit nil
 func (o *DeliveryDatesInfoRespOrdersInner) SetDDateFromNil() {
 	o.DDateFrom.Set(nil)
@@ -372,6 +378,7 @@ func (o *DeliveryDatesInfoRespOrdersInner) HasDDateTo() bool {
 func (o *DeliveryDatesInfoRespOrdersInner) SetDDateTo(v string) {
 	o.DDateTo.Set(&v)
 }
+
 // SetDDateToNil sets the value for DDateTo to be an explicit nil
 func (o *DeliveryDatesInfoRespOrdersInner) SetDDateToNil() {
 	o.DDateTo.Set(nil)
@@ -415,7 +422,7 @@ func (o *DeliveryDatesInfoRespOrdersInner) SetId(v int32) {
 }
 
 func (o DeliveryDatesInfoRespOrdersInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -489,5 +496,3 @@ func (v *NullableDeliveryDatesInfoRespOrdersInner) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

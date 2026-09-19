@@ -11,10 +11,10 @@ API version: finances
 package finances
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the SalesReportsDetailedRes type satisfies the MappedNullable interface at compile time
@@ -32,7 +32,7 @@ type SalesReportsDetailedRes struct {
 	CreateDate string `json:"createDate"`
 	// Валюта отчёта
 	Currency string `json:"currency"`
-	// Тип отчёта:   - `1` — основной   - `2` — по выкупам 
+	// Тип отчёта:   - `1` — основной   - `2` — по выкупам
 	ReportType int32 `json:"reportType"`
 	// ID строки
 	RrdId int32 `json:"rrdId"`
@@ -2583,7 +2583,7 @@ func (o *SalesReportsDetailedRes) SetSrid(v string) {
 }
 
 func (o SalesReportsDetailedRes) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -2797,10 +2797,10 @@ func (o *SalesReportsDetailedRes) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -2856,5 +2856,3 @@ func (v *NullableSalesReportsDetailedRes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

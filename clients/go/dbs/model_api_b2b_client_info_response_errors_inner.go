@@ -107,7 +107,7 @@ func (o *ApiB2bClientInfoResponseErrorsInner) SetDetail(v string) {
 }
 
 func (o ApiB2bClientInfoResponseErrorsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableApiB2bClientInfoResponseErrorsInner) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

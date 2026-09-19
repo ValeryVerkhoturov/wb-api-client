@@ -11,8 +11,8 @@ API version: promotion
 package promotion
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,9 +21,9 @@ var _ MappedNullable = &PutV0AuctionPlacementsRequestPlacementsInnerPlacements{}
 
 // PutV0AuctionPlacementsRequestPlacementsInnerPlacements Места размещения
 type PutV0AuctionPlacementsRequestPlacementsInnerPlacements struct {
-	// Размещение в поиске:   - `false` — отключено   - `true` — включено 
+	// Размещение в поиске:   - `false` — отключено   - `true` — включено
 	Search bool `json:"search"`
-	// Размещение в рекомендациях:   - `false` — отключено   - `true` — включено 
+	// Размещение в рекомендациях:   - `false` — отключено   - `true` — включено
 	Recommendations bool `json:"recommendations"`
 }
 
@@ -97,7 +97,7 @@ func (o *PutV0AuctionPlacementsRequestPlacementsInnerPlacements) SetRecommendati
 }
 
 func (o PutV0AuctionPlacementsRequestPlacementsInnerPlacements) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -125,10 +125,10 @@ func (o *PutV0AuctionPlacementsRequestPlacementsInnerPlacements) UnmarshalJSON(d
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -184,5 +184,3 @@ func (v *NullablePutV0AuctionPlacementsRequestPlacementsInnerPlacements) Unmarsh
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

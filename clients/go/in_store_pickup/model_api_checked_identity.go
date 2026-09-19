@@ -19,7 +19,7 @@ var _ MappedNullable = &ApiCheckedIdentity{}
 
 // ApiCheckedIdentity struct for ApiCheckedIdentity
 type ApiCheckedIdentity struct {
-	// Принадлежит ли заказ покупателю:   - `true` — принадлежит   - `false` — значение не применяется. Если заказ не принадлежит покупателю, вы получите ответ со статус-кодом `409` 
+	// Принадлежит ли заказ покупателю:   - `true` — принадлежит   - `false` — значение не применяется. Если заказ не принадлежит покупателю, вы получите ответ со статус-кодом `409`
 	Ok *bool `json:"ok,omitempty"`
 }
 
@@ -73,7 +73,7 @@ func (o *ApiCheckedIdentity) SetOk(v bool) {
 }
 
 func (o ApiCheckedIdentity) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,5 +123,3 @@ func (v *NullableApiCheckedIdentity) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

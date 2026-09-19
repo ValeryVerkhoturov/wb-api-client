@@ -23,7 +23,7 @@ type ApiBatchErrorDeliverResponseMetaDetailsInner struct {
 	Key *string `json:"key,omitempty"`
 	// Значение идентификатора маркировки
 	Value *string `json:"value,omitempty"`
-	// Статус проверки: - `sgtin`   - `sgtinInvalidFormat` — Неверный формат маркировки   - `sgtinNotFound` — Маркировка не найдена в [Честном знаке](https://chestnyznak.ru)   - `sgtinEmitted` —  Маркировка эмитирована   - `sgtinApplied` — Не пройдена процедура Ввод в оборот   - `sgtinWrittenOff` — Списан   - `sgtinRetired` — Выбыл   - `sgtinWithdrawn` — Выбыл   - `sgtinDisaggregation` — Расформирован   - `sgtinDisaggregated` — Расформирован   - `sgtinAppliedNotPaid` — Не оплачен   - `pending` — Маркировка на проверке 
+	// Статус проверки: - `sgtin`   - `sgtinInvalidFormat` — Неверный формат маркировки   - `sgtinNotFound` — Маркировка не найдена в [Честном знаке](https://chestnyznak.ru)   - `sgtinEmitted` —  Маркировка эмитирована   - `sgtinApplied` — Не пройдена процедура Ввод в оборот   - `sgtinWrittenOff` — Списан   - `sgtinRetired` — Выбыл   - `sgtinWithdrawn` — Выбыл   - `sgtinDisaggregation` — Расформирован   - `sgtinDisaggregated` — Расформирован   - `sgtinAppliedNotPaid` — Не оплачен   - `pending` — Маркировка на проверке
 	Decision *string `json:"decision,omitempty"`
 }
 
@@ -141,7 +141,7 @@ func (o *ApiBatchErrorDeliverResponseMetaDetailsInner) SetDecision(v string) {
 }
 
 func (o ApiBatchErrorDeliverResponseMetaDetailsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,5 +197,3 @@ func (v *NullableApiBatchErrorDeliverResponseMetaDetailsInner) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

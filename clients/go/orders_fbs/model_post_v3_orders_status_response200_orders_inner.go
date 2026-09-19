@@ -21,7 +21,7 @@ var _ MappedNullable = &PostV3OrdersStatusResponse200OrdersInner{}
 type PostV3OrdersStatusResponse200OrdersInner struct {
 	// ID сборочного задания
 	Id *int64 `json:"id,omitempty"`
-	// Доступна ли [отмена](./orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel) сборочного задания: - `false` — недоступна - `true` — доступна 
+	// Доступна ли [отмена](./orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel) сборочного задания: - `false` — недоступна - `true` — доступна
 	IsCancellable *bool `json:"isCancellable,omitempty"`
 	// Статус сборочного задания, установленный продавцом
 	SupplierStatus *string `json:"supplierStatus,omitempty"`
@@ -175,7 +175,7 @@ func (o *PostV3OrdersStatusResponse200OrdersInner) SetWbStatus(v string) {
 }
 
 func (o PostV3OrdersStatusResponse200OrdersInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullablePostV3OrdersStatusResponse200OrdersInner) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

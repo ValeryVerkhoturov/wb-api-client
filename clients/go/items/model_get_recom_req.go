@@ -25,7 +25,7 @@ type GetRecomReq struct {
 	Limit *int32 `json:"limit,omitempty"`
 	// Курсор. Последний `nmId` в ответе
 	Next *int32 `json:"next,omitempty"`
-	// Поиск:   - по артикулу WB `nmId` — полное совпадение   - по артикулу продавца `vendorCode` — частичное совпадение 
+	// Поиск:   - по артикулу WB `nmId` — полное совпадение   - по артикулу продавца `vendorCode` — частичное совпадение
 	Search *string `json:"search,omitempty"`
 	// ID предметов
 	SubjectIds []int32 `json:"subjectIds,omitempty"`
@@ -217,7 +217,7 @@ func (o *GetRecomReq) SetSubjectIds(v []int32) {
 }
 
 func (o GetRecomReq) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -279,5 +279,3 @@ func (v *NullableGetRecomReq) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -12,15 +12,15 @@ package promotion
 
 import (
 	"encoding/json"
-	"gopkg.in/validator.v2"
 	"fmt"
+	"gopkg.in/validator.v2"
 )
 
 // PostV1StatsRequestInner - struct for PostV1StatsRequestInner
 type PostV1StatsRequestInner struct {
 	RequestWithCampaignID *RequestWithCampaignID
-	RequestWithDate *RequestWithDate
-	RequestWithInterval *RequestWithInterval
+	RequestWithDate       *RequestWithDate
+	RequestWithInterval   *RequestWithInterval
 }
 
 // RequestWithCampaignIDAsPostV1StatsRequestInner is a convenience function that returns RequestWithCampaignID wrapped in PostV1StatsRequestInner
@@ -43,7 +43,6 @@ func RequestWithIntervalAsPostV1StatsRequestInner(v *RequestWithInterval) PostV1
 		RequestWithInterval: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *PostV1StatsRequestInner) UnmarshalJSON(data []byte) error {
@@ -132,7 +131,7 @@ func (src PostV1StatsRequestInner) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *PostV1StatsRequestInner) GetActualInstance() (interface{}) {
+func (obj *PostV1StatsRequestInner) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -187,5 +186,3 @@ func (v *NullablePostV1StatsRequestInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

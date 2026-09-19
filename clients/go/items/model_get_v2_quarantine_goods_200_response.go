@@ -75,6 +75,7 @@ func (o *GetV2QuarantineGoods200Response) HasData() bool {
 func (o *GetV2QuarantineGoods200Response) SetData(v GetV2QuarantineGoods200ResponseData) {
 	o.Data.Set(&v)
 }
+
 // SetDataNil sets the value for Data to be an explicit nil
 func (o *GetV2QuarantineGoods200Response) SetDataNil() {
 	o.Data.Set(nil)
@@ -150,7 +151,7 @@ func (o *GetV2QuarantineGoods200Response) SetErrorText(v string) {
 }
 
 func (o GetV2QuarantineGoods200Response) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -206,5 +207,3 @@ func (v *NullableGetV2QuarantineGoods200Response) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,7 +19,7 @@ var _ MappedNullable = &PostV2GetCardsListResponse200CardsInnerWholesale{}
 
 // PostV2GetCardsListResponse200CardsInnerWholesale B2B-продажа
 type PostV2GetCardsListResponse200CardsInnerWholesale struct {
-	// Предназначен ли товар для продажи только B2B-покупателям:   - `true` — товар предназначен для продажи только B2B-покупателям   - `false` — товар предназначен для продажи B2B и B2C-покупателям 
+	// Предназначен ли товар для продажи только B2B-покупателям:   - `true` — товар предназначен для продажи только B2B-покупателям   - `false` — товар предназначен для продажи B2B и B2C-покупателям
 	Enabled *bool `json:"enabled,omitempty"`
 	// Минимальное количество единиц товара в одной корзине B2B-покупателя. Только при `\"enable\":true`
 	Quantum *float32 `json:"quantum,omitempty"`
@@ -107,7 +107,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerWholesale) SetQuantum(v float32)
 }
 
 func (o PostV2GetCardsListResponse200CardsInnerWholesale) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullablePostV2GetCardsListResponse200CardsInnerWholesale) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

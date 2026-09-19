@@ -21,7 +21,7 @@ var _ MappedNullable = &Order{}
 // Order struct for Order
 type Order struct {
 	Address NullableOrderNewDBWAddress `json:"address,omitempty"`
-	Options *OrderNewDBWOptions `json:"options,omitempty"`
+	Options *OrderNewDBWOptions        `json:"options,omitempty"`
 	// ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUid`
 	OrderUid *string `json:"orderUid,omitempty"`
 	// ID группы сборочных заданий.  Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)
@@ -52,11 +52,11 @@ type Order struct {
 	CurrencyCode *int32 `json:"currencyCode,omitempty"`
 	// Код валюты страны продавца
 	ConvertedCurrencyCode *int32 `json:"convertedCurrencyCode,omitempty"`
-	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) 
+	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
 	CargoType *int32 `json:"cargoType,omitempty"`
 	// Комментарий покупателя
 	Comment *string `json:"comment,omitempty"`
-	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
+	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
 }
 
@@ -109,6 +109,7 @@ func (o *Order) HasAddress() bool {
 func (o *Order) SetAddress(v OrderNewDBWAddress) {
 	o.Address.Set(&v)
 }
+
 // SetAddressNil sets the value for Address to be an explicit nil
 func (o *Order) SetAddressNil() {
 	o.Address.Set(nil)
@@ -728,7 +729,7 @@ func (o *Order) SetIsZeroOrder(v bool) {
 }
 
 func (o Order) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -835,5 +836,3 @@ func (v *NullableOrder) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

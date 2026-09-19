@@ -11,8 +11,8 @@ API version: promotion
 package promotion
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -25,7 +25,7 @@ type PatchV1BidsRequestBidsInnerNmBidsInner struct {
 	NmId int64 `json:"nm_id"`
 	// Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	BidKopecks int64 `json:"bid_kopecks"`
-	// Место размещения:   - `search` — в поиске (для кампаний с ручной ставкой)   - `recommendations`— в рекомендациях (для кампаний с ручной ставкой)   - `combined` — в поиске и рекомендациях (для кампаний с единой ставкой) 
+	// Место размещения:   - `search` — в поиске (для кампаний с ручной ставкой)   - `recommendations`— в рекомендациях (для кампаний с ручной ставкой)   - `combined` — в поиске и рекомендациях (для кампаний с единой ставкой)
 	Placement string `json:"placement"`
 }
 
@@ -124,7 +124,7 @@ func (o *PatchV1BidsRequestBidsInnerNmBidsInner) SetPlacement(v string) {
 }
 
 func (o PatchV1BidsRequestBidsInnerNmBidsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -154,10 +154,10 @@ func (o *PatchV1BidsRequestBidsInnerNmBidsInner) UnmarshalJSON(data []byte) (err
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -213,5 +213,3 @@ func (v *NullablePatchV1BidsRequestBidsInnerNmBidsInner) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

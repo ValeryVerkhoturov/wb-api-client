@@ -39,7 +39,7 @@ paths:
       x-readonly-method: true
       x-category: supplies
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Информация для формирования поставок
       summary: Опции приёмки
@@ -118,7 +118,7 @@ paths:
       x-readonly-method: true
       x-category: supplies
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Информация для формирования поставок
       summary: Список складов
@@ -1055,10 +1055,6 @@ paths:
           $ref: '#/components/responses/429'
 components:
   securitySchemes:
-    HeaderApiKey:
-      type: apiKey
-      name: Authorization
-      in: header
     BearerAuth:
       type: http
       scheme: bearer

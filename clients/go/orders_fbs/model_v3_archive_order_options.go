@@ -19,7 +19,7 @@ var _ MappedNullable = &V3ArchiveOrderOptions{}
 
 // V3ArchiveOrderOptions Опции заказа
 type V3ArchiveOrderOptions struct {
-	// Признак B2B-продажи:   - `false` — не B2B-продажа   - `true` — B2B-продажа 
+	// Признак B2B-продажи:   - `false` — не B2B-продажа   - `true` — B2B-продажа
 	IsB2B *bool `json:"isB2B,omitempty"`
 }
 
@@ -73,7 +73,7 @@ func (o *V3ArchiveOrderOptions) SetIsB2B(v bool) {
 }
 
 func (o V3ArchiveOrderOptions) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,5 +123,3 @@ func (v *NullableV3ArchiveOrderOptions) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

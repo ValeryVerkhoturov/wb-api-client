@@ -277,7 +277,7 @@ func (o *PostV2CardsUploadAddResponse413) SetStatusText(v string) {
 }
 
 func (o PostV2CardsUploadAddResponse413) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -345,5 +345,3 @@ func (v *NullablePostV2CardsUploadAddResponse413) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

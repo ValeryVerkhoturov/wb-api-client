@@ -11,8 +11,8 @@ API version: order
 package orders_fbs
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -29,15 +29,15 @@ type ShippingPoint struct {
 	Address string `json:"address"`
 	// Населённый пункт
 	City string `json:"city"`
-	// Тип пункта отгрузки:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — ПВЗ 
+	// Тип пункта отгрузки:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — ПВЗ
 	OfficeType string `json:"officeType"`
-	// Типы товаров, которые принимает пункт отгрузки:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) 
+	// Типы товаров, которые принимает пункт отгрузки:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
 	CargoTypes []int32 `json:"cargoTypes"`
 	// Широта
 	Latitude float32 `json:"latitude"`
 	// Долгота
 	Longitude float32 `json:"longitude"`
-	// Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна 
+	// Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна
 	Fulfillment bool `json:"fulfillment"`
 }
 
@@ -286,7 +286,7 @@ func (o *ShippingPoint) SetFulfillment(v bool) {
 }
 
 func (o ShippingPoint) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -328,10 +328,10 @@ func (o *ShippingPoint) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -387,5 +387,3 @@ func (v *NullableShippingPoint) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

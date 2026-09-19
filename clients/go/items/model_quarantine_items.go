@@ -120,6 +120,7 @@ func (o *QuarantineItems) HasSizeID() bool {
 func (o *QuarantineItems) SetSizeID(v int32) {
 	o.SizeID.Set(&v)
 }
+
 // SetSizeIDNil sets the value for SizeID to be an explicit nil
 func (o *QuarantineItems) SetSizeIDNil() {
 	o.SizeID.Set(nil)
@@ -226,6 +227,7 @@ func (o *QuarantineItems) HasNewPrice() bool {
 func (o *QuarantineItems) SetNewPrice(v float32) {
 	o.NewPrice.Set(&v)
 }
+
 // SetNewPriceNil sets the value for NewPrice to be an explicit nil
 func (o *QuarantineItems) SetNewPriceNil() {
 	o.NewPrice.Set(nil)
@@ -300,6 +302,7 @@ func (o *QuarantineItems) HasNewDiscount() bool {
 func (o *QuarantineItems) SetNewDiscount(v int32) {
 	o.NewDiscount.Set(&v)
 }
+
 // SetNewDiscountNil sets the value for NewDiscount to be an explicit nil
 func (o *QuarantineItems) SetNewDiscountNil() {
 	o.NewDiscount.Set(nil)
@@ -375,7 +378,7 @@ func (o *QuarantineItems) SetPriceDiff(v float32) {
 }
 
 func (o QuarantineItems) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -449,5 +452,3 @@ func (v *NullableQuarantineItems) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

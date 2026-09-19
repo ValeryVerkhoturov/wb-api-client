@@ -19,7 +19,7 @@ var _ MappedNullable = &ApiOrders{}
 
 // ApiOrders struct for ApiOrders
 type ApiOrders struct {
-	// Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных 
+	// Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
 	Next *int32 `json:"next,omitempty"`
 	// Список сборочных заданий
 	Orders []ApiOrder `json:"orders,omitempty"`
@@ -107,7 +107,7 @@ func (o *ApiOrders) SetOrders(v []ApiOrder) {
 }
 
 func (o ApiOrders) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableApiOrders) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

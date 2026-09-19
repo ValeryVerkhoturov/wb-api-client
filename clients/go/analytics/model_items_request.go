@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,8 +22,8 @@ var _ MappedNullable = &ItemsRequest{}
 // ItemsRequest struct for ItemsRequest
 type ItemsRequest struct {
 	SelectedPeriod ItemsRequestSelectedPeriod `json:"selectedPeriod"`
-	PastPeriod *ItemsRequestPastPeriod `json:"pastPeriod,omitempty"`
-	// Артикулы WB, по которым нужно составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах 
+	PastPeriod     *ItemsRequestPastPeriod    `json:"pastPeriod,omitempty"`
+	// Артикулы WB, по которым нужно составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах
 	NmIds []int32 `json:"nmIds,omitempty"`
 	// Список брендов для фильтрации
 	BrandNames []string `json:"brandNames,omitempty"`
@@ -32,8 +32,8 @@ type ItemsRequest struct {
 	// Список ID ярлыков для фильтрации
 	TagIds []int32 `json:"tagIds,omitempty"`
 	// Скрыть удалённые товары
-	SkipDeletedNm *bool `json:"skipDeletedNm,omitempty"`
-	OrderBy *OrderBy `json:"orderBy,omitempty"`
+	SkipDeletedNm *bool    `json:"skipDeletedNm,omitempty"`
+	OrderBy       *OrderBy `json:"orderBy,omitempty"`
 	// Количество карточек товара в ответе
 	Limit *int32 `json:"limit,omitempty"`
 	// Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
@@ -381,7 +381,7 @@ func (o *ItemsRequest) SetOffset(v int32) {
 }
 
 func (o ItemsRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -434,10 +434,10 @@ func (o *ItemsRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -493,5 +493,3 @@ func (v *NullableItemsRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

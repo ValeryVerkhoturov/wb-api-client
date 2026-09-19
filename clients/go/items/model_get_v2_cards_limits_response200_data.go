@@ -107,7 +107,7 @@ func (o *GetV2CardsLimitsResponse200Data) SetPaidLimits(v int32) {
 }
 
 func (o GetV2CardsLimitsResponse200Data) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableGetV2CardsLimitsResponse200Data) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

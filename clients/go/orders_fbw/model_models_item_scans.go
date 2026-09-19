@@ -11,10 +11,10 @@ API version: ordersfbw
 package orders_fbw
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the ModelsItemScans type satisfies the MappedNullable interface at compile time
@@ -28,7 +28,7 @@ type ModelsItemScans struct {
 	DeclaredSku string `json:"declaredSku"`
 	// Дата и время сканирования
 	ScanTime time.Time `json:"scanTime"`
-	// Тип расхождения товара:  - `surplus` — товара больше, чем заявлено  - `shortage` — товара меньше, чем заявлено  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки 
+	// Тип расхождения товара:  - `surplus` — товара больше, чем заявлено  - `shortage` — товара меньше, чем заявлено  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки
 	DiscrepancyLabel string `json:"discrepancyLabel"`
 	// Фактический баркод
 	ActualSku string `json:"actualSku"`
@@ -179,7 +179,7 @@ func (o *ModelsItemScans) SetActualSku(v string) {
 }
 
 func (o ModelsItemScans) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -213,10 +213,10 @@ func (o *ModelsItemScans) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -272,5 +272,3 @@ func (v *NullableModelsItemScans) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

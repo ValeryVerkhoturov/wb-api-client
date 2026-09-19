@@ -11,8 +11,8 @@ API version: communication
 package communications
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,11 +23,11 @@ var _ MappedNullable = &OpenapiPinReviewItemResultDataInner{}
 type OpenapiPinReviewItemResultDataInner struct {
 	// ID отзыва
 	FeedbackId string `json:"feedbackId"`
-	// ID операции закрепления. Если поле отсутствует — закрепить отзыв не удалось 
+	// ID операции закрепления. Если поле отсутствует — закрепить отзыв не удалось
 	PinId *int32 `json:"pinId,omitempty"`
-	// Метод закрепления:   - `subscription` — подписка Джем   - `tariff` — тарифная опция 
+	// Метод закрепления:   - `subscription` — подписка Джем   - `tariff` — тарифная опция
 	PinMethod string `json:"pinMethod"`
-	// Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+	// Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
 	PinOn string `json:"pinOn"`
 	// Есть ли ошибки
 	IsErrors bool `json:"isErrors"`
@@ -219,7 +219,7 @@ func (o *OpenapiPinReviewItemResultDataInner) SetErrors(v []OpenapiResultErr) {
 }
 
 func (o OpenapiPinReviewItemResultDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -257,10 +257,10 @@ func (o *OpenapiPinReviewItemResultDataInner) UnmarshalJSON(data []byte) (err er
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -316,5 +316,3 @@ func (v *NullableOpenapiPinReviewItemResultDataInner) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

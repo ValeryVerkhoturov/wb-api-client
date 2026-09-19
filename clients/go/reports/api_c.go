@@ -18,26 +18,25 @@ import (
 	"net/url"
 )
 
-
 type CAPI interface {
 
 	/*
-	PostV1AnalyticsExciseReport Получить отчёт
+			PostV1AnalyticsExciseReport Получить отчёт
 
-	Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).
+			Метод возвращает отчёт с [операциями по товарам с обязательной маркировкой](https://seller.wildberries.ru/analytics-reports/excise-report).
 
-Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).
+		Данный отчёт можно сохранить в [формате таблиц](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-650c-7b04-9596-ba441936f9d3).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов |
-| Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов |
-| Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов |
-| Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 5 ч | 10 запросов | 30 мин | 10 запросов |
+		| Сервисный | 5 ч | 10 запросов | 30 мин | 10 запросов |
+		| Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов |
+		| Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1AnalyticsExciseReportRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV1AnalyticsExciseReportRequest
 	*/
 	PostV1AnalyticsExciseReport(ctx context.Context) ApiPostV1AnalyticsExciseReportRequest
 
@@ -50,20 +49,20 @@ type CAPI interface {
 type CAPIService service
 
 type ApiPostV1AnalyticsExciseReportRequest struct {
-	ctx context.Context
-	ApiService CAPI
-	dateFrom *string
-	dateTo *string
+	ctx                 context.Context
+	ApiService          CAPI
+	dateFrom            *string
+	dateTo              *string
 	exciseReportRequest *ExciseReportRequest
 }
 
-// Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
+// Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
 func (r ApiPostV1AnalyticsExciseReportRequest) DateFrom(dateFrom string) ApiPostV1AnalyticsExciseReportRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
-// Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; 
+// Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
 func (r ApiPostV1AnalyticsExciseReportRequest) DateTo(dateTo string) ApiPostV1AnalyticsExciseReportRequest {
 	r.dateTo = &dateTo
 	return r
@@ -93,24 +92,25 @@ PostV1AnalyticsExciseReport Получить отчёт
 | Базовый с секретом | 5 ч | 10 запросов | 30 мин | 10 запросов |
 | Базовый | 24 ч | 2 запроса | 12 ч | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV1AnalyticsExciseReportRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1AnalyticsExciseReportRequest
 */
 func (a *CAPIService) PostV1AnalyticsExciseReport(ctx context.Context) ApiPostV1AnalyticsExciseReportRequest {
 	return ApiPostV1AnalyticsExciseReportRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ExciseReportResponse
+//
+//	@return ExciseReportResponse
 func (a *CAPIService) PostV1AnalyticsExciseReportExecute(r ApiPostV1AnalyticsExciseReportRequest) (*ExciseReportResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ExciseReportResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ExciseReportResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CAPIService.PostV1AnalyticsExciseReport")
@@ -180,8 +180,8 @@ func (a *CAPIService) PostV1AnalyticsExciseReportExecute(r ApiPostV1AnalyticsExc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -191,8 +191,8 @@ func (a *CAPIService) PostV1AnalyticsExciseReportExecute(r ApiPostV1AnalyticsExc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -202,8 +202,8 @@ func (a *CAPIService) PostV1AnalyticsExciseReportExecute(r ApiPostV1AnalyticsExc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -213,8 +213,8 @@ func (a *CAPIService) PostV1AnalyticsExciseReportExecute(r ApiPostV1AnalyticsExc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -224,8 +224,8 @@ func (a *CAPIService) PostV1AnalyticsExciseReportExecute(r ApiPostV1AnalyticsExc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

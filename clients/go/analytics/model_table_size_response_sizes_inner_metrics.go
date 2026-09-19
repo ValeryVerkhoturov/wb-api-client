@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -38,23 +38,23 @@ type TableSizeResponseSizesInnerMetrics struct {
 	// Остатки на текущий день, шт.
 	StockCount int32 `json:"stockCount"`
 	// Стоимость остатков на текущий день
-	StockSum int32 `json:"stockSum"`
-	SaleRate TableCommonMetricsSaleRate `json:"saleRate"`
+	StockSum         int32                              `json:"stockSum"`
+	SaleRate         TableCommonMetricsSaleRate         `json:"saleRate"`
 	AvgStockTurnover TableCommonMetricsAvgStockTurnover `json:"avgStockTurnover"`
 	// В пути к клиенту, шт.
 	ToClientCount int32 `json:"toClientCount"`
 	// В пути от клиента, шт.
-	FromClientCount int32 `json:"fromClientCount"`
+	FromClientCount   int32                               `json:"fromClientCount"`
 	OfficeMissingTime TableCommonMetricsOfficeMissingTime `json:"officeMissingTime"`
-	// Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение 
+	// Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
 	LostOrdersCount float32 `json:"lostOrdersCount"`
-	// Упущенные заказы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение 
+	// Упущенные заказы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
 	LostOrdersSum float32 `json:"lostOrdersSum"`
-	// Упущенные выкупы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение 
+	// Упущенные выкупы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
 	LostBuyoutsCount float32 `json:"lostBuyoutsCount"`
-	// Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение 
-	LostBuyoutsSum float32 `json:"lostBuyoutsSum"`
-	CurrentPrice TableItemItemStMetricsAllOfCurrentPrice `json:"currentPrice"`
+	// Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение
+	LostBuyoutsSum float32                                 `json:"lostBuyoutsSum"`
+	CurrentPrice   TableItemItemStMetricsAllOfCurrentPrice `json:"currentPrice"`
 }
 
 type _TableSizeResponseSizesInnerMetrics TableSizeResponseSizesInnerMetrics
@@ -552,7 +552,7 @@ func (o *TableSizeResponseSizesInnerMetrics) SetCurrentPrice(v TableItemItemStMe
 }
 
 func (o TableSizeResponseSizesInnerMetrics) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -614,10 +614,10 @@ func (o *TableSizeResponseSizesInnerMetrics) UnmarshalJSON(data []byte) (err err
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -673,5 +673,3 @@ func (v *NullableTableSizeResponseSizesInnerMetrics) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

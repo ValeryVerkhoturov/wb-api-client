@@ -19,9 +19,9 @@ var _ MappedNullable = &StatsBlok2DailyStatsInnerAppTypeStatsInner{}
 
 // StatsBlok2DailyStatsInnerAppTypeStatsInner struct for StatsBlok2DailyStatsInnerAppTypeStatsInner
 type StatsBlok2DailyStatsInnerAppTypeStatsInner struct {
-	// Тип платформы: - `1` — сайт - `32` — Android - `64` — IOS 
-	AppType *int32 `json:"app_type,omitempty"`
-	Stats []StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner `json:"stats,omitempty"`
+	// Тип платформы: - `1` — сайт - `32` — Android - `64` — IOS
+	AppType *int32                                                 `json:"app_type,omitempty"`
+	Stats   []StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner `json:"stats,omitempty"`
 }
 
 // NewStatsBlok2DailyStatsInnerAppTypeStatsInner instantiates a new StatsBlok2DailyStatsInnerAppTypeStatsInner object
@@ -106,7 +106,7 @@ func (o *StatsBlok2DailyStatsInnerAppTypeStatsInner) SetStats(v []StatsBlok2Dail
 }
 
 func (o StatsBlok2DailyStatsInnerAppTypeStatsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,5 +159,3 @@ func (v *NullableStatsBlok2DailyStatsInnerAppTypeStatsInner) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

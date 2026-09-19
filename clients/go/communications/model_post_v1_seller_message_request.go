@@ -11,10 +11,10 @@ API version: communication
 package communications
 
 import (
-	"encoding/json"
-	"os"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"os"
 )
 
 // checks if the PostV1SellerMessageRequest type satisfies the MappedNullable interface at compile time
@@ -22,11 +22,11 @@ var _ MappedNullable = &PostV1SellerMessageRequest{}
 
 // PostV1SellerMessageRequest struct for PostV1SellerMessageRequest
 type PostV1SellerMessageRequest struct {
-	// Подпись чата. Можно получить из [информации по чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./customer-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле `\"isNewChat\": true`. 
+	// Подпись чата. Можно получить из [информации по чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./customer-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле `\"isNewChat\": true`.
 	ReplySign string `json:"replySign"`
 	// Текст сообщения. Максимум 1000 символов.
 	Message *string `json:"message,omitempty"`
-	// Файлы, формат JPEG, PDF или PNG, максимальный размер — 5 Мб каждый. Максимальный суммарный размер файлов — 30 Мб. 
+	// Файлы, формат JPEG, PDF или PNG, максимальный размер — 5 Мб каждый. Максимальный суммарный размер файлов — 30 Мб.
 	File []*os.File `json:"file,omitempty"`
 }
 
@@ -139,7 +139,7 @@ func (o *PostV1SellerMessageRequest) SetFile(v []*os.File) {
 }
 
 func (o PostV1SellerMessageRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -171,10 +171,10 @@ func (o *PostV1SellerMessageRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -230,5 +230,3 @@ func (v *NullablePostV1SellerMessageRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

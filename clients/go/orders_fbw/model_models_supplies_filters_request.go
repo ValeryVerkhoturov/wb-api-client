@@ -21,7 +21,7 @@ var _ MappedNullable = &ModelsSuppliesFiltersRequest{}
 type ModelsSuppliesFiltersRequest struct {
 	// Фильтр по датам
 	Dates []ModelsDateFilterRequest `json:"dates,omitempty"`
-	// Фильтр поставок по статусам. Возможные значения:   - `1` — Не запланировано   - `2` — Запланировано   - `3` — Отгрузка разрешена   - `4` — Идёт приёмка   - `5` — Принято   - `6` — Отгружено на воротах 
+	// Фильтр поставок по статусам. Возможные значения:   - `1` — Не запланировано   - `2` — Запланировано   - `3` — Отгрузка разрешена   - `4` — Идёт приёмка   - `5` — Принято   - `6` — Отгружено на воротах
 	StatusIDs []ModelsHandySupplyStatus `json:"statusIDs,omitempty"`
 }
 
@@ -107,7 +107,7 @@ func (o *ModelsSuppliesFiltersRequest) SetStatusIDs(v []ModelsHandySupplyStatus)
 }
 
 func (o ModelsSuppliesFiltersRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableModelsSuppliesFiltersRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

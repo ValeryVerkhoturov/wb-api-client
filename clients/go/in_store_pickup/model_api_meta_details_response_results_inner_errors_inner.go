@@ -11,8 +11,8 @@ API version: instorepickup
 package in_store_pickup
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,7 +23,7 @@ var _ MappedNullable = &ApiMetaDetailsResponseResultsInnerErrorsInner{}
 type ApiMetaDetailsResponseResultsInnerErrorsInner struct {
 	// Код ошибки
 	Code int32 `json:"code"`
-	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `MetaValidationFail` — идентификаторы маркировки не прошли проверку 
+	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `MetaValidationFail` — идентификаторы маркировки не прошли проверку
 	Detail string `json:"detail"`
 	// Ошибки проверки идентификаторов маркировки
 	MetaDetails []ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner `json:"metaDetails,omitempty"`
@@ -131,7 +131,7 @@ func (o *ApiMetaDetailsResponseResultsInnerErrorsInner) SetMetaDetails(v []ApiMe
 }
 
 func (o ApiMetaDetailsResponseResultsInnerErrorsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -162,10 +162,10 @@ func (o *ApiMetaDetailsResponseResultsInnerErrorsInner) UnmarshalJSON(data []byt
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -221,5 +221,3 @@ func (v *NullableApiMetaDetailsResponseResultsInnerErrorsInner) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

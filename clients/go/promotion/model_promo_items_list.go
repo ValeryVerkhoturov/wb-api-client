@@ -21,7 +21,7 @@ var _ MappedNullable = &PromoItemsList{}
 type PromoItemsList struct {
 	// Артикул WB
 	Id *int32 `json:"id,omitempty"`
-	// Участвует в акции:   - `true` — да   - `false` — нет 
+	// Участвует в акции:   - `true` — да   - `false` — нет
 	InAction *bool `json:"inAction,omitempty"`
 	// Текущая розничная цена
 	Price *float32 `json:"price,omitempty"`
@@ -277,7 +277,7 @@ func (o *PromoItemsList) SetPlanDiscount(v int32) {
 }
 
 func (o PromoItemsList) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -345,5 +345,3 @@ func (v *NullablePromoItemsList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -18,24 +18,23 @@ import (
 	"net/url"
 )
 
-
 type DefaultApi interface {
 
 	/*
-	DeleteV1User Удалить пользователя
+			DeleteV1User Удалить пользователя
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену
 
-Метод удаляет пользователя из [списка сотрудников продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement/operation/getV1Users). Этому пользователю будет закрыт доступ в профиль продавца.
+		Метод удаляет пользователя из [списка сотрудников продавца](https://dev.wildberries.ru/openapi/api-information#tag/sellerUserManagement/operation/getV1Users). Этому пользователю будет закрыт доступ в профиль продавца.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 10 запросов |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 сек | 1 запрос | 1 сек | 10 запросов |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiDeleteV1UserRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiDeleteV1UserRequest
 	*/
 	DeleteV1User(ctx context.Context) ApiDeleteV1UserRequest
 
@@ -43,22 +42,22 @@ type DefaultApi interface {
 	DeleteV1UserExecute(r ApiDeleteV1UserRequest) (*http.Response, error)
 
 	/*
-	GetV1Rating Получить рейтинг продавца
+			GetV1Rating Получить рейтинг продавца
 
-	Для доступа к методу используйте [токен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) для категории **Вопросы и отзывы**
+			Для доступа к методу используйте [токен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kak-sozdat-personalnyj-bazovyj-ili-testovyj-token) для категории **Вопросы и отзывы**
 
-Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Сервисному** токену
+		Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Сервисному** токену
 
-Метод возвращает пользовательский рейтинг продавца и количество отзывов.
+		Метод возвращает пользовательский рейтинг продавца и количество отзывов.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 1 запрос | 1 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 1 запрос | 1 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1RatingRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1RatingRequest
 	*/
 	GetV1Rating(ctx context.Context) ApiGetV1RatingRequest
 
@@ -67,22 +66,22 @@ type DefaultApi interface {
 	GetV1RatingExecute(r ApiGetV1RatingRequest) (*SupplierRatingModel, *http.Response, error)
 
 	/*
-	GetV1SellerInfo Получить информацию о продавце
+			GetV1SellerInfo Получить информацию о продавце
 
-	Информацию о продавце можно получить с токеном любой [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)
+			Информацию о продавце можно получить с токеном любой [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)
 
-Метод позволяет получать наименование продавца и ID его профиля.
+		Метод позволяет получать наименование продавца и ID его профиля.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-| Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+		| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
+		| Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1SellerInfoRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1SellerInfoRequest
 	*/
 	GetV1SellerInfo(ctx context.Context) ApiGetV1SellerInfoRequest
 
@@ -91,32 +90,32 @@ type DefaultApi interface {
 	GetV1SellerInfoExecute(r ApiGetV1SellerInfoRequest) (*GetV1SellerInfoResponse200, *http.Response, error)
 
 	/*
-	GetV1Subscriptions Получить информацию о подписке Джем
+			GetV1Subscriptions Получить информацию о подписке Джем
 
-	Информацию о подписке Джем можно получить с токеном любой [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)
+			Информацию о подписке Джем можно получить с токеном любой [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)
 
-Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Сервисному** токену
+		Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Сервисному** токену
 
-Метод возвращает информацию о подписке [Джем](https://seller.wildberries.ru/monetization/jam):
-- Если продавец никогда не подключал подписку Джем, возвращается пустой ответ `200`.
-- Если продавец активировал и никогда не отменял подписку, возвращается:
-- дата активации подписки `since`
-- дата окончания текущего оплаченного периода `till`
-- Если подписка закончилась или была отменена, но продавец подключил её повторно, возвращается:
-- дата первой активации подписки `since`
-- дата окончания текущего оплаченного периода `till`
-- Если подписка неактивна, возвращается:
-- дата первой активации подписки `since`
-- дата окончания последнего оплаченного периода `till`
+		Метод возвращает информацию о подписке [Джем](https://seller.wildberries.ru/monetization/jam):
+		- Если продавец никогда не подключал подписку Джем, возвращается пустой ответ `200`.
+		- Если продавец активировал и никогда не отменял подписку, возвращается:
+		- дата активации подписки `since`
+		- дата окончания текущего оплаченного периода `till`
+		- Если подписка закончилась или была отменена, но продавец подключил её повторно, возвращается:
+		- дата первой активации подписки `since`
+		- дата окончания текущего оплаченного периода `till`
+		- Если подписка неактивна, возвращается:
+		- дата первой активации подписки `since`
+		- дата окончания последнего оплаченного периода `till`
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 1 запрос | 1 мин | 10 запросов |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 1 запрос | 1 мин | 10 запросов |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1SubscriptionsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1SubscriptionsRequest
 	*/
 	GetV1Subscriptions(ctx context.Context) ApiGetV1SubscriptionsRequest
 
@@ -125,24 +124,24 @@ type DefaultApi interface {
 	GetV1SubscriptionsExecute(r ApiGetV1SubscriptionsRequest) (*SubscriptionsJamInfo, *http.Response, error)
 
 	/*
-	GetV1TariffConstructorOptions Получить информацию об опциях Конструктора тарифов
+			GetV1TariffConstructorOptions Получить информацию об опциях Конструктора тарифов
 
-	Информацию об опциях Конструктора тарифов можно получить с токеном любой [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)
+			Информацию об опциях Конструктора тарифов можно получить с токеном любой [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)
 
-Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Сервисному** токену
+		Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Сервисному** токену
 
-Метод возвращает информацию обо всех опциях и пакетах опций, которые продавец подключил в [Конструкторе тарифов](https://seller.wildberries.ru/tariff-constructor).
+		Метод возвращает информацию обо всех опциях и пакетах опций, которые продавец подключил в [Конструкторе тарифов](https://seller.wildberries.ru/tariff-constructor).
 
-Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.
+		Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 1 запрос | 1 мин | 10 запросов |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 1 запрос | 1 мин | 10 запросов |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1TariffConstructorOptionsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1TariffConstructorOptionsRequest
 	*/
 	GetV1TariffConstructorOptions(ctx context.Context) ApiGetV1TariffConstructorOptionsRequest
 
@@ -151,29 +150,29 @@ type DefaultApi interface {
 	GetV1TariffConstructorOptionsExecute(r ApiGetV1TariffConstructorOptionsRequest) (*PlanBuilderOptionsInfo, *http.Response, error)
 
 	/*
-	GetV1Users Получить список активных или приглашённых пользователей продавца
+			GetV1Users Получить список активных или приглашённых пользователей продавца
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену
 
-Метод возвращает список активных или приглашённых пользователей профиля продавца.
+		Метод возвращает список активных или приглашённых пользователей профиля продавца.
 
-Чтобы выбрать список, укажите значение параметра `isInviteOnly`:
-- `isInviteOnly=true` — список приглашённых пользователей, которые ещё не активировали доступ
-- `isInviteOnly=false` или не указан — список активных пользователей
-По каждому пользователю можно получить:
-- роль пользователя
-- разделы, к которым есть доступы
-- статус приглашения
-Список приглашённых пользователей в ответе всегда отсортирован по дате создания: от новых до старых.
+		Чтобы выбрать список, укажите значение параметра `isInviteOnly`:
+		- `isInviteOnly=true` — список приглашённых пользователей, которые ещё не активировали доступ
+		- `isInviteOnly=false` или не указан — список активных пользователей
+		По каждому пользователю можно получить:
+		- роль пользователя
+		- разделы, к которым есть доступы
+		- статус приглашения
+		Список приглашённых пользователей в ответе всегда отсортирован по дате создания: от новых до старых.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 5 запросов |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 сек | 1 запрос | 1 сек | 5 запросов |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1UsersRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1UsersRequest
 	*/
 	GetV1Users(ctx context.Context) ApiGetV1UsersRequest
 
@@ -182,28 +181,28 @@ type DefaultApi interface {
 	GetV1UsersExecute(r ApiGetV1UsersRequest) (*GetUsersResponse, *http.Response, error)
 
 	/*
-	PostV1Invite Создать приглашение для нового пользователя
+			PostV1Invite Создать приглашение для нового пользователя
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену
 
-Метод создаёт приглашение для нового пользователя с настройкой доступов к разделам профиля продавца.
-Как выдаются права доступа:
-- Если `access` пустой (`[]`) или не указан — по умолчанию выдаются все доступы, кроме доступов к витрине (`showcase`) и \*\*Джем\*\* (`changeJam`)
-- Если в `access` указана часть разделов профиля, то кроме тех доступов, что указаны в запросе, также выдаются все доступы по умолчанию
-- Если в `access` перечислены все возможные разделы, доступы будут выданы согласно запросу, без доступов по умолчанию
-- Если в `access` дважды указан один и тот же раздел (`code`):
-- при разных значениях `disabled` (`true` и `false`) доступ не будет выдан
-- при одинаковых значениях `"disabled": true` доступ не будет выдан
-- при одинаковых значениях `"disabled": false` доступ будет выдан
+		Метод создаёт приглашение для нового пользователя с настройкой доступов к разделам профиля продавца.
+		Как выдаются права доступа:
+		- Если `access` пустой (`[]`) или не указан — по умолчанию выдаются все доступы, кроме доступов к витрине (`showcase`) и \*\*Джем\*\* (`changeJam`)
+		- Если в `access` указана часть разделов профиля, то кроме тех доступов, что указаны в запросе, также выдаются все доступы по умолчанию
+		- Если в `access` перечислены все возможные разделы, доступы будут выданы согласно запросу, без доступов по умолчанию
+		- Если в `access` дважды указан один и тот же раздел (`code`):
+		- при разных значениях `disabled` (`true` и `false`) доступ не будет выдан
+		- при одинаковых значениях `"disabled": true` доступ не будет выдан
+		- при одинаковых значениях `"disabled": false` доступ будет выдан
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 5 запросов |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 сек | 1 запрос | 1 сек | 5 запросов |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1InviteRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV1InviteRequest
 	*/
 	PostV1Invite(ctx context.Context) ApiPostV1InviteRequest
 
@@ -212,22 +211,22 @@ type DefaultApi interface {
 	PostV1InviteExecute(r ApiPostV1InviteRequest) (*CreateInviteResponse, *http.Response, error)
 
 	/*
-	PutV1UsersAccess Изменить права доступа пользователей
+			PutV1UsersAccess Изменить права доступа пользователей
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену
 
-Метод меняет права доступа одному или нескольким пользователям.
+		Метод меняет права доступа одному или нескольким пользователям.
 
-Обновляются только права доступа, переданные в параметрах запроса. Остальные поля остаются без изменений.
+		Обновляются только права доступа, переданные в параметрах запроса. Остальные поля остаются без изменений.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 5 запросов |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 сек | 1 запрос | 1 сек | 5 запросов |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPutV1UsersAccessRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPutV1UsersAccessRequest
 	*/
 	PutV1UsersAccess(ctx context.Context) ApiPutV1UsersAccessRequest
 
@@ -239,8 +238,8 @@ type DefaultApi interface {
 type DefaultApiService service
 
 type ApiDeleteV1UserRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx           context.Context
+	ApiService    DefaultApi
 	deletedUserID *int64
 }
 
@@ -267,22 +266,22 @@ DeleteV1User Удалить пользователя
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 10 запросов |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDeleteV1UserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeleteV1UserRequest
 */
 func (a *DefaultApiService) DeleteV1User(ctx context.Context) ApiDeleteV1UserRequest {
 	return ApiDeleteV1UserRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *DefaultApiService) DeleteV1UserExecute(r ApiDeleteV1UserRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteV1User")
@@ -317,20 +316,6 @@ func (a *DefaultApiService) DeleteV1UserExecute(r ApiDeleteV1UserRequest) (*http
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -360,8 +345,8 @@ func (a *DefaultApiService) DeleteV1UserExecute(r ApiDeleteV1UserRequest) (*http
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -371,8 +356,8 @@ func (a *DefaultApiService) DeleteV1UserExecute(r ApiDeleteV1UserRequest) (*http
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -382,8 +367,8 @@ func (a *DefaultApiService) DeleteV1UserExecute(r ApiDeleteV1UserRequest) (*http
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -393,8 +378,8 @@ func (a *DefaultApiService) DeleteV1UserExecute(r ApiDeleteV1UserRequest) (*http
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -403,7 +388,7 @@ func (a *DefaultApiService) DeleteV1UserExecute(r ApiDeleteV1UserRequest) (*http
 }
 
 type ApiGetV1RatingRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
 }
 
@@ -426,24 +411,25 @@ GetV1Rating Получить рейтинг продавца
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1RatingRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1RatingRequest
 */
 func (a *DefaultApiService) GetV1Rating(ctx context.Context) ApiGetV1RatingRequest {
 	return ApiGetV1RatingRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return SupplierRatingModel
+//
+//	@return SupplierRatingModel
 func (a *DefaultApiService) GetV1RatingExecute(r ApiGetV1RatingRequest) (*SupplierRatingModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SupplierRatingModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SupplierRatingModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1Rating")
@@ -474,20 +460,6 @@ func (a *DefaultApiService) GetV1RatingExecute(r ApiGetV1RatingRequest) (*Suppli
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -517,8 +489,8 @@ func (a *DefaultApiService) GetV1RatingExecute(r ApiGetV1RatingRequest) (*Suppli
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -528,8 +500,8 @@ func (a *DefaultApiService) GetV1RatingExecute(r ApiGetV1RatingRequest) (*Suppli
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -539,8 +511,8 @@ func (a *DefaultApiService) GetV1RatingExecute(r ApiGetV1RatingRequest) (*Suppli
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -550,8 +522,8 @@ func (a *DefaultApiService) GetV1RatingExecute(r ApiGetV1RatingRequest) (*Suppli
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -569,7 +541,7 @@ func (a *DefaultApiService) GetV1RatingExecute(r ApiGetV1RatingRequest) (*Suppli
 }
 
 type ApiGetV1SellerInfoRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
 }
 
@@ -592,24 +564,25 @@ GetV1SellerInfo Получить информацию о продавце
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
 | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1SellerInfoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1SellerInfoRequest
 */
 func (a *DefaultApiService) GetV1SellerInfo(ctx context.Context) ApiGetV1SellerInfoRequest {
 	return ApiGetV1SellerInfoRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV1SellerInfoResponse200
+//
+//	@return GetV1SellerInfoResponse200
 func (a *DefaultApiService) GetV1SellerInfoExecute(r ApiGetV1SellerInfoRequest) (*GetV1SellerInfoResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV1SellerInfoResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV1SellerInfoResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1SellerInfo")
@@ -640,20 +613,6 @@ func (a *DefaultApiService) GetV1SellerInfoExecute(r ApiGetV1SellerInfoRequest) 
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -683,8 +642,8 @@ func (a *DefaultApiService) GetV1SellerInfoExecute(r ApiGetV1SellerInfoRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -694,8 +653,8 @@ func (a *DefaultApiService) GetV1SellerInfoExecute(r ApiGetV1SellerInfoRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -705,8 +664,8 @@ func (a *DefaultApiService) GetV1SellerInfoExecute(r ApiGetV1SellerInfoRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -724,7 +683,7 @@ func (a *DefaultApiService) GetV1SellerInfoExecute(r ApiGetV1SellerInfoRequest) 
 }
 
 type ApiGetV1SubscriptionsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
 }
 
@@ -757,24 +716,25 @@ GetV1Subscriptions Получить информацию о подписке Д�
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 10 запросов |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1SubscriptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1SubscriptionsRequest
 */
 func (a *DefaultApiService) GetV1Subscriptions(ctx context.Context) ApiGetV1SubscriptionsRequest {
 	return ApiGetV1SubscriptionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return SubscriptionsJamInfo
+//
+//	@return SubscriptionsJamInfo
 func (a *DefaultApiService) GetV1SubscriptionsExecute(r ApiGetV1SubscriptionsRequest) (*SubscriptionsJamInfo, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SubscriptionsJamInfo
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SubscriptionsJamInfo
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1Subscriptions")
@@ -805,20 +765,6 @@ func (a *DefaultApiService) GetV1SubscriptionsExecute(r ApiGetV1SubscriptionsReq
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -848,8 +794,8 @@ func (a *DefaultApiService) GetV1SubscriptionsExecute(r ApiGetV1SubscriptionsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -859,8 +805,8 @@ func (a *DefaultApiService) GetV1SubscriptionsExecute(r ApiGetV1SubscriptionsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -870,8 +816,8 @@ func (a *DefaultApiService) GetV1SubscriptionsExecute(r ApiGetV1SubscriptionsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -881,8 +827,8 @@ func (a *DefaultApiService) GetV1SubscriptionsExecute(r ApiGetV1SubscriptionsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -900,12 +846,12 @@ func (a *DefaultApiService) GetV1SubscriptionsExecute(r ApiGetV1SubscriptionsReq
 }
 
 type ApiGetV1TariffConstructorOptionsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
-	locale *string
+	locale     *string
 }
 
-// Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский 
+// Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский
 func (r ApiGetV1TariffConstructorOptionsRequest) Locale(locale string) ApiGetV1TariffConstructorOptionsRequest {
 	r.locale = &locale
 	return r
@@ -932,24 +878,25 @@ GetV1TariffConstructorOptions Получить информацию об опц�
 | --- | --- | --- | --- |
 | 1 мин | 1 запрос | 1 мин | 10 запросов |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1TariffConstructorOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1TariffConstructorOptionsRequest
 */
 func (a *DefaultApiService) GetV1TariffConstructorOptions(ctx context.Context) ApiGetV1TariffConstructorOptionsRequest {
 	return ApiGetV1TariffConstructorOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PlanBuilderOptionsInfo
+//
+//	@return PlanBuilderOptionsInfo
 func (a *DefaultApiService) GetV1TariffConstructorOptionsExecute(r ApiGetV1TariffConstructorOptionsRequest) (*PlanBuilderOptionsInfo, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PlanBuilderOptionsInfo
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PlanBuilderOptionsInfo
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1TariffConstructorOptions")
@@ -986,20 +933,6 @@ func (a *DefaultApiService) GetV1TariffConstructorOptionsExecute(r ApiGetV1Tarif
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1029,8 +962,8 @@ func (a *DefaultApiService) GetV1TariffConstructorOptionsExecute(r ApiGetV1Tarif
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1040,8 +973,8 @@ func (a *DefaultApiService) GetV1TariffConstructorOptionsExecute(r ApiGetV1Tarif
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1051,8 +984,8 @@ func (a *DefaultApiService) GetV1TariffConstructorOptionsExecute(r ApiGetV1Tarif
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1062,8 +995,8 @@ func (a *DefaultApiService) GetV1TariffConstructorOptionsExecute(r ApiGetV1Tarif
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1073,8 +1006,8 @@ func (a *DefaultApiService) GetV1TariffConstructorOptionsExecute(r ApiGetV1Tarif
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1092,10 +1025,10 @@ func (a *DefaultApiService) GetV1TariffConstructorOptionsExecute(r ApiGetV1Tarif
 }
 
 type ApiGetV1UsersRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
-	limit *int64
-	offset *int64
+	ctx          context.Context
+	ApiService   DefaultApi
+	limit        *int64
+	offset       *int64
 	isInviteOnly *bool
 }
 
@@ -1105,13 +1038,13 @@ func (r ApiGetV1UsersRequest) Limit(limit int64) ApiGetV1UsersRequest {
 	return r
 }
 
-// Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента 
+// Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
 func (r ApiGetV1UsersRequest) Offset(offset int64) ApiGetV1UsersRequest {
 	r.offset = &offset
 	return r
 }
 
-// - &#x60;true&#x60; — список приглашённых пользователей, которые ещё не активировали доступ - &#x60;false&#x60; или не указан — список активных пользователей профиля продавца 
+// - &#x60;true&#x60; — список приглашённых пользователей, которые ещё не активировали доступ - &#x60;false&#x60; или не указан — список активных пользователей профиля продавца
 func (r ApiGetV1UsersRequest) IsInviteOnly(isInviteOnly bool) ApiGetV1UsersRequest {
 	r.isInviteOnly = &isInviteOnly
 	return r
@@ -1143,24 +1076,25 @@ GetV1Users Получить список активных или приглаш�
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 5 запросов |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1UsersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1UsersRequest
 */
 func (a *DefaultApiService) GetV1Users(ctx context.Context) ApiGetV1UsersRequest {
 	return ApiGetV1UsersRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetUsersResponse
+//
+//	@return GetUsersResponse
 func (a *DefaultApiService) GetV1UsersExecute(r ApiGetV1UsersRequest) (*GetUsersResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetUsersResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetUsersResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1Users")
@@ -1209,20 +1143,6 @@ func (a *DefaultApiService) GetV1UsersExecute(r ApiGetV1UsersRequest) (*GetUsers
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1252,8 +1172,8 @@ func (a *DefaultApiService) GetV1UsersExecute(r ApiGetV1UsersRequest) (*GetUsers
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1263,8 +1183,8 @@ func (a *DefaultApiService) GetV1UsersExecute(r ApiGetV1UsersRequest) (*GetUsers
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1274,8 +1194,8 @@ func (a *DefaultApiService) GetV1UsersExecute(r ApiGetV1UsersRequest) (*GetUsers
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1285,8 +1205,8 @@ func (a *DefaultApiService) GetV1UsersExecute(r ApiGetV1UsersRequest) (*GetUsers
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1304,8 +1224,8 @@ func (a *DefaultApiService) GetV1UsersExecute(r ApiGetV1UsersRequest) (*GetUsers
 }
 
 type ApiPostV1InviteRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                 context.Context
+	ApiService          DefaultApi
 	createInviteRequest *CreateInviteRequest
 }
 
@@ -1339,24 +1259,25 @@ PostV1Invite Создать приглашение для нового поль�
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 5 запросов |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV1InviteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1InviteRequest
 */
 func (a *DefaultApiService) PostV1Invite(ctx context.Context) ApiPostV1InviteRequest {
 	return ApiPostV1InviteRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CreateInviteResponse
+//
+//	@return CreateInviteResponse
 func (a *DefaultApiService) PostV1InviteExecute(r ApiPostV1InviteRequest) (*CreateInviteResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CreateInviteResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CreateInviteResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV1Invite")
@@ -1392,20 +1313,6 @@ func (a *DefaultApiService) PostV1InviteExecute(r ApiPostV1InviteRequest) (*Crea
 	}
 	// body params
 	localVarPostBody = r.createInviteRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1435,8 +1342,8 @@ func (a *DefaultApiService) PostV1InviteExecute(r ApiPostV1InviteRequest) (*Crea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1446,8 +1353,8 @@ func (a *DefaultApiService) PostV1InviteExecute(r ApiPostV1InviteRequest) (*Crea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1457,8 +1364,8 @@ func (a *DefaultApiService) PostV1InviteExecute(r ApiPostV1InviteRequest) (*Crea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1468,8 +1375,8 @@ func (a *DefaultApiService) PostV1InviteExecute(r ApiPostV1InviteRequest) (*Crea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1487,8 +1394,8 @@ func (a *DefaultApiService) PostV1InviteExecute(r ApiPostV1InviteRequest) (*Crea
 }
 
 type ApiPutV1UsersAccessRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                     context.Context
+	ApiService              DefaultApi
 	updateUserAccessRequest *UpdateUserAccessRequest
 }
 
@@ -1516,22 +1423,22 @@ PutV1UsersAccess Изменить права доступа пользовате
 | --- | --- | --- | --- |
 | 1 сек | 1 запрос | 1 сек | 5 запросов |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPutV1UsersAccessRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPutV1UsersAccessRequest
 */
 func (a *DefaultApiService) PutV1UsersAccess(ctx context.Context) ApiPutV1UsersAccessRequest {
 	return ApiPutV1UsersAccessRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *DefaultApiService) PutV1UsersAccessExecute(r ApiPutV1UsersAccessRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PutV1UsersAccess")
@@ -1567,20 +1474,6 @@ func (a *DefaultApiService) PutV1UsersAccessExecute(r ApiPutV1UsersAccessRequest
 	}
 	// body params
 	localVarPostBody = r.updateUserAccessRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1610,8 +1503,8 @@ func (a *DefaultApiService) PutV1UsersAccessExecute(r ApiPutV1UsersAccessRequest
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1621,8 +1514,8 @@ func (a *DefaultApiService) PutV1UsersAccessExecute(r ApiPutV1UsersAccessRequest
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1632,8 +1525,8 @@ func (a *DefaultApiService) PutV1UsersAccessExecute(r ApiPutV1UsersAccessRequest
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1643,8 +1536,8 @@ func (a *DefaultApiService) PutV1UsersAccessExecute(r ApiPutV1UsersAccessRequest
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

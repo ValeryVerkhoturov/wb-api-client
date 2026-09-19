@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,10 +22,10 @@ var _ MappedNullable = &PositionInfo{}
 // PositionInfo Информация о позиции товара
 type PositionInfo struct {
 	Average PositionInfoAverage `json:"average"`
-	Median PositionInfoMedian `json:"median"`
+	Median  PositionInfoMedian  `json:"median"`
 	// Данные для чарта по средней и медианной позиции товара в результатах поиска
 	ChartItems []SearchReportPositionChartItem `json:"chartItems"`
-	Clusters SearchReportPositionClusters `json:"clusters"`
+	Clusters   SearchReportPositionClusters    `json:"clusters"`
 }
 
 type _PositionInfo PositionInfo
@@ -148,7 +148,7 @@ func (o *PositionInfo) SetClusters(v SearchReportPositionClusters) {
 }
 
 func (o PositionInfo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,10 +180,10 @@ func (o *PositionInfo) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -239,5 +239,3 @@ func (v *NullablePositionInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

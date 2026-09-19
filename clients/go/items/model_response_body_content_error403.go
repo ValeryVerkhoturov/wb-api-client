@@ -175,6 +175,7 @@ func (o *ResponseBodyContentError403) HasAdditionalErrors() bool {
 func (o *ResponseBodyContentError403) SetAdditionalErrors(v string) {
 	o.AdditionalErrors.Set(&v)
 }
+
 // SetAdditionalErrorsNil sets the value for AdditionalErrors to be an explicit nil
 func (o *ResponseBodyContentError403) SetAdditionalErrorsNil() {
 	o.AdditionalErrors.Set(nil)
@@ -186,7 +187,7 @@ func (o *ResponseBodyContentError403) UnsetAdditionalErrors() {
 }
 
 func (o ResponseBodyContentError403) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -245,5 +246,3 @@ func (v *NullableResponseBodyContentError403) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

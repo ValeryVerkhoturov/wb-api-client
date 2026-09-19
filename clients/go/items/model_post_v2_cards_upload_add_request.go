@@ -19,7 +19,7 @@ var _ MappedNullable = &PostV2CardsUploadAddRequest{}
 
 // PostV2CardsUploadAddRequest struct for PostV2CardsUploadAddRequest
 type PostV2CardsUploadAddRequest struct {
-	// `imtID` отдельной карточки товара или группы [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров, к которой присоединяются создаваемые карточки 
+	// `imtID` отдельной карточки товара или группы [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров, к которой присоединяются создаваемые карточки
 	ImtID *int64 `json:"imtID,omitempty"`
 	// Добавляемые карточки товаров
 	CardsToAdd []PostV2CardsUploadAddRequestCardsToAddInner `json:"cardsToAdd,omitempty"`
@@ -107,7 +107,7 @@ func (o *PostV2CardsUploadAddRequest) SetCardsToAdd(v []PostV2CardsUploadAddRequ
 }
 
 func (o PostV2CardsUploadAddRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullablePostV2CardsUploadAddRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,7 +21,7 @@ type DomainReviewPinOn string
 // List of domain.ReviewPinOn
 const (
 	PinOnIMT DomainReviewPinOn = "imt"
-	PinOnNM DomainReviewPinOn = "nm"
+	PinOnNM  DomainReviewPinOn = "nm"
 )
 
 // All allowed values of DomainReviewPinOn enum
@@ -108,4 +108,3 @@ func (v *NullableDomainReviewPinOn) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

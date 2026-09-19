@@ -21,7 +21,7 @@ var _ MappedNullable = &GetV2DirectoryTnvedResponse200DataInner{}
 type GetV2DirectoryTnvedResponse200DataInner struct {
 	// ТНВЭД-код
 	Tnved *string `json:"tnved,omitempty"`
-	// - `true` — код маркировки [Честного знака](https://честныйзнак.рф/) требуется - `false` — код маркировки [Честного знака](https://честныйзнак.рф/) не требуется 
+	// - `true` — код маркировки [Честного знака](https://честныйзнак.рф/) требуется - `false` — код маркировки [Честного знака](https://честныйзнак.рф/) не требуется
 	IsKiz *bool `json:"isKiz,omitempty"`
 }
 
@@ -107,7 +107,7 @@ func (o *GetV2DirectoryTnvedResponse200DataInner) SetIsKiz(v bool) {
 }
 
 func (o GetV2DirectoryTnvedResponse200DataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableGetV2DirectoryTnvedResponse200DataInner) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

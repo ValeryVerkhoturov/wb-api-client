@@ -21,7 +21,7 @@ var _ MappedNullable = &PostV3OrdersStickersCrossBorderResponse200StickersInner{
 type PostV3OrdersStickersCrossBorderResponse200StickersInner struct {
 	// ID сборочного задания
 	OrderId *int32 `json:"orderId,omitempty"`
-	// Статус генерации стикера:   - `awaitingTrackNumber` — стикер не готов. Ожидается трек-номер от перевозчика.   - `ready` — стикер готов 
+	// Статус генерации стикера:   - `awaitingTrackNumber` — стикер не готов. Ожидается трек-номер от перевозчика.   - `ready` — стикер готов
 	Status *string `json:"status,omitempty"`
 	// Трек-номер в стикере для отслеживания сборочного задания
 	ParcelId *string `json:"parcelId,omitempty"`
@@ -277,7 +277,7 @@ func (o *PostV3OrdersStickersCrossBorderResponse200StickersInner) SetBarcode(v s
 }
 
 func (o PostV3OrdersStickersCrossBorderResponse200StickersInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -345,5 +345,3 @@ func (v *NullablePostV3OrdersStickersCrossBorderResponse200StickersInner) Unmars
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

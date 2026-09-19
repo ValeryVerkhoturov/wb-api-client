@@ -11,8 +11,8 @@ API version: finances
 package finances
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -29,7 +29,7 @@ type SalesReportListReq struct {
 	Limit *int32 `json:"limit,omitempty"`
 	// Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
 	Offset *int32 `json:"offset,omitempty"`
-	// Периодичность отчётов:   - `weekly` — еженедельные   - `daily` — ежедневные 
+	// Периодичность отчётов:   - `weekly` — еженедельные   - `daily` — ежедневные
 	Period *string `json:"period,omitempty"`
 }
 
@@ -211,7 +211,7 @@ func (o *SalesReportListReq) SetPeriod(v string) {
 }
 
 func (o SalesReportListReq) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -248,10 +248,10 @@ func (o *SalesReportListReq) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -307,5 +307,3 @@ func (v *NullableSalesReportListReq) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

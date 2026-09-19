@@ -107,7 +107,7 @@ func (o *GetV3ClickCollectOrdersNew402Response) SetDetail(v string) {
 }
 
 func (o GetV3ClickCollectOrdersNew402Response) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableGetV3ClickCollectOrdersNew402Response) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

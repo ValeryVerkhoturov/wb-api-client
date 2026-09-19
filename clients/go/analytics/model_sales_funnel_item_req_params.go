@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &SalesFunnelItemReqParams{}
 
 // SalesFunnelItemReqParams Параметры отчёта
 type SalesFunnelItemReqParams struct {
-	// Артикулы WB, по которым составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах 
+	// Артикулы WB, по которым составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах
 	NmIDs []int64 `json:"nmIDs,omitempty"`
 	// Список ID предметов для фильтрации
 	SubjectIds []int32 `json:"subjectIds,omitempty"`
@@ -35,7 +35,7 @@ type SalesFunnelItemReqParams struct {
 	EndDate string `json:"endDate"`
 	// Временная зона по формату [IANA](https://nodatime.org/TimeZones)
 	Timezone *string `json:"timezone,omitempty"`
-	// Как сгруппировать данные (по умолчанию по дням):    * `day` — по дням   * `week` — по неделям   * `month` — по месяцам 
+	// Как сгруппировать данные (по умолчанию по дням):    * `day` — по дням   * `week` — по неделям   * `month` — по месяцам
 	AggregationLevel *string `json:"aggregationLevel,omitempty"`
 	// Скрыть удалённые товары
 	SkipDeletedNm *bool `json:"skipDeletedNm,omitempty"`
@@ -339,7 +339,7 @@ func (o *SalesFunnelItemReqParams) SetSkipDeletedNm(v bool) {
 }
 
 func (o SalesFunnelItemReqParams) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -388,10 +388,10 @@ func (o *SalesFunnelItemReqParams) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -447,5 +447,3 @@ func (v *NullableSalesFunnelItemReqParams) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

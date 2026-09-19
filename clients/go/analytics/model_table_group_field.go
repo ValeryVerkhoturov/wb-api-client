@@ -15,30 +15,30 @@ import (
 	"fmt"
 )
 
-// TableGroupField Сортировка по полю:   - `ordersCount` — Заказы, шт.   - `ordersSum` — Заказы, сумма   - `avgOrders` — Среднее количество заказов в день   - `buyoutCount` — Выкупы, шт.   - `buyoutSum` — Выкупы, сумма   - `buyoutPercent` — Процент выкупа   - `stockCount` — Остатки на текущий день, шт.   - `stockSum` — Стоимость остатков на текущий день   - `saleRate` — Оборачиваемость текущих остатков   - `avgStockTurnover` — Оборачиваемость средних остатков   - `toClientCount` — В пути к клиенту, шт.   - `fromClientCount` — В пути от клиента, шт.   - `minPrice` — Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)   - `maxPrice` — Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)   - `officeMissingTime` — Время отсутствия товара на складе   - `lostOrdersCount` — Упущенные заказы, шт.   - `lostOrdersSum` — Упущенные заказы, сумма   - `lostBuyoutsCount` — Упущенные выкупы, шт.   - `lostBuyoutsSum` — Упущенные выкупы, сумма 
+// TableGroupField Сортировка по полю:   - `ordersCount` — Заказы, шт.   - `ordersSum` — Заказы, сумма   - `avgOrders` — Среднее количество заказов в день   - `buyoutCount` — Выкупы, шт.   - `buyoutSum` — Выкупы, сумма   - `buyoutPercent` — Процент выкупа   - `stockCount` — Остатки на текущий день, шт.   - `stockSum` — Стоимость остатков на текущий день   - `saleRate` — Оборачиваемость текущих остатков   - `avgStockTurnover` — Оборачиваемость средних остатков   - `toClientCount` — В пути к клиенту, шт.   - `fromClientCount` — В пути от клиента, шт.   - `minPrice` — Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)   - `maxPrice` — Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)   - `officeMissingTime` — Время отсутствия товара на складе   - `lostOrdersCount` — Упущенные заказы, шт.   - `lostOrdersSum` — Упущенные заказы, сумма   - `lostBuyoutsCount` — Упущенные выкупы, шт.   - `lostBuyoutsSum` — Упущенные выкупы, сумма
 type TableGroupField string
 
 // List of TableGroupField
 const (
-	ORDERS_COUNT TableGroupField = "ordersCount"
-	ORDERS_SUM TableGroupField = "ordersSum"
-	AVG_ORDERS TableGroupField = "avgOrders"
-	BUYOUT_COUNT TableGroupField = "buyoutCount"
-	BUYOUT_SUM TableGroupField = "buyoutSum"
-	BUYOUT_PERCENT TableGroupField = "buyoutPercent"
-	STOCK_COUNT TableGroupField = "stockCount"
-	STOCK_SUM TableGroupField = "stockSum"
-	SALE_RATE TableGroupField = "saleRate"
-	AVG_STOCK_TURNOVER TableGroupField = "avgStockTurnover"
-	TO_CLIENT_COUNT TableGroupField = "toClientCount"
-	FROM_CLIENT_COUNT TableGroupField = "fromClientCount"
-	MIN_PRICE TableGroupField = "minPrice"
-	MAX_PRICE TableGroupField = "maxPrice"
+	ORDERS_COUNT        TableGroupField = "ordersCount"
+	ORDERS_SUM          TableGroupField = "ordersSum"
+	AVG_ORDERS          TableGroupField = "avgOrders"
+	BUYOUT_COUNT        TableGroupField = "buyoutCount"
+	BUYOUT_SUM          TableGroupField = "buyoutSum"
+	BUYOUT_PERCENT      TableGroupField = "buyoutPercent"
+	STOCK_COUNT         TableGroupField = "stockCount"
+	STOCK_SUM           TableGroupField = "stockSum"
+	SALE_RATE           TableGroupField = "saleRate"
+	AVG_STOCK_TURNOVER  TableGroupField = "avgStockTurnover"
+	TO_CLIENT_COUNT     TableGroupField = "toClientCount"
+	FROM_CLIENT_COUNT   TableGroupField = "fromClientCount"
+	MIN_PRICE           TableGroupField = "minPrice"
+	MAX_PRICE           TableGroupField = "maxPrice"
 	OFFICE_MISSING_TIME TableGroupField = "officeMissingTime"
-	LOST_ORDERS_COUNT TableGroupField = "lostOrdersCount"
-	LOST_ORDERS_SUM TableGroupField = "lostOrdersSum"
-	LOST_BUYOUTS_COUNT TableGroupField = "lostBuyoutsCount"
-	LOST_BUYOUTS_SUM TableGroupField = "lostBuyoutsSum"
+	LOST_ORDERS_COUNT   TableGroupField = "lostOrdersCount"
+	LOST_ORDERS_SUM     TableGroupField = "lostOrdersSum"
+	LOST_BUYOUTS_COUNT  TableGroupField = "lostBuyoutsCount"
+	LOST_BUYOUTS_SUM    TableGroupField = "lostBuyoutsSum"
 )
 
 // All allowed values of TableGroupField enum
@@ -142,4 +142,3 @@ func (v *NullableTableGroupField) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

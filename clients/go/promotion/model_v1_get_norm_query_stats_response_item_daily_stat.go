@@ -11,8 +11,8 @@ API version: promotion
 package promotion
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,7 +22,7 @@ var _ MappedNullable = &V1GetNormQueryStatsResponseItemDailyStat{}
 // V1GetNormQueryStatsResponseItemDailyStat struct for V1GetNormQueryStatsResponseItemDailyStat
 type V1GetNormQueryStatsResponseItemDailyStat struct {
 	// Дата
-	Date string `json:"date"`
+	Date string                               `json:"date"`
 	Stat *V1GetNormQueryStatsResponseItemStat `json:"stat,omitempty"`
 }
 
@@ -103,7 +103,7 @@ func (o *V1GetNormQueryStatsResponseItemDailyStat) SetStat(v V1GetNormQueryStats
 }
 
 func (o V1GetNormQueryStatsResponseItemDailyStat) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -132,10 +132,10 @@ func (o *V1GetNormQueryStatsResponseItemDailyStat) UnmarshalJSON(data []byte) (e
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -191,5 +191,3 @@ func (v *NullableV1GetNormQueryStatsResponseItemDailyStat) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

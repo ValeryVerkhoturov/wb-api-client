@@ -31,7 +31,7 @@ type ItemsList struct {
 	Discount *int32 `json:"discount,omitempty"`
 	// Скидка WB Клуба, %
 	ClubDiscount *int32 `json:"clubDiscount,omitempty"`
-	// Можно ли устанавливать цены отдельно для разных размеров (зависит от категории товара):   - `true` — можно   - `false` — нельзя 
+	// Можно ли устанавливать цены отдельно для разных размеров (зависит от категории товара):   - `true` — можно   - `false` — нельзя
 	EditableSizePrice *bool `json:"editableSizePrice,omitempty"`
 	// Оптовые скидки разных уровней для B2B
 	WholesaleDiscountThreshold []WholesaleDiscountThresholdRes `json:"wholesaleDiscountThreshold,omitempty"`
@@ -311,7 +311,7 @@ func (o *ItemsList) SetWholesaleDiscountThreshold(v []WholesaleDiscountThreshold
 }
 
 func (o ItemsList) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -382,5 +382,3 @@ func (v *NullableItemsList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

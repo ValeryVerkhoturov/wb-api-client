@@ -274,7 +274,7 @@ paths:
       tags:
       - Аналитика продавца CSV
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Создать отчёт
       description: |-
         Метод создаёт задание на генерацию отчёта с расширенной аналитикой продавца.
@@ -564,7 +564,7 @@ paths:
       tags:
       - Аналитика продавца CSV
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Получить список отчётов
       description: |-
         Метод возвращает список отчётов с расширенной аналитикой продавца. Ответ содержит ID [созданных отчётов](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) и статусы генерации.
@@ -634,7 +634,7 @@ paths:
       tags:
       - Аналитика продавца CSV
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Сгенерировать отчёт повторно
       description: |-
         Метод создает повторное [задание на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads) отчёта с расширенной аналитикой продавца. Необходимо, если при генерации отчёта вы [получили статус](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads) `FAILED`.
@@ -701,7 +701,7 @@ paths:
       tags:
       - Аналитика продавца CSV
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Получить отчёт
       description: |-
         Метод возвращает отчёт с расширенной аналитикой продавца по ID [задания на генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloads).
@@ -6840,10 +6840,6 @@ components:
                 requestId: 51b7828b-e298-4dfa-b7cd-45ab179921d3
                 origin: analytics-open-api
   securitySchemes:
-    HeaderApiKey:
-      type: apiKey
-      name: Authorization
-      in: header
     BearerAuth:
       type: http
       scheme: bearer

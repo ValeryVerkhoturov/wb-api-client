@@ -31,14 +31,14 @@ type GetV1FeedbacksResponse200DataFeedbacksInner struct {
 	// Оценка товара
 	ProductValuation *int32 `json:"productValuation,omitempty"`
 	// Дата и время создания отзыва
-	CreatedDate *time.Time `json:"createdDate,omitempty"`
-	Answer NullableGetV1FeedbacksResponse200DataFeedbacksInnerAnswer `json:"answer,omitempty"`
-	// Статус отзыва:   - `none` - не обработан (новый)   - `wbRu` - обработан 
-	State *string `json:"state,omitempty"`
+	CreatedDate *time.Time                                                `json:"createdDate,omitempty"`
+	Answer      NullableGetV1FeedbacksResponse200DataFeedbacksInnerAnswer `json:"answer,omitempty"`
+	// Статус отзыва:   - `none` - не обработан (новый)   - `wbRu` - обработан
+	State          *string                                                    `json:"state,omitempty"`
 	ProductDetails *GetV1FeedbacksResponse200DataFeedbacksInnerProductDetails `json:"productDetails,omitempty"`
 	// Массив структур фотографий
 	PhotoLinks []GetV1FeedbacksResponse200DataFeedbacksInnerPhotoLinksInner `json:"photoLinks,omitempty"`
-	Video NullableGetV1FeedbacksResponse200DataFeedbacksInnerVideo `json:"video,omitempty"`
+	Video      NullableGetV1FeedbacksResponse200DataFeedbacksInnerVideo     `json:"video,omitempty"`
 	// Просмотрен ли отзыв
 	WasViewed *bool `json:"wasViewed,omitempty"`
 	// Имя автора отзыва
@@ -49,13 +49,13 @@ type GetV1FeedbacksResponse200DataFeedbacksInner struct {
 	MatchingSize *string `json:"matchingSize,omitempty"`
 	// Доступна ли продавцу возможность оставить жалобу на отзыв (`true` — доступна, `false` — не доступна)
 	IsAbleSupplierFeedbackValuation *bool `json:"isAbleSupplierFeedbackValuation,omitempty"`
-	// Ключ причины жалобы на отзыв 
+	// Ключ причины жалобы на отзыв
 	SupplierFeedbackValuation *int32 `json:"supplierFeedbackValuation,omitempty"`
-	// Доступна ли продавцу возможность сообщить о проблеме с товаром:   - `true` — да   - `false` — нет 
+	// Доступна ли продавцу возможность сообщить о проблеме с товаром:   - `true` — да   - `false` — нет
 	IsAbleSupplierProductValuation *bool `json:"isAbleSupplierProductValuation,omitempty"`
-	// Ключ проблемы с товаром 
+	// Ключ проблемы с товаром
 	SupplierProductValuation *int32 `json:"supplierProductValuation,omitempty"`
-	// Опция возврата товара:  - `true` — доступна  - `false` — недоступна 
+	// Опция возврата товара:  - `true` — доступна  - `false` — недоступна
 	IsAbleReturnProductOrders *bool `json:"isAbleReturnProductOrders,omitempty"`
 	// Дата и время, когда на запрос возврата был получен ответ со статус-кодом 200.
 	ReturnProductOrdersDate NullableString `json:"returnProductOrdersDate,omitempty"`
@@ -318,6 +318,7 @@ func (o *GetV1FeedbacksResponse200DataFeedbacksInner) HasAnswer() bool {
 func (o *GetV1FeedbacksResponse200DataFeedbacksInner) SetAnswer(v GetV1FeedbacksResponse200DataFeedbacksInnerAnswer) {
 	o.Answer.Set(&v)
 }
+
 // SetAnswerNil sets the value for Answer to be an explicit nil
 func (o *GetV1FeedbacksResponse200DataFeedbacksInner) SetAnswerNil() {
 	o.Answer.Set(nil)
@@ -457,6 +458,7 @@ func (o *GetV1FeedbacksResponse200DataFeedbacksInner) HasVideo() bool {
 func (o *GetV1FeedbacksResponse200DataFeedbacksInner) SetVideo(v GetV1FeedbacksResponse200DataFeedbacksInnerVideo) {
 	o.Video.Set(&v)
 }
+
 // SetVideoNil sets the value for Video to be an explicit nil
 func (o *GetV1FeedbacksResponse200DataFeedbacksInner) SetVideoNil() {
 	o.Video.Set(nil)
@@ -787,6 +789,7 @@ func (o *GetV1FeedbacksResponse200DataFeedbacksInner) HasReturnProductOrdersDate
 func (o *GetV1FeedbacksResponse200DataFeedbacksInner) SetReturnProductOrdersDate(v string) {
 	o.ReturnProductOrdersDate.Set(&v)
 }
+
 // SetReturnProductOrdersDateNil sets the value for ReturnProductOrdersDate to be an explicit nil
 func (o *GetV1FeedbacksResponse200DataFeedbacksInner) SetReturnProductOrdersDateNil() {
 	o.ReturnProductOrdersDate.Set(nil)
@@ -1022,6 +1025,7 @@ func (o *GetV1FeedbacksResponse200DataFeedbacksInner) HasParentFeedbackId() bool
 func (o *GetV1FeedbacksResponse200DataFeedbacksInner) SetParentFeedbackId(v string) {
 	o.ParentFeedbackId.Set(&v)
 }
+
 // SetParentFeedbackIdNil sets the value for ParentFeedbackId to be an explicit nil
 func (o *GetV1FeedbacksResponse200DataFeedbacksInner) SetParentFeedbackIdNil() {
 	o.ParentFeedbackId.Set(nil)
@@ -1064,6 +1068,7 @@ func (o *GetV1FeedbacksResponse200DataFeedbacksInner) HasChildFeedbackId() bool 
 func (o *GetV1FeedbacksResponse200DataFeedbacksInner) SetChildFeedbackId(v string) {
 	o.ChildFeedbackId.Set(&v)
 }
+
 // SetChildFeedbackIdNil sets the value for ChildFeedbackId to be an explicit nil
 func (o *GetV1FeedbacksResponse200DataFeedbacksInner) SetChildFeedbackIdNil() {
 	o.ChildFeedbackId.Set(nil)
@@ -1075,7 +1080,7 @@ func (o *GetV1FeedbacksResponse200DataFeedbacksInner) UnsetChildFeedbackId() {
 }
 
 func (o GetV1FeedbacksResponse200DataFeedbacksInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1209,5 +1214,3 @@ func (v *NullableGetV1FeedbacksResponse200DataFeedbacksInner) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -12,8 +12,8 @@ package analytics
 
 import (
 	"encoding/json"
-	"gopkg.in/validator.v2"
 	"fmt"
+	"gopkg.in/validator.v2"
 )
 
 // TextLimit - struct for TextLimit
@@ -27,7 +27,6 @@ func Int32AsTextLimit(v *int32) TextLimit {
 		Int32: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *TextLimit) UnmarshalJSON(data []byte) error {
@@ -72,7 +71,7 @@ func (src TextLimit) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *TextLimit) GetActualInstance() (interface{}) {
+func (obj *TextLimit) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -119,5 +118,3 @@ func (v *NullableTextLimit) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

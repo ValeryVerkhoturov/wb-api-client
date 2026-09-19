@@ -73,7 +73,7 @@ paths:
       x-readonly-method: true
       x-category: statistics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Заказы
       description: |-
         Метод возвращает информацию о заказах.
@@ -190,7 +190,7 @@ paths:
       x-readonly-method: true
       x-category: statistics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Продажи
       description: |-
         Метод возвращает информацию о продажах и возвратах.
@@ -363,7 +363,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Отчёт об остатках на складах
       summary: Создать отчёт
@@ -492,7 +492,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Отчёт об остатках на складах
       summary: Проверить статус
@@ -561,7 +561,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Отчёт об остатках на складах
       summary: Получить отчёт
@@ -651,7 +651,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Отчёты об удержаниях
       summary: Удержания за занижение габаритов упаковки
@@ -738,7 +738,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Отчёты об удержаниях
       summary: Замеры склада
@@ -825,7 +825,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Отчёты об удержаниях
       summary: Подмены и неверные вложения
@@ -934,7 +934,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Отчёты об удержаниях
       summary: Самовыкупы
@@ -983,7 +983,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Отчёты об удержаниях
       summary: Маркировка товара
@@ -1041,7 +1041,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Операции при приёмке
       summary: Создать отчёт
@@ -1105,7 +1105,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Операции при приёмке
       summary: Проверить статус
@@ -1174,7 +1174,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Операции при приёмке
       summary: Получить отчёт
@@ -1244,7 +1244,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Платное хранение
       summary: Создать отчёт
@@ -1332,7 +1332,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Платное хранение
       summary: Проверить статус
@@ -1401,7 +1401,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Платное хранение
       summary: Получить отчёт
@@ -1495,7 +1495,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Продажи по регионам
       summary: Получить отчёт
@@ -1552,7 +1552,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Доля бренда в продажах
       summary: Бренды продавца
@@ -1589,7 +1589,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Доля бренда в продажах
       summary: Родительские категории бренда
@@ -1670,7 +1670,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Доля бренда в продажах
       summary: Получить отчёт
@@ -1747,7 +1747,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Заблокированные карточки
       summary: Получить отчёт
@@ -1829,7 +1829,7 @@ paths:
       x-readonly-method: true
       x-category: contentanalytics
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Отчёт о возвратах и перемещении товаров
       summary: Получить отчёт
@@ -3603,10 +3603,6 @@ components:
               pricePercent: 0.76
               qtyPercent: 1.39
   securitySchemes:
-    HeaderApiKey:
-      type: apiKey
-      name: Authorization
-      in: header
     BearerAuth:
       type: http
       scheme: bearer

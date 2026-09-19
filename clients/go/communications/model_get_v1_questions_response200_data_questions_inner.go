@@ -26,9 +26,9 @@ type GetV1QuestionsResponse200DataQuestionsInner struct {
 	Text *string `json:"text,omitempty"`
 	// Дата и время создания вопроса
 	CreatedDate *time.Time `json:"createdDate,omitempty"`
-	// Статус вопроса:   - `none` — вопрос отклонён продавцом (такой вопрос не отображается на портале покупателей)   - `wbRu` — ответ предоставлен, вопрос отображается на сайте покупателей   - `suppliersPortalSynch` - новый вопрос 
-	State *string `json:"state,omitempty"`
-	Answer NullableGetV1QuestionsResponse200DataQuestionsInnerAnswer `json:"answer,omitempty"`
+	// Статус вопроса:   - `none` — вопрос отклонён продавцом (такой вопрос не отображается на портале покупателей)   - `wbRu` — ответ предоставлен, вопрос отображается на сайте покупателей   - `suppliersPortalSynch` - новый вопрос
+	State          *string                                                    `json:"state,omitempty"`
+	Answer         NullableGetV1QuestionsResponse200DataQuestionsInnerAnswer  `json:"answer,omitempty"`
 	ProductDetails *GetV1QuestionsResponse200DataQuestionsInnerProductDetails `json:"productDetails,omitempty"`
 	// Просмотрен ли вопрос
 	WasViewed *bool `json:"wasViewed,omitempty"`
@@ -213,6 +213,7 @@ func (o *GetV1QuestionsResponse200DataQuestionsInner) HasAnswer() bool {
 func (o *GetV1QuestionsResponse200DataQuestionsInner) SetAnswer(v GetV1QuestionsResponse200DataQuestionsInnerAnswer) {
 	o.Answer.Set(&v)
 }
+
 // SetAnswerNil sets the value for Answer to be an explicit nil
 func (o *GetV1QuestionsResponse200DataQuestionsInner) SetAnswerNil() {
 	o.Answer.Set(nil)
@@ -320,7 +321,7 @@ func (o *GetV1QuestionsResponse200DataQuestionsInner) SetIsWarned(v bool) {
 }
 
 func (o GetV1QuestionsResponse200DataQuestionsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -391,5 +392,3 @@ func (v *NullableGetV1QuestionsResponse200DataQuestionsInner) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

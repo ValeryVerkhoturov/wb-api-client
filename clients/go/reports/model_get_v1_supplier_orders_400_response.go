@@ -12,13 +12,13 @@ package reports
 
 import (
 	"encoding/json"
-	"gopkg.in/validator.v2"
 	"fmt"
+	"gopkg.in/validator.v2"
 )
 
 // GetV1SupplierOrders400Response - struct for GetV1SupplierOrders400Response
 type GetV1SupplierOrders400Response struct {
-	ResponseErrorStatistics *ResponseErrorStatistics
+	ResponseErrorStatistics  *ResponseErrorStatistics
 	ResponseErrorStatistics2 *ResponseErrorStatistics2
 }
 
@@ -35,7 +35,6 @@ func ResponseErrorStatistics2AsGetV1SupplierOrders400Response(v *ResponseErrorSt
 		ResponseErrorStatistics2: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *GetV1SupplierOrders400Response) UnmarshalJSON(data []byte) error {
@@ -102,7 +101,7 @@ func (src GetV1SupplierOrders400Response) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *GetV1SupplierOrders400Response) GetActualInstance() (interface{}) {
+func (obj *GetV1SupplierOrders400Response) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -153,5 +152,3 @@ func (v *NullableGetV1SupplierOrders400Response) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

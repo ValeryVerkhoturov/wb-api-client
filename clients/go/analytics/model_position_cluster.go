@@ -15,15 +15,15 @@ import (
 	"fmt"
 )
 
-// PositionCluster Товары с какой средней позицией в поиске показывать в отчёте:   - `all` — все   - `firstHundred` — от 1 до 100   - `secondHundred` — от 101 до 200   - `below` — от 201 и ниже 
+// PositionCluster Товары с какой средней позицией в поиске показывать в отчёте:   - `all` — все   - `firstHundred` — от 1 до 100   - `secondHundred` — от 101 до 200   - `below` — от 201 и ниже
 type PositionCluster string
 
 // List of PositionCluster
 const (
-	ALL PositionCluster = "all"
-	FIRST_HUNDRED PositionCluster = "firstHundred"
+	ALL            PositionCluster = "all"
+	FIRST_HUNDRED  PositionCluster = "firstHundred"
 	SECOND_HUNDRED PositionCluster = "secondHundred"
-	BELOW PositionCluster = "below"
+	BELOW          PositionCluster = "below"
 )
 
 // All allowed values of PositionCluster enum
@@ -112,4 +112,3 @@ func (v *NullablePositionCluster) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

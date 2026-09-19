@@ -21,11 +21,11 @@ var _ MappedNullable = &GetV1Claims200ResponseClaimsInner{}
 type GetV1Claims200ResponseClaimsInner struct {
 	// ID заявки
 	Id *string `json:"id,omitempty"`
-	// Источник заявки:   * `1` — портал покупателей   * `3` — чат 
+	// Источник заявки:   * `1` — портал покупателей   * `3` — чат
 	ClaimType *int32 `json:"claim_type,omitempty"`
-	// Решение по возврату покупателю:   * `0` — на рассмотрении   * `1` — отказ   * `2` — одобрено 
+	// Решение по возврату покупателю:   * `0` — на рассмотрении   * `1` — отказ   * `2` — одобрено
 	Status *int32 `json:"status,omitempty"`
-	// Статус товара:   * `0` — заявка на рассмотрении   * `1` — товар остается у покупателя (Заявка отклонена)   * `2` — покупатель сдает товар на WB, товар отправляется в утиль   * `5` — товар остается у покупателя (Заявка одобрена)   * `8` — товар будет возвращён в реализацию после проверки WB   * `10` — товар возвращается продавцу 
+	// Статус товара:   * `0` — заявка на рассмотрении   * `1` — товар остается у покупателя (Заявка отклонена)   * `2` — покупатель сдает товар на WB, товар отправляется в утиль   * `5` — товар остается у покупателя (Заявка одобрена)   * `8` — товар будет возвращён в реализацию после проверки WB   * `10` — товар возвращается продавцу
 	StatusEx *int32 `json:"status_ex,omitempty"`
 	// Артикул WB
 	NmId *int32 `json:"nm_id,omitempty"`
@@ -300,6 +300,7 @@ func (o *GetV1Claims200ResponseClaimsInner) HasWbComment() bool {
 func (o *GetV1Claims200ResponseClaimsInner) SetWbComment(v string) {
 	o.WbComment.Set(&v)
 }
+
 // SetWbCommentNil sets the value for WbComment to be an explicit nil
 func (o *GetV1Claims200ResponseClaimsInner) SetWbCommentNil() {
 	o.WbComment.Set(nil)
@@ -374,6 +375,7 @@ func (o *GetV1Claims200ResponseClaimsInner) HasImtName() bool {
 func (o *GetV1Claims200ResponseClaimsInner) SetImtName(v string) {
 	o.ImtName.Set(&v)
 }
+
 // SetImtNameNil sets the value for ImtName to be an explicit nil
 func (o *GetV1Claims200ResponseClaimsInner) SetImtNameNil() {
 	o.ImtName.Set(nil)
@@ -672,6 +674,7 @@ func (o *GetV1Claims200ResponseClaimsInner) HasOriginIdInfo() bool {
 func (o *GetV1Claims200ResponseClaimsInner) SetOriginIdInfo(v string) {
 	o.OriginIdInfo.Set(&v)
 }
+
 // SetOriginIdInfoNil sets the value for OriginIdInfo to be an explicit nil
 func (o *GetV1Claims200ResponseClaimsInner) SetOriginIdInfoNil() {
 	o.OriginIdInfo.Set(nil)
@@ -715,7 +718,7 @@ func (o *GetV1Claims200ResponseClaimsInner) SetDeliveryDt(v string) {
 }
 
 func (o GetV1Claims200ResponseClaimsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -819,5 +822,3 @@ func (v *NullableGetV1Claims200ResponseClaimsInner) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

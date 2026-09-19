@@ -67,7 +67,7 @@ type SalesItem struct {
 	FinishedPrice *float32 `json:"finishedPrice,omitempty"`
 	// Цена со скидкой продавца, в том числе со скидкой WB Клуба, от которой рассчитывается сумма к перечислению продавцу `forPay`. Синхронизация данных занимает до 24 часов, в течение этого времени в поле может отображаться значение `0`
 	PriceWithDisc *float32 `json:"priceWithDisc,omitempty"`
-	// Уникальный ID продажи/возврата - `S**********` — продажа - `R**********` — возврат (на склад WB) 
+	// Уникальный ID продажи/возврата - `S**********` — продажа - `R**********` — возврат (на склад WB)
 	SaleID *string `json:"saleID,omitempty"`
 	// ID стикера
 	Sticker *string `json:"sticker,omitempty"`
@@ -991,7 +991,7 @@ func (o *SalesItem) SetSrid(v string) {
 }
 
 func (o SalesItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1122,5 +1122,3 @@ func (v *NullableSalesItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

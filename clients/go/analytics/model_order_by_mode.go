@@ -15,12 +15,12 @@ import (
 	"fmt"
 )
 
-// OrderByMode Порядок сортировки: - asc — по возрастанию - desc — по убыванию 
+// OrderByMode Порядок сортировки: - asc — по возрастанию - desc — по убыванию
 type OrderByMode string
 
 // List of OrderByMode
 const (
-	ASC OrderByMode = "asc"
+	ASC  OrderByMode = "asc"
 	DESC OrderByMode = "desc"
 )
 
@@ -108,4 +108,3 @@ func (v *NullableOrderByMode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

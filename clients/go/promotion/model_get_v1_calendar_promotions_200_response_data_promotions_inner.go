@@ -28,7 +28,7 @@ type GetV1CalendarPromotions200ResponseDataPromotionsInner struct {
 	StartDateTime *time.Time `json:"startDateTime,omitempty"`
 	// Конец акции
 	EndDateTime *time.Time `json:"endDateTime,omitempty"`
-	// Тип акции:   - `regular` — акция   - `auto` — автоакция 
+	// Тип акции:   - `regular` — акция   - `auto` — автоакция
 	Type *string `json:"type,omitempty"`
 }
 
@@ -210,7 +210,7 @@ func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) SetType(v string
 }
 
 func (o GetV1CalendarPromotions200ResponseDataPromotionsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -272,5 +272,3 @@ func (v *NullableGetV1CalendarPromotions200ResponseDataPromotionsInner) Unmarsha
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

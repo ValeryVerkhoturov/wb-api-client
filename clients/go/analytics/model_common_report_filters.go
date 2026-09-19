@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -28,14 +28,14 @@ type CommonReportFilters struct {
 	// Список брендов для фильтрации
 	BrandNames []string `json:"brandNames,omitempty"`
 	// Список ID ярлыков для фильтрации
-	TagIDs []int64 `json:"tagIDs,omitempty"`
+	TagIDs        []int64   `json:"tagIDs,omitempty"`
 	CurrentPeriod PeriodInv `json:"currentPeriod"`
-	StockType StockType `json:"stockType"`
+	StockType     StockType `json:"stockType"`
 	// Скрыть удалённые товары
 	SkipDeletedNm bool `json:"skipDeletedNm"`
-	// Доступность товара:   - `deficient` — Дефицит   - `actual` — Актуальный   - `balanced` — Баланс   - `nonActual` — Неактуальный   - `nonLiquid` — Неликвид   - `invalidData` — Не рассчитано 
-	AvailabilityFilters []string `json:"availabilityFilters"`
-	OrderBy TableOrderBy `json:"orderBy"`
+	// Доступность товара:   - `deficient` — Дефицит   - `actual` — Актуальный   - `balanced` — Баланс   - `nonActual` — Неактуальный   - `nonLiquid` — Неликвид   - `invalidData` — Не рассчитано
+	AvailabilityFilters []string     `json:"availabilityFilters"`
+	OrderBy             TableOrderBy `json:"orderBy"`
 }
 
 type _CommonReportFilters CommonReportFilters
@@ -311,7 +311,7 @@ func (o *CommonReportFilters) SetOrderBy(v TableOrderBy) {
 }
 
 func (o CommonReportFilters) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -357,10 +357,10 @@ func (o *CommonReportFilters) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -416,5 +416,3 @@ func (v *NullableCommonReportFilters) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

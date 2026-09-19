@@ -17,7 +17,7 @@ import (
 // checks if the V0BidRecommendationBaseBidTop2 type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &V0BidRecommendationBaseBidTop2{}
 
-// V0BidRecommendationBaseBidTop2 Топ-ставка 
+// V0BidRecommendationBaseBidTop2 Топ-ставка
 type V0BidRecommendationBaseBidTop2 struct {
 	// Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). Если `0`, для данного предмета топ-ставка не используется
 	BidKopecks *int32 `json:"bidKopecks,omitempty"`
@@ -73,7 +73,7 @@ func (o *V0BidRecommendationBaseBidTop2) SetBidKopecks(v int32) {
 }
 
 func (o V0BidRecommendationBaseBidTop2) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,5 +123,3 @@ func (v *NullableV0BidRecommendationBaseBidTop2) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

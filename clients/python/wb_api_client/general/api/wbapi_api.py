@@ -274,7 +274,7 @@ class WBAPIApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'HeaderApiKey'
+            'BearerAuth'
         ]
 
         return self.api_client.param_serialize(

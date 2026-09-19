@@ -19,7 +19,7 @@ var _ MappedNullable = &GetV1CalendarPromotionsDetails200ResponseDataPromotionsI
 
 // GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner struct for GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner
 type GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner struct {
-	// Тип [ранжирования](https://seller.wildberries.ru/help-center/article/A-385):   - `productsInPromotion` — продвижение получат товары продавца, участвующие в акции   - `calculateProducts` — продвижение получат любые товара продавца, предложенные к участию в акции   - `allProducts` — продвижение получат все товары продавца 
+	// Тип [ранжирования](https://seller.wildberries.ru/help-center/article/A-385):   - `productsInPromotion` — продвижение получат товары продавца, участвующие в акции   - `calculateProducts` — продвижение получат любые товара продавца, предложенные к участию в акции   - `allProducts` — продвижение получат все товары продавца
 	Condition *string `json:"condition,omitempty"`
 	// Количество товаров продавца для перехода на следующий уровень ранжирования, %
 	ParticipationRate *int32 `json:"participationRate,omitempty"`
@@ -141,7 +141,7 @@ func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInne
 }
 
 func (o GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,5 +197,3 @@ func (v *NullableGetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRan
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

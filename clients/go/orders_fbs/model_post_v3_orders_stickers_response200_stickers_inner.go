@@ -209,7 +209,7 @@ func (o *PostV3OrdersStickersResponse200StickersInner) SetFile(v string) {
 }
 
 func (o PostV3OrdersStickersResponse200StickersInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -271,5 +271,3 @@ func (v *NullablePostV3OrdersStickersResponse200StickersInner) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

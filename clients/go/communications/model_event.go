@@ -22,20 +22,20 @@ type Event struct {
 	// ID чата
 	ChatID *string `json:"chatID,omitempty"`
 	// ID события
-	EventID *string `json:"eventID,omitempty"`
+	EventID   *string    `json:"eventID,omitempty"`
 	EventType *EventType `json:"eventType,omitempty"`
-	// Признак нового чата: - `false` — чат не новый - `true` — чат новый 
-	IsNewChat *bool `json:"isNewChat,omitempty"`
-	Message *EventMessage `json:"message,omitempty"`
-	// Источник отправки сообщения: - `seller-portal` — портал продавцов - `seller-public-api` — API Чата с покупателями - `rusite` — портал покупателей - `global` — портал `global.wildberries.ru` - `ios` —  мобильная операционная система от **Apple** - `android` — операционная система **Android** от **Google** 
+	// Признак нового чата: - `false` — чат не новый - `true` — чат новый
+	IsNewChat *bool         `json:"isNewChat,omitempty"`
+	Message   *EventMessage `json:"message,omitempty"`
+	// Источник отправки сообщения: - `seller-portal` — портал продавцов - `seller-public-api` — API Чата с покупателями - `rusite` — портал покупателей - `global` — портал `global.wildberries.ru` - `ios` —  мобильная операционная система от **Apple** - `android` — операционная система **Android** от **Google**
 	Source *string `json:"source,omitempty"`
 	// Время появления события на сервере. Формат Unix timestamp
 	AddTimestamp *int32 `json:"addTimestamp,omitempty"`
 	// Время появления события на сервере в UTC
 	AddTime *string `json:"addTime,omitempty"`
-	// Подпись чата. Доступна только при `\"isNewChat\": true`. Требуется при [отправке сообщения](./customer-communication#tag/buyersChat/operation/postV1SellerMessage) 
+	// Подпись чата. Доступна только при `\"isNewChat\": true`. Требуется при [отправке сообщения](./customer-communication#tag/buyersChat/operation/postV1SellerMessage)
 	ReplySign *string `json:"replySign,omitempty"`
-	Sender *Sender `json:"sender,omitempty"`
+	Sender    *Sender `json:"sender,omitempty"`
 	// Имя покупателя
 	ClientName *string `json:"clientName,omitempty"`
 }
@@ -410,7 +410,7 @@ func (o *Event) SetClientName(v string) {
 }
 
 func (o Event) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -490,5 +490,3 @@ func (v *NullableEvent) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

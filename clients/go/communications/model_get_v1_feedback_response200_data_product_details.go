@@ -180,6 +180,7 @@ func (o *GetV1FeedbackResponse200DataProductDetails) HasSupplierArticle() bool {
 func (o *GetV1FeedbackResponse200DataProductDetails) SetSupplierArticle(v string) {
 	o.SupplierArticle.Set(&v)
 }
+
 // SetSupplierArticleNil sets the value for SupplierArticle to be an explicit nil
 func (o *GetV1FeedbackResponse200DataProductDetails) SetSupplierArticleNil() {
 	o.SupplierArticle.Set(nil)
@@ -222,6 +223,7 @@ func (o *GetV1FeedbackResponse200DataProductDetails) HasSupplierName() bool {
 func (o *GetV1FeedbackResponse200DataProductDetails) SetSupplierName(v string) {
 	o.SupplierName.Set(&v)
 }
+
 // SetSupplierNameNil sets the value for SupplierName to be an explicit nil
 func (o *GetV1FeedbackResponse200DataProductDetails) SetSupplierNameNil() {
 	o.SupplierName.Set(nil)
@@ -264,6 +266,7 @@ func (o *GetV1FeedbackResponse200DataProductDetails) HasBrandName() bool {
 func (o *GetV1FeedbackResponse200DataProductDetails) SetBrandName(v string) {
 	o.BrandName.Set(&v)
 }
+
 // SetBrandNameNil sets the value for BrandName to be an explicit nil
 func (o *GetV1FeedbackResponse200DataProductDetails) SetBrandNameNil() {
 	o.BrandName.Set(nil)
@@ -307,7 +310,7 @@ func (o *GetV1FeedbackResponse200DataProductDetails) SetSize(v string) {
 }
 
 func (o GetV1FeedbackResponse200DataProductDetails) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -375,5 +378,3 @@ func (v *NullableGetV1FeedbackResponse200DataProductDetails) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

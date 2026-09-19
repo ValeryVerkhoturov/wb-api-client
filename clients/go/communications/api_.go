@@ -16,30 +16,29 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os"
 	"strings"
 	"time"
-	"os"
 )
-
 
 type DefaultApi interface {
 
 	/*
-	DeleteFeedbacksV1Pins Открепить отзывы
+			DeleteFeedbacksV1Pins Открепить отзывы
 
-	Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.
-Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
+			Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.
+		Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiDeleteFeedbacksV1PinsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiDeleteFeedbacksV1PinsRequest
 	*/
 	DeleteFeedbacksV1Pins(ctx context.Context) ApiDeleteFeedbacksV1PinsRequest
 
@@ -48,22 +47,22 @@ type DefaultApi interface {
 	DeleteFeedbacksV1PinsExecute(r ApiDeleteFeedbacksV1PinsRequest) (*DeleteFeedbacksV1PinsResponse200, *http.Response, error)
 
 	/*
-	GetFeedbacksV1Pins Список закреплённых и откреплённых отзывов
+			GetFeedbacksV1Pins Список закреплённых и откреплённых отзывов
 
-	Метод предоставляет список закреплённых и откреплённых отзывов.
+			Метод предоставляет список закреплённых и откреплённых отзывов.
 
-Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.
+		Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetFeedbacksV1PinsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetFeedbacksV1PinsRequest
 	*/
 	GetFeedbacksV1Pins(ctx context.Context) ApiGetFeedbacksV1PinsRequest
 
@@ -72,20 +71,20 @@ type DefaultApi interface {
 	GetFeedbacksV1PinsExecute(r ApiGetFeedbacksV1PinsRequest) (*GetFeedbacksV1PinsResponse200, *http.Response, error)
 
 	/*
-	GetFeedbacksV1PinsCount Количество закреплённых и откреплённых отзывов
+			GetFeedbacksV1PinsCount Количество закреплённых и откреплённых отзывов
 
-	Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.
+			Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetFeedbacksV1PinsCountRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetFeedbacksV1PinsCountRequest
 	*/
 	GetFeedbacksV1PinsCount(ctx context.Context) ApiGetFeedbacksV1PinsCountRequest
 
@@ -94,20 +93,20 @@ type DefaultApi interface {
 	GetFeedbacksV1PinsCountExecute(r ApiGetFeedbacksV1PinsCountRequest) (*GetFeedbacksV1PinsCountResponse200, *http.Response, error)
 
 	/*
-	GetFeedbacksV1PinsLimits Лимиты закреплённых отзывов
+			GetFeedbacksV1PinsLimits Лимиты закреплённых отзывов
 
-	Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.
+			Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetFeedbacksV1PinsLimitsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetFeedbacksV1PinsLimitsRequest
 	*/
 	GetFeedbacksV1PinsLimits(ctx context.Context) ApiGetFeedbacksV1PinsLimitsRequest
 
@@ -116,20 +115,20 @@ type DefaultApi interface {
 	GetFeedbacksV1PinsLimitsExecute(r ApiGetFeedbacksV1PinsLimitsRequest) (*GetFeedbacksV1PinsLimitsResponse200, *http.Response, error)
 
 	/*
-	GetV1Claims Заявки покупателей на возврат
+			GetV1Claims Заявки покупателей на возврат
 
-	Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).
+			Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов |
-| Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов |
-| Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов |
-| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов |
+		| Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов |
+		| Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов |
+		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1ClaimsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1ClaimsRequest
 	*/
 	GetV1Claims(ctx context.Context) ApiGetV1ClaimsRequest
 
@@ -138,20 +137,20 @@ type DefaultApi interface {
 	GetV1ClaimsExecute(r ApiGetV1ClaimsRequest) (*GetV1Claims200Response, *http.Response, error)
 
 	/*
-	GetV1Feedback Получить отзыв по ID
+			GetV1Feedback Получить отзыв по ID
 
-	Метод возвращает данные [отзыва](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.
+			Метод возвращает данные [отзыва](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) по его ID.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1FeedbackRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1FeedbackRequest
 	*/
 	GetV1Feedback(ctx context.Context) ApiGetV1FeedbackRequest
 
@@ -160,26 +159,26 @@ type DefaultApi interface {
 	GetV1FeedbackExecute(r ApiGetV1FeedbackRequest) (*GetV1FeedbackResponse200, *http.Response, error)
 
 	/*
-	GetV1Feedbacks Список отзывов
+			GetV1Feedbacks Список отзывов
 
-	Метод возвращает список отзывов по заданным фильтрам. Вы можете:
-- получить данные обработанных и необработанных отзывов.
-Отзыв считается обработанным, если выполняется одно из условий:
-- на отзыв получен ответ
-- отзыв содержит только оценку (без текста и фото)
-- сортировать отзывы по дате
-- настроить пагинацию и количество отзывов в ответе
+			Метод возвращает список отзывов по заданным фильтрам. Вы можете:
+		- получить данные обработанных и необработанных отзывов.
+		Отзыв считается обработанным, если выполняется одно из условий:
+		- на отзыв получен ответ
+		- отзыв содержит только оценку (без текста и фото)
+		- сортировать отзывы по дате
+		- настроить пагинацию и количество отзывов в ответе
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1FeedbacksRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1FeedbacksRequest
 	*/
 	GetV1Feedbacks(ctx context.Context) ApiGetV1FeedbacksRequest
 
@@ -188,25 +187,25 @@ type DefaultApi interface {
 	GetV1FeedbacksExecute(r ApiGetV1FeedbacksRequest) (*GetV1FeedbacksResponse200, *http.Response, error)
 
 	/*
-	GetV1FeedbacksArchive Список архивных отзывов
+			GetV1FeedbacksArchive Список архивных отзывов
 
-	Метод возвращает список архивных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).
+			Метод возвращает список архивных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).
 
-Отзыв становится архивным, если:
-- на отзыв получен ответ
-- на отзыв не получен ответ в течение 30 дней
-- в отзыве нет текста и фото
+		Отзыв становится архивным, если:
+		- на отзыв получен ответ
+		- на отзыв не получен ответ в течение 30 дней
+		- в отзыве нет текста и фото
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1FeedbacksArchiveRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1FeedbacksArchiveRequest
 	*/
 	GetV1FeedbacksArchive(ctx context.Context) ApiGetV1FeedbacksArchiveRequest
 
@@ -215,23 +214,23 @@ type DefaultApi interface {
 	GetV1FeedbacksArchiveExecute(r ApiGetV1FeedbacksArchiveRequest) (*GetV1FeedbacksArchiveResponse200, *http.Response, error)
 
 	/*
-	GetV1FeedbacksCount Количество отзывов
+			GetV1FeedbacksCount Количество отзывов
 
-	Метод возвращает количество обработанных или необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период.
-Отзыв считается обработанным, если выполняется одно из условий:
-- на отзыв получен ответ
-- отзыв содержит только оценку (без текста и фото)
+			Метод возвращает количество обработанных или необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за заданный период.
+		Отзыв считается обработанным, если выполняется одно из условий:
+		- на отзыв получен ответ
+		- отзыв содержит только оценку (без текста и фото)
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1FeedbacksCountRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1FeedbacksCountRequest
 	*/
 	GetV1FeedbacksCount(ctx context.Context) ApiGetV1FeedbacksCountRequest
 
@@ -240,21 +239,21 @@ type DefaultApi interface {
 	GetV1FeedbacksCountExecute(r ApiGetV1FeedbacksCountRequest) (*GetV1FeedbacksCountResponse200, *http.Response, error)
 
 	/*
-	GetV1FeedbacksCountUnanswered Необработанные отзывы
+			GetV1FeedbacksCountUnanswered Необработанные отзывы
 
-	Метод возвращает:
-- количество необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время
+			Метод возвращает:
+		- количество необработанных [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) за сегодня и за всё время
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1FeedbacksCountUnansweredRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1FeedbacksCountUnansweredRequest
 	*/
 	GetV1FeedbacksCountUnanswered(ctx context.Context) ApiGetV1FeedbacksCountUnansweredRequest
 
@@ -263,20 +262,20 @@ type DefaultApi interface {
 	GetV1FeedbacksCountUnansweredExecute(r ApiGetV1FeedbacksCountUnansweredRequest) (*GetV1FeedbacksCountUnansweredResponse200, *http.Response, error)
 
 	/*
-	GetV1NewFeedbacksQuestions Непросмотренные отзывы и вопросы
+			GetV1NewFeedbacksQuestions Непросмотренные отзывы и вопросы
 
-	Метод проверяет наличие непросмотренных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.
+			Метод проверяет наличие непросмотренных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и [отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) от покупателей. Если у продавца есть непросмотренные вопросы или отзывы, возвращает `true`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1NewFeedbacksQuestionsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1NewFeedbacksQuestionsRequest
 	*/
 	GetV1NewFeedbacksQuestions(ctx context.Context) ApiGetV1NewFeedbacksQuestionsRequest
 
@@ -285,20 +284,20 @@ type DefaultApi interface {
 	GetV1NewFeedbacksQuestionsExecute(r ApiGetV1NewFeedbacksQuestionsRequest) (*GetV1NewFeedbacksQuestionsResponse200, *http.Response, error)
 
 	/*
-	GetV1Question Получить вопрос по ID
+			GetV1Question Получить вопрос по ID
 
-	Метод возвращает данные [вопроса](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/patchV1Questions).
+			Метод возвращает данные [вопроса](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/patchV1Questions).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1QuestionRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1QuestionRequest
 	*/
 	GetV1Question(ctx context.Context) ApiGetV1QuestionRequest
 
@@ -307,25 +306,25 @@ type DefaultApi interface {
 	GetV1QuestionExecute(r ApiGetV1QuestionRequest) (*GetV1QuestionResponse200, *http.Response, error)
 
 	/*
-	GetV1Questions Список вопросов
+			GetV1Questions Список вопросов
 
-	Метод возвращает список вопросов по заданным фильтрам. Вы можете:
-- получить данные отвеченных и неотвеченных вопросов
-- сортировать вопросы по дате
-- настроить пагинацию и количество вопросов в ответе
+			Метод возвращает список вопросов по заданным фильтрам. Вы можете:
+		- получить данные отвеченных и неотвеченных вопросов
+		- сортировать вопросы по дате
+		- настроить пагинацию и количество вопросов в ответе
 
-Можно получить максимум 10 000 вопросов в одном ответе
+		Можно получить максимум 10 000 вопросов в одном ответе
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1QuestionsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1QuestionsRequest
 	*/
 	GetV1Questions(ctx context.Context) ApiGetV1QuestionsRequest
 
@@ -334,20 +333,20 @@ type DefaultApi interface {
 	GetV1QuestionsExecute(r ApiGetV1QuestionsRequest) (*GetV1QuestionsResponse200, *http.Response, error)
 
 	/*
-	GetV1QuestionsCount Количество вопросов
+			GetV1QuestionsCount Количество вопросов
 
-	Метод возвращает количество отвеченных или неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.
+			Метод возвращает количество отвеченных или неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) за заданный период.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1QuestionsCountRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1QuestionsCountRequest
 	*/
 	GetV1QuestionsCount(ctx context.Context) ApiGetV1QuestionsCountRequest
 
@@ -356,20 +355,20 @@ type DefaultApi interface {
 	GetV1QuestionsCountExecute(r ApiGetV1QuestionsCountRequest) (*GetV1QuestionsCountResponse200, *http.Response, error)
 
 	/*
-	GetV1QuestionsCountUnanswered Неотвеченные вопросы
+			GetV1QuestionsCountUnanswered Неотвеченные вопросы
 
-	Метод возвращает общее количество неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.
+			Метод возвращает общее количество неотвеченных [вопросов](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) и количество неотвеченных вопросов за сегодня.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1QuestionsCountUnansweredRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1QuestionsCountUnansweredRequest
 	*/
 	GetV1QuestionsCountUnanswered(ctx context.Context) ApiGetV1QuestionsCountUnansweredRequest
 
@@ -378,20 +377,20 @@ type DefaultApi interface {
 	GetV1QuestionsCountUnansweredExecute(r ApiGetV1QuestionsCountUnansweredRequest) (*GetV1QuestionsCountUnansweredResponse200, *http.Response, error)
 
 	/*
-	GetV1SellerChats Список чатов
+			GetV1SellerChats Список чатов
 
-	Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).
+			Метод возвращает список всех чатов продавца. По этим данным можно получить [события чатов](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerEvents) или [отправить сообщение покупателю](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/postV1SellerMessage).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов |
-| Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов |
-| Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
-| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов |
+		| Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов |
+		| Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
+		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1SellerChatsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1SellerChatsRequest
 	*/
 	GetV1SellerChats(ctx context.Context) ApiGetV1SellerChatsRequest
 
@@ -400,21 +399,21 @@ type DefaultApi interface {
 	GetV1SellerChatsExecute(r ApiGetV1SellerChatsRequest) (*ChatsResponse, *http.Response, error)
 
 	/*
-	GetV1SellerDownloadId Получить файл из сообщения
+			GetV1SellerDownloadId Получить файл из сообщения
 
-	Метод возвращает файл или изображение из сообщения по его ID.
+			Метод возвращает файл или изображение из сообщения по его ID.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов |
-| Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов |
-| Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
-| Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов |
+		| Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов |
+		| Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
+		| Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id ID файла, см. значение поля `downloadID` в методе [События чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents)
-	@return ApiGetV1SellerDownloadIdRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param id ID файла, см. значение поля `downloadID` в методе [События чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents)
+			@return ApiGetV1SellerDownloadIdRequest
 	*/
 	GetV1SellerDownloadId(ctx context.Context, id string) ApiGetV1SellerDownloadIdRequest
 
@@ -423,23 +422,23 @@ type DefaultApi interface {
 	GetV1SellerDownloadIdExecute(r ApiGetV1SellerDownloadIdRequest) (*os.File, *http.Response, error)
 
 	/*
-	GetV1SellerEvents События чатов
+			GetV1SellerEvents События чатов
 
-	Метод возвращает список событий всех [чатов с покупателями](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).
-Чтобы получить все события:
-1. Сделайте первый запрос без параметра `next`.
-2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `totalEvents` не станет равным `0`. Это будет означать, что вы получили все события.
+			Метод возвращает список событий всех [чатов с покупателями](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).
+		Чтобы получить все события:
+		1. Сделайте первый запрос без параметра `next`.
+		2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `totalEvents` не станет равным `0`. Это будет означать, что вы получили все события.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов |
-| Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов |
-| Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
-| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов |
+		| Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов |
+		| Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
+		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV1SellerEventsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV1SellerEventsRequest
 	*/
 	GetV1SellerEvents(ctx context.Context) ApiGetV1SellerEventsRequest
 
@@ -448,20 +447,20 @@ type DefaultApi interface {
 	GetV1SellerEventsExecute(r ApiGetV1SellerEventsRequest) (*EventsResponse, *http.Response, error)
 
 	/*
-	PatchV1Claim Ответ на заявку покупателя
+			PatchV1Claim Ответ на заявку покупателя
 
-	Метод отправляет ответ на [заявку](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.
+			Метод отправляет ответ на [заявку](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/getV1Claims) покупателя на возврат товаров.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов |
-| Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов |
-| Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов |
-| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов |
+		| Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов |
+		| Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов |
+		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPatchV1ClaimRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPatchV1ClaimRequest
 	*/
 	PatchV1Claim(ctx context.Context) ApiPatchV1ClaimRequest
 
@@ -469,24 +468,24 @@ type DefaultApi interface {
 	PatchV1ClaimExecute(r ApiPatchV1ClaimRequest) (*http.Response, error)
 
 	/*
-	PatchV1FeedbacksAnswer Отредактировать ответ на отзыв
+			PatchV1FeedbacksAnswer Отредактировать ответ на отзыв
 
-	Метод позволяет отредактировать уже отправленный [ответ на отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.
+			Метод позволяет отредактировать уже отправленный [ответ на отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/postV1FeedbacksAnswer) покупателя.
 
-Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.
+		Отредактировать ответ можно только один раз в течение 60 дней c момента отправки.
 
-ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.
+		ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPatchV1FeedbacksAnswerRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPatchV1FeedbacksAnswerRequest
 	*/
 	PatchV1FeedbacksAnswer(ctx context.Context) ApiPatchV1FeedbacksAnswerRequest
 
@@ -494,27 +493,27 @@ ID отзыва не валидируется. Если в запросе вы �
 	PatchV1FeedbacksAnswerExecute(r ApiPatchV1FeedbacksAnswerRequest) (*http.Response, error)
 
 	/*
-	PatchV1Questions Работа с вопросами
+			PatchV1Questions Работа с вопросами
 
-	В зависимости от тела запроса, метод позволяет:
-- отметить [вопрос](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) как просмотренный
-- отклонить вопрос
-- ответить на вопрос или отредактировать ответ
+			В зависимости от тела запроса, метод позволяет:
+		- отметить [вопрос](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) как просмотренный
+		- отклонить вопрос
+		- ответить на вопрос или отредактировать ответ
 
-Все ответы продавцов проходят предварительную модерацию перед публикацией
+		Все ответы продавцов проходят предварительную модерацию перед публикацией
 
-Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа
+		Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPatchV1QuestionsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPatchV1QuestionsRequest
 	*/
 	PatchV1Questions(ctx context.Context) ApiPatchV1QuestionsRequest
 
@@ -523,23 +522,23 @@ ID отзыва не валидируется. Если в запросе вы �
 	PatchV1QuestionsExecute(r ApiPatchV1QuestionsRequest) (*PatchV1QuestionsResponse200, *http.Response, error)
 
 	/*
-	PostFeedbacksV1Pins Закрепить отзывы
+			PostFeedbacksV1Pins Закрепить отзывы
 
-	Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.
-Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
+			Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.
+		Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
 
-Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \*\*Закрепление отзыва\*\*.
+		Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \*\*Закрепление отзыва\*\*.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostFeedbacksV1PinsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostFeedbacksV1PinsRequest
 	*/
 	PostFeedbacksV1Pins(ctx context.Context) ApiPostFeedbacksV1PinsRequest
 
@@ -548,22 +547,22 @@ ID отзыва не валидируется. Если в запросе вы �
 	PostFeedbacksV1PinsExecute(r ApiPostFeedbacksV1PinsRequest) (*PostFeedbacksV1PinsResponse200, *http.Response, error)
 
 	/*
-	PostV1FeedbacksAnswer Ответить на отзыв
+			PostV1FeedbacksAnswer Ответить на отзыв
 
-	Метод позволяет ответить на [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.
+			Метод позволяет ответить на [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.
 
-ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.
+		ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1FeedbacksAnswerRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV1FeedbacksAnswerRequest
 	*/
 	PostV1FeedbacksAnswer(ctx context.Context) ApiPostV1FeedbacksAnswerRequest
 
@@ -571,22 +570,22 @@ ID отзыва не валидируется. Если в запросе вы �
 	PostV1FeedbacksAnswerExecute(r ApiPostV1FeedbacksAnswerRequest) (*http.Response, error)
 
 	/*
-	PostV1FeedbacksOrderReturn Возврат товара по ID отзыва
+			PostV1FeedbacksOrderReturn Возврат товара по ID отзыва
 
-	Метод запрашивает возврат товара, по которому оставлен [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).
+			Метод запрашивает возврат товара, по которому оставлен [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks).
 
-Возврат доступен для отзывов с полем `"isAbleReturnProductOrders": true`.
+		Возврат доступен для отзывов с полем `"isAbleReturnProductOrders": true`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
-| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
+		| Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1FeedbacksOrderReturnRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV1FeedbacksOrderReturnRequest
 	*/
 	PostV1FeedbacksOrderReturn(ctx context.Context) ApiPostV1FeedbacksOrderReturnRequest
 
@@ -595,20 +594,20 @@ ID отзыва не валидируется. Если в запросе вы �
 	PostV1FeedbacksOrderReturnExecute(r ApiPostV1FeedbacksOrderReturnRequest) (*PostV1FeedbacksOrderReturnResponse200, *http.Response, error)
 
 	/*
-	PostV1SellerMessage Отправить сообщение
+			PostV1SellerMessage Отправить сообщение
 
-	Метод отправляет сообщения в [чат с покупателем](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).
+			Метод отправляет сообщения в [чат с покупателем](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов |
-| Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов |
-| Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
-| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов |
+		| Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов |
+		| Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
+		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV1SellerMessageRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV1SellerMessageRequest
 	*/
 	PostV1SellerMessage(ctx context.Context) ApiPostV1SellerMessageRequest
 
@@ -621,8 +620,8 @@ ID отзыва не валидируется. Если в запросе вы �
 type DefaultApiService service
 
 type ApiDeleteFeedbacksV1PinsRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx         context.Context
+	ApiService  DefaultApi
 	requestBody *[]int32
 }
 
@@ -650,24 +649,25 @@ DeleteFeedbacksV1Pins Открепить отзывы
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDeleteFeedbacksV1PinsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeleteFeedbacksV1PinsRequest
 */
 func (a *DefaultApiService) DeleteFeedbacksV1Pins(ctx context.Context) ApiDeleteFeedbacksV1PinsRequest {
 	return ApiDeleteFeedbacksV1PinsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return DeleteFeedbacksV1PinsResponse200
+//
+//	@return DeleteFeedbacksV1PinsResponse200
 func (a *DefaultApiService) DeleteFeedbacksV1PinsExecute(r ApiDeleteFeedbacksV1PinsRequest) (*DeleteFeedbacksV1PinsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeleteFeedbacksV1PinsResponse200
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeleteFeedbacksV1PinsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteFeedbacksV1Pins")
@@ -706,20 +706,6 @@ func (a *DefaultApiService) DeleteFeedbacksV1PinsExecute(r ApiDeleteFeedbacksV1P
 	}
 	// body params
 	localVarPostBody = r.requestBody
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -749,8 +735,8 @@ func (a *DefaultApiService) DeleteFeedbacksV1PinsExecute(r ApiDeleteFeedbacksV1P
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -760,8 +746,8 @@ func (a *DefaultApiService) DeleteFeedbacksV1PinsExecute(r ApiDeleteFeedbacksV1P
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -771,8 +757,8 @@ func (a *DefaultApiService) DeleteFeedbacksV1PinsExecute(r ApiDeleteFeedbacksV1P
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -782,8 +768,8 @@ func (a *DefaultApiService) DeleteFeedbacksV1PinsExecute(r ApiDeleteFeedbacksV1P
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -793,8 +779,8 @@ func (a *DefaultApiService) DeleteFeedbacksV1PinsExecute(r ApiDeleteFeedbacksV1P
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -812,26 +798,26 @@ func (a *DefaultApiService) DeleteFeedbacksV1PinsExecute(r ApiDeleteFeedbacksV1P
 }
 
 type ApiGetFeedbacksV1PinsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
-	state *string
-	pinOn *string
-	imtId *int32
-	nmId *int32
+	state      *string
+	pinOn      *string
+	imtId      *int32
+	nmId       *int32
 	feedbackId *int32
-	dateFrom *time.Time
-	dateTo *time.Time
-	next *int32
-	limit *int32
+	dateFrom   *time.Time
+	dateTo     *time.Time
+	next       *int32
+	limit      *int32
 }
 
-// Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет 
+// Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
 func (r ApiGetFeedbacksV1PinsRequest) State(state string) ApiGetFeedbacksV1PinsRequest {
 	r.state = &state
 	return r
 }
 
-// Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+// Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
 func (r ApiGetFeedbacksV1PinsRequest) PinOn(pinOn string) ApiGetFeedbacksV1PinsRequest {
 	r.pinOn = &pinOn
 	return r
@@ -898,24 +884,25 @@ GetFeedbacksV1Pins Список закреплённых и откреплённ
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetFeedbacksV1PinsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetFeedbacksV1PinsRequest
 */
 func (a *DefaultApiService) GetFeedbacksV1Pins(ctx context.Context) ApiGetFeedbacksV1PinsRequest {
 	return ApiGetFeedbacksV1PinsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetFeedbacksV1PinsResponse200
+//
+//	@return GetFeedbacksV1PinsResponse200
 func (a *DefaultApiService) GetFeedbacksV1PinsExecute(r ApiGetFeedbacksV1PinsRequest) (*GetFeedbacksV1PinsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetFeedbacksV1PinsResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetFeedbacksV1PinsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetFeedbacksV1Pins")
@@ -976,20 +963,6 @@ func (a *DefaultApiService) GetFeedbacksV1PinsExecute(r ApiGetFeedbacksV1PinsReq
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1019,8 +992,8 @@ func (a *DefaultApiService) GetFeedbacksV1PinsExecute(r ApiGetFeedbacksV1PinsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1030,8 +1003,8 @@ func (a *DefaultApiService) GetFeedbacksV1PinsExecute(r ApiGetFeedbacksV1PinsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1041,8 +1014,8 @@ func (a *DefaultApiService) GetFeedbacksV1PinsExecute(r ApiGetFeedbacksV1PinsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1052,8 +1025,8 @@ func (a *DefaultApiService) GetFeedbacksV1PinsExecute(r ApiGetFeedbacksV1PinsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1063,8 +1036,8 @@ func (a *DefaultApiService) GetFeedbacksV1PinsExecute(r ApiGetFeedbacksV1PinsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1082,24 +1055,24 @@ func (a *DefaultApiService) GetFeedbacksV1PinsExecute(r ApiGetFeedbacksV1PinsReq
 }
 
 type ApiGetFeedbacksV1PinsCountRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
-	state *string
-	pinOn *string
-	imtId *int32
-	nmId *int32
+	state      *string
+	pinOn      *string
+	imtId      *int32
+	nmId       *int32
 	feedbackId *int32
-	dateFrom *time.Time
-	dateTo *time.Time
+	dateFrom   *time.Time
+	dateTo     *time.Time
 }
 
-// Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет 
+// Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
 func (r ApiGetFeedbacksV1PinsCountRequest) State(state string) ApiGetFeedbacksV1PinsCountRequest {
 	r.state = &state
 	return r
 }
 
-// Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров 
+// Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
 func (r ApiGetFeedbacksV1PinsCountRequest) PinOn(pinOn string) ApiGetFeedbacksV1PinsCountRequest {
 	r.pinOn = &pinOn
 	return r
@@ -1152,24 +1125,25 @@ GetFeedbacksV1PinsCount Количество закреплённых и отк�
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetFeedbacksV1PinsCountRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetFeedbacksV1PinsCountRequest
 */
 func (a *DefaultApiService) GetFeedbacksV1PinsCount(ctx context.Context) ApiGetFeedbacksV1PinsCountRequest {
 	return ApiGetFeedbacksV1PinsCountRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetFeedbacksV1PinsCountResponse200
+//
+//	@return GetFeedbacksV1PinsCountResponse200
 func (a *DefaultApiService) GetFeedbacksV1PinsCountExecute(r ApiGetFeedbacksV1PinsCountRequest) (*GetFeedbacksV1PinsCountResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetFeedbacksV1PinsCountResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetFeedbacksV1PinsCountResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetFeedbacksV1PinsCount")
@@ -1221,20 +1195,6 @@ func (a *DefaultApiService) GetFeedbacksV1PinsCountExecute(r ApiGetFeedbacksV1Pi
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1264,8 +1224,8 @@ func (a *DefaultApiService) GetFeedbacksV1PinsCountExecute(r ApiGetFeedbacksV1Pi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1275,8 +1235,8 @@ func (a *DefaultApiService) GetFeedbacksV1PinsCountExecute(r ApiGetFeedbacksV1Pi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1286,8 +1246,8 @@ func (a *DefaultApiService) GetFeedbacksV1PinsCountExecute(r ApiGetFeedbacksV1Pi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1297,8 +1257,8 @@ func (a *DefaultApiService) GetFeedbacksV1PinsCountExecute(r ApiGetFeedbacksV1Pi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1308,8 +1268,8 @@ func (a *DefaultApiService) GetFeedbacksV1PinsCountExecute(r ApiGetFeedbacksV1Pi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1327,7 +1287,7 @@ func (a *DefaultApiService) GetFeedbacksV1PinsCountExecute(r ApiGetFeedbacksV1Pi
 }
 
 type ApiGetFeedbacksV1PinsLimitsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
 }
 
@@ -1348,24 +1308,25 @@ GetFeedbacksV1PinsLimits Лимиты закреплённых отзывов
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetFeedbacksV1PinsLimitsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetFeedbacksV1PinsLimitsRequest
 */
 func (a *DefaultApiService) GetFeedbacksV1PinsLimits(ctx context.Context) ApiGetFeedbacksV1PinsLimitsRequest {
 	return ApiGetFeedbacksV1PinsLimitsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetFeedbacksV1PinsLimitsResponse200
+//
+//	@return GetFeedbacksV1PinsLimitsResponse200
 func (a *DefaultApiService) GetFeedbacksV1PinsLimitsExecute(r ApiGetFeedbacksV1PinsLimitsRequest) (*GetFeedbacksV1PinsLimitsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetFeedbacksV1PinsLimitsResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetFeedbacksV1PinsLimitsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetFeedbacksV1PinsLimits")
@@ -1396,20 +1357,6 @@ func (a *DefaultApiService) GetFeedbacksV1PinsLimitsExecute(r ApiGetFeedbacksV1P
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1439,8 +1386,8 @@ func (a *DefaultApiService) GetFeedbacksV1PinsLimitsExecute(r ApiGetFeedbacksV1P
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1450,8 +1397,8 @@ func (a *DefaultApiService) GetFeedbacksV1PinsLimitsExecute(r ApiGetFeedbacksV1P
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1461,8 +1408,8 @@ func (a *DefaultApiService) GetFeedbacksV1PinsLimitsExecute(r ApiGetFeedbacksV1P
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1472,8 +1419,8 @@ func (a *DefaultApiService) GetFeedbacksV1PinsLimitsExecute(r ApiGetFeedbacksV1P
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1491,16 +1438,16 @@ func (a *DefaultApiService) GetFeedbacksV1PinsLimitsExecute(r ApiGetFeedbacksV1P
 }
 
 type ApiGetV1ClaimsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
-	isArchive *bool
-	id *string
-	limit *int32
-	offset *int32
-	nmId *int32
+	isArchive  *bool
+	id         *string
+	limit      *int32
+	offset     *int32
+	nmId       *int32
 }
 
-// Состояние заявки:   * &#x60;false&#x60; — на рассмотрении   * &#x60;true&#x60; — в архиве 
+// Состояние заявки:   * &#x60;false&#x60; — на рассмотрении   * &#x60;true&#x60; — в архиве
 func (r ApiGetV1ClaimsRequest) IsArchive(isArchive bool) ApiGetV1ClaimsRequest {
 	r.isArchive = &isArchive
 	return r
@@ -1547,24 +1494,25 @@ GetV1Claims Заявки покупателей на возврат
 | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1ClaimsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1ClaimsRequest
 */
 func (a *DefaultApiService) GetV1Claims(ctx context.Context) ApiGetV1ClaimsRequest {
 	return ApiGetV1ClaimsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV1Claims200Response
+//
+//	@return GetV1Claims200Response
 func (a *DefaultApiService) GetV1ClaimsExecute(r ApiGetV1ClaimsRequest) (*GetV1Claims200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV1Claims200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV1Claims200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1Claims")
@@ -1617,20 +1565,6 @@ func (a *DefaultApiService) GetV1ClaimsExecute(r ApiGetV1ClaimsRequest) (*GetV1C
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1660,8 +1594,8 @@ func (a *DefaultApiService) GetV1ClaimsExecute(r ApiGetV1ClaimsRequest) (*GetV1C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1671,8 +1605,8 @@ func (a *DefaultApiService) GetV1ClaimsExecute(r ApiGetV1ClaimsRequest) (*GetV1C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1682,8 +1616,8 @@ func (a *DefaultApiService) GetV1ClaimsExecute(r ApiGetV1ClaimsRequest) (*GetV1C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1693,8 +1627,8 @@ func (a *DefaultApiService) GetV1ClaimsExecute(r ApiGetV1ClaimsRequest) (*GetV1C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1704,8 +1638,8 @@ func (a *DefaultApiService) GetV1ClaimsExecute(r ApiGetV1ClaimsRequest) (*GetV1C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1723,9 +1657,9 @@ func (a *DefaultApiService) GetV1ClaimsExecute(r ApiGetV1ClaimsRequest) (*GetV1C
 }
 
 type ApiGetV1FeedbackRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
-	id *string
+	id         *string
 }
 
 // ID отзыва
@@ -1751,24 +1685,25 @@ GetV1Feedback Получить отзыв по ID
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1FeedbackRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1FeedbackRequest
 */
 func (a *DefaultApiService) GetV1Feedback(ctx context.Context) ApiGetV1FeedbackRequest {
 	return ApiGetV1FeedbackRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV1FeedbackResponse200
+//
+//	@return GetV1FeedbackResponse200
 func (a *DefaultApiService) GetV1FeedbackExecute(r ApiGetV1FeedbackRequest) (*GetV1FeedbackResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV1FeedbackResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV1FeedbackResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1Feedback")
@@ -1803,20 +1738,6 @@ func (a *DefaultApiService) GetV1FeedbackExecute(r ApiGetV1FeedbackRequest) (*Ge
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1846,8 +1767,8 @@ func (a *DefaultApiService) GetV1FeedbackExecute(r ApiGetV1FeedbackRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1857,8 +1778,8 @@ func (a *DefaultApiService) GetV1FeedbackExecute(r ApiGetV1FeedbackRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1868,8 +1789,8 @@ func (a *DefaultApiService) GetV1FeedbackExecute(r ApiGetV1FeedbackRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -1879,8 +1800,8 @@ func (a *DefaultApiService) GetV1FeedbackExecute(r ApiGetV1FeedbackRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1890,8 +1811,8 @@ func (a *DefaultApiService) GetV1FeedbackExecute(r ApiGetV1FeedbackRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1909,18 +1830,18 @@ func (a *DefaultApiService) GetV1FeedbackExecute(r ApiGetV1FeedbackRequest) (*Ge
 }
 
 type ApiGetV1FeedbacksRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
 	isAnswered *bool
-	take *int32
-	skip *int32
-	nmId *int32
-	order *string
-	dateFrom *int32
-	dateTo *int32
+	take       *int32
+	skip       *int32
+	nmId       *int32
+	order      *string
+	dateFrom   *int32
+	dateTo     *int32
 }
 
-// Вернуть только обработанные отзывы:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
+// Вернуть только обработанные отзывы:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет
 func (r ApiGetV1FeedbacksRequest) IsAnswered(isAnswered bool) ApiGetV1FeedbacksRequest {
 	r.isAnswered = &isAnswered
 	return r
@@ -1985,24 +1906,25 @@ GetV1Feedbacks Список отзывов
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1FeedbacksRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1FeedbacksRequest
 */
 func (a *DefaultApiService) GetV1Feedbacks(ctx context.Context) ApiGetV1FeedbacksRequest {
 	return ApiGetV1FeedbacksRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV1FeedbacksResponse200
+//
+//	@return GetV1FeedbacksResponse200
 func (a *DefaultApiService) GetV1FeedbacksExecute(r ApiGetV1FeedbacksRequest) (*GetV1FeedbacksResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV1FeedbacksResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV1FeedbacksResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1Feedbacks")
@@ -2057,20 +1979,6 @@ func (a *DefaultApiService) GetV1FeedbacksExecute(r ApiGetV1FeedbacksRequest) (*
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2100,8 +2008,8 @@ func (a *DefaultApiService) GetV1FeedbacksExecute(r ApiGetV1FeedbacksRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2111,8 +2019,8 @@ func (a *DefaultApiService) GetV1FeedbacksExecute(r ApiGetV1FeedbacksRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2122,8 +2030,8 @@ func (a *DefaultApiService) GetV1FeedbacksExecute(r ApiGetV1FeedbacksRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2133,8 +2041,8 @@ func (a *DefaultApiService) GetV1FeedbacksExecute(r ApiGetV1FeedbacksRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2144,8 +2052,8 @@ func (a *DefaultApiService) GetV1FeedbacksExecute(r ApiGetV1FeedbacksRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2163,12 +2071,12 @@ func (a *DefaultApiService) GetV1FeedbacksExecute(r ApiGetV1FeedbacksRequest) (*
 }
 
 type ApiGetV1FeedbacksArchiveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
-	take *int32
-	skip *int32
-	nmId *int32
-	order *string
+	take       *int32
+	skip       *int32
+	nmId       *int32
+	order      *string
 }
 
 // Количество отзывов (max. 5 000)
@@ -2217,24 +2125,25 @@ GetV1FeedbacksArchive Список архивных отзывов
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1FeedbacksArchiveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1FeedbacksArchiveRequest
 */
 func (a *DefaultApiService) GetV1FeedbacksArchive(ctx context.Context) ApiGetV1FeedbacksArchiveRequest {
 	return ApiGetV1FeedbacksArchiveRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV1FeedbacksArchiveResponse200
+//
+//	@return GetV1FeedbacksArchiveResponse200
 func (a *DefaultApiService) GetV1FeedbacksArchiveExecute(r ApiGetV1FeedbacksArchiveRequest) (*GetV1FeedbacksArchiveResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV1FeedbacksArchiveResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV1FeedbacksArchiveResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1FeedbacksArchive")
@@ -2279,20 +2188,6 @@ func (a *DefaultApiService) GetV1FeedbacksArchiveExecute(r ApiGetV1FeedbacksArch
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2322,8 +2217,8 @@ func (a *DefaultApiService) GetV1FeedbacksArchiveExecute(r ApiGetV1FeedbacksArch
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2333,8 +2228,8 @@ func (a *DefaultApiService) GetV1FeedbacksArchiveExecute(r ApiGetV1FeedbacksArch
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2344,8 +2239,8 @@ func (a *DefaultApiService) GetV1FeedbacksArchiveExecute(r ApiGetV1FeedbacksArch
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2355,8 +2250,8 @@ func (a *DefaultApiService) GetV1FeedbacksArchiveExecute(r ApiGetV1FeedbacksArch
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -2366,8 +2261,8 @@ func (a *DefaultApiService) GetV1FeedbacksArchiveExecute(r ApiGetV1FeedbacksArch
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2377,8 +2272,8 @@ func (a *DefaultApiService) GetV1FeedbacksArchiveExecute(r ApiGetV1FeedbacksArch
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2396,14 +2291,14 @@ func (a *DefaultApiService) GetV1FeedbacksArchiveExecute(r ApiGetV1FeedbacksArch
 }
 
 type ApiGetV1FeedbacksCountRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
 	isAnswered *bool
-	dateFrom *int32
-	dateTo *int32
+	dateFrom   *int32
+	dateTo     *int32
 }
 
-// Вернуть только обработанные отзывы:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
+// Вернуть только обработанные отзывы:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет
 func (r ApiGetV1FeedbacksCountRequest) IsAnswered(isAnswered bool) ApiGetV1FeedbacksCountRequest {
 	r.isAnswered = &isAnswered
 	return r
@@ -2441,24 +2336,25 @@ GetV1FeedbacksCount Количество отзывов
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1FeedbacksCountRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1FeedbacksCountRequest
 */
 func (a *DefaultApiService) GetV1FeedbacksCount(ctx context.Context) ApiGetV1FeedbacksCountRequest {
 	return ApiGetV1FeedbacksCountRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV1FeedbacksCountResponse200
+//
+//	@return GetV1FeedbacksCountResponse200
 func (a *DefaultApiService) GetV1FeedbacksCountExecute(r ApiGetV1FeedbacksCountRequest) (*GetV1FeedbacksCountResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV1FeedbacksCountResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV1FeedbacksCountResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1FeedbacksCount")
@@ -2499,20 +2395,6 @@ func (a *DefaultApiService) GetV1FeedbacksCountExecute(r ApiGetV1FeedbacksCountR
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2542,8 +2424,8 @@ func (a *DefaultApiService) GetV1FeedbacksCountExecute(r ApiGetV1FeedbacksCountR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2553,8 +2435,8 @@ func (a *DefaultApiService) GetV1FeedbacksCountExecute(r ApiGetV1FeedbacksCountR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2564,8 +2446,8 @@ func (a *DefaultApiService) GetV1FeedbacksCountExecute(r ApiGetV1FeedbacksCountR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2575,8 +2457,8 @@ func (a *DefaultApiService) GetV1FeedbacksCountExecute(r ApiGetV1FeedbacksCountR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2586,8 +2468,8 @@ func (a *DefaultApiService) GetV1FeedbacksCountExecute(r ApiGetV1FeedbacksCountR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2605,7 +2487,7 @@ func (a *DefaultApiService) GetV1FeedbacksCountExecute(r ApiGetV1FeedbacksCountR
 }
 
 type ApiGetV1FeedbacksCountUnansweredRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
 }
 
@@ -2627,24 +2509,25 @@ GetV1FeedbacksCountUnanswered Необработанные отзывы
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1FeedbacksCountUnansweredRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1FeedbacksCountUnansweredRequest
 */
 func (a *DefaultApiService) GetV1FeedbacksCountUnanswered(ctx context.Context) ApiGetV1FeedbacksCountUnansweredRequest {
 	return ApiGetV1FeedbacksCountUnansweredRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV1FeedbacksCountUnansweredResponse200
+//
+//	@return GetV1FeedbacksCountUnansweredResponse200
 func (a *DefaultApiService) GetV1FeedbacksCountUnansweredExecute(r ApiGetV1FeedbacksCountUnansweredRequest) (*GetV1FeedbacksCountUnansweredResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV1FeedbacksCountUnansweredResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV1FeedbacksCountUnansweredResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1FeedbacksCountUnanswered")
@@ -2675,20 +2558,6 @@ func (a *DefaultApiService) GetV1FeedbacksCountUnansweredExecute(r ApiGetV1Feedb
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2718,8 +2587,8 @@ func (a *DefaultApiService) GetV1FeedbacksCountUnansweredExecute(r ApiGetV1Feedb
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2729,8 +2598,8 @@ func (a *DefaultApiService) GetV1FeedbacksCountUnansweredExecute(r ApiGetV1Feedb
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2740,8 +2609,8 @@ func (a *DefaultApiService) GetV1FeedbacksCountUnansweredExecute(r ApiGetV1Feedb
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2751,8 +2620,8 @@ func (a *DefaultApiService) GetV1FeedbacksCountUnansweredExecute(r ApiGetV1Feedb
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2770,7 +2639,7 @@ func (a *DefaultApiService) GetV1FeedbacksCountUnansweredExecute(r ApiGetV1Feedb
 }
 
 type ApiGetV1NewFeedbacksQuestionsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
 }
 
@@ -2791,24 +2660,25 @@ GetV1NewFeedbacksQuestions Непросмотренные отзывы и воп
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1NewFeedbacksQuestionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1NewFeedbacksQuestionsRequest
 */
 func (a *DefaultApiService) GetV1NewFeedbacksQuestions(ctx context.Context) ApiGetV1NewFeedbacksQuestionsRequest {
 	return ApiGetV1NewFeedbacksQuestionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV1NewFeedbacksQuestionsResponse200
+//
+//	@return GetV1NewFeedbacksQuestionsResponse200
 func (a *DefaultApiService) GetV1NewFeedbacksQuestionsExecute(r ApiGetV1NewFeedbacksQuestionsRequest) (*GetV1NewFeedbacksQuestionsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV1NewFeedbacksQuestionsResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV1NewFeedbacksQuestionsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1NewFeedbacksQuestions")
@@ -2839,20 +2709,6 @@ func (a *DefaultApiService) GetV1NewFeedbacksQuestionsExecute(r ApiGetV1NewFeedb
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2882,8 +2738,8 @@ func (a *DefaultApiService) GetV1NewFeedbacksQuestionsExecute(r ApiGetV1NewFeedb
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2893,8 +2749,8 @@ func (a *DefaultApiService) GetV1NewFeedbacksQuestionsExecute(r ApiGetV1NewFeedb
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2904,8 +2760,8 @@ func (a *DefaultApiService) GetV1NewFeedbacksQuestionsExecute(r ApiGetV1NewFeedb
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2915,8 +2771,8 @@ func (a *DefaultApiService) GetV1NewFeedbacksQuestionsExecute(r ApiGetV1NewFeedb
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2934,9 +2790,9 @@ func (a *DefaultApiService) GetV1NewFeedbacksQuestionsExecute(r ApiGetV1NewFeedb
 }
 
 type ApiGetV1QuestionRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
-	id *string
+	id         *string
 }
 
 // ID вопроса
@@ -2962,24 +2818,25 @@ GetV1Question Получить вопрос по ID
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1QuestionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1QuestionRequest
 */
 func (a *DefaultApiService) GetV1Question(ctx context.Context) ApiGetV1QuestionRequest {
 	return ApiGetV1QuestionRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV1QuestionResponse200
+//
+//	@return GetV1QuestionResponse200
 func (a *DefaultApiService) GetV1QuestionExecute(r ApiGetV1QuestionRequest) (*GetV1QuestionResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV1QuestionResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV1QuestionResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1Question")
@@ -3014,20 +2871,6 @@ func (a *DefaultApiService) GetV1QuestionExecute(r ApiGetV1QuestionRequest) (*Ge
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3057,8 +2900,8 @@ func (a *DefaultApiService) GetV1QuestionExecute(r ApiGetV1QuestionRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3068,8 +2911,8 @@ func (a *DefaultApiService) GetV1QuestionExecute(r ApiGetV1QuestionRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3079,8 +2922,8 @@ func (a *DefaultApiService) GetV1QuestionExecute(r ApiGetV1QuestionRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -3090,8 +2933,8 @@ func (a *DefaultApiService) GetV1QuestionExecute(r ApiGetV1QuestionRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3101,8 +2944,8 @@ func (a *DefaultApiService) GetV1QuestionExecute(r ApiGetV1QuestionRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3120,30 +2963,30 @@ func (a *DefaultApiService) GetV1QuestionExecute(r ApiGetV1QuestionRequest) (*Ge
 }
 
 type ApiGetV1QuestionsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
 	isAnswered *bool
-	take *int32
-	skip *int32
-	nmId *int32
-	order *string
-	dateFrom *int32
-	dateTo *int32
+	take       *int32
+	skip       *int32
+	nmId       *int32
+	order      *string
+	dateFrom   *int32
+	dateTo     *int32
 }
 
-// Есть ли ответ на вопрос:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
+// Есть ли ответ на вопрос:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет
 func (r ApiGetV1QuestionsRequest) IsAnswered(isAnswered bool) ApiGetV1QuestionsRequest {
 	r.isAnswered = &isAnswered
 	return r
 }
 
-// Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров &#x60;take&#x60; и &#x60;skip&#x60; не должна превышать 10 000) 
+// Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров &#x60;take&#x60; и &#x60;skip&#x60; не должна превышать 10 000)
 func (r ApiGetV1QuestionsRequest) Take(take int32) ApiGetV1QuestionsRequest {
 	r.take = &take
 	return r
 }
 
-// Количество вопросов для пропуска (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров &#x60;take&#x60; и &#x60;skip&#x60; не должна превышать 10 000) 
+// Количество вопросов для пропуска (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров &#x60;take&#x60; и &#x60;skip&#x60; не должна превышать 10 000)
 func (r ApiGetV1QuestionsRequest) Skip(skip int32) ApiGetV1QuestionsRequest {
 	r.skip = &skip
 	return r
@@ -3185,7 +3028,7 @@ GetV1Questions Список вопросов
 - сортировать вопросы по дате
 - настроить пагинацию и количество вопросов в ответе
 
-Можно получить максимум 10 000 вопросов в одном ответе
+# Можно получить максимум 10 000 вопросов в одном ответе
 
 [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -3195,24 +3038,25 @@ GetV1Questions Список вопросов
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1QuestionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1QuestionsRequest
 */
 func (a *DefaultApiService) GetV1Questions(ctx context.Context) ApiGetV1QuestionsRequest {
 	return ApiGetV1QuestionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV1QuestionsResponse200
+//
+//	@return GetV1QuestionsResponse200
 func (a *DefaultApiService) GetV1QuestionsExecute(r ApiGetV1QuestionsRequest) (*GetV1QuestionsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV1QuestionsResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV1QuestionsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1Questions")
@@ -3267,20 +3111,6 @@ func (a *DefaultApiService) GetV1QuestionsExecute(r ApiGetV1QuestionsRequest) (*
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3310,8 +3140,8 @@ func (a *DefaultApiService) GetV1QuestionsExecute(r ApiGetV1QuestionsRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3321,8 +3151,8 @@ func (a *DefaultApiService) GetV1QuestionsExecute(r ApiGetV1QuestionsRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3332,8 +3162,8 @@ func (a *DefaultApiService) GetV1QuestionsExecute(r ApiGetV1QuestionsRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3343,8 +3173,8 @@ func (a *DefaultApiService) GetV1QuestionsExecute(r ApiGetV1QuestionsRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3354,8 +3184,8 @@ func (a *DefaultApiService) GetV1QuestionsExecute(r ApiGetV1QuestionsRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3373,10 +3203,10 @@ func (a *DefaultApiService) GetV1QuestionsExecute(r ApiGetV1QuestionsRequest) (*
 }
 
 type ApiGetV1QuestionsCountRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
-	dateFrom *int32
-	dateTo *int32
+	dateFrom   *int32
+	dateTo     *int32
 	isAnswered *bool
 }
 
@@ -3392,7 +3222,7 @@ func (r ApiGetV1QuestionsCountRequest) DateTo(dateTo int32) ApiGetV1QuestionsCou
 	return r
 }
 
-// Есть ли ответ на вопрос:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
+// Есть ли ответ на вопрос:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет
 func (r ApiGetV1QuestionsCountRequest) IsAnswered(isAnswered bool) ApiGetV1QuestionsCountRequest {
 	r.isAnswered = &isAnswered
 	return r
@@ -3415,24 +3245,25 @@ GetV1QuestionsCount Количество вопросов
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1QuestionsCountRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1QuestionsCountRequest
 */
 func (a *DefaultApiService) GetV1QuestionsCount(ctx context.Context) ApiGetV1QuestionsCountRequest {
 	return ApiGetV1QuestionsCountRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV1QuestionsCountResponse200
+//
+//	@return GetV1QuestionsCountResponse200
 func (a *DefaultApiService) GetV1QuestionsCountExecute(r ApiGetV1QuestionsCountRequest) (*GetV1QuestionsCountResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV1QuestionsCountResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV1QuestionsCountResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1QuestionsCount")
@@ -3475,20 +3306,6 @@ func (a *DefaultApiService) GetV1QuestionsCountExecute(r ApiGetV1QuestionsCountR
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3518,8 +3335,8 @@ func (a *DefaultApiService) GetV1QuestionsCountExecute(r ApiGetV1QuestionsCountR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3529,8 +3346,8 @@ func (a *DefaultApiService) GetV1QuestionsCountExecute(r ApiGetV1QuestionsCountR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3540,8 +3357,8 @@ func (a *DefaultApiService) GetV1QuestionsCountExecute(r ApiGetV1QuestionsCountR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3551,8 +3368,8 @@ func (a *DefaultApiService) GetV1QuestionsCountExecute(r ApiGetV1QuestionsCountR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3562,8 +3379,8 @@ func (a *DefaultApiService) GetV1QuestionsCountExecute(r ApiGetV1QuestionsCountR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3581,7 +3398,7 @@ func (a *DefaultApiService) GetV1QuestionsCountExecute(r ApiGetV1QuestionsCountR
 }
 
 type ApiGetV1QuestionsCountUnansweredRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
 }
 
@@ -3602,24 +3419,25 @@ GetV1QuestionsCountUnanswered Неотвеченные вопросы
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1QuestionsCountUnansweredRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1QuestionsCountUnansweredRequest
 */
 func (a *DefaultApiService) GetV1QuestionsCountUnanswered(ctx context.Context) ApiGetV1QuestionsCountUnansweredRequest {
 	return ApiGetV1QuestionsCountUnansweredRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV1QuestionsCountUnansweredResponse200
+//
+//	@return GetV1QuestionsCountUnansweredResponse200
 func (a *DefaultApiService) GetV1QuestionsCountUnansweredExecute(r ApiGetV1QuestionsCountUnansweredRequest) (*GetV1QuestionsCountUnansweredResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV1QuestionsCountUnansweredResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV1QuestionsCountUnansweredResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1QuestionsCountUnanswered")
@@ -3650,20 +3468,6 @@ func (a *DefaultApiService) GetV1QuestionsCountUnansweredExecute(r ApiGetV1Quest
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3693,8 +3497,8 @@ func (a *DefaultApiService) GetV1QuestionsCountUnansweredExecute(r ApiGetV1Quest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3704,8 +3508,8 @@ func (a *DefaultApiService) GetV1QuestionsCountUnansweredExecute(r ApiGetV1Quest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3715,8 +3519,8 @@ func (a *DefaultApiService) GetV1QuestionsCountUnansweredExecute(r ApiGetV1Quest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3726,8 +3530,8 @@ func (a *DefaultApiService) GetV1QuestionsCountUnansweredExecute(r ApiGetV1Quest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3745,7 +3549,7 @@ func (a *DefaultApiService) GetV1QuestionsCountUnansweredExecute(r ApiGetV1Quest
 }
 
 type ApiGetV1SellerChatsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
 }
 
@@ -3766,24 +3570,25 @@ GetV1SellerChats Список чатов
 | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1SellerChatsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1SellerChatsRequest
 */
 func (a *DefaultApiService) GetV1SellerChats(ctx context.Context) ApiGetV1SellerChatsRequest {
 	return ApiGetV1SellerChatsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ChatsResponse
+//
+//	@return ChatsResponse
 func (a *DefaultApiService) GetV1SellerChatsExecute(r ApiGetV1SellerChatsRequest) (*ChatsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ChatsResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ChatsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1SellerChats")
@@ -3814,20 +3619,6 @@ func (a *DefaultApiService) GetV1SellerChatsExecute(r ApiGetV1SellerChatsRequest
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3857,8 +3648,8 @@ func (a *DefaultApiService) GetV1SellerChatsExecute(r ApiGetV1SellerChatsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3868,8 +3659,8 @@ func (a *DefaultApiService) GetV1SellerChatsExecute(r ApiGetV1SellerChatsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3879,8 +3670,8 @@ func (a *DefaultApiService) GetV1SellerChatsExecute(r ApiGetV1SellerChatsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3890,8 +3681,8 @@ func (a *DefaultApiService) GetV1SellerChatsExecute(r ApiGetV1SellerChatsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3909,9 +3700,9 @@ func (a *DefaultApiService) GetV1SellerChatsExecute(r ApiGetV1SellerChatsRequest
 }
 
 type ApiGetV1SellerDownloadIdRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
-	id string
+	id         string
 }
 
 func (r ApiGetV1SellerDownloadIdRequest) Execute() (*os.File, *http.Response, error) {
@@ -3931,26 +3722,27 @@ GetV1SellerDownloadId Получить файл из сообщения
 | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
 | Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID файла, см. значение поля `downloadID` в методе [События чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents)
- @return ApiGetV1SellerDownloadIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID файла, см. значение поля `downloadID` в методе [События чатов](./customer-communication#tag/buyersChat/operation/getV1SellerEvents)
+	@return ApiGetV1SellerDownloadIdRequest
 */
 func (a *DefaultApiService) GetV1SellerDownloadId(ctx context.Context, id string) ApiGetV1SellerDownloadIdRequest {
 	return ApiGetV1SellerDownloadIdRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return *os.File
+//
+//	@return *os.File
 func (a *DefaultApiService) GetV1SellerDownloadIdExecute(r ApiGetV1SellerDownloadIdRequest) (*os.File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *os.File
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1SellerDownloadId")
@@ -3982,20 +3774,6 @@ func (a *DefaultApiService) GetV1SellerDownloadIdExecute(r ApiGetV1SellerDownloa
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4025,8 +3803,8 @@ func (a *DefaultApiService) GetV1SellerDownloadIdExecute(r ApiGetV1SellerDownloa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4036,8 +3814,8 @@ func (a *DefaultApiService) GetV1SellerDownloadIdExecute(r ApiGetV1SellerDownloa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4047,8 +3825,8 @@ func (a *DefaultApiService) GetV1SellerDownloadIdExecute(r ApiGetV1SellerDownloa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4058,8 +3836,8 @@ func (a *DefaultApiService) GetV1SellerDownloadIdExecute(r ApiGetV1SellerDownloa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4069,8 +3847,8 @@ func (a *DefaultApiService) GetV1SellerDownloadIdExecute(r ApiGetV1SellerDownloa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 451 {
@@ -4080,8 +3858,8 @@ func (a *DefaultApiService) GetV1SellerDownloadIdExecute(r ApiGetV1SellerDownloa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4099,9 +3877,9 @@ func (a *DefaultApiService) GetV1SellerDownloadIdExecute(r ApiGetV1SellerDownloa
 }
 
 type ApiGetV1SellerEventsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
-	next *int32
+	next       *int32
 }
 
 // Пагинатор. С какого момента получить следующий пакет данных. Формат Unix timestamp \\*\\*с миллисекундами\\*\\*
@@ -4130,24 +3908,25 @@ GetV1SellerEvents События чатов
 | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV1SellerEventsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV1SellerEventsRequest
 */
 func (a *DefaultApiService) GetV1SellerEvents(ctx context.Context) ApiGetV1SellerEventsRequest {
 	return ApiGetV1SellerEventsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return EventsResponse
+//
+//	@return EventsResponse
 func (a *DefaultApiService) GetV1SellerEventsExecute(r ApiGetV1SellerEventsRequest) (*EventsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *EventsResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *EventsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetV1SellerEvents")
@@ -4181,20 +3960,6 @@ func (a *DefaultApiService) GetV1SellerEventsExecute(r ApiGetV1SellerEventsReque
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4224,8 +3989,8 @@ func (a *DefaultApiService) GetV1SellerEventsExecute(r ApiGetV1SellerEventsReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4235,8 +4000,8 @@ func (a *DefaultApiService) GetV1SellerEventsExecute(r ApiGetV1SellerEventsReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4246,8 +4011,8 @@ func (a *DefaultApiService) GetV1SellerEventsExecute(r ApiGetV1SellerEventsReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4257,8 +4022,8 @@ func (a *DefaultApiService) GetV1SellerEventsExecute(r ApiGetV1SellerEventsReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4268,8 +4033,8 @@ func (a *DefaultApiService) GetV1SellerEventsExecute(r ApiGetV1SellerEventsReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4287,8 +4052,8 @@ func (a *DefaultApiService) GetV1SellerEventsExecute(r ApiGetV1SellerEventsReque
 }
 
 type ApiPatchV1ClaimRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                 context.Context
+	ApiService          DefaultApi
 	patchV1ClaimRequest *PatchV1ClaimRequest
 }
 
@@ -4315,22 +4080,22 @@ PatchV1Claim Ответ на заявку покупателя
 | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPatchV1ClaimRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPatchV1ClaimRequest
 */
 func (a *DefaultApiService) PatchV1Claim(ctx context.Context) ApiPatchV1ClaimRequest {
 	return ApiPatchV1ClaimRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *DefaultApiService) PatchV1ClaimExecute(r ApiPatchV1ClaimRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PatchV1Claim")
@@ -4366,20 +4131,6 @@ func (a *DefaultApiService) PatchV1ClaimExecute(r ApiPatchV1ClaimRequest) (*http
 	}
 	// body params
 	localVarPostBody = r.patchV1ClaimRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -4409,8 +4160,8 @@ func (a *DefaultApiService) PatchV1ClaimExecute(r ApiPatchV1ClaimRequest) (*http
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4420,8 +4171,8 @@ func (a *DefaultApiService) PatchV1ClaimExecute(r ApiPatchV1ClaimRequest) (*http
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4431,8 +4182,8 @@ func (a *DefaultApiService) PatchV1ClaimExecute(r ApiPatchV1ClaimRequest) (*http
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4442,8 +4193,8 @@ func (a *DefaultApiService) PatchV1ClaimExecute(r ApiPatchV1ClaimRequest) (*http
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4453,8 +4204,8 @@ func (a *DefaultApiService) PatchV1ClaimExecute(r ApiPatchV1ClaimRequest) (*http
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -4463,8 +4214,8 @@ func (a *DefaultApiService) PatchV1ClaimExecute(r ApiPatchV1ClaimRequest) (*http
 }
 
 type ApiPatchV1FeedbacksAnswerRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                           context.Context
+	ApiService                    DefaultApi
 	patchV1FeedbacksAnswerRequest *PatchV1FeedbacksAnswerRequest
 }
 
@@ -4494,22 +4245,22 @@ ID отзыва не валидируется. Если в запросе вы �
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPatchV1FeedbacksAnswerRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPatchV1FeedbacksAnswerRequest
 */
 func (a *DefaultApiService) PatchV1FeedbacksAnswer(ctx context.Context) ApiPatchV1FeedbacksAnswerRequest {
 	return ApiPatchV1FeedbacksAnswerRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *DefaultApiService) PatchV1FeedbacksAnswerExecute(r ApiPatchV1FeedbacksAnswerRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PatchV1FeedbacksAnswer")
@@ -4542,20 +4293,6 @@ func (a *DefaultApiService) PatchV1FeedbacksAnswerExecute(r ApiPatchV1FeedbacksA
 	}
 	// body params
 	localVarPostBody = r.patchV1FeedbacksAnswerRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -4585,8 +4322,8 @@ func (a *DefaultApiService) PatchV1FeedbacksAnswerExecute(r ApiPatchV1FeedbacksA
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4596,8 +4333,8 @@ func (a *DefaultApiService) PatchV1FeedbacksAnswerExecute(r ApiPatchV1FeedbacksA
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4607,8 +4344,8 @@ func (a *DefaultApiService) PatchV1FeedbacksAnswerExecute(r ApiPatchV1FeedbacksA
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4618,8 +4355,8 @@ func (a *DefaultApiService) PatchV1FeedbacksAnswerExecute(r ApiPatchV1FeedbacksA
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -4628,8 +4365,8 @@ func (a *DefaultApiService) PatchV1FeedbacksAnswerExecute(r ApiPatchV1FeedbacksA
 }
 
 type ApiPatchV1QuestionsRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                     context.Context
+	ApiService              DefaultApi
 	patchV1QuestionsRequest *PatchV1QuestionsRequest
 }
 
@@ -4650,9 +4387,9 @@ PatchV1Questions Работа с вопросами
 - отклонить вопрос
 - ответить на вопрос или отредактировать ответ
 
-Все ответы продавцов проходят предварительную модерацию перед публикацией
+# Все ответы продавцов проходят предварительную модерацию перед публикацией
 
-Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа
+# Отредактировать ответ на вопрос можно 1 раз в течение 60 дней после отправки ответа
 
 [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -4662,24 +4399,25 @@ PatchV1Questions Работа с вопросами
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPatchV1QuestionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPatchV1QuestionsRequest
 */
 func (a *DefaultApiService) PatchV1Questions(ctx context.Context) ApiPatchV1QuestionsRequest {
 	return ApiPatchV1QuestionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PatchV1QuestionsResponse200
+//
+//	@return PatchV1QuestionsResponse200
 func (a *DefaultApiService) PatchV1QuestionsExecute(r ApiPatchV1QuestionsRequest) (*PatchV1QuestionsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PatchV1QuestionsResponse200
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PatchV1QuestionsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PatchV1Questions")
@@ -4712,20 +4450,6 @@ func (a *DefaultApiService) PatchV1QuestionsExecute(r ApiPatchV1QuestionsRequest
 	}
 	// body params
 	localVarPostBody = r.patchV1QuestionsRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4755,8 +4479,8 @@ func (a *DefaultApiService) PatchV1QuestionsExecute(r ApiPatchV1QuestionsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4766,8 +4490,8 @@ func (a *DefaultApiService) PatchV1QuestionsExecute(r ApiPatchV1QuestionsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4777,8 +4501,8 @@ func (a *DefaultApiService) PatchV1QuestionsExecute(r ApiPatchV1QuestionsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4788,8 +4512,8 @@ func (a *DefaultApiService) PatchV1QuestionsExecute(r ApiPatchV1QuestionsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4799,8 +4523,8 @@ func (a *DefaultApiService) PatchV1QuestionsExecute(r ApiPatchV1QuestionsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -4810,8 +4534,8 @@ func (a *DefaultApiService) PatchV1QuestionsExecute(r ApiPatchV1QuestionsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4821,8 +4545,8 @@ func (a *DefaultApiService) PatchV1QuestionsExecute(r ApiPatchV1QuestionsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4840,8 +4564,8 @@ func (a *DefaultApiService) PatchV1QuestionsExecute(r ApiPatchV1QuestionsRequest
 }
 
 type ApiPostFeedbacksV1PinsRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                  context.Context
+	ApiService           DefaultApi
 	openapiPinReviewItem *[]OpenapiPinReviewItem
 }
 
@@ -4870,24 +4594,25 @@ PostFeedbacksV1Pins Закрепить отзывы
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostFeedbacksV1PinsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostFeedbacksV1PinsRequest
 */
 func (a *DefaultApiService) PostFeedbacksV1Pins(ctx context.Context) ApiPostFeedbacksV1PinsRequest {
 	return ApiPostFeedbacksV1PinsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PostFeedbacksV1PinsResponse200
+//
+//	@return PostFeedbacksV1PinsResponse200
 func (a *DefaultApiService) PostFeedbacksV1PinsExecute(r ApiPostFeedbacksV1PinsRequest) (*PostFeedbacksV1PinsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PostFeedbacksV1PinsResponse200
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PostFeedbacksV1PinsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostFeedbacksV1Pins")
@@ -4926,20 +4651,6 @@ func (a *DefaultApiService) PostFeedbacksV1PinsExecute(r ApiPostFeedbacksV1PinsR
 	}
 	// body params
 	localVarPostBody = r.openapiPinReviewItem
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4969,8 +4680,8 @@ func (a *DefaultApiService) PostFeedbacksV1PinsExecute(r ApiPostFeedbacksV1PinsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4980,8 +4691,8 @@ func (a *DefaultApiService) PostFeedbacksV1PinsExecute(r ApiPostFeedbacksV1PinsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4991,8 +4702,8 @@ func (a *DefaultApiService) PostFeedbacksV1PinsExecute(r ApiPostFeedbacksV1PinsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5002,8 +4713,8 @@ func (a *DefaultApiService) PostFeedbacksV1PinsExecute(r ApiPostFeedbacksV1PinsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5013,8 +4724,8 @@ func (a *DefaultApiService) PostFeedbacksV1PinsExecute(r ApiPostFeedbacksV1PinsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5032,8 +4743,8 @@ func (a *DefaultApiService) PostFeedbacksV1PinsExecute(r ApiPostFeedbacksV1PinsR
 }
 
 type ApiPostV1FeedbacksAnswerRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                          context.Context
+	ApiService                   DefaultApi
 	postV1FeedbacksAnswerRequest *PostV1FeedbacksAnswerRequest
 }
 
@@ -5061,22 +4772,22 @@ ID отзыва не валидируется. Если в запросе вы �
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV1FeedbacksAnswerRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1FeedbacksAnswerRequest
 */
 func (a *DefaultApiService) PostV1FeedbacksAnswer(ctx context.Context) ApiPostV1FeedbacksAnswerRequest {
 	return ApiPostV1FeedbacksAnswerRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *DefaultApiService) PostV1FeedbacksAnswerExecute(r ApiPostV1FeedbacksAnswerRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV1FeedbacksAnswer")
@@ -5109,20 +4820,6 @@ func (a *DefaultApiService) PostV1FeedbacksAnswerExecute(r ApiPostV1FeedbacksAns
 	}
 	// body params
 	localVarPostBody = r.postV1FeedbacksAnswerRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -5152,8 +4849,8 @@ func (a *DefaultApiService) PostV1FeedbacksAnswerExecute(r ApiPostV1FeedbacksAns
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5163,8 +4860,8 @@ func (a *DefaultApiService) PostV1FeedbacksAnswerExecute(r ApiPostV1FeedbacksAns
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -5174,8 +4871,8 @@ func (a *DefaultApiService) PostV1FeedbacksAnswerExecute(r ApiPostV1FeedbacksAns
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5185,8 +4882,8 @@ func (a *DefaultApiService) PostV1FeedbacksAnswerExecute(r ApiPostV1FeedbacksAns
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5196,8 +4893,8 @@ func (a *DefaultApiService) PostV1FeedbacksAnswerExecute(r ApiPostV1FeedbacksAns
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -5206,8 +4903,8 @@ func (a *DefaultApiService) PostV1FeedbacksAnswerExecute(r ApiPostV1FeedbacksAns
 }
 
 type ApiPostV1FeedbacksOrderReturnRequest struct {
-	ctx context.Context
-	ApiService DefaultApi
+	ctx                               context.Context
+	ApiService                        DefaultApi
 	postV1FeedbacksOrderReturnRequest *PostV1FeedbacksOrderReturnRequest
 }
 
@@ -5235,24 +4932,25 @@ PostV1FeedbacksOrderReturn Возврат товара по ID отзыва
 | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
 | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV1FeedbacksOrderReturnRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1FeedbacksOrderReturnRequest
 */
 func (a *DefaultApiService) PostV1FeedbacksOrderReturn(ctx context.Context) ApiPostV1FeedbacksOrderReturnRequest {
 	return ApiPostV1FeedbacksOrderReturnRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PostV1FeedbacksOrderReturnResponse200
+//
+//	@return PostV1FeedbacksOrderReturnResponse200
 func (a *DefaultApiService) PostV1FeedbacksOrderReturnExecute(r ApiPostV1FeedbacksOrderReturnRequest) (*PostV1FeedbacksOrderReturnResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PostV1FeedbacksOrderReturnResponse200
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PostV1FeedbacksOrderReturnResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV1FeedbacksOrderReturn")
@@ -5288,20 +4986,6 @@ func (a *DefaultApiService) PostV1FeedbacksOrderReturnExecute(r ApiPostV1Feedbac
 	}
 	// body params
 	localVarPostBody = r.postV1FeedbacksOrderReturnRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5331,8 +5015,8 @@ func (a *DefaultApiService) PostV1FeedbacksOrderReturnExecute(r ApiPostV1Feedbac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5342,8 +5026,8 @@ func (a *DefaultApiService) PostV1FeedbacksOrderReturnExecute(r ApiPostV1Feedbac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -5353,8 +5037,8 @@ func (a *DefaultApiService) PostV1FeedbacksOrderReturnExecute(r ApiPostV1Feedbac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5364,8 +5048,8 @@ func (a *DefaultApiService) PostV1FeedbacksOrderReturnExecute(r ApiPostV1Feedbac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -5375,8 +5059,8 @@ func (a *DefaultApiService) PostV1FeedbacksOrderReturnExecute(r ApiPostV1Feedbac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5386,8 +5070,8 @@ func (a *DefaultApiService) PostV1FeedbacksOrderReturnExecute(r ApiPostV1Feedbac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5405,14 +5089,14 @@ func (a *DefaultApiService) PostV1FeedbacksOrderReturnExecute(r ApiPostV1Feedbac
 }
 
 type ApiPostV1SellerMessageRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DefaultApi
-	replySign *string
-	message *string
-	file []*os.File
+	replySign  *string
+	message    *string
+	file       []*os.File
 }
 
-// Подпись чата. Можно получить из [информации по чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./customer-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле &#x60;\\\&quot;isNewChat\\\&quot;: true&#x60;. 
+// Подпись чата. Можно получить из [информации по чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./customer-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле &#x60;\\\&quot;isNewChat\\\&quot;: true&#x60;.
 func (r ApiPostV1SellerMessageRequest) ReplySign(replySign string) ApiPostV1SellerMessageRequest {
 	r.replySign = &replySign
 	return r
@@ -5424,7 +5108,7 @@ func (r ApiPostV1SellerMessageRequest) Message(message string) ApiPostV1SellerMe
 	return r
 }
 
-// Файлы, формат JPEG, PDF или PNG, максимальный размер — 5 Мб каждый. Максимальный суммарный размер файлов — 30 Мб. 
+// Файлы, формат JPEG, PDF или PNG, максимальный размер — 5 Мб каждый. Максимальный суммарный размер файлов — 30 Мб.
 func (r ApiPostV1SellerMessageRequest) File(file []*os.File) ApiPostV1SellerMessageRequest {
 	r.file = file
 	return r
@@ -5447,24 +5131,25 @@ PostV1SellerMessage Отправить сообщение
 | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV1SellerMessageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1SellerMessageRequest
 */
 func (a *DefaultApiService) PostV1SellerMessage(ctx context.Context) ApiPostV1SellerMessageRequest {
 	return ApiPostV1SellerMessageRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return MessageResponse
+//
+//	@return MessageResponse
 func (a *DefaultApiService) PostV1SellerMessageExecute(r ApiPostV1SellerMessageRequest) (*MessageResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MessageResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MessageResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV1SellerMessage")
@@ -5506,8 +5191,8 @@ func (a *DefaultApiService) PostV1SellerMessageExecute(r ApiPostV1SellerMessageR
 		parameterAddToHeaderOrQuery(localVarFormParams, "message", r.message, "", "")
 	}
 	var fileLocalVarFormFileName string
-	var fileLocalVarFileName     string
-	var fileLocalVarFileBytes    []byte
+	var fileLocalVarFileName string
+	var fileLocalVarFileBytes []byte
 
 	fileLocalVarFormFileName = "file"
 	fileLocalVarFile := r.file
@@ -5521,20 +5206,6 @@ func (a *DefaultApiService) PostV1SellerMessageExecute(r ApiPostV1SellerMessageR
 			fileLocalVarFileName = fileLocalVarFileValue.Name()
 			fileLocalVarFileValue.Close()
 			formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
-		}
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
 		}
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -5566,8 +5237,8 @@ func (a *DefaultApiService) PostV1SellerMessageExecute(r ApiPostV1SellerMessageR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5577,8 +5248,8 @@ func (a *DefaultApiService) PostV1SellerMessageExecute(r ApiPostV1SellerMessageR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -5588,8 +5259,8 @@ func (a *DefaultApiService) PostV1SellerMessageExecute(r ApiPostV1SellerMessageR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5599,8 +5270,8 @@ func (a *DefaultApiService) PostV1SellerMessageExecute(r ApiPostV1SellerMessageR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5610,8 +5281,8 @@ func (a *DefaultApiService) PostV1SellerMessageExecute(r ApiPostV1SellerMessageR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

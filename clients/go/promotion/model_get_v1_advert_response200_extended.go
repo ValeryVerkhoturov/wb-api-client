@@ -34,7 +34,7 @@ type GetV1AdvertResponse200Extended struct {
 	Price *int32 `json:"price,omitempty"`
 	// Остаток бюджета для типа `2`
 	Budget *int32 `json:"budget,omitempty"`
-	// Источник списания:   - `1` — баланс   - `2` — счёт 
+	// Источник списания:   - `1` — баланс   - `2` — счёт
 	Operation *int32 `json:"operation,omitempty"`
 	// ID контракта, для продавцов на контракте
 	ContractId *int32 `json:"contract_id,omitempty"`
@@ -89,6 +89,7 @@ func (o *GetV1AdvertResponse200Extended) HasReason() bool {
 func (o *GetV1AdvertResponse200Extended) SetReason(v string) {
 	o.Reason.Set(&v)
 }
+
 // SetReasonNil sets the value for Reason to be an explicit nil
 func (o *GetV1AdvertResponse200Extended) SetReasonNil() {
 	o.Reason.Set(nil)
@@ -356,7 +357,7 @@ func (o *GetV1AdvertResponse200Extended) SetContractId(v int32) {
 }
 
 func (o GetV1AdvertResponse200Extended) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -430,5 +431,3 @@ func (v *NullableGetV1AdvertResponse200Extended) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -11,10 +11,10 @@ API version: items
 package items
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the GetRecomResDataInner type satisfies the MappedNullable interface at compile time
@@ -206,6 +206,7 @@ func (o *GetRecomResDataInner) HasUpdatedAt() bool {
 func (o *GetRecomResDataInner) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt.Set(&v)
 }
+
 // SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
 func (o *GetRecomResDataInner) SetUpdatedAtNil() {
 	o.UpdatedAt.Set(nil)
@@ -385,7 +386,7 @@ func (o *GetRecomResDataInner) SetRecomNms(v []int32) {
 }
 
 func (o GetRecomResDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -434,10 +435,10 @@ func (o *GetRecomResDataInner) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -493,5 +494,3 @@ func (v *NullableGetRecomResDataInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

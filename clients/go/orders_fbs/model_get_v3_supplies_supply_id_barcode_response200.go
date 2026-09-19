@@ -107,7 +107,7 @@ func (o *GetV3SuppliesSupplyIdBarcodeResponse200) SetFile(v string) {
 }
 
 func (o GetV3SuppliesSupplyIdBarcodeResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableGetV3SuppliesSupplyIdBarcodeResponse200) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

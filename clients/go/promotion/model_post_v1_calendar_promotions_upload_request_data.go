@@ -21,7 +21,7 @@ var _ MappedNullable = &PostV1CalendarPromotionsUploadRequestData{}
 type PostV1CalendarPromotionsUploadRequestData struct {
 	// ID акции
 	PromotionID *int32 `json:"promotionID,omitempty"`
-	// Установить скидку:   - `true` — сейчас   - `false` — в момент старта акции 
+	// Установить скидку:   - `true` — сейчас   - `false` — в момент старта акции
 	UploadNow *bool `json:"uploadNow,omitempty"`
 	// Артикулы WB, которые можно добавить в акцию
 	Nomenclatures []int32 `json:"nomenclatures,omitempty"`
@@ -141,7 +141,7 @@ func (o *PostV1CalendarPromotionsUploadRequestData) SetNomenclatures(v []int32) 
 }
 
 func (o PostV1CalendarPromotionsUploadRequestData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,5 +197,3 @@ func (v *NullablePostV1CalendarPromotionsUploadRequestData) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

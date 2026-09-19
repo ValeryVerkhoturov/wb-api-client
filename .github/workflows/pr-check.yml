@@ -64,8 +64,21 @@ jobs:
       - name: Regenerate all four language clients
         # openapi-generator runs inside Docker, which ubuntu-latest ships.
         # generate.sh also runs `go mod tidy` in a Go container to refresh
-        # clients/go/go.sum.
+        # clients/go/go.sum and `gofmt -w` to keep the Go tree canonical.
         run: ./scripts/generate.sh "${{ steps.ver.outputs.version }}"
+
+      - name: gofmt is clean
+        # Belt-and-braces: even if generate.sh's gofmt step ever regresses,
+        # the diff check below would catch it — but this gives a clearer
+        # failure message pointing at the actual files.
+        run: |
+          set +e
+          docker run --rm -v "$PWD/clients/go:/app" -w /app golang:1.22 gofmt -l . > /tmp/gofmt.out
+          if [[ -s /tmp/gofmt.out ]]; then
+            echo "::error::Go files need gofmt:"
+            cat /tmp/gofmt.out
+            exit 1
+          fi
 
       - name: Diff against committed tree
         id: diff

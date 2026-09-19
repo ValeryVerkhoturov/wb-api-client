@@ -19,7 +19,7 @@ var _ MappedNullable = &GetV1PromotionCountResponse200AdvertsInner{}
 
 // GetV1PromotionCountResponse200AdvertsInner struct for GetV1PromotionCountResponse200AdvertsInner
 type GetV1PromotionCountResponse200AdvertsInner struct {
-	// Тип кампании:   - `8` — кампания с единой ставкой (**устаревший тип**)   - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV2Adverts), поле `bid_type` 
+	// Тип кампании:   - `8` — кампания с единой ставкой (**устаревший тип**)   - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV2Adverts), поле `bid_type`
 	Type *int32 `json:"type,omitempty"`
 	// Статус кампании
 	Status *int32 `json:"status,omitempty"`
@@ -175,7 +175,7 @@ func (o *GetV1PromotionCountResponse200AdvertsInner) SetAdvertList(v []GetV1Prom
 }
 
 func (o GetV1PromotionCountResponse200AdvertsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullableGetV1PromotionCountResponse200AdvertsInner) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

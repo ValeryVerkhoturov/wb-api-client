@@ -25,13 +25,13 @@ type Warehouse struct {
 	OfficeId *int64 `json:"officeId,omitempty"`
 	// ID склада продавца
 	Id *int64 `json:"id,omitempty"`
-	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) 
+	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
 	CargoType *int32 `json:"cargoType,omitempty"`
-	// Тип доставки, который принимает склад:   - `1` — доставка на склад WB (FBS)   - `2` — доставка силами продавца (DBS)   - `3` — Деливери WB (DBW)   - `5` — самовывоз (C&C)   - `6` — экспресс-доставка силами продавца (ЕDBS) 
+	// Тип доставки, который принимает склад:   - `1` — доставка на склад WB (FBS)   - `2` — доставка силами продавца (DBS)   - `3` — Деливери WB (DBW)   - `5` — самовывоз (C&C)   - `6` — экспресс-доставка силами продавца (ЕDBS)
 	DeliveryType *int32 `json:"deliveryType,omitempty"`
-	// Склад удаляется:   - `false` — нет   - `true` — да  После удаления склад пропадёт из списка 
+	// Склад удаляется:   - `false` — нет   - `true` — да  После удаления склад пропадёт из списка
 	IsDeleting *bool `json:"isDeleting,omitempty"`
-	// Данные склада обновляются:   - `false` — нет   - `true` — да, обновление и удаление остатков недоступно  Обновление данных может занимать несколько минут 
+	// Данные склада обновляются:   - `false` — нет   - `true` — да, обновление и удаление остатков недоступно  Обновление данных может занимать несколько минут
 	IsProcessing *bool `json:"isProcessing,omitempty"`
 }
 
@@ -277,7 +277,7 @@ func (o *Warehouse) SetIsProcessing(v bool) {
 }
 
 func (o Warehouse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -345,5 +345,3 @@ func (v *NullableWarehouse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

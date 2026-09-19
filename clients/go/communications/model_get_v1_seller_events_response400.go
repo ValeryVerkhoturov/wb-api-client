@@ -243,7 +243,7 @@ func (o *GetV1SellerEventsResponse400) SetError(v string) {
 }
 
 func (o GetV1SellerEventsResponse400) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -308,5 +308,3 @@ func (v *NullableGetV1SellerEventsResponse400) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

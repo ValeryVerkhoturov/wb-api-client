@@ -23,7 +23,7 @@ type PostV2GetCardsTrashResponse200CardsInner struct {
 	NmID *int32 `json:"nmID,omitempty"`
 	// Артикул продавца
 	VendorCode *string `json:"vendorCode,omitempty"`
-	// Есть ли подтверждение от продавца, что обязательный код маркировки [Честного знака](https://честныйзнак.рф/) нанесён на товар:   - `true` — да   - `false` — нет  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа `needKiz` 
+	// Есть ли подтверждение от продавца, что обязательный код маркировки [Честного знака](https://честныйзнак.рф/) нанесён на товар:   - `true` — да   - `false` — нет  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа `needKiz`
 	KizMarked *bool `json:"kizMarked,omitempty"`
 	// ID предмета
 	SubjectID *int32 `json:"subjectID,omitempty"`
@@ -32,11 +32,11 @@ type PostV2GetCardsTrashResponse200CardsInner struct {
 	// Массив фото
 	Photos []PostV2GetCardsListResponse200CardsInnerPhotosInner `json:"photos,omitempty"`
 	// URL видео
-	Video *string `json:"video,omitempty"`
+	Video     *string                                           `json:"video,omitempty"`
 	Wholesale *PostV2GetCardsListResponse200CardsInnerWholesale `json:"wholesale,omitempty"`
 	// Массив размеров
-	Sizes []PostV2GetCardsTrashResponse200CardsInnerSizesInner `json:"sizes,omitempty"`
-	Dimensions *PostV2GetCardsListResponse200CardsInnerDimensions `json:"dimensions,omitempty"`
+	Sizes      []PostV2GetCardsTrashResponse200CardsInnerSizesInner `json:"sizes,omitempty"`
+	Dimensions *PostV2GetCardsListResponse200CardsInnerDimensions   `json:"dimensions,omitempty"`
 	// Характеристики
 	Characteristics []PostV2GetCardsListResponse200CardsInnerCharacteristicsInner `json:"characteristics,omitempty"`
 	// Date and time the item was listed
@@ -484,7 +484,7 @@ func (o *PostV2GetCardsTrashResponse200CardsInner) SetTrashedAt(v string) {
 }
 
 func (o PostV2GetCardsTrashResponse200CardsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -570,5 +570,3 @@ func (v *NullablePostV2GetCardsTrashResponse200CardsInner) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

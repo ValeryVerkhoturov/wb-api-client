@@ -11,8 +11,8 @@ API version: ordersfbw
 package orders_fbw
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &ModelsItem{}
 
 // ModelsItem struct for ModelsItem
 type ModelsItem struct {
-	// Количество единиц товара 
+	// Количество единиц товара
 	Quantity int32 `json:"quantity"`
 	// Баркод из карточки товара
 	Sku string `json:"sku"`
@@ -97,7 +97,7 @@ func (o *ModelsItem) SetSku(v string) {
 }
 
 func (o ModelsItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -125,10 +125,10 @@ func (o *ModelsItem) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -184,5 +184,3 @@ func (v *NullableModelsItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

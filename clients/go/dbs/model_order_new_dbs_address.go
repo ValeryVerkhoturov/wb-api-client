@@ -17,7 +17,7 @@ import (
 // checks if the OrderNewDBSAddress type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &OrderNewDBSAddress{}
 
-// OrderNewDBSAddress Адрес покупателя для доставки. При доставке заказов в ПВЗ указан адрес ПВЗ 
+// OrderNewDBSAddress Адрес покупателя для доставки. При доставке заказов в ПВЗ указан адрес ПВЗ
 type OrderNewDBSAddress struct {
 	// Адрес доставки
 	FullAddress *string `json:"fullAddress,omitempty"`
@@ -141,7 +141,7 @@ func (o *OrderNewDBSAddress) SetLatitude(v float32) {
 }
 
 func (o OrderNewDBSAddress) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,5 +197,3 @@ func (v *NullableOrderNewDBSAddress) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

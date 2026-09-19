@@ -11,8 +11,8 @@ API version: ordersdbw
 package orders_dbw
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,9 +21,9 @@ var _ MappedNullable = &ApiBatchErrorResponse{}
 
 // ApiBatchErrorResponse struct for ApiBatchErrorResponse
 type ApiBatchErrorResponse struct {
-	// Код ошибки:   - `404`   - `409` 
+	// Код ошибки:   - `404`   - `409`
 	Code int32 `json:"code"`
-	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI - `MetaValidationFail` — ошибки валидации идентификаторов маркировки 
+	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI - `MetaValidationFail` — ошибки валидации идентификаторов маркировки
 	Detail string `json:"detail"`
 	// Детали ошибки валидации идентификаторов маркировки
 	MetaDetails []ApiBatchErrorResponseMetaDetailsInner `json:"metaDetails,omitempty"`
@@ -131,7 +131,7 @@ func (o *ApiBatchErrorResponse) SetMetaDetails(v []ApiBatchErrorResponseMetaDeta
 }
 
 func (o ApiBatchErrorResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -162,10 +162,10 @@ func (o *ApiBatchErrorResponse) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -221,5 +221,3 @@ func (v *NullableApiBatchErrorResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

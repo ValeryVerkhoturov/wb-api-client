@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -28,14 +28,14 @@ type TableGroupRequestSt struct {
 	// Список брендов для фильтрации
 	BrandNames []string `json:"brandNames,omitempty"`
 	// Список ID ярлыков для фильтрации
-	TagIDs []int64 `json:"tagIDs,omitempty"`
+	TagIDs        []int64   `json:"tagIDs,omitempty"`
 	CurrentPeriod PeriodInv `json:"currentPeriod"`
-	StockType StockType `json:"stockType"`
+	StockType     StockType `json:"stockType"`
 	// Скрыть удалённые товары
 	SkipDeletedNm bool `json:"skipDeletedNm"`
-	// Доступность товара:   - `deficient` — Дефицит   - `actual` — Актуальный   - `balanced` — Баланс   - `nonActual` — Неактуальный   - `nonLiquid` — Неликвид   - `invalidData` — Не рассчитано 
-	AvailabilityFilters []string `json:"availabilityFilters"`
-	OrderBy TableOrderBy `json:"orderBy"`
+	// Доступность товара:   - `deficient` — Дефицит   - `actual` — Актуальный   - `balanced` — Баланс   - `nonActual` — Неактуальный   - `nonLiquid` — Неликвид   - `invalidData` — Не рассчитано
+	AvailabilityFilters []string     `json:"availabilityFilters"`
+	OrderBy             TableOrderBy `json:"orderBy"`
 	// Количество групп в ответе
 	Limit *int32 `json:"limit,omitempty"`
 	// После какого элемента выдавать данные
@@ -376,7 +376,7 @@ func (o *TableGroupRequestSt) SetOffset(v int32) {
 }
 
 func (o TableGroupRequestSt) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -427,10 +427,10 @@ func (o *TableGroupRequestSt) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -486,5 +486,3 @@ func (v *NullableTableGroupRequestSt) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -209,7 +209,7 @@ func (o *GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) SetDateTo(v stri
 }
 
 func (o GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -271,5 +271,3 @@ func (v *NullableGetV1AnalyticsAntifraudDetails200ResponseDetailsInner) Unmarsha
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

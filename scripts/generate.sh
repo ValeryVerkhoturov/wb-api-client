@@ -173,17 +173,25 @@ export * from "./common";
 EOF
 done
 
-# Go — one module, one go.mod. Run `go mod tidy` (via the same golang
-# image already used elsewhere) so generated-code imports (e.g.
-# gopkg.in/validator.v2, used by hoisted response models) are captured
-# in go.mod/go.sum before commit.
+# Go — one module, one go.mod. Before `go mod tidy` runs, patch every
+# sub-package to expose an `AccessToken *secrecy.SecretString` field on
+# Configuration and consume it from the request builder; tidy then picks
+# up github.com/negrel/secrecy as a real dependency. gofmt runs last
+# because both openapi-generator's Go output and our injected fields
+# arrive with misaligned struct tags and inconsistent spacing.
 cp "${TEMPLATE_DIR}/go/go.mod" "${CLIENTS_DIR}/go/go.mod"
+python3 "${REPO_ROOT}/scripts/go-inject-secrecy.py" "${CLIENTS_DIR}/go"
 if command -v docker >/dev/null 2>&1; then
+  # gofmt -w on the whole tree in a single pass consistently leaves 18
+  # api_*.go files unformatted here — the doc-comment indentation
+  # openapi-generator emits inside interface method blocks needs two
+  # passes to converge. Do both in one container to keep the caching
+  # benefit; the second pass is a fast no-op if the first covered everything.
   docker run --rm -u "$(id -u):$(id -g)" \
     -v "${REPO_ROOT}:/work" -w "/work/clients/go" \
     -e HOME=/tmp -e GOCACHE=/tmp/.cache/go-build -e GOPATH=/tmp/go \
-    golang:1.22-alpine go mod tidy >/dev/null 2>&1 || \
-    echo "  ! go mod tidy failed — run it manually in clients/go before publish"
+    golang:1.22-alpine sh -c "go mod tidy && gofmt -w . && gofmt -w ." >/dev/null 2>&1 || \
+    echo "  ! go mod tidy / gofmt failed — run manually in clients/go before publish"
 fi
 
 # Java — one pom.xml at repo root of the module.

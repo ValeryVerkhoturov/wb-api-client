@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -24,7 +24,7 @@ type TableShippingOfficeMetrics struct {
 	// Остатки на текущий день, шт.
 	StockCount int32 `json:"stockCount"`
 	// Остатки на текущий день, сумма
-	StockSum int32 `json:"stockSum"`
+	StockSum int32                      `json:"stockSum"`
 	SaleRate TableCommonMetricsSaleRate `json:"saleRate"`
 	// В пути к клиенту, шт.
 	ToClientCount int32 `json:"toClientCount"`
@@ -177,7 +177,7 @@ func (o *TableShippingOfficeMetrics) SetFromClientCount(v int32) {
 }
 
 func (o TableShippingOfficeMetrics) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -211,10 +211,10 @@ func (o *TableShippingOfficeMetrics) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -270,5 +270,3 @@ func (v *NullableTableShippingOfficeMetrics) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

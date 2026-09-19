@@ -142,7 +142,7 @@ func (o *UpdateBlocked) SetData(v map[string]interface{}) {
 }
 
 func (o UpdateBlocked) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -198,5 +198,3 @@ func (v *NullableUpdateBlocked) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

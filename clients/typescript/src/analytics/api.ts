@@ -8570,8 +8570,9 @@ export const CSVApiAxiosParamCreator = function (configuration?: Configuration) 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
             if (filterDownloadIds) {
                 localVarQueryParameter['filter[downloadIds]'] = filterDownloadIds;
@@ -8611,8 +8612,9 @@ export const CSVApiAxiosParamCreator = function (configuration?: Configuration) 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -8645,8 +8647,9 @@ export const CSVApiAxiosParamCreator = function (configuration?: Configuration) 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -8684,8 +8687,9 @@ export const CSVApiAxiosParamCreator = function (configuration?: Configuration) 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     

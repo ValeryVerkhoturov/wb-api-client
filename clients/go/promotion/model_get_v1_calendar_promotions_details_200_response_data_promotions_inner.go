@@ -41,7 +41,7 @@ type GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner struct {
 	NotInPromoActionTotal *int32 `json:"notInPromoActionTotal,omitempty"`
 	// Уже участвующие в акции товары, %. Рассчитывается по товарам в акции и с остатком
 	ParticipationPercentage *int32 `json:"participationPercentage,omitempty"`
-	// Тип акции:   - `regular` — акция   - `auto` — автоакция 
+	// Тип акции:   - `regular` — акция   - `auto` — автоакция
 	Type *string `json:"type,omitempty"`
 	// Количество товаров, исключенных из автоакции до её старта. Только при `\"type\": \"auto\"`.  В момент старта акции эти товары автоматически будут без скидки
 	ExceptionProductsCount *int32 `json:"exceptionProductsCount,omitempty"`
@@ -515,7 +515,7 @@ func (o *GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) SetRangin
 }
 
 func (o GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -604,5 +604,3 @@ func (v *NullableGetV1CalendarPromotionsDetails200ResponseDataPromotionsInner) U
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

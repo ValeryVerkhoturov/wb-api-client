@@ -21,7 +21,7 @@ var _ MappedNullable = &PostV2CardsUploadRequestInnerVariantsInnerDocuments{}
 type PostV2CardsUploadRequestInnerVariantsInnerDocuments struct {
 	// Список документов
 	Items []DocumentsRequest `json:"items,omitempty"`
-	// Исключить ли документы из проверки:   - `true` — да, не проверять документы при проверке карточки товара. При `true` все значения, переданные в `documents`, будут заменены на пустые значения   - `false` — нет, проверять документы при проверке карточки товара 
+	// Исключить ли документы из проверки:   - `true` — да, не проверять документы при проверке карточки товара. При `true` все значения, переданные в `documents`, будут заменены на пустые значения   - `false` — нет, проверять документы при проверке карточки товара
 	ExcludeDocuments *bool `json:"excludeDocuments,omitempty"`
 }
 
@@ -111,7 +111,7 @@ func (o *PostV2CardsUploadRequestInnerVariantsInnerDocuments) SetExcludeDocument
 }
 
 func (o PostV2CardsUploadRequestInnerVariantsInnerDocuments) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -164,5 +164,3 @@ func (v *NullablePostV2CardsUploadRequestInnerVariantsInnerDocuments) UnmarshalJ
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

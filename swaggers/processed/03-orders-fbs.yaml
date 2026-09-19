@@ -51,7 +51,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Пропуска FBS
       summary: Получить список складов, для которых требуется пропуск
@@ -110,7 +110,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Пропуска FBS
       summary: Получить список пропусков
@@ -159,7 +159,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Пропуска FBS
       summary: Создать пропуск
@@ -272,7 +272,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Пропуска FBS
       summary: Обновить пропуск
@@ -379,7 +379,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Пропуска FBS
       summary: Удалить пропуск
@@ -436,7 +436,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Сборочные задания FBS
       summary: Получить список новых сборочных заданий
@@ -498,7 +498,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Сборочные задания FBS
       summary: Получить информацию о сборочных заданиях
@@ -582,7 +582,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Сборочные задания FBS
       summary: Получить статусы сборочных заданий
@@ -694,7 +694,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Сборочные задания FBS
       summary: Получить все сборочные задания для повторной отгрузки
@@ -766,7 +766,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Сборочные задания FBS
       summary: Отменить сборочное задание
@@ -846,7 +846,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Сборочные задания FBS
       summary: Получить стикеры сборочных заданий
@@ -977,7 +977,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Сборочные задания FBS
       summary: Получить стикеры сборочных заданий трансграничных поставок
@@ -1083,7 +1083,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Сборочные задания FBS
       summary: История статусов для сборочных заданий трансграничных поставок
@@ -1161,7 +1161,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Заказы с информацией по клиенту
       tags:
       - Сборочные задания FBS
@@ -1326,7 +1326,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Идентификаторы маркировки FBS
       summary: Получить идентификаторы маркировки сборочных заданий
@@ -1419,7 +1419,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Идентификаторы маркировки FBS
       summary: Удалить идентификаторы маркировки сборочного задания
@@ -1514,7 +1514,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Идентификаторы маркировки FBS
       summary: Закрепить код маркировки Честного знака за сборочным заданием
@@ -1623,7 +1623,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Идентификаторы маркировки FBS
       summary: Закрепить УИН за сборочным заданием
@@ -1719,7 +1719,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Идентификаторы маркировки FBS
       summary: Закрепить IMEI за сборочным заданием
@@ -1815,7 +1815,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Идентификаторы маркировки FBS
       summary: Закрепить GTIN за сборочным заданием
@@ -1911,7 +1911,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Идентификаторы маркировки FBS
       summary: Закрепить за сборочным заданием срок годности товара
@@ -2012,7 +2012,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Идентификаторы маркировки FBS
       summary: Закрепить номер ДТ за сборочным заданием
@@ -2111,7 +2111,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Поставки FBS
       summary: Создать новую поставку
@@ -2187,7 +2187,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Поставки FBS
       summary: Получить список поставок
@@ -2251,7 +2251,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Поставки FBS
       summary: Получить список пунктов отгрузки поставок
@@ -2319,7 +2319,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Поставки FBS
       summary: Установить параметры отгрузки поставок
@@ -2402,7 +2402,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Поставки FBS
       summary: Установить ID ЭТрН поставок
@@ -2477,7 +2477,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Поставки FBS
       summary: Добавить сборочные задания к поставке
@@ -2584,7 +2584,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Поставки FBS
       summary: Получить информацию о поставке
@@ -2646,7 +2646,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Поставки FBS
       summary: Удалить поставку
@@ -2794,7 +2794,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Поставки FBS
       summary: Передать поставку в доставку
@@ -2882,7 +2882,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Поставки FBS
       summary: Получить QR-код поставки
@@ -2979,7 +2979,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Поставки FBS
       summary: Получить список грузомест поставки
@@ -3041,7 +3041,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Поставки FBS
       summary: Добавить грузоместа к поставке
@@ -3121,7 +3121,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Поставки FBS
       summary: Удалить грузоместа из поставки
@@ -3203,7 +3203,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Поставки FBS
       summary: Получить стикеры грузомест поставки
@@ -3563,7 +3563,7 @@ paths:
       x-category: marketplace
       operationId: getMarketplaceV3FbsSettingsAutoreturns
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Настройки автовозврата
       summary: Получить настройки автовозврата продавца
@@ -3607,7 +3607,7 @@ paths:
       x-category: marketplace
       operationId: patchMarketplaceV3FbsSettingsAutoreturns
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Настройки автовозврата
       summary: Обновить настройки автовозврата продавца
@@ -3681,7 +3681,7 @@ paths:
       x-category: marketplace
       operationId: postMarketplaceV3FbsSettingsAutoreturnsItems
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Настройки автовозврата
       summary: Получить настройки автовозврата товаров
@@ -3753,7 +3753,7 @@ paths:
       x-category: marketplace
       operationId: patchMarketplaceV3FbsSettingsAutoreturnsItems
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Настройки автовозврата
       summary: Обновить настройки автовозврата товаров
@@ -3843,7 +3843,7 @@ paths:
       x-category: marketplace
       operationId: getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Настройки автовозврата
       summary: Получить предметы, которые не хранятся на складах WB
@@ -3910,10 +3910,6 @@ paths:
           $ref: '#/components/responses/429'
 components:
   securitySchemes:
-    HeaderApiKey:
-      type: apiKey
-      name: Authorization
-      in: header
     BearerAuth:
       type: http
       scheme: bearer

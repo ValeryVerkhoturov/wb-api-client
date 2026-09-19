@@ -11,8 +11,8 @@ API version: items
 package items
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -25,16 +25,16 @@ type PostV2CardsUpdateRequestInner struct {
 	NmID int32 `json:"nmID"`
 	// Артикул продавца
 	VendorCode string `json:"vendorCode"`
-	// Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки.   - `false` — продавец подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт модерацию, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на товар.  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа `needKiz` 
+	// Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки.   - `false` — продавец подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт модерацию, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на товар.  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа `needKiz`
 	KizMarked *bool `json:"kizMarked,omitempty"`
 	// Бренд
 	Brand *string `json:"brand,omitempty"`
 	// Наименование товара
 	Title *string `json:"title,omitempty"`
 	// Описание товара. Максимальное количество символов зависит от категории товара Стандарт — 2000, минимум — 1000, максимум — 5000 Подробно о \\*\\*правилах заполнения карточки товара\\*\\* в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов
-	Description *string `json:"description,omitempty"`
-	Dimensions *PostV2CardsUpdateRequestInnerDimensions `json:"dimensions,omitempty"`
-	Documents *PostV2CardsUpdateRequestInnerDocuments `json:"documents,omitempty"`
+	Description *string                                  `json:"description,omitempty"`
+	Dimensions  *PostV2CardsUpdateRequestInnerDimensions `json:"dimensions,omitempty"`
+	Documents   *PostV2CardsUpdateRequestInnerDocuments  `json:"documents,omitempty"`
 	// Характеристики товара.  Можно получить методом [Характеристики предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId)
 	Characteristics []PostV2CardsUpdateRequestInnerCharacteristicsInner `json:"characteristics,omitempty"`
 	// Массив размеров Для безразмерного товара всё равно нужно передавать данный массив без параметров (wbSize и techSize), но с баркодом
@@ -364,7 +364,7 @@ func (o *PostV2CardsUpdateRequestInner) SetSizes(v []PostV2CardsUpdateRequestInn
 }
 
 func (o PostV2CardsUpdateRequestInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -415,10 +415,10 @@ func (o *PostV2CardsUpdateRequestInner) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -474,5 +474,3 @@ func (v *NullablePostV2CardsUpdateRequestInner) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

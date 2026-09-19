@@ -11,8 +11,8 @@ API version: order
 package orders_fbs
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,13 +21,13 @@ var _ MappedNullable = &PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200R
 
 // PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner struct for PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
 type PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner struct {
-	// - `true` — настройки автовозврата товара успешно получены 
+	// - `true` — настройки автовозврата товара успешно получены
 	Success *bool `json:"success,omitempty"`
 	// ID размера товара в системе WB
 	ChrtId int32 `json:"chrtId"`
-	// Куда будет возвращён товар:   - `auto` — место возврата определяется автоматически   - `byWarehouse` — на склад WB   - `byPickupPoint` — на пункт выдачи заказов   - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ 
+	// Куда будет возвращён товар:   - `auto` — место возврата определяется автоматически   - `byWarehouse` — на склад WB   - `byPickupPoint` — на пункт выдачи заказов   - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
 	Type *string `json:"type,omitempty"`
-	// - `true` — настройки автовозврата товара можно изменить 
+	// - `true` — настройки автовозврата товара можно изменить
 	Changeable *bool `json:"changeable,omitempty"`
 	// Детали ошибки
 	Error []PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner `json:"error,omitempty"`
@@ -206,7 +206,7 @@ func (o *PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) Se
 }
 
 func (o PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -244,10 +244,10 @@ func (o *PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner) Un
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -303,5 +303,3 @@ func (v *NullablePostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsI
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

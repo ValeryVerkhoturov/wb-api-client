@@ -15,14 +15,14 @@ import (
 	"fmt"
 )
 
-// Sender Отправитель: - `client` — покупатель - `seller` — продавец - `wb` — Wildberries 
+// Sender Отправитель: - `client` — покупатель - `seller` — продавец - `wb` — Wildberries
 type Sender string
 
 // List of Sender
 const (
 	CLIENT Sender = "client"
 	SELLER Sender = "seller"
-	WB Sender = "wb"
+	WB     Sender = "wb"
 )
 
 // All allowed values of Sender enum
@@ -110,4 +110,3 @@ func (v *NullableSender) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

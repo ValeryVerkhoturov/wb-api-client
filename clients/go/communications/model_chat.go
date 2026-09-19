@@ -21,11 +21,11 @@ var _ MappedNullable = &Chat{}
 type Chat struct {
 	// ID чата
 	ChatID *string `json:"chatID,omitempty"`
-	// Подпись чата. Требуется при [отправке сообщения](./customer-communication#tag/buyersChat/operation/postV1SellerMessage) 
+	// Подпись чата. Требуется при [отправке сообщения](./customer-communication#tag/buyersChat/operation/postV1SellerMessage)
 	ReplySign *string `json:"replySign,omitempty"`
 	// Имя покупателя
-	ClientName *string `json:"clientName,omitempty"`
-	GoodCard *Listing `json:"goodCard,omitempty"`
+	ClientName *string  `json:"clientName,omitempty"`
+	GoodCard   *Listing `json:"goodCard,omitempty"`
 	// Последнее сообщение в чате
 	LastMessage *LastMessage `json:"lastMessage,omitempty"`
 }
@@ -208,7 +208,7 @@ func (o *Chat) SetLastMessage(v LastMessage) {
 }
 
 func (o Chat) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -270,5 +270,3 @@ func (v *NullableChat) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

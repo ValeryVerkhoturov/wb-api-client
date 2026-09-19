@@ -17,7 +17,7 @@ import (
 // checks if the V0BidRecommendationBaseBidCompetitiveBid type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &V0BidRecommendationBaseBidCompetitiveBid{}
 
-// V0BidRecommendationBaseBidCompetitiveBid Конкурентная ставка — расчётная средняя ставка других продавцов, продающих аналогичные товары по похожей цене. У половины продавцов из расчёта ставка выше конкурентной, а другой половины — ниже 
+// V0BidRecommendationBaseBidCompetitiveBid Конкурентная ставка — расчётная средняя ставка других продавцов, продающих аналогичные товары по похожей цене. У половины продавцов из расчёта ставка выше конкурентной, а другой половины — ниже
 type V0BidRecommendationBaseBidCompetitiveBid struct {
 	// Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	BidKopecks *int32 `json:"bidKopecks,omitempty"`
@@ -73,7 +73,7 @@ func (o *V0BidRecommendationBaseBidCompetitiveBid) SetBidKopecks(v int32) {
 }
 
 func (o V0BidRecommendationBaseBidCompetitiveBid) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,5 +123,3 @@ func (v *NullableV0BidRecommendationBaseBidCompetitiveBid) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

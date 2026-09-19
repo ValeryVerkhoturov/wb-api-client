@@ -11,8 +11,8 @@ API version: promotion
 package promotion
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -25,9 +25,9 @@ type PostV1BidsMinRequest struct {
 	AdvertId int64 `json:"advert_id"`
 	// Список артикулов WB
 	NmIds []int64 `json:"nm_ids"`
-	// Тип оплаты:       - `cpm` — за показы       - `cpc` — за клик 
+	// Тип оплаты:       - `cpm` — за показы       - `cpc` — за клик
 	PaymentType string `json:"payment_type"`
-	// Места размещения:   - `search` — поиск   - `recommendation` — рекомендации   - `combined` — поиск и рекомендации 
+	// Места размещения:   - `search` — поиск   - `recommendation` — рекомендации   - `combined` — поиск и рекомендации
 	PlacementTypes []string `json:"placement_types"`
 }
 
@@ -151,7 +151,7 @@ func (o *PostV1BidsMinRequest) SetPlacementTypes(v []string) {
 }
 
 func (o PostV1BidsMinRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -183,10 +183,10 @@ func (o *PostV1BidsMinRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -242,5 +242,3 @@ func (v *NullablePostV1BidsMinRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

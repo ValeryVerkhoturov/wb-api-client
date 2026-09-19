@@ -11,8 +11,8 @@ API version: communication
 package communications
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -27,7 +27,7 @@ type OpenapiSellerLimitsResponseDataTariff struct {
 	Remaining int32 `json:"remaining"`
 	// Общий лимит закреплений
 	TotalLimit int32 `json:"totalLimit"`
-	// Количество закреплённых отзывов не ограничено:   - `true` — да   - `false` — нет 
+	// Количество закреплённых отзывов не ограничено:   - `true` — да   - `false` — нет
 	Unlimited bool `json:"unlimited"`
 	// Текущее количество закреплённых отзывов
 	Used int32 `json:"used"`
@@ -178,7 +178,7 @@ func (o *OpenapiSellerLimitsResponseDataTariff) SetUsed(v int32) {
 }
 
 func (o OpenapiSellerLimitsResponseDataTariff) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -212,10 +212,10 @@ func (o *OpenapiSellerLimitsResponseDataTariff) UnmarshalJSON(data []byte) (err 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -271,5 +271,3 @@ func (v *NullableOpenapiSellerLimitsResponseDataTariff) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -11,28 +11,28 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
 // checks if the ItemSearchTextsRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ItemSearchTextsRequest{}
 
-// ItemSearchTextsRequest Параметры для запроса по рейтингу поисковых запросов:   - `currentPeriod` — текущий период   - `pastPeriod` — предыдущий период для сравнения 
+// ItemSearchTextsRequest Параметры для запроса по рейтингу поисковых запросов:   - `currentPeriod` — текущий период   - `pastPeriod` — предыдущий период для сравнения
 type ItemSearchTextsRequest struct {
-	CurrentPeriod Period `json:"currentPeriod"`
-	PastPeriod *PastPeriod `json:"pastPeriod,omitempty"`
+	CurrentPeriod Period      `json:"currentPeriod"`
+	PastPeriod    *PastPeriod `json:"pastPeriod,omitempty"`
 	// Список артикулов WB
 	NmIds []int32 `json:"nmIds"`
-	// Фильтрация по поисковым запросам, по которым больше всего:   - `openCard` — перешли в карточку   - `addToCart` — добавили в корзину   - `openToCart` — конверсия в корзину   - `orders` — заказали товаров   - `cartToOrder` — конверсия в заказ 
+	// Фильтрация по поисковым запросам, по которым больше всего:   - `openCard` — перешли в карточку   - `addToCart` — добавили в корзину   - `openToCart` — конверсия в корзину   - `orders` — заказали товаров   - `cartToOrder` — конверсия в заказ
 	TopOrderBy string `json:"topOrderBy"`
 	// Показать данные по прямым запросам с [подменным артикулом](https://seller.wildberries.ru/help-center/article/A-524)
 	IncludeSubstitutedSKUs *bool `json:"includeSubstitutedSKUs,omitempty"`
 	// Показать данные по поисковым запросам без учёта подменного артикула
-	IncludeSearchTexts *bool `json:"includeSearchTexts,omitempty"`
-	OrderBy OrderByGrTe `json:"orderBy"`
-	Limit TextLimit `json:"limit"`
+	IncludeSearchTexts *bool       `json:"includeSearchTexts,omitempty"`
+	OrderBy            OrderByGrTe `json:"orderBy"`
+	Limit              TextLimit   `json:"limit"`
 }
 
 type _ItemSearchTextsRequest ItemSearchTextsRequest
@@ -284,7 +284,7 @@ func (o *ItemSearchTextsRequest) SetLimit(v TextLimit) {
 }
 
 func (o ItemSearchTextsRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -327,10 +327,10 @@ func (o *ItemSearchTextsRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -386,5 +386,3 @@ func (v *NullableItemSearchTextsRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

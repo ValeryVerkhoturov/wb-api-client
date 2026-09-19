@@ -20,7 +20,7 @@ var _ MappedNullable = &GetV1CountResponse200{}
 // GetV1CountResponse200 struct for GetV1CountResponse200
 type GetV1CountResponse200 struct {
 	// Общее количество медиакампаний всех статусов и типов
-	All *int32 `json:"all,omitempty"`
+	All     *int32                               `json:"all,omitempty"`
 	Adverts NullableGetV1CountResponse200Adverts `json:"adverts,omitempty"`
 }
 
@@ -105,6 +105,7 @@ func (o *GetV1CountResponse200) HasAdverts() bool {
 func (o *GetV1CountResponse200) SetAdverts(v GetV1CountResponse200Adverts) {
 	o.Adverts.Set(&v)
 }
+
 // SetAdvertsNil sets the value for Adverts to be an explicit nil
 func (o *GetV1CountResponse200) SetAdvertsNil() {
 	o.Adverts.Set(nil)
@@ -116,7 +117,7 @@ func (o *GetV1CountResponse200) UnsetAdverts() {
 }
 
 func (o GetV1CountResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -169,5 +170,3 @@ func (v *NullableGetV1CountResponse200) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -11,18 +11,18 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
 // checks if the TableGroupRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TableGroupRequest{}
 
-// TableGroupRequest Параметры запроса для пагинации по группам:   - `currentPeriod` — текущий период   - `pastPeriod` — предыдущий период для сравнения 
+// TableGroupRequest Параметры запроса для пагинации по группам:   - `currentPeriod` — текущий период   - `pastPeriod` — предыдущий период для сравнения
 type TableGroupRequest struct {
-	CurrentPeriod Period `json:"currentPeriod"`
-	PastPeriod *PastPeriod `json:"pastPeriod,omitempty"`
+	CurrentPeriod Period      `json:"currentPeriod"`
+	PastPeriod    *PastPeriod `json:"pastPeriod,omitempty"`
 	// Список артикулов WB для фильтрации
 	NmIds []int32 `json:"nmIds,omitempty"`
 	// Список ID предметов для фильтрации
@@ -30,8 +30,8 @@ type TableGroupRequest struct {
 	// Список брендов для фильтрации
 	BrandNames []string `json:"brandNames,omitempty"`
 	// Список ID ярлыков для фильтрации
-	TagIds []int64 `json:"tagIds,omitempty"`
-	OrderBy OrderByGrTe `json:"orderBy"`
+	TagIds          []int64         `json:"tagIds,omitempty"`
+	OrderBy         OrderByGrTe     `json:"orderBy"`
 	PositionCluster PositionCluster `json:"positionCluster"`
 	// Показать данные по прямым запросам с [подменным артикулом](https://seller.wildberries.ru/help-center/article/A-524)
 	IncludeSubstitutedSKUs *bool `json:"includeSubstitutedSKUs,omitempty"`
@@ -420,7 +420,7 @@ func (o *TableGroupRequest) SetOffset(v int32) {
 }
 
 func (o TableGroupRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -475,10 +475,10 @@ func (o *TableGroupRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -534,5 +534,3 @@ func (v *NullableTableGroupRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -3128,8 +3128,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -3173,8 +3174,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
             if (state !== undefined) {
                 localVarQueryParameter['state'] = state;
@@ -3253,8 +3255,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
             if (state !== undefined) {
                 localVarQueryParameter['state'] = state;
@@ -3318,8 +3321,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -3358,8 +3362,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
             if (isArchive !== undefined) {
                 localVarQueryParameter['is_archive'] = isArchive;
@@ -3414,8 +3419,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
             if (id !== undefined) {
                 localVarQueryParameter['id'] = id;
@@ -3464,8 +3470,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
             if (isAnswered !== undefined) {
                 localVarQueryParameter['isAnswered'] = isAnswered;
@@ -3533,8 +3540,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
             if (nmId !== undefined) {
                 localVarQueryParameter['nmId'] = nmId;
@@ -3587,8 +3595,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
             if (dateFrom !== undefined) {
                 localVarQueryParameter['dateFrom'] = dateFrom;
@@ -3632,8 +3641,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -3665,8 +3675,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -3701,8 +3712,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
             if (id !== undefined) {
                 localVarQueryParameter['id'] = id;
@@ -3751,8 +3763,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
             if (isAnswered !== undefined) {
                 localVarQueryParameter['isAnswered'] = isAnswered;
@@ -3815,8 +3828,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
             if (dateFrom !== undefined) {
                 localVarQueryParameter['dateFrom'] = dateFrom;
@@ -3860,8 +3874,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -3893,8 +3908,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -3930,8 +3946,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -3964,8 +3981,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
             if (next !== undefined) {
                 localVarQueryParameter['next'] = next;
@@ -4004,8 +4022,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -4041,8 +4060,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -4078,8 +4098,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -4117,8 +4138,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -4154,8 +4176,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -4193,8 +4216,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -4235,8 +4259,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
             const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
 
-            // authentication HeaderApiKey required
-            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+            // authentication BearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
             if (replySign !== undefined) { 

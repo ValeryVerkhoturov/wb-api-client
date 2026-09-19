@@ -17,7 +17,7 @@ import (
 // checks if the PostV2GetCardsListRequestSettingsCursor type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PostV2GetCardsListRequestSettingsCursor{}
 
-// PostV2GetCardsListRequestSettingsCursor Курсор 
+// PostV2GetCardsListRequestSettingsCursor Курсор
 type PostV2GetCardsListRequestSettingsCursor struct {
 	// Сколько карточек товаров выдать в ответе
 	Limit *int32 `json:"limit,omitempty"`
@@ -112,6 +112,7 @@ func (o *PostV2GetCardsListRequestSettingsCursor) HasUpdatedAt() bool {
 func (o *PostV2GetCardsListRequestSettingsCursor) SetUpdatedAt(v string) {
 	o.UpdatedAt.Set(&v)
 }
+
 // SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
 func (o *PostV2GetCardsListRequestSettingsCursor) SetUpdatedAtNil() {
 	o.UpdatedAt.Set(nil)
@@ -155,7 +156,7 @@ func (o *PostV2GetCardsListRequestSettingsCursor) SetNmID(v int32) {
 }
 
 func (o PostV2GetCardsListRequestSettingsCursor) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -211,5 +212,3 @@ func (v *NullablePostV2GetCardsListRequestSettingsCursor) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,12 +21,12 @@ var _ MappedNullable = &OrderNewDBW{}
 // OrderNewDBW struct for OrderNewDBW
 type OrderNewDBW struct {
 	Address NullableOrderNewDBWAddress `json:"address,omitempty"`
-	// Цена в валюте продажи с учетом скидки продавца, без учета скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях 
+	// Цена в валюте продажи с учетом скидки продавца, без учета скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях
 	SalePrice NullableInt32 `json:"salePrice,omitempty"`
 	// Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./orders-dbw#tag/dbwLabelIdentifiers/operation/putV3DbwOrdersOrderIdMetaImei) обязательно для [предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) `Смартфоны`, `\"subjectId\":515`
 	RequiredMeta []string `json:"requiredMeta,omitempty"`
 	// Комментарий покупателя
-	Comment *string `json:"comment,omitempty"`
+	Comment *string             `json:"comment,omitempty"`
 	Options *OrderNewDBWOptions `json:"options,omitempty"`
 	// ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUid`
 	OrderUid *string `json:"orderUid,omitempty"`
@@ -58,9 +58,9 @@ type OrderNewDBW struct {
 	CurrencyCode *int32 `json:"currencyCode,omitempty"`
 	// Код валюты страны продавца
 	ConvertedCurrencyCode *int32 `json:"convertedCurrencyCode,omitempty"`
-	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) 
+	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
 	CargoType *int32 `json:"cargoType,omitempty"`
-	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену 
+	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену
 	IsZeroOrder *bool `json:"isZeroOrder,omitempty"`
 }
 
@@ -113,6 +113,7 @@ func (o *OrderNewDBW) HasAddress() bool {
 func (o *OrderNewDBW) SetAddress(v OrderNewDBWAddress) {
 	o.Address.Set(&v)
 }
+
 // SetAddressNil sets the value for Address to be an explicit nil
 func (o *OrderNewDBW) SetAddressNil() {
 	o.Address.Set(nil)
@@ -155,6 +156,7 @@ func (o *OrderNewDBW) HasSalePrice() bool {
 func (o *OrderNewDBW) SetSalePrice(v int32) {
 	o.SalePrice.Set(&v)
 }
+
 // SetSalePriceNil sets the value for SalePrice to be an explicit nil
 func (o *OrderNewDBW) SetSalePriceNil() {
 	o.SalePrice.Set(nil)
@@ -807,7 +809,7 @@ func (o *OrderNewDBW) SetIsZeroOrder(v bool) {
 }
 
 func (o OrderNewDBW) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -920,5 +922,3 @@ func (v *NullableOrderNewDBW) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

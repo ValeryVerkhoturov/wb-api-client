@@ -108,6 +108,7 @@ func (o *V3ArchiveOrderMetaDetailsInner) HasValue() bool {
 func (o *V3ArchiveOrderMetaDetailsInner) SetValue(v string) {
 	o.Value.Set(&v)
 }
+
 // SetValueNil sets the value for Value to be an explicit nil
 func (o *V3ArchiveOrderMetaDetailsInner) SetValueNil() {
 	o.Value.Set(nil)
@@ -151,7 +152,7 @@ func (o *V3ArchiveOrderMetaDetailsInner) SetDecision(v string) {
 }
 
 func (o V3ArchiveOrderMetaDetailsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -207,5 +208,3 @@ func (v *NullableV3ArchiveOrderMetaDetailsInner) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

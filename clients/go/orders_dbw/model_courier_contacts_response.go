@@ -177,6 +177,7 @@ func (o *CourierContactsResponse) HasPTimeFrom() bool {
 func (o *CourierContactsResponse) SetPTimeFrom(v time.Time) {
 	o.PTimeFrom.Set(&v)
 }
+
 // SetPTimeFromNil sets the value for PTimeFrom to be an explicit nil
 func (o *CourierContactsResponse) SetPTimeFromNil() {
 	o.PTimeFrom.Set(nil)
@@ -219,6 +220,7 @@ func (o *CourierContactsResponse) HasPTimeTo() bool {
 func (o *CourierContactsResponse) SetPTimeTo(v time.Time) {
 	o.PTimeTo.Set(&v)
 }
+
 // SetPTimeToNil sets the value for PTimeTo to be an explicit nil
 func (o *CourierContactsResponse) SetPTimeToNil() {
 	o.PTimeTo.Set(nil)
@@ -230,7 +232,7 @@ func (o *CourierContactsResponse) UnsetPTimeTo() {
 }
 
 func (o CourierContactsResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -292,5 +294,3 @@ func (v *NullableCourierContactsResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

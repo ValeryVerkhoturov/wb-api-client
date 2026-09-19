@@ -11,8 +11,8 @@ API version: order
 package orders_fbs
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,31 +21,31 @@ var _ MappedNullable = &V3ArchiveOrder{}
 
 // V3ArchiveOrder Архивное сборочное задание
 type V3ArchiveOrder struct {
-	// Тип товара:   - `mgt` — малогабаритный товар (МГТ)   - `sgt` — сверхгабаритный товар (СГТ)   - `kgtPlus` — крупногабаритный товар (КГТ+) 
+	// Тип товара:   - `mgt` — малогабаритный товар (МГТ)   - `sgt` — сверхгабаритный товар (СГТ)   - `kgtPlus` — крупногабаритный товар (КГТ+)
 	CargoType string `json:"cargoType"`
 	// Код цвета для колеруемых товаров
 	ColorCode NullableString `json:"colorCode"`
 	// Дата создания заказа
-	CreatedAt string `json:"createdAt"`
+	CreatedAt   string                            `json:"createdAt"`
 	CrossBorder NullableV3ArchiveOrderCrossBorder `json:"crossBorder"`
-	// Тип сборочного задания:   - `local` — внутренняя поставка   - `crossBorder` — трансграничная поставка 
+	// Тип сборочного задания:   - `local` — внутренняя поставка   - `crossBorder` — трансграничная поставка
 	CrossBorderType string `json:"crossBorderType"`
 	// ID сборочного задания
 	Id int32 `json:"id"`
-	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком 
+	// Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком
 	IsZeroOrder bool `json:"isZeroOrder"`
 	// Детали маркировки
 	MetaDetails []V3ArchiveOrderMetaDetailsInner `json:"metaDetails"`
-	Options V3ArchiveOrderOptions `json:"options"`
+	Options     V3ArchiveOrderOptions            `json:"options"`
 	// ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUid`
-	OrderUid string `json:"orderUid"`
+	OrderUid  string                  `json:"orderUid"`
 	PriceInfo V3ArchiveOrderPriceInfo `json:"priceInfo"`
-	Product V3ArchiveOrderProduct `json:"product"`
+	Product   V3ArchiveOrderProduct   `json:"product"`
 	// Уникальный ID заказа. Примечание: `rid` — это `srid` в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
 	Rid string `json:"rid"`
 	// Цена приёмки заказа в копейках
-	ScanPrice NullableInt32 `json:"scanPrice"`
-	Status V3ArchiveOrderStatus `json:"status"`
+	ScanPrice NullableInt32        `json:"scanPrice"`
+	Status    V3ArchiveOrderStatus `json:"status"`
 	// ID стикера
 	StickerId int32 `json:"stickerId"`
 	// ID поставки
@@ -532,7 +532,7 @@ func (o *V3ArchiveOrder) SetWarehouseId(v int32) {
 }
 
 func (o V3ArchiveOrder) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -592,10 +592,10 @@ func (o *V3ArchiveOrder) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -651,5 +651,3 @@ func (v *NullableV3ArchiveOrder) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

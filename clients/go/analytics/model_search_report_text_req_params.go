@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,9 +21,9 @@ var _ MappedNullable = &SearchReportTextReqParams{}
 
 // SearchReportTextReqParams Параметры отчёта
 type SearchReportTextReqParams struct {
-	CurrentPeriod Period `json:"currentPeriod"`
-	PastPeriod *PastPeriod `json:"pastPeriod,omitempty"`
-	// Артикулы WB, по которым составить отчёт. Оставьте пустым, чтобы получить отчёт по всем товарам 
+	CurrentPeriod Period      `json:"currentPeriod"`
+	PastPeriod    *PastPeriod `json:"pastPeriod,omitempty"`
+	// Артикулы WB, по которым составить отчёт. Оставьте пустым, чтобы получить отчёт по всем товарам
 	NmIds []string `json:"nmIds,omitempty"`
 	// Список ID предметов для фильтрации
 	SubjectIds []int32 `json:"subjectIds,omitempty"`
@@ -31,14 +31,14 @@ type SearchReportTextReqParams struct {
 	BrandNames []string `json:"brandNames,omitempty"`
 	// Список ID ярлыков для фильтрации
 	TagIds []int64 `json:"tagIds,omitempty"`
-	// Фильтрация по поисковым запросам, по которым больше всего:   - `openCard` — перешли в карточку   - `addToCart` — добавили в корзину   - `openToCart` — конверсия в корзину   - `orders` — заказали товаров   - `cartToOrder` — конверсия в заказ 
-	TopOrderBy string `json:"topOrderBy"`
-	OrderBy OrderByGrTe `json:"orderBy"`
+	// Фильтрация по поисковым запросам, по которым больше всего:   - `openCard` — перешли в карточку   - `addToCart` — добавили в корзину   - `openToCart` — конверсия в корзину   - `orders` — заказали товаров   - `cartToOrder` — конверсия в заказ
+	TopOrderBy string      `json:"topOrderBy"`
+	OrderBy    OrderByGrTe `json:"orderBy"`
 	// Показать данные по прямым запросам с [подменным артикулом](https://seller.wildberries.ru/help-center/article/A-524)
 	IncludeSubstitutedSKUs *bool `json:"includeSubstitutedSKUs,omitempty"`
 	// Показать данные по поисковым запросам без учёта подменного артикула
-	IncludeSearchTexts *bool `json:"includeSearchTexts,omitempty"`
-	Limit TextLimit `json:"limit"`
+	IncludeSearchTexts *bool     `json:"includeSearchTexts,omitempty"`
+	Limit              TextLimit `json:"limit"`
 }
 
 type _SearchReportTextReqParams SearchReportTextReqParams
@@ -393,7 +393,7 @@ func (o *SearchReportTextReqParams) SetLimit(v TextLimit) {
 }
 
 func (o SearchReportTextReqParams) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -446,10 +446,10 @@ func (o *SearchReportTextReqParams) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -505,5 +505,3 @@ func (v *NullableSearchReportTextReqParams) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

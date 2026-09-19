@@ -107,7 +107,7 @@ func (o *V3OrderMetaAPI) SetMetaDetails(v []V3ArchiveOrderMetaDetailsInner) {
 }
 
 func (o V3OrderMetaAPI) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableV3OrderMetaAPI) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

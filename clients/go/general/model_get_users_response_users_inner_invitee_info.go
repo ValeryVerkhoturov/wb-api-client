@@ -28,7 +28,7 @@ type GetUsersResponseUsersInnerInviteeInfo struct {
 	InviteUuid *string `json:"inviteUuid,omitempty"`
 	// Дата и время окончания срока действия приглашения
 	ExpiredAt *time.Time `json:"expiredAt,omitempty"`
-	// - `true` — приглашение активно - `false` — приглашение неактивно 
+	// - `true` — приглашение активно - `false` — приглашение неактивно
 	IsActive *bool `json:"isActive,omitempty"`
 }
 
@@ -210,7 +210,7 @@ func (o *GetUsersResponseUsersInnerInviteeInfo) SetIsActive(v bool) {
 }
 
 func (o GetUsersResponseUsersInnerInviteeInfo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -272,5 +272,3 @@ func (v *NullableGetUsersResponseUsersInnerInviteeInfo) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

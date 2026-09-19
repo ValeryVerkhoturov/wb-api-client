@@ -11,8 +11,8 @@ API version: instorepickup
 package in_store_pickup
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner{
 
 // ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner struct for ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
 type ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner struct {
-	// Идентификатор маркировки:   - `imei` — [IMEI](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)   - `uin` — [УИН](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)   - `gtin` — [GTIN](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)   - `sgtin` — [код маркировки](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения товара](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269) 
+	// Идентификатор маркировки:   - `imei` — [IMEI](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaImei)   - `uin` — [УИН](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaUin)   - `gtin` — [GTIN](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaGtin)   - `sgtin` — [код маркировки](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaSgtin)   - `customsDeclaration` — [номер ДТ](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration)   - `originCountryCode` — [числовой код страны происхождения товара](./in-store-pickup#tag/inStorePickupLabelIdentifiers/operation/postV3ClickCollectOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
 	Key string `json:"key"`
 	// Значение идентификатора маркировки
 	Value NullableString `json:"value,omitempty"`
@@ -106,6 +106,7 @@ func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) HasValue() boo
 func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) SetValue(v string) {
 	o.Value.Set(&v)
 }
+
 // SetValueNil sets the value for Value to be an explicit nil
 func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) SetValueNil() {
 	o.Value.Set(nil)
@@ -141,7 +142,7 @@ func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) SetDecision(v 
 }
 
 func (o ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -172,10 +173,10 @@ func (o *ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) UnmarshalJSON(
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -231,5 +232,3 @@ func (v *NullableApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner) Unmars
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

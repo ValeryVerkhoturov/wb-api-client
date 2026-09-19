@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,9 +21,9 @@ var _ MappedNullable = &OrderByItemRating{}
 
 // OrderByItemRating Параметры сортировки
 type OrderByItemRating struct {
-	// Поле для сортировки:   - `feedbackRating` — Рейтинг товара по отзывам   - `feedbackCount` — Все отзывы за период   - `fiveStar` — Отзывы 5 звёзд   - `fourStar` — Отзывы 4 звезды   - `threeStar` — Отзывы 3 звезды   - `twoStar` — Отзывы 2 звезды   - `oneStar` — Отзывы 1 звезда   - `disqualified` — Отзывы, исключённые из рейтинга 
+	// Поле для сортировки:   - `feedbackRating` — Рейтинг товара по отзывам   - `feedbackCount` — Все отзывы за период   - `fiveStar` — Отзывы 5 звёзд   - `fourStar` — Отзывы 4 звезды   - `threeStar` — Отзывы 3 звезды   - `twoStar` — Отзывы 2 звезды   - `oneStar` — Отзывы 1 звезда   - `disqualified` — Отзывы, исключённые из рейтинга
 	Field string `json:"field"`
-	// Порядок сортировки:   - `asc` — по возрастанию   - `desc` — по убыванию 
+	// Порядок сортировки:   - `asc` — по возрастанию   - `desc` — по убыванию
 	Mode string `json:"mode"`
 }
 
@@ -97,7 +97,7 @@ func (o *OrderByItemRating) SetMode(v string) {
 }
 
 func (o OrderByItemRating) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -125,10 +125,10 @@ func (o *OrderByItemRating) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -184,5 +184,3 @@ func (v *NullableOrderByItemRating) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

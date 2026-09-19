@@ -11,10 +11,10 @@ API version: ordersfbw
 package orders_fbw
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the ModelsItemDiscrepancyResponse type satisfies the MappedNullable interface at compile time
@@ -28,7 +28,7 @@ type ModelsItemDiscrepancyResponse struct {
 	VideoUrl string `json:"videoUrl"`
 	// Дата и время видеофиксации расхождений в процессе приемки
 	VideoStartsAt time.Time `json:"videoStartsAt"`
-	// Доступность видео:    - `false` — видео доступно    - `true` — видео недоступно 
+	// Доступность видео:    - `false` — видео доступно    - `true` — видео недоступно
 	VideoUnavailable bool `json:"videoUnavailable"`
 	// Товары поставки
 	Items []ModelsDiscrepancyResponseItem `json:"items"`
@@ -179,7 +179,7 @@ func (o *ModelsItemDiscrepancyResponse) SetItems(v []ModelsDiscrepancyResponseIt
 }
 
 func (o ModelsItemDiscrepancyResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -213,10 +213,10 @@ func (o *ModelsItemDiscrepancyResponse) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -272,5 +272,3 @@ func (v *NullableModelsItemDiscrepancyResponse) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

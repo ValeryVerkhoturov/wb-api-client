@@ -11,8 +11,8 @@ API version: items
 package items
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,7 +22,7 @@ var _ MappedNullable = &ModelsErrorTableListPublicRespV2{}
 // ModelsErrorTableListPublicRespV2 Данные ответа
 type ModelsErrorTableListPublicRespV2 struct {
 	// Пакеты данных
-	Items []ModelsErrorTableListPublicRespV2Item `json:"items"`
+	Items  []ModelsErrorTableListPublicRespV2Item `json:"items"`
 	Cursor ViewerContractPublicErrorsCursorOutput `json:"cursor"`
 }
 
@@ -96,7 +96,7 @@ func (o *ModelsErrorTableListPublicRespV2) SetCursor(v ViewerContractPublicError
 }
 
 func (o ModelsErrorTableListPublicRespV2) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -124,10 +124,10 @@ func (o *ModelsErrorTableListPublicRespV2) UnmarshalJSON(data []byte) (err error
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -183,5 +183,3 @@ func (v *NullableModelsErrorTableListPublicRespV2) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

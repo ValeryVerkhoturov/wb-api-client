@@ -21,11 +21,11 @@ var _ MappedNullable = &ModelsSupplyDetails{}
 type ModelsSupplyDetails struct {
 	// Телефон пользователя, создавшего поставку
 	Phone *string `json:"phone,omitempty"`
-	// ID статуса поставки:   - `1` — Не запланировано   - `2` — Запланировано   - `3` — Отгрузка разрешена   - `4` — Идёт приёмка   - `5` — Принято   - `6` — Отгружено на воротах 
+	// ID статуса поставки:   - `1` — Не запланировано   - `2` — Запланировано   - `3` — Отгрузка разрешена   - `4` — Идёт приёмка   - `5` — Принято   - `6` — Отгружено на воротах
 	StatusID *int32 `json:"statusID,omitempty"`
-	// ID типа виртуальной поставки. Отображается только для поставок с `\"boxTypeID\":0`.   - `0` — Перенос остатков   - `1` — Обезличка   - `4` — QR-поставка   - `5` — Допринято   - `6` — Скан-приёмка 
+	// ID типа виртуальной поставки. Отображается только для поставок с `\"boxTypeID\":0`.   - `0` — Перенос остатков   - `1` — Обезличка   - `4` — QR-поставка   - `5` — Допринято   - `6` — Скан-приёмка
 	VirtualTypeID *int32 `json:"virtualTypeID,omitempty"`
-	// ID типа поставки:   - `0` — Без коробов (виртуальная поставка)   - `1` и `2` — Короба   - `5` — Монопаллеты   - `6` — Суперсейф 
+	// ID типа поставки:   - `0` — Без коробов (виртуальная поставка)   - `1` и `2` — Короба   - `5` — Монопаллеты   - `6` — Суперсейф
 	BoxTypeID *int32 `json:"boxTypeID,omitempty"`
 	// Дата и время создания поставки
 	CreateDate *string `json:"createDate,omitempty"`
@@ -71,7 +71,7 @@ type ModelsSupplyDetails struct {
 	DepersonalizedQuantity NullableInt32 `json:"depersonalizedQuantity,omitempty"`
 	// Расхождения между заявленным и фактическим количеством товара в поставке.  Только при `\"statusID\":5`
 	Discrepancies *int32 `json:"discrepancies,omitempty"`
-	// Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `\"boxTypeID\": 2` 
+	// Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `\"boxTypeID\": 2`
 	IsBoxOnPallet *bool `json:"isBoxOnPallet,omitempty"`
 }
 
@@ -284,6 +284,7 @@ func (o *ModelsSupplyDetails) HasSupplyDate() bool {
 func (o *ModelsSupplyDetails) SetSupplyDate(v string) {
 	o.SupplyDate.Set(&v)
 }
+
 // SetSupplyDateNil sets the value for SupplyDate to be an explicit nil
 func (o *ModelsSupplyDetails) SetSupplyDateNil() {
 	o.SupplyDate.Set(nil)
@@ -326,6 +327,7 @@ func (o *ModelsSupplyDetails) HasFactDate() bool {
 func (o *ModelsSupplyDetails) SetFactDate(v string) {
 	o.FactDate.Set(&v)
 }
+
 // SetFactDateNil sets the value for FactDate to be an explicit nil
 func (o *ModelsSupplyDetails) SetFactDateNil() {
 	o.FactDate.Set(nil)
@@ -368,6 +370,7 @@ func (o *ModelsSupplyDetails) HasUpdatedDate() bool {
 func (o *ModelsSupplyDetails) SetUpdatedDate(v string) {
 	o.UpdatedDate.Set(&v)
 }
+
 // SetUpdatedDateNil sets the value for UpdatedDate to be an explicit nil
 func (o *ModelsSupplyDetails) SetUpdatedDateNil() {
 	o.UpdatedDate.Set(nil)
@@ -474,6 +477,7 @@ func (o *ModelsSupplyDetails) HasActualWarehouseID() bool {
 func (o *ModelsSupplyDetails) SetActualWarehouseID(v int32) {
 	o.ActualWarehouseID.Set(&v)
 }
+
 // SetActualWarehouseIDNil sets the value for ActualWarehouseID to be an explicit nil
 func (o *ModelsSupplyDetails) SetActualWarehouseIDNil() {
 	o.ActualWarehouseID.Set(nil)
@@ -548,6 +552,7 @@ func (o *ModelsSupplyDetails) HasTransitWarehouseID() bool {
 func (o *ModelsSupplyDetails) SetTransitWarehouseID(v int32) {
 	o.TransitWarehouseID.Set(&v)
 }
+
 // SetTransitWarehouseIDNil sets the value for TransitWarehouseID to be an explicit nil
 func (o *ModelsSupplyDetails) SetTransitWarehouseIDNil() {
 	o.TransitWarehouseID.Set(nil)
@@ -622,6 +627,7 @@ func (o *ModelsSupplyDetails) HasAcceptanceCost() bool {
 func (o *ModelsSupplyDetails) SetAcceptanceCost(v float32) {
 	o.AcceptanceCost.Set(&v)
 }
+
 // SetAcceptanceCostNil sets the value for AcceptanceCost to be an explicit nil
 func (o *ModelsSupplyDetails) SetAcceptanceCostNil() {
 	o.AcceptanceCost.Set(nil)
@@ -664,6 +670,7 @@ func (o *ModelsSupplyDetails) HasPaidAcceptanceCoefficient() bool {
 func (o *ModelsSupplyDetails) SetPaidAcceptanceCoefficient(v float32) {
 	o.PaidAcceptanceCoefficient.Set(&v)
 }
+
 // SetPaidAcceptanceCoefficientNil sets the value for PaidAcceptanceCoefficient to be an explicit nil
 func (o *ModelsSupplyDetails) SetPaidAcceptanceCoefficientNil() {
 	o.PaidAcceptanceCoefficient.Set(nil)
@@ -706,6 +713,7 @@ func (o *ModelsSupplyDetails) HasRejectReason() bool {
 func (o *ModelsSupplyDetails) SetRejectReason(v string) {
 	o.RejectReason.Set(&v)
 }
+
 // SetRejectReasonNil sets the value for RejectReason to be an explicit nil
 func (o *ModelsSupplyDetails) SetRejectReasonNil() {
 	o.RejectReason.Set(nil)
@@ -748,6 +756,7 @@ func (o *ModelsSupplyDetails) HasSupplierAssignName() bool {
 func (o *ModelsSupplyDetails) SetSupplierAssignName(v string) {
 	o.SupplierAssignName.Set(&v)
 }
+
 // SetSupplierAssignNameNil sets the value for SupplierAssignName to be an explicit nil
 func (o *ModelsSupplyDetails) SetSupplierAssignNameNil() {
 	o.SupplierAssignName.Set(nil)
@@ -790,6 +799,7 @@ func (o *ModelsSupplyDetails) HasStorageCoef() bool {
 func (o *ModelsSupplyDetails) SetStorageCoef(v string) {
 	o.StorageCoef.Set(&v)
 }
+
 // SetStorageCoefNil sets the value for StorageCoef to be an explicit nil
 func (o *ModelsSupplyDetails) SetStorageCoefNil() {
 	o.StorageCoef.Set(nil)
@@ -832,6 +842,7 @@ func (o *ModelsSupplyDetails) HasDeliveryCoef() bool {
 func (o *ModelsSupplyDetails) SetDeliveryCoef(v string) {
 	o.DeliveryCoef.Set(&v)
 }
+
 // SetDeliveryCoefNil sets the value for DeliveryCoef to be an explicit nil
 func (o *ModelsSupplyDetails) SetDeliveryCoefNil() {
 	o.DeliveryCoef.Set(nil)
@@ -1002,6 +1013,7 @@ func (o *ModelsSupplyDetails) HasDepersonalizedQuantity() bool {
 func (o *ModelsSupplyDetails) SetDepersonalizedQuantity(v int32) {
 	o.DepersonalizedQuantity.Set(&v)
 }
+
 // SetDepersonalizedQuantityNil sets the value for DepersonalizedQuantity to be an explicit nil
 func (o *ModelsSupplyDetails) SetDepersonalizedQuantityNil() {
 	o.DepersonalizedQuantity.Set(nil)
@@ -1077,7 +1089,7 @@ func (o *ModelsSupplyDetails) SetIsBoxOnPallet(v bool) {
 }
 
 func (o ModelsSupplyDetails) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1205,5 +1217,3 @@ func (v *NullableModelsSupplyDetails) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -107,7 +107,7 @@ func (o *ModelsOptionsResultModelResultInnerError) SetDetail(v string) {
 }
 
 func (o ModelsOptionsResultModelResultInnerError) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableModelsOptionsResultModelResultInnerError) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

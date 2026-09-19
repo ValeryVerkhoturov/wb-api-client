@@ -21,7 +21,7 @@ var _ MappedNullable = &TaskCreatedData{}
 type TaskCreatedData struct {
 	// ID загрузки
 	Id *int32 `json:"id,omitempty"`
-	// Флаг дублирования загрузки: `true` — такая загрузка уже есть 
+	// Флаг дублирования загрузки: `true` — такая загрузка уже есть
 	AlreadyExists *bool `json:"alreadyExists,omitempty"`
 }
 
@@ -107,7 +107,7 @@ func (o *TaskCreatedData) SetAlreadyExists(v bool) {
 }
 
 func (o TaskCreatedData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableTaskCreatedData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

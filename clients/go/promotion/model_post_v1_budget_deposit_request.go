@@ -25,7 +25,7 @@ type PostV1BudgetDepositRequest struct {
 	CashbackSum *int32 `json:"cashback_sum,omitempty"`
 	// Процент от суммы пополнения, который можно пополнить промо-бонусами. Нужно указать значение поля percent из ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance)  Если вы указали `cashback\\_sum`, параметр `cashback\\_percent` становится обязательным
 	CashbackPercent *int32 `json:"cashback_percent,omitempty"`
-	// Тип источника пополнения: - `0` — Счёт - `1` — Баланс - `3` — Бонусы 
+	// Тип источника пополнения: - `0` — Счёт - `1` — Баланс - `3` — Бонусы
 	Type *int32 `json:"type,omitempty"`
 	// Флаг возврата ответа (`true` — в ответе вернется обновлённый размер бюджета кампании, `false` или не указать параметр вообще — не вернётся.)
 	Return *bool `json:"return,omitempty"`
@@ -209,7 +209,7 @@ func (o *PostV1BudgetDepositRequest) SetReturn(v bool) {
 }
 
 func (o PostV1BudgetDepositRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -271,5 +271,3 @@ func (v *NullablePostV1BudgetDepositRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

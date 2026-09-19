@@ -11,8 +11,8 @@ API version: instorepickup
 package in_store_pickup
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -25,7 +25,7 @@ type PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner struct {
 	CustomsDeclaration string `json:"customsDeclaration"`
 	// ID сборочного задания
 	OrderId int32 `json:"orderId"`
-	// Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269). Необходимо указывать только для сборочных заданий с признаком B2B-продажи \"isB2b\":true 
+	// Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269). Необходимо указывать только для сборочных заданий с признаком B2B-продажи \"isB2b\":true
 	OriginCountryCode string `json:"originCountryCode"`
 }
 
@@ -124,7 +124,7 @@ func (o *PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner) SetOr
 }
 
 func (o PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -154,10 +154,10 @@ func (o *PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner) Unmar
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -213,5 +213,3 @@ func (v *NullablePostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInne
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

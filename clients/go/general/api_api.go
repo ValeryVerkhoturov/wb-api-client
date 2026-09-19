@@ -18,27 +18,26 @@ import (
 	"net/url"
 )
 
-
 type APIAPI interface {
 
 	/*
-	GetV2News Получение новостей портала продавцов
+			GetV2News Получение новостей портала продавцов
 
-	Метод позволяет получать новости портала продавцов.
- Для получения успешного ответа необходимо указать
-один из параметров `from` или `fromID`.
- За один запрос можно получить не более 100 новостей.
+			Метод позволяет получать новости портала продавцов.
+		 Для получения успешного ответа необходимо указать
+		один из параметров `from` или `fromID`.
+		 За один запрос можно получить не более 100 новостей.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
-| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+		| Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов |
+		| Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
+		| Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV2NewsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV2NewsRequest
 	*/
 	GetV2News(ctx context.Context) ApiGetV2NewsRequest
 
@@ -51,10 +50,10 @@ type APIAPI interface {
 type APIAPIService service
 
 type ApiGetV2NewsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService APIAPI
-	from *string
-	fromID *int32
+	from       *string
+	fromID     *int32
 }
 
 // Дата, от которой необходимо выдать новости
@@ -77,9 +76,12 @@ func (r ApiGetV2NewsRequest) Execute() (*GetV2NewsResponse200, *http.Response, e
 GetV2News Получение новостей портала продавцов
 
 Метод позволяет получать новости портала продавцов.
- Для получения успешного ответа необходимо указать
+
+	Для получения успешного ответа необходимо указать
+
 один из параметров `from` или `fromID`.
- За один запрос можно получить не более 100 новостей.
+
+	За один запрос можно получить не более 100 новостей.
 
 [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
 | Тип | Период | Лимит | Интервал | Всплеск |
@@ -89,24 +91,25 @@ GetV2News Получение новостей портала продавцов
 | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
 | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV2NewsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV2NewsRequest
 */
 func (a *APIAPIService) GetV2News(ctx context.Context) ApiGetV2NewsRequest {
 	return ApiGetV2NewsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV2NewsResponse200
+//
+//	@return GetV2NewsResponse200
 func (a *APIAPIService) GetV2NewsExecute(r ApiGetV2NewsRequest) (*GetV2NewsResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV2NewsResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV2NewsResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "APIAPIService.GetV2News")
@@ -143,20 +146,6 @@ func (a *APIAPIService) GetV2NewsExecute(r ApiGetV2NewsRequest) (*GetV2NewsRespo
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -186,8 +175,8 @@ func (a *APIAPIService) GetV2NewsExecute(r ApiGetV2NewsRequest) (*GetV2NewsRespo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -197,8 +186,8 @@ func (a *APIAPIService) GetV2NewsExecute(r ApiGetV2NewsRequest) (*GetV2NewsRespo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

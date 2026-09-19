@@ -27,9 +27,9 @@ type ModelsWarehousesResultItems struct {
 	Address *string `json:"address,omitempty"`
 	// Режим работы склада
 	WorkTime *string `json:"workTime,omitempty"`
-	// Доступен ли в качестве склада назначения: - `true` — да - `false` — нет 
+	// Доступен ли в качестве склада назначения: - `true` — да - `false` — нет
 	IsActive *bool `json:"isActive,omitempty"`
-	// Доступен ли в качестве транзитного склада: - `true` — да - `false` — нет 
+	// Доступен ли в качестве транзитного склада: - `true` — да - `false` — нет
 	IsTransitActive *bool `json:"isTransitActive,omitempty"`
 }
 
@@ -243,7 +243,7 @@ func (o *ModelsWarehousesResultItems) SetIsTransitActive(v bool) {
 }
 
 func (o ModelsWarehousesResultItems) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -308,5 +308,3 @@ func (v *NullableModelsWarehousesResultItems) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

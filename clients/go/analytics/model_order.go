@@ -11,10 +11,10 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the Order type satisfies the MappedNullable interface at compile time
@@ -32,15 +32,15 @@ type Order struct {
 	CreatedAt time.Time `json:"createdAt"`
 	// Дата и время текущего статуса. При `\"status\":\"created\"` возвращается значение поля `createdAt`
 	UpdatedAt time.Time `json:"updatedAt"`
-	// Статус заказа:   - `created` — оформлен   - `buyout` — продан   - `cancel` — отменён   - `return` — возвращён   - `returnDefective` — возвращён по причине брака 
+	// Статус заказа:   - `created` — оформлен   - `buyout` — продан   - `cancel` — отменён   - `return` — возвращён   - `returnDefective` — возвращён по причине брака
 	Status string `json:"status"`
-	// Тип отмены (при `\"status\":\"cancel\"`):   - `app` — отказ до получения   - `receipt` — отказ при получении   - `expire` — истёк срок получения   - `other` — техническая отмена 
+	// Тип отмены (при `\"status\":\"cancel\"`):   - `app` — отказ до получения   - `receipt` — отказ при получении   - `expire` — истёк срок получения   - `other` — техническая отмена
 	CancelType *string `json:"cancelType,omitempty"`
 	// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
 	WarehouseName string `json:"warehouseName"`
 	// Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `\"\"`
 	WarehouseRegion string `json:"warehouseRegion"`
-	// Тип склада:   - `true` — склад продавца   - `false` — склад WB 
+	// Тип склада:   - `true` — склад продавца   - `false` — склад WB
 	IsMp bool `json:"isMp"`
 	// Населённый пункт доставки
 	DestinationCity string `json:"destinationCity"`
@@ -48,7 +48,7 @@ type Order struct {
 	DestinationDistrict string `json:"destinationDistrict"`
 	// Цена продавца со скидкой продавца (без учёта скидки WB Клуба и оптовой скидки для B2B-продаж)
 	SellerPrice float32 `json:"sellerPrice"`
-	// Тип продажи:   - `true` — B2B   - `false` — B2C 
+	// Тип продажи:   - `true` — B2B   - `false` — B2C
 	IsB2b bool `json:"isB2b"`
 }
 
@@ -429,7 +429,7 @@ func (o *Order) SetIsB2b(v bool) {
 }
 
 func (o Order) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -482,10 +482,10 @@ func (o *Order) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -541,5 +541,3 @@ func (v *NullableOrder) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

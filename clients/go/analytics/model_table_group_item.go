@@ -11,15 +11,15 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
 // checks if the TableGroupItem type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TableGroupItem{}
 
-// TableGroupItem К группе товаров относятся все карточки, подходящие хотя бы по одному из параметров:   - `subjectName` — название предмета   - `brandName` — бренд   - `tagName` — название ярлыка 
+// TableGroupItem К группе товаров относятся все карточки, подходящие хотя бы по одному из параметров:   - `subjectName` — название предмета   - `brandName` — бренд   - `tagName` — название ярлыка
 type TableGroupItem struct {
 	// Название предмета
 	SubjectName *string `json:"subjectName,omitempty"`
@@ -30,7 +30,7 @@ type TableGroupItem struct {
 	// Название ярлыка
 	TagName *string `json:"tagName,omitempty"`
 	// ID ярлыка
-	TagId *int64 `json:"tagId,omitempty"`
+	TagId   *int64                `json:"tagId,omitempty"`
 	Metrics TableGroupItemMetrics `json:"metrics"`
 	// Массив товаров группы
 	Items []TableItemItem `json:"items"`
@@ -266,7 +266,7 @@ func (o *TableGroupItem) SetItems(v []TableItemItem) {
 }
 
 func (o TableGroupItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -309,10 +309,10 @@ func (o *TableGroupItem) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -368,5 +368,3 @@ func (v *NullableTableGroupItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

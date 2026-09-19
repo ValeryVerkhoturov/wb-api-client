@@ -21,13 +21,13 @@ var _ MappedNullable = &ModelsAcceptanceCoefficient{}
 type ModelsAcceptanceCoefficient struct {
 	// Дата начала действия коэффициента
 	Date *string `json:"date,omitempty"`
-	// Коэффициент приёмки:   - `-1` — приёмка недоступна, вне зависимости от значения поля `allowUnload`   - `0` — бесплатная приёмка   - от `1` — множитель стоимости приёмки 
+	// Коэффициент приёмки:   - `-1` — приёмка недоступна, вне зависимости от значения поля `allowUnload`   - `0` — бесплатная приёмка   - от `1` — множитель стоимости приёмки
 	Coefficient *float32 `json:"coefficient,omitempty"`
 	// ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/informationForFormingSupplies/operation/getV1Warehouses)
 	WarehouseID *int32 `json:"warehouseID,omitempty"`
 	// Название склада
 	WarehouseName *string `json:"warehouseName,omitempty"`
-	// Доступность приёмки для поставок данного типа, смотри значение поля `boxTypeID`:   - `true` — приёмка доступна  - `false` — приёмка не доступна 
+	// Доступность приёмки для поставок данного типа, смотри значение поля `boxTypeID`:   - `true` — приёмка доступна  - `false` — приёмка не доступна
 	AllowUnload *bool `json:"allowUnload,omitempty"`
 	// ID типа поставки: - `2` — Короба - `5` — Монопаллеты - `6` — Суперсейф  Для типа поставки \\*\\*QR-поставка с коробами\\*\\* поле не возвращается
 	BoxTypeID *int32 `json:"boxTypeID,omitempty"`
@@ -39,11 +39,11 @@ type ModelsAcceptanceCoefficient struct {
 	DeliveryBaseLiter NullableString `json:"deliveryBaseLiter,omitempty"`
 	// Стоимость логистики каждого следующего литра
 	DeliveryAdditionalLiter NullableString `json:"deliveryAdditionalLiter,omitempty"`
-	// Стоимость хранения:   - для паллет — стоимость за одну паллету   - для коробов — стоимость хранения за первый литр 
+	// Стоимость хранения:   - для паллет — стоимость за одну паллету   - для коробов — стоимость хранения за первый литр
 	StorageBaseLiter NullableString `json:"storageBaseLiter,omitempty"`
-	// Стоимость хранения каждого последующего литра:   - для паллет — всегда будет `null`, т.к. стоимость хранения за единицу паллеты определяется в `StorageBaseLiter`   - для коробов — стоимость хранения за каждый последующий литр 
+	// Стоимость хранения каждого последующего литра:   - для паллет — всегда будет `null`, т.к. стоимость хранения за единицу паллеты определяется в `StorageBaseLiter`   - для коробов — стоимость хранения за каждый последующий литр
 	StorageAdditionalLiter NullableString `json:"storageAdditionalLiter,omitempty"`
-	// Тип склада:   - `true` — сортировочный центр (СЦ)  - `false` — обычный 
+	// Тип склада:   - `true` — сортировочный центр (СЦ)  - `false` — обычный
 	IsSortingCenter *bool `json:"isSortingCenter,omitempty"`
 }
 
@@ -288,6 +288,7 @@ func (o *ModelsAcceptanceCoefficient) HasStorageCoef() bool {
 func (o *ModelsAcceptanceCoefficient) SetStorageCoef(v string) {
 	o.StorageCoef.Set(&v)
 }
+
 // SetStorageCoefNil sets the value for StorageCoef to be an explicit nil
 func (o *ModelsAcceptanceCoefficient) SetStorageCoefNil() {
 	o.StorageCoef.Set(nil)
@@ -330,6 +331,7 @@ func (o *ModelsAcceptanceCoefficient) HasDeliveryCoef() bool {
 func (o *ModelsAcceptanceCoefficient) SetDeliveryCoef(v string) {
 	o.DeliveryCoef.Set(&v)
 }
+
 // SetDeliveryCoefNil sets the value for DeliveryCoef to be an explicit nil
 func (o *ModelsAcceptanceCoefficient) SetDeliveryCoefNil() {
 	o.DeliveryCoef.Set(nil)
@@ -372,6 +374,7 @@ func (o *ModelsAcceptanceCoefficient) HasDeliveryBaseLiter() bool {
 func (o *ModelsAcceptanceCoefficient) SetDeliveryBaseLiter(v string) {
 	o.DeliveryBaseLiter.Set(&v)
 }
+
 // SetDeliveryBaseLiterNil sets the value for DeliveryBaseLiter to be an explicit nil
 func (o *ModelsAcceptanceCoefficient) SetDeliveryBaseLiterNil() {
 	o.DeliveryBaseLiter.Set(nil)
@@ -414,6 +417,7 @@ func (o *ModelsAcceptanceCoefficient) HasDeliveryAdditionalLiter() bool {
 func (o *ModelsAcceptanceCoefficient) SetDeliveryAdditionalLiter(v string) {
 	o.DeliveryAdditionalLiter.Set(&v)
 }
+
 // SetDeliveryAdditionalLiterNil sets the value for DeliveryAdditionalLiter to be an explicit nil
 func (o *ModelsAcceptanceCoefficient) SetDeliveryAdditionalLiterNil() {
 	o.DeliveryAdditionalLiter.Set(nil)
@@ -456,6 +460,7 @@ func (o *ModelsAcceptanceCoefficient) HasStorageBaseLiter() bool {
 func (o *ModelsAcceptanceCoefficient) SetStorageBaseLiter(v string) {
 	o.StorageBaseLiter.Set(&v)
 }
+
 // SetStorageBaseLiterNil sets the value for StorageBaseLiter to be an explicit nil
 func (o *ModelsAcceptanceCoefficient) SetStorageBaseLiterNil() {
 	o.StorageBaseLiter.Set(nil)
@@ -498,6 +503,7 @@ func (o *ModelsAcceptanceCoefficient) HasStorageAdditionalLiter() bool {
 func (o *ModelsAcceptanceCoefficient) SetStorageAdditionalLiter(v string) {
 	o.StorageAdditionalLiter.Set(&v)
 }
+
 // SetStorageAdditionalLiterNil sets the value for StorageAdditionalLiter to be an explicit nil
 func (o *ModelsAcceptanceCoefficient) SetStorageAdditionalLiterNil() {
 	o.StorageAdditionalLiter.Set(nil)
@@ -541,7 +547,7 @@ func (o *ModelsAcceptanceCoefficient) SetIsSortingCenter(v bool) {
 }
 
 func (o ModelsAcceptanceCoefficient) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -627,5 +633,3 @@ func (v *NullableModelsAcceptanceCoefficient) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

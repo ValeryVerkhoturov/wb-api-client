@@ -11,8 +11,8 @@ API version: items
 package items
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -105,6 +105,7 @@ func (o *Item) HasPrice() bool {
 func (o *Item) SetPrice(v int32) {
 	o.Price.Set(&v)
 }
+
 // SetPriceNil sets the value for Price to be an explicit nil
 func (o *Item) SetPriceNil() {
 	o.Price.Set(nil)
@@ -147,6 +148,7 @@ func (o *Item) HasDiscount() bool {
 func (o *Item) SetDiscount(v int32) {
 	o.Discount.Set(&v)
 }
+
 // SetDiscountNil sets the value for Discount to be an explicit nil
 func (o *Item) SetDiscountNil() {
 	o.Discount.Set(nil)
@@ -158,7 +160,7 @@ func (o *Item) UnsetDiscount() {
 }
 
 func (o Item) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,10 +192,10 @@ func (o *Item) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -249,5 +251,3 @@ func (v *NullableItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

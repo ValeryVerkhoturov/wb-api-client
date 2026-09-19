@@ -18,18 +18,79 @@ import (
 	"net/url"
 )
 
-
 type WBAPIAPI interface {
 
 	/*
-	GetPing Проверка подключения
+			GetPing Проверка подключения
 
-	Метод проверяет:
+			Метод проверяет:
+		1. Успешно ли запрос доходит до WB API
+		2. Валидность токена авторизации и URL запроса
+		3. Совпадают ли категория токена и сервис
+
+		Метод не предназначен для проверки доступности сервисов WB
+
+		У каждого сервиса есть свой вариант метода в зависимости от домена:
+		| Категория | URL запроса |
+		|---------------|-----------------------|
+		| Контент | `https://content-api.wildberries.ru/ping`
+		`https://content-api-sandbox.wildberries.ru/ping` |
+		| Аналитика | `https://seller-analytics-api.wildberries.ru/ping` |
+		| Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping`
+		`https://discounts-prices-api-sandbox.wildberries.ru/ping` |
+		| Маркетплейс | `https://marketplace-api.wildberries.ru/ping` |
+		| Статистика | `https://statistics-api.wildberries.ru/ping`
+		`https://statistics-api-sandbox.wildberries.ru/ping` |
+		| Продвижение | `https://advert-api.wildberries.ru/ping`
+		`https://advert-api-sandbox.wildberries.ru/ping` |
+		| Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping`
+		`https://feedbacks-api-sandbox.wildberries.ru/ping` |
+		| Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` |
+		| Поставки | `https://supplies-api.wildberries.ru/ping` |
+		| Возвраты покупателями | `https://returns-api.wildberries.ru/ping` |
+		| Документы | `https://documents-api.wildberries.ru/ping` |
+		| Финансы | `https://finance-api.wildberries.ru/ping` |
+		| Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` |
+		| Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |
+
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 30 сек | 3 запроса | 10 сек | 99 запросов |
+
+		Лимит действует отдельно для каждого варианта метода в зависимости от домена
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetPingRequest
+	*/
+	GetPing(ctx context.Context) ApiGetPingRequest
+
+	// GetPingExecute executes the request
+	//  @return GetPingResponse200
+	GetPingExecute(r ApiGetPingRequest) (*GetPingResponse200, *http.Response, error)
+}
+
+// WBAPIAPIService WBAPIAPI service
+type WBAPIAPIService service
+
+type ApiGetPingRequest struct {
+	ctx        context.Context
+	ApiService WBAPIAPI
+}
+
+func (r ApiGetPingRequest) Execute() (*GetPingResponse200, *http.Response, error) {
+	return r.ApiService.GetPingExecute(r)
+}
+
+/*
+GetPing Проверка подключения
+
+Метод проверяет:
 1. Успешно ли запрос доходит до WB API
 2. Валидность токена авторизации и URL запроса
 3. Совпадают ли категория токена и сервис
 
-Метод не предназначен для проверки доступности сервисов WB
+# Метод не предназначен для проверки доступности сервисов WB
 
 У каждого сервиса есть свой вариант метода в зависимости от домена:
 | Категория | URL запроса |
@@ -63,84 +124,23 @@ type WBAPIAPI interface {
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetPingRequest
-	*/
-	GetPing(ctx context.Context) ApiGetPingRequest
-
-	// GetPingExecute executes the request
-	//  @return GetPingResponse200
-	GetPingExecute(r ApiGetPingRequest) (*GetPingResponse200, *http.Response, error)
-}
-
-// WBAPIAPIService WBAPIAPI service
-type WBAPIAPIService service
-
-type ApiGetPingRequest struct {
-	ctx context.Context
-	ApiService WBAPIAPI
-}
-
-func (r ApiGetPingRequest) Execute() (*GetPingResponse200, *http.Response, error) {
-	return r.ApiService.GetPingExecute(r)
-}
-
-/*
-GetPing Проверка подключения
-
-Метод проверяет:
-1. Успешно ли запрос доходит до WB API
-2. Валидность токена авторизации и URL запроса
-3. Совпадают ли категория токена и сервис
-
-Метод не предназначен для проверки доступности сервисов WB
-
-У каждого сервиса есть свой вариант метода в зависимости от домена:
-| Категория | URL запроса |
-|---------------|-----------------------|
-| Контент | `https://content-api.wildberries.ru/ping`
-`https://content-api-sandbox.wildberries.ru/ping` |
-| Аналитика | `https://seller-analytics-api.wildberries.ru/ping` |
-| Цены и скидки | `https://discounts-prices-api.wildberries.ru/ping`
-`https://discounts-prices-api-sandbox.wildberries.ru/ping` |
-| Маркетплейс | `https://marketplace-api.wildberries.ru/ping` |
-| Статистика | `https://statistics-api.wildberries.ru/ping`
-`https://statistics-api-sandbox.wildberries.ru/ping` |
-| Продвижение | `https://advert-api.wildberries.ru/ping`
-`https://advert-api-sandbox.wildberries.ru/ping` |
-| Вопросы и отзывы | `https://feedbacks-api.wildberries.ru/ping`
-`https://feedbacks-api-sandbox.wildberries.ru/ping` |
-| Чат с покупателями | `https://buyer-chat-api.wildberries.ru/ping` |
-| Поставки | `https://supplies-api.wildberries.ru/ping` |
-| Возвраты покупателями | `https://returns-api.wildberries.ru/ping` |
-| Документы | `https://documents-api.wildberries.ru/ping` |
-| Финансы | `https://finance-api.wildberries.ru/ping` |
-| Тарифы, Новости, Получить информацию о продавце | `https://common-api.wildberries.ru/ping` |
-| Управление пользователями продавца | `https://user-management-api.wildberries.ru/ping` |
-
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 30 сек | 3 запроса | 10 сек | 99 запросов |
-
-Лимит действует отдельно для каждого варианта метода в зависимости от домена
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetPingRequest
 */
 func (a *WBAPIAPIService) GetPing(ctx context.Context) ApiGetPingRequest {
 	return ApiGetPingRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetPingResponse200
+//
+//	@return GetPingResponse200
 func (a *WBAPIAPIService) GetPingExecute(r ApiGetPingRequest) (*GetPingResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetPingResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetPingResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WBAPIAPIService.GetPing")
@@ -171,20 +171,6 @@ func (a *WBAPIAPIService) GetPingExecute(r ApiGetPingRequest) (*GetPingResponse2
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -214,8 +200,8 @@ func (a *WBAPIAPIService) GetPingExecute(r ApiGetPingRequest) (*GetPingResponse2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -225,8 +211,8 @@ func (a *WBAPIAPIService) GetPingExecute(r ApiGetPingRequest) (*GetPingResponse2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -236,8 +222,8 @@ func (a *WBAPIAPIService) GetPingExecute(r ApiGetPingRequest) (*GetPingResponse2
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

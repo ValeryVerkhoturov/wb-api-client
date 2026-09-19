@@ -11,8 +11,8 @@ API version: communication
 package communications
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,9 +22,9 @@ var _ MappedNullable = &PatchV1QuestionsRequestOneOf1{}
 // PatchV1QuestionsRequestOneOf1 struct for PatchV1QuestionsRequestOneOf1
 type PatchV1QuestionsRequestOneOf1 struct {
 	// Id вопроса
-	Id string `json:"id"`
+	Id     string                              `json:"id"`
 	Answer PatchV1QuestionsRequestOneOf1Answer `json:"answer"`
-	// Статус вопроса:   - `none` - вопрос отклонён продавцом (такой вопрос не отображается на портале покупателей)   - `wbRu` - ответ предоставлен, вопрос отображается на сайте покупателей. 
+	// Статус вопроса:   - `none` - вопрос отклонён продавцом (такой вопрос не отображается на портале покупателей)   - `wbRu` - ответ предоставлен, вопрос отображается на сайте покупателей.
 	State string `json:"state"`
 }
 
@@ -123,7 +123,7 @@ func (o *PatchV1QuestionsRequestOneOf1) SetState(v string) {
 }
 
 func (o PatchV1QuestionsRequestOneOf1) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -153,10 +153,10 @@ func (o *PatchV1QuestionsRequestOneOf1) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -212,5 +212,3 @@ func (v *NullablePatchV1QuestionsRequestOneOf1) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

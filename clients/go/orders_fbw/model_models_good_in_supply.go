@@ -25,7 +25,7 @@ type ModelsGoodInSupply struct {
 	VendorCode *string `json:"vendorCode,omitempty"`
 	// Артикул WB
 	NmID *int32 `json:"nmID,omitempty"`
-	// Нужен ли [код маркировки Честного знака](https://честныйзнак.рф/) для этого товара:   - `false` — не нужен   - `true` — нужен 
+	// Нужен ли [код маркировки Честного знака](https://честныйзнак.рф/) для этого товара:   - `false` — не нужен   - `true` — нужен
 	NeedKiz *bool `json:"needKiz,omitempty"`
 	// Код ТНВЭД.  Если `\"needKiz\":true`, а `\"tnved\":null`, нужно заполнить характеристику товара \\*\\*ТН ВЭД\\*\\* в [личном кабинете](https://seller.wildberries.ru/new-goods) или по [API](./item-management#tag/listings/operation/postV2CardsUpdate)
 	Tnved NullableString `json:"tnved,omitempty"`
@@ -222,6 +222,7 @@ func (o *ModelsGoodInSupply) HasTnved() bool {
 func (o *ModelsGoodInSupply) SetTnved(v string) {
 	o.Tnved.Set(&v)
 }
+
 // SetTnvedNil sets the value for Tnved to be an explicit nil
 func (o *ModelsGoodInSupply) SetTnvedNil() {
 	o.Tnved.Set(nil)
@@ -296,6 +297,7 @@ func (o *ModelsGoodInSupply) HasColor() bool {
 func (o *ModelsGoodInSupply) SetColor(v string) {
 	o.Color.Set(&v)
 }
+
 // SetColorNil sets the value for Color to be an explicit nil
 func (o *ModelsGoodInSupply) SetColorNil() {
 	o.Color.Set(nil)
@@ -338,6 +340,7 @@ func (o *ModelsGoodInSupply) HasSupplierBoxAmount() bool {
 func (o *ModelsGoodInSupply) SetSupplierBoxAmount(v int32) {
 	o.SupplierBoxAmount.Set(&v)
 }
+
 // SetSupplierBoxAmountNil sets the value for SupplierBoxAmount to be an explicit nil
 func (o *ModelsGoodInSupply) SetSupplierBoxAmountNil() {
 	o.SupplierBoxAmount.Set(nil)
@@ -412,6 +415,7 @@ func (o *ModelsGoodInSupply) HasReadyForSaleQuantity() bool {
 func (o *ModelsGoodInSupply) SetReadyForSaleQuantity(v int32) {
 	o.ReadyForSaleQuantity.Set(&v)
 }
+
 // SetReadyForSaleQuantityNil sets the value for ReadyForSaleQuantity to be an explicit nil
 func (o *ModelsGoodInSupply) SetReadyForSaleQuantityNil() {
 	o.ReadyForSaleQuantity.Set(nil)
@@ -454,6 +458,7 @@ func (o *ModelsGoodInSupply) HasAcceptedQuantity() bool {
 func (o *ModelsGoodInSupply) SetAcceptedQuantity(v int32) {
 	o.AcceptedQuantity.Set(&v)
 }
+
 // SetAcceptedQuantityNil sets the value for AcceptedQuantity to be an explicit nil
 func (o *ModelsGoodInSupply) SetAcceptedQuantityNil() {
 	o.AcceptedQuantity.Set(nil)
@@ -496,6 +501,7 @@ func (o *ModelsGoodInSupply) HasUnloadingQuantity() bool {
 func (o *ModelsGoodInSupply) SetUnloadingQuantity(v int32) {
 	o.UnloadingQuantity.Set(&v)
 }
+
 // SetUnloadingQuantityNil sets the value for UnloadingQuantity to be an explicit nil
 func (o *ModelsGoodInSupply) SetUnloadingQuantityNil() {
 	o.UnloadingQuantity.Set(nil)
@@ -507,7 +513,7 @@ func (o *ModelsGoodInSupply) UnsetUnloadingQuantity() {
 }
 
 func (o ModelsGoodInSupply) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -590,5 +596,3 @@ func (v *NullableModelsGoodInSupply) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -29,7 +29,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Сборочные задания DBW
       summary: Получить список новых сборочных заданий
@@ -82,7 +82,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Сборочные задания DBW
       summary: Получить информацию о завершенных сборочных заданиях
@@ -162,7 +162,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Получить дату и время доставки
       tags:
       - Сборочные задания DBW
@@ -232,7 +232,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       summary: Информация о покупателе
       tags:
       - Сборочные задания DBW
@@ -304,7 +304,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Сборочные задания DBW
       summary: Получить статусы сборочных заданий
@@ -414,7 +414,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Сборочные задания DBW
       summary: Перевести на сборку
@@ -485,7 +485,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Сборочные задания DBW
       summary: Получить стикеры сборочных заданий
@@ -764,7 +764,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Сборочные задания DBW
       summary: Отменить сборочное задание
@@ -838,7 +838,7 @@ paths:
       x-readonly-method: true
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Идентификаторы маркировки DBW
       summary: Получить идентификаторы маркировки сборочных заданий
@@ -1077,7 +1077,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Идентификаторы маркировки DBW
       summary: Закрепить УИН за сборочным заданием
@@ -1163,7 +1163,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Идентификаторы маркировки DBW
       summary: Закрепить IMEI за сборочным заданием
@@ -1250,7 +1250,7 @@ paths:
       x-readonly-method: false
       x-category: marketplace
       security:
-      - HeaderApiKey: []
+      - BearerAuth: []
       tags:
       - Идентификаторы маркировки DBW
       summary: Закрепить GTIN за сборочным заданием
@@ -1330,10 +1330,6 @@ paths:
           $ref: '#/components/responses/429'
 components:
   securitySchemes:
-    HeaderApiKey:
-      type: apiKey
-      name: Authorization
-      in: header
     BearerAuth:
       type: http
       scheme: bearer

@@ -11,8 +11,8 @@ API version: promotion
 package promotion
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,18 +21,18 @@ var _ MappedNullable = &GetAdvertsAdvertsInner{}
 
 // GetAdvertsAdvertsInner struct for GetAdvertsAdvertsInner
 type GetAdvertsAdvertsInner struct {
-	// Тип ставки:   - `unified` — единая ставка   - `manual` — ручная ставка 
+	// Тип ставки:   - `unified` — единая ставка   - `manual` — ручная ставка
 	BidType string `json:"bid_type"`
 	// Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
 	Currency *string `json:"currency,omitempty"`
 	// ID кампании
 	Id int64 `json:"id"`
 	// Настройки товаров
-	NmSettings []AdvertNMsSettings `json:"nm_settings"`
-	Settings AdvertSettings `json:"settings"`
+	NmSettings   []AdvertNMsSettings                `json:"nm_settings"`
+	Settings     AdvertSettings                     `json:"settings"`
 	Restrictions GetAdvertsAdvertsInnerRestrictions `json:"restrictions"`
-	// Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе 
-	Status int32 `json:"status"`
+	// Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе
+	Status     int32      `json:"status"`
 	Timestamps Timestamps `json:"timestamps"`
 }
 
@@ -265,7 +265,7 @@ func (o *GetAdvertsAdvertsInner) SetTimestamps(v Timestamps) {
 }
 
 func (o GetAdvertsAdvertsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -308,10 +308,10 @@ func (o *GetAdvertsAdvertsInner) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -367,5 +367,3 @@ func (v *NullableGetAdvertsAdvertsInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

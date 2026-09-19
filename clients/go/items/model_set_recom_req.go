@@ -11,8 +11,8 @@ API version: items
 package items
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,7 +23,7 @@ var _ MappedNullable = &SetRecomReq{}
 type SetRecomReq struct {
 	// Список рекомендаций для товаров
 	RecList []SetRecomReqRecListInner `json:"recList"`
-	// Действие в запросе:   - `false` — добавить новые рекомендации к существующим   - `true` — заменить существующие рекомендации новыми 
+	// Действие в запросе:   - `false` — добавить новые рекомендации к существующим   - `true` — заменить существующие рекомендации новыми
 	Replace *bool `json:"replace,omitempty"`
 }
 
@@ -108,7 +108,7 @@ func (o *SetRecomReq) SetReplace(v bool) {
 }
 
 func (o SetRecomReq) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -137,10 +137,10 @@ func (o *SetRecomReq) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -196,5 +196,3 @@ func (v *NullableSetRecomReq) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -12,16 +12,16 @@ package rates
 
 import (
 	"encoding/json"
-	"gopkg.in/validator.v2"
 	"fmt"
+	"gopkg.in/validator.v2"
 )
 
 // GetV1TariffsCommission200Response - struct for GetV1TariffsCommission200Response
 type GetV1TariffsCommission200Response struct {
-	Fee *Fee
-	FeeChina *FeeChina
-	FeeTurkey *FeeTurkey
-	FeeUAE *FeeUAE
+	Fee           *Fee
+	FeeChina      *FeeChina
+	FeeTurkey     *FeeTurkey
+	FeeUAE        *FeeUAE
 	FeeUzbekistan *FeeUzbekistan
 }
 
@@ -59,7 +59,6 @@ func FeeUzbekistanAsGetV1TariffsCommission200Response(v *FeeUzbekistan) GetV1Tar
 		FeeUzbekistan: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *GetV1TariffsCommission200Response) UnmarshalJSON(data []byte) error {
@@ -192,7 +191,7 @@ func (src GetV1TariffsCommission200Response) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *GetV1TariffsCommission200Response) GetActualInstance() (interface{}) {
+func (obj *GetV1TariffsCommission200Response) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -255,5 +254,3 @@ func (v *NullableGetV1TariffsCommission200Response) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -209,7 +209,7 @@ func (o *GetV1AnalyticsBannedProducsBlockedResponse400) SetOrigin(v string) {
 }
 
 func (o GetV1AnalyticsBannedProducsBlockedResponse400) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -271,5 +271,3 @@ func (v *NullableGetV1AnalyticsBannedProducsBlockedResponse400) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

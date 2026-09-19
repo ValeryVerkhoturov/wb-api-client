@@ -11,8 +11,8 @@ API version: promotion
 package promotion
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -24,7 +24,7 @@ type V0GetNormQueryStatsRequest struct {
 	// Дата начала периода
 	From string `json:"from"`
 	// Дата окончания периода
-	To string `json:"to"`
+	To    string                                 `json:"to"`
 	Items []V0GetNormQueryStatsRequestItemsInner `json:"items"`
 }
 
@@ -123,7 +123,7 @@ func (o *V0GetNormQueryStatsRequest) SetItems(v []V0GetNormQueryStatsRequestItem
 }
 
 func (o V0GetNormQueryStatsRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -153,10 +153,10 @@ func (o *V0GetNormQueryStatsRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -212,5 +212,3 @@ func (v *NullableV0GetNormQueryStatsRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

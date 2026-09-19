@@ -15,6 +15,8 @@ import (
 	"fmt"
 	"net/http"
 	"strings"
+
+	"github.com/negrel/secrecy"
 )
 
 // contextKeys are used to identify the type of value in the context.
@@ -28,11 +30,6 @@ func (c contextKey) String() string {
 }
 
 var (
-	// ContextAccessToken takes a string oauth2 access token as authentication for the request.
-	ContextAccessToken = contextKey("accesstoken")
-
-	// ContextAPIKeys takes a string apikey as authentication for the request
-	ContextAPIKeys = contextKey("apiKeys")
 
 	// ContextServerIndex uses a server configuration from the index.
 	ContextServerIndex = contextKey("serverIndex")
@@ -68,9 +65,9 @@ type ServerVariable struct {
 
 // ServerConfiguration stores the information about a server
 type ServerConfiguration struct {
-	URL string
+	URL         string
 	Description string
-	Variables map[string]ServerVariable
+	Variables   map[string]ServerVariable
 }
 
 // ServerConfigurations stores multiple ServerConfiguration items
@@ -78,11 +75,12 @@ type ServerConfigurations []ServerConfiguration
 
 // Configuration stores the configuration of the API client
 type Configuration struct {
-	Host             string            `json:"host,omitempty"`
-	Scheme           string            `json:"scheme,omitempty"`
-	DefaultHeader    map[string]string `json:"defaultHeader,omitempty"`
-	UserAgent        string            `json:"userAgent,omitempty"`
-	Debug            bool              `json:"debug,omitempty"`
+	AccessToken      *secrecy.SecretString `json:"-"`
+	Host             string                `json:"host,omitempty"`
+	Scheme           string                `json:"scheme,omitempty"`
+	DefaultHeader    map[string]string     `json:"defaultHeader,omitempty"`
+	UserAgent        string                `json:"userAgent,omitempty"`
+	Debug            bool                  `json:"debug,omitempty"`
 	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
@@ -91,309 +89,309 @@ type Configuration struct {
 // NewConfiguration returns a new Configuration object
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
-		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.0.0.dev0/go",
-		Debug:            false,
-		Servers:          ServerConfigurations{
+		DefaultHeader: make(map[string]string),
+		UserAgent:     "OpenAPI-Generator/0.0.0.dev0/go",
+		Debug:         false,
+		Servers: ServerConfigurations{
 			{
-				URL: "",
+				URL:         "",
 				Description: "No description provided",
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
 			"DefaultApiService.DeleteV0NormqueryBids": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV0BidsRecommendations": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV0Delete": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://advert-api-sandbox.wildberries.ru",
+					URL:         "https://advert-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.GetV0Pause": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://advert-api-sandbox.wildberries.ru",
+					URL:         "https://advert-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.GetV0Start": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://advert-api-sandbox.wildberries.ru",
+					URL:         "https://advert-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.GetV0Stop": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://advert-api-sandbox.wildberries.ru",
+					URL:         "https://advert-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.GetV1Advert": {
 				{
-					URL: "https://advert-media-api.wildberries.ru",
+					URL:         "https://advert-media-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV1Adverts": {
 				{
-					URL: "https://advert-media-api.wildberries.ru",
+					URL:         "https://advert-media-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV1Balance": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://advert-api-sandbox.wildberries.ru",
+					URL:         "https://advert-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.GetV1Budget": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://advert-api-sandbox.wildberries.ru",
+					URL:         "https://advert-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.GetV1CalendarPromotions": {
 				{
-					URL: "https://dp-calendar-api.wildberries.ru",
+					URL:         "https://dp-calendar-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV1CalendarPromotionsDetails": {
 				{
-					URL: "https://dp-calendar-api.wildberries.ru",
+					URL:         "https://dp-calendar-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV1CalendarPromotionsNomenclatures": {
 				{
-					URL: "https://dp-calendar-api.wildberries.ru",
+					URL:         "https://dp-calendar-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV1Config": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV1Count": {
 				{
-					URL: "https://advert-media-api.wildberries.ru",
+					URL:         "https://advert-media-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV1Payments": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://advert-api-sandbox.wildberries.ru",
+					URL:         "https://advert-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.GetV1PromotionCount": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://advert-api-sandbox.wildberries.ru",
+					URL:         "https://advert-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.GetV1SupplierSubjects": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://advert-api-sandbox.wildberries.ru",
+					URL:         "https://advert-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.GetV1Upd": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://advert-api-sandbox.wildberries.ru",
+					URL:         "https://advert-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.GetV2Adverts": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV3Fullstats": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PatchV0AuctionNms": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PatchV1Bids": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV0NormqueryBids": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV0NormqueryGetBids": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV0NormqueryGetMinus": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV0NormqueryList": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV0NormquerySetMinus": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV0NormqueryStats": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV0Rename": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://advert-api-sandbox.wildberries.ru",
+					URL:         "https://advert-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.PostV1BidsMin": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV1BudgetDeposit": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://advert-api-sandbox.wildberries.ru",
+					URL:         "https://advert-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.PostV1CalendarPromotionsUpload": {
 				{
-					URL: "https://dp-calendar-api.wildberries.ru",
+					URL:         "https://dp-calendar-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV1NormqueryBids": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV1NormqueryStats": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV1Stats": {
 				{
-					URL: "https://advert-media-api.wildberries.ru",
+					URL:         "https://advert-media-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV2Budget": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 			},
 			"DefaultApiService.PostV2SeacatSaveAd": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://advert-api-sandbox.wildberries.ru",
+					URL:         "https://advert-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.PostV2SupplierNms": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 				{
-					URL: "https://advert-api-sandbox.wildberries.ru",
+					URL:         "https://advert-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
 				},
 			},
 			"DefaultApiService.PutV0AuctionPlacements": {
 				{
-					URL: "https://advert-api.wildberries.ru",
+					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",
 				},
 			},
@@ -514,4 +512,11 @@ func (c *Configuration) ServerURLWithContext(ctx context.Context, endpoint strin
 	}
 
 	return sc.URL(index, variables)
+}
+
+// SetAccessToken stores the WB bearer JWT on the Configuration,
+// wrapped in a secrecy.SecretString so it redacts under fmt/log.
+func (c *Configuration) SetAccessToken(token string) {
+	s := secrecy.NewSecretString([]byte(token))
+	c.AccessToken = &s
 }

@@ -18,28 +18,27 @@ import (
 	"net/url"
 )
 
-
 type DBSAPI interface {
 
 	/*
-	GetV3DbsOrders Получить информацию о завершенных сборочных заданиях
+			GetV3DbsOrders Получить информацию о завершенных сборочных заданиях
 
-	Метод возвращает информацию о завершенных [сборочных заданиях](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) после продажи или отмены заказа.
+			Метод возвращает информацию о завершенных [сборочных заданиях](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) после продажи или отмены заказа.
 
-Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
+		Можно получить данные за заданный период, максимум 30 календарных дней одним запросом.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3DbsOrdersRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV3DbsOrdersRequest
 	*/
 	GetV3DbsOrders(ctx context.Context) ApiGetV3DbsOrdersRequest
 
@@ -48,22 +47,22 @@ type DBSAPI interface {
 	GetV3DbsOrdersExecute(r ApiGetV3DbsOrdersRequest) (*GetV3DbsOrdersResponse200, *http.Response, error)
 
 	/*
-	GetV3DbsOrdersNew Получить список новых сборочных заданий
+			GetV3DbsOrdersNew Получить список новых сборочных заданий
 
-	Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders), которые есть у продавца на момент запроса.
+			Метод возвращает список всех новых [сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders), которые есть у продавца на момент запроса.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetV3DbsOrdersNewRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiGetV3DbsOrdersNewRequest
 	*/
 	GetV3DbsOrdersNew(ctx context.Context) ApiGetV3DbsOrdersNewRequest
 
@@ -72,22 +71,22 @@ type DBSAPI interface {
 	GetV3DbsOrdersNewExecute(r ApiGetV3DbsOrdersNewRequest) (*GetV3DbsOrdersNewResponse200, *http.Response, error)
 
 	/*
-	PostV3DbsGroupsInfo Получить информацию о платной доставке
+			PostV3DbsGroupsInfo Получить информацию о платной доставке
 
-	Метод возвращает информацию о платной доставке сборочных заданий, которые поступили на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`).
+			Метод возвращает информацию о платной доставке сборочных заданий, которые поступили на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`).
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsGroupsInfoRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsGroupsInfoRequest
 	*/
 	PostV3DbsGroupsInfo(ctx context.Context) ApiPostV3DbsGroupsInfoRequest
 
@@ -96,21 +95,21 @@ type DBSAPI interface {
 	PostV3DbsGroupsInfoExecute(r ApiPostV3DbsGroupsInfoRequest) ([]PostV3DbsGroupsInfoResponse200Inner, *http.Response, error)
 
 	/*
-	PostV3DbsOrdersB2bInfo Информация о покупателе B2B
+			PostV3DbsOrdersB2bInfo Информация о покупателе B2B
 
-	Метод возвращает данные B2B-покупателей по ID сборочных заданий:
-- ИНН
-- КПП
-- Наименование организации
+			Метод возвращает данные B2B-покупателей по ID сборочных заданий:
+		- ИНН
+		- КПП
+		- Наименование организации
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsOrdersB2bInfoRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsOrdersB2bInfoRequest
 	*/
 	PostV3DbsOrdersB2bInfo(ctx context.Context) ApiPostV3DbsOrdersB2bInfoRequest
 
@@ -119,22 +118,22 @@ type DBSAPI interface {
 	PostV3DbsOrdersB2bInfoExecute(r ApiPostV3DbsOrdersB2bInfoRequest) (*ApiB2bClientInfoResponses, *http.Response, error)
 
 	/*
-	PostV3DbsOrdersClient Информация о покупателе
+			PostV3DbsOrdersClient Информация о покупателе
 
-	Метод возвращает информацию о покупателе по ID сборочных заданий.
+			Метод возвращает информацию о покупателе по ID сборочных заданий.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsOrdersClientRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsOrdersClientRequest
 	*/
 	PostV3DbsOrdersClient(ctx context.Context) ApiPostV3DbsOrdersClientRequest
 
@@ -143,22 +142,22 @@ type DBSAPI interface {
 	PostV3DbsOrdersClientExecute(r ApiPostV3DbsOrdersClientRequest) (*DbsOnlyClientInfoResp, *http.Response, error)
 
 	/*
-	PostV3DbsOrdersDeliveryDate Получить дату и время доставки
+			PostV3DbsOrdersDeliveryDate Получить дату и время доставки
 
-	Метод возвращает информацию о выбранных покупателем дате и времени доставки заказов.
+			Метод возвращает информацию о выбранных покупателем дате и времени доставки заказов.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsOrdersDeliveryDateRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsOrdersDeliveryDateRequest
 	*/
 	PostV3DbsOrdersDeliveryDate(ctx context.Context) ApiPostV3DbsOrdersDeliveryDateRequest
 
@@ -167,20 +166,20 @@ type DBSAPI interface {
 	PostV3DbsOrdersDeliveryDateExecute(r ApiPostV3DbsOrdersDeliveryDateRequest) (*DeliveryDatesInfoResp, *http.Response, error)
 
 	/*
-	PostV3DbsOrdersFinalPrice Получить цены продавца и суммы к оплате
+			PostV3DbsOrdersFinalPrice Получить цены продавца и суммы к оплате
 
-	Метод возвращает:
-- цены продавца без учёта скидок
-- суммы к оплате покупателем с учетом всех скидок и кэшбека
+			Метод возвращает:
+		- цены продавца без учёта скидок
+		- суммы к оплате покупателем с учетом всех скидок и кэшбека
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки DBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 150 запросов | 400 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки DBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 150 запросов | 400 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsOrdersFinalPriceRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsOrdersFinalPriceRequest
 	*/
 	PostV3DbsOrdersFinalPrice(ctx context.Context) ApiPostV3DbsOrdersFinalPriceRequest
 
@@ -189,26 +188,26 @@ type DBSAPI interface {
 	PostV3DbsOrdersFinalPriceExecute(r ApiPostV3DbsOrdersFinalPriceRequest) (*ApiOrdersFinalPriceResponse, *http.Response, error)
 
 	/*
-	PostV3DbsOrdersMetaCustomsDeclaration Закрепить номера ДТ за сборочными заданиями
+			PostV3DbsOrdersMetaCustomsDeclaration Закрепить номера ДТ за сборочными заданиями
 
-	Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ.
-Закрепить номер ДТ можно, только если выполняются все условия:
-- сборочное задание имеет признак B2B-продажи — `"isB2b":true` в ответе метода [получения новых сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew)
-- сборочное задание находится в [статусах](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`
-- поле `customsDeclaration` есть в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails)
+			Метод обновляет номера ДТ — деклараций на товары — и коды стран происхождения товаров в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один номер ДТ.
+		Закрепить номер ДТ можно, только если выполняются все условия:
+		- сборочное задание имеет признак B2B-продажи — `"isB2b":true` в ответе метода [получения новых сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew)
+		- сборочное задание находится в [статусах](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` или `deliver`
+		- поле `customsDeclaration` есть в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails)
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 500 запросов | 120 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 500 запросов | 120 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsOrdersMetaCustomsDeclarationRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsOrdersMetaCustomsDeclarationRequest
 	*/
 	PostV3DbsOrdersMetaCustomsDeclaration(ctx context.Context) ApiPostV3DbsOrdersMetaCustomsDeclarationRequest
 
@@ -217,29 +216,29 @@ type DBSAPI interface {
 	PostV3DbsOrdersMetaCustomsDeclarationExecute(r ApiPostV3DbsOrdersMetaCustomsDeclarationRequest) (*ApiStatusSetResponses, *http.Response, error)
 
 	/*
-	PostV3DbsOrdersMetaDelete Удалить идентификаторы маркировки сборочных заданий
+			PostV3DbsOrdersMetaDelete Удалить идентификаторы маркировки сборочных заданий
 
-	Метод удаляет значение указанных [идентификаторов маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
+			Метод удаляет значение указанных [идентификаторов маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
 
-В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:
-- `imei` — [IMEI](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)
-- `uin` — [УИН](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)
-- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)
-- `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)
-- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`
+		В одном запросе можно удалить идентификаторы маркировки только одного типа. Укажите тип идентификаторов маркировки в запросе:
+		- `imei` — [IMEI](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)
+		- `uin` — [УИН](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)
+		- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)
+		- `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)
+		- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration). При удалении номера ДТ также удаляется код страны происхождения товара — `originCountryCode`
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки DBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 150 запросов | 400 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки DBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 150 запросов | 400 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsOrdersMetaDeleteRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsOrdersMetaDeleteRequest
 	*/
 	PostV3DbsOrdersMetaDelete(ctx context.Context) ApiPostV3DbsOrdersMetaDeleteRequest
 
@@ -248,27 +247,27 @@ type DBSAPI interface {
 	PostV3DbsOrdersMetaDeleteExecute(r ApiPostV3DbsOrdersMetaDeleteRequest) (*ApiStatusSetResponses, *http.Response, error)
 
 	/*
-	PostV3DbsOrdersMetaDetails Получить идентификаторы маркировки сборочных заданий
+			PostV3DbsOrdersMetaDetails Получить идентификаторы маркировки сборочных заданий
 
-	Метод возвращает идентификаторы маркировки [сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) и статусы их проверки.
+			Метод возвращает идентификаторы маркировки [сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) и статусы их проверки.
 
-Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.
-Возможные идентификаторы маркировки:
-- `imei` — [IMEI](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)
-- `uin` — [УИН](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)
-- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)
-- `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)
-- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)
-- `originCountryCode` — [числовой код страны происхождения товара](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
+		Перечень идентификаторов маркировки, доступных для сборочного задания, можно получить в [списке новых сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew), поле `requiredMeta`. Если поле `requiredMeta` не содержит какой-либо идентификатор маркировки, значит, у сборочного задания не может быть этого идентификатора — и добавить его нельзя.
+		Возможные идентификаторы маркировки:
+		- `imei` — [IMEI](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)
+		- `uin` — [УИН](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)
+		- `gtin` — [GTIN](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)
+		- `sgtin` — [код маркировки Честного знака](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)
+		- `customsDeclaration` — [номер ДТ](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)
+		- `originCountryCode` — [числовой код страны происхождения товара](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration) из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269)
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки DBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **получения и удаления идентификаторов маркировки DBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsOrdersMetaDetailsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsOrdersMetaDetailsRequest
 	*/
 	PostV3DbsOrdersMetaDetails(ctx context.Context) ApiPostV3DbsOrdersMetaDetailsRequest
 
@@ -277,23 +276,23 @@ type DBSAPI interface {
 	PostV3DbsOrdersMetaDetailsExecute(r ApiPostV3DbsOrdersMetaDetailsRequest) (*ApiOrdersMetaDetailsResponse, *http.Response, error)
 
 	/*
-	PostV3DbsOrdersMetaGtin Закрепить GTIN за сборочными заданиями
+			PostV3DbsOrdersMetaGtin Закрепить GTIN за сборочными заданиями
 
-	Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один GTIN.
-Закрепить GTIN можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `gtin`.
+			Метод обновляет GTIN, уникальный ID товара в Беларуси, в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails). У одного сборочного задания может быть только один GTIN.
+		Закрепить GTIN можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `gtin`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 500 запросов | 120 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 500 запросов | 120 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsOrdersMetaGtinRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsOrdersMetaGtinRequest
 	*/
 	PostV3DbsOrdersMetaGtin(ctx context.Context) ApiPostV3DbsOrdersMetaGtinRequest
 
@@ -302,24 +301,24 @@ type DBSAPI interface {
 	PostV3DbsOrdersMetaGtinExecute(r ApiPostV3DbsOrdersMetaGtinRequest) (*ApiStatusSetResponses, *http.Response, error)
 
 	/*
-	PostV3DbsOrdersMetaImei Закрепить IMEI за сборочными заданиями
+			PostV3DbsOrdersMetaImei Закрепить IMEI за сборочными заданиями
 
-	Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
-У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — \*\*IMEI\*\* и \*\*IMEI2\*\* или \*\*IMEI1\*\* и \*\*IMEI2\*\* — укажите только \*\*IMEI\*\* или \*\*IMEI1\*\*. \*\*IMEI2\*\* указывать не нужно.
-Закрепить IMEI можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `imei`.
+			Метод обновляет IMEI в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
+		У одного сборочного задания может быть только один IMEI. Если у устройства два IMEI — \*\*IMEI\*\* и \*\*IMEI2\*\* или \*\*IMEI1\*\* и \*\*IMEI2\*\* — укажите только \*\*IMEI\*\* или \*\*IMEI1\*\*. \*\*IMEI2\*\* указывать не нужно.
+		Закрепить IMEI можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `imei`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 500 запросов | 120 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 500 запросов | 120 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsOrdersMetaImeiRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsOrdersMetaImeiRequest
 	*/
 	PostV3DbsOrdersMetaImei(ctx context.Context) ApiPostV3DbsOrdersMetaImeiRequest
 
@@ -328,28 +327,28 @@ type DBSAPI interface {
 	PostV3DbsOrdersMetaImeiExecute(r ApiPostV3DbsOrdersMetaImeiRequest) (*ApiStatusSetResponses, *http.Response, error)
 
 	/*
-	PostV3DbsOrdersMetaSgtin Закрепить коды маркировки Честного знака за сборочными заданиями
+			PostV3DbsOrdersMetaSgtin Закрепить коды маркировки Честного знака за сборочными заданиями
 
-	Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
-Закрепить код маркировки можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `sgtin`.
+			Метод обновляет код маркировки [Честного знака](https://честныйзнак.рф/) в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
+		Закрепить код маркировки можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `sgtin`.
 
-Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
+		Получить загруженные маркировки можно в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
-| Тип | Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- | --- |
-| Персональный | 1 мин | 500 запросов | 120 мс | 20 запросов |
-| Сервисный | 1 мин | 500 запросов | 120 мс | 20 запросов |
-| Базовый с секретом | 1 мин | 500 запросов | 120 мс | 20 запросов |
-| Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
+		| Тип | Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- | --- |
+		| Персональный | 1 мин | 500 запросов | 120 мс | 20 запросов |
+		| Сервисный | 1 мин | 500 запросов | 120 мс | 20 запросов |
+		| Базовый с секретом | 1 мин | 500 запросов | 120 мс | 20 запросов |
+		| Базовый | 1 ч | 10 запросов | 6 мин | 1 запрос |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsOrdersMetaSgtinRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsOrdersMetaSgtinRequest
 	*/
 	PostV3DbsOrdersMetaSgtin(ctx context.Context) ApiPostV3DbsOrdersMetaSgtinRequest
 
@@ -358,24 +357,24 @@ type DBSAPI interface {
 	PostV3DbsOrdersMetaSgtinExecute(r ApiPostV3DbsOrdersMetaSgtinRequest) (*ApiStatusSetResponses, *http.Response, error)
 
 	/*
-	PostV3DbsOrdersMetaUin Закрепить УИН за сборочными заданиями
+			PostV3DbsOrdersMetaUin Закрепить УИН за сборочными заданиями
 
-	Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
-У одного сборочного задания может быть только один УИН.
-Закрепить УИН можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `uin`.
+			Метод обновляет УИН, уникальные идентификационные номера, в [идентификаторах маркировки сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails).
+		У одного сборочного задания может быть только один УИН.
+		Закрепить УИН можно только за сборочным заданием в [статусе](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` и если в [идентификаторах маркировки сборочного задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails) есть поле `uin`.
 
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 500 запросов | 120 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов **закрепления идентификаторов маркировки DBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 500 запросов | 120 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsOrdersMetaUinRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsOrdersMetaUinRequest
 	*/
 	PostV3DbsOrdersMetaUin(ctx context.Context) ApiPostV3DbsOrdersMetaUinRequest
 
@@ -384,23 +383,23 @@ type DBSAPI interface {
 	PostV3DbsOrdersMetaUinExecute(r ApiPostV3DbsOrdersMetaUinRequest) (*ApiStatusSetResponses, *http.Response, error)
 
 	/*
-	PostV3DbsOrdersStatusCancel Отменить сборочные задания
+			PostV3DbsOrdersStatusCancel Отменить сборочные задания
 
-	Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статусов](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` и `confirm` в статус `cancel` — отменено продавцом.
-Отменить сборочные задания в статусе `deliver` невозможно.
+			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статусов](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` и `confirm` в статус `cancel` — отменено продавцом.
+		Отменить сборочные задания в статусе `deliver` невозможно.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 10 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 сек | 1 запрос | 1 сек | 10 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsOrdersStatusCancelRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsOrdersStatusCancelRequest
 	*/
 	PostV3DbsOrdersStatusCancel(ctx context.Context) ApiPostV3DbsOrdersStatusCancelRequest
 
@@ -409,22 +408,22 @@ type DBSAPI interface {
 	PostV3DbsOrdersStatusCancelExecute(r ApiPostV3DbsOrdersStatusCancelRequest) (*ApiStatusSetResponses, *http.Response, error)
 
 	/*
-	PostV3DbsOrdersStatusConfirm Перевести сборочные задания на сборку
+			PostV3DbsOrdersStatusConfirm Перевести сборочные задания на сборку
 
-	Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` в статус `confirm` — на сборке.
+			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `new` в статус `confirm` — на сборке.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 10 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 сек | 1 запрос | 1 сек | 10 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsOrdersStatusConfirmRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsOrdersStatusConfirmRequest
 	*/
 	PostV3DbsOrdersStatusConfirm(ctx context.Context) ApiPostV3DbsOrdersStatusConfirmRequest
 
@@ -433,22 +432,22 @@ type DBSAPI interface {
 	PostV3DbsOrdersStatusConfirmExecute(r ApiPostV3DbsOrdersStatusConfirmRequest) (*ApiStatusSetResponses, *http.Response, error)
 
 	/*
-	PostV3DbsOrdersStatusDeliver Перевести сборочные задания в доставку
+			PostV3DbsOrdersStatusDeliver Перевести сборочные задания в доставку
 
-	Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` в статус `deliver` — в доставке.
+			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `confirm` в статус `deliver` — в доставке.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 10 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 сек | 1 запрос | 1 сек | 10 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsOrdersStatusDeliverRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsOrdersStatusDeliverRequest
 	*/
 	PostV3DbsOrdersStatusDeliver(ctx context.Context) ApiPostV3DbsOrdersStatusDeliverRequest
 
@@ -457,47 +456,47 @@ type DBSAPI interface {
 	PostV3DbsOrdersStatusDeliverExecute(r ApiPostV3DbsOrdersStatusDeliverRequest) (*ApiStatusSetDeliverResponses, *http.Response, error)
 
 	/*
-	PostV3DbsOrdersStatusInfo Получить статусы сборочных заданий
+			PostV3DbsOrdersStatusInfo Получить статусы сборочных заданий
 
-	Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) по их ID.
+			Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) по их ID.
 
-`supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.
-Возможные значения `supplierStatus`:
-| Статус | Описание | Как перевести сборочное задание в данный статус |
-| ------- | --------- | --------------------------------------|
-| `new` | \*\*Новое сборочное задание\*\* | |
-| `confirm` | \*\*На сборке\*\* | [Перевести сборочное задание на сборку](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusConfirm)
-| `deliver` | \*\*В доставке\*\* | [Перевести сборочное задание в доставку](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusDeliver)
-| `receive` | \*\*Получено покупателем\*\* | [Сообщить, что заказ принят покупателем](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReceive)
-| `reject` | \*\*Отказ покупателя при получении\*\* | [Сообщить, что покупатель отказался от заказа](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReject)
-| `cancel` | \*\*Отменено продавцом\*\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusCancel)
-| `cancel\_missed\_call` | \*\*Отмена по причине недозвона\*\* | Статус меняется автоматически |
+		`supplierStatus` — статус сборочного задания. Триггер его изменения — действие самого продавца.
+		Возможные значения `supplierStatus`:
+		| Статус | Описание | Как перевести сборочное задание в данный статус |
+		| ------- | --------- | --------------------------------------|
+		| `new` | \*\*Новое сборочное задание\*\* | |
+		| `confirm` | \*\*На сборке\*\* | [Перевести сборочное задание на сборку](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusConfirm)
+		| `deliver` | \*\*В доставке\*\* | [Перевести сборочное задание в доставку](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusDeliver)
+		| `receive` | \*\*Получено покупателем\*\* | [Сообщить, что заказ принят покупателем](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReceive)
+		| `reject` | \*\*Отказ покупателя при получении\*\* | [Сообщить, что покупатель отказался от заказа](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReject)
+		| `cancel` | \*\*Отменено продавцом\*\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusCancel)
+		| `cancel\_missed\_call` | \*\*Отмена по причине недозвона\*\* | Статус меняется автоматически |
 
-`wbStatus` — статус системы Wildberries.
-Возможные значения `wbStatus`:
-- `waiting` — сборочное задание в работе
-- `sold` — заказ получен покупателем
-- `canceled` — отмена сборочного задания
-- `canceled\_by\_client` — покупатель отменил заказ при получении
-- `declined\_by\_client` — покупатель отменил заказ в первый чаc
+		`wbStatus` — статус системы Wildberries.
+		Возможные значения `wbStatus`:
+		- `waiting` — сборочное задание в работе
+		- `sold` — заказ получен покупателем
+		- `canceled` — отмена сборочного задания
+		- `canceled\_by\_client` — покупатель отменил заказ при получении
+		- `declined\_by\_client` — покупатель отменил заказ в первый чаc
 
- Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку
-- `defect` — отмена заказа по причине брака
-- `ready\_for\_pickup` — заказ прибыл на ПВЗ
-- `canceled\_by\_missed\_call` — отмена по причине недозвона
+		 Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку
+		- `defect` — отмена заказа по причине брака
+		- `ready\_for\_pickup` — заказ прибыл на ПВЗ
+		- `canceled\_by\_missed\_call` — отмена по причине недозвона
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsOrdersStatusInfoRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsOrdersStatusInfoRequest
 	*/
 	PostV3DbsOrdersStatusInfo(ctx context.Context) ApiPostV3DbsOrdersStatusInfoRequest
 
@@ -506,22 +505,22 @@ type DBSAPI interface {
 	PostV3DbsOrdersStatusInfoExecute(r ApiPostV3DbsOrdersStatusInfoRequest) (*ApiOrderStatusesV2, *http.Response, error)
 
 	/*
-	PostV3DbsOrdersStatusReceive Сообщить о получении заказов
+			PostV3DbsOrdersStatusReceive Сообщить о получении заказов
 
-	Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `deliver` в статус `receive` — получено покупателем.
+			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `deliver` в статус `receive` — получено покупателем.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 10 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 сек | 1 запрос | 1 сек | 10 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsOrdersStatusReceiveRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsOrdersStatusReceiveRequest
 	*/
 	PostV3DbsOrdersStatusReceive(ctx context.Context) ApiPostV3DbsOrdersStatusReceiveRequest
 
@@ -530,22 +529,22 @@ type DBSAPI interface {
 	PostV3DbsOrdersStatusReceiveExecute(r ApiPostV3DbsOrdersStatusReceiveRequest) (*PostV3DbsOrdersStatusReceiveResponse200, *http.Response, error)
 
 	/*
-	PostV3DbsOrdersStatusReject Сообщить об отказе от заказов
+			PostV3DbsOrdersStatusReject Сообщить об отказе от заказов
 
-	Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `deliver` в статус `reject` — отказ покупателя при получении.
+			Метод переводит [сборочные задания](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders) из [статуса](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo) `deliver` в статус `reject` — отказ покупателя при получении.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 сек | 1 запрос | 1 сек | 10 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 сек | 1 запрос | 1 сек | 10 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов.
 
----
+		---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsOrdersStatusRejectRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsOrdersStatusRejectRequest
 	*/
 	PostV3DbsOrdersStatusReject(ctx context.Context) ApiPostV3DbsOrdersStatusRejectRequest
 
@@ -554,26 +553,26 @@ type DBSAPI interface {
 	PostV3DbsOrdersStatusRejectExecute(r ApiPostV3DbsOrdersStatusRejectRequest) (*ApiStatusSetResponses, *http.Response, error)
 
 	/*
-	PostV3DbsOrdersStickers Получить стикеры для сборочных заданий с доставкой в ПВЗ
+			PostV3DbsOrdersStickers Получить стикеры для сборочных заданий с доставкой в ПВЗ
 
-	Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену,
-**Сервисному** токену,
-**Базовому** токену **с секретом**
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену,
+		**Сервисному** токену,
+		**Базовому** токену **с секретом**
 
-Метод возвращает стикеры для сборочных заданий с доставкой в ПВЗ в [статусах](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo):
-- `confirm` — на сборке
-- `deliver` — в доставке
-Получить стикеры можно только в размере 580x400 px в формате PDF.
+		Метод возвращает стикеры для сборочных заданий с доставкой в ПВЗ в [статусах](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusInfo):
+		- `confirm` — на сборке
+		- `deliver` — в доставке
+		Получить стикеры можно только в размере 580x400 px в формате PDF.
 
-[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 300 запросов | 200 мс | 20 запросов |
-Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+		[Лимит запросов](https://dev.wildberries.ru/docs/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий DBS**:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 300 запросов | 200 мс | 20 запросов |
+		Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostV3DbsOrdersStickersRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV3DbsOrdersStickersRequest
 	*/
 	PostV3DbsOrdersStickers(ctx context.Context) ApiPostV3DbsOrdersStickersRequest
 
@@ -586,12 +585,12 @@ type DBSAPI interface {
 type DBSAPIService service
 
 type ApiGetV3DbsOrdersRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DBSAPI
-	limit *int32
-	next *int64
-	dateFrom *int32
-	dateTo *int32
+	limit      *int32
+	next       *int64
+	dateFrom   *int32
+	dateTo     *int32
 }
 
 // Параметр пагинации. Устанавливает предельное количество возвращаемых данных.
@@ -606,7 +605,7 @@ func (r ApiGetV3DbsOrdersRequest) Next(next int64) ApiGetV3DbsOrdersRequest {
 	return r
 }
 
-// Дата начала периода в формате Unix timestamp 
+// Дата начала периода в формате Unix timestamp
 func (r ApiGetV3DbsOrdersRequest) DateFrom(dateFrom int32) ApiGetV3DbsOrdersRequest {
 	r.dateFrom = &dateFrom
 	return r
@@ -639,24 +638,25 @@ GetV3DbsOrders Получить информацию о завершенных �
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV3DbsOrdersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3DbsOrdersRequest
 */
 func (a *DBSAPIService) GetV3DbsOrders(ctx context.Context) ApiGetV3DbsOrdersRequest {
 	return ApiGetV3DbsOrdersRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV3DbsOrdersResponse200
+//
+//	@return GetV3DbsOrdersResponse200
 func (a *DBSAPIService) GetV3DbsOrdersExecute(r ApiGetV3DbsOrdersRequest) (*GetV3DbsOrdersResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV3DbsOrdersResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV3DbsOrdersResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.GetV3DbsOrders")
@@ -709,20 +709,6 @@ func (a *DBSAPIService) GetV3DbsOrdersExecute(r ApiGetV3DbsOrdersRequest) (*GetV
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -752,8 +738,8 @@ func (a *DBSAPIService) GetV3DbsOrdersExecute(r ApiGetV3DbsOrdersRequest) (*GetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -763,8 +749,8 @@ func (a *DBSAPIService) GetV3DbsOrdersExecute(r ApiGetV3DbsOrdersRequest) (*GetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -774,8 +760,8 @@ func (a *DBSAPIService) GetV3DbsOrdersExecute(r ApiGetV3DbsOrdersRequest) (*GetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -785,8 +771,8 @@ func (a *DBSAPIService) GetV3DbsOrdersExecute(r ApiGetV3DbsOrdersRequest) (*GetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -796,8 +782,8 @@ func (a *DBSAPIService) GetV3DbsOrdersExecute(r ApiGetV3DbsOrdersRequest) (*GetV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -815,7 +801,7 @@ func (a *DBSAPIService) GetV3DbsOrdersExecute(r ApiGetV3DbsOrdersRequest) (*GetV
 }
 
 type ApiGetV3DbsOrdersNewRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService DBSAPI
 }
 
@@ -838,24 +824,25 @@ GetV3DbsOrdersNew Получить список новых сборочных з
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetV3DbsOrdersNewRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetV3DbsOrdersNewRequest
 */
 func (a *DBSAPIService) GetV3DbsOrdersNew(ctx context.Context) ApiGetV3DbsOrdersNewRequest {
 	return ApiGetV3DbsOrdersNewRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetV3DbsOrdersNewResponse200
+//
+//	@return GetV3DbsOrdersNewResponse200
 func (a *DBSAPIService) GetV3DbsOrdersNewExecute(r ApiGetV3DbsOrdersNewRequest) (*GetV3DbsOrdersNewResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetV3DbsOrdersNewResponse200
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetV3DbsOrdersNewResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.GetV3DbsOrdersNew")
@@ -886,20 +873,6 @@ func (a *DBSAPIService) GetV3DbsOrdersNewExecute(r ApiGetV3DbsOrdersNewRequest) 
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -929,8 +902,8 @@ func (a *DBSAPIService) GetV3DbsOrdersNewExecute(r ApiGetV3DbsOrdersNewRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -940,8 +913,8 @@ func (a *DBSAPIService) GetV3DbsOrdersNewExecute(r ApiGetV3DbsOrdersNewRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -951,8 +924,8 @@ func (a *DBSAPIService) GetV3DbsOrdersNewExecute(r ApiGetV3DbsOrdersNewRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -962,8 +935,8 @@ func (a *DBSAPIService) GetV3DbsOrdersNewExecute(r ApiGetV3DbsOrdersNewRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -981,8 +954,8 @@ func (a *DBSAPIService) GetV3DbsOrdersNewExecute(r ApiGetV3DbsOrdersNewRequest) 
 }
 
 type ApiPostV3DbsGroupsInfoRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
+	ctx                   context.Context
+	ApiService            DBSAPI
 	apiOrderGroupsRequest *ApiOrderGroupsRequest
 }
 
@@ -1010,24 +983,25 @@ PostV3DbsGroupsInfo Получить информацию о платной до
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsGroupsInfoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsGroupsInfoRequest
 */
 func (a *DBSAPIService) PostV3DbsGroupsInfo(ctx context.Context) ApiPostV3DbsGroupsInfoRequest {
 	return ApiPostV3DbsGroupsInfoRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []PostV3DbsGroupsInfoResponse200Inner
+//
+//	@return []PostV3DbsGroupsInfoResponse200Inner
 func (a *DBSAPIService) PostV3DbsGroupsInfoExecute(r ApiPostV3DbsGroupsInfoRequest) ([]PostV3DbsGroupsInfoResponse200Inner, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []PostV3DbsGroupsInfoResponse200Inner
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []PostV3DbsGroupsInfoResponse200Inner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsGroupsInfo")
@@ -1092,8 +1066,8 @@ func (a *DBSAPIService) PostV3DbsGroupsInfoExecute(r ApiPostV3DbsGroupsInfoReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1103,8 +1077,8 @@ func (a *DBSAPIService) PostV3DbsGroupsInfoExecute(r ApiPostV3DbsGroupsInfoReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1114,8 +1088,8 @@ func (a *DBSAPIService) PostV3DbsGroupsInfoExecute(r ApiPostV3DbsGroupsInfoReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1125,8 +1099,8 @@ func (a *DBSAPIService) PostV3DbsGroupsInfoExecute(r ApiPostV3DbsGroupsInfoReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1136,8 +1110,8 @@ func (a *DBSAPIService) PostV3DbsGroupsInfoExecute(r ApiPostV3DbsGroupsInfoReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1155,8 +1129,8 @@ func (a *DBSAPIService) PostV3DbsGroupsInfoExecute(r ApiPostV3DbsGroupsInfoReque
 }
 
 type ApiPostV3DbsOrdersB2bInfoRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
+	ctx                context.Context
+	ApiService         DBSAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -1183,24 +1157,25 @@ PostV3DbsOrdersB2bInfo Информация о покупателе B2B
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersB2bInfoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsOrdersB2bInfoRequest
 */
 func (a *DBSAPIService) PostV3DbsOrdersB2bInfo(ctx context.Context) ApiPostV3DbsOrdersB2bInfoRequest {
 	return ApiPostV3DbsOrdersB2bInfoRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiB2bClientInfoResponses
+//
+//	@return ApiB2bClientInfoResponses
 func (a *DBSAPIService) PostV3DbsOrdersB2bInfoExecute(r ApiPostV3DbsOrdersB2bInfoRequest) (*ApiB2bClientInfoResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiB2bClientInfoResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiB2bClientInfoResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersB2bInfo")
@@ -1236,20 +1211,6 @@ func (a *DBSAPIService) PostV3DbsOrdersB2bInfoExecute(r ApiPostV3DbsOrdersB2bInf
 	}
 	// body params
 	localVarPostBody = r.apiOrdersRequestV2
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1279,8 +1240,8 @@ func (a *DBSAPIService) PostV3DbsOrdersB2bInfoExecute(r ApiPostV3DbsOrdersB2bInf
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1290,8 +1251,8 @@ func (a *DBSAPIService) PostV3DbsOrdersB2bInfoExecute(r ApiPostV3DbsOrdersB2bInf
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1301,8 +1262,8 @@ func (a *DBSAPIService) PostV3DbsOrdersB2bInfoExecute(r ApiPostV3DbsOrdersB2bInf
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1312,8 +1273,8 @@ func (a *DBSAPIService) PostV3DbsOrdersB2bInfoExecute(r ApiPostV3DbsOrdersB2bInf
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1323,8 +1284,8 @@ func (a *DBSAPIService) PostV3DbsOrdersB2bInfoExecute(r ApiPostV3DbsOrdersB2bInf
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1342,8 +1303,8 @@ func (a *DBSAPIService) PostV3DbsOrdersB2bInfoExecute(r ApiPostV3DbsOrdersB2bInf
 }
 
 type ApiPostV3DbsOrdersClientRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
+	ctx              context.Context
+	ApiService       DBSAPI
 	ordersRequestAPI *OrdersRequestAPI
 }
 
@@ -1371,24 +1332,25 @@ PostV3DbsOrdersClient Информация о покупателе
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersClientRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsOrdersClientRequest
 */
 func (a *DBSAPIService) PostV3DbsOrdersClient(ctx context.Context) ApiPostV3DbsOrdersClientRequest {
 	return ApiPostV3DbsOrdersClientRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return DbsOnlyClientInfoResp
+//
+//	@return DbsOnlyClientInfoResp
 func (a *DBSAPIService) PostV3DbsOrdersClientExecute(r ApiPostV3DbsOrdersClientRequest) (*DbsOnlyClientInfoResp, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DbsOnlyClientInfoResp
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DbsOnlyClientInfoResp
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersClient")
@@ -1424,20 +1386,6 @@ func (a *DBSAPIService) PostV3DbsOrdersClientExecute(r ApiPostV3DbsOrdersClientR
 	}
 	// body params
 	localVarPostBody = r.ordersRequestAPI
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1467,8 +1415,8 @@ func (a *DBSAPIService) PostV3DbsOrdersClientExecute(r ApiPostV3DbsOrdersClientR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1478,8 +1426,8 @@ func (a *DBSAPIService) PostV3DbsOrdersClientExecute(r ApiPostV3DbsOrdersClientR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1489,8 +1437,8 @@ func (a *DBSAPIService) PostV3DbsOrdersClientExecute(r ApiPostV3DbsOrdersClientR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1500,8 +1448,8 @@ func (a *DBSAPIService) PostV3DbsOrdersClientExecute(r ApiPostV3DbsOrdersClientR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1511,8 +1459,8 @@ func (a *DBSAPIService) PostV3DbsOrdersClientExecute(r ApiPostV3DbsOrdersClientR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1522,8 +1470,8 @@ func (a *DBSAPIService) PostV3DbsOrdersClientExecute(r ApiPostV3DbsOrdersClientR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1541,8 +1489,8 @@ func (a *DBSAPIService) PostV3DbsOrdersClientExecute(r ApiPostV3DbsOrdersClientR
 }
 
 type ApiPostV3DbsOrdersDeliveryDateRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
+	ctx                  context.Context
+	ApiService           DBSAPI
 	deliveryDatesRequest *DeliveryDatesRequest
 }
 
@@ -1570,24 +1518,25 @@ PostV3DbsOrdersDeliveryDate Получить дату и время достав
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersDeliveryDateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsOrdersDeliveryDateRequest
 */
 func (a *DBSAPIService) PostV3DbsOrdersDeliveryDate(ctx context.Context) ApiPostV3DbsOrdersDeliveryDateRequest {
 	return ApiPostV3DbsOrdersDeliveryDateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return DeliveryDatesInfoResp
+//
+//	@return DeliveryDatesInfoResp
 func (a *DBSAPIService) PostV3DbsOrdersDeliveryDateExecute(r ApiPostV3DbsOrdersDeliveryDateRequest) (*DeliveryDatesInfoResp, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeliveryDatesInfoResp
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeliveryDatesInfoResp
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersDeliveryDate")
@@ -1623,20 +1572,6 @@ func (a *DBSAPIService) PostV3DbsOrdersDeliveryDateExecute(r ApiPostV3DbsOrdersD
 	}
 	// body params
 	localVarPostBody = r.deliveryDatesRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1666,8 +1601,8 @@ func (a *DBSAPIService) PostV3DbsOrdersDeliveryDateExecute(r ApiPostV3DbsOrdersD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1677,8 +1612,8 @@ func (a *DBSAPIService) PostV3DbsOrdersDeliveryDateExecute(r ApiPostV3DbsOrdersD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -1688,8 +1623,8 @@ func (a *DBSAPIService) PostV3DbsOrdersDeliveryDateExecute(r ApiPostV3DbsOrdersD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1699,8 +1634,8 @@ func (a *DBSAPIService) PostV3DbsOrdersDeliveryDateExecute(r ApiPostV3DbsOrdersD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1710,8 +1645,8 @@ func (a *DBSAPIService) PostV3DbsOrdersDeliveryDateExecute(r ApiPostV3DbsOrdersD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1729,8 +1664,8 @@ func (a *DBSAPIService) PostV3DbsOrdersDeliveryDateExecute(r ApiPostV3DbsOrdersD
 }
 
 type ApiPostV3DbsOrdersFinalPriceRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
+	ctx              context.Context
+	ApiService       DBSAPI
 	ordersRequestAPI *OrdersRequestAPI
 }
 
@@ -1756,24 +1691,25 @@ PostV3DbsOrdersFinalPrice Получить цены продавца и сумм
 | 1 мин | 150 запросов | 400 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersFinalPriceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsOrdersFinalPriceRequest
 */
 func (a *DBSAPIService) PostV3DbsOrdersFinalPrice(ctx context.Context) ApiPostV3DbsOrdersFinalPriceRequest {
 	return ApiPostV3DbsOrdersFinalPriceRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiOrdersFinalPriceResponse
+//
+//	@return ApiOrdersFinalPriceResponse
 func (a *DBSAPIService) PostV3DbsOrdersFinalPriceExecute(r ApiPostV3DbsOrdersFinalPriceRequest) (*ApiOrdersFinalPriceResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiOrdersFinalPriceResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiOrdersFinalPriceResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersFinalPrice")
@@ -1835,8 +1771,8 @@ func (a *DBSAPIService) PostV3DbsOrdersFinalPriceExecute(r ApiPostV3DbsOrdersFin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1846,8 +1782,8 @@ func (a *DBSAPIService) PostV3DbsOrdersFinalPriceExecute(r ApiPostV3DbsOrdersFin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1857,8 +1793,8 @@ func (a *DBSAPIService) PostV3DbsOrdersFinalPriceExecute(r ApiPostV3DbsOrdersFin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1868,8 +1804,8 @@ func (a *DBSAPIService) PostV3DbsOrdersFinalPriceExecute(r ApiPostV3DbsOrdersFin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1887,8 +1823,8 @@ func (a *DBSAPIService) PostV3DbsOrdersFinalPriceExecute(r ApiPostV3DbsOrdersFin
 }
 
 type ApiPostV3DbsOrdersMetaCustomsDeclarationRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
+	ctx                                          context.Context
+	ApiService                                   DBSAPI
 	postV3DbsOrdersMetaCustomsDeclarationRequest *PostV3DbsOrdersMetaCustomsDeclarationRequest
 }
 
@@ -1920,24 +1856,25 @@ PostV3DbsOrdersMetaCustomsDeclaration Закрепить номера ДТ за 
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersMetaCustomsDeclarationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsOrdersMetaCustomsDeclarationRequest
 */
 func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclaration(ctx context.Context) ApiPostV3DbsOrdersMetaCustomsDeclarationRequest {
 	return ApiPostV3DbsOrdersMetaCustomsDeclarationRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiStatusSetResponses
+//
+//	@return ApiStatusSetResponses
 func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclarationExecute(r ApiPostV3DbsOrdersMetaCustomsDeclarationRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaCustomsDeclaration")
@@ -1973,20 +1910,6 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclarationExecute(r ApiPostV3
 	}
 	// body params
 	localVarPostBody = r.postV3DbsOrdersMetaCustomsDeclarationRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2016,8 +1939,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclarationExecute(r ApiPostV3
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2027,8 +1950,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclarationExecute(r ApiPostV3
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2038,8 +1961,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclarationExecute(r ApiPostV3
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2049,8 +1972,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclarationExecute(r ApiPostV3
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2060,8 +1983,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclarationExecute(r ApiPostV3
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2071,8 +1994,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclarationExecute(r ApiPostV3
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2082,8 +2005,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclarationExecute(r ApiPostV3
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2101,8 +2024,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaCustomsDeclarationExecute(r ApiPostV3
 }
 
 type ApiPostV3DbsOrdersMetaDeleteRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
+	ctx                        context.Context
+	ApiService                 DBSAPI
 	apiOrdersMetaDeleteRequest *ApiOrdersMetaDeleteRequest
 }
 
@@ -2137,24 +2060,25 @@ PostV3DbsOrdersMetaDelete Удалить идентификаторы марки
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersMetaDeleteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsOrdersMetaDeleteRequest
 */
 func (a *DBSAPIService) PostV3DbsOrdersMetaDelete(ctx context.Context) ApiPostV3DbsOrdersMetaDeleteRequest {
 	return ApiPostV3DbsOrdersMetaDeleteRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiStatusSetResponses
+//
+//	@return ApiStatusSetResponses
 func (a *DBSAPIService) PostV3DbsOrdersMetaDeleteExecute(r ApiPostV3DbsOrdersMetaDeleteRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaDelete")
@@ -2190,20 +2114,6 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDeleteExecute(r ApiPostV3DbsOrdersMet
 	}
 	// body params
 	localVarPostBody = r.apiOrdersMetaDeleteRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2233,8 +2143,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDeleteExecute(r ApiPostV3DbsOrdersMet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2244,8 +2154,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDeleteExecute(r ApiPostV3DbsOrdersMet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2255,8 +2165,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDeleteExecute(r ApiPostV3DbsOrdersMet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2266,8 +2176,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDeleteExecute(r ApiPostV3DbsOrdersMet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2277,8 +2187,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDeleteExecute(r ApiPostV3DbsOrdersMet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2288,8 +2198,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDeleteExecute(r ApiPostV3DbsOrdersMet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2307,8 +2217,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDeleteExecute(r ApiPostV3DbsOrdersMet
 }
 
 type ApiPostV3DbsOrdersMetaDetailsRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
+	ctx                context.Context
+	ApiService         DBSAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -2341,24 +2251,25 @@ PostV3DbsOrdersMetaDetails Получить идентификаторы мар�
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersMetaDetailsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsOrdersMetaDetailsRequest
 */
 func (a *DBSAPIService) PostV3DbsOrdersMetaDetails(ctx context.Context) ApiPostV3DbsOrdersMetaDetailsRequest {
 	return ApiPostV3DbsOrdersMetaDetailsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiOrdersMetaDetailsResponse
+//
+//	@return ApiOrdersMetaDetailsResponse
 func (a *DBSAPIService) PostV3DbsOrdersMetaDetailsExecute(r ApiPostV3DbsOrdersMetaDetailsRequest) (*ApiOrdersMetaDetailsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiOrdersMetaDetailsResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiOrdersMetaDetailsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaDetails")
@@ -2394,20 +2305,6 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDetailsExecute(r ApiPostV3DbsOrdersMe
 	}
 	// body params
 	localVarPostBody = r.apiOrdersRequestV2
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2437,8 +2334,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDetailsExecute(r ApiPostV3DbsOrdersMe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2448,8 +2345,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDetailsExecute(r ApiPostV3DbsOrdersMe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2459,8 +2356,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDetailsExecute(r ApiPostV3DbsOrdersMe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2470,8 +2367,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDetailsExecute(r ApiPostV3DbsOrdersMe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2481,8 +2378,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDetailsExecute(r ApiPostV3DbsOrdersMe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2500,8 +2397,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaDetailsExecute(r ApiPostV3DbsOrdersMe
 }
 
 type ApiPostV3DbsOrdersMetaGtinRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
+	ctx                     context.Context
+	ApiService              DBSAPI
 	apiOrdersGTINSetRequest *ApiOrdersGTINSetRequest
 }
 
@@ -2530,24 +2427,25 @@ PostV3DbsOrdersMetaGtin Закрепить GTIN за сборочными зад
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersMetaGtinRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsOrdersMetaGtinRequest
 */
 func (a *DBSAPIService) PostV3DbsOrdersMetaGtin(ctx context.Context) ApiPostV3DbsOrdersMetaGtinRequest {
 	return ApiPostV3DbsOrdersMetaGtinRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiStatusSetResponses
+//
+//	@return ApiStatusSetResponses
 func (a *DBSAPIService) PostV3DbsOrdersMetaGtinExecute(r ApiPostV3DbsOrdersMetaGtinRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaGtin")
@@ -2583,20 +2481,6 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaGtinExecute(r ApiPostV3DbsOrdersMetaG
 	}
 	// body params
 	localVarPostBody = r.apiOrdersGTINSetRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2626,8 +2510,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaGtinExecute(r ApiPostV3DbsOrdersMetaG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2637,8 +2521,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaGtinExecute(r ApiPostV3DbsOrdersMetaG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2648,8 +2532,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaGtinExecute(r ApiPostV3DbsOrdersMetaG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2659,8 +2543,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaGtinExecute(r ApiPostV3DbsOrdersMetaG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2670,8 +2554,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaGtinExecute(r ApiPostV3DbsOrdersMetaG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2681,8 +2565,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaGtinExecute(r ApiPostV3DbsOrdersMetaG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2700,8 +2584,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaGtinExecute(r ApiPostV3DbsOrdersMetaG
 }
 
 type ApiPostV3DbsOrdersMetaImeiRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
+	ctx                     context.Context
+	ApiService              DBSAPI
 	apiOrdersIMEISetRequest *ApiOrdersIMEISetRequest
 }
 
@@ -2731,24 +2615,25 @@ PostV3DbsOrdersMetaImei Закрепить IMEI за сборочными зад
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersMetaImeiRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsOrdersMetaImeiRequest
 */
 func (a *DBSAPIService) PostV3DbsOrdersMetaImei(ctx context.Context) ApiPostV3DbsOrdersMetaImeiRequest {
 	return ApiPostV3DbsOrdersMetaImeiRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiStatusSetResponses
+//
+//	@return ApiStatusSetResponses
 func (a *DBSAPIService) PostV3DbsOrdersMetaImeiExecute(r ApiPostV3DbsOrdersMetaImeiRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaImei")
@@ -2784,20 +2669,6 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaImeiExecute(r ApiPostV3DbsOrdersMetaI
 	}
 	// body params
 	localVarPostBody = r.apiOrdersIMEISetRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2827,8 +2698,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaImeiExecute(r ApiPostV3DbsOrdersMetaI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2838,8 +2709,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaImeiExecute(r ApiPostV3DbsOrdersMetaI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -2849,8 +2720,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaImeiExecute(r ApiPostV3DbsOrdersMetaI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2860,8 +2731,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaImeiExecute(r ApiPostV3DbsOrdersMetaI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2871,8 +2742,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaImeiExecute(r ApiPostV3DbsOrdersMetaI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2882,8 +2753,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaImeiExecute(r ApiPostV3DbsOrdersMetaI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2901,8 +2772,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaImeiExecute(r ApiPostV3DbsOrdersMetaI
 }
 
 type ApiPostV3DbsOrdersMetaSgtinRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
+	ctx                       context.Context
+	ApiService                DBSAPI
 	apiOrdersSGTINsSetRequest *ApiOrdersSGTINsSetRequest
 }
 
@@ -2936,24 +2807,25 @@ PostV3DbsOrdersMetaSgtin Закрепить коды маркировки Чес
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersMetaSgtinRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsOrdersMetaSgtinRequest
 */
 func (a *DBSAPIService) PostV3DbsOrdersMetaSgtin(ctx context.Context) ApiPostV3DbsOrdersMetaSgtinRequest {
 	return ApiPostV3DbsOrdersMetaSgtinRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiStatusSetResponses
+//
+//	@return ApiStatusSetResponses
 func (a *DBSAPIService) PostV3DbsOrdersMetaSgtinExecute(r ApiPostV3DbsOrdersMetaSgtinRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaSgtin")
@@ -2989,20 +2861,6 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaSgtinExecute(r ApiPostV3DbsOrdersMeta
 	}
 	// body params
 	localVarPostBody = r.apiOrdersSGTINsSetRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3032,8 +2890,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaSgtinExecute(r ApiPostV3DbsOrdersMeta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3043,8 +2901,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaSgtinExecute(r ApiPostV3DbsOrdersMeta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3054,8 +2912,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaSgtinExecute(r ApiPostV3DbsOrdersMeta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3065,8 +2923,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaSgtinExecute(r ApiPostV3DbsOrdersMeta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3076,8 +2934,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaSgtinExecute(r ApiPostV3DbsOrdersMeta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3095,8 +2953,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaSgtinExecute(r ApiPostV3DbsOrdersMeta
 }
 
 type ApiPostV3DbsOrdersMetaUinRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
+	ctx                    context.Context
+	ApiService             DBSAPI
 	apiOrdersUINSetRequest *ApiOrdersUINSetRequest
 }
 
@@ -3126,24 +2984,25 @@ PostV3DbsOrdersMetaUin Закрепить УИН за сборочными за�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersMetaUinRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsOrdersMetaUinRequest
 */
 func (a *DBSAPIService) PostV3DbsOrdersMetaUin(ctx context.Context) ApiPostV3DbsOrdersMetaUinRequest {
 	return ApiPostV3DbsOrdersMetaUinRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiStatusSetResponses
+//
+//	@return ApiStatusSetResponses
 func (a *DBSAPIService) PostV3DbsOrdersMetaUinExecute(r ApiPostV3DbsOrdersMetaUinRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersMetaUin")
@@ -3179,20 +3038,6 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaUinExecute(r ApiPostV3DbsOrdersMetaUi
 	}
 	// body params
 	localVarPostBody = r.apiOrdersUINSetRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3222,8 +3067,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaUinExecute(r ApiPostV3DbsOrdersMetaUi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3233,8 +3078,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaUinExecute(r ApiPostV3DbsOrdersMetaUi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3244,8 +3089,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaUinExecute(r ApiPostV3DbsOrdersMetaUi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3255,8 +3100,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaUinExecute(r ApiPostV3DbsOrdersMetaUi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3266,8 +3111,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaUinExecute(r ApiPostV3DbsOrdersMetaUi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3277,8 +3122,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaUinExecute(r ApiPostV3DbsOrdersMetaUi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3296,8 +3141,8 @@ func (a *DBSAPIService) PostV3DbsOrdersMetaUinExecute(r ApiPostV3DbsOrdersMetaUi
 }
 
 type ApiPostV3DbsOrdersStatusCancelRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
+	ctx                context.Context
+	ApiService         DBSAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -3326,24 +3171,25 @@ PostV3DbsOrdersStatusCancel Отменить сборочные задания
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersStatusCancelRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsOrdersStatusCancelRequest
 */
 func (a *DBSAPIService) PostV3DbsOrdersStatusCancel(ctx context.Context) ApiPostV3DbsOrdersStatusCancelRequest {
 	return ApiPostV3DbsOrdersStatusCancelRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiStatusSetResponses
+//
+//	@return ApiStatusSetResponses
 func (a *DBSAPIService) PostV3DbsOrdersStatusCancelExecute(r ApiPostV3DbsOrdersStatusCancelRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStatusCancel")
@@ -3379,20 +3225,6 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusCancelExecute(r ApiPostV3DbsOrdersS
 	}
 	// body params
 	localVarPostBody = r.apiOrdersRequestV2
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3422,8 +3254,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusCancelExecute(r ApiPostV3DbsOrdersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3433,8 +3265,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusCancelExecute(r ApiPostV3DbsOrdersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3444,8 +3276,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusCancelExecute(r ApiPostV3DbsOrdersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3455,8 +3287,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusCancelExecute(r ApiPostV3DbsOrdersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3466,8 +3298,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusCancelExecute(r ApiPostV3DbsOrdersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3485,8 +3317,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusCancelExecute(r ApiPostV3DbsOrdersS
 }
 
 type ApiPostV3DbsOrdersStatusConfirmRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
+	ctx                context.Context
+	ApiService         DBSAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -3514,24 +3346,25 @@ PostV3DbsOrdersStatusConfirm Перевести сборочные задани�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersStatusConfirmRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsOrdersStatusConfirmRequest
 */
 func (a *DBSAPIService) PostV3DbsOrdersStatusConfirm(ctx context.Context) ApiPostV3DbsOrdersStatusConfirmRequest {
 	return ApiPostV3DbsOrdersStatusConfirmRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiStatusSetResponses
+//
+//	@return ApiStatusSetResponses
 func (a *DBSAPIService) PostV3DbsOrdersStatusConfirmExecute(r ApiPostV3DbsOrdersStatusConfirmRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStatusConfirm")
@@ -3567,20 +3400,6 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusConfirmExecute(r ApiPostV3DbsOrders
 	}
 	// body params
 	localVarPostBody = r.apiOrdersRequestV2
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3610,8 +3429,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusConfirmExecute(r ApiPostV3DbsOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3621,8 +3440,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusConfirmExecute(r ApiPostV3DbsOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3632,8 +3451,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusConfirmExecute(r ApiPostV3DbsOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3643,8 +3462,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusConfirmExecute(r ApiPostV3DbsOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3654,8 +3473,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusConfirmExecute(r ApiPostV3DbsOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3673,8 +3492,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusConfirmExecute(r ApiPostV3DbsOrders
 }
 
 type ApiPostV3DbsOrdersStatusDeliverRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
+	ctx                context.Context
+	ApiService         DBSAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -3702,24 +3521,25 @@ PostV3DbsOrdersStatusDeliver Перевести сборочные задани�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersStatusDeliverRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsOrdersStatusDeliverRequest
 */
 func (a *DBSAPIService) PostV3DbsOrdersStatusDeliver(ctx context.Context) ApiPostV3DbsOrdersStatusDeliverRequest {
 	return ApiPostV3DbsOrdersStatusDeliverRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiStatusSetDeliverResponses
+//
+//	@return ApiStatusSetDeliverResponses
 func (a *DBSAPIService) PostV3DbsOrdersStatusDeliverExecute(r ApiPostV3DbsOrdersStatusDeliverRequest) (*ApiStatusSetDeliverResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetDeliverResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiStatusSetDeliverResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStatusDeliver")
@@ -3755,20 +3575,6 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusDeliverExecute(r ApiPostV3DbsOrders
 	}
 	// body params
 	localVarPostBody = r.apiOrdersRequestV2
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3798,8 +3604,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusDeliverExecute(r ApiPostV3DbsOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3809,8 +3615,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusDeliverExecute(r ApiPostV3DbsOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -3820,8 +3626,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusDeliverExecute(r ApiPostV3DbsOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3831,8 +3637,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusDeliverExecute(r ApiPostV3DbsOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3842,8 +3648,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusDeliverExecute(r ApiPostV3DbsOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3861,8 +3667,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusDeliverExecute(r ApiPostV3DbsOrders
 }
 
 type ApiPostV3DbsOrdersStatusInfoRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
+	ctx                context.Context
+	ApiService         DBSAPI
 	apiOrdersRequestV2 *ApiOrdersRequestV2
 }
 
@@ -3900,7 +3706,8 @@ PostV3DbsOrdersStatusInfo Получить статусы сборочных з�
 - `canceled\_by\_client` — покупатель отменил заказ при получении
 - `declined\_by\_client` — покупатель отменил заказ в первый чаc
 
- Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку
+	Отмена доступна покупателю в первый час с момента заказа, если заказ не переведен на сборку
+
 - `defect` — отмена заказа по причине брака
 - `ready\_for\_pickup` — заказ прибыл на ПВЗ
 - `canceled\_by\_missed\_call` — отмена по причине недозвона
@@ -3915,24 +3722,25 @@ PostV3DbsOrdersStatusInfo Получить статусы сборочных з�
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersStatusInfoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsOrdersStatusInfoRequest
 */
 func (a *DBSAPIService) PostV3DbsOrdersStatusInfo(ctx context.Context) ApiPostV3DbsOrdersStatusInfoRequest {
 	return ApiPostV3DbsOrdersStatusInfoRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiOrderStatusesV2
+//
+//	@return ApiOrderStatusesV2
 func (a *DBSAPIService) PostV3DbsOrdersStatusInfoExecute(r ApiPostV3DbsOrdersStatusInfoRequest) (*ApiOrderStatusesV2, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiOrderStatusesV2
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiOrderStatusesV2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStatusInfo")
@@ -3968,20 +3776,6 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusInfoExecute(r ApiPostV3DbsOrdersSta
 	}
 	// body params
 	localVarPostBody = r.apiOrdersRequestV2
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4011,8 +3805,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusInfoExecute(r ApiPostV3DbsOrdersSta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4022,8 +3816,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusInfoExecute(r ApiPostV3DbsOrdersSta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4033,8 +3827,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusInfoExecute(r ApiPostV3DbsOrdersSta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4044,8 +3838,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusInfoExecute(r ApiPostV3DbsOrdersSta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4055,8 +3849,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusInfoExecute(r ApiPostV3DbsOrdersSta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4066,8 +3860,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusInfoExecute(r ApiPostV3DbsOrdersSta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4085,8 +3879,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusInfoExecute(r ApiPostV3DbsOrdersSta
 }
 
 type ApiPostV3DbsOrdersStatusReceiveRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
+	ctx                  context.Context
+	ApiService           DBSAPI
 	apiOrdersCodeRequest *ApiOrdersCodeRequest
 }
 
@@ -4114,24 +3908,25 @@ PostV3DbsOrdersStatusReceive Сообщить о получении заказо
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersStatusReceiveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsOrdersStatusReceiveRequest
 */
 func (a *DBSAPIService) PostV3DbsOrdersStatusReceive(ctx context.Context) ApiPostV3DbsOrdersStatusReceiveRequest {
 	return ApiPostV3DbsOrdersStatusReceiveRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PostV3DbsOrdersStatusReceiveResponse200
+//
+//	@return PostV3DbsOrdersStatusReceiveResponse200
 func (a *DBSAPIService) PostV3DbsOrdersStatusReceiveExecute(r ApiPostV3DbsOrdersStatusReceiveRequest) (*PostV3DbsOrdersStatusReceiveResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PostV3DbsOrdersStatusReceiveResponse200
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PostV3DbsOrdersStatusReceiveResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStatusReceive")
@@ -4164,20 +3959,6 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusReceiveExecute(r ApiPostV3DbsOrders
 	}
 	// body params
 	localVarPostBody = r.apiOrdersCodeRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4207,8 +3988,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusReceiveExecute(r ApiPostV3DbsOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4218,8 +3999,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusReceiveExecute(r ApiPostV3DbsOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4229,8 +4010,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusReceiveExecute(r ApiPostV3DbsOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4240,8 +4021,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusReceiveExecute(r ApiPostV3DbsOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4251,8 +4032,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusReceiveExecute(r ApiPostV3DbsOrders
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4270,8 +4051,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusReceiveExecute(r ApiPostV3DbsOrders
 }
 
 type ApiPostV3DbsOrdersStatusRejectRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
+	ctx                  context.Context
+	ApiService           DBSAPI
 	apiOrdersCodeRequest *ApiOrdersCodeRequest
 }
 
@@ -4299,24 +4080,25 @@ PostV3DbsOrdersStatusReject Сообщить об отказе от заказо
 
 В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersStatusRejectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsOrdersStatusRejectRequest
 */
 func (a *DBSAPIService) PostV3DbsOrdersStatusReject(ctx context.Context) ApiPostV3DbsOrdersStatusRejectRequest {
 	return ApiPostV3DbsOrdersStatusRejectRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiStatusSetResponses
+//
+//	@return ApiStatusSetResponses
 func (a *DBSAPIService) PostV3DbsOrdersStatusRejectExecute(r ApiPostV3DbsOrdersStatusRejectRequest) (*ApiStatusSetResponses, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiStatusSetResponses
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiStatusSetResponses
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStatusReject")
@@ -4349,20 +4131,6 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusRejectExecute(r ApiPostV3DbsOrdersS
 	}
 	// body params
 	localVarPostBody = r.apiOrdersCodeRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4392,8 +4160,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusRejectExecute(r ApiPostV3DbsOrdersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4403,8 +4171,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusRejectExecute(r ApiPostV3DbsOrdersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4414,8 +4182,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusRejectExecute(r ApiPostV3DbsOrdersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4425,8 +4193,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusRejectExecute(r ApiPostV3DbsOrdersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4436,8 +4204,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusRejectExecute(r ApiPostV3DbsOrdersS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4455,11 +4223,11 @@ func (a *DBSAPIService) PostV3DbsOrdersStatusRejectExecute(r ApiPostV3DbsOrdersS
 }
 
 type ApiPostV3DbsOrdersStickersRequest struct {
-	ctx context.Context
-	ApiService DBSAPI
-	type_ *string
-	width *int32
-	height *int32
+	ctx                            context.Context
+	ApiService                     DBSAPI
+	type_                          *string
+	width                          *int32
+	height                         *int32
 	postV3DbsOrdersStickersRequest *PostV3DbsOrdersStickersRequest
 }
 
@@ -4509,24 +4277,25 @@ PostV3DbsOrdersStickers Получить стикеры для сборочны�
 | 1 мин | 300 запросов | 200 мс | 20 запросов |
 Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostV3DbsOrdersStickersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV3DbsOrdersStickersRequest
 */
 func (a *DBSAPIService) PostV3DbsOrdersStickers(ctx context.Context) ApiPostV3DbsOrdersStickersRequest {
 	return ApiPostV3DbsOrdersStickersRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PostV3DbsOrdersStickersResponse200
+//
+//	@return PostV3DbsOrdersStickersResponse200
 func (a *DBSAPIService) PostV3DbsOrdersStickersExecute(r ApiPostV3DbsOrdersStickersRequest) (*PostV3DbsOrdersStickersResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PostV3DbsOrdersStickersResponse200
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PostV3DbsOrdersStickersResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DBSAPIService.PostV3DbsOrdersStickers")
@@ -4571,20 +4340,6 @@ func (a *DBSAPIService) PostV3DbsOrdersStickersExecute(r ApiPostV3DbsOrdersStick
 	}
 	// body params
 	localVarPostBody = r.postV3DbsOrdersStickersRequest
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["HeaderApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4614,8 +4369,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStickersExecute(r ApiPostV3DbsOrdersStick
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4625,8 +4380,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStickersExecute(r ApiPostV3DbsOrdersStick
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
@@ -4636,8 +4391,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStickersExecute(r ApiPostV3DbsOrdersStick
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4647,8 +4402,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStickersExecute(r ApiPostV3DbsOrdersStick
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4658,8 +4413,8 @@ func (a *DBSAPIService) PostV3DbsOrdersStickersExecute(r ApiPostV3DbsOrdersStick
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

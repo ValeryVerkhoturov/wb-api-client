@@ -27,7 +27,7 @@ type GetV2ObjectCharcsSubjectIdResponse200DataInner struct {
 	SubjectID *int32 `json:"subjectID,omitempty"`
 	// Название характеристики
 	Name *string `json:"name,omitempty"`
-	// - `true` — характеристику необходимо обязательно указать в карточке товара - `false` — характеристику необязательно указывать 
+	// - `true` — характеристику необходимо обязательно указать в карточке товара - `false` — характеристику необязательно указывать
 	Required *bool `json:"required,omitempty"`
 	// Единица измерения
 	UnitName *string `json:"unitName,omitempty"`
@@ -35,13 +35,13 @@ type GetV2ObjectCharcsSubjectIdResponse200DataInner struct {
 	MaxCount *int32 `json:"maxCount,omitempty"`
 	// Характеристика популярна у пользователей (true - да, false - нет)
 	Popular *bool `json:"popular,omitempty"`
-	// Тип данных характеристики, который необходимо использовать при [создании](./item-management#tag/listingItems) или [редактировании](./item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров:   -  `1` — массив строк   -  `4` — число (целое либо с десятичной дробью)   -  `0` — характеристика не используется 
+	// Тип данных характеристики, который необходимо использовать при [создании](./item-management#tag/listingItems) или [редактировании](./item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров:   -  `1` — массив строк   -  `4` — число (целое либо с десятичной дробью)   -  `0` — характеристика не используется
 	CharcType *int32 `json:"charcType,omitempty"`
-	// Ключевая характеристика. Является ли характеристика значимой для покупателей:   - `true` — да   - `false` — нет 
+	// Ключевая характеристика. Является ли характеристика значимой для покупателей:   - `true` — да   - `false` — нет
 	HasFilter *bool `json:"hasFilter,omitempty"`
-	// Признак [меняющейся характеристики](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov). Значение размечает характеристики, по которым варианты отличаются друг от друга:   -  `true` — варианты товара отличаются по этой характеристике   -  `false` — варианты товара не отличаются по этой характеристике 
+	// Признак [меняющейся характеристики](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov). Значение размечает характеристики, по которым варианты отличаются друг от друга:   -  `true` — варианты товара отличаются по этой характеристике   -  `false` — варианты товара не отличаются по этой характеристике
 	IsVariable *bool `json:"isVariable,omitempty"`
-	// Как передать характеристику в запросах на [cоздание](./item-management#tag/listingItems/operation/postV2CardsUpload), [создание с присоединением](./item-management#tag/listingItems/operation/postV2CardsUploadAdd) и [редактирование](./item-management#tag/listings/operation/postV2CardsUpdate) карточек товара:   -  `true` — в соответствующем параметре запроса   -  `false` — внутри массива `characteristics` 
+	// Как передать характеристику в запросах на [cоздание](./item-management#tag/listingItems/operation/postV2CardsUpload), [создание с присоединением](./item-management#tag/listingItems/operation/postV2CardsUploadAdd) и [редактирование](./item-management#tag/listings/operation/postV2CardsUpdate) карточек товара:   -  `true` — в соответствующем параметре запроса   -  `false` — внутри массива `characteristics`
 	ExistNamedField *bool `json:"existNamedField,omitempty"`
 }
 
@@ -447,7 +447,7 @@ func (o *GetV2ObjectCharcsSubjectIdResponse200DataInner) SetExistNamedField(v bo
 }
 
 func (o GetV2ObjectCharcsSubjectIdResponse200DataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -530,5 +530,3 @@ func (v *NullableGetV2ObjectCharcsSubjectIdResponse200DataInner) UnmarshalJSON(s
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

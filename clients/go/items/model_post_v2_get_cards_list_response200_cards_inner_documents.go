@@ -20,9 +20,9 @@ var _ MappedNullable = &PostV2GetCardsListResponse200CardsInnerDocuments{}
 // PostV2GetCardsListResponse200CardsInnerDocuments Документы
 type PostV2GetCardsListResponse200CardsInnerDocuments struct {
 	// Список документов
-	Items []PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner `json:"items,omitempty"`
+	Items          []PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner    `json:"items,omitempty"`
 	OverallVerdict *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict `json:"overallVerdict,omitempty"`
-	// Исключены ли документы из проверки карточки товара:   - `true` — да, документы не проверяются при проверке карточки   - `false` — нет, документы проверяются при проверке карточки 
+	// Исключены ли документы из проверки карточки товара:   - `true` — да, документы не проверяются при проверке карточки   - `false` — нет, документы проверяются при проверке карточки
 	ExcludeDocuments *bool `json:"excludeDocuments,omitempty"`
 }
 
@@ -140,7 +140,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocuments) SetExcludeDocuments(v
 }
 
 func (o PostV2GetCardsListResponse200CardsInnerDocuments) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,5 +196,3 @@ func (v *NullablePostV2GetCardsListResponse200CardsInnerDocuments) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

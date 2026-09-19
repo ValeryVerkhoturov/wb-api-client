@@ -73,7 +73,7 @@ func (o *GetV1FeedbacksArchiveResponse200Data) SetFeedbacks(v []GetV1FeedbacksRe
 }
 
 func (o GetV1FeedbacksArchiveResponse200Data) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,5 +123,3 @@ func (v *NullableGetV1FeedbacksArchiveResponse200Data) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

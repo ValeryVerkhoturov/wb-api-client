@@ -21,7 +21,7 @@ var _ MappedNullable = &PostV3DbsOrdersStatusReceiveResponse200ResultsInnerError
 type PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner struct {
 	// Код ошибки
 	Code *int32 `json:"code,omitempty"`
-	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `SGTINIsNotFilled` — обязательный [код маркировки](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin) не указан 
+	// - `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `SGTINIsNotFilled` — обязательный [код маркировки](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin) не указан
 	Detail *string `json:"detail,omitempty"`
 }
 
@@ -107,7 +107,7 @@ func (o *PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner) SetDeta
 }
 
 func (o PostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullablePostV3DbsOrdersStatusReceiveResponse200ResultsInnerErrorsInner)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

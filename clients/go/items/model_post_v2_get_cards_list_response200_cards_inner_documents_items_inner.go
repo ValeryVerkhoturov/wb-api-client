@@ -22,7 +22,7 @@ var _ MappedNullable = &PostV2GetCardsListResponse200CardsInnerDocumentsItemsInn
 type PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner struct {
 	// ID документа
 	Id *string `json:"id,omitempty"`
-	// Тип документа:   - `1` — Сертификат соответствия   - `2` — Декларация о соответствии   - `3` — Свидетельство о государственной регистрации (СГР)   - `4` — Регистрационное удостоверение (РУ) на медицинские изделия   - `5` — Регистрационное удостоверение Республики Беларусь   - `7` — Данные о регистрации пестицида   - `8` — Данные о регистрации агрохимиката   - `9` — Регистрационное удостоверение (РУ) на лекарственные препараты 
+	// Тип документа:   - `1` — Сертификат соответствия   - `2` — Декларация о соответствии   - `3` — Свидетельство о государственной регистрации (СГР)   - `4` — Регистрационное удостоверение (РУ) на медицинские изделия   - `5` — Регистрационное удостоверение Республики Беларусь   - `7` — Данные о регистрации пестицида   - `8` — Данные о регистрации агрохимиката   - `9` — Регистрационное удостоверение (РУ) на лекарственные препараты
 	Type *int32 `json:"type,omitempty"`
 	// Номер документа
 	Number *string `json:"number,omitempty"`
@@ -36,9 +36,9 @@ type PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner struct {
 	StartDate *time.Time `json:"startDate,omitempty"`
 	// Дата и время окончания срока действия документа
 	EndDate *time.Time `json:"endDate,omitempty"`
-	// Бессрочный ли документ:   - `true` — да, документ бессрочный   - `false` — нет, у документа есть срок действия 
-	IsEndless *bool `json:"isEndless,omitempty"`
-	Verdict *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict `json:"verdict,omitempty"`
+	// Бессрочный ли документ:   - `true` — да, документ бессрочный   - `false` — нет, у документа есть срок действия
+	IsEndless *bool                                                              `json:"isEndless,omitempty"`
+	Verdict   *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict `json:"verdict,omitempty"`
 	// Дата добавления документа
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
 }
@@ -413,7 +413,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) SetCreatedA
 }
 
 func (o PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -493,5 +493,3 @@ func (v *NullablePostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) Unm
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

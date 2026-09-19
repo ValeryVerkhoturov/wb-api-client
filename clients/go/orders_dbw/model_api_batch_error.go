@@ -78,6 +78,7 @@ func (o *ApiBatchError) HasDetail() bool {
 func (o *ApiBatchError) SetDetail(v string) {
 	o.Detail.Set(&v)
 }
+
 // SetDetailNil sets the value for Detail to be an explicit nil
 func (o *ApiBatchError) SetDetailNil() {
 	o.Detail.Set(nil)
@@ -185,7 +186,7 @@ func (o *ApiBatchError) SetTitle(v string) {
 }
 
 func (o ApiBatchError) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -244,5 +245,3 @@ func (v *NullableApiBatchError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

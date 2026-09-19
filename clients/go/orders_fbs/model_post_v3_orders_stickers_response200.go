@@ -72,7 +72,7 @@ func (o *PostV3OrdersStickersResponse200) SetStickers(v []PostV3OrdersStickersRe
 }
 
 func (o PostV3OrdersStickersResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -122,5 +122,3 @@ func (v *NullablePostV3OrdersStickersResponse200) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -11,8 +11,8 @@ API version: analytics
 package analytics
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -36,8 +36,8 @@ type TableItemItemSt struct {
 	// Ссылка на главное фото
 	MainPhoto string `json:"mainPhoto"`
 	// Является ли товар размерным. Неразмерный товар имеет единственный размер, с `\"techSize\":\"0\"`
-	HasSizes bool `json:"hasSizes"`
-	Metrics TableItemItemStMetrics `json:"metrics"`
+	HasSizes bool                   `json:"hasSizes"`
+	Metrics  TableItemItemStMetrics `json:"metrics"`
 }
 
 type _TableItemItemSt TableItemItemSt
@@ -285,7 +285,7 @@ func (o *TableItemItemSt) SetMetrics(v TableItemItemStMetrics) {
 }
 
 func (o TableItemItemSt) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -327,10 +327,10 @@ func (o *TableItemItemSt) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -386,5 +386,3 @@ func (v *NullableTableItemItemSt) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

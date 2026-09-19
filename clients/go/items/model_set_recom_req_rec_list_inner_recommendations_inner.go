@@ -21,7 +21,7 @@ var _ MappedNullable = &SetRecomReqRecListInnerRecommendationsInner{}
 type SetRecomReqRecListInnerRecommendationsInner struct {
 	// Артикул WB рекомендуемого товара
 	RecomNm *int32 `json:"recomNm,omitempty"`
-	// Позиция товара в списке рекомендаций.   Допустимые значения:  - `1`–`20` — фиксированная позиция:    - при создании или замене (`replace: true`) задаёт порядок отображения    - при добавлении (`replace: false`) вставляет товар на указанную позицию, существующие сдвигаются  - `0` — автоматическая сортировка товаров:    - при создании или замене (`replace: true`) — в порядке расположения товаров в массиве `recommendations`    - при добавлении (`replace: false`) — в конец списка существующих рекомендаций, сохраняя порядок из массива `recommendations` 
+	// Позиция товара в списке рекомендаций.   Допустимые значения:  - `1`–`20` — фиксированная позиция:    - при создании или замене (`replace: true`) задаёт порядок отображения    - при добавлении (`replace: false`) вставляет товар на указанную позицию, существующие сдвигаются  - `0` — автоматическая сортировка товаров:    - при создании или замене (`replace: true`) — в порядке расположения товаров в массиве `recommendations`    - при добавлении (`replace: false`) — в конец списка существующих рекомендаций, сохраняя порядок из массива `recommendations`
 	Sort *int32 `json:"sort,omitempty"`
 }
 
@@ -115,7 +115,7 @@ func (o *SetRecomReqRecListInnerRecommendationsInner) SetSort(v int32) {
 }
 
 func (o SetRecomReqRecListInnerRecommendationsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -168,5 +168,3 @@ func (v *NullableSetRecomReqRecListInnerRecommendationsInner) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -31,7 +31,7 @@ type ModelsExciseReportResponseDataInner struct {
 	Barcode *string `json:"barcode,omitempty"`
 	// Артикул WB
 	NmId *int32 `json:"nm_id,omitempty"`
-	// Тип операции, если есть:    * `1` — вывод из оборота   * `2` — возврат в оборот 
+	// Тип операции, если есть:    * `1` — вывод из оборота   * `2` — возврат в оборот
 	OperationTypeId *int32 `json:"operation_type_id,omitempty"`
 	// Номер фискального документа (чека полного расчёта), если есть
 	FiscalDocNumber *int32 `json:"fiscal_doc_number,omitempty"`
@@ -39,9 +39,9 @@ type ModelsExciseReportResponseDataInner struct {
 	FiscalDt *string `json:"fiscal_dt,omitempty"`
 	// Номер фискального накопителя, если есть
 	FiscalDriveNumber *string `json:"fiscal_drive_number,omitempty"`
-	// `Rid` 
+	// `Rid`
 	Rid *int32 `json:"rid,omitempty"`
-	// `Srid` 
+	// `Srid`
 	Srid *string `json:"srid,omitempty"`
 }
 
@@ -447,7 +447,7 @@ func (o *ModelsExciseReportResponseDataInner) SetSrid(v string) {
 }
 
 func (o ModelsExciseReportResponseDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -530,5 +530,3 @@ func (v *NullableModelsExciseReportResponseDataInner) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
