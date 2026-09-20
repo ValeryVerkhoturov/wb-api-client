@@ -64,22 +64,25 @@ jobs:
     if: inputs.lang == 'typescript'
     runs-on: ubuntu-latest
     environment: npm
+    permissions:
+      id-token: write              # OIDC → npm trusted publishing
+      contents: read
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ inputs.ref }}
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           registry-url: "https://registry.npmjs.org"
+      - name: Upgrade npm to a version that speaks OIDC
+        run: npm install -g npm@latest
       - name: Build & publish @valeryverkhoturov/wb-api-client
         working-directory: clients/typescript
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           npm install
           npm run build
-          npm publish --access public
+          npm publish --provenance --access public
 
   publish-go:
     if: inputs.lang == 'go'
