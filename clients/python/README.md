@@ -5,7 +5,7 @@ Auto-generated Python client for the [Wildberries Seller API](https://dev.wildbe
 ## Install
 
 ```bash
-pip install wb-api-client
+pip install valeryverkhoturov-wb-api-client
 ```
 
 ## Authentication

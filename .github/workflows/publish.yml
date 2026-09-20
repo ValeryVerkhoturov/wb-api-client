@@ -50,12 +50,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install build twine
-      - name: Build & publish wb-api-client
+      - run: pip install build
+      - name: Build wheel + sdist
         working-directory: clients/python
-        run: |
-          python -m build
-          twine upload --skip-existing dist/*
+        run: python -m build
+      - name: Publish to PyPI (trusted publishing)
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: clients/python/dist
+          skip-existing: true
 
   publish-typescript:
     if: inputs.lang == 'typescript'

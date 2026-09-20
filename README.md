@@ -6,13 +6,13 @@ Auto-generated client libraries for the [Wildberries Seller API](https://dev.wil
 
 - **One package per language**, with all 13 WB API categories as sub-modules: `general`, `items`, `orders_fbs`, `orders_dbw`, `dbs`, `in_store_pickup`, `orders_fbw`, `promotion`, `communications`, `rates`, `analytics`, `reports`, `finances`.
 - **Bearer JWT authorization** is injected into every spec before generation, even though upstream YAMLs omit a security scheme. All generated clients expose an `Authorization` parameter.
-- CalVer releases (`YYYY.MM.DD`) — one tag covers all 4 languages so versions line up across ecosystems.
+- Stable-semver releases (`1.YYYYMMDD.N` — MAJOR fixed at 1, MINOR is the release date as an int, PATCH is a same-day counter) — one string covers all 4 languages so versions line up across ecosystems, and `npm/pip/mvn/go get @latest` all auto-pick the highest.
 
 ## Install & import
 
 **Python (PyPI):**
 ```bash
-pip install wb-api-client
+pip install valeryverkhoturov-wb-api-client
 ```
 ```python
 from wb_api_client.items import Configuration, ApiClient
@@ -107,7 +107,7 @@ Each language branch in `publish.yml` regenerates its clients from the just-upda
 
 | Environment | Required secrets |
 |---|---|
-| `pypi` | none — set up [PyPI trusted publishing](https://docs.pypi.org/trusted-publishers/) for the `wb-api-client` project |
+| `pypi` | none — set up [PyPI trusted publishing](https://docs.pypi.org/trusted-publishers/) for the `valeryverkhoturov-wb-api-client` project |
 | `npm` | `NPM_TOKEN` (automation token) |
 | `maven-central` | `MAVEN_USERNAME`, `MAVEN_PASSWORD`, `MAVEN_GPG_PRIVATE_KEY`, `MAVEN_GPG_PASSPHRASE` |
 | Go | none — tags in this repo are the release mechanism |

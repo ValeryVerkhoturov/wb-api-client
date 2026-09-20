@@ -3,7 +3,7 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "wb-api-client"
+name = "valeryverkhoturov-wb-api-client"
 version = "1.20260920.0"
 description = "Auto-generated Python client for the Wildberries Seller API"
 readme = "README.md"

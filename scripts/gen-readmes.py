@@ -249,7 +249,7 @@ def main() -> int:
         py_root / "README.md",
         header_ctx={
             "lang_display": "Python",
-            "install": "pip install wb-api-client",
+            "install": "pip install valeryverkhoturov-wb-api-client",
             "wrapper_note": "`pydantic.SecretStr`",
             "log_call": "print",
             "expose_call": ".get_secret_value()",
