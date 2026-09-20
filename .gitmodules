@@ -1,4 +1,4 @@
 [submodule "clients/php"]
 	path = clients/php
-	url = file:///Users/verhoturov.v9/Documents/GitHub/wb-api-client-php
+	url = https://github.com/ValeryVerkhoturov/wb-api-client-php.git
 	branch = main
