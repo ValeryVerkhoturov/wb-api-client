@@ -33,6 +33,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0    # need history for `git tag --list` version calc
+          # Fetch the clients/php submodule too. Uses `PHP_REPO_TOKEN`
+          # instead of the default GITHUB_TOKEN because we need PUSH
+          # rights on the sibling repo (default token is scoped to this
+          # repo only). Store a PAT with `repo` scope on
+          # github.com/ValeryVerkhoturov/wb-api-client-php as
+          # secrets.PHP_REPO_TOKEN.
+          submodules: recursive
+          token: ${{ secrets.PHP_REPO_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Snapshot previous checksums
         run: |
@@ -92,7 +100,7 @@ jobs:
         if: steps.diff.outputs.changed == 'true' || inputs.force
         run: python scripts/post-process.py
 
-      - name: Regenerate all four language clients
+      - name: Regenerate all five language clients
         if: steps.diff.outputs.changed == 'true' || inputs.force
         # generate.sh uses openapi-generator-cli inside Docker; runners
         # ship Docker preinstalled, and generate.sh also runs `go mod tidy`
@@ -100,14 +108,40 @@ jobs:
         # before commit.
         run: ./scripts/generate.sh "${{ steps.version.outputs.version }}"
 
-      - name: Commit specs + generated clients, push tag
+      - name: Commit PHP submodule (separate repo)
+        if: steps.diff.outputs.changed == 'true' || inputs.force
+        # Packagist expects composer.json at the root of a git repo, so
+        # PHP lives in its own repo mounted here as a submodule. Commit +
+        # tag + push inside the submodule FIRST — main repo then records
+        # the new submodule SHA in its own commit below. Both repos end
+        # up with the same v<version> tag pointing at their respective
+        # regenerated trees.
+        working-directory: clients/php
+        run: |
+          git config user.name "wb-api-client-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No PHP changes to commit"
+          else
+            git commit -m "chore(release): regenerate at ${{ steps.version.outputs.version }}"
+            git push origin HEAD:main
+          fi
+          # Idempotent tag: skip if identical tag already exists.
+          if ! git rev-parse "${{ steps.version.outputs.tag }}" >/dev/null 2>&1; then
+            git tag -a "${{ steps.version.outputs.tag }}" -m "Release ${{ steps.version.outputs.tag }}"
+            git push origin "${{ steps.version.outputs.tag }}"
+          fi
+
+      - name: Commit specs + generated clients + submodule pointer, push tag
         if: steps.diff.outputs.changed == 'true' || inputs.force
         run: |
           git config user.name "wb-api-client-bot"
           git config user.email "bot@users.noreply.github.com"
           # Stage explicitly rather than `git add -A` to avoid picking up
-          # workflow scratch (dist/, node_modules/, target/ …). .gitignore
-          # already covers those but this is belt-and-braces.
+          # workflow scratch (dist/, node_modules/, target/ …). Also
+          # include clients/php to record the submodule pointer bump
+          # from the sibling-repo commit above.
           git add swaggers/ clients/
           if git diff --cached --quiet; then
             echo "No file changes to commit despite checksum diff — nothing to do"
