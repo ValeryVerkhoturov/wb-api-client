@@ -1,0 +1,9 @@
+# Mark generated trees so GitHub collapses them in PR diffs and excludes
+# them from language stats. Everything below is regenerated end-to-end by
+# `scripts/generate.sh` and `scripts/post-process.py` — reviewing the diff
+# of individual generated files during PR review adds noise rather than
+# insight. The PR check workflow already fails if regenerated output
+# drifts from what's committed, so the diff being hidden is safe.
+
+clients/**            linguist-generated=true
+swaggers/processed/** linguist-generated=true

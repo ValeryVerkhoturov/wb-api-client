@@ -1,0 +1,133 @@
+name: Daily upstream check
+
+on:
+  schedule:
+    # 06:15 UTC daily — after Wildberries' typical overnight portal deploys
+    # but before the EU/RU workday, so any regeneration lands early.
+    - cron: "15 6 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Regenerate & publish even if checksums match"
+        type: boolean
+        default: false
+
+# One run at a time. If a scheduled run overlaps a manual one we drop the
+# newer attempt — publishing the same spec twice would just churn tags.
+concurrency:
+  group: daily-check
+  cancel-in-progress: false
+
+permissions:
+  contents: write      # commit swaggers + generated clients, push tag
+  actions: write       # dispatch language publish workflows
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.diff.outputs.changed }}
+      version: ${{ steps.version.outputs.version }}
+      tag: ${{ steps.version.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0    # need history for `git tag --list` version calc
+
+      - name: Snapshot previous checksums
+        run: |
+          if [[ -f swaggers/checksums.txt ]]; then
+            cp swaggers/checksums.txt /tmp/checksums.prev.txt
+          else
+            : > /tmp/checksums.prev.txt
+          fi
+
+      - name: Download upstream specs
+        env:
+          # Rotate the secret when downloads start returning HTTP 498; the
+          # token is fingerprint-bound and expires. When unset, the script's
+          # hardcoded fallback is used.
+          WBAAS_TOKEN: ${{ secrets.WBAAS_TOKEN }}
+        run: ./scripts/download-swaggers.sh
+
+      - name: Detect changes
+        id: diff
+        run: |
+          if diff -q /tmp/checksums.prev.txt swaggers/checksums.txt >/dev/null; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Upstream diff:"
+            diff /tmp/checksums.prev.txt swaggers/checksums.txt || true
+          fi
+
+      - name: Compute release version
+        id: version
+        if: steps.diff.outputs.changed == 'true' || inputs.force
+        run: |
+          # Canonical version: 1.YYYYMMDD.N — a stable-semver form used
+          # verbatim by every language (git tag, PyPI, npm, Maven, Go).
+          #   MAJOR = 1     (fixed; keeps Go module path free of the
+          #                  /vN suffix that MAJOR ≥ 2 would require)
+          #   MINOR = date  (YYYYMMDD as int — monotonic across days)
+          #   PATCH = N     (same-day counter, 0 for first release)
+          # `npm install <pkg>` sees stable-semver releases and picks the
+          # highest one; `pip`, `mvn`, `go get @latest` do the same.
+          today="$(date -u +%Y%m%d)"
+          n="$(git tag --list "v1.${today}.*" | wc -l | tr -d ' ')"
+          version="1.${today}.${n}"
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+          echo "tag=v${version}" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Python (post-processor)
+        if: steps.diff.outputs.changed == 'true' || inputs.force
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install post-processor deps
+        if: steps.diff.outputs.changed == 'true' || inputs.force
+        run: pip install -r scripts/requirements.txt
+
+      - name: Post-process specs
+        if: steps.diff.outputs.changed == 'true' || inputs.force
+        run: python scripts/post-process.py
+
+      - name: Regenerate all four language clients
+        if: steps.diff.outputs.changed == 'true' || inputs.force
+        # generate.sh uses openapi-generator-cli inside Docker; runners
+        # ship Docker preinstalled, and generate.sh also runs `go mod tidy`
+        # inside its own Go container so clients/go/go.sum is accurate
+        # before commit.
+        run: ./scripts/generate.sh "${{ steps.version.outputs.version }}"
+
+      - name: Commit specs + generated clients, push tag
+        if: steps.diff.outputs.changed == 'true' || inputs.force
+        run: |
+          git config user.name "wb-api-client-bot"
+          git config user.email "bot@users.noreply.github.com"
+          # Stage explicitly rather than `git add -A` to avoid picking up
+          # workflow scratch (dist/, node_modules/, target/ …). .gitignore
+          # already covers those but this is belt-and-braces.
+          git add swaggers/ clients/
+          if git diff --cached --quiet; then
+            echo "No file changes to commit despite checksum diff — nothing to do"
+            exit 0
+          fi
+          git commit -m "chore(release): sync upstream + regenerate at ${{ steps.version.outputs.version }}"
+          git push
+          git tag -a "${{ steps.version.outputs.tag }}" -m "Release ${{ steps.version.outputs.tag }}"
+          git push origin "${{ steps.version.outputs.tag }}"
+
+  publish:
+    needs: regenerate
+    if: needs.regenerate.outputs.changed == 'true' || inputs.force
+    strategy:
+      fail-fast: false
+      matrix:
+        lang: [python, typescript, go, java]
+    uses: ./.github/workflows/publish.yml
+    with:
+      lang: ${{ matrix.lang }}
+      version: ${{ needs.regenerate.outputs.version }}
+      ref: ${{ needs.regenerate.outputs.tag }}
+    secrets: inherit

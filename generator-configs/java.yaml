@@ -1,0 +1,17 @@
+# Per-slug artifactId / invokerPackage / apiPackage / modelPackage are
+# injected by generate.sh so each of the 13 packages is a separate Maven
+# Central artifact with its own Java package tree. The publish workflow
+# signs and stages via Sonatype using the shared groupId below.
+generatorName: java
+library: okhttp-gson
+groupId: io.github.valeryverkhoturov.wbapi
+httpUserAgent: ValeryVerkhoturov/wb-api-client/java
+dateLibrary: java8
+hideGenerationTimestamp: true
+# Emit jakarta.annotation.* (Jakarta EE 9+) instead of javax.annotation.*
+# so the imports match the jakarta.annotation-api dep in the pom template.
+useJakartaEe: true
+# Represent nullable fields with plain Java Optional / null rather than
+# org.openapitools.jackson.nullable.JsonNullable — otherwise the pom would
+# need to pull in jackson-databind-nullable purely to satisfy imports.
+openApiNullable: false

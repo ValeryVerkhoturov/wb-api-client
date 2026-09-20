@@ -1,0 +1,141 @@
+name: PR — generated code in sync
+
+# Regenerate every client from scratch inside a PR and fail if the tree
+# differs from what's committed. Catches:
+#   - swaggers/*.yaml edited without regenerating post-processed + clients
+#   - post-process.py / generate.sh / generator-configs/ / templates/
+#     changed without regenerating
+#   - hand-edits to clients/** that don't survive a clean generate
+#
+# The regeneration uses the SAME version string that's currently baked
+# into the committed clients (extracted from clients/python/pyproject.toml)
+# so the diff surfaces only substantive drift, not version-number noise.
+
+on:
+  pull_request:
+    paths:
+      - "swaggers/**"
+      - "scripts/**"
+      - "generator-configs/**"
+      - "templates/**"
+      - "clients/**"
+      - ".github/workflows/pr-check.yml"
+
+# Cancel in-progress runs on the same PR when a new push arrives — the
+# older run's result would be stale anyway.
+concurrency:
+  group: pr-check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write     # to leave a summary comment on failure
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extract committed version
+        id: ver
+        # Pull the version from the committed Python manifest. Under the
+        # canonical `1.YYYYMMDD.N` format every language stamps the same
+        # string, so any manifest would work; pyproject.toml is the
+        # simplest to grep. Falls back to a placeholder for the
+        # first-ever run.
+        run: |
+          if [[ -f clients/python/pyproject.toml ]]; then
+            v="$(grep -m1 '^version' clients/python/pyproject.toml | sed -E 's/.*"([^"]+)".*/\1/')"
+          else
+            v="1.0.0"
+          fi
+          echo "version=${v}" >> "$GITHUB_OUTPUT"
+          echo "Regenerating at version ${v}"
+
+      - name: Set up Python (post-processor)
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r scripts/requirements.txt
+
+      - name: Post-process specs
+        run: python scripts/post-process.py
+
+      - name: Regenerate all four language clients
+        # openapi-generator runs inside Docker, which ubuntu-latest ships.
+        # generate.sh also runs `go mod tidy` in a Go container to refresh
+        # clients/go/go.sum and `gofmt -w` to keep the Go tree canonical.
+        run: ./scripts/generate.sh "${{ steps.ver.outputs.version }}"
+
+      - name: gofmt is clean
+        # Belt-and-braces: even if generate.sh's gofmt step ever regresses,
+        # the diff check below would catch it — but this gives a clearer
+        # failure message pointing at the actual files.
+        run: |
+          set +e
+          docker run --rm -v "$PWD/clients/go:/app" -w /app golang:1.22 gofmt -l . > /tmp/gofmt.out
+          if [[ -s /tmp/gofmt.out ]]; then
+            echo "::error::Go files need gofmt:"
+            cat /tmp/gofmt.out
+            exit 1
+          fi
+
+      - name: black is clean
+        # Same rationale as gofmt: the diff check catches drift too, but a
+        # dedicated step gives a clearer failure message. `black` version
+        # is pinned in scripts/requirements.txt.
+        run: python -m black --check clients/python
+
+      - name: prettier is clean
+        # prettier is pinned in templates/typescript/package.json →
+        # generated clients/typescript/package.json.
+        working-directory: clients/typescript
+        run: |
+          npm install --no-audit --no-fund
+          npx --no-install prettier --check 'src/**/*.ts'
+
+      - name: spotless is clean
+        # spotless + google-java-format versions are pinned in
+        # templates/java/pom.xml → generated clients/java/pom.xml.
+        working-directory: clients/java
+        run: mvn -q spotless:check
+
+      - name: Diff against committed tree
+        id: diff
+        # `git diff --exit-code` exits non-zero when there is drift.
+        # Print both the file-list (--stat) and the full diff to the CI
+        # log so the failure is diagnosable without opening the step
+        # summary. Truncate the full diff to a sensible size — a full
+        # regeneration diff can be tens of megabytes if something big
+        # changed (e.g. a spec-wide description rewrite).
+        run: |
+          set +e
+          git diff --stat -- swaggers/ clients/ > /tmp/diff.stat
+          git diff -- swaggers/ clients/ > /tmp/diff.full
+          rc=$(( $(wc -c < /tmp/diff.full) > 0 ))
+          if [[ $rc -ne 0 ]]; then
+            echo "── drift summary ──────────────────────────────"
+            cat /tmp/diff.stat
+            echo "── first 500 lines of diff ────────────────────"
+            head -500 /tmp/diff.full
+            {
+              echo "## ❌ Generated code is stale"
+              echo ""
+              echo "Regenerating from \`swaggers/\`, \`scripts/\`, \`generator-configs/\` and \`templates/\` at version \`${{ steps.ver.outputs.version }}\` produced a different tree than what's committed."
+              echo ""
+              echo "### Files affected"
+              echo '```'
+              cat /tmp/diff.stat
+              echo '```'
+              echo ""
+              echo "### To fix"
+              echo '```bash'
+              echo "python scripts/post-process.py"
+              echo "./scripts/generate.sh ${{ steps.ver.outputs.version }}"
+              echo "git add swaggers/ clients/ && git commit"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+          echo "✓ generated tree matches committed" >> "$GITHUB_STEP_SUMMARY"
