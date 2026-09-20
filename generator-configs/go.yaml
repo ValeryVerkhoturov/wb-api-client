@@ -7,6 +7,7 @@ generatorName: go
 generateInterfaces: true
 withGoMod: true
 isGoSubmodule: false
+httpUserAgent: ValeryVerkhoturov/wb-api-client/go
 # Deterministic output — the PR check workflow diffs the regenerated tree
 # against the committed one, so any per-run varying header would flap.
 hideGenerationTimestamp: true

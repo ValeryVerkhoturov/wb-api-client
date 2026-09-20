@@ -130,6 +130,13 @@ export class Configuration {
     this.basePath = param.basePath;
     this.serverIndex = param.serverIndex;
     this.baseOptions = param.baseOptions;
+    this.baseOptions = {
+      ...this.baseOptions,
+      headers: {
+        "User-Agent": "ValeryVerkhoturov/wb-api-client/typescript",
+        ...this.baseOptions?.headers,
+      },
+    };
     this.formDataCtor = param.formDataCtor;
   }
 

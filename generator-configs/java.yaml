@@ -5,6 +5,7 @@
 generatorName: java
 library: okhttp-gson
 groupId: io.github.valeryverkhoturov.wbapi
+httpUserAgent: ValeryVerkhoturov/wb-api-client/java
 dateLibrary: java8
 hideGenerationTimestamp: true
 # Emit jakarta.annotation.* (Jakarta EE 9+) instead of javax.annotation.*

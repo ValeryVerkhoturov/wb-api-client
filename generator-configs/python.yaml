@@ -8,6 +8,7 @@
 generatorName: python
 library: urllib3
 packageUrl: https://github.com/ValeryVerkhoturov/wb-api-client
+httpUserAgent: ValeryVerkhoturov/wb-api-client/python
 # Deterministic output — the PR check workflow diffs the regenerated tree
 # against the committed one, so any per-run varying header would flap.
 hideGenerationTimestamp: true

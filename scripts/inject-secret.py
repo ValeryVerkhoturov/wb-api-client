@@ -154,6 +154,23 @@ def patch_typescript_configuration(text: str) -> str:
         text,
         count=1,
     )
+    # Seed a default User-Agent on baseOptions. openapi-generator's
+    # typescript-axios template doesn't accept `httpUserAgent` like the
+    # other generators do, so we inject it here. Caller-supplied
+    # baseOptions.headers still win via spread order below.
+    text = re.sub(
+        r"(this\.baseOptions = param\.baseOptions;)",
+        r"""\1
+        this.baseOptions = {
+            ...this.baseOptions,
+            headers: {
+                "User-Agent": "ValeryVerkhoturov/wb-api-client/typescript",
+                ...this.baseOptions?.headers,
+            },
+        };""",
+        text,
+        count=1,
+    )
     return text
 
 
