@@ -64,6 +64,15 @@ client.setBearerToken(new SecretString("<your WB JWT>"));
 DefaultApi api = new DefaultApi(client);
 ```
 
+### Per-language module reference
+
+Each generated client has its own README with an install snippet, the auth block, and a per-module import + instantiate example for all 13 API categories. The four READMEs are regenerated on every release, so they never drift from the code:
+
+- **Python** — [`clients/python/README.md`](clients/python/README.md)
+- **TypeScript** — [`clients/typescript/README.md`](clients/typescript/README.md)
+- **Go** — [`clients/go/README.md`](clients/go/README.md)
+- **Java** — [`clients/java/README.md`](clients/java/README.md)
+
 ### Secret redaction
 
 In every language the bearer JWT is stored inside a "secret-string" wrapper so it redacts under logs / `print` / `console.log` / `System.out.println` / `fmt.Printf` unless you explicitly ask for the raw value:
@@ -77,15 +86,6 @@ In every language the bearer JWT is stored inside a "secret-string" wrapper so i
 
 Passing the token through the wrapper is the only supported path.
 
-### Per-language module reference
-
-Each generated client has its own README with an install snippet, the auth block, and a per-module import + instantiate example for all 13 API categories. The four READMEs are regenerated on every release, so they never drift from the code:
-
-- **Python** — [`clients/python/README.md`](clients/python/README.md)
-- **TypeScript** — [`clients/typescript/README.md`](clients/typescript/README.md)
-- **Go** — [`clients/go/README.md`](clients/go/README.md)
-- **Java** — [`clients/java/README.md`](clients/java/README.md)
-
 ## Local development
 
 ```bash
@@ -94,10 +94,6 @@ pip install -r scripts/requirements.txt
 python  scripts/post-process.py         # inject Bearer auth security scheme
 ./scripts/generate.sh 0.0.0-local       # emit clients/{python,typescript,go,java}
 ```
-
-### Anti-bot note
-
-`dev.wildberries.ru` sits behind Wildberries' WBAAS challenge (HTTP 498 for non-browsers). `download-swaggers.sh` ships with a hardcoded `x_wbaas_token` cookie that clears the challenge. That token is fingerprint-bound and eventually expires — when it does, open the swagger URL in a browser, copy the fresh `x_wbaas_token` cookie value, and either edit `DEFAULT_WBAAS_TOKEN` in the script or export `WBAAS_TOKEN=<value>` before running. For CI, store it as an Actions secret and inject it into the workflow env.
 
 ## How the daily release works
 
