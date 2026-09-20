@@ -54,14 +54,10 @@ def load_specs(spec_dir: Path) -> list[dict]:
 
 
 def _first_line(md: str) -> str:
-    # Take the first paragraph, strip Markdown list markers, collapse
-    # whitespace, cap length.
-    para = md.split("\n\n", 1)[0]
-    para = re.sub(r"^\s*[-*]\s+", "", para, flags=re.M)
-    para = re.sub(r"\s+", " ", para).strip()
-    if len(para) > 240:
-        para = para[:237].rstrip() + "…"
-    return para
+    # Keep the full description verbatim — no truncation. Markdown
+    # list markers are preserved so bullet lists render correctly in
+    # the generated READMEs.
+    return md.strip()
 
 
 # ────────── API-class enumeration ──────────

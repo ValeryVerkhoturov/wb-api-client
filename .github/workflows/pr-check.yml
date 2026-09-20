@@ -36,6 +36,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Fetch clients/php (submodule pointing at wb-api-client-php).
+          # Read-only in PR check, so no PAT needed — the default
+          # GITHUB_TOKEN can clone the public sibling repo.
+          submodules: recursive
 
       - name: Extract committed version
         id: ver
@@ -111,9 +116,12 @@ jobs:
             ghcr.io/php-cs-fixer/php-cs-fixer:3-php8.3 \
             fix src --dry-run --rules=@PSR12 --using-cache=no
 
-      - name: Diff against committed tree
+      - name: Diff against committed tree (main repo + PHP submodule)
         id: diff
         # `git diff --exit-code` exits non-zero when there is drift.
+        # Runs in both the main repo AND the PHP submodule — regeneration
+        # writes into clients/php (submodule mount), so drift shows up in
+        # the submodule's own git status, not the main repo's.
         # Print both the file-list (--stat) and the full diff to the CI
         # log so the failure is diagnosable without opening the step
         # summary. Truncate the full diff to a sensible size — a full
@@ -123,6 +131,9 @@ jobs:
           set +e
           git diff --stat -- swaggers/ clients/ > /tmp/diff.stat
           git diff -- swaggers/ clients/ > /tmp/diff.full
+          # Also capture drift inside the PHP submodule.
+          (cd clients/php && git diff --stat) >> /tmp/diff.stat
+          (cd clients/php && git diff) >> /tmp/diff.full
           rc=$(( $(wc -c < /tmp/diff.full) > 0 ))
           if [[ $rc -ne 0 ]]; then
             echo "── drift summary ──────────────────────────────"

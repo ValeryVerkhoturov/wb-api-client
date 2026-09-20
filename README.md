@@ -87,7 +87,7 @@ Each generated client has its own README with an install snippet, the auth block
 - **TypeScript** — [`clients/typescript/README.md`](clients/typescript/README.md)
 - **Go** — [`clients/go/README.md`](clients/go/README.md)
 - **Java** — [`clients/java/README.md`](clients/java/README.md)
-- **PHP** — [`clients/php/README.md`](clients/php/README.md)
+- **PHP** — [`ValeryVerkhoturov/wb-api-client-php`](https://github.com/ValeryVerkhoturov/wb-api-client-php#readme) (separate repo, mounted here as the `clients/php` submodule)
 
 ### Secret redaction
 
