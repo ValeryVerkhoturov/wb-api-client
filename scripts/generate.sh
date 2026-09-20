@@ -69,7 +69,43 @@ gen() {
     >/dev/null
 }
 
-rm -rf "${CLIENTS_DIR}"
+# Reset the non-submodule client trees. Leave clients/php alone — it's
+# a git submodule (pointing at wb-api-client-php), and `rm -rf clients/`
+# would blow away its .git gitfile, silently converting the mount into
+# a plain directory. Subsequent writes would then land in an orphaned
+# dir under the main repo instead of the sibling repo's working tree.
+rm -rf "${CLIENTS_DIR}"/{python,typescript,go,java}
+
+# Guard: PHP dir MUST be a proper submodule mount before we write into
+# it, otherwise the composer.json + src/ we produce would sit as
+# untracked bytes in the main repo (invisible to consumers via
+# Packagist, since Packagist crawls the sibling repo).
+# Clear only clients/php/src/ (the sub-module dirs regen recreates from
+# scratch). Preserve everything else in the submodule mount: composer.json,
+# README.md, LICENSE, .gitignore, and — critically — the .git gitfile
+# that makes the mount work.
+rm -rf "${CLIENTS_DIR}/php/src"
+
+if [[ ! -e "${CLIENTS_DIR}/php/.git" ]]; then
+  cat >&2 <<EOF
+error: clients/php is not a git submodule mount (${CLIENTS_DIR}/php/.git missing).
+       PHP output would land in an orphaned directory, not the sibling
+       wb-api-client-php repo. Initialize the submodule first:
+
+           git submodule update --init clients/php
+
+       On a fresh checkout add --recurse-submodules to the clone. For
+       local dev without the GitHub sibling repo available, override
+       the URL:
+
+           git config -f .git/config submodule.clients/php.url \\
+               file:///path/to/wb-api-client-php
+           git submodule sync clients/php
+           git submodule update --init clients/php
+EOF
+  exit 1
+fi
+
 mkdir -p "${CLIENTS_DIR}"/{python/wb_api_client,typescript/src,go,java/src/main/java/${JAVA_GROUP_PATH},php/src}
 SCRATCH="${CLIENTS_DIR}/.tmp"
 mkdir -p "${SCRATCH}"
