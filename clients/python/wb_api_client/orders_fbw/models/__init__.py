@@ -16,39 +16,85 @@
 # import models into model package
 from wb_api_client.orders_fbw.models.errors_draft_error import ErrorsDraftError
 from wb_api_client.orders_fbw.models.models_box import ModelsBox
-from wb_api_client.orders_fbw.models.models_date_filter_request import ModelsDateFilterRequest
-from wb_api_client.orders_fbw.models.models_discrepancy_response_item import ModelsDiscrepancyResponseItem
-from wb_api_client.orders_fbw.models.models_draft_add_items_error_response import ModelsDraftAddItemsErrorResponse
-from wb_api_client.orders_fbw.models.models_draft_add_items_result_error import ModelsDraftAddItemsResultError
-from wb_api_client.orders_fbw.models.models_draft_add_items_result_item import ModelsDraftAddItemsResultItem
-from wb_api_client.orders_fbw.models.models_draft_additems_request import ModelsDraftAdditemsRequest
-from wb_api_client.orders_fbw.models.models_draft_create_response import ModelsDraftCreateResponse
-from wb_api_client.orders_fbw.models.models_draft_delete_items_error_response import ModelsDraftDeleteItemsErrorResponse
-from wb_api_client.orders_fbw.models.models_draft_deleteitems_request import ModelsDraftDeleteitemsRequest
+from wb_api_client.orders_fbw.models.models_date_filter_request import (
+    ModelsDateFilterRequest,
+)
+from wb_api_client.orders_fbw.models.models_discrepancy_response_item import (
+    ModelsDiscrepancyResponseItem,
+)
+from wb_api_client.orders_fbw.models.models_draft_add_items_error_response import (
+    ModelsDraftAddItemsErrorResponse,
+)
+from wb_api_client.orders_fbw.models.models_draft_add_items_result_error import (
+    ModelsDraftAddItemsResultError,
+)
+from wb_api_client.orders_fbw.models.models_draft_add_items_result_item import (
+    ModelsDraftAddItemsResultItem,
+)
+from wb_api_client.orders_fbw.models.models_draft_additems_request import (
+    ModelsDraftAdditemsRequest,
+)
+from wb_api_client.orders_fbw.models.models_draft_create_response import (
+    ModelsDraftCreateResponse,
+)
+from wb_api_client.orders_fbw.models.models_draft_delete_items_error_response import (
+    ModelsDraftDeleteItemsErrorResponse,
+)
+from wb_api_client.orders_fbw.models.models_draft_deleteitems_request import (
+    ModelsDraftDeleteitemsRequest,
+)
 from wb_api_client.orders_fbw.models.models_draft_item import ModelsDraftItem
 from wb_api_client.orders_fbw.models.models_draft_item_item import ModelsDraftItemItem
 from wb_api_client.orders_fbw.models.models_error_model import ModelsErrorModel
 from wb_api_client.orders_fbw.models.models_good import ModelsGood
 from wb_api_client.orders_fbw.models.models_good_in_box import ModelsGoodInBox
 from wb_api_client.orders_fbw.models.models_good_in_supply import ModelsGoodInSupply
-from wb_api_client.orders_fbw.models.models_handy_supply_status import ModelsHandySupplyStatus
+from wb_api_client.orders_fbw.models.models_handy_supply_status import (
+    ModelsHandySupplyStatus,
+)
 from wb_api_client.orders_fbw.models.models_item import ModelsItem
-from wb_api_client.orders_fbw.models.models_item_discrepancy_response import ModelsItemDiscrepancyResponse
+from wb_api_client.orders_fbw.models.models_item_discrepancy_response import (
+    ModelsItemDiscrepancyResponse,
+)
 from wb_api_client.orders_fbw.models.models_item_scans import ModelsItemScans
-from wb_api_client.orders_fbw.models.models_list_draft_items_response import ModelsListDraftItemsResponse
-from wb_api_client.orders_fbw.models.models_list_drafts_response import ModelsListDraftsResponse
-from wb_api_client.orders_fbw.models.models_options_result_model import ModelsOptionsResultModel
-from wb_api_client.orders_fbw.models.models_options_result_model_result_inner import ModelsOptionsResultModelResultInner
-from wb_api_client.orders_fbw.models.models_options_result_model_result_inner_error import ModelsOptionsResultModelResultInnerError
-from wb_api_client.orders_fbw.models.models_options_result_model_result_inner_warehouses_inner import ModelsOptionsResultModelResultInnerWarehousesInner
-from wb_api_client.orders_fbw.models.models_supplies_filters_request import ModelsSuppliesFiltersRequest
+from wb_api_client.orders_fbw.models.models_list_draft_items_response import (
+    ModelsListDraftItemsResponse,
+)
+from wb_api_client.orders_fbw.models.models_list_drafts_response import (
+    ModelsListDraftsResponse,
+)
+from wb_api_client.orders_fbw.models.models_options_result_model import (
+    ModelsOptionsResultModel,
+)
+from wb_api_client.orders_fbw.models.models_options_result_model_result_inner import (
+    ModelsOptionsResultModelResultInner,
+)
+from wb_api_client.orders_fbw.models.models_options_result_model_result_inner_error import (
+    ModelsOptionsResultModelResultInnerError,
+)
+from wb_api_client.orders_fbw.models.models_options_result_model_result_inner_warehouses_inner import (
+    ModelsOptionsResultModelResultInnerWarehousesInner,
+)
+from wb_api_client.orders_fbw.models.models_supplies_filters_request import (
+    ModelsSuppliesFiltersRequest,
+)
 from wb_api_client.orders_fbw.models.models_supply import ModelsSupply
-from wb_api_client.orders_fbw.models.models_supply_accepted_more_than_year_ago import ModelsSupplyAcceptedMoreThanYearAgo
+from wb_api_client.orders_fbw.models.models_supply_accepted_more_than_year_ago import (
+    ModelsSupplyAcceptedMoreThanYearAgo,
+)
 from wb_api_client.orders_fbw.models.models_supply_details import ModelsSupplyDetails
 from wb_api_client.orders_fbw.models.models_transit_tariff import ModelsTransitTariff
 from wb_api_client.orders_fbw.models.models_volume_tariff import ModelsVolumeTariff
-from wb_api_client.orders_fbw.models.models_warehouses_result_items import ModelsWarehousesResultItems
-from wb_api_client.orders_fbw.models.post_v1_acceptance_options401_response import PostV1AcceptanceOptions401Response
-from wb_api_client.orders_fbw.models.post_v1_acceptance_options402_response import PostV1AcceptanceOptions402Response
-from wb_api_client.orders_fbw.models.post_v1_acceptance_options403_response import PostV1AcceptanceOptions403Response
+from wb_api_client.orders_fbw.models.models_warehouses_result_items import (
+    ModelsWarehousesResultItems,
+)
+from wb_api_client.orders_fbw.models.post_v1_acceptance_options401_response import (
+    PostV1AcceptanceOptions401Response,
+)
+from wb_api_client.orders_fbw.models.post_v1_acceptance_options402_response import (
+    PostV1AcceptanceOptions402Response,
+)
+from wb_api_client.orders_fbw.models.post_v1_acceptance_options403_response import (
+    PostV1AcceptanceOptions403Response,
+)
 from wb_api_client.orders_fbw.models.response4_xx import Response4XX

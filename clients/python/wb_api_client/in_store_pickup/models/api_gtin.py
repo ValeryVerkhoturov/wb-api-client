@@ -23,11 +23,15 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiGTIN(BaseModel):
     """
     ApiGTIN
-    """ # noqa: E501
-    gtin: Annotated[str, Field(min_length=13, strict=True, max_length=13)] = Field(description="GTIN")
+    """  # noqa: E501
+
+    gtin: Annotated[str, Field(min_length=13, strict=True, max_length=13)] = Field(
+        description="GTIN"
+    )
     order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
     __properties: ClassVar[List[str]] = ["gtin", "orderId"]
 
@@ -36,7 +40,6 @@ class ApiGTIN(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class ApiGTIN(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,10 +83,7 @@ class ApiGTIN(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "gtin": obj.get("gtin"),
-            "orderId": obj.get("orderId")
-        })
+        _obj = cls.model_validate(
+            {"gtin": obj.get("gtin"), "orderId": obj.get("orderId")}
+        )
         return _obj
-
-

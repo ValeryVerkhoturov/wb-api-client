@@ -23,11 +23,15 @@ from wb_api_client.promotion.models.promo_items_list import PromoItemsList
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1CalendarPromotionsNomenclatures200ResponseData(BaseModel):
     """
     Данные ответа
-    """ # noqa: E501
-    nomenclatures: Optional[List[PromoItemsList]] = Field(default=None, description="Список товаров")
+    """  # noqa: E501
+
+    nomenclatures: Optional[List[PromoItemsList]] = Field(
+        default=None, description="Список товаров"
+    )
     __properties: ClassVar[List[str]] = ["nomenclatures"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class GetV1CalendarPromotionsNomenclatures200ResponseData(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class GetV1CalendarPromotionsNomenclatures200ResponseData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +77,7 @@ class GetV1CalendarPromotionsNomenclatures200ResponseData(BaseModel):
             for _item_nomenclatures in self.nomenclatures:
                 if _item_nomenclatures:
                     _items.append(_item_nomenclatures.to_dict())
-            _dict['nomenclatures'] = _items
+            _dict["nomenclatures"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +89,13 @@ class GetV1CalendarPromotionsNomenclatures200ResponseData(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nomenclatures": [PromoItemsList.from_dict(_item) for _item in obj["nomenclatures"]] if obj.get("nomenclatures") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "nomenclatures": (
+                    [PromoItemsList.from_dict(_item) for _item in obj["nomenclatures"]]
+                    if obj.get("nomenclatures") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

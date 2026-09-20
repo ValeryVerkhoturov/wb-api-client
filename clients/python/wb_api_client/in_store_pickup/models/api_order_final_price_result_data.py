@@ -22,24 +22,54 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiOrderFinalPriceResultData(BaseModel):
     """
     Данные сборочного задания.  Если `\"data\":{}`, данные формируются. Повторите запрос позднее. Максимальное время формирования данных около 1 минуты.  Если `data` отсутствует, данных по сборочному заданию не предусмотрено. Используйте данные из ответов методов: - [Получить список новых сборочных заданий](https://dev.wildberries.ru/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrdersNew) - [Получить информацию о завершенных сборочных заданиях](https://dev.wildberries.ru/docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/getV3ClickCollectOrders)
-    """ # noqa: E501
-    original_price: Optional[StrictInt] = Field(default=None, description="Цена продавца в валюте продажи без учёта скидок, умноженная на 100. Предоставляется в информационных целях", alias="originalPrice")
-    converted_original_price: Optional[StrictInt] = Field(default=None, description="Цена продавца в валюте страны продавца без учёта скидок, умноженная на 100. Предоставляется в информационных целях", alias="convertedOriginalPrice")
-    original_final_price: Optional[StrictInt] = Field(default=None, description="Сумма к оплате покупателем в валюте продажи с учетом всех скидок и кэшбека, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях", alias="originalFinalPrice")
-    converted_original_final_price: Optional[StrictInt] = Field(default=None, description="Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок и кэшбека, умноженная на 100. Предоставляется в информационных целях", alias="convertedOriginalFinalPrice")
-    currency_code: Optional[StrictInt] = Field(default=None, description="Код валюты продажи", alias="currencyCode")
-    converted_currency_code: Optional[StrictInt] = Field(default=None, description="Код валюты страны продавца", alias="convertedCurrencyCode")
-    __properties: ClassVar[List[str]] = ["originalPrice", "convertedOriginalPrice", "originalFinalPrice", "convertedOriginalFinalPrice", "currencyCode", "convertedCurrencyCode"]
+    """  # noqa: E501
+
+    original_price: Optional[StrictInt] = Field(
+        default=None,
+        description="Цена продавца в валюте продажи без учёта скидок, умноженная на 100. Предоставляется в информационных целях",
+        alias="originalPrice",
+    )
+    converted_original_price: Optional[StrictInt] = Field(
+        default=None,
+        description="Цена продавца в валюте страны продавца без учёта скидок, умноженная на 100. Предоставляется в информационных целях",
+        alias="convertedOriginalPrice",
+    )
+    original_final_price: Optional[StrictInt] = Field(
+        default=None,
+        description="Сумма к оплате покупателем в валюте продажи с учетом всех скидок и кэшбека, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях",
+        alias="originalFinalPrice",
+    )
+    converted_original_final_price: Optional[StrictInt] = Field(
+        default=None,
+        description="Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок и кэшбека, умноженная на 100. Предоставляется в информационных целях",
+        alias="convertedOriginalFinalPrice",
+    )
+    currency_code: Optional[StrictInt] = Field(
+        default=None, description="Код валюты продажи", alias="currencyCode"
+    )
+    converted_currency_code: Optional[StrictInt] = Field(
+        default=None,
+        description="Код валюты страны продавца",
+        alias="convertedCurrencyCode",
+    )
+    __properties: ClassVar[List[str]] = [
+        "originalPrice",
+        "convertedOriginalPrice",
+        "originalFinalPrice",
+        "convertedOriginalFinalPrice",
+        "currencyCode",
+        "convertedCurrencyCode",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +95,7 @@ class ApiOrderFinalPriceResultData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -84,14 +113,14 @@ class ApiOrderFinalPriceResultData(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "originalPrice": obj.get("originalPrice"),
-            "convertedOriginalPrice": obj.get("convertedOriginalPrice"),
-            "originalFinalPrice": obj.get("originalFinalPrice"),
-            "convertedOriginalFinalPrice": obj.get("convertedOriginalFinalPrice"),
-            "currencyCode": obj.get("currencyCode"),
-            "convertedCurrencyCode": obj.get("convertedCurrencyCode")
-        })
+        _obj = cls.model_validate(
+            {
+                "originalPrice": obj.get("originalPrice"),
+                "convertedOriginalPrice": obj.get("convertedOriginalPrice"),
+                "originalFinalPrice": obj.get("originalFinalPrice"),
+                "convertedOriginalFinalPrice": obj.get("convertedOriginalFinalPrice"),
+                "currencyCode": obj.get("currencyCode"),
+                "convertedCurrencyCode": obj.get("convertedCurrencyCode"),
+            }
+        )
         return _obj
-
-

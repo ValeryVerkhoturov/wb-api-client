@@ -15,72 +15,108 @@
 from __future__ import annotations
 import json
 import pprint
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictStr,
+    ValidationError,
+    field_validator,
+)
 from typing import Any, List, Optional
-from wb_api_client.promotion.models.request_with_campaign_id import RequestWithCampaignID
+from wb_api_client.promotion.models.request_with_campaign_id import (
+    RequestWithCampaignID,
+)
 from wb_api_client.promotion.models.request_with_date import RequestWithDate
 from wb_api_client.promotion.models.request_with_interval import RequestWithInterval
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-POSTV1STATSREQUESTINNER_ONE_OF_SCHEMAS = ["RequestWithCampaignID", "RequestWithDate", "RequestWithInterval"]
+POSTV1STATSREQUESTINNER_ONE_OF_SCHEMAS = [
+    "RequestWithCampaignID",
+    "RequestWithDate",
+    "RequestWithInterval",
+]
+
 
 class PostV1StatsRequestInner(BaseModel):
     """
     PostV1StatsRequestInner
     """
+
     # data type: RequestWithDate
     oneof_schema_1_validator: Optional[RequestWithDate] = None
     # data type: RequestWithInterval
     oneof_schema_2_validator: Optional[RequestWithInterval] = None
     # data type: RequestWithCampaignID
     oneof_schema_3_validator: Optional[RequestWithCampaignID] = None
-    actual_instance: Optional[Union[RequestWithCampaignID, RequestWithDate, RequestWithInterval]] = None
-    one_of_schemas: Set[str] = { "RequestWithCampaignID", "RequestWithDate", "RequestWithInterval" }
+    actual_instance: Optional[
+        Union[RequestWithCampaignID, RequestWithDate, RequestWithInterval]
+    ] = None
+    one_of_schemas: Set[str] = {
+        "RequestWithCampaignID",
+        "RequestWithDate",
+        "RequestWithInterval",
+    }
 
     model_config = ConfigDict(
         validate_assignment=True,
         protected_namespaces=(),
     )
 
-
     def __init__(self, *args, **kwargs) -> None:
         if args:
             if len(args) > 1:
-                raise ValueError("If a position argument is used, only 1 is allowed to set `actual_instance`")
+                raise ValueError(
+                    "If a position argument is used, only 1 is allowed to set `actual_instance`"
+                )
             if kwargs:
-                raise ValueError("If a position argument is used, keyword arguments cannot be used.")
+                raise ValueError(
+                    "If a position argument is used, keyword arguments cannot be used."
+                )
             super().__init__(actual_instance=args[0])
         else:
             super().__init__(**kwargs)
 
-    @field_validator('actual_instance')
+    @field_validator("actual_instance")
     def actual_instance_must_validate_oneof(cls, v):
         instance = PostV1StatsRequestInner.model_construct()
         error_messages = []
         match = 0
         # validate data type: RequestWithDate
         if not isinstance(v, RequestWithDate):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RequestWithDate`")
+            error_messages.append(
+                f"Error! Input type `{type(v)}` is not `RequestWithDate`"
+            )
         else:
             match += 1
         # validate data type: RequestWithInterval
         if not isinstance(v, RequestWithInterval):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RequestWithInterval`")
+            error_messages.append(
+                f"Error! Input type `{type(v)}` is not `RequestWithInterval`"
+            )
         else:
             match += 1
         # validate data type: RequestWithCampaignID
         if not isinstance(v, RequestWithCampaignID):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RequestWithCampaignID`")
+            error_messages.append(
+                f"Error! Input type `{type(v)}` is not `RequestWithCampaignID`"
+            )
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in PostV1StatsRequestInner with oneOf schemas: RequestWithCampaignID, RequestWithDate, RequestWithInterval. Details: " + ", ".join(error_messages))
+            raise ValueError(
+                "Multiple matches found when setting `actual_instance` in PostV1StatsRequestInner with oneOf schemas: RequestWithCampaignID, RequestWithDate, RequestWithInterval. Details: "
+                + ", ".join(error_messages)
+            )
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in PostV1StatsRequestInner with oneOf schemas: RequestWithCampaignID, RequestWithDate, RequestWithInterval. Details: " + ", ".join(error_messages))
+            raise ValueError(
+                "No match found when setting `actual_instance` in PostV1StatsRequestInner with oneOf schemas: RequestWithCampaignID, RequestWithDate, RequestWithInterval. Details: "
+                + ", ".join(error_messages)
+            )
         else:
             return v
 
@@ -116,10 +152,16 @@ class PostV1StatsRequestInner(BaseModel):
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into PostV1StatsRequestInner with oneOf schemas: RequestWithCampaignID, RequestWithDate, RequestWithInterval. Details: " + ", ".join(error_messages))
+            raise ValueError(
+                "Multiple matches found when deserializing the JSON string into PostV1StatsRequestInner with oneOf schemas: RequestWithCampaignID, RequestWithDate, RequestWithInterval. Details: "
+                + ", ".join(error_messages)
+            )
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into PostV1StatsRequestInner with oneOf schemas: RequestWithCampaignID, RequestWithDate, RequestWithInterval. Details: " + ", ".join(error_messages))
+            raise ValueError(
+                "No match found when deserializing the JSON string into PostV1StatsRequestInner with oneOf schemas: RequestWithCampaignID, RequestWithDate, RequestWithInterval. Details: "
+                + ", ".join(error_messages)
+            )
         else:
             return instance
 
@@ -128,17 +170,27 @@ class PostV1StatsRequestInner(BaseModel):
         if self.actual_instance is None:
             return "null"
 
-        if hasattr(self.actual_instance, "to_json") and callable(self.actual_instance.to_json):
+        if hasattr(self.actual_instance, "to_json") and callable(
+            self.actual_instance.to_json
+        ):
             return self.actual_instance.to_json()
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], RequestWithCampaignID, RequestWithDate, RequestWithInterval]]:
+    def to_dict(
+        self,
+    ) -> Optional[
+        Union[
+            Dict[str, Any], RequestWithCampaignID, RequestWithDate, RequestWithInterval
+        ]
+    ]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None
 
-        if hasattr(self.actual_instance, "to_dict") and callable(self.actual_instance.to_dict):
+        if hasattr(self.actual_instance, "to_dict") and callable(
+            self.actual_instance.to_dict
+        ):
             return self.actual_instance.to_dict()
         else:
             # primitive type
@@ -147,5 +199,3 @@ class PostV1StatsRequestInner(BaseModel):
     def to_str(self) -> str:
         """Returns the string representation of the actual instance"""
         return pprint.pformat(self.model_dump())
-
-

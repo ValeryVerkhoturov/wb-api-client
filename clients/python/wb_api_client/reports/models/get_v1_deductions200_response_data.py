@@ -19,16 +19,24 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.reports.models.get_v1_deductions200_response_data_reports_inner import GetV1Deductions200ResponseDataReportsInner
+from wb_api_client.reports.models.get_v1_deductions200_response_data_reports_inner import (
+    GetV1Deductions200ResponseDataReportsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV1Deductions200ResponseData(BaseModel):
     """
     Данные ответа
-    """ # noqa: E501
-    reports: List[GetV1Deductions200ResponseDataReportsInner] = Field(description="Удержания")
-    total: StrictInt = Field(description="Количество удержаний в отчёте. Без учёта `limit` и `offset`")
+    """  # noqa: E501
+
+    reports: List[GetV1Deductions200ResponseDataReportsInner] = Field(
+        description="Удержания"
+    )
+    total: StrictInt = Field(
+        description="Количество удержаний в отчёте. Без учёта `limit` и `offset`"
+    )
     __properties: ClassVar[List[str]] = ["reports", "total"]
 
     model_config = ConfigDict(
@@ -36,7 +44,6 @@ class GetV1Deductions200ResponseData(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +69,7 @@ class GetV1Deductions200ResponseData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +82,7 @@ class GetV1Deductions200ResponseData(BaseModel):
             for _item_reports in self.reports:
                 if _item_reports:
                     _items.append(_item_reports.to_dict())
-            _dict['reports'] = _items
+            _dict["reports"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +94,17 @@ class GetV1Deductions200ResponseData(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "reports": [GetV1Deductions200ResponseDataReportsInner.from_dict(_item) for _item in obj["reports"]] if obj.get("reports") is not None else None,
-            "total": obj.get("total")
-        })
+        _obj = cls.model_validate(
+            {
+                "reports": (
+                    [
+                        GetV1Deductions200ResponseDataReportsInner.from_dict(_item)
+                        for _item in obj["reports"]
+                    ]
+                    if obj.get("reports") is not None
+                    else None
+                ),
+                "total": obj.get("total"),
+            }
+        )
         return _obj
-
-

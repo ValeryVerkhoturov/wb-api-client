@@ -23,11 +23,15 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV3SuppliesSupplyIdTrbxRequest(BaseModel):
     """
     PostV3SuppliesSupplyIdTrbxRequest
-    """ # noqa: E501
-    amount: Annotated[int, Field(le=1000, strict=True, ge=1)] = Field(description="Количество грузомест, которые необходимо добавить к поставке")
+    """  # noqa: E501
+
+    amount: Annotated[int, Field(le=1000, strict=True, ge=1)] = Field(
+        description="Количество грузомест, которые необходимо добавить к поставке"
+    )
     __properties: ClassVar[List[str]] = ["amount"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class PostV3SuppliesSupplyIdTrbxRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class PostV3SuppliesSupplyIdTrbxRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,9 +82,5 @@ class PostV3SuppliesSupplyIdTrbxRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "amount": obj.get("amount")
-        })
+        _obj = cls.model_validate({"amount": obj.get("amount")})
         return _obj
-
-

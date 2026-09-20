@@ -23,12 +23,16 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class FullStatsItemBoosterStatsInner(BaseModel):
     """
     FullStatsItemBoosterStatsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     avg_position: StrictInt = Field(description="Средняя позиция товара")
-    var_date: date = Field(description="Дата, за которую предоставлены данные", alias="date")
+    var_date: date = Field(
+        description="Дата, за которую предоставлены данные", alias="date"
+    )
     nm: StrictInt = Field(description="Артикул WB")
     __properties: ClassVar[List[str]] = ["avg_position", "date", "nm"]
 
@@ -37,7 +41,6 @@ class FullStatsItemBoosterStatsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +66,7 @@ class FullStatsItemBoosterStatsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,11 +84,11 @@ class FullStatsItemBoosterStatsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "avg_position": obj.get("avg_position"),
-            "date": obj.get("date"),
-            "nm": obj.get("nm")
-        })
+        _obj = cls.model_validate(
+            {
+                "avg_position": obj.get("avg_position"),
+                "date": obj.get("date"),
+                "nm": obj.get("nm"),
+            }
+        )
         return _obj
-
-

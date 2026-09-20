@@ -26,35 +26,76 @@ from wb_api_client.analytics.models.statistic_wb_club import StatisticWbClub
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class StatisticsPast(BaseModel):
     """
     StatisticsPast
-    """ # noqa: E501
+    """  # noqa: E501
+
     period: StatisticPeriod
-    open_count: StrictInt = Field(description="Количество переходов в карточку товара", alias="openCount")
-    cart_count: StrictInt = Field(description="Положили в корзину, шт.", alias="cartCount")
-    order_count: StrictInt = Field(description="Заказали товаров, шт.", alias="orderCount")
+    open_count: StrictInt = Field(
+        description="Количество переходов в карточку товара", alias="openCount"
+    )
+    cart_count: StrictInt = Field(
+        description="Положили в корзину, шт.", alias="cartCount"
+    )
+    order_count: StrictInt = Field(
+        description="Заказали товаров, шт.", alias="orderCount"
+    )
     order_sum: StrictInt = Field(description="Заказали на сумму", alias="orderSum")
-    buyout_count: StrictInt = Field(description="Выкупили товаров, шт.", alias="buyoutCount")
+    buyout_count: StrictInt = Field(
+        description="Выкупили товаров, шт.", alias="buyoutCount"
+    )
     buyout_sum: StrictInt = Field(description="Выкупили на сумму", alias="buyoutSum")
-    cancel_count: StrictInt = Field(description="Отменили и вернули товаров, шт.", alias="cancelCount")
-    cancel_sum: StrictInt = Field(description="Отменили и вернули на сумму", alias="cancelSum")
+    cancel_count: StrictInt = Field(
+        description="Отменили и вернули товаров, шт.", alias="cancelCount"
+    )
+    cancel_sum: StrictInt = Field(
+        description="Отменили и вернули на сумму", alias="cancelSum"
+    )
     avg_price: StrictInt = Field(description="Средняя цена", alias="avgPrice")
-    avg_orders_count_per_day: Union[StrictFloat, StrictInt] = Field(description="Среднее количество заказов в день, шт.", alias="avgOrdersCountPerDay")
-    share_order_percent: Union[StrictFloat, StrictInt] = Field(description="Доля в выручке", alias="shareOrderPercent")
-    add_to_wishlist: StrictInt = Field(description="Добавили в **Отложенные**", alias="addToWishlist")
+    avg_orders_count_per_day: Union[StrictFloat, StrictInt] = Field(
+        description="Среднее количество заказов в день, шт.",
+        alias="avgOrdersCountPerDay",
+    )
+    share_order_percent: Union[StrictFloat, StrictInt] = Field(
+        description="Доля в выручке", alias="shareOrderPercent"
+    )
+    add_to_wishlist: StrictInt = Field(
+        description="Добавили в **Отложенные**", alias="addToWishlist"
+    )
     time_to_ready: StatisticTimeToReady = Field(alias="timeToReady")
-    localization_percent: StrictInt = Field(description="Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`", alias="localizationPercent")
+    localization_percent: StrictInt = Field(
+        description="Локальные заказы в рамках одного региона. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `100`",
+        alias="localizationPercent",
+    )
     wb_club: StatisticWbClub = Field(alias="wbClub")
     conversions: StatisticConversions
-    __properties: ClassVar[List[str]] = ["period", "openCount", "cartCount", "orderCount", "orderSum", "buyoutCount", "buyoutSum", "cancelCount", "cancelSum", "avgPrice", "avgOrdersCountPerDay", "shareOrderPercent", "addToWishlist", "timeToReady", "localizationPercent", "wbClub", "conversions"]
+    __properties: ClassVar[List[str]] = [
+        "period",
+        "openCount",
+        "cartCount",
+        "orderCount",
+        "orderSum",
+        "buyoutCount",
+        "buyoutSum",
+        "cancelCount",
+        "cancelSum",
+        "avgPrice",
+        "avgOrdersCountPerDay",
+        "shareOrderPercent",
+        "addToWishlist",
+        "timeToReady",
+        "localizationPercent",
+        "wbClub",
+        "conversions",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -80,8 +121,7 @@ class StatisticsPast(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -90,16 +130,16 @@ class StatisticsPast(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of period
         if self.period:
-            _dict['period'] = self.period.to_dict()
+            _dict["period"] = self.period.to_dict()
         # override the default output from pydantic by calling `to_dict()` of time_to_ready
         if self.time_to_ready:
-            _dict['timeToReady'] = self.time_to_ready.to_dict()
+            _dict["timeToReady"] = self.time_to_ready.to_dict()
         # override the default output from pydantic by calling `to_dict()` of wb_club
         if self.wb_club:
-            _dict['wbClub'] = self.wb_club.to_dict()
+            _dict["wbClub"] = self.wb_club.to_dict()
         # override the default output from pydantic by calling `to_dict()` of conversions
         if self.conversions:
-            _dict['conversions'] = self.conversions.to_dict()
+            _dict["conversions"] = self.conversions.to_dict()
         return _dict
 
     @classmethod
@@ -111,25 +151,41 @@ class StatisticsPast(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "period": StatisticPeriod.from_dict(obj["period"]) if obj.get("period") is not None else None,
-            "openCount": obj.get("openCount"),
-            "cartCount": obj.get("cartCount"),
-            "orderCount": obj.get("orderCount"),
-            "orderSum": obj.get("orderSum"),
-            "buyoutCount": obj.get("buyoutCount"),
-            "buyoutSum": obj.get("buyoutSum"),
-            "cancelCount": obj.get("cancelCount"),
-            "cancelSum": obj.get("cancelSum"),
-            "avgPrice": obj.get("avgPrice"),
-            "avgOrdersCountPerDay": obj.get("avgOrdersCountPerDay"),
-            "shareOrderPercent": obj.get("shareOrderPercent"),
-            "addToWishlist": obj.get("addToWishlist"),
-            "timeToReady": StatisticTimeToReady.from_dict(obj["timeToReady"]) if obj.get("timeToReady") is not None else None,
-            "localizationPercent": obj.get("localizationPercent"),
-            "wbClub": StatisticWbClub.from_dict(obj["wbClub"]) if obj.get("wbClub") is not None else None,
-            "conversions": StatisticConversions.from_dict(obj["conversions"]) if obj.get("conversions") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "period": (
+                    StatisticPeriod.from_dict(obj["period"])
+                    if obj.get("period") is not None
+                    else None
+                ),
+                "openCount": obj.get("openCount"),
+                "cartCount": obj.get("cartCount"),
+                "orderCount": obj.get("orderCount"),
+                "orderSum": obj.get("orderSum"),
+                "buyoutCount": obj.get("buyoutCount"),
+                "buyoutSum": obj.get("buyoutSum"),
+                "cancelCount": obj.get("cancelCount"),
+                "cancelSum": obj.get("cancelSum"),
+                "avgPrice": obj.get("avgPrice"),
+                "avgOrdersCountPerDay": obj.get("avgOrdersCountPerDay"),
+                "shareOrderPercent": obj.get("shareOrderPercent"),
+                "addToWishlist": obj.get("addToWishlist"),
+                "timeToReady": (
+                    StatisticTimeToReady.from_dict(obj["timeToReady"])
+                    if obj.get("timeToReady") is not None
+                    else None
+                ),
+                "localizationPercent": obj.get("localizationPercent"),
+                "wbClub": (
+                    StatisticWbClub.from_dict(obj["wbClub"])
+                    if obj.get("wbClub") is not None
+                    else None
+                ),
+                "conversions": (
+                    StatisticConversions.from_dict(obj["conversions"])
+                    if obj.get("conversions") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

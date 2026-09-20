@@ -23,27 +23,61 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2CardsUpdateRequestInnerDocumentsItemsInner(BaseModel):
     """
     PostV2CardsUpdateRequestInnerDocumentsItemsInner
-    """ # noqa: E501
-    type: Optional[StrictInt] = Field(default=None, description="Тип документа:   - `1` — Сертификат соответствия   - `2` — Декларация о соответствии   - `3` — Свидетельство о государственной регистрации (СГР)   - `4` — Регистрационное удостоверение (РУ) на медицинские изделия   - `5` — Регистрационное удостоверение Республики Беларусь   - `7` — Данные о регистрации пестицида   - `8` — Данные о регистрации агрохимиката   - `9` — Регистрационное удостоверение (РУ) на лекарственные препараты ")
+    """  # noqa: E501
+
+    type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип документа:   - `1` — Сертификат соответствия   - `2` — Декларация о соответствии   - `3` — Свидетельство о государственной регистрации (СГР)   - `4` — Регистрационное удостоверение (РУ) на медицинские изделия   - `5` — Регистрационное удостоверение Республики Беларусь   - `7` — Данные о регистрации пестицида   - `8` — Данные о регистрации агрохимиката   - `9` — Регистрационное удостоверение (РУ) на лекарственные препараты ",
+    )
     number: Optional[StrictStr] = Field(default=None, description="Номер документа")
-    product_number: Optional[StrictStr] = Field(default=None, description="Дополнительный номер документа", alias="productNumber")
-    trade_name: Optional[StrictStr] = Field(default=None, description="Торговое наименование", alias="tradeName")
-    applicant: Optional[StrictStr] = Field(default=None, description="Представитель изготовителя медицинского изделия")
-    start_date: Optional[datetime] = Field(default=None, description="Дата и время начала срока действия документа", alias="startDate")
-    end_date: Optional[datetime] = Field(default=None, description="Дата и время окончания срока действия документа", alias="endDate")
-    is_endless: Optional[StrictBool] = Field(default=None, description="Бессрочный ли документ:   - `true` — да, документ бессрочный   - `false` — нет, у документа есть срок действия ", alias="isEndless")
+    product_number: Optional[StrictStr] = Field(
+        default=None,
+        description="Дополнительный номер документа",
+        alias="productNumber",
+    )
+    trade_name: Optional[StrictStr] = Field(
+        default=None, description="Торговое наименование", alias="tradeName"
+    )
+    applicant: Optional[StrictStr] = Field(
+        default=None, description="Представитель изготовителя медицинского изделия"
+    )
+    start_date: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время начала срока действия документа",
+        alias="startDate",
+    )
+    end_date: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время окончания срока действия документа",
+        alias="endDate",
+    )
+    is_endless: Optional[StrictBool] = Field(
+        default=None,
+        description="Бессрочный ли документ:   - `true` — да, документ бессрочный   - `false` — нет, у документа есть срок действия ",
+        alias="isEndless",
+    )
     id: Optional[StrictStr] = Field(default=None, description="ID документа")
-    __properties: ClassVar[List[str]] = ["type", "number", "productNumber", "tradeName", "applicant", "startDate", "endDate", "isEndless", "id"]
+    __properties: ClassVar[List[str]] = [
+        "type",
+        "number",
+        "productNumber",
+        "tradeName",
+        "applicant",
+        "startDate",
+        "endDate",
+        "isEndless",
+        "id",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -69,8 +103,7 @@ class PostV2CardsUpdateRequestInnerDocumentsItemsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -88,17 +121,17 @@ class PostV2CardsUpdateRequestInnerDocumentsItemsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "type": obj.get("type"),
-            "number": obj.get("number"),
-            "productNumber": obj.get("productNumber"),
-            "tradeName": obj.get("tradeName"),
-            "applicant": obj.get("applicant"),
-            "startDate": obj.get("startDate"),
-            "endDate": obj.get("endDate"),
-            "isEndless": obj.get("isEndless"),
-            "id": obj.get("id")
-        })
+        _obj = cls.model_validate(
+            {
+                "type": obj.get("type"),
+                "number": obj.get("number"),
+                "productNumber": obj.get("productNumber"),
+                "tradeName": obj.get("tradeName"),
+                "applicant": obj.get("applicant"),
+                "startDate": obj.get("startDate"),
+                "endDate": obj.get("endDate"),
+                "isEndless": obj.get("isEndless"),
+                "id": obj.get("id"),
+            }
+        )
         return _obj
-
-

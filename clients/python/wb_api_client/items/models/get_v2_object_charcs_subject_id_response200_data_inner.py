@@ -22,30 +22,80 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV2ObjectCharcsSubjectIdResponse200DataInner(BaseModel):
     """
     GetV2ObjectCharcsSubjectIdResponse200DataInner
-    """ # noqa: E501
-    charc_id: Optional[StrictInt] = Field(default=None, description="ID характеристики", alias="charcID")
-    subject_name: Optional[StrictStr] = Field(default=None, description="Название предмета", alias="subjectName")
-    subject_id: Optional[StrictInt] = Field(default=None, description="ID предмета", alias="subjectID")
-    name: Optional[StrictStr] = Field(default=None, description="Название характеристики")
-    required: Optional[StrictBool] = Field(default=None, description="- `true` — характеристику необходимо обязательно указать в карточке товара - `false` — характеристику необязательно указывать ")
-    unit_name: Optional[StrictStr] = Field(default=None, description="Единица измерения", alias="unitName")
-    max_count: Optional[StrictInt] = Field(default=None, description="Максимальное количество значений, которое можно присвоить характеристике при [создании](./item-management#tag/listingItems) или [редактировании](./item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров.  Используется только для характеристик с `\"charcType\":1` — массив строк.  Характеристикам с `\"charcType\":4` — число, можно присвоить только одно значение.  Если `\"maxCount\":0`, количество значений не ограничено", alias="maxCount")
-    popular: Optional[StrictBool] = Field(default=None, description="Характеристика популярна у пользователей (true - да, false - нет)")
-    charc_type: Optional[StrictInt] = Field(default=None, description="Тип данных характеристики, который необходимо использовать при [создании](./item-management#tag/listingItems) или [редактировании](./item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров:   -  `1` — массив строк   -  `4` — число (целое либо с десятичной дробью)   -  `0` — характеристика не используется ", alias="charcType")
-    has_filter: Optional[StrictBool] = Field(default=None, description="Ключевая характеристика. Является ли характеристика значимой для покупателей:   - `true` — да   - `false` — нет ", alias="hasFilter")
-    is_variable: Optional[StrictBool] = Field(default=None, description="Признак [меняющейся характеристики](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov). Значение размечает характеристики, по которым варианты отличаются друг от друга:   -  `true` — варианты товара отличаются по этой характеристике   -  `false` — варианты товара не отличаются по этой характеристике ", alias="isVariable")
-    exist_named_field: Optional[StrictBool] = Field(default=None, description="Как передать характеристику в запросах на [cоздание](./item-management#tag/listingItems/operation/postV2CardsUpload), [создание с присоединением](./item-management#tag/listingItems/operation/postV2CardsUploadAdd) и [редактирование](./item-management#tag/listings/operation/postV2CardsUpdate) карточек товара:   -  `true` — в соответствующем параметре запроса   -  `false` — внутри массива `characteristics` ", alias="existNamedField")
-    __properties: ClassVar[List[str]] = ["charcID", "subjectName", "subjectID", "name", "required", "unitName", "maxCount", "popular", "charcType", "hasFilter", "isVariable", "existNamedField"]
+    """  # noqa: E501
+
+    charc_id: Optional[StrictInt] = Field(
+        default=None, description="ID характеристики", alias="charcID"
+    )
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Название предмета", alias="subjectName"
+    )
+    subject_id: Optional[StrictInt] = Field(
+        default=None, description="ID предмета", alias="subjectID"
+    )
+    name: Optional[StrictStr] = Field(
+        default=None, description="Название характеристики"
+    )
+    required: Optional[StrictBool] = Field(
+        default=None,
+        description="- `true` — характеристику необходимо обязательно указать в карточке товара - `false` — характеристику необязательно указывать ",
+    )
+    unit_name: Optional[StrictStr] = Field(
+        default=None, description="Единица измерения", alias="unitName"
+    )
+    max_count: Optional[StrictInt] = Field(
+        default=None,
+        description='Максимальное количество значений, которое можно присвоить характеристике при [создании](./item-management#tag/listingItems) или [редактировании](./item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров.  Используется только для характеристик с `"charcType":1` — массив строк.  Характеристикам с `"charcType":4` — число, можно присвоить только одно значение.  Если `"maxCount":0`, количество значений не ограничено',
+        alias="maxCount",
+    )
+    popular: Optional[StrictBool] = Field(
+        default=None,
+        description="Характеристика популярна у пользователей (true - да, false - нет)",
+    )
+    charc_type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип данных характеристики, который необходимо использовать при [создании](./item-management#tag/listingItems) или [редактировании](./item-management#tag/listings/operation/postV2CardsUpdate) карточек товаров:   -  `1` — массив строк   -  `4` — число (целое либо с десятичной дробью)   -  `0` — характеристика не используется ",
+        alias="charcType",
+    )
+    has_filter: Optional[StrictBool] = Field(
+        default=None,
+        description="Ключевая характеристика. Является ли характеристика значимой для покупателей:   - `true` — да   - `false` — нет ",
+        alias="hasFilter",
+    )
+    is_variable: Optional[StrictBool] = Field(
+        default=None,
+        description="Признак [меняющейся характеристики](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov). Значение размечает характеристики, по которым варианты отличаются друг от друга:   -  `true` — варианты товара отличаются по этой характеристике   -  `false` — варианты товара не отличаются по этой характеристике ",
+        alias="isVariable",
+    )
+    exist_named_field: Optional[StrictBool] = Field(
+        default=None,
+        description="Как передать характеристику в запросах на [cоздание](./item-management#tag/listingItems/operation/postV2CardsUpload), [создание с присоединением](./item-management#tag/listingItems/operation/postV2CardsUploadAdd) и [редактирование](./item-management#tag/listings/operation/postV2CardsUpdate) карточек товара:   -  `true` — в соответствующем параметре запроса   -  `false` — внутри массива `characteristics` ",
+        alias="existNamedField",
+    )
+    __properties: ClassVar[List[str]] = [
+        "charcID",
+        "subjectName",
+        "subjectID",
+        "name",
+        "required",
+        "unitName",
+        "maxCount",
+        "popular",
+        "charcType",
+        "hasFilter",
+        "isVariable",
+        "existNamedField",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -71,8 +121,7 @@ class GetV2ObjectCharcsSubjectIdResponse200DataInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -90,20 +139,20 @@ class GetV2ObjectCharcsSubjectIdResponse200DataInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "charcID": obj.get("charcID"),
-            "subjectName": obj.get("subjectName"),
-            "subjectID": obj.get("subjectID"),
-            "name": obj.get("name"),
-            "required": obj.get("required"),
-            "unitName": obj.get("unitName"),
-            "maxCount": obj.get("maxCount"),
-            "popular": obj.get("popular"),
-            "charcType": obj.get("charcType"),
-            "hasFilter": obj.get("hasFilter"),
-            "isVariable": obj.get("isVariable"),
-            "existNamedField": obj.get("existNamedField")
-        })
+        _obj = cls.model_validate(
+            {
+                "charcID": obj.get("charcID"),
+                "subjectName": obj.get("subjectName"),
+                "subjectID": obj.get("subjectID"),
+                "name": obj.get("name"),
+                "required": obj.get("required"),
+                "unitName": obj.get("unitName"),
+                "maxCount": obj.get("maxCount"),
+                "popular": obj.get("popular"),
+                "charcType": obj.get("charcType"),
+                "hasFilter": obj.get("hasFilter"),
+                "isVariable": obj.get("isVariable"),
+                "existNamedField": obj.get("existNamedField"),
+            }
+        )
         return _obj
-
-

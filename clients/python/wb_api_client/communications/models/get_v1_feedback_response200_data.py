@@ -20,54 +20,160 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.communications.models.get_v1_feedback_response200_data_answer import GetV1FeedbackResponse200DataAnswer
-from wb_api_client.communications.models.get_v1_feedback_response200_data_product_details import GetV1FeedbackResponse200DataProductDetails
-from wb_api_client.communications.models.get_v1_feedback_response200_data_video import GetV1FeedbackResponse200DataVideo
-from wb_api_client.communications.models.get_v1_feedbacks_response200_data_feedbacks_inner_photo_links_inner import GetV1FeedbacksResponse200DataFeedbacksInnerPhotoLinksInner
+from wb_api_client.communications.models.get_v1_feedback_response200_data_answer import (
+    GetV1FeedbackResponse200DataAnswer,
+)
+from wb_api_client.communications.models.get_v1_feedback_response200_data_product_details import (
+    GetV1FeedbackResponse200DataProductDetails,
+)
+from wb_api_client.communications.models.get_v1_feedback_response200_data_video import (
+    GetV1FeedbackResponse200DataVideo,
+)
+from wb_api_client.communications.models.get_v1_feedbacks_response200_data_feedbacks_inner_photo_links_inner import (
+    GetV1FeedbacksResponse200DataFeedbacksInnerPhotoLinksInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV1FeedbackResponse200Data(BaseModel):
     """
     GetV1FeedbackResponse200Data
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictStr] = Field(default=None, description="ID отзыва")
     text: Optional[StrictStr] = Field(default=None, description="Текст отзыва")
     pros: Optional[StrictStr] = Field(default=None, description="Достоинства товара")
     cons: Optional[StrictStr] = Field(default=None, description="Недостатки товара")
-    matching_size: Optional[StrictStr] = Field(default=None, description="Соответствие заявленного размера реальному.  Возможные значения: - ` ` - для безразмерных товаров - `ок` - соответствует размеру - `smaller` - маломерит - `bigger` - большемерит", alias="matchingSize")
-    product_valuation: Optional[StrictInt] = Field(default=None, description="Оценка товара", alias="productValuation")
-    created_date: Optional[datetime] = Field(default=None, description="Дата и время создания отзыва", alias="createdDate")
+    matching_size: Optional[StrictStr] = Field(
+        default=None,
+        description="Соответствие заявленного размера реальному.  Возможные значения: - ` ` - для безразмерных товаров - `ок` - соответствует размеру - `smaller` - маломерит - `bigger` - большемерит",
+        alias="matchingSize",
+    )
+    product_valuation: Optional[StrictInt] = Field(
+        default=None, description="Оценка товара", alias="productValuation"
+    )
+    created_date: Optional[datetime] = Field(
+        default=None, description="Дата и время создания отзыва", alias="createdDate"
+    )
     answer: Optional[GetV1FeedbackResponse200DataAnswer] = None
-    state: Optional[StrictStr] = Field(default=None, description="Статус отзыва:   - `none` - не обработан (новый)   - `wbRu` - обработан ")
-    product_details: Optional[GetV1FeedbackResponse200DataProductDetails] = Field(default=None, alias="productDetails")
-    photo_links: Optional[List[GetV1FeedbacksResponse200DataFeedbacksInnerPhotoLinksInner]] = Field(default=None, description="Массив структур фотографий", alias="photoLinks")
-    user_name: Optional[StrictStr] = Field(default=None, description="Имя автора отзыва", alias="userName")
-    order_status: Optional[StrictStr] = Field(default=None, description="Статус заказа.  Возможные значения: - `buyout` — выкуплен - `rejected` — отказались - `returned` — возврат - `notSpecified` — статус не присвоен", alias="orderStatus")
+    state: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус отзыва:   - `none` - не обработан (новый)   - `wbRu` - обработан ",
+    )
+    product_details: Optional[GetV1FeedbackResponse200DataProductDetails] = Field(
+        default=None, alias="productDetails"
+    )
+    photo_links: Optional[
+        List[GetV1FeedbacksResponse200DataFeedbacksInnerPhotoLinksInner]
+    ] = Field(
+        default=None, description="Массив структур фотографий", alias="photoLinks"
+    )
+    user_name: Optional[StrictStr] = Field(
+        default=None, description="Имя автора отзыва", alias="userName"
+    )
+    order_status: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус заказа.  Возможные значения: - `buyout` — выкуплен - `rejected` — отказались - `returned` — возврат - `notSpecified` — статус не присвоен",
+        alias="orderStatus",
+    )
     video: Optional[GetV1FeedbackResponse200DataVideo] = None
-    was_viewed: Optional[StrictBool] = Field(default=None, description="Просмотрен ли отзыв", alias="wasViewed")
-    is_able_supplier_feedback_valuation: Optional[StrictBool] = Field(default=None, description="Доступна ли продавцу возможность оставить жалобу на отзыв:   - `true`— да   - `false` — нет ", alias="isAbleSupplierFeedbackValuation")
-    supplier_feedback_valuation: Optional[StrictInt] = Field(default=None, description="Ключ причины жалобы на отзыв ", alias="supplierFeedbackValuation")
-    is_able_supplier_product_valuation: Optional[StrictBool] = Field(default=None, description="Доступна ли продавцу возможность сообщить о проблеме с товаром  (`true` - доступна, `false` - не доступна)", alias="isAbleSupplierProductValuation")
-    supplier_product_valuation: Optional[StrictInt] = Field(default=None, description="Ключ проблемы с товаром ", alias="supplierProductValuation")
-    is_able_return_product_orders: Optional[StrictBool] = Field(default=None, description="Опция возврата товара:   - `true` — доступна   - `false` — недоступна ", alias="isAbleReturnProductOrders")
-    return_product_orders_date: Optional[StrictStr] = Field(default=None, description="Дата и время, когда на запрос возврата был получен ответ со статус-кодом 200.", alias="returnProductOrdersDate")
-    bables: Optional[List[StrictStr]] = Field(default=None, description="Список тегов покупателя")
-    last_order_shk_id: Optional[StrictInt] = Field(default=None, description="Штрихкод единицы товара", alias="lastOrderShkId")
-    last_order_created_at: Optional[StrictStr] = Field(default=None, description="Дата покупки", alias="lastOrderCreatedAt")
+    was_viewed: Optional[StrictBool] = Field(
+        default=None, description="Просмотрен ли отзыв", alias="wasViewed"
+    )
+    is_able_supplier_feedback_valuation: Optional[StrictBool] = Field(
+        default=None,
+        description="Доступна ли продавцу возможность оставить жалобу на отзыв:   - `true`— да   - `false` — нет ",
+        alias="isAbleSupplierFeedbackValuation",
+    )
+    supplier_feedback_valuation: Optional[StrictInt] = Field(
+        default=None,
+        description="Ключ причины жалобы на отзыв ",
+        alias="supplierFeedbackValuation",
+    )
+    is_able_supplier_product_valuation: Optional[StrictBool] = Field(
+        default=None,
+        description="Доступна ли продавцу возможность сообщить о проблеме с товаром  (`true` - доступна, `false` - не доступна)",
+        alias="isAbleSupplierProductValuation",
+    )
+    supplier_product_valuation: Optional[StrictInt] = Field(
+        default=None,
+        description="Ключ проблемы с товаром ",
+        alias="supplierProductValuation",
+    )
+    is_able_return_product_orders: Optional[StrictBool] = Field(
+        default=None,
+        description="Опция возврата товара:   - `true` — доступна   - `false` — недоступна ",
+        alias="isAbleReturnProductOrders",
+    )
+    return_product_orders_date: Optional[StrictStr] = Field(
+        default=None,
+        description="Дата и время, когда на запрос возврата был получен ответ со статус-кодом 200.",
+        alias="returnProductOrdersDate",
+    )
+    bables: Optional[List[StrictStr]] = Field(
+        default=None, description="Список тегов покупателя"
+    )
+    last_order_shk_id: Optional[StrictInt] = Field(
+        default=None, description="Штрихкод единицы товара", alias="lastOrderShkId"
+    )
+    last_order_created_at: Optional[StrictStr] = Field(
+        default=None, description="Дата покупки", alias="lastOrderCreatedAt"
+    )
     color: Optional[StrictStr] = Field(default=None, description="Цвет товара")
-    subject_id: Optional[StrictInt] = Field(default=None, description="ID предмета", alias="subjectId")
-    subject_name: Optional[StrictStr] = Field(default=None, description="Название предмета", alias="subjectName")
-    parent_feedback_id: Optional[StrictStr] = Field(default=None, description="ID начального отзыва (`null`, если этот отзыв начальный)", alias="parentFeedbackId")
-    child_feedback_id: Optional[StrictStr] = Field(default=None, description="ID дополненного отзыва (`null`, если этот отзыв дополненный)", alias="childFeedbackId")
-    __properties: ClassVar[List[str]] = ["id", "text", "pros", "cons", "matchingSize", "productValuation", "createdDate", "answer", "state", "productDetails", "photoLinks", "userName", "orderStatus", "video", "wasViewed", "isAbleSupplierFeedbackValuation", "supplierFeedbackValuation", "isAbleSupplierProductValuation", "supplierProductValuation", "isAbleReturnProductOrders", "returnProductOrdersDate", "bables", "lastOrderShkId", "lastOrderCreatedAt", "color", "subjectId", "subjectName", "parentFeedbackId", "childFeedbackId"]
+    subject_id: Optional[StrictInt] = Field(
+        default=None, description="ID предмета", alias="subjectId"
+    )
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Название предмета", alias="subjectName"
+    )
+    parent_feedback_id: Optional[StrictStr] = Field(
+        default=None,
+        description="ID начального отзыва (`null`, если этот отзыв начальный)",
+        alias="parentFeedbackId",
+    )
+    child_feedback_id: Optional[StrictStr] = Field(
+        default=None,
+        description="ID дополненного отзыва (`null`, если этот отзыв дополненный)",
+        alias="childFeedbackId",
+    )
+    __properties: ClassVar[List[str]] = [
+        "id",
+        "text",
+        "pros",
+        "cons",
+        "matchingSize",
+        "productValuation",
+        "createdDate",
+        "answer",
+        "state",
+        "productDetails",
+        "photoLinks",
+        "userName",
+        "orderStatus",
+        "video",
+        "wasViewed",
+        "isAbleSupplierFeedbackValuation",
+        "supplierFeedbackValuation",
+        "isAbleSupplierProductValuation",
+        "supplierProductValuation",
+        "isAbleReturnProductOrders",
+        "returnProductOrdersDate",
+        "bables",
+        "lastOrderShkId",
+        "lastOrderCreatedAt",
+        "color",
+        "subjectId",
+        "subjectName",
+        "parentFeedbackId",
+        "childFeedbackId",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -93,8 +199,7 @@ class GetV1FeedbackResponse200Data(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -103,54 +208,63 @@ class GetV1FeedbackResponse200Data(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of answer
         if self.answer:
-            _dict['answer'] = self.answer.to_dict()
+            _dict["answer"] = self.answer.to_dict()
         # override the default output from pydantic by calling `to_dict()` of product_details
         if self.product_details:
-            _dict['productDetails'] = self.product_details.to_dict()
+            _dict["productDetails"] = self.product_details.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in photo_links (list)
         _items = []
         if self.photo_links:
             for _item_photo_links in self.photo_links:
                 if _item_photo_links:
                     _items.append(_item_photo_links.to_dict())
-            _dict['photoLinks'] = _items
+            _dict["photoLinks"] = _items
         # override the default output from pydantic by calling `to_dict()` of video
         if self.video:
-            _dict['video'] = self.video.to_dict()
+            _dict["video"] = self.video.to_dict()
         # set to None if answer (nullable) is None
         # and model_fields_set contains the field
         if self.answer is None and "answer" in self.model_fields_set:
-            _dict['answer'] = None
+            _dict["answer"] = None
 
         # set to None if photo_links (nullable) is None
         # and model_fields_set contains the field
         if self.photo_links is None and "photo_links" in self.model_fields_set:
-            _dict['photoLinks'] = None
+            _dict["photoLinks"] = None
 
         # set to None if video (nullable) is None
         # and model_fields_set contains the field
         if self.video is None and "video" in self.model_fields_set:
-            _dict['video'] = None
+            _dict["video"] = None
 
         # set to None if return_product_orders_date (nullable) is None
         # and model_fields_set contains the field
-        if self.return_product_orders_date is None and "return_product_orders_date" in self.model_fields_set:
-            _dict['returnProductOrdersDate'] = None
+        if (
+            self.return_product_orders_date is None
+            and "return_product_orders_date" in self.model_fields_set
+        ):
+            _dict["returnProductOrdersDate"] = None
 
         # set to None if bables (nullable) is None
         # and model_fields_set contains the field
         if self.bables is None and "bables" in self.model_fields_set:
-            _dict['bables'] = None
+            _dict["bables"] = None
 
         # set to None if parent_feedback_id (nullable) is None
         # and model_fields_set contains the field
-        if self.parent_feedback_id is None and "parent_feedback_id" in self.model_fields_set:
-            _dict['parentFeedbackId'] = None
+        if (
+            self.parent_feedback_id is None
+            and "parent_feedback_id" in self.model_fields_set
+        ):
+            _dict["parentFeedbackId"] = None
 
         # set to None if child_feedback_id (nullable) is None
         # and model_fields_set contains the field
-        if self.child_feedback_id is None and "child_feedback_id" in self.model_fields_set:
-            _dict['childFeedbackId'] = None
+        if (
+            self.child_feedback_id is None
+            and "child_feedback_id" in self.model_fields_set
+        ):
+            _dict["childFeedbackId"] = None
 
         return _dict
 
@@ -163,37 +277,64 @@ class GetV1FeedbackResponse200Data(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "text": obj.get("text"),
-            "pros": obj.get("pros"),
-            "cons": obj.get("cons"),
-            "matchingSize": obj.get("matchingSize"),
-            "productValuation": obj.get("productValuation"),
-            "createdDate": obj.get("createdDate"),
-            "answer": GetV1FeedbackResponse200DataAnswer.from_dict(obj["answer"]) if obj.get("answer") is not None else None,
-            "state": obj.get("state"),
-            "productDetails": GetV1FeedbackResponse200DataProductDetails.from_dict(obj["productDetails"]) if obj.get("productDetails") is not None else None,
-            "photoLinks": [GetV1FeedbacksResponse200DataFeedbacksInnerPhotoLinksInner.from_dict(_item) for _item in obj["photoLinks"]] if obj.get("photoLinks") is not None else None,
-            "userName": obj.get("userName"),
-            "orderStatus": obj.get("orderStatus"),
-            "video": GetV1FeedbackResponse200DataVideo.from_dict(obj["video"]) if obj.get("video") is not None else None,
-            "wasViewed": obj.get("wasViewed"),
-            "isAbleSupplierFeedbackValuation": obj.get("isAbleSupplierFeedbackValuation"),
-            "supplierFeedbackValuation": obj.get("supplierFeedbackValuation"),
-            "isAbleSupplierProductValuation": obj.get("isAbleSupplierProductValuation"),
-            "supplierProductValuation": obj.get("supplierProductValuation"),
-            "isAbleReturnProductOrders": obj.get("isAbleReturnProductOrders"),
-            "returnProductOrdersDate": obj.get("returnProductOrdersDate"),
-            "bables": obj.get("bables"),
-            "lastOrderShkId": obj.get("lastOrderShkId"),
-            "lastOrderCreatedAt": obj.get("lastOrderCreatedAt"),
-            "color": obj.get("color"),
-            "subjectId": obj.get("subjectId"),
-            "subjectName": obj.get("subjectName"),
-            "parentFeedbackId": obj.get("parentFeedbackId"),
-            "childFeedbackId": obj.get("childFeedbackId")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "text": obj.get("text"),
+                "pros": obj.get("pros"),
+                "cons": obj.get("cons"),
+                "matchingSize": obj.get("matchingSize"),
+                "productValuation": obj.get("productValuation"),
+                "createdDate": obj.get("createdDate"),
+                "answer": (
+                    GetV1FeedbackResponse200DataAnswer.from_dict(obj["answer"])
+                    if obj.get("answer") is not None
+                    else None
+                ),
+                "state": obj.get("state"),
+                "productDetails": (
+                    GetV1FeedbackResponse200DataProductDetails.from_dict(
+                        obj["productDetails"]
+                    )
+                    if obj.get("productDetails") is not None
+                    else None
+                ),
+                "photoLinks": (
+                    [
+                        GetV1FeedbacksResponse200DataFeedbacksInnerPhotoLinksInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["photoLinks"]
+                    ]
+                    if obj.get("photoLinks") is not None
+                    else None
+                ),
+                "userName": obj.get("userName"),
+                "orderStatus": obj.get("orderStatus"),
+                "video": (
+                    GetV1FeedbackResponse200DataVideo.from_dict(obj["video"])
+                    if obj.get("video") is not None
+                    else None
+                ),
+                "wasViewed": obj.get("wasViewed"),
+                "isAbleSupplierFeedbackValuation": obj.get(
+                    "isAbleSupplierFeedbackValuation"
+                ),
+                "supplierFeedbackValuation": obj.get("supplierFeedbackValuation"),
+                "isAbleSupplierProductValuation": obj.get(
+                    "isAbleSupplierProductValuation"
+                ),
+                "supplierProductValuation": obj.get("supplierProductValuation"),
+                "isAbleReturnProductOrders": obj.get("isAbleReturnProductOrders"),
+                "returnProductOrdersDate": obj.get("returnProductOrdersDate"),
+                "bables": obj.get("bables"),
+                "lastOrderShkId": obj.get("lastOrderShkId"),
+                "lastOrderCreatedAt": obj.get("lastOrderCreatedAt"),
+                "color": obj.get("color"),
+                "subjectId": obj.get("subjectId"),
+                "subjectName": obj.get("subjectName"),
+                "parentFeedbackId": obj.get("parentFeedbackId"),
+                "childFeedbackId": obj.get("childFeedbackId"),
+            }
+        )
         return _obj
-
-

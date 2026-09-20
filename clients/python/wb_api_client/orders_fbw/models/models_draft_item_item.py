@@ -22,28 +22,42 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsDraftItemItem(BaseModel):
     """
     ModelsDraftItemItem
-    """ # noqa: E501
+    """  # noqa: E501
+
     sku: StrictStr = Field(description="Баркод")
     color: StrictStr = Field(description="Цвет товара")
     quantity: StrictInt = Field(description="Количество единиц товара")
     brand_name: StrictStr = Field(description="Бренд", alias="brandName")
-    img_src: StrictStr = Field(description="Ссылка на изображение товара", alias="imgSrc")
+    img_src: StrictStr = Field(
+        description="Ссылка на изображение товара", alias="imgSrc"
+    )
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
     subject_name: StrictStr = Field(description="Предмет", alias="subjectName")
     tech_size: StrictStr = Field(description="Размер товара", alias="techSize")
     title: StrictStr = Field(description="Название товара")
     vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode")
-    __properties: ClassVar[List[str]] = ["sku", "color", "quantity", "brandName", "imgSrc", "nmId", "subjectName", "techSize", "title", "vendorCode"]
+    __properties: ClassVar[List[str]] = [
+        "sku",
+        "color",
+        "quantity",
+        "brandName",
+        "imgSrc",
+        "nmId",
+        "subjectName",
+        "techSize",
+        "title",
+        "vendorCode",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -69,8 +83,7 @@ class ModelsDraftItemItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -88,18 +101,18 @@ class ModelsDraftItemItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "sku": obj.get("sku"),
-            "color": obj.get("color"),
-            "quantity": obj.get("quantity"),
-            "brandName": obj.get("brandName"),
-            "imgSrc": obj.get("imgSrc"),
-            "nmId": obj.get("nmId"),
-            "subjectName": obj.get("subjectName"),
-            "techSize": obj.get("techSize"),
-            "title": obj.get("title"),
-            "vendorCode": obj.get("vendorCode")
-        })
+        _obj = cls.model_validate(
+            {
+                "sku": obj.get("sku"),
+                "color": obj.get("color"),
+                "quantity": obj.get("quantity"),
+                "brandName": obj.get("brandName"),
+                "imgSrc": obj.get("imgSrc"),
+                "nmId": obj.get("nmId"),
+                "subjectName": obj.get("subjectName"),
+                "techSize": obj.get("techSize"),
+                "title": obj.get("title"),
+                "vendorCode": obj.get("vendorCode"),
+            }
+        )
         return _obj
-
-

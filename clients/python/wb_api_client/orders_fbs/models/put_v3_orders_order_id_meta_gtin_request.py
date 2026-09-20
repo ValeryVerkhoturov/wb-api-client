@@ -23,11 +23,15 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PutV3OrdersOrderIdMetaGtinRequest(BaseModel):
     """
     PutV3OrdersOrderIdMetaGtinRequest
-    """ # noqa: E501
-    gtin: Annotated[str, Field(min_length=13, strict=True, max_length=13)] = Field(description="GTIN")
+    """  # noqa: E501
+
+    gtin: Annotated[str, Field(min_length=13, strict=True, max_length=13)] = Field(
+        description="GTIN"
+    )
     __properties: ClassVar[List[str]] = ["gtin"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class PutV3OrdersOrderIdMetaGtinRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class PutV3OrdersOrderIdMetaGtinRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,9 +82,5 @@ class PutV3OrdersOrderIdMetaGtinRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "gtin": obj.get("gtin")
-        })
+        _obj = cls.model_validate({"gtin": obj.get("gtin")})
         return _obj
-
-

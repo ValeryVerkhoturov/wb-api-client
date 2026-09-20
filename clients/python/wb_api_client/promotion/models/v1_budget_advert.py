@@ -22,13 +22,19 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V1BudgetAdvert(BaseModel):
     """
     V1BudgetAdvert
-    """ # noqa: E501
+    """  # noqa: E501
+
     advert_id: StrictInt = Field(description="ID кампании", alias="advertId")
-    currency: StrictStr = Field(description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    total: StrictInt = Field(description="Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    currency: StrictStr = Field(
+        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
+    total: StrictInt = Field(
+        description="Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
     __properties: ClassVar[List[str]] = ["advertId", "currency", "total"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class V1BudgetAdvert(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class V1BudgetAdvert(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +85,11 @@ class V1BudgetAdvert(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advertId": obj.get("advertId"),
-            "currency": obj.get("currency"),
-            "total": obj.get("total")
-        })
+        _obj = cls.model_validate(
+            {
+                "advertId": obj.get("advertId"),
+                "currency": obj.get("currency"),
+                "total": obj.get("total"),
+            }
+        )
         return _obj
-
-

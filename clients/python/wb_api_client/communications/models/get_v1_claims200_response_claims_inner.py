@@ -23,37 +23,98 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1Claims200ResponseClaimsInner(BaseModel):
     """
     GetV1Claims200ResponseClaimsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictStr] = Field(default=None, description="ID заявки")
-    claim_type: Optional[StrictInt] = Field(default=None, description="Источник заявки:   * `1` — портал покупателей   * `3` — чат ")
-    status: Optional[StrictInt] = Field(default=None, description="Решение по возврату покупателю:   * `0` — на рассмотрении   * `1` — отказ   * `2` — одобрено ")
-    status_ex: Optional[StrictInt] = Field(default=None, description="Статус товара:   * `0` — заявка на рассмотрении   * `1` — товар остается у покупателя (Заявка отклонена)   * `2` — покупатель сдает товар на WB, товар отправляется в утиль   * `5` — товар остается у покупателя (Заявка одобрена)   * `8` — товар будет возвращён в реализацию после проверки WB   * `10` — товар возвращается продавцу ")
+    claim_type: Optional[StrictInt] = Field(
+        default=None,
+        description="Источник заявки:   * `1` — портал покупателей   * `3` — чат ",
+    )
+    status: Optional[StrictInt] = Field(
+        default=None,
+        description="Решение по возврату покупателю:   * `0` — на рассмотрении   * `1` — отказ   * `2` — одобрено ",
+    )
+    status_ex: Optional[StrictInt] = Field(
+        default=None,
+        description="Статус товара:   * `0` — заявка на рассмотрении   * `1` — товар остается у покупателя (Заявка отклонена)   * `2` — покупатель сдает товар на WB, товар отправляется в утиль   * `5` — товар остается у покупателя (Заявка одобрена)   * `8` — товар будет возвращён в реализацию после проверки WB   * `10` — товар возвращается продавцу ",
+    )
     nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB")
-    user_comment: Optional[Annotated[str, Field(strict=True, max_length=1000)]] = Field(default=None, description="Комментарий покупателя")
-    wb_comment: Optional[Annotated[str, Field(strict=True, max_length=10000)]] = Field(default=None, description="Ответ покупателю")
-    dt: Optional[StrictStr] = Field(default=None, description="Дата и время оформления заявки покупателем. UTC+3")
+    user_comment: Optional[Annotated[str, Field(strict=True, max_length=1000)]] = Field(
+        default=None, description="Комментарий покупателя"
+    )
+    wb_comment: Optional[Annotated[str, Field(strict=True, max_length=10000)]] = Field(
+        default=None, description="Ответ покупателю"
+    )
+    dt: Optional[StrictStr] = Field(
+        default=None, description="Дата и время оформления заявки покупателем. UTC+3"
+    )
     imt_name: Optional[StrictStr] = Field(default=None, description="Название товара")
-    order_dt: Optional[StrictStr] = Field(default=None, description="Дата и время заказа")
-    dt_update: Optional[StrictStr] = Field(default=None, description="Дата и время рассмотрения заявки. Для нерассмотренной заявки — дата и время оформления. UTC+3")
-    photos: Optional[Annotated[List[StrictStr], Field(min_length=0, max_length=10)]] = Field(default=None, description="Фотографии из заявки покупателя")
-    video_paths: Optional[Annotated[List[StrictStr], Field(min_length=0, max_length=1)]] = Field(default=None, description="Видео из заявки покупателя")
-    actions: Optional[List[StrictStr]] = Field(default=None, description="Варианты [ответа продавца на заявку](./customer-communication#tag/buyersReturns/operation/patchV1Claim). Отклонённые заявки можно пересмотреть. Если массив пуст, с заявкой работать нельзя. \\* `approve1` — одобрить с проверкой брака. Деньги вернутся покупателю после возврата товара. Товар будет проверен на складе. При подтверждении брака/ошибки вложения товар будет отправлен продавцу. Если брак/ошибка вложения не подтвердятся, товар будет возвращён в продажу. Неприменимо при модели **[Самовывоз](./in-store-pickup)**. \\* `approve2` — одобрить и забрать товар.  Деньги вернутся покупателю после возврата товара. Товар будет отправлен продавцу. Неприменимо при модели **[Самовывоз](./in-store-pickup)**. \\* `autorefund1` — одобрить без возврата товара.  Товар останется у покупателя. Деньги за него будут возвращены покупателю без возврата товара. \\* `reject1` — отклонить с шаблоном ответа: **Брак не обнаружен**Пришлось отклонить заявку — подтвердить производственный брак не получилось. Можете отнести товар на независимую экспертизу или в сервисный центр. Если брак подтвердится, создайте новую заявку с такой же причиной, ещё раз опишите проблему и добавьте фото заключения. А если остались вопросы, задайте их в чате: нажмите кнопку «Написать продавцу». \\* `reject2` — отклонить с шаблоном ответа: **Добавить фото/видео**Пришлось отклонить заявку — нужно чуть больше информации. Создайте новую заявку с такой же причиной возврата, подробно опишите проблему и добавьте фото, на которых хорошо видно: сам товар целиком, брак, бирку или этикетку, упаковку со штрихкодом Wildberries, если она осталась. Желательно добавить видео — это поможет разобраться. \\* `reject3` — отклонить с шаблоном ответа: **Направить в сервисный центр**Пришлось отклонить заявку — подтвердить производственный брак не получилось. Вы можете отнести товар в сервисный центр: адрес есть на сайте производителя или в гарантийном талоне. Там всё проверят и выдадут заключение. Если производственный брак подтвердится, создайте новую заявку с такой же причиной, ещё раз опишите проблему и добавьте фото заключения. \\* `rejectcustom` — отклонить с комментарием. Комментарий передаётся в параметре `comment`. \\* `approvecc1` — одобрить заявку с возвратом товара в магазин продавца. Можно передать комментарий (например, телефон для связи или время работы своего отдела возвратов) в параметре `comment`. По итогу возврата необходимо ответить на заявку с `\"action\":\"confirmreturngoodcc1\"` или `\"action\":\"rejectcustom\"`. Применимо только при модели **[Самовывоз](./in-store-pickup)**. \\* `confirmreturngoodcc1` — подтвердить приёмку товара от покупателя. Применимо только при модели **[Самовывоз](./in-store-pickup)**.")
-    price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Фактическая цена с учетом всех скидок. Взимается с покупателя")
-    currency_code: Optional[StrictStr] = Field(default=None, description="Код валюты цены")
-    srid: Optional[StrictStr] = Field(default=None, description="Уникальный ID заказа, по товару которого создана заявка")
-    origin_id_info: Optional[StrictStr] = Field(default=None, description="Результат сверки [IMEI](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs#imei) для возврата через ПВЗ Wildberries. Значение показывает, совпадает ли IMEI, который был указан продавцом или отсканирован при приёмке на складе Wildberries, с IMEI из заявки покупателя, что позволяет эффективнее [обрабатывать заявки](./customer-communication#tag/buyersReturns/operation/patchV1Claim). Применимо только для товаров \\*\\*Apple\\*\\* предмета `Смартфоны` (`\"subjectId\":515`) с ценой от 40000 рублей, учитывая скидку продавца ([только](./item-management#tag/pricesAndDiscounts/operation/postV2UploadTask) параметры и поля `price` и `discount`)")
-    delivery_dt: Optional[StrictStr] = Field(default=None, description="Дата и время получения заказа покупателем")
-    __properties: ClassVar[List[str]] = ["id", "claim_type", "status", "status_ex", "nm_id", "user_comment", "wb_comment", "dt", "imt_name", "order_dt", "dt_update", "photos", "video_paths", "actions", "price", "currency_code", "srid", "origin_id_info", "delivery_dt"]
+    order_dt: Optional[StrictStr] = Field(
+        default=None, description="Дата и время заказа"
+    )
+    dt_update: Optional[StrictStr] = Field(
+        default=None,
+        description="Дата и время рассмотрения заявки. Для нерассмотренной заявки — дата и время оформления. UTC+3",
+    )
+    photos: Optional[Annotated[List[StrictStr], Field(min_length=0, max_length=10)]] = (
+        Field(default=None, description="Фотографии из заявки покупателя")
+    )
+    video_paths: Optional[
+        Annotated[List[StrictStr], Field(min_length=0, max_length=1)]
+    ] = Field(default=None, description="Видео из заявки покупателя")
+    actions: Optional[List[StrictStr]] = Field(
+        default=None,
+        description='Варианты [ответа продавца на заявку](./customer-communication#tag/buyersReturns/operation/patchV1Claim). Отклонённые заявки можно пересмотреть. Если массив пуст, с заявкой работать нельзя. \\* `approve1` — одобрить с проверкой брака. Деньги вернутся покупателю после возврата товара. Товар будет проверен на складе. При подтверждении брака/ошибки вложения товар будет отправлен продавцу. Если брак/ошибка вложения не подтвердятся, товар будет возвращён в продажу. Неприменимо при модели **[Самовывоз](./in-store-pickup)**. \\* `approve2` — одобрить и забрать товар.  Деньги вернутся покупателю после возврата товара. Товар будет отправлен продавцу. Неприменимо при модели **[Самовывоз](./in-store-pickup)**. \\* `autorefund1` — одобрить без возврата товара.  Товар останется у покупателя. Деньги за него будут возвращены покупателю без возврата товара. \\* `reject1` — отклонить с шаблоном ответа: **Брак не обнаружен**Пришлось отклонить заявку — подтвердить производственный брак не получилось. Можете отнести товар на независимую экспертизу или в сервисный центр. Если брак подтвердится, создайте новую заявку с такой же причиной, ещё раз опишите проблему и добавьте фото заключения. А если остались вопросы, задайте их в чате: нажмите кнопку «Написать продавцу». \\* `reject2` — отклонить с шаблоном ответа: **Добавить фото/видео**Пришлось отклонить заявку — нужно чуть больше информации. Создайте новую заявку с такой же причиной возврата, подробно опишите проблему и добавьте фото, на которых хорошо видно: сам товар целиком, брак, бирку или этикетку, упаковку со штрихкодом Wildberries, если она осталась. Желательно добавить видео — это поможет разобраться. \\* `reject3` — отклонить с шаблоном ответа: **Направить в сервисный центр**Пришлось отклонить заявку — подтвердить производственный брак не получилось. Вы можете отнести товар в сервисный центр: адрес есть на сайте производителя или в гарантийном талоне. Там всё проверят и выдадут заключение. Если производственный брак подтвердится, создайте новую заявку с такой же причиной, ещё раз опишите проблему и добавьте фото заключения. \\* `rejectcustom` — отклонить с комментарием. Комментарий передаётся в параметре `comment`. \\* `approvecc1` — одобрить заявку с возвратом товара в магазин продавца. Можно передать комментарий (например, телефон для связи или время работы своего отдела возвратов) в параметре `comment`. По итогу возврата необходимо ответить на заявку с `"action":"confirmreturngoodcc1"` или `"action":"rejectcustom"`. Применимо только при модели **[Самовывоз](./in-store-pickup)**. \\* `confirmreturngoodcc1` — подтвердить приёмку товара от покупателя. Применимо только при модели **[Самовывоз](./in-store-pickup)**.',
+    )
+    price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Фактическая цена с учетом всех скидок. Взимается с покупателя",
+    )
+    currency_code: Optional[StrictStr] = Field(
+        default=None, description="Код валюты цены"
+    )
+    srid: Optional[StrictStr] = Field(
+        default=None,
+        description="Уникальный ID заказа, по товару которого создана заявка",
+    )
+    origin_id_info: Optional[StrictStr] = Field(
+        default=None,
+        description='Результат сверки [IMEI](https://seller.wildberries.ru/instructions/ru/ru/material/items-labeling-in-fbs#imei) для возврата через ПВЗ Wildberries. Значение показывает, совпадает ли IMEI, который был указан продавцом или отсканирован при приёмке на складе Wildberries, с IMEI из заявки покупателя, что позволяет эффективнее [обрабатывать заявки](./customer-communication#tag/buyersReturns/operation/patchV1Claim). Применимо только для товаров \\*\\*Apple\\*\\* предмета `Смартфоны` (`"subjectId":515`) с ценой от 40000 рублей, учитывая скидку продавца ([только](./item-management#tag/pricesAndDiscounts/operation/postV2UploadTask) параметры и поля `price` и `discount`)',
+    )
+    delivery_dt: Optional[StrictStr] = Field(
+        default=None, description="Дата и время получения заказа покупателем"
+    )
+    __properties: ClassVar[List[str]] = [
+        "id",
+        "claim_type",
+        "status",
+        "status_ex",
+        "nm_id",
+        "user_comment",
+        "wb_comment",
+        "dt",
+        "imt_name",
+        "order_dt",
+        "dt_update",
+        "photos",
+        "video_paths",
+        "actions",
+        "price",
+        "currency_code",
+        "srid",
+        "origin_id_info",
+        "delivery_dt",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -79,8 +140,7 @@ class GetV1Claims200ResponseClaimsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -90,17 +150,17 @@ class GetV1Claims200ResponseClaimsInner(BaseModel):
         # set to None if wb_comment (nullable) is None
         # and model_fields_set contains the field
         if self.wb_comment is None and "wb_comment" in self.model_fields_set:
-            _dict['wb_comment'] = None
+            _dict["wb_comment"] = None
 
         # set to None if imt_name (nullable) is None
         # and model_fields_set contains the field
         if self.imt_name is None and "imt_name" in self.model_fields_set:
-            _dict['imt_name'] = None
+            _dict["imt_name"] = None
 
         # set to None if origin_id_info (nullable) is None
         # and model_fields_set contains the field
         if self.origin_id_info is None and "origin_id_info" in self.model_fields_set:
-            _dict['origin_id_info'] = None
+            _dict["origin_id_info"] = None
 
         return _dict
 
@@ -113,27 +173,27 @@ class GetV1Claims200ResponseClaimsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "claim_type": obj.get("claim_type"),
-            "status": obj.get("status"),
-            "status_ex": obj.get("status_ex"),
-            "nm_id": obj.get("nm_id"),
-            "user_comment": obj.get("user_comment"),
-            "wb_comment": obj.get("wb_comment"),
-            "dt": obj.get("dt"),
-            "imt_name": obj.get("imt_name"),
-            "order_dt": obj.get("order_dt"),
-            "dt_update": obj.get("dt_update"),
-            "photos": obj.get("photos"),
-            "video_paths": obj.get("video_paths"),
-            "actions": obj.get("actions"),
-            "price": obj.get("price"),
-            "currency_code": obj.get("currency_code"),
-            "srid": obj.get("srid"),
-            "origin_id_info": obj.get("origin_id_info"),
-            "delivery_dt": obj.get("delivery_dt")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "claim_type": obj.get("claim_type"),
+                "status": obj.get("status"),
+                "status_ex": obj.get("status_ex"),
+                "nm_id": obj.get("nm_id"),
+                "user_comment": obj.get("user_comment"),
+                "wb_comment": obj.get("wb_comment"),
+                "dt": obj.get("dt"),
+                "imt_name": obj.get("imt_name"),
+                "order_dt": obj.get("order_dt"),
+                "dt_update": obj.get("dt_update"),
+                "photos": obj.get("photos"),
+                "video_paths": obj.get("video_paths"),
+                "actions": obj.get("actions"),
+                "price": obj.get("price"),
+                "currency_code": obj.get("currency_code"),
+                "srid": obj.get("srid"),
+                "origin_id_info": obj.get("origin_id_info"),
+                "delivery_dt": obj.get("delivery_dt"),
+            }
+        )
         return _obj
-
-

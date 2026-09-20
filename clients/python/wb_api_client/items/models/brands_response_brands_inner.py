@@ -22,10 +22,12 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class BrandsResponseBrandsInner(BaseModel):
     """
     BrandsResponseBrandsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: StrictInt = Field(description="ID бренда")
     logo_url: StrictStr = Field(description="URL логотипа бренда", alias="logoUrl")
     name: StrictStr = Field(description="Название бренда")
@@ -36,7 +38,6 @@ class BrandsResponseBrandsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +63,7 @@ class BrandsResponseBrandsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +81,11 @@ class BrandsResponseBrandsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "logoUrl": obj.get("logoUrl"),
-            "name": obj.get("name")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "logoUrl": obj.get("logoUrl"),
+                "name": obj.get("name"),
+            }
+        )
         return _obj
-
-

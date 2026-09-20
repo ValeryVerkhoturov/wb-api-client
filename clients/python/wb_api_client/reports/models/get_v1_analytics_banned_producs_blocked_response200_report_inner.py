@@ -22,23 +22,34 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1AnalyticsBannedProducsBlockedResponse200ReportInner(BaseModel):
     """
     GetV1AnalyticsBannedProducsBlockedResponse200ReportInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     brand: Optional[StrictStr] = Field(default=None, description="Бренд")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId")
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
     title: Optional[StrictStr] = Field(default=None, description="Наименование товара")
-    vendor_code: Optional[StrictStr] = Field(default=None, description="Артикул продавца", alias="vendorCode")
+    vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Артикул продавца", alias="vendorCode"
+    )
     reason: Optional[StrictStr] = Field(default=None, description="Причина блокировки")
-    __properties: ClassVar[List[str]] = ["brand", "nmId", "title", "vendorCode", "reason"]
+    __properties: ClassVar[List[str]] = [
+        "brand",
+        "nmId",
+        "title",
+        "vendorCode",
+        "reason",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +75,7 @@ class GetV1AnalyticsBannedProducsBlockedResponse200ReportInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,13 +93,13 @@ class GetV1AnalyticsBannedProducsBlockedResponse200ReportInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "brand": obj.get("brand"),
-            "nmId": obj.get("nmId"),
-            "title": obj.get("title"),
-            "vendorCode": obj.get("vendorCode"),
-            "reason": obj.get("reason")
-        })
+        _obj = cls.model_validate(
+            {
+                "brand": obj.get("brand"),
+                "nmId": obj.get("nmId"),
+                "title": obj.get("title"),
+                "vendorCode": obj.get("vendorCode"),
+                "reason": obj.get("reason"),
+            }
+        )
         return _obj
-
-

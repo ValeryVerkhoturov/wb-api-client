@@ -23,13 +23,23 @@ from wb_api_client.dbs.models.api_batch_error_response import ApiBatchErrorRespo
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiStatusSetResponse(BaseModel):
     """
     ApiStatusSetResponse
-    """ # noqa: E501
-    errors: Optional[List[ApiBatchErrorResponse]] = Field(default=None, description="Детали ошибки")
-    is_error: Optional[StrictBool] = Field(default=None, description="Есть ли ошибки", alias="isError")
-    order_id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания с успешно обновлёнными данными", alias="orderId")
+    """  # noqa: E501
+
+    errors: Optional[List[ApiBatchErrorResponse]] = Field(
+        default=None, description="Детали ошибки"
+    )
+    is_error: Optional[StrictBool] = Field(
+        default=None, description="Есть ли ошибки", alias="isError"
+    )
+    order_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID сборочного задания с успешно обновлёнными данными",
+        alias="orderId",
+    )
     __properties: ClassVar[List[str]] = ["errors", "isError", "orderId"]
 
     model_config = ConfigDict(
@@ -37,7 +47,6 @@ class ApiStatusSetResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +72,7 @@ class ApiStatusSetResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +85,7 @@ class ApiStatusSetResponse(BaseModel):
             for _item_errors in self.errors:
                 if _item_errors:
                     _items.append(_item_errors.to_dict())
-            _dict['errors'] = _items
+            _dict["errors"] = _items
         return _dict
 
     @classmethod
@@ -89,11 +97,15 @@ class ApiStatusSetResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "errors": [ApiBatchErrorResponse.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None,
-            "isError": obj.get("isError"),
-            "orderId": obj.get("orderId")
-        })
+        _obj = cls.model_validate(
+            {
+                "errors": (
+                    [ApiBatchErrorResponse.from_dict(_item) for _item in obj["errors"]]
+                    if obj.get("errors") is not None
+                    else None
+                ),
+                "isError": obj.get("isError"),
+                "orderId": obj.get("orderId"),
+            }
+        )
         return _obj
-
-

@@ -22,28 +22,63 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GoodHistory(BaseModel):
     """
     GoodHistory
-    """ # noqa: E501
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmID")
-    vendor_code: Optional[StrictStr] = Field(default=None, description="Артикул продавца", alias="vendorCode")
-    size_id: Optional[StrictInt] = Field(default=None, description="ID размера. В методах Контента это поле `chrtID`", alias="sizeID")
-    tech_size_name: Optional[StrictStr] = Field(default=None, description="Размер", alias="techSizeName")
+    """  # noqa: E501
+
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmID"
+    )
+    vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Артикул продавца", alias="vendorCode"
+    )
+    size_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID размера. В методах Контента это поле `chrtID`",
+        alias="sizeID",
+    )
+    tech_size_name: Optional[StrictStr] = Field(
+        default=None, description="Размер", alias="techSizeName"
+    )
     price: Optional[StrictInt] = Field(default=None, description="Цена")
-    currency_iso_code4217: Optional[StrictStr] = Field(default=None, description="Валюта, по стандарту ISO 4217", alias="currencyIsoCode4217")
+    currency_iso_code4217: Optional[StrictStr] = Field(
+        default=None,
+        description="Валюта, по стандарту ISO 4217",
+        alias="currencyIsoCode4217",
+    )
     discount: Optional[StrictInt] = Field(default=None, description="Скидка, %")
-    club_discount: Optional[StrictInt] = Field(default=None, description="Скидка WB Клуба, %", alias="clubDiscount")
-    status: Optional[StrictInt] = Field(default=None, description="Статус товара:   * `2` — товар без ошибок, цена и/или скидка обновилась   * `3` — есть ошибки, данные не обновились ")
-    error_text: Optional[StrictStr] = Field(default=None, description="Текст ошибки. Например:   - `New price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1). Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine). ", alias="errorText")
-    __properties: ClassVar[List[str]] = ["nmID", "vendorCode", "sizeID", "techSizeName", "price", "currencyIsoCode4217", "discount", "clubDiscount", "status", "errorText"]
+    club_discount: Optional[StrictInt] = Field(
+        default=None, description="Скидка WB Клуба, %", alias="clubDiscount"
+    )
+    status: Optional[StrictInt] = Field(
+        default=None,
+        description="Статус товара:   * `2` — товар без ошибок, цена и/или скидка обновилась   * `3` — есть ошибки, данные не обновились ",
+    )
+    error_text: Optional[StrictStr] = Field(
+        default=None,
+        description="Текст ошибки. Например:   - `New price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1). Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine). ",
+        alias="errorText",
+    )
+    __properties: ClassVar[List[str]] = [
+        "nmID",
+        "vendorCode",
+        "sizeID",
+        "techSizeName",
+        "price",
+        "currencyIsoCode4217",
+        "discount",
+        "clubDiscount",
+        "status",
+        "errorText",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -69,8 +104,7 @@ class GoodHistory(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,22 +114,22 @@ class GoodHistory(BaseModel):
         # set to None if size_id (nullable) is None
         # and model_fields_set contains the field
         if self.size_id is None and "size_id" in self.model_fields_set:
-            _dict['sizeID'] = None
+            _dict["sizeID"] = None
 
         # set to None if price (nullable) is None
         # and model_fields_set contains the field
         if self.price is None and "price" in self.model_fields_set:
-            _dict['price'] = None
+            _dict["price"] = None
 
         # set to None if club_discount (nullable) is None
         # and model_fields_set contains the field
         if self.club_discount is None and "club_discount" in self.model_fields_set:
-            _dict['clubDiscount'] = None
+            _dict["clubDiscount"] = None
 
         # set to None if error_text (nullable) is None
         # and model_fields_set contains the field
         if self.error_text is None and "error_text" in self.model_fields_set:
-            _dict['errorText'] = None
+            _dict["errorText"] = None
 
         return _dict
 
@@ -108,18 +142,18 @@ class GoodHistory(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmID": obj.get("nmID"),
-            "vendorCode": obj.get("vendorCode"),
-            "sizeID": obj.get("sizeID"),
-            "techSizeName": obj.get("techSizeName"),
-            "price": obj.get("price"),
-            "currencyIsoCode4217": obj.get("currencyIsoCode4217"),
-            "discount": obj.get("discount"),
-            "clubDiscount": obj.get("clubDiscount"),
-            "status": obj.get("status"),
-            "errorText": obj.get("errorText")
-        })
+        _obj = cls.model_validate(
+            {
+                "nmID": obj.get("nmID"),
+                "vendorCode": obj.get("vendorCode"),
+                "sizeID": obj.get("sizeID"),
+                "techSizeName": obj.get("techSizeName"),
+                "price": obj.get("price"),
+                "currencyIsoCode4217": obj.get("currencyIsoCode4217"),
+                "discount": obj.get("discount"),
+                "clubDiscount": obj.get("clubDiscount"),
+                "status": obj.get("status"),
+                "errorText": obj.get("errorText"),
+            }
+        )
         return _obj
-
-

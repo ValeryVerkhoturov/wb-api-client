@@ -26,12 +26,10 @@ class DomainReviewState(str, Enum):
     """
     allowed enum values
     """
-    PINNED = 'pinned'
-    UNPINNED = 'unpinned'
+    PINNED = "pinned"
+    UNPINNED = "unpinned"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of DomainReviewState from a JSON string"""
         return cls(json.loads(json_str))
-
-

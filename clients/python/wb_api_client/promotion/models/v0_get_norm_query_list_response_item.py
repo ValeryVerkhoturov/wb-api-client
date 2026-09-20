@@ -19,17 +19,27 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.v0_get_norm_query_list_response_item_norm_queries import V0GetNormQueryListResponseItemNormQueries
+from wb_api_client.promotion.models.v0_get_norm_query_list_response_item_norm_queries import (
+    V0GetNormQueryListResponseItemNormQueries,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class V0GetNormQueryListResponseItem(BaseModel):
     """
     V0GetNormQueryListResponseItem
-    """ # noqa: E501
-    advert_id: Optional[StrictInt] = Field(default=None, description="ID кампании", alias="advertId")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId")
-    norm_queries: Optional[V0GetNormQueryListResponseItemNormQueries] = Field(default=None, alias="normQueries")
+    """  # noqa: E501
+
+    advert_id: Optional[StrictInt] = Field(
+        default=None, description="ID кампании", alias="advertId"
+    )
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
+    norm_queries: Optional[V0GetNormQueryListResponseItemNormQueries] = Field(
+        default=None, alias="normQueries"
+    )
     __properties: ClassVar[List[str]] = ["advertId", "nmId", "normQueries"]
 
     model_config = ConfigDict(
@@ -37,7 +47,6 @@ class V0GetNormQueryListResponseItem(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +72,7 @@ class V0GetNormQueryListResponseItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,7 +81,7 @@ class V0GetNormQueryListResponseItem(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of norm_queries
         if self.norm_queries:
-            _dict['normQueries'] = self.norm_queries.to_dict()
+            _dict["normQueries"] = self.norm_queries.to_dict()
         return _dict
 
     @classmethod
@@ -85,11 +93,17 @@ class V0GetNormQueryListResponseItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advertId": obj.get("advertId"),
-            "nmId": obj.get("nmId"),
-            "normQueries": V0GetNormQueryListResponseItemNormQueries.from_dict(obj["normQueries"]) if obj.get("normQueries") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "advertId": obj.get("advertId"),
+                "nmId": obj.get("nmId"),
+                "normQueries": (
+                    V0GetNormQueryListResponseItemNormQueries.from_dict(
+                        obj["normQueries"]
+                    )
+                    if obj.get("normQueries") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

@@ -22,29 +22,42 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV1BidsMinRequest(BaseModel):
     """
     PostV1BidsMinRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     advert_id: StrictInt = Field(description="ID кампании")
     nm_ids: List[StrictInt] = Field(description="Список артикулов WB")
-    payment_type: StrictStr = Field(description="Тип оплаты:       - `cpm` — за показы       - `cpc` — за клик ")
-    placement_types: List[StrictStr] = Field(description="Места размещения:   - `search` — поиск   - `recommendation` — рекомендации   - `combined` — поиск и рекомендации ")
-    __properties: ClassVar[List[str]] = ["advert_id", "nm_ids", "payment_type", "placement_types"]
+    payment_type: StrictStr = Field(
+        description="Тип оплаты:       - `cpm` — за показы       - `cpc` — за клик "
+    )
+    placement_types: List[StrictStr] = Field(
+        description="Места размещения:   - `search` — поиск   - `recommendation` — рекомендации   - `combined` — поиск и рекомендации "
+    )
+    __properties: ClassVar[List[str]] = [
+        "advert_id",
+        "nm_ids",
+        "payment_type",
+        "placement_types",
+    ]
 
-    @field_validator('payment_type')
+    @field_validator("payment_type")
     def payment_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['cpm', 'cpc']):
+        if value not in set(["cpm", "cpc"]):
             raise ValueError("must be one of enum values ('cpm', 'cpc')")
         return value
 
-    @field_validator('placement_types')
+    @field_validator("placement_types")
     def placement_types_validate_enum(cls, value):
         """Validates the enum"""
         for i in value:
-            if i not in set(['combined', 'search', 'recommendation']):
-                raise ValueError("each list item must be one of ('combined', 'search', 'recommendation')")
+            if i not in set(["combined", "search", "recommendation"]):
+                raise ValueError(
+                    "each list item must be one of ('combined', 'search', 'recommendation')"
+                )
         return value
 
     model_config = ConfigDict(
@@ -52,7 +65,6 @@ class PostV1BidsMinRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -78,8 +90,7 @@ class PostV1BidsMinRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -97,12 +108,12 @@ class PostV1BidsMinRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advert_id": obj.get("advert_id"),
-            "nm_ids": obj.get("nm_ids"),
-            "payment_type": obj.get("payment_type"),
-            "placement_types": obj.get("placement_types")
-        })
+        _obj = cls.model_validate(
+            {
+                "advert_id": obj.get("advert_id"),
+                "nm_ids": obj.get("nm_ids"),
+                "payment_type": obj.get("payment_type"),
+                "placement_types": obj.get("placement_types"),
+            }
+        )
         return _obj
-
-

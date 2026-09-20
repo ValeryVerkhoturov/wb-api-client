@@ -23,13 +23,21 @@ from wb_api_client.orders_fbw.models.models_good_in_box import ModelsGoodInBox
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsBox(BaseModel):
     """
     ModelsBox
-    """ # noqa: E501
-    package_code: Optional[StrictStr] = Field(default=None, description="Штрих-код упаковки", alias="packageCode")
-    quantity: Optional[StrictInt] = Field(default=None, description="Суммарное количество товара в упаковке, шт")
-    barcodes: Optional[List[ModelsGoodInBox]] = Field(default=None, description="Список упакованных товаров")
+    """  # noqa: E501
+
+    package_code: Optional[StrictStr] = Field(
+        default=None, description="Штрих-код упаковки", alias="packageCode"
+    )
+    quantity: Optional[StrictInt] = Field(
+        default=None, description="Суммарное количество товара в упаковке, шт"
+    )
+    barcodes: Optional[List[ModelsGoodInBox]] = Field(
+        default=None, description="Список упакованных товаров"
+    )
     __properties: ClassVar[List[str]] = ["packageCode", "quantity", "barcodes"]
 
     model_config = ConfigDict(
@@ -37,7 +45,6 @@ class ModelsBox(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +70,7 @@ class ModelsBox(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +83,7 @@ class ModelsBox(BaseModel):
             for _item_barcodes in self.barcodes:
                 if _item_barcodes:
                     _items.append(_item_barcodes.to_dict())
-            _dict['barcodes'] = _items
+            _dict["barcodes"] = _items
         return _dict
 
     @classmethod
@@ -89,11 +95,15 @@ class ModelsBox(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "packageCode": obj.get("packageCode"),
-            "quantity": obj.get("quantity"),
-            "barcodes": [ModelsGoodInBox.from_dict(_item) for _item in obj["barcodes"]] if obj.get("barcodes") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "packageCode": obj.get("packageCode"),
+                "quantity": obj.get("quantity"),
+                "barcodes": (
+                    [ModelsGoodInBox.from_dict(_item) for _item in obj["barcodes"]]
+                    if obj.get("barcodes") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

@@ -23,25 +23,46 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1AnalyticsGoodsLabeling200ResponseReportInner(BaseModel):
     """
     GetV1AnalyticsGoodsLabeling200ResponseReportInner
-    """ # noqa: E501
-    amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Сумма штрафа, руб")
+    """  # noqa: E501
+
+    amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Сумма штрафа, руб"
+    )
     var_date: Optional[datetime] = Field(default=None, description="Дата", alias="date")
-    income_id: Optional[StrictInt] = Field(default=None, description="Номер поставки", alias="incomeId")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmID")
-    photo_urls: Optional[List[StrictStr]] = Field(default=None, description="URL фото товара", alias="photoUrls")
-    shk_id: Optional[StrictInt] = Field(default=None, description="Штрихкод товара в WB", alias="shkID")
-    sku: Optional[StrictStr] = Field(default=None, description="Баркод из карточки товара")
-    __properties: ClassVar[List[str]] = ["amount", "date", "incomeId", "nmID", "photoUrls", "shkID", "sku"]
+    income_id: Optional[StrictInt] = Field(
+        default=None, description="Номер поставки", alias="incomeId"
+    )
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmID"
+    )
+    photo_urls: Optional[List[StrictStr]] = Field(
+        default=None, description="URL фото товара", alias="photoUrls"
+    )
+    shk_id: Optional[StrictInt] = Field(
+        default=None, description="Штрихкод товара в WB", alias="shkID"
+    )
+    sku: Optional[StrictStr] = Field(
+        default=None, description="Баркод из карточки товара"
+    )
+    __properties: ClassVar[List[str]] = [
+        "amount",
+        "date",
+        "incomeId",
+        "nmID",
+        "photoUrls",
+        "shkID",
+        "sku",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -67,8 +88,7 @@ class GetV1AnalyticsGoodsLabeling200ResponseReportInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -86,15 +106,15 @@ class GetV1AnalyticsGoodsLabeling200ResponseReportInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "amount": obj.get("amount"),
-            "date": obj.get("date"),
-            "incomeId": obj.get("incomeId"),
-            "nmID": obj.get("nmID"),
-            "photoUrls": obj.get("photoUrls"),
-            "shkID": obj.get("shkID"),
-            "sku": obj.get("sku")
-        })
+        _obj = cls.model_validate(
+            {
+                "amount": obj.get("amount"),
+                "date": obj.get("date"),
+                "incomeId": obj.get("incomeId"),
+                "nmID": obj.get("nmID"),
+                "photoUrls": obj.get("photoUrls"),
+                "shkID": obj.get("shkID"),
+                "sku": obj.get("sku"),
+            }
+        )
         return _obj
-
-

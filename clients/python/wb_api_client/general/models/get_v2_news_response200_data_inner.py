@@ -20,19 +20,27 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.general.models.get_v2_news_response200_data_inner_types_inner import GetV2NewsResponse200DataInnerTypesInner
+from wb_api_client.general.models.get_v2_news_response200_data_inner_types_inner import (
+    GetV2NewsResponse200DataInnerTypesInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV2NewsResponse200DataInner(BaseModel):
     """
     GetV2NewsResponse200DataInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     content: Optional[StrictStr] = Field(default=None, description="Текст новости")
-    var_date: Optional[datetime] = Field(default=None, description="Дата и время публикации новости", alias="date")
+    var_date: Optional[datetime] = Field(
+        default=None, description="Дата и время публикации новости", alias="date"
+    )
     header: Optional[StrictStr] = Field(default=None, description="Заголовок новости")
     id: Optional[StrictInt] = Field(default=None, description="ID новости")
-    types: Optional[List[GetV2NewsResponse200DataInnerTypesInner]] = Field(default=None, description="Теги новости")
+    types: Optional[List[GetV2NewsResponse200DataInnerTypesInner]] = Field(
+        default=None, description="Теги новости"
+    )
     __properties: ClassVar[List[str]] = ["content", "date", "header", "id", "types"]
 
     model_config = ConfigDict(
@@ -40,7 +48,6 @@ class GetV2NewsResponse200DataInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -66,8 +73,7 @@ class GetV2NewsResponse200DataInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,7 +86,7 @@ class GetV2NewsResponse200DataInner(BaseModel):
             for _item_types in self.types:
                 if _item_types:
                     _items.append(_item_types.to_dict())
-            _dict['types'] = _items
+            _dict["types"] = _items
         return _dict
 
     @classmethod
@@ -92,13 +98,20 @@ class GetV2NewsResponse200DataInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "content": obj.get("content"),
-            "date": obj.get("date"),
-            "header": obj.get("header"),
-            "id": obj.get("id"),
-            "types": [GetV2NewsResponse200DataInnerTypesInner.from_dict(_item) for _item in obj["types"]] if obj.get("types") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "content": obj.get("content"),
+                "date": obj.get("date"),
+                "header": obj.get("header"),
+                "id": obj.get("id"),
+                "types": (
+                    [
+                        GetV2NewsResponse200DataInnerTypesInner.from_dict(_item)
+                        for _item in obj["types"]
+                    ]
+                    if obj.get("types") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

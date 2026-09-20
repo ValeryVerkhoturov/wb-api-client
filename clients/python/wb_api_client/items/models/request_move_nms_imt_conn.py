@@ -22,12 +22,19 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class RequestMoveNmsImtConn(BaseModel):
     """
     RequestMoveNmsImtConn
-    """ # noqa: E501
-    target_imt: StrictInt = Field(description="Существующий `imtID`, под которым необходимо [объединить](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров", alias="targetIMT")
-    nm_ids: List[StrictInt] = Field(description="`nmID`, которые необходимо объединить ", alias="nmIDs")
+    """  # noqa: E501
+
+    target_imt: StrictInt = Field(
+        description="Существующий `imtID`, под которым необходимо [объединить](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров",
+        alias="targetIMT",
+    )
+    nm_ids: List[StrictInt] = Field(
+        description="`nmID`, которые необходимо объединить ", alias="nmIDs"
+    )
     __properties: ClassVar[List[str]] = ["targetIMT", "nmIDs"]
 
     model_config = ConfigDict(
@@ -35,7 +42,6 @@ class RequestMoveNmsImtConn(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +67,7 @@ class RequestMoveNmsImtConn(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +85,7 @@ class RequestMoveNmsImtConn(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "targetIMT": obj.get("targetIMT"),
-            "nmIDs": obj.get("nmIDs")
-        })
+        _obj = cls.model_validate(
+            {"targetIMT": obj.get("targetIMT"), "nmIDs": obj.get("nmIDs")}
+        )
         return _obj
-
-

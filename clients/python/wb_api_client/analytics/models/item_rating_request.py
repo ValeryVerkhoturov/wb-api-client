@@ -26,29 +26,66 @@ from wb_api_client.analytics.models.period_item_rating import PeriodItemRating
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ItemRatingRequest(BaseModel):
     """
     Параметры запроса
-    """ # noqa: E501
+    """  # noqa: E501
+
     current_period: PeriodItemRating = Field(alias="currentPeriod")
-    past_period: Optional[PastPeriodItemRating] = Field(default=None, alias="pastPeriod")
-    nm_ids: Optional[Annotated[List[StrictInt], Field(max_length=50)]] = Field(default=None, description="Список артикулов WB для фильтрации", alias="nmIds")
-    subject_ids: Optional[Annotated[List[StrictInt], Field(max_length=50)]] = Field(default=None, description="Список ID предметов для фильтрации", alias="subjectIds")
-    brand_names: Optional[Annotated[List[StrictStr], Field(max_length=50)]] = Field(default=None, description="Список брендов для фильтрации", alias="brandNames")
-    tag_ids: Optional[Annotated[List[StrictInt], Field(max_length=50)]] = Field(default=None, description="Список ID ярлыков для фильтрации", alias="tagIds")
-    is_not_include_nms_without_sales: Optional[StrictBool] = Field(default=False, description="Не возвращать товары без продаж:   - `true` — да, возвращаются только товары с продажами за период, указанный в объекте `currentPeriod`   - `false` — нет, возвращаются все товары, если не указаны другие параметры ", alias="isNotIncludeNmsWithoutSales")
-    only_shadowed_nms: Optional[StrictBool] = Field(default=False, description="Возвращаются ли в ответе только скрытые товары:   - `true` — да, возвращаются только скрытые из каталога товары   - `false` — нет, возвращаются все товары, если не указаны другие параметры ", alias="onlyShadowedNms")
+    past_period: Optional[PastPeriodItemRating] = Field(
+        default=None, alias="pastPeriod"
+    )
+    nm_ids: Optional[Annotated[List[StrictInt], Field(max_length=50)]] = Field(
+        default=None, description="Список артикулов WB для фильтрации", alias="nmIds"
+    )
+    subject_ids: Optional[Annotated[List[StrictInt], Field(max_length=50)]] = Field(
+        default=None,
+        description="Список ID предметов для фильтрации",
+        alias="subjectIds",
+    )
+    brand_names: Optional[Annotated[List[StrictStr], Field(max_length=50)]] = Field(
+        default=None, description="Список брендов для фильтрации", alias="brandNames"
+    )
+    tag_ids: Optional[Annotated[List[StrictInt], Field(max_length=50)]] = Field(
+        default=None, description="Список ID ярлыков для фильтрации", alias="tagIds"
+    )
+    is_not_include_nms_without_sales: Optional[StrictBool] = Field(
+        default=False,
+        description="Не возвращать товары без продаж:   - `true` — да, возвращаются только товары с продажами за период, указанный в объекте `currentPeriod`   - `false` — нет, возвращаются все товары, если не указаны другие параметры ",
+        alias="isNotIncludeNmsWithoutSales",
+    )
+    only_shadowed_nms: Optional[StrictBool] = Field(
+        default=False,
+        description="Возвращаются ли в ответе только скрытые товары:   - `true` — да, возвращаются только скрытые из каталога товары   - `false` — нет, возвращаются все товары, если не указаны другие параметры ",
+        alias="onlyShadowedNms",
+    )
     order_by: OrderByItemRating = Field(alias="orderBy")
-    limit: Optional[Annotated[int, Field(le=1000, strict=True)]] = Field(default=100, description="Количество товаров в ответе")
-    offset: StrictInt = Field(description="Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента")
-    __properties: ClassVar[List[str]] = ["currentPeriod", "pastPeriod", "nmIds", "subjectIds", "brandNames", "tagIds", "isNotIncludeNmsWithoutSales", "onlyShadowedNms", "orderBy", "limit", "offset"]
+    limit: Optional[Annotated[int, Field(le=1000, strict=True)]] = Field(
+        default=100, description="Количество товаров в ответе"
+    )
+    offset: StrictInt = Field(
+        description="Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента"
+    )
+    __properties: ClassVar[List[str]] = [
+        "currentPeriod",
+        "pastPeriod",
+        "nmIds",
+        "subjectIds",
+        "brandNames",
+        "tagIds",
+        "isNotIncludeNmsWithoutSales",
+        "onlyShadowedNms",
+        "orderBy",
+        "limit",
+        "offset",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -74,8 +111,7 @@ class ItemRatingRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -84,13 +120,13 @@ class ItemRatingRequest(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of current_period
         if self.current_period:
-            _dict['currentPeriod'] = self.current_period.to_dict()
+            _dict["currentPeriod"] = self.current_period.to_dict()
         # override the default output from pydantic by calling `to_dict()` of past_period
         if self.past_period:
-            _dict['pastPeriod'] = self.past_period.to_dict()
+            _dict["pastPeriod"] = self.past_period.to_dict()
         # override the default output from pydantic by calling `to_dict()` of order_by
         if self.order_by:
-            _dict['orderBy'] = self.order_by.to_dict()
+            _dict["orderBy"] = self.order_by.to_dict()
         return _dict
 
     @classmethod
@@ -102,19 +138,39 @@ class ItemRatingRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "currentPeriod": PeriodItemRating.from_dict(obj["currentPeriod"]) if obj.get("currentPeriod") is not None else None,
-            "pastPeriod": PastPeriodItemRating.from_dict(obj["pastPeriod"]) if obj.get("pastPeriod") is not None else None,
-            "nmIds": obj.get("nmIds"),
-            "subjectIds": obj.get("subjectIds"),
-            "brandNames": obj.get("brandNames"),
-            "tagIds": obj.get("tagIds"),
-            "isNotIncludeNmsWithoutSales": obj.get("isNotIncludeNmsWithoutSales") if obj.get("isNotIncludeNmsWithoutSales") is not None else False,
-            "onlyShadowedNms": obj.get("onlyShadowedNms") if obj.get("onlyShadowedNms") is not None else False,
-            "orderBy": OrderByItemRating.from_dict(obj["orderBy"]) if obj.get("orderBy") is not None else None,
-            "limit": obj.get("limit") if obj.get("limit") is not None else 100,
-            "offset": obj.get("offset")
-        })
+        _obj = cls.model_validate(
+            {
+                "currentPeriod": (
+                    PeriodItemRating.from_dict(obj["currentPeriod"])
+                    if obj.get("currentPeriod") is not None
+                    else None
+                ),
+                "pastPeriod": (
+                    PastPeriodItemRating.from_dict(obj["pastPeriod"])
+                    if obj.get("pastPeriod") is not None
+                    else None
+                ),
+                "nmIds": obj.get("nmIds"),
+                "subjectIds": obj.get("subjectIds"),
+                "brandNames": obj.get("brandNames"),
+                "tagIds": obj.get("tagIds"),
+                "isNotIncludeNmsWithoutSales": (
+                    obj.get("isNotIncludeNmsWithoutSales")
+                    if obj.get("isNotIncludeNmsWithoutSales") is not None
+                    else False
+                ),
+                "onlyShadowedNms": (
+                    obj.get("onlyShadowedNms")
+                    if obj.get("onlyShadowedNms") is not None
+                    else False
+                ),
+                "orderBy": (
+                    OrderByItemRating.from_dict(obj["orderBy"])
+                    if obj.get("orderBy") is not None
+                    else None
+                ),
+                "limit": obj.get("limit") if obj.get("limit") is not None else 100,
+                "offset": obj.get("offset"),
+            }
+        )
         return _obj
-
-

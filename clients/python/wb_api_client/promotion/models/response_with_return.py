@@ -22,12 +22,19 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ResponseWithReturn(BaseModel):
     """
     ResponseWithReturn
-    """ # noqa: E501
-    total: Optional[StrictInt] = Field(default=None, description="Размер обновлённого бюджета")
-    currency: Optional[StrictStr] = Field(default=None, description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    """  # noqa: E501
+
+    total: Optional[StrictInt] = Field(
+        default=None, description="Размер обновлённого бюджета"
+    )
+    currency: Optional[StrictStr] = Field(
+        default=None,
+        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
     __properties: ClassVar[List[str]] = ["total", "currency"]
 
     model_config = ConfigDict(
@@ -35,7 +42,6 @@ class ResponseWithReturn(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +67,7 @@ class ResponseWithReturn(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +85,7 @@ class ResponseWithReturn(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "total": obj.get("total"),
-            "currency": obj.get("currency")
-        })
+        _obj = cls.model_validate(
+            {"total": obj.get("total"), "currency": obj.get("currency")}
+        )
         return _obj
-
-

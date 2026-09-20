@@ -22,11 +22,16 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2TagRequest(BaseModel):
     """
     PostV2TagRequest
-    """ # noqa: E501
-    color: Optional[StrictStr] = Field(default=None, description="Цвет ярлыка.  Доступные цвета:   - `D1CFD7` — серый   - `FEE0E0` — красный   - `ECDAFF` — фиолетовый   - `E4EAFF` — синий   - `DEF1DD` — зеленый   - `FFECC7` — желтый ")
+    """  # noqa: E501
+
+    color: Optional[StrictStr] = Field(
+        default=None,
+        description="Цвет ярлыка.  Доступные цвета:   - `D1CFD7` — серый   - `FEE0E0` — красный   - `ECDAFF` — фиолетовый   - `E4EAFF` — синий   - `DEF1DD` — зеленый   - `FFECC7` — желтый ",
+    )
     name: Optional[StrictStr] = Field(default=None, description="Имя ярлыка")
     __properties: ClassVar[List[str]] = ["color", "name"]
 
@@ -35,7 +40,6 @@ class PostV2TagRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +65,7 @@ class PostV2TagRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +83,5 @@ class PostV2TagRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "color": obj.get("color"),
-            "name": obj.get("name")
-        })
+        _obj = cls.model_validate({"color": obj.get("color"), "name": obj.get("name")})
         return _obj
-
-

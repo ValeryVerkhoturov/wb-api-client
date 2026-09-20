@@ -22,13 +22,17 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PlanBuilderOptionShort(BaseModel):
     """
     PlanBuilderOptionShort
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictStr] = Field(default=None, description="ID опции")
     slug: Optional[StrictStr] = Field(default=None, description="Код опции")
-    name: Optional[StrictStr] = Field(default=None, description="Название опции на языке из параметра `locale`")
+    name: Optional[StrictStr] = Field(
+        default=None, description="Название опции на языке из параметра `locale`"
+    )
     __properties: ClassVar[List[str]] = ["id", "slug", "name"]
 
     model_config = ConfigDict(
@@ -36,7 +40,6 @@ class PlanBuilderOptionShort(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class PlanBuilderOptionShort(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +83,7 @@ class PlanBuilderOptionShort(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "slug": obj.get("slug"),
-            "name": obj.get("name")
-        })
+        _obj = cls.model_validate(
+            {"id": obj.get("id"), "slug": obj.get("slug"), "name": obj.get("name")}
+        )
         return _obj
-
-

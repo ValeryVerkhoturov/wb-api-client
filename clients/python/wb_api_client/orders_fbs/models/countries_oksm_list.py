@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.orders_fbs.models.countries_oksm_list_countries_inner import CountriesOKSMListCountriesInner
+from wb_api_client.orders_fbs.models.countries_oksm_list_countries_inner import (
+    CountriesOKSMListCountriesInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class CountriesOKSMList(BaseModel):
     """
     CountriesOKSMList
-    """ # noqa: E501
-    countries: List[CountriesOKSMListCountriesInner] = Field(description="Список стран ОКСМ")
+    """  # noqa: E501
+
+    countries: List[CountriesOKSMListCountriesInner] = Field(
+        description="Список стран ОКСМ"
+    )
     __properties: ClassVar[List[str]] = ["countries"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class CountriesOKSMList(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class CountriesOKSMList(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +79,7 @@ class CountriesOKSMList(BaseModel):
             for _item_countries in self.countries:
                 if _item_countries:
                     _items.append(_item_countries.to_dict())
-            _dict['countries'] = _items
+            _dict["countries"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +91,16 @@ class CountriesOKSMList(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "countries": [CountriesOKSMListCountriesInner.from_dict(_item) for _item in obj["countries"]] if obj.get("countries") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "countries": (
+                    [
+                        CountriesOKSMListCountriesInner.from_dict(_item)
+                        for _item in obj["countries"]
+                    ]
+                    if obj.get("countries") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

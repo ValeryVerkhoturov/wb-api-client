@@ -22,11 +22,16 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2BarcodesRequest(BaseModel):
     """
     PostV2BarcodesRequest
-    """ # noqa: E501
-    count: Optional[StrictInt] = Field(default=None, description="Кол-во баркодов которые надо сгенерировать, максимальное доступное количество баркодов для генерации - `5 000`")
+    """  # noqa: E501
+
+    count: Optional[StrictInt] = Field(
+        default=None,
+        description="Кол-во баркодов которые надо сгенерировать, максимальное доступное количество баркодов для генерации - `5 000`",
+    )
     __properties: ClassVar[List[str]] = ["count"]
 
     model_config = ConfigDict(
@@ -34,7 +39,6 @@ class PostV2BarcodesRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,8 +64,7 @@ class PostV2BarcodesRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,9 +82,5 @@ class PostV2BarcodesRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "count": obj.get("count")
-        })
+        _obj = cls.model_validate({"count": obj.get("count")})
         return _obj
-
-

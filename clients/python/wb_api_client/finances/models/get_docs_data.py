@@ -22,13 +22,19 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetDocsData(BaseModel):
     """
     GetDocsData
-    """ # noqa: E501
-    file_name: Optional[StrictStr] = Field(default=None, description="Название документа", alias="fileName")
+    """  # noqa: E501
+
+    file_name: Optional[StrictStr] = Field(
+        default=None, description="Название документа", alias="fileName"
+    )
     extension: Optional[StrictStr] = Field(default=None, description="Формат документа")
-    document: Optional[StrictStr] = Field(default=None, description="Документ в кодировке base64")
+    document: Optional[StrictStr] = Field(
+        default=None, description="Документ в кодировке base64"
+    )
     __properties: ClassVar[List[str]] = ["fileName", "extension", "document"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class GetDocsData(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class GetDocsData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +85,11 @@ class GetDocsData(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "fileName": obj.get("fileName"),
-            "extension": obj.get("extension"),
-            "document": obj.get("document")
-        })
+        _obj = cls.model_validate(
+            {
+                "fileName": obj.get("fileName"),
+                "extension": obj.get("extension"),
+                "document": obj.get("document"),
+            }
+        )
         return _obj
-
-

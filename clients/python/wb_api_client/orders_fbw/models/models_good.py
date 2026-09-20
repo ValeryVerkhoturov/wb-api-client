@@ -23,12 +23,19 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsGood(BaseModel):
     """
     ModelsGood
-    """ # noqa: E501
-    quantity: Optional[Annotated[int, Field(le=999999, strict=True, ge=1)]] = Field(default=None, description="Суммарное количество товаров, планируемых для поставки.  \\*\\*Максимум 999999\\*\\*")
-    barcode: Optional[StrictStr] = Field(default=None, description="Баркод из карточки товара")
+    """  # noqa: E501
+
+    quantity: Optional[Annotated[int, Field(le=999999, strict=True, ge=1)]] = Field(
+        default=None,
+        description="Суммарное количество товаров, планируемых для поставки.  \\*\\*Максимум 999999\\*\\*",
+    )
+    barcode: Optional[StrictStr] = Field(
+        default=None, description="Баркод из карточки товара"
+    )
     __properties: ClassVar[List[str]] = ["quantity", "barcode"]
 
     model_config = ConfigDict(
@@ -36,7 +43,6 @@ class ModelsGood(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +68,7 @@ class ModelsGood(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,10 +86,7 @@ class ModelsGood(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "quantity": obj.get("quantity"),
-            "barcode": obj.get("barcode")
-        })
+        _obj = cls.model_validate(
+            {"quantity": obj.get("quantity"), "barcode": obj.get("barcode")}
+        )
         return _obj
-
-

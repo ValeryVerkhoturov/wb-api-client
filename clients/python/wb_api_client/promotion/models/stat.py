@@ -23,11 +23,15 @@ from wb_api_client.promotion.models.stats_blok1 import StatsBlok1
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class Stat(BaseModel):
     """
     Stat
-    """ # noqa: E501
-    stats: Optional[List[StatsBlok1]] = Field(default=None, description="Блок статистики")
+    """  # noqa: E501
+
+    stats: Optional[List[StatsBlok1]] = Field(
+        default=None, description="Блок статистики"
+    )
     __properties: ClassVar[List[str]] = ["stats"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class Stat(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class Stat(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +77,7 @@ class Stat(BaseModel):
             for _item_stats in self.stats:
                 if _item_stats:
                     _items.append(_item_stats.to_dict())
-            _dict['stats'] = _items
+            _dict["stats"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +89,13 @@ class Stat(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "stats": [StatsBlok1.from_dict(_item) for _item in obj["stats"]] if obj.get("stats") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "stats": (
+                    [StatsBlok1.from_dict(_item) for _item in obj["stats"]]
+                    if obj.get("stats") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

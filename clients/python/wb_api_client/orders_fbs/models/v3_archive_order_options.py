@@ -22,11 +22,17 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V3ArchiveOrderOptions(BaseModel):
     """
     Опции заказа
-    """ # noqa: E501
-    is_b2_b: Optional[StrictBool] = Field(default=None, description="Признак B2B-продажи:   - `false` — не B2B-продажа   - `true` — B2B-продажа ", alias="isB2B")
+    """  # noqa: E501
+
+    is_b2_b: Optional[StrictBool] = Field(
+        default=None,
+        description="Признак B2B-продажи:   - `false` — не B2B-продажа   - `true` — B2B-продажа ",
+        alias="isB2B",
+    )
     __properties: ClassVar[List[str]] = ["isB2B"]
 
     model_config = ConfigDict(
@@ -34,7 +40,6 @@ class V3ArchiveOrderOptions(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,8 +65,7 @@ class V3ArchiveOrderOptions(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,9 +83,5 @@ class V3ArchiveOrderOptions(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "isB2B": obj.get("isB2B")
-        })
+        _obj = cls.model_validate({"isB2B": obj.get("isB2B")})
         return _obj
-
-

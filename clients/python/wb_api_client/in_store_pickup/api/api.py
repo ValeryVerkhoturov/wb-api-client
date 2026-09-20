@@ -19,27 +19,59 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt
 from typing import Optional
 from typing_extensions import Annotated
-from wb_api_client.in_store_pickup.models.api_check_identity_request import ApiCheckIdentityRequest
+from wb_api_client.in_store_pickup.models.api_check_identity_request import (
+    ApiCheckIdentityRequest,
+)
 from wb_api_client.in_store_pickup.models.api_checked_identity import ApiCheckedIdentity
-from wb_api_client.in_store_pickup.models.api_customs_declaration_set_response import ApiCustomsDeclarationSetResponse
-from wb_api_client.in_store_pickup.models.api_meta_details_response import ApiMetaDetailsResponse
-from wb_api_client.in_store_pickup.models.api_meta_set_responses import ApiMetaSetResponses
+from wb_api_client.in_store_pickup.models.api_customs_declaration_set_response import (
+    ApiCustomsDeclarationSetResponse,
+)
+from wb_api_client.in_store_pickup.models.api_meta_details_response import (
+    ApiMetaDetailsResponse,
+)
+from wb_api_client.in_store_pickup.models.api_meta_set_responses import (
+    ApiMetaSetResponses,
+)
 from wb_api_client.in_store_pickup.models.api_new_orders import ApiNewOrders
-from wb_api_client.in_store_pickup.models.api_order_client_info_resp import ApiOrderClientInfoResp
-from wb_api_client.in_store_pickup.models.api_order_statuses_v2 import ApiOrderStatusesV2
+from wb_api_client.in_store_pickup.models.api_order_client_info_resp import (
+    ApiOrderClientInfoResp,
+)
+from wb_api_client.in_store_pickup.models.api_order_statuses_v2 import (
+    ApiOrderStatusesV2,
+)
 from wb_api_client.in_store_pickup.models.api_orders import ApiOrders
-from wb_api_client.in_store_pickup.models.api_orders_final_price_response import ApiOrdersFinalPriceResponse
-from wb_api_client.in_store_pickup.models.api_orders_gtin_set_request import ApiOrdersGTINSetRequest
-from wb_api_client.in_store_pickup.models.api_orders_imei_set_request import ApiOrdersIMEISetRequest
-from wb_api_client.in_store_pickup.models.api_orders_meta_delete_request import ApiOrdersMetaDeleteRequest
-from wb_api_client.in_store_pickup.models.api_orders_meta_details_response import ApiOrdersMetaDetailsResponse
+from wb_api_client.in_store_pickup.models.api_orders_final_price_response import (
+    ApiOrdersFinalPriceResponse,
+)
+from wb_api_client.in_store_pickup.models.api_orders_gtin_set_request import (
+    ApiOrdersGTINSetRequest,
+)
+from wb_api_client.in_store_pickup.models.api_orders_imei_set_request import (
+    ApiOrdersIMEISetRequest,
+)
+from wb_api_client.in_store_pickup.models.api_orders_meta_delete_request import (
+    ApiOrdersMetaDeleteRequest,
+)
+from wb_api_client.in_store_pickup.models.api_orders_meta_details_response import (
+    ApiOrdersMetaDetailsResponse,
+)
 from wb_api_client.in_store_pickup.models.api_orders_request import ApiOrdersRequest
-from wb_api_client.in_store_pickup.models.api_orders_request_v2 import ApiOrdersRequestV2
+from wb_api_client.in_store_pickup.models.api_orders_request_v2 import (
+    ApiOrdersRequestV2,
+)
 from wb_api_client.in_store_pickup.models.api_orders_responses import ApiOrdersResponses
-from wb_api_client.in_store_pickup.models.api_orders_sgtins_set_request import ApiOrdersSGTINsSetRequest
-from wb_api_client.in_store_pickup.models.api_orders_uin_set_request import ApiOrdersUINSetRequest
-from wb_api_client.in_store_pickup.models.api_status_set_responses import ApiStatusSetResponses
-from wb_api_client.in_store_pickup.models.post_v3_click_collect_orders_meta_customs_declaration_request import PostV3ClickCollectOrdersMetaCustomsDeclarationRequest
+from wb_api_client.in_store_pickup.models.api_orders_sgtins_set_request import (
+    ApiOrdersSGTINsSetRequest,
+)
+from wb_api_client.in_store_pickup.models.api_orders_uin_set_request import (
+    ApiOrdersUINSetRequest,
+)
+from wb_api_client.in_store_pickup.models.api_status_set_responses import (
+    ApiStatusSetResponses,
+)
+from wb_api_client.in_store_pickup.models.post_v3_click_collect_orders_meta_customs_declaration_request import (
+    PostV3ClickCollectOrdersMetaCustomsDeclarationRequest,
+)
 
 from wb_api_client.in_store_pickup.api_client import ApiClient, RequestSerialized
 from wb_api_client.in_store_pickup.api_response import ApiResponse
@@ -58,21 +90,33 @@ class Api:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def get_v3_click_collect_orders(
         self,
-        limit: Annotated[int, Field(le=1000, strict=True, ge=1, description="Количество элементов в ответе ")],
-        next: Annotated[StrictInt, Field(description="Параметр пагинации. Чтобы получить полный список данных, укажите `0` в первом запросе. Чтобы получить следующий пакет данных, используйте значение `next` из ответа ")],
-        date_from: Annotated[StrictInt, Field(description="Дата начала периода в формате Unix timestamp")],
-        date_to: Annotated[StrictInt, Field(description="Дата конца периода в формате Unix timestamp")],
+        limit: Annotated[
+            int,
+            Field(
+                le=1000, strict=True, ge=1, description="Количество элементов в ответе "
+            ),
+        ],
+        next: Annotated[
+            StrictInt,
+            Field(
+                description="Параметр пагинации. Чтобы получить полный список данных, укажите `0` в первом запросе. Чтобы получить следующий пакет данных, используйте значение `next` из ответа "
+            ),
+        ],
+        date_from: Annotated[
+            StrictInt, Field(description="Дата начала периода в формате Unix timestamp")
+        ],
+        date_to: Annotated[
+            StrictInt, Field(description="Дата конца периода в формате Unix timestamp")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -111,7 +155,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_click_collect_orders_serialize(
             limit=limit,
@@ -121,20 +165,19 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrders",
-            '400': "Error",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiOrders",
+            "400": "Error",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -142,21 +185,33 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v3_click_collect_orders_with_http_info(
         self,
-        limit: Annotated[int, Field(le=1000, strict=True, ge=1, description="Количество элементов в ответе ")],
-        next: Annotated[StrictInt, Field(description="Параметр пагинации. Чтобы получить полный список данных, укажите `0` в первом запросе. Чтобы получить следующий пакет данных, используйте значение `next` из ответа ")],
-        date_from: Annotated[StrictInt, Field(description="Дата начала периода в формате Unix timestamp")],
-        date_to: Annotated[StrictInt, Field(description="Дата конца периода в формате Unix timestamp")],
+        limit: Annotated[
+            int,
+            Field(
+                le=1000, strict=True, ge=1, description="Количество элементов в ответе "
+            ),
+        ],
+        next: Annotated[
+            StrictInt,
+            Field(
+                description="Параметр пагинации. Чтобы получить полный список данных, укажите `0` в первом запросе. Чтобы получить следующий пакет данных, используйте значение `next` из ответа "
+            ),
+        ],
+        date_from: Annotated[
+            StrictInt, Field(description="Дата начала периода в формате Unix timestamp")
+        ],
+        date_to: Annotated[
+            StrictInt, Field(description="Дата конца периода в формате Unix timestamp")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -195,7 +250,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_click_collect_orders_serialize(
             limit=limit,
@@ -205,20 +260,19 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrders",
-            '400': "Error",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiOrders",
+            "400": "Error",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -226,21 +280,33 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v3_click_collect_orders_without_preload_content(
         self,
-        limit: Annotated[int, Field(le=1000, strict=True, ge=1, description="Количество элементов в ответе ")],
-        next: Annotated[StrictInt, Field(description="Параметр пагинации. Чтобы получить полный список данных, укажите `0` в первом запросе. Чтобы получить следующий пакет данных, используйте значение `next` из ответа ")],
-        date_from: Annotated[StrictInt, Field(description="Дата начала периода в формате Unix timestamp")],
-        date_to: Annotated[StrictInt, Field(description="Дата конца периода в формате Unix timestamp")],
+        limit: Annotated[
+            int,
+            Field(
+                le=1000, strict=True, ge=1, description="Количество элементов в ответе "
+            ),
+        ],
+        next: Annotated[
+            StrictInt,
+            Field(
+                description="Параметр пагинации. Чтобы получить полный список данных, укажите `0` в первом запросе. Чтобы получить следующий пакет данных, используйте значение `next` из ответа "
+            ),
+        ],
+        date_from: Annotated[
+            StrictInt, Field(description="Дата начала периода в формате Unix timestamp")
+        ],
+        date_to: Annotated[
+            StrictInt, Field(description="Дата конца периода в формате Unix timestamp")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -279,7 +345,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_click_collect_orders_serialize(
             limit=limit,
@@ -289,23 +355,21 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrders",
-            '400': "Error",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiOrders",
+            "400": "Error",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v3_click_collect_orders_serialize(
         self,
@@ -320,13 +384,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -340,44 +403,37 @@ class Api:
         # process the path parameters
         # process the query parameters
         if limit is not None:
-            
-            _query_params.append(('limit', limit))
-            
+
+            _query_params.append(("limit", limit))
+
         if next is not None:
-            
-            _query_params.append(('next', next))
-            
+
+            _query_params.append(("next", next))
+
         if date_from is not None:
-            
-            _query_params.append(('dateFrom', date_from))
-            
+
+            _query_params.append(("dateFrom", date_from))
+
         if date_to is not None:
-            
-            _query_params.append(('dateTo', date_to))
-            
+
+            _query_params.append(("dateTo", date_to))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v3/click-collect/orders',
+            method="GET",
+            resource_path="/api/v3/click-collect/orders",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -387,11 +443,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v3_click_collect_orders_new(
@@ -400,9 +453,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -433,32 +485,30 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_click_collect_orders_new_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiNewOrders",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiNewOrders",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v3_click_collect_orders_new_with_http_info(
@@ -467,9 +517,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -500,32 +549,30 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_click_collect_orders_new_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiNewOrders",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiNewOrders",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v3_click_collect_orders_new_without_preload_content(
@@ -534,9 +581,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -567,28 +613,26 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_click_collect_orders_new_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiNewOrders",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiNewOrders",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v3_click_collect_orders_new_serialize(
         self,
@@ -599,13 +643,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -622,25 +665,18 @@ class Api:
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v3/click-collect/orders/new',
+            method="GET",
+            resource_path="/api/v3/click-collect/orders/new",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -650,11 +686,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_click_collect_orders_client(
@@ -664,9 +697,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -699,34 +731,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_client_serialize(
             api_orders_request=api_orders_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrderClientInfoResp",
-            '400': "Error",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiOrderClientInfoResp",
+            "400": "Error",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_click_collect_orders_client_with_http_info(
@@ -736,9 +766,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -771,34 +800,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_client_serialize(
             api_orders_request=api_orders_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrderClientInfoResp",
-            '400': "Error",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiOrderClientInfoResp",
+            "400": "Error",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_click_collect_orders_client_without_preload_content(
@@ -808,9 +835,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -843,30 +869,28 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_client_serialize(
             api_orders_request=api_orders_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrderClientInfoResp",
-            '400': "Error",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiOrderClientInfoResp",
+            "400": "Error",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_click_collect_orders_client_serialize(
         self,
@@ -878,13 +902,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -903,38 +926,28 @@ class Api:
         if api_orders_request is not None:
             _body_params = api_orders_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v3/click-collect/orders/client',
+            method="POST",
+            resource_path="/api/v3/click-collect/orders/client",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -944,11 +957,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_click_collect_orders_client_identity(
@@ -958,9 +968,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -993,36 +1002,34 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_client_identity_serialize(
             api_check_identity_request=api_check_identity_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiCheckedIdentity",
-            '400': "Error",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '404': "ApiError",
-            '409': "ApiError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiCheckedIdentity",
+            "400": "Error",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "404": "ApiError",
+            "409": "ApiError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_click_collect_orders_client_identity_with_http_info(
@@ -1032,9 +1039,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1067,36 +1073,34 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_client_identity_serialize(
             api_check_identity_request=api_check_identity_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiCheckedIdentity",
-            '400': "Error",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '404': "ApiError",
-            '409': "ApiError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiCheckedIdentity",
+            "400": "Error",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "404": "ApiError",
+            "409": "ApiError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_click_collect_orders_client_identity_without_preload_content(
@@ -1106,9 +1110,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1141,32 +1144,30 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_client_identity_serialize(
             api_check_identity_request=api_check_identity_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiCheckedIdentity",
-            '400': "Error",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '404': "ApiError",
-            '409': "ApiError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiCheckedIdentity",
+            "400": "Error",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "404": "ApiError",
+            "409": "ApiError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_click_collect_orders_client_identity_serialize(
         self,
@@ -1178,13 +1179,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1203,38 +1203,28 @@ class Api:
         if api_check_identity_request is not None:
             _body_params = api_check_identity_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v3/click-collect/orders/client/identity',
+            method="POST",
+            resource_path="/api/v3/click-collect/orders/client/identity",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1244,11 +1234,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_click_collect_orders_final_price(
@@ -1258,9 +1245,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1293,33 +1279,31 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_final_price_serialize(
             api_orders_request=api_orders_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrdersFinalPriceResponse",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiOrdersFinalPriceResponse",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_click_collect_orders_final_price_with_http_info(
@@ -1329,9 +1313,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1364,33 +1347,31 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_final_price_serialize(
             api_orders_request=api_orders_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrdersFinalPriceResponse",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiOrdersFinalPriceResponse",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_click_collect_orders_final_price_without_preload_content(
@@ -1400,9 +1381,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1435,29 +1415,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_final_price_serialize(
             api_orders_request=api_orders_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrdersFinalPriceResponse",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiOrdersFinalPriceResponse",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_click_collect_orders_final_price_serialize(
         self,
@@ -1468,13 +1446,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1493,38 +1468,28 @@ class Api:
         if api_orders_request is not None:
             _body_params = api_orders_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/click-collect/orders/final-price',
+            method="POST",
+            resource_path="/api/marketplace/v3/click-collect/orders/final-price",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1534,11 +1499,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_customs_declaration(
@@ -1548,9 +1510,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1583,33 +1544,31 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_customs_declaration_serialize(
             post_v3_click_collect_orders_meta_customs_declaration_request=post_v3_click_collect_orders_meta_customs_declaration_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiCustomsDeclarationSetResponse",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiCustomsDeclarationSetResponse",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_customs_declaration_with_http_info(
@@ -1619,9 +1578,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1654,33 +1612,31 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_customs_declaration_serialize(
             post_v3_click_collect_orders_meta_customs_declaration_request=post_v3_click_collect_orders_meta_customs_declaration_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiCustomsDeclarationSetResponse",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiCustomsDeclarationSetResponse",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_customs_declaration_without_preload_content(
@@ -1690,9 +1646,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1725,29 +1680,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_customs_declaration_serialize(
             post_v3_click_collect_orders_meta_customs_declaration_request=post_v3_click_collect_orders_meta_customs_declaration_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiCustomsDeclarationSetResponse",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiCustomsDeclarationSetResponse",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_click_collect_orders_meta_customs_declaration_serialize(
         self,
@@ -1758,13 +1711,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1783,38 +1733,28 @@ class Api:
         if post_v3_click_collect_orders_meta_customs_declaration_request is not None:
             _body_params = post_v3_click_collect_orders_meta_customs_declaration_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/click-collect/orders/meta/customs-declaration',
+            method="POST",
+            resource_path="/api/marketplace/v3/click-collect/orders/meta/customs-declaration",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1824,11 +1764,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_delete(
@@ -1838,9 +1775,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1873,34 +1809,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_delete_serialize(
             api_orders_meta_delete_request=api_orders_meta_delete_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrdersResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiOrdersResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_delete_with_http_info(
@@ -1910,9 +1844,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1945,34 +1878,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_delete_serialize(
             api_orders_meta_delete_request=api_orders_meta_delete_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrdersResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiOrdersResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_delete_without_preload_content(
@@ -1982,9 +1913,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2017,30 +1947,28 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_delete_serialize(
             api_orders_meta_delete_request=api_orders_meta_delete_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrdersResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiOrdersResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_click_collect_orders_meta_delete_serialize(
         self,
@@ -2052,13 +1980,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2077,38 +2004,28 @@ class Api:
         if api_orders_meta_delete_request is not None:
             _body_params = api_orders_meta_delete_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/click-collect/orders/meta/delete',
+            method="POST",
+            resource_path="/api/marketplace/v3/click-collect/orders/meta/delete",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2118,11 +2035,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_details(
@@ -2132,9 +2046,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2167,33 +2080,31 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_details_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrdersMetaDetailsResponse",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiOrdersMetaDetailsResponse",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_details_with_http_info(
@@ -2203,9 +2114,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2238,33 +2148,31 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_details_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrdersMetaDetailsResponse",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiOrdersMetaDetailsResponse",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_details_without_preload_content(
@@ -2274,9 +2182,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2309,29 +2216,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_details_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrdersMetaDetailsResponse",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiOrdersMetaDetailsResponse",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_click_collect_orders_meta_details_serialize(
         self,
@@ -2344,8 +2249,7 @@ class Api:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2364,38 +2268,28 @@ class Api:
         if api_orders_request_v2 is not None:
             _body_params = api_orders_request_v2
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/click-collect/orders/meta/details',
+            method="POST",
+            resource_path="/api/marketplace/v3/click-collect/orders/meta/details",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2405,11 +2299,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_gtin(
@@ -2419,9 +2310,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2454,34 +2344,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_gtin_serialize(
             api_orders_gtin_set_request=api_orders_gtin_set_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiMetaSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiMetaSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_gtin_with_http_info(
@@ -2491,9 +2379,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2526,34 +2413,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_gtin_serialize(
             api_orders_gtin_set_request=api_orders_gtin_set_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiMetaSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiMetaSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_gtin_without_preload_content(
@@ -2563,9 +2448,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2598,30 +2482,28 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_gtin_serialize(
             api_orders_gtin_set_request=api_orders_gtin_set_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiMetaSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiMetaSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_click_collect_orders_meta_gtin_serialize(
         self,
@@ -2633,13 +2515,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2658,38 +2539,28 @@ class Api:
         if api_orders_gtin_set_request is not None:
             _body_params = api_orders_gtin_set_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/click-collect/orders/meta/gtin',
+            method="POST",
+            resource_path="/api/marketplace/v3/click-collect/orders/meta/gtin",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2699,11 +2570,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_imei(
@@ -2713,9 +2581,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2748,34 +2615,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_imei_serialize(
             api_orders_imei_set_request=api_orders_imei_set_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiMetaSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiMetaSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_imei_with_http_info(
@@ -2785,9 +2650,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2820,34 +2684,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_imei_serialize(
             api_orders_imei_set_request=api_orders_imei_set_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiMetaSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiMetaSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_imei_without_preload_content(
@@ -2857,9 +2719,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2892,30 +2753,28 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_imei_serialize(
             api_orders_imei_set_request=api_orders_imei_set_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiMetaSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiMetaSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_click_collect_orders_meta_imei_serialize(
         self,
@@ -2927,13 +2786,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2952,38 +2810,28 @@ class Api:
         if api_orders_imei_set_request is not None:
             _body_params = api_orders_imei_set_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/click-collect/orders/meta/imei',
+            method="POST",
+            resource_path="/api/marketplace/v3/click-collect/orders/meta/imei",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2993,11 +2841,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_sgtin(
@@ -3007,9 +2852,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3042,34 +2886,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_sgtin_serialize(
             api_orders_sgtins_set_request=api_orders_sgtins_set_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiMetaSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiMetaSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_sgtin_with_http_info(
@@ -3079,9 +2921,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3114,34 +2955,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_sgtin_serialize(
             api_orders_sgtins_set_request=api_orders_sgtins_set_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiMetaSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiMetaSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_sgtin_without_preload_content(
@@ -3151,9 +2990,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3186,30 +3024,28 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_sgtin_serialize(
             api_orders_sgtins_set_request=api_orders_sgtins_set_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiMetaSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiMetaSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_click_collect_orders_meta_sgtin_serialize(
         self,
@@ -3221,13 +3057,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3246,38 +3081,28 @@ class Api:
         if api_orders_sgtins_set_request is not None:
             _body_params = api_orders_sgtins_set_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/click-collect/orders/meta/sgtin',
+            method="POST",
+            resource_path="/api/marketplace/v3/click-collect/orders/meta/sgtin",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3287,11 +3112,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_uin(
@@ -3301,9 +3123,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3336,34 +3157,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_uin_serialize(
             api_orders_uin_set_request=api_orders_uin_set_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiMetaSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiMetaSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_uin_with_http_info(
@@ -3373,9 +3192,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3408,34 +3226,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_uin_serialize(
             api_orders_uin_set_request=api_orders_uin_set_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiMetaSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiMetaSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_click_collect_orders_meta_uin_without_preload_content(
@@ -3445,9 +3261,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3480,30 +3295,28 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_meta_uin_serialize(
             api_orders_uin_set_request=api_orders_uin_set_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiMetaSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiMetaSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_click_collect_orders_meta_uin_serialize(
         self,
@@ -3515,13 +3328,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3540,38 +3352,28 @@ class Api:
         if api_orders_uin_set_request is not None:
             _body_params = api_orders_uin_set_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/click-collect/orders/meta/uin',
+            method="POST",
+            resource_path="/api/marketplace/v3/click-collect/orders/meta/uin",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3581,11 +3383,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_click_collect_orders_status_cancel(
@@ -3595,9 +3394,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3630,34 +3428,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_status_cancel_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiStatusSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiStatusSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_click_collect_orders_status_cancel_with_http_info(
@@ -3667,9 +3463,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3702,34 +3497,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_status_cancel_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiStatusSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiStatusSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_click_collect_orders_status_cancel_without_preload_content(
@@ -3739,9 +3532,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3774,30 +3566,28 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_status_cancel_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiStatusSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiStatusSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_click_collect_orders_status_cancel_serialize(
         self,
@@ -3809,13 +3599,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3834,38 +3623,28 @@ class Api:
         if api_orders_request_v2 is not None:
             _body_params = api_orders_request_v2
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/click-collect/orders/status/cancel',
+            method="POST",
+            resource_path="/api/marketplace/v3/click-collect/orders/status/cancel",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3875,11 +3654,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_click_collect_orders_status_confirm(
@@ -3889,9 +3665,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3924,34 +3699,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_status_confirm_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiStatusSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiStatusSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_click_collect_orders_status_confirm_with_http_info(
@@ -3961,9 +3734,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3996,34 +3768,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_status_confirm_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiStatusSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiStatusSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_click_collect_orders_status_confirm_without_preload_content(
@@ -4033,9 +3803,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4068,30 +3837,28 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_status_confirm_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiStatusSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiStatusSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_click_collect_orders_status_confirm_serialize(
         self,
@@ -4103,13 +3870,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -4128,38 +3894,28 @@ class Api:
         if api_orders_request_v2 is not None:
             _body_params = api_orders_request_v2
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/click-collect/orders/status/confirm',
+            method="POST",
+            resource_path="/api/marketplace/v3/click-collect/orders/status/confirm",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4169,11 +3925,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_click_collect_orders_status_info(
@@ -4183,9 +3936,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4218,34 +3970,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_status_info_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrderStatusesV2",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiOrderStatusesV2",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_click_collect_orders_status_info_with_http_info(
@@ -4255,9 +4005,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4290,34 +4039,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_status_info_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrderStatusesV2",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiOrderStatusesV2",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_click_collect_orders_status_info_without_preload_content(
@@ -4327,9 +4074,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4362,30 +4108,28 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_status_info_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrderStatusesV2",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiOrderStatusesV2",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_click_collect_orders_status_info_serialize(
         self,
@@ -4397,13 +4141,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -4422,38 +4165,28 @@ class Api:
         if api_orders_request_v2 is not None:
             _body_params = api_orders_request_v2
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/click-collect/orders/status/info',
+            method="POST",
+            resource_path="/api/marketplace/v3/click-collect/orders/status/info",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4463,11 +4196,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_click_collect_orders_status_prepare(
@@ -4477,9 +4207,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4512,34 +4241,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_status_prepare_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiMetaDetailsResponse",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiMetaDetailsResponse",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_click_collect_orders_status_prepare_with_http_info(
@@ -4549,9 +4276,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4584,34 +4310,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_status_prepare_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiMetaDetailsResponse",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiMetaDetailsResponse",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_click_collect_orders_status_prepare_without_preload_content(
@@ -4621,9 +4345,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4656,30 +4379,28 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_status_prepare_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiMetaDetailsResponse",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiMetaDetailsResponse",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_click_collect_orders_status_prepare_serialize(
         self,
@@ -4691,13 +4412,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -4716,38 +4436,28 @@ class Api:
         if api_orders_request_v2 is not None:
             _body_params = api_orders_request_v2
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/click-collect/orders/status/prepare',
+            method="POST",
+            resource_path="/api/marketplace/v3/click-collect/orders/status/prepare",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4757,11 +4467,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_click_collect_orders_status_receive(
@@ -4771,9 +4478,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4806,34 +4512,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_status_receive_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiStatusSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiStatusSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_click_collect_orders_status_receive_with_http_info(
@@ -4843,9 +4547,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4878,34 +4581,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_status_receive_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiStatusSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiStatusSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_click_collect_orders_status_receive_without_preload_content(
@@ -4915,9 +4616,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4950,30 +4650,28 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_status_receive_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiStatusSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiStatusSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_click_collect_orders_status_receive_serialize(
         self,
@@ -4985,13 +4683,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -5010,38 +4707,28 @@ class Api:
         if api_orders_request_v2 is not None:
             _body_params = api_orders_request_v2
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/click-collect/orders/status/receive',
+            method="POST",
+            resource_path="/api/marketplace/v3/click-collect/orders/status/receive",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5051,11 +4738,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_click_collect_orders_status_reject(
@@ -5065,9 +4749,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -5100,34 +4783,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_status_reject_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiStatusSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiStatusSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_click_collect_orders_status_reject_with_http_info(
@@ -5137,9 +4818,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -5172,34 +4852,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_status_reject_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiStatusSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiStatusSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_click_collect_orders_status_reject_without_preload_content(
@@ -5209,9 +4887,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -5244,30 +4921,28 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_click_collect_orders_status_reject_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiStatusSetResponses",
-            '400': "ApiBatchError",
-            '401': "GetV3ClickCollectOrdersNew401Response",
-            '402': "GetV3ClickCollectOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3ClickCollectOrdersNew401Response",
+            "200": "ApiStatusSetResponses",
+            "400": "ApiBatchError",
+            "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3ClickCollectOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_click_collect_orders_status_reject_serialize(
         self,
@@ -5279,13 +4954,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -5304,38 +4978,28 @@ class Api:
         if api_orders_request_v2 is not None:
             _body_params = api_orders_request_v2
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/click-collect/orders/status/reject',
+            method="POST",
+            resource_path="/api/marketplace/v3/click-collect/orders/status/reject",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5345,7 +5009,5 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.post_v3_stocks_warehouse_id_response200_stocks_inner import PostV3StocksWarehouseIdResponse200StocksInner
+from wb_api_client.items.models.post_v3_stocks_warehouse_id_response200_stocks_inner import (
+    PostV3StocksWarehouseIdResponse200StocksInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV3StocksWarehouseIdResponse200(BaseModel):
     """
     PostV3StocksWarehouseIdResponse200
-    """ # noqa: E501
+    """  # noqa: E501
+
     stocks: Optional[List[PostV3StocksWarehouseIdResponse200StocksInner]] = None
     __properties: ClassVar[List[str]] = ["stocks"]
 
@@ -35,7 +39,6 @@ class PostV3StocksWarehouseIdResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class PostV3StocksWarehouseIdResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +77,7 @@ class PostV3StocksWarehouseIdResponse200(BaseModel):
             for _item_stocks in self.stocks:
                 if _item_stocks:
                     _items.append(_item_stocks.to_dict())
-            _dict['stocks'] = _items
+            _dict["stocks"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +89,16 @@ class PostV3StocksWarehouseIdResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "stocks": [PostV3StocksWarehouseIdResponse200StocksInner.from_dict(_item) for _item in obj["stocks"]] if obj.get("stocks") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "stocks": (
+                    [
+                        PostV3StocksWarehouseIdResponse200StocksInner.from_dict(_item)
+                        for _item in obj["stocks"]
+                    ]
+                    if obj.get("stocks") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

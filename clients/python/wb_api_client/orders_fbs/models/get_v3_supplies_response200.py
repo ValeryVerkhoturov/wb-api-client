@@ -23,12 +23,19 @@ from wb_api_client.orders_fbs.models.supply import Supply
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV3SuppliesResponse200(BaseModel):
     """
     GetV3SuppliesResponse200
-    """ # noqa: E501
-    next: Optional[StrictInt] = Field(default=None, description="Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных")
-    supplies: Optional[List[Supply]] = Field(default=None, description="Список поставок")
+    """  # noqa: E501
+
+    next: Optional[StrictInt] = Field(
+        default=None,
+        description="Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных",
+    )
+    supplies: Optional[List[Supply]] = Field(
+        default=None, description="Список поставок"
+    )
     __properties: ClassVar[List[str]] = ["next", "supplies"]
 
     model_config = ConfigDict(
@@ -36,7 +43,6 @@ class GetV3SuppliesResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +68,7 @@ class GetV3SuppliesResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +81,7 @@ class GetV3SuppliesResponse200(BaseModel):
             for _item_supplies in self.supplies:
                 if _item_supplies:
                     _items.append(_item_supplies.to_dict())
-            _dict['supplies'] = _items
+            _dict["supplies"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +93,14 @@ class GetV3SuppliesResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "next": obj.get("next"),
-            "supplies": [Supply.from_dict(_item) for _item in obj["supplies"]] if obj.get("supplies") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "next": obj.get("next"),
+                "supplies": (
+                    [Supply.from_dict(_item) for _item in obj["supplies"]]
+                    if obj.get("supplies") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

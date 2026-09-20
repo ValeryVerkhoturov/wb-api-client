@@ -19,18 +19,27 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.get_v1_promotion_count_response200_adverts_inner_advert_list_inner import GetV1PromotionCountResponse200AdvertsInnerAdvertListInner
+from wb_api_client.promotion.models.get_v1_promotion_count_response200_adverts_inner_advert_list_inner import (
+    GetV1PromotionCountResponse200AdvertsInnerAdvertListInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV1PromotionCountResponse200AdvertsInner(BaseModel):
     """
     GetV1PromotionCountResponse200AdvertsInner
-    """ # noqa: E501
-    type: Optional[StrictInt] = Field(default=None, description="Тип кампании:   - `8` — кампания с единой ставкой (**устаревший тип**)   - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV2Adverts), поле `bid_type` ")
+    """  # noqa: E501
+
+    type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип кампании:   - `8` — кампания с единой ставкой (**устаревший тип**)   - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV2Adverts), поле `bid_type` ",
+    )
     status: Optional[StrictInt] = Field(default=None, description="Статус кампании")
     count: Optional[StrictInt] = Field(default=None, description="Количество кампаний")
-    advert_list: Optional[List[GetV1PromotionCountResponse200AdvertsInnerAdvertListInner]] = Field(default=None, description="Список кампаний")
+    advert_list: Optional[
+        List[GetV1PromotionCountResponse200AdvertsInnerAdvertListInner]
+    ] = Field(default=None, description="Список кампаний")
     __properties: ClassVar[List[str]] = ["type", "status", "count", "advert_list"]
 
     model_config = ConfigDict(
@@ -38,7 +47,6 @@ class GetV1PromotionCountResponse200AdvertsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +72,7 @@ class GetV1PromotionCountResponse200AdvertsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -78,7 +85,7 @@ class GetV1PromotionCountResponse200AdvertsInner(BaseModel):
             for _item_advert_list in self.advert_list:
                 if _item_advert_list:
                     _items.append(_item_advert_list.to_dict())
-            _dict['advert_list'] = _items
+            _dict["advert_list"] = _items
         return _dict
 
     @classmethod
@@ -90,12 +97,21 @@ class GetV1PromotionCountResponse200AdvertsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "type": obj.get("type"),
-            "status": obj.get("status"),
-            "count": obj.get("count"),
-            "advert_list": [GetV1PromotionCountResponse200AdvertsInnerAdvertListInner.from_dict(_item) for _item in obj["advert_list"]] if obj.get("advert_list") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "type": obj.get("type"),
+                "status": obj.get("status"),
+                "count": obj.get("count"),
+                "advert_list": (
+                    [
+                        GetV1PromotionCountResponse200AdvertsInnerAdvertListInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["advert_list"]
+                    ]
+                    if obj.get("advert_list") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

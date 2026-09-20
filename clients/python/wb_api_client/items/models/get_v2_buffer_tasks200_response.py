@@ -19,17 +19,23 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.seller_task_metadata_buffer import SellerTaskMetadataBuffer
+from wb_api_client.items.models.seller_task_metadata_buffer import (
+    SellerTaskMetadataBuffer,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV2BufferTasks200Response(BaseModel):
     """
     GetV2BufferTasks200Response
-    """ # noqa: E501
+    """  # noqa: E501
+
     data: Optional[SellerTaskMetadataBuffer] = None
     error: Optional[StrictBool] = Field(default=None, description="Флаг ошибки")
-    error_text: Optional[StrictStr] = Field(default=None, description="Текст ошибки", alias="errorText")
+    error_text: Optional[StrictStr] = Field(
+        default=None, description="Текст ошибки", alias="errorText"
+    )
     __properties: ClassVar[List[str]] = ["data", "error", "errorText"]
 
     model_config = ConfigDict(
@@ -37,7 +43,6 @@ class GetV2BufferTasks200Response(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +68,7 @@ class GetV2BufferTasks200Response(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,11 +77,11 @@ class GetV2BufferTasks200Response(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of data
         if self.data:
-            _dict['data'] = self.data.to_dict()
+            _dict["data"] = self.data.to_dict()
         # set to None if data (nullable) is None
         # and model_fields_set contains the field
         if self.data is None and "data" in self.model_fields_set:
-            _dict['data'] = None
+            _dict["data"] = None
 
         return _dict
 
@@ -90,11 +94,15 @@ class GetV2BufferTasks200Response(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "data": SellerTaskMetadataBuffer.from_dict(obj["data"]) if obj.get("data") is not None else None,
-            "error": obj.get("error"),
-            "errorText": obj.get("errorText")
-        })
+        _obj = cls.model_validate(
+            {
+                "data": (
+                    SellerTaskMetadataBuffer.from_dict(obj["data"])
+                    if obj.get("data") is not None
+                    else None
+                ),
+                "error": obj.get("error"),
+                "errorText": obj.get("errorText"),
+            }
+        )
         return _obj
-
-

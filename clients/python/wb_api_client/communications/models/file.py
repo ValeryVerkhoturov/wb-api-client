@@ -22,24 +22,42 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class File(BaseModel):
     """
     File
-    """ # noqa: E501
-    content_type: Optional[StrictStr] = Field(default=None, description="Тип файла", alias="contentType")
-    var_date: Optional[StrictStr] = Field(default=None, description="Дата загрузки файла", alias="date")
-    download_id: Optional[StrictStr] = Field(default=None, description="ID файла. [Получить файл](./customer-communication#tag/buyersChat/operation/getV1SellerDownloadId)", alias="downloadID")
+    """  # noqa: E501
+
+    content_type: Optional[StrictStr] = Field(
+        default=None, description="Тип файла", alias="contentType"
+    )
+    var_date: Optional[StrictStr] = Field(
+        default=None, description="Дата загрузки файла", alias="date"
+    )
+    download_id: Optional[StrictStr] = Field(
+        default=None,
+        description="ID файла. [Получить файл](./customer-communication#tag/buyersChat/operation/getV1SellerDownloadId)",
+        alias="downloadID",
+    )
     name: Optional[StrictStr] = Field(default=None, description="Название файла")
-    url: Optional[StrictStr] = Field(default=None, description="URL для получения файла")
+    url: Optional[StrictStr] = Field(
+        default=None, description="URL для получения файла"
+    )
     size: Optional[StrictInt] = Field(default=None, description="Размер файла в байтах")
-    __properties: ClassVar[List[str]] = ["contentType", "date", "downloadID", "name", "url", "size"]
+    __properties: ClassVar[List[str]] = [
+        "contentType",
+        "date",
+        "downloadID",
+        "name",
+        "url",
+        "size",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +83,7 @@ class File(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -84,14 +101,14 @@ class File(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "contentType": obj.get("contentType"),
-            "date": obj.get("date"),
-            "downloadID": obj.get("downloadID"),
-            "name": obj.get("name"),
-            "url": obj.get("url"),
-            "size": obj.get("size")
-        })
+        _obj = cls.model_validate(
+            {
+                "contentType": obj.get("contentType"),
+                "date": obj.get("date"),
+                "downloadID": obj.get("downloadID"),
+                "name": obj.get("name"),
+                "url": obj.get("url"),
+                "size": obj.get("size"),
+            }
+        )
         return _obj
-
-

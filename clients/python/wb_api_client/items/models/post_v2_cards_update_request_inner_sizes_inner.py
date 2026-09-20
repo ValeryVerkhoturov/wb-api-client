@@ -22,23 +22,42 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2CardsUpdateRequestInnerSizesInner(BaseModel):
     """
     PostV2CardsUpdateRequestInnerSizesInner
-    """ # noqa: E501
-    chrt_id: Optional[StrictInt] = Field(default=None, description="ID размера для данного артикула WB Обязателен к заполнению для существующих размеров Для добавляемых размеров не указывается", alias="chrtID")
-    tech_size: Optional[StrictStr] = Field(default=None, description="Размер товара (например, XL, S, 45)", alias="techSize")
-    wb_size: Optional[StrictStr] = Field(default=None, description="Российский размер товара", alias="wbSize")
-    price: Optional[StrictInt] = Field(default=None, description="Цена товара, ₽ Указывается при добавлении размера")
+    """  # noqa: E501
+
+    chrt_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID размера для данного артикула WB Обязателен к заполнению для существующих размеров Для добавляемых размеров не указывается",
+        alias="chrtID",
+    )
+    tech_size: Optional[StrictStr] = Field(
+        default=None,
+        description="Размер товара (например, XL, S, 45)",
+        alias="techSize",
+    )
+    wb_size: Optional[StrictStr] = Field(
+        default=None, description="Российский размер товара", alias="wbSize"
+    )
+    price: Optional[StrictInt] = Field(
+        default=None, description="Цена товара, ₽ Указывается при добавлении размера"
+    )
     skus: Optional[List[StrictStr]] = Field(default=None, description="Баркоды")
-    __properties: ClassVar[List[str]] = ["chrtID", "techSize", "wbSize", "price", "skus"]
+    __properties: ClassVar[List[str]] = [
+        "chrtID",
+        "techSize",
+        "wbSize",
+        "price",
+        "skus",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +83,7 @@ class PostV2CardsUpdateRequestInnerSizesInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,13 +101,13 @@ class PostV2CardsUpdateRequestInnerSizesInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "chrtID": obj.get("chrtID"),
-            "techSize": obj.get("techSize"),
-            "wbSize": obj.get("wbSize"),
-            "price": obj.get("price"),
-            "skus": obj.get("skus")
-        })
+        _obj = cls.model_validate(
+            {
+                "chrtID": obj.get("chrtID"),
+                "techSize": obj.get("techSize"),
+                "wbSize": obj.get("wbSize"),
+                "price": obj.get("price"),
+                "skus": obj.get("skus"),
+            }
+        )
         return _obj
-
-

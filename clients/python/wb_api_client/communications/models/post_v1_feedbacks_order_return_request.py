@@ -22,11 +22,15 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV1FeedbacksOrderReturnRequest(BaseModel):
     """
     PostV1FeedbacksOrderReturnRequest
-    """ # noqa: E501
-    feedback_id: Optional[StrictStr] = Field(default=None, description="ID отзыва", alias="feedbackId")
+    """  # noqa: E501
+
+    feedback_id: Optional[StrictStr] = Field(
+        default=None, description="ID отзыва", alias="feedbackId"
+    )
     __properties: ClassVar[List[str]] = ["feedbackId"]
 
     model_config = ConfigDict(
@@ -34,7 +38,6 @@ class PostV1FeedbacksOrderReturnRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,8 +63,7 @@ class PostV1FeedbacksOrderReturnRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,9 +81,5 @@ class PostV1FeedbacksOrderReturnRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "feedbackId": obj.get("feedbackId")
-        })
+        _obj = cls.model_validate({"feedbackId": obj.get("feedbackId")})
         return _obj
-
-

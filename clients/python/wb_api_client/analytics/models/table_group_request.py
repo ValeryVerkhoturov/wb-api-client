@@ -27,30 +27,64 @@ from wb_api_client.analytics.models.position_cluster import PositionCluster
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class TableGroupRequest(BaseModel):
     """
-    Параметры запроса для пагинации по группам:   - `currentPeriod` — текущий период   - `pastPeriod` — предыдущий период для сравнения 
-    """ # noqa: E501
+    Параметры запроса для пагинации по группам:   - `currentPeriod` — текущий период   - `pastPeriod` — предыдущий период для сравнения
+    """  # noqa: E501
+
     current_period: Period = Field(alias="currentPeriod")
     past_period: Optional[PastPeriod] = Field(default=None, alias="pastPeriod")
-    nm_ids: Optional[List[StrictInt]] = Field(default=None, description="Список артикулов WB для фильтрации", alias="nmIds")
-    subject_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID предметов для фильтрации", alias="subjectIds")
-    brand_names: Optional[List[StrictStr]] = Field(default=None, description="Список брендов для фильтрации", alias="brandNames")
-    tag_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID ярлыков для фильтрации", alias="tagIds")
+    nm_ids: Optional[List[StrictInt]] = Field(
+        default=None, description="Список артикулов WB для фильтрации", alias="nmIds"
+    )
+    subject_ids: Optional[List[StrictInt]] = Field(
+        default=None,
+        description="Список ID предметов для фильтрации",
+        alias="subjectIds",
+    )
+    brand_names: Optional[List[StrictStr]] = Field(
+        default=None, description="Список брендов для фильтрации", alias="brandNames"
+    )
+    tag_ids: Optional[List[StrictInt]] = Field(
+        default=None, description="Список ID ярлыков для фильтрации", alias="tagIds"
+    )
     order_by: OrderByGrTe = Field(alias="orderBy")
     position_cluster: PositionCluster = Field(alias="positionCluster")
-    include_substituted_skus: Optional[StrictBool] = Field(default=True, description="Показать данные по прямым запросам с [подменным артикулом](https://seller.wildberries.ru/help-center/article/A-524)", alias="includeSubstitutedSKUs")
-    include_search_texts: Optional[StrictBool] = Field(default=True, description="Показать данные по поисковым запросам без учёта подменного артикула", alias="includeSearchTexts")
-    limit: Annotated[int, Field(le=1000, strict=True)] = Field(description="Количество групп товаров в ответе")
+    include_substituted_skus: Optional[StrictBool] = Field(
+        default=True,
+        description="Показать данные по прямым запросам с [подменным артикулом](https://seller.wildberries.ru/help-center/article/A-524)",
+        alias="includeSubstitutedSKUs",
+    )
+    include_search_texts: Optional[StrictBool] = Field(
+        default=True,
+        description="Показать данные по поисковым запросам без учёта подменного артикула",
+        alias="includeSearchTexts",
+    )
+    limit: Annotated[int, Field(le=1000, strict=True)] = Field(
+        description="Количество групп товаров в ответе"
+    )
     offset: StrictInt = Field(description="После какого элемента выдавать данные")
-    __properties: ClassVar[List[str]] = ["currentPeriod", "pastPeriod", "nmIds", "subjectIds", "brandNames", "tagIds", "orderBy", "positionCluster", "includeSubstitutedSKUs", "includeSearchTexts", "limit", "offset"]
+    __properties: ClassVar[List[str]] = [
+        "currentPeriod",
+        "pastPeriod",
+        "nmIds",
+        "subjectIds",
+        "brandNames",
+        "tagIds",
+        "orderBy",
+        "positionCluster",
+        "includeSubstitutedSKUs",
+        "includeSearchTexts",
+        "limit",
+        "offset",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -76,8 +110,7 @@ class TableGroupRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -86,13 +119,13 @@ class TableGroupRequest(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of current_period
         if self.current_period:
-            _dict['currentPeriod'] = self.current_period.to_dict()
+            _dict["currentPeriod"] = self.current_period.to_dict()
         # override the default output from pydantic by calling `to_dict()` of past_period
         if self.past_period:
-            _dict['pastPeriod'] = self.past_period.to_dict()
+            _dict["pastPeriod"] = self.past_period.to_dict()
         # override the default output from pydantic by calling `to_dict()` of order_by
         if self.order_by:
-            _dict['orderBy'] = self.order_by.to_dict()
+            _dict["orderBy"] = self.order_by.to_dict()
         return _dict
 
     @classmethod
@@ -104,20 +137,40 @@ class TableGroupRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "currentPeriod": Period.from_dict(obj["currentPeriod"]) if obj.get("currentPeriod") is not None else None,
-            "pastPeriod": PastPeriod.from_dict(obj["pastPeriod"]) if obj.get("pastPeriod") is not None else None,
-            "nmIds": obj.get("nmIds"),
-            "subjectIds": obj.get("subjectIds"),
-            "brandNames": obj.get("brandNames"),
-            "tagIds": obj.get("tagIds"),
-            "orderBy": OrderByGrTe.from_dict(obj["orderBy"]) if obj.get("orderBy") is not None else None,
-            "positionCluster": obj.get("positionCluster"),
-            "includeSubstitutedSKUs": obj.get("includeSubstitutedSKUs") if obj.get("includeSubstitutedSKUs") is not None else True,
-            "includeSearchTexts": obj.get("includeSearchTexts") if obj.get("includeSearchTexts") is not None else True,
-            "limit": obj.get("limit"),
-            "offset": obj.get("offset")
-        })
+        _obj = cls.model_validate(
+            {
+                "currentPeriod": (
+                    Period.from_dict(obj["currentPeriod"])
+                    if obj.get("currentPeriod") is not None
+                    else None
+                ),
+                "pastPeriod": (
+                    PastPeriod.from_dict(obj["pastPeriod"])
+                    if obj.get("pastPeriod") is not None
+                    else None
+                ),
+                "nmIds": obj.get("nmIds"),
+                "subjectIds": obj.get("subjectIds"),
+                "brandNames": obj.get("brandNames"),
+                "tagIds": obj.get("tagIds"),
+                "orderBy": (
+                    OrderByGrTe.from_dict(obj["orderBy"])
+                    if obj.get("orderBy") is not None
+                    else None
+                ),
+                "positionCluster": obj.get("positionCluster"),
+                "includeSubstitutedSKUs": (
+                    obj.get("includeSubstitutedSKUs")
+                    if obj.get("includeSubstitutedSKUs") is not None
+                    else True
+                ),
+                "includeSearchTexts": (
+                    obj.get("includeSearchTexts")
+                    if obj.get("includeSearchTexts") is not None
+                    else True
+                ),
+                "limit": obj.get("limit"),
+                "offset": obj.get("offset"),
+            }
+        )
         return _obj
-
-

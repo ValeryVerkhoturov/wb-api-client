@@ -22,23 +22,42 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class FeeTurkeyReportInner(BaseModel):
     """
     FeeTurkeyReportInner
-    """ # noqa: E501
-    kgvp_turkey: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Комиссия для продавцов из Турции, %", alias="kgvpTurkey")
-    parent_id: Optional[StrictInt] = Field(default=None, description="ID родительской категории", alias="parentID")
-    parent_name: Optional[StrictStr] = Field(default=None, description="Название родительской категории", alias="parentName")
-    subject_id: Optional[StrictInt] = Field(default=None, description="ID предмета", alias="subjectID")
-    subject_name: Optional[StrictStr] = Field(default=None, description="Название предмета", alias="subjectName")
-    __properties: ClassVar[List[str]] = ["kgvpTurkey", "parentID", "parentName", "subjectID", "subjectName"]
+    """  # noqa: E501
+
+    kgvp_turkey: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Комиссия для продавцов из Турции, %",
+        alias="kgvpTurkey",
+    )
+    parent_id: Optional[StrictInt] = Field(
+        default=None, description="ID родительской категории", alias="parentID"
+    )
+    parent_name: Optional[StrictStr] = Field(
+        default=None, description="Название родительской категории", alias="parentName"
+    )
+    subject_id: Optional[StrictInt] = Field(
+        default=None, description="ID предмета", alias="subjectID"
+    )
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Название предмета", alias="subjectName"
+    )
+    __properties: ClassVar[List[str]] = [
+        "kgvpTurkey",
+        "parentID",
+        "parentName",
+        "subjectID",
+        "subjectName",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +83,7 @@ class FeeTurkeyReportInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,13 +101,13 @@ class FeeTurkeyReportInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "kgvpTurkey": obj.get("kgvpTurkey"),
-            "parentID": obj.get("parentID"),
-            "parentName": obj.get("parentName"),
-            "subjectID": obj.get("subjectID"),
-            "subjectName": obj.get("subjectName")
-        })
+        _obj = cls.model_validate(
+            {
+                "kgvpTurkey": obj.get("kgvpTurkey"),
+                "parentID": obj.get("parentID"),
+                "parentName": obj.get("parentName"),
+                "subjectID": obj.get("subjectID"),
+                "subjectName": obj.get("subjectName"),
+            }
+        )
         return _obj
-
-

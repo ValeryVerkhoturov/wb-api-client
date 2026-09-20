@@ -23,12 +23,16 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiSGTINs(BaseModel):
     """
     ApiSGTINs
-    """ # noqa: E501
+    """  # noqa: E501
+
     order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
-    sgtins: Annotated[List[StrictStr], Field(min_length=1, max_length=24)] = Field(description="Массив кодов маркировки. Допускается от 16 до 135 символов для кода одной маркировки")
+    sgtins: Annotated[List[StrictStr], Field(min_length=1, max_length=24)] = Field(
+        description="Массив кодов маркировки. Допускается от 16 до 135 символов для кода одной маркировки"
+    )
     __properties: ClassVar[List[str]] = ["orderId", "sgtins"]
 
     model_config = ConfigDict(
@@ -36,7 +40,6 @@ class ApiSGTINs(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class ApiSGTINs(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,10 +83,7 @@ class ApiSGTINs(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "orderId": obj.get("orderId"),
-            "sgtins": obj.get("sgtins")
-        })
+        _obj = cls.model_validate(
+            {"orderId": obj.get("orderId"), "sgtins": obj.get("sgtins")}
+        )
         return _obj
-
-

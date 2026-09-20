@@ -22,29 +22,80 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsWarehouseBoxRates(BaseModel):
     """
     ModelsWarehouseBoxRates
-    """ # noqa: E501
-    box_delivery_base: Optional[StrictStr] = Field(default=None, description="Логистика, первый литр, ₽", alias="boxDeliveryBase")
-    box_delivery_coef_expr: Optional[StrictStr] = Field(default=None, description="Коэффициент **Логистика**, %. На него умножается стоимость логистики. Уже учтён в тарифах", alias="boxDeliveryCoefExpr")
-    box_delivery_liter: Optional[StrictStr] = Field(default=None, description="Логистика, дополнительный литр, ₽", alias="boxDeliveryLiter")
-    box_delivery_marketplace_base: Optional[StrictStr] = Field(default=None, description="Логистика FBS, первый литр, ₽", alias="boxDeliveryMarketplaceBase")
-    box_delivery_marketplace_coef_expr: Optional[StrictStr] = Field(default=None, description="Коэффициент **FBS**, %. На него умножается стоимость логистики FBS. Уже учтён в тарифах", alias="boxDeliveryMarketplaceCoefExpr")
-    box_delivery_marketplace_liter: Optional[StrictStr] = Field(default=None, description="Логистика FBS, дополнительный литр, ₽", alias="boxDeliveryMarketplaceLiter")
-    box_storage_base: Optional[StrictStr] = Field(default=None, description="Хранение в день, первый литр, ₽", alias="boxStorageBase")
-    box_storage_coef_expr: Optional[StrictStr] = Field(default=None, description="Коэффициент **Хранение**, %. На него умножается стоимость хранения в день. Уже учтён в тарифах", alias="boxStorageCoefExpr")
-    box_storage_liter: Optional[StrictStr] = Field(default=None, description="Хранение в день, дополнительный литр, ₽", alias="boxStorageLiter")
-    geo_name: Optional[StrictStr] = Field(default=None, description="Местонахождение склада", alias="geoName")
-    warehouse_name: Optional[StrictStr] = Field(default=None, description="Название склада", alias="warehouseName")
-    __properties: ClassVar[List[str]] = ["boxDeliveryBase", "boxDeliveryCoefExpr", "boxDeliveryLiter", "boxDeliveryMarketplaceBase", "boxDeliveryMarketplaceCoefExpr", "boxDeliveryMarketplaceLiter", "boxStorageBase", "boxStorageCoefExpr", "boxStorageLiter", "geoName", "warehouseName"]
+    """  # noqa: E501
+
+    box_delivery_base: Optional[StrictStr] = Field(
+        default=None, description="Логистика, первый литр, ₽", alias="boxDeliveryBase"
+    )
+    box_delivery_coef_expr: Optional[StrictStr] = Field(
+        default=None,
+        description="Коэффициент **Логистика**, %. На него умножается стоимость логистики. Уже учтён в тарифах",
+        alias="boxDeliveryCoefExpr",
+    )
+    box_delivery_liter: Optional[StrictStr] = Field(
+        default=None,
+        description="Логистика, дополнительный литр, ₽",
+        alias="boxDeliveryLiter",
+    )
+    box_delivery_marketplace_base: Optional[StrictStr] = Field(
+        default=None,
+        description="Логистика FBS, первый литр, ₽",
+        alias="boxDeliveryMarketplaceBase",
+    )
+    box_delivery_marketplace_coef_expr: Optional[StrictStr] = Field(
+        default=None,
+        description="Коэффициент **FBS**, %. На него умножается стоимость логистики FBS. Уже учтён в тарифах",
+        alias="boxDeliveryMarketplaceCoefExpr",
+    )
+    box_delivery_marketplace_liter: Optional[StrictStr] = Field(
+        default=None,
+        description="Логистика FBS, дополнительный литр, ₽",
+        alias="boxDeliveryMarketplaceLiter",
+    )
+    box_storage_base: Optional[StrictStr] = Field(
+        default=None,
+        description="Хранение в день, первый литр, ₽",
+        alias="boxStorageBase",
+    )
+    box_storage_coef_expr: Optional[StrictStr] = Field(
+        default=None,
+        description="Коэффициент **Хранение**, %. На него умножается стоимость хранения в день. Уже учтён в тарифах",
+        alias="boxStorageCoefExpr",
+    )
+    box_storage_liter: Optional[StrictStr] = Field(
+        default=None,
+        description="Хранение в день, дополнительный литр, ₽",
+        alias="boxStorageLiter",
+    )
+    geo_name: Optional[StrictStr] = Field(
+        default=None, description="Местонахождение склада", alias="geoName"
+    )
+    warehouse_name: Optional[StrictStr] = Field(
+        default=None, description="Название склада", alias="warehouseName"
+    )
+    __properties: ClassVar[List[str]] = [
+        "boxDeliveryBase",
+        "boxDeliveryCoefExpr",
+        "boxDeliveryLiter",
+        "boxDeliveryMarketplaceBase",
+        "boxDeliveryMarketplaceCoefExpr",
+        "boxDeliveryMarketplaceLiter",
+        "boxStorageBase",
+        "boxStorageCoefExpr",
+        "boxStorageLiter",
+        "geoName",
+        "warehouseName",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -70,8 +121,7 @@ class ModelsWarehouseBoxRates(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -89,19 +139,21 @@ class ModelsWarehouseBoxRates(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "boxDeliveryBase": obj.get("boxDeliveryBase"),
-            "boxDeliveryCoefExpr": obj.get("boxDeliveryCoefExpr"),
-            "boxDeliveryLiter": obj.get("boxDeliveryLiter"),
-            "boxDeliveryMarketplaceBase": obj.get("boxDeliveryMarketplaceBase"),
-            "boxDeliveryMarketplaceCoefExpr": obj.get("boxDeliveryMarketplaceCoefExpr"),
-            "boxDeliveryMarketplaceLiter": obj.get("boxDeliveryMarketplaceLiter"),
-            "boxStorageBase": obj.get("boxStorageBase"),
-            "boxStorageCoefExpr": obj.get("boxStorageCoefExpr"),
-            "boxStorageLiter": obj.get("boxStorageLiter"),
-            "geoName": obj.get("geoName"),
-            "warehouseName": obj.get("warehouseName")
-        })
+        _obj = cls.model_validate(
+            {
+                "boxDeliveryBase": obj.get("boxDeliveryBase"),
+                "boxDeliveryCoefExpr": obj.get("boxDeliveryCoefExpr"),
+                "boxDeliveryLiter": obj.get("boxDeliveryLiter"),
+                "boxDeliveryMarketplaceBase": obj.get("boxDeliveryMarketplaceBase"),
+                "boxDeliveryMarketplaceCoefExpr": obj.get(
+                    "boxDeliveryMarketplaceCoefExpr"
+                ),
+                "boxDeliveryMarketplaceLiter": obj.get("boxDeliveryMarketplaceLiter"),
+                "boxStorageBase": obj.get("boxStorageBase"),
+                "boxStorageCoefExpr": obj.get("boxStorageCoefExpr"),
+                "boxStorageLiter": obj.get("boxStorageLiter"),
+                "geoName": obj.get("geoName"),
+                "warehouseName": obj.get("warehouseName"),
+            }
+        )
         return _obj
-
-

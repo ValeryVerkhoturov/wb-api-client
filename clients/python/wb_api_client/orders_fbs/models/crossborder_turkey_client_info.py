@@ -22,25 +22,48 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class CrossborderTurkeyClientInfo(BaseModel):
     """
     CrossborderTurkeyClientInfo
-    """ # noqa: E501
-    first_name: Optional[StrictStr] = Field(default=None, description="Имя клиента", alias="firstName")
-    full_name: Optional[StrictStr] = Field(default=None, description="Фамилия, Имя, Отчество", alias="fullName")
-    last_name: Optional[StrictStr] = Field(default=None, description="Фамилия клиента", alias="lastName")
-    middle_name: Optional[StrictStr] = Field(default=None, description="Отчество клиента", alias="middleName")
-    order_id: Optional[StrictInt] = Field(default=None, description="Номер заказа", alias="orderID")
-    phone: Optional[StrictStr] = Field(default=None, description="Телефон для связи с клиентом")
-    phone_code: Optional[StrictStr] = Field(default=None, description="Не используется", alias="phoneCode")
-    __properties: ClassVar[List[str]] = ["firstName", "fullName", "lastName", "middleName", "orderID", "phone", "phoneCode"]
+    """  # noqa: E501
+
+    first_name: Optional[StrictStr] = Field(
+        default=None, description="Имя клиента", alias="firstName"
+    )
+    full_name: Optional[StrictStr] = Field(
+        default=None, description="Фамилия, Имя, Отчество", alias="fullName"
+    )
+    last_name: Optional[StrictStr] = Field(
+        default=None, description="Фамилия клиента", alias="lastName"
+    )
+    middle_name: Optional[StrictStr] = Field(
+        default=None, description="Отчество клиента", alias="middleName"
+    )
+    order_id: Optional[StrictInt] = Field(
+        default=None, description="Номер заказа", alias="orderID"
+    )
+    phone: Optional[StrictStr] = Field(
+        default=None, description="Телефон для связи с клиентом"
+    )
+    phone_code: Optional[StrictStr] = Field(
+        default=None, description="Не используется", alias="phoneCode"
+    )
+    __properties: ClassVar[List[str]] = [
+        "firstName",
+        "fullName",
+        "lastName",
+        "middleName",
+        "orderID",
+        "phone",
+        "phoneCode",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -66,8 +89,7 @@ class CrossborderTurkeyClientInfo(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -85,15 +107,15 @@ class CrossborderTurkeyClientInfo(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "firstName": obj.get("firstName"),
-            "fullName": obj.get("fullName"),
-            "lastName": obj.get("lastName"),
-            "middleName": obj.get("middleName"),
-            "orderID": obj.get("orderID"),
-            "phone": obj.get("phone"),
-            "phoneCode": obj.get("phoneCode")
-        })
+        _obj = cls.model_validate(
+            {
+                "firstName": obj.get("firstName"),
+                "fullName": obj.get("fullName"),
+                "lastName": obj.get("lastName"),
+                "middleName": obj.get("middleName"),
+                "orderID": obj.get("orderID"),
+                "phone": obj.get("phone"),
+                "phoneCode": obj.get("phoneCode"),
+            }
+        )
         return _obj
-
-

@@ -22,11 +22,17 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner(BaseModel):
+
+class GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner(
+    BaseModel
+):
     """
     GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner
-    """ # noqa: E501
-    warehouse_name: Optional[StrictStr] = Field(default=None, description="Название склада", alias="warehouseName")
+    """  # noqa: E501
+
+    warehouse_name: Optional[StrictStr] = Field(
+        default=None, description="Название склада", alias="warehouseName"
+    )
     quantity: Optional[StrictInt] = Field(default=None, description="Количество, шт. ")
     __properties: ClassVar[List[str]] = ["warehouseName", "quantity"]
 
@@ -35,7 +41,6 @@ class GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner(Ba
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner(Ba
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +84,7 @@ class GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner(Ba
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "warehouseName": obj.get("warehouseName"),
-            "quantity": obj.get("quantity")
-        })
+        _obj = cls.model_validate(
+            {"warehouseName": obj.get("warehouseName"), "quantity": obj.get("quantity")}
+        )
         return _obj
-
-

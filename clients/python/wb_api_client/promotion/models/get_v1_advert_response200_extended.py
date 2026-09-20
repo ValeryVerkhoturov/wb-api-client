@@ -23,27 +23,56 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1AdvertResponse200Extended(BaseModel):
     """
     GetV1AdvertResponse200Extended
-    """ # noqa: E501
-    reason: Optional[StrictStr] = Field(default=None, description="Комментарий модератора")
+    """  # noqa: E501
+
+    reason: Optional[StrictStr] = Field(
+        default=None, description="Комментарий модератора"
+    )
     expenses: Optional[StrictInt] = Field(default=None, description="Затраты")
-    var_from: Optional[datetime] = Field(default=None, description="Дата и время начала показа медиакампании", alias="from")
-    to: Optional[datetime] = Field(default=None, description="Дата и время окончания показа медиакампании")
-    updated_at: Optional[datetime] = Field(default=None, description="Дата и время изменения кампании")
-    price: Optional[StrictInt] = Field(default=None, description="Стоимость размещения по дням для типа `1`")
-    budget: Optional[StrictInt] = Field(default=None, description="Остаток бюджета для типа `2`")
-    operation: Optional[StrictInt] = Field(default=None, description="Источник списания:   - `1` — баланс   - `2` — счёт ")
-    contract_id: Optional[StrictInt] = Field(default=None, description="ID контракта, для продавцов на контракте")
-    __properties: ClassVar[List[str]] = ["reason", "expenses", "from", "to", "updated_at", "price", "budget", "operation", "contract_id"]
+    var_from: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время начала показа медиакампании",
+        alias="from",
+    )
+    to: Optional[datetime] = Field(
+        default=None, description="Дата и время окончания показа медиакампании"
+    )
+    updated_at: Optional[datetime] = Field(
+        default=None, description="Дата и время изменения кампании"
+    )
+    price: Optional[StrictInt] = Field(
+        default=None, description="Стоимость размещения по дням для типа `1`"
+    )
+    budget: Optional[StrictInt] = Field(
+        default=None, description="Остаток бюджета для типа `2`"
+    )
+    operation: Optional[StrictInt] = Field(
+        default=None, description="Источник списания:   - `1` — баланс   - `2` — счёт "
+    )
+    contract_id: Optional[StrictInt] = Field(
+        default=None, description="ID контракта, для продавцов на контракте"
+    )
+    __properties: ClassVar[List[str]] = [
+        "reason",
+        "expenses",
+        "from",
+        "to",
+        "updated_at",
+        "price",
+        "budget",
+        "operation",
+        "contract_id",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -69,8 +98,7 @@ class GetV1AdvertResponse200Extended(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,7 +108,7 @@ class GetV1AdvertResponse200Extended(BaseModel):
         # set to None if reason (nullable) is None
         # and model_fields_set contains the field
         if self.reason is None and "reason" in self.model_fields_set:
-            _dict['reason'] = None
+            _dict["reason"] = None
 
         return _dict
 
@@ -93,17 +121,17 @@ class GetV1AdvertResponse200Extended(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "reason": obj.get("reason"),
-            "expenses": obj.get("expenses"),
-            "from": obj.get("from"),
-            "to": obj.get("to"),
-            "updated_at": obj.get("updated_at"),
-            "price": obj.get("price"),
-            "budget": obj.get("budget"),
-            "operation": obj.get("operation"),
-            "contract_id": obj.get("contract_id")
-        })
+        _obj = cls.model_validate(
+            {
+                "reason": obj.get("reason"),
+                "expenses": obj.get("expenses"),
+                "from": obj.get("from"),
+                "to": obj.get("to"),
+                "updated_at": obj.get("updated_at"),
+                "price": obj.get("price"),
+                "budget": obj.get("budget"),
+                "operation": obj.get("operation"),
+                "contract_id": obj.get("contract_id"),
+            }
+        )
         return _obj
-
-

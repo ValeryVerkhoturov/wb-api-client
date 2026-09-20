@@ -22,13 +22,22 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner(BaseModel):
     """
     ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner
-    """ # noqa: E501
-    key: Optional[StrictStr] = Field(default=None, description="Идентификатор маркировки")
-    value: Optional[StrictStr] = Field(default=None, description="Значение идентификатора маркировки")
-    decision: Optional[StrictStr] = Field(default=None, description="Ошибки проверки идентификаторов маркировки. - `imei` - `pending` — Проверка маркировки продолжается. Дождитесь изменения статуса проверки - `required` — Маркировка обязательна и не закреплена за сборочным заданием - `imeiInvalidFormat` — Указан неверный формат маркировки - `imeiAlreadySold` — Товар с этим IMEI уже продан - `uin` - `required` — Маркировка обязательна и не закреплена за сборочным заданием - `sgtin` - `pending` — Проверка маркировки продолжается. Дождитесь изменения статуса проверки - `required` — Маркировка обязательна и не закреплена за сборочным заданием - `sgtinInvalidFormat` — Указан неверный формат маркировки - `sgtinNotFound` — Маркировка не найдена в [Честном знаке](https://chestnyznak.ru) - `sgtinEmitted` — Маркировка эмитирована - `sgtinApplied` — Не пройдена процедура Ввод в оборот - `sgtinWrittenOff` — Списан - `sgtinRetired` — Выбыл - `sgtinWithdrawn` — Выбыл - `sgtinDisaggregated` — Расформирован - `sgtinDisaggregation` — Расформирован - `sgtinAppliedNotPaid` — Не оплачен - `gtin` - `required` — Маркировка обязательна и не закреплена за сборочным заданием - `expiration` - `required` — Маркировка обязательна и не закреплена за сборочным заданием - `customsDeclaration` - `required` — Маркировка обязательна и не закреплена за сборочным заданием")
+    """  # noqa: E501
+
+    key: Optional[StrictStr] = Field(
+        default=None, description="Идентификатор маркировки"
+    )
+    value: Optional[StrictStr] = Field(
+        default=None, description="Значение идентификатора маркировки"
+    )
+    decision: Optional[StrictStr] = Field(
+        default=None,
+        description="Ошибки проверки идентификаторов маркировки. - `imei` - `pending` — Проверка маркировки продолжается. Дождитесь изменения статуса проверки - `required` — Маркировка обязательна и не закреплена за сборочным заданием - `imeiInvalidFormat` — Указан неверный формат маркировки - `imeiAlreadySold` — Товар с этим IMEI уже продан - `uin` - `required` — Маркировка обязательна и не закреплена за сборочным заданием - `sgtin` - `pending` — Проверка маркировки продолжается. Дождитесь изменения статуса проверки - `required` — Маркировка обязательна и не закреплена за сборочным заданием - `sgtinInvalidFormat` — Указан неверный формат маркировки - `sgtinNotFound` — Маркировка не найдена в [Честном знаке](https://chestnyznak.ru) - `sgtinEmitted` — Маркировка эмитирована - `sgtinApplied` — Не пройдена процедура Ввод в оборот - `sgtinWrittenOff` — Списан - `sgtinRetired` — Выбыл - `sgtinWithdrawn` — Выбыл - `sgtinDisaggregated` — Расформирован - `sgtinDisaggregation` — Расформирован - `sgtinAppliedNotPaid` — Не оплачен - `gtin` - `required` — Маркировка обязательна и не закреплена за сборочным заданием - `expiration` - `required` — Маркировка обязательна и не закреплена за сборочным заданием - `customsDeclaration` - `required` — Маркировка обязательна и не закреплена за сборочным заданием",
+    )
     __properties: ClassVar[List[str]] = ["key", "value", "decision"]
 
     model_config = ConfigDict(
@@ -36,7 +45,6 @@ class ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +70,7 @@ class ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,7 +80,7 @@ class ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner(BaseModel):
         # set to None if value (nullable) is None
         # and model_fields_set contains the field
         if self.value is None and "value" in self.model_fields_set:
-            _dict['value'] = None
+            _dict["value"] = None
 
         return _dict
 
@@ -86,11 +93,11 @@ class ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "key": obj.get("key"),
-            "value": obj.get("value"),
-            "decision": obj.get("decision")
-        })
+        _obj = cls.model_validate(
+            {
+                "key": obj.get("key"),
+                "value": obj.get("value"),
+                "decision": obj.get("decision"),
+            }
+        )
         return _obj
-
-

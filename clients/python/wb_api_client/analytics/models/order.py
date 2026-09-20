@@ -18,46 +18,108 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class Order(BaseModel):
     """
     Заказ
-    """ # noqa: E501
+    """  # noqa: E501
+
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
     chrt_id: StrictInt = Field(description="ID размера", alias="chrtId")
     srid: StrictStr = Field(description="ID заказа")
-    created_at: datetime = Field(description="Дата и время оформления заказа", alias="createdAt")
-    updated_at: datetime = Field(description="Дата и время текущего статуса. При `\"status\":\"created\"` возвращается значение поля `createdAt`", alias="updatedAt")
-    status: StrictStr = Field(description="Статус заказа:   - `created` — оформлен   - `buyout` — продан   - `cancel` — отменён   - `return` — возвращён   - `returnDefective` — возвращён по причине брака ")
-    cancel_type: Optional[StrictStr] = Field(default=None, description="Тип отмены (при `\"status\":\"cancel\"`):   - `app` — отказ до получения   - `receipt` — отказ при получении   - `expire` — истёк срок получения   - `other` — техническая отмена ", alias="cancelType")
-    warehouse_name: StrictStr = Field(description="Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`", alias="warehouseName")
-    warehouse_region: StrictStr = Field(description="Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `\"\"`", alias="warehouseRegion")
-    is_mp: StrictBool = Field(description="Тип склада:   - `true` — склад продавца   - `false` — склад WB ", alias="isMp")
-    destination_city: StrictStr = Field(description="Населённый пункт доставки", alias="destinationCity")
-    destination_district: StrictStr = Field(description="Федеральный округ доставки. Если доставка не по России, возвращается страна", alias="destinationDistrict")
-    seller_price: Union[StrictFloat, StrictInt] = Field(description="Цена продавца со скидкой продавца (без учёта скидки WB Клуба и оптовой скидки для B2B-продаж)", alias="sellerPrice")
-    is_b2b: StrictBool = Field(description="Тип продажи:   - `true` — B2B   - `false` — B2C ", alias="isB2b")
-    __properties: ClassVar[List[str]] = ["nmId", "chrtId", "srid", "createdAt", "updatedAt", "status", "cancelType", "warehouseName", "warehouseRegion", "isMp", "destinationCity", "destinationDistrict", "sellerPrice", "isB2b"]
+    created_at: datetime = Field(
+        description="Дата и время оформления заказа", alias="createdAt"
+    )
+    updated_at: datetime = Field(
+        description='Дата и время текущего статуса. При `"status":"created"` возвращается значение поля `createdAt`',
+        alias="updatedAt",
+    )
+    status: StrictStr = Field(
+        description="Статус заказа:   - `created` — оформлен   - `buyout` — продан   - `cancel` — отменён   - `return` — возвращён   - `returnDefective` — возвращён по причине брака "
+    )
+    cancel_type: Optional[StrictStr] = Field(
+        default=None,
+        description='Тип отмены (при `"status":"cancel"`):   - `app` — отказ до получения   - `receipt` — отказ при получении   - `expire` — истёк срок получения   - `other` — техническая отмена ',
+        alias="cancelType",
+    )
+    warehouse_name: StrictStr = Field(
+        description="Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`",
+        alias="warehouseName",
+    )
+    warehouse_region: StrictStr = Field(
+        description='Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `""`',
+        alias="warehouseRegion",
+    )
+    is_mp: StrictBool = Field(
+        description="Тип склада:   - `true` — склад продавца   - `false` — склад WB ",
+        alias="isMp",
+    )
+    destination_city: StrictStr = Field(
+        description="Населённый пункт доставки", alias="destinationCity"
+    )
+    destination_district: StrictStr = Field(
+        description="Федеральный округ доставки. Если доставка не по России, возвращается страна",
+        alias="destinationDistrict",
+    )
+    seller_price: Union[StrictFloat, StrictInt] = Field(
+        description="Цена продавца со скидкой продавца (без учёта скидки WB Клуба и оптовой скидки для B2B-продаж)",
+        alias="sellerPrice",
+    )
+    is_b2b: StrictBool = Field(
+        description="Тип продажи:   - `true` — B2B   - `false` — B2C ", alias="isB2b"
+    )
+    __properties: ClassVar[List[str]] = [
+        "nmId",
+        "chrtId",
+        "srid",
+        "createdAt",
+        "updatedAt",
+        "status",
+        "cancelType",
+        "warehouseName",
+        "warehouseRegion",
+        "isMp",
+        "destinationCity",
+        "destinationDistrict",
+        "sellerPrice",
+        "isB2b",
+    ]
 
-    @field_validator('status')
+    @field_validator("status")
     def status_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['created', 'buyout', 'cancel', 'return', 'returnDefective']):
-            raise ValueError("must be one of enum values ('created', 'buyout', 'cancel', 'return', 'returnDefective')")
+        if value not in set(
+            ["created", "buyout", "cancel", "return", "returnDefective"]
+        ):
+            raise ValueError(
+                "must be one of enum values ('created', 'buyout', 'cancel', 'return', 'returnDefective')"
+            )
         return value
 
-    @field_validator('cancel_type')
+    @field_validator("cancel_type")
     def cancel_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['app', 'receipt', 'expire', 'other']):
-            raise ValueError("must be one of enum values ('app', 'receipt', 'expire', 'other')")
+        if value not in set(["app", "receipt", "expire", "other"]):
+            raise ValueError(
+                "must be one of enum values ('app', 'receipt', 'expire', 'other')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -65,7 +127,6 @@ class Order(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -91,8 +152,7 @@ class Order(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -110,22 +170,22 @@ class Order(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmId": obj.get("nmId"),
-            "chrtId": obj.get("chrtId"),
-            "srid": obj.get("srid"),
-            "createdAt": obj.get("createdAt"),
-            "updatedAt": obj.get("updatedAt"),
-            "status": obj.get("status"),
-            "cancelType": obj.get("cancelType"),
-            "warehouseName": obj.get("warehouseName"),
-            "warehouseRegion": obj.get("warehouseRegion"),
-            "isMp": obj.get("isMp"),
-            "destinationCity": obj.get("destinationCity"),
-            "destinationDistrict": obj.get("destinationDistrict"),
-            "sellerPrice": obj.get("sellerPrice"),
-            "isB2b": obj.get("isB2b")
-        })
+        _obj = cls.model_validate(
+            {
+                "nmId": obj.get("nmId"),
+                "chrtId": obj.get("chrtId"),
+                "srid": obj.get("srid"),
+                "createdAt": obj.get("createdAt"),
+                "updatedAt": obj.get("updatedAt"),
+                "status": obj.get("status"),
+                "cancelType": obj.get("cancelType"),
+                "warehouseName": obj.get("warehouseName"),
+                "warehouseRegion": obj.get("warehouseRegion"),
+                "isMp": obj.get("isMp"),
+                "destinationCity": obj.get("destinationCity"),
+                "destinationDistrict": obj.get("destinationDistrict"),
+                "sellerPrice": obj.get("sellerPrice"),
+                "isB2b": obj.get("isB2b"),
+            }
+        )
         return _obj
-
-

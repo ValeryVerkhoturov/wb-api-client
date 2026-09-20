@@ -22,10 +22,14 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner(BaseModel):
+
+class GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner(
+    BaseModel
+):
     """
     GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     subject_id: StrictInt = Field(description="ID предмета", alias="subjectId")
     __properties: ClassVar[List[str]] = ["subjectId"]
 
@@ -34,7 +38,6 @@ class GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200Da
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,8 +63,7 @@ class GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200Da
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,9 +81,5 @@ class GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200Da
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "subjectId": obj.get("subjectId")
-        })
+        _obj = cls.model_validate({"subjectId": obj.get("subjectId")})
         return _obj
-
-

@@ -22,12 +22,19 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V3ArchiveOrderStatus(BaseModel):
     """
     Последние статусы сборочного задания
-    """ # noqa: E501
-    supplier_status: StrictStr = Field(description="Статус сборочного задания, установленный продавцом", alias="supplierStatus")
-    wb_status: StrictStr = Field(description="Статус сборочного задания в системе Wildberries", alias="wbStatus")
+    """  # noqa: E501
+
+    supplier_status: StrictStr = Field(
+        description="Статус сборочного задания, установленный продавцом",
+        alias="supplierStatus",
+    )
+    wb_status: StrictStr = Field(
+        description="Статус сборочного задания в системе Wildberries", alias="wbStatus"
+    )
     __properties: ClassVar[List[str]] = ["supplierStatus", "wbStatus"]
 
     model_config = ConfigDict(
@@ -35,7 +42,6 @@ class V3ArchiveOrderStatus(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +67,7 @@ class V3ArchiveOrderStatus(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +85,10 @@ class V3ArchiveOrderStatus(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "supplierStatus": obj.get("supplierStatus"),
-            "wbStatus": obj.get("wbStatus")
-        })
+        _obj = cls.model_validate(
+            {
+                "supplierStatus": obj.get("supplierStatus"),
+                "wbStatus": obj.get("wbStatus"),
+            }
+        )
         return _obj
-
-

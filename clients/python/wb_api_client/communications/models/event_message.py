@@ -23,10 +23,12 @@ from wb_api_client.communications.models.event_attachments import EventAttachmen
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class EventMessage(BaseModel):
     """
     Данные сообщения
-    """ # noqa: E501
+    """  # noqa: E501
+
     attachments: Optional[EventAttachments] = None
     text: Optional[StrictStr] = Field(default=None, description="Текст сообщения")
     __properties: ClassVar[List[str]] = ["attachments", "text"]
@@ -36,7 +38,6 @@ class EventMessage(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +63,7 @@ class EventMessage(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -72,7 +72,7 @@ class EventMessage(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of attachments
         if self.attachments:
-            _dict['attachments'] = self.attachments.to_dict()
+            _dict["attachments"] = self.attachments.to_dict()
         return _dict
 
     @classmethod
@@ -84,10 +84,14 @@ class EventMessage(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "attachments": EventAttachments.from_dict(obj["attachments"]) if obj.get("attachments") is not None else None,
-            "text": obj.get("text")
-        })
+        _obj = cls.model_validate(
+            {
+                "attachments": (
+                    EventAttachments.from_dict(obj["attachments"])
+                    if obj.get("attachments") is not None
+                    else None
+                ),
+                "text": obj.get("text"),
+            }
+        )
         return _obj
-
-

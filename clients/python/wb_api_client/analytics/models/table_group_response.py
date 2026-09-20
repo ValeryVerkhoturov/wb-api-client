@@ -23,11 +23,15 @@ from wb_api_client.analytics.models.table_group_item import TableGroupItem
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class TableGroupResponse(BaseModel):
     """
     TableGroupResponse
-    """ # noqa: E501
-    groups: List[TableGroupItem] = Field(description="Список групп товаров для таблицы ")
+    """  # noqa: E501
+
+    groups: List[TableGroupItem] = Field(
+        description="Список групп товаров для таблицы "
+    )
     currency: StrictStr = Field(description="Валюта отчёта")
     __properties: ClassVar[List[str]] = ["groups", "currency"]
 
@@ -36,7 +40,6 @@ class TableGroupResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class TableGroupResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +78,7 @@ class TableGroupResponse(BaseModel):
             for _item_groups in self.groups:
                 if _item_groups:
                     _items.append(_item_groups.to_dict())
-            _dict['groups'] = _items
+            _dict["groups"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +90,14 @@ class TableGroupResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "groups": [TableGroupItem.from_dict(_item) for _item in obj["groups"]] if obj.get("groups") is not None else None,
-            "currency": obj.get("currency")
-        })
+        _obj = cls.model_validate(
+            {
+                "groups": (
+                    [TableGroupItem.from_dict(_item) for _item in obj["groups"]]
+                    if obj.get("groups") is not None
+                    else None
+                ),
+                "currency": obj.get("currency"),
+            }
+        )
         return _obj
-
-

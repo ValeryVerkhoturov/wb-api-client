@@ -19,29 +19,53 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.v0_bid_recommendation_base import V0BidRecommendationBase
-from wb_api_client.promotion.models.v0_bid_recommendation_norm_query import V0BidRecommendationNormQuery
+from wb_api_client.promotion.models.v0_bid_recommendation_base import (
+    V0BidRecommendationBase,
+)
+from wb_api_client.promotion.models.v0_bid_recommendation_norm_query import (
+    V0BidRecommendationNormQuery,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class V0BidsRecommendationsCpmResponse1(BaseModel):
     """
     V0BidsRecommendationsCpmResponse1
-    """ # noqa: E501
-    advert_id: Optional[StrictInt] = Field(default=None, description="ID кампании", alias="advertId")
-    base: Optional[V0BidRecommendationBase] = None
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId")
-    norm_queries: Optional[List[V0BidRecommendationNormQuery]] = Field(default=None, description="Рекомендуемые ставки для поисковых кластеров", alias="normQueries")
-    payment_type: Optional[StrictStr] = Field(default=None, description="Тип оплаты:   - `cpm` — за показы ", alias="paymentType")
-    __properties: ClassVar[List[str]] = ["advertId", "base", "nmId", "normQueries", "paymentType"]
+    """  # noqa: E501
 
-    @field_validator('payment_type')
+    advert_id: Optional[StrictInt] = Field(
+        default=None, description="ID кампании", alias="advertId"
+    )
+    base: Optional[V0BidRecommendationBase] = None
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
+    norm_queries: Optional[List[V0BidRecommendationNormQuery]] = Field(
+        default=None,
+        description="Рекомендуемые ставки для поисковых кластеров",
+        alias="normQueries",
+    )
+    payment_type: Optional[StrictStr] = Field(
+        default=None,
+        description="Тип оплаты:   - `cpm` — за показы ",
+        alias="paymentType",
+    )
+    __properties: ClassVar[List[str]] = [
+        "advertId",
+        "base",
+        "nmId",
+        "normQueries",
+        "paymentType",
+    ]
+
+    @field_validator("payment_type")
     def payment_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['cpm']):
+        if value not in set(["cpm"]):
             raise ValueError("must be one of enum values ('cpm')")
         return value
 
@@ -50,7 +74,6 @@ class V0BidsRecommendationsCpmResponse1(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -76,8 +99,7 @@ class V0BidsRecommendationsCpmResponse1(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -86,14 +108,14 @@ class V0BidsRecommendationsCpmResponse1(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of base
         if self.base:
-            _dict['base'] = self.base.to_dict()
+            _dict["base"] = self.base.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in norm_queries (list)
         _items = []
         if self.norm_queries:
             for _item_norm_queries in self.norm_queries:
                 if _item_norm_queries:
                     _items.append(_item_norm_queries.to_dict())
-            _dict['normQueries'] = _items
+            _dict["normQueries"] = _items
         return _dict
 
     @classmethod
@@ -105,13 +127,24 @@ class V0BidsRecommendationsCpmResponse1(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advertId": obj.get("advertId"),
-            "base": V0BidRecommendationBase.from_dict(obj["base"]) if obj.get("base") is not None else None,
-            "nmId": obj.get("nmId"),
-            "normQueries": [V0BidRecommendationNormQuery.from_dict(_item) for _item in obj["normQueries"]] if obj.get("normQueries") is not None else None,
-            "paymentType": obj.get("paymentType")
-        })
+        _obj = cls.model_validate(
+            {
+                "advertId": obj.get("advertId"),
+                "base": (
+                    V0BidRecommendationBase.from_dict(obj["base"])
+                    if obj.get("base") is not None
+                    else None
+                ),
+                "nmId": obj.get("nmId"),
+                "normQueries": (
+                    [
+                        V0BidRecommendationNormQuery.from_dict(_item)
+                        for _item in obj["normQueries"]
+                    ]
+                    if obj.get("normQueries") is not None
+                    else None
+                ),
+                "paymentType": obj.get("paymentType"),
+            }
+        )
         return _obj
-
-

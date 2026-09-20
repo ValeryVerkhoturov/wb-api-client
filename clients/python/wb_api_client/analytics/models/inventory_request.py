@@ -23,14 +23,27 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class InventoryRequest(BaseModel):
     """
     Параметры запроса текущих остатков на складах WB
-    """ # noqa: E501
-    nm_ids: Optional[Annotated[List[StrictInt], Field(min_length=0, max_length=1000)]] = Field(default=None, description="Артикулы WB", alias="nmIds")
-    chrt_ids: Optional[List[StrictInt]] = Field(default=None, description="ID размеров. Используется только для указанных в массиве `nmIds` артикулов", alias="chrtIds")
-    limit: Optional[Annotated[int, Field(le=250000, strict=True)]] = Field(default=250000, description="Количество строк в ответе")
-    offset: Optional[StrictInt] = Field(default=0, description="Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента")
+    """  # noqa: E501
+
+    nm_ids: Optional[
+        Annotated[List[StrictInt], Field(min_length=0, max_length=1000)]
+    ] = Field(default=None, description="Артикулы WB", alias="nmIds")
+    chrt_ids: Optional[List[StrictInt]] = Field(
+        default=None,
+        description="ID размеров. Используется только для указанных в массиве `nmIds` артикулов",
+        alias="chrtIds",
+    )
+    limit: Optional[Annotated[int, Field(le=250000, strict=True)]] = Field(
+        default=250000, description="Количество строк в ответе"
+    )
+    offset: Optional[StrictInt] = Field(
+        default=0,
+        description="Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента",
+    )
     __properties: ClassVar[List[str]] = ["nmIds", "chrtIds", "limit", "offset"]
 
     model_config = ConfigDict(
@@ -38,7 +51,6 @@ class InventoryRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +76,7 @@ class InventoryRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,12 +94,12 @@ class InventoryRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmIds": obj.get("nmIds"),
-            "chrtIds": obj.get("chrtIds"),
-            "limit": obj.get("limit") if obj.get("limit") is not None else 250000,
-            "offset": obj.get("offset") if obj.get("offset") is not None else 0
-        })
+        _obj = cls.model_validate(
+            {
+                "nmIds": obj.get("nmIds"),
+                "chrtIds": obj.get("chrtIds"),
+                "limit": obj.get("limit") if obj.get("limit") is not None else 250000,
+                "offset": obj.get("offset") if obj.get("offset") is not None else 0,
+            }
+        )
         return _obj
-
-

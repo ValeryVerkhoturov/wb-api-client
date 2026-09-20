@@ -23,10 +23,12 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V3GetMetaMultiRequest(BaseModel):
     """
     ID сборочных заданий
-    """ # noqa: E501
+    """  # noqa: E501
+
     orders: Annotated[List[StrictInt], Field(max_length=100)]
     __properties: ClassVar[List[str]] = ["orders"]
 
@@ -35,7 +37,6 @@ class V3GetMetaMultiRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +62,7 @@ class V3GetMetaMultiRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,9 +80,5 @@ class V3GetMetaMultiRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "orders": obj.get("orders")
-        })
+        _obj = cls.model_validate({"orders": obj.get("orders")})
         return _obj
-
-

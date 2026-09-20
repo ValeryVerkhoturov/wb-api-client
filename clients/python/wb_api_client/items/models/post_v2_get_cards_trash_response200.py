@@ -19,16 +19,24 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.post_v2_get_cards_trash_response200_cards_inner import PostV2GetCardsTrashResponse200CardsInner
-from wb_api_client.items.models.post_v2_get_cards_trash_response200_cursor import PostV2GetCardsTrashResponse200Cursor
+from wb_api_client.items.models.post_v2_get_cards_trash_response200_cards_inner import (
+    PostV2GetCardsTrashResponse200CardsInner,
+)
+from wb_api_client.items.models.post_v2_get_cards_trash_response200_cursor import (
+    PostV2GetCardsTrashResponse200Cursor,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV2GetCardsTrashResponse200(BaseModel):
     """
     PostV2GetCardsTrashResponse200
-    """ # noqa: E501
-    cards: Optional[List[PostV2GetCardsTrashResponse200CardsInner]] = Field(default=None, description="Массив карточек товаров")
+    """  # noqa: E501
+
+    cards: Optional[List[PostV2GetCardsTrashResponse200CardsInner]] = Field(
+        default=None, description="Массив карточек товаров"
+    )
     cursor: Optional[PostV2GetCardsTrashResponse200Cursor] = None
     __properties: ClassVar[List[str]] = ["cards", "cursor"]
 
@@ -37,7 +45,6 @@ class PostV2GetCardsTrashResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +70,7 @@ class PostV2GetCardsTrashResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,10 +83,10 @@ class PostV2GetCardsTrashResponse200(BaseModel):
             for _item_cards in self.cards:
                 if _item_cards:
                     _items.append(_item_cards.to_dict())
-            _dict['cards'] = _items
+            _dict["cards"] = _items
         # override the default output from pydantic by calling `to_dict()` of cursor
         if self.cursor:
-            _dict['cursor'] = self.cursor.to_dict()
+            _dict["cursor"] = self.cursor.to_dict()
         return _dict
 
     @classmethod
@@ -92,10 +98,21 @@ class PostV2GetCardsTrashResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "cards": [PostV2GetCardsTrashResponse200CardsInner.from_dict(_item) for _item in obj["cards"]] if obj.get("cards") is not None else None,
-            "cursor": PostV2GetCardsTrashResponse200Cursor.from_dict(obj["cursor"]) if obj.get("cursor") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "cards": (
+                    [
+                        PostV2GetCardsTrashResponse200CardsInner.from_dict(_item)
+                        for _item in obj["cards"]
+                    ]
+                    if obj.get("cards") is not None
+                    else None
+                ),
+                "cursor": (
+                    PostV2GetCardsTrashResponse200Cursor.from_dict(obj["cursor"])
+                    if obj.get("cursor") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

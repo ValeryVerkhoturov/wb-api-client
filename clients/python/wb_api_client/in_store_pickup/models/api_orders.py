@@ -23,12 +23,19 @@ from wb_api_client.in_store_pickup.models.api_order import ApiOrder
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiOrders(BaseModel):
     """
     ApiOrders
-    """ # noqa: E501
-    next: Optional[StrictInt] = Field(default=None, description="Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных ")
-    orders: Optional[List[ApiOrder]] = Field(default=None, description="Список сборочных заданий")
+    """  # noqa: E501
+
+    next: Optional[StrictInt] = Field(
+        default=None,
+        description="Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных ",
+    )
+    orders: Optional[List[ApiOrder]] = Field(
+        default=None, description="Список сборочных заданий"
+    )
     __properties: ClassVar[List[str]] = ["next", "orders"]
 
     model_config = ConfigDict(
@@ -36,7 +43,6 @@ class ApiOrders(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +68,7 @@ class ApiOrders(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +81,7 @@ class ApiOrders(BaseModel):
             for _item_orders in self.orders:
                 if _item_orders:
                     _items.append(_item_orders.to_dict())
-            _dict['orders'] = _items
+            _dict["orders"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +93,14 @@ class ApiOrders(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "next": obj.get("next"),
-            "orders": [ApiOrder.from_dict(_item) for _item in obj["orders"]] if obj.get("orders") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "next": obj.get("next"),
+                "orders": (
+                    [ApiOrder.from_dict(_item) for _item in obj["orders"]]
+                    if obj.get("orders") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

@@ -22,30 +22,70 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V0GetNormQueryStatsItemStat(BaseModel):
     """
     V0GetNormQueryStatsItemStat
-    """ # noqa: E501
-    norm_query: Optional[StrictStr] = Field(default=None, description="Поисковый кластер")
-    views: Optional[StrictInt] = Field(default=None, description="Количество просмотров.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` ")
+    """  # noqa: E501
+
+    norm_query: Optional[StrictStr] = Field(
+        default=None, description="Поисковый кластер"
+    )
+    views: Optional[StrictInt] = Field(
+        default=None,
+        description="Количество просмотров.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` ",
+    )
     clicks: Optional[StrictInt] = Field(default=None, description="Количество кликов")
-    atbs: Optional[StrictInt] = Field(default=None, description="Количество добавлений товаров в корзину")
+    atbs: Optional[StrictInt] = Field(
+        default=None, description="Количество добавлений товаров в корзину"
+    )
     orders: Optional[StrictInt] = Field(default=None, description="Количество заказов")
-    ctr: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` ")
-    cpc: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Стоимость одного клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    cpm: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` ")
-    avg_pos: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Средняя позиция товара на страницах поисковой выдачи")
-    shks: Optional[StrictInt] = Field(default=None, description="Количество заказанных товаров, шт.")
-    spend: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Затраты на продвижение товаров в конкретном поисковом кластере кампании ")
-    currency: Optional[StrictStr] = Field(default=None, description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    __properties: ClassVar[List[str]] = ["norm_query", "views", "clicks", "atbs", "orders", "ctr", "cpc", "cpm", "avg_pos", "shks", "spend", "currency"]
+    ctr: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` ",
+    )
+    cpc: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Стоимость одного клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
+    cpm: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Средняя стоимость за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` ",
+    )
+    avg_pos: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Средняя позиция товара на страницах поисковой выдачи"
+    )
+    shks: Optional[StrictInt] = Field(
+        default=None, description="Количество заказанных товаров, шт."
+    )
+    spend: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Затраты на продвижение товаров в конкретном поисковом кластере кампании ",
+    )
+    currency: Optional[StrictStr] = Field(
+        default=None,
+        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
+    __properties: ClassVar[List[str]] = [
+        "norm_query",
+        "views",
+        "clicks",
+        "atbs",
+        "orders",
+        "ctr",
+        "cpc",
+        "cpm",
+        "avg_pos",
+        "shks",
+        "spend",
+        "currency",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -71,8 +111,7 @@ class V0GetNormQueryStatsItemStat(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,17 +121,17 @@ class V0GetNormQueryStatsItemStat(BaseModel):
         # set to None if views (nullable) is None
         # and model_fields_set contains the field
         if self.views is None and "views" in self.model_fields_set:
-            _dict['views'] = None
+            _dict["views"] = None
 
         # set to None if ctr (nullable) is None
         # and model_fields_set contains the field
         if self.ctr is None and "ctr" in self.model_fields_set:
-            _dict['ctr'] = None
+            _dict["ctr"] = None
 
         # set to None if cpm (nullable) is None
         # and model_fields_set contains the field
         if self.cpm is None and "cpm" in self.model_fields_set:
-            _dict['cpm'] = None
+            _dict["cpm"] = None
 
         return _dict
 
@@ -105,20 +144,20 @@ class V0GetNormQueryStatsItemStat(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "norm_query": obj.get("norm_query"),
-            "views": obj.get("views"),
-            "clicks": obj.get("clicks"),
-            "atbs": obj.get("atbs"),
-            "orders": obj.get("orders"),
-            "ctr": obj.get("ctr"),
-            "cpc": obj.get("cpc"),
-            "cpm": obj.get("cpm"),
-            "avg_pos": obj.get("avg_pos"),
-            "shks": obj.get("shks"),
-            "spend": obj.get("spend"),
-            "currency": obj.get("currency")
-        })
+        _obj = cls.model_validate(
+            {
+                "norm_query": obj.get("norm_query"),
+                "views": obj.get("views"),
+                "clicks": obj.get("clicks"),
+                "atbs": obj.get("atbs"),
+                "orders": obj.get("orders"),
+                "ctr": obj.get("ctr"),
+                "cpc": obj.get("cpc"),
+                "cpm": obj.get("cpm"),
+                "avg_pos": obj.get("avg_pos"),
+                "shks": obj.get("shks"),
+                "spend": obj.get("spend"),
+                "currency": obj.get("currency"),
+            }
+        )
         return _obj
-
-

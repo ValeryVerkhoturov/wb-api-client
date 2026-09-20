@@ -22,13 +22,18 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2GetCardsListResponse200CardsInnerTagsInner(BaseModel):
     """
     PostV2GetCardsListResponse200CardsInnerTagsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictInt] = Field(default=None, description="ID ярлыка")
     name: Optional[StrictStr] = Field(default=None, description="Название ярлыка")
-    color: Optional[StrictStr] = Field(default=None, description="Цвет ярлыка. Доступные цвета: - `D1CFD7` — серый - `FEE0E0` — красный - `ECDAFF` — фиолетовый - `E4EAFF` — синий - `DEF1DD` — зеленый - `FFECC7` — желтый")
+    color: Optional[StrictStr] = Field(
+        default=None,
+        description="Цвет ярлыка. Доступные цвета: - `D1CFD7` — серый - `FEE0E0` — красный - `ECDAFF` — фиолетовый - `E4EAFF` — синий - `DEF1DD` — зеленый - `FFECC7` — желтый",
+    )
     __properties: ClassVar[List[str]] = ["id", "name", "color"]
 
     model_config = ConfigDict(
@@ -36,7 +41,6 @@ class PostV2GetCardsListResponse200CardsInnerTagsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +66,7 @@ class PostV2GetCardsListResponse200CardsInnerTagsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +84,7 @@ class PostV2GetCardsListResponse200CardsInnerTagsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "name": obj.get("name"),
-            "color": obj.get("color")
-        })
+        _obj = cls.model_validate(
+            {"id": obj.get("id"), "name": obj.get("name"), "color": obj.get("color")}
+        )
         return _obj
-
-

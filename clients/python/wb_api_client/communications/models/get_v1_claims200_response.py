@@ -19,16 +19,25 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.communications.models.get_v1_claims200_response_claims_inner import GetV1Claims200ResponseClaimsInner
+from wb_api_client.communications.models.get_v1_claims200_response_claims_inner import (
+    GetV1Claims200ResponseClaimsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV1Claims200Response(BaseModel):
     """
     GetV1Claims200Response
-    """ # noqa: E501
-    claims: Optional[List[GetV1Claims200ResponseClaimsInner]] = Field(default=None, description="Заявки")
-    total: Optional[StrictInt] = Field(default=None, description="Количество заявок, соответствующих параметрам запроса. Без учёта `limit` и `offset`")
+    """  # noqa: E501
+
+    claims: Optional[List[GetV1Claims200ResponseClaimsInner]] = Field(
+        default=None, description="Заявки"
+    )
+    total: Optional[StrictInt] = Field(
+        default=None,
+        description="Количество заявок, соответствующих параметрам запроса. Без учёта `limit` и `offset`",
+    )
     __properties: ClassVar[List[str]] = ["claims", "total"]
 
     model_config = ConfigDict(
@@ -36,7 +45,6 @@ class GetV1Claims200Response(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +70,7 @@ class GetV1Claims200Response(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +83,7 @@ class GetV1Claims200Response(BaseModel):
             for _item_claims in self.claims:
                 if _item_claims:
                     _items.append(_item_claims.to_dict())
-            _dict['claims'] = _items
+            _dict["claims"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +95,17 @@ class GetV1Claims200Response(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "claims": [GetV1Claims200ResponseClaimsInner.from_dict(_item) for _item in obj["claims"]] if obj.get("claims") is not None else None,
-            "total": obj.get("total")
-        })
+        _obj = cls.model_validate(
+            {
+                "claims": (
+                    [
+                        GetV1Claims200ResponseClaimsInner.from_dict(_item)
+                        for _item in obj["claims"]
+                    ]
+                    if obj.get("claims") is not None
+                    else None
+                ),
+                "total": obj.get("total"),
+            }
+        )
         return _obj
-
-

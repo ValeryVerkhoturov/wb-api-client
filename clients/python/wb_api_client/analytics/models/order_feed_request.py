@@ -20,29 +20,51 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from wb_api_client.analytics.models.order_feed_request_pagination import OrderFeedRequestPagination
-from wb_api_client.analytics.models.order_feed_request_selected_period import OrderFeedRequestSelectedPeriod
+from wb_api_client.analytics.models.order_feed_request_pagination import (
+    OrderFeedRequestPagination,
+)
+from wb_api_client.analytics.models.order_feed_request_selected_period import (
+    OrderFeedRequestSelectedPeriod,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class OrderFeedRequest(BaseModel):
     """
     OrderFeedRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     selected_period: OrderFeedRequestSelectedPeriod = Field(alias="selectedPeriod")
-    nm_ids: Optional[Annotated[List[StrictInt], Field(max_length=1000)]] = Field(default=None, description="Список артикулов WB для фильтрации", alias="nmIds")
-    subject_ids: Optional[Annotated[List[StrictInt], Field(max_length=50)]] = Field(default=None, description="Список ID предметов для фильтрации", alias="subjectIds")
-    brand_names: Optional[Annotated[List[StrictStr], Field(max_length=50)]] = Field(default=None, description="Список брендов для фильтрации", alias="brandNames")
-    tag_ids: Optional[Annotated[List[StrictInt], Field(max_length=50)]] = Field(default=None, description="Список ID ярлыков для фильтрации", alias="tagIds")
+    nm_ids: Optional[Annotated[List[StrictInt], Field(max_length=1000)]] = Field(
+        default=None, description="Список артикулов WB для фильтрации", alias="nmIds"
+    )
+    subject_ids: Optional[Annotated[List[StrictInt], Field(max_length=50)]] = Field(
+        default=None,
+        description="Список ID предметов для фильтрации",
+        alias="subjectIds",
+    )
+    brand_names: Optional[Annotated[List[StrictStr], Field(max_length=50)]] = Field(
+        default=None, description="Список брендов для фильтрации", alias="brandNames"
+    )
+    tag_ids: Optional[Annotated[List[StrictInt], Field(max_length=50)]] = Field(
+        default=None, description="Список ID ярлыков для фильтрации", alias="tagIds"
+    )
     pagination: Optional[OrderFeedRequestPagination] = None
-    __properties: ClassVar[List[str]] = ["selectedPeriod", "nmIds", "subjectIds", "brandNames", "tagIds", "pagination"]
+    __properties: ClassVar[List[str]] = [
+        "selectedPeriod",
+        "nmIds",
+        "subjectIds",
+        "brandNames",
+        "tagIds",
+        "pagination",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -68,8 +90,7 @@ class OrderFeedRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -78,10 +99,10 @@ class OrderFeedRequest(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of selected_period
         if self.selected_period:
-            _dict['selectedPeriod'] = self.selected_period.to_dict()
+            _dict["selectedPeriod"] = self.selected_period.to_dict()
         # override the default output from pydantic by calling `to_dict()` of pagination
         if self.pagination:
-            _dict['pagination'] = self.pagination.to_dict()
+            _dict["pagination"] = self.pagination.to_dict()
         return _dict
 
     @classmethod
@@ -93,14 +114,22 @@ class OrderFeedRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "selectedPeriod": OrderFeedRequestSelectedPeriod.from_dict(obj["selectedPeriod"]) if obj.get("selectedPeriod") is not None else None,
-            "nmIds": obj.get("nmIds"),
-            "subjectIds": obj.get("subjectIds"),
-            "brandNames": obj.get("brandNames"),
-            "tagIds": obj.get("tagIds"),
-            "pagination": OrderFeedRequestPagination.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "selectedPeriod": (
+                    OrderFeedRequestSelectedPeriod.from_dict(obj["selectedPeriod"])
+                    if obj.get("selectedPeriod") is not None
+                    else None
+                ),
+                "nmIds": obj.get("nmIds"),
+                "subjectIds": obj.get("subjectIds"),
+                "brandNames": obj.get("brandNames"),
+                "tagIds": obj.get("tagIds"),
+                "pagination": (
+                    OrderFeedRequestPagination.from_dict(obj["pagination"])
+                    if obj.get("pagination") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

@@ -19,16 +19,28 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_response200_data_inner import GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner
+from wb_api_client.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_response200_data_inner import (
+    GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200(BaseModel):
+
+class GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200(
+    BaseModel
+):
     """
     GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
-    """ # noqa: E501
-    next: Optional[StrictInt] = Field(description="Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных")
-    data: List[GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner] = Field(description="Список ID предметов, товары которых не хранятся на складах WB")
+    """  # noqa: E501
+
+    next: Optional[StrictInt] = Field(
+        description="Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных"
+    )
+    data: List[
+        GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner
+    ] = Field(
+        description="Список ID предметов, товары которых не хранятся на складах WB"
+    )
     __properties: ClassVar[List[str]] = ["next", "data"]
 
     model_config = ConfigDict(
@@ -36,7 +48,6 @@ class GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200(B
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +73,7 @@ class GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200(B
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,11 +86,11 @@ class GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200(B
             for _item_data in self.data:
                 if _item_data:
                     _items.append(_item_data.to_dict())
-            _dict['data'] = _items
+            _dict["data"] = _items
         # set to None if next (nullable) is None
         # and model_fields_set contains the field
         if self.next is None and "next" in self.model_fields_set:
-            _dict['next'] = None
+            _dict["next"] = None
 
         return _dict
 
@@ -93,10 +103,19 @@ class GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200(B
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "next": obj.get("next"),
-            "data": [GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "next": obj.get("next"),
+                "data": (
+                    [
+                        GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["data"]
+                    ]
+                    if obj.get("data") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

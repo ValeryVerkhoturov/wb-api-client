@@ -22,10 +22,12 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV2TagsResponse200Data(BaseModel):
     """
     GetV2TagsResponse200Data
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictInt] = Field(default=None, description="Числовой ID ярлыка")
     color: Optional[StrictStr] = Field(default=None, description="Цвет ярлыка")
     name: Optional[StrictStr] = Field(default=None, description="Имя ярлыка")
@@ -36,7 +38,6 @@ class GetV2TagsResponse200Data(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +63,7 @@ class GetV2TagsResponse200Data(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +81,7 @@ class GetV2TagsResponse200Data(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "color": obj.get("color"),
-            "name": obj.get("name")
-        })
+        _obj = cls.model_validate(
+            {"id": obj.get("id"), "color": obj.get("color"), "name": obj.get("name")}
+        )
         return _obj
-
-

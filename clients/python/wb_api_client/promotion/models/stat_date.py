@@ -24,12 +24,16 @@ from wb_api_client.promotion.models.stats_blok2 import StatsBlok2
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class StatDate(BaseModel):
     """
     StatDate
-    """ # noqa: E501
+    """  # noqa: E501
+
     dates: List[date] = Field(description="Даты, за которые нужно получить информацию")
-    stats: Optional[List[StatsBlok2]] = Field(default=None, description="Блок статистики")
+    stats: Optional[List[StatsBlok2]] = Field(
+        default=None, description="Блок статистики"
+    )
     __properties: ClassVar[List[str]] = ["dates", "stats"]
 
     model_config = ConfigDict(
@@ -37,7 +41,6 @@ class StatDate(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +66,7 @@ class StatDate(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +79,7 @@ class StatDate(BaseModel):
             for _item_stats in self.stats:
                 if _item_stats:
                     _items.append(_item_stats.to_dict())
-            _dict['stats'] = _items
+            _dict["stats"] = _items
         return _dict
 
     @classmethod
@@ -89,10 +91,14 @@ class StatDate(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "dates": obj.get("dates"),
-            "stats": [StatsBlok2.from_dict(_item) for _item in obj["stats"]] if obj.get("stats") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "dates": obj.get("dates"),
+                "stats": (
+                    [StatsBlok2.from_dict(_item) for _item in obj["stats"]]
+                    if obj.get("stats") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

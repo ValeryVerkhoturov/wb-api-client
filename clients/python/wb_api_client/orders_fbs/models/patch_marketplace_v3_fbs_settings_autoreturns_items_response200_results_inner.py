@@ -19,17 +19,29 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_items_response200_results_inner_error_inner import PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
+from wb_api_client.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_items_response200_results_inner_error_inner import (
+    PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(BaseModel):
     """
     PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
-    """ # noqa: E501
-    chrt_id: StrictInt = Field(description="ID размера товара в системе WB", alias="chrtId")
-    error: Optional[List[PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner]] = Field(default=None, description="Детали ошибки")
-    success: Optional[StrictBool] = Field(default=None, description="- `true` — настройки автовозврата товара обновлены ")
+    """  # noqa: E501
+
+    chrt_id: StrictInt = Field(
+        description="ID размера товара в системе WB", alias="chrtId"
+    )
+    error: Optional[
+        List[
+            PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
+        ]
+    ] = Field(default=None, description="Детали ошибки")
+    success: Optional[StrictBool] = Field(
+        default=None, description="- `true` — настройки автовозврата товара обновлены "
+    )
     __properties: ClassVar[List[str]] = ["chrtId", "error", "success"]
 
     model_config = ConfigDict(
@@ -37,7 +49,6 @@ class PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(BaseM
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +74,7 @@ class PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(BaseM
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +87,7 @@ class PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(BaseM
             for _item_error in self.error:
                 if _item_error:
                     _items.append(_item_error.to_dict())
-            _dict['error'] = _items
+            _dict["error"] = _items
         return _dict
 
     @classmethod
@@ -89,11 +99,20 @@ class PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(BaseM
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "chrtId": obj.get("chrtId"),
-            "error": [PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner.from_dict(_item) for _item in obj["error"]] if obj.get("error") is not None else None,
-            "success": obj.get("success")
-        })
+        _obj = cls.model_validate(
+            {
+                "chrtId": obj.get("chrtId"),
+                "error": (
+                    [
+                        PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["error"]
+                    ]
+                    if obj.get("error") is not None
+                    else None
+                ),
+                "success": obj.get("success"),
+            }
+        )
         return _obj
-
-

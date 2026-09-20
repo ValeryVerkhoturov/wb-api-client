@@ -20,15 +20,21 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from wb_api_client.finances.models.request_download_params_inner import RequestDownloadParamsInner
+from wb_api_client.finances.models.request_download_params_inner import (
+    RequestDownloadParamsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class RequestDownload(BaseModel):
     """
     RequestDownload
-    """ # noqa: E501
-    params: Optional[Annotated[List[RequestDownloadParamsInner], Field(min_length=1, max_length=50)]] = None
+    """  # noqa: E501
+
+    params: Optional[
+        Annotated[List[RequestDownloadParamsInner], Field(min_length=1, max_length=50)]
+    ] = None
     __properties: ClassVar[List[str]] = ["params"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class RequestDownload(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class RequestDownload(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +80,7 @@ class RequestDownload(BaseModel):
             for _item_params in self.params:
                 if _item_params:
                     _items.append(_item_params.to_dict())
-            _dict['params'] = _items
+            _dict["params"] = _items
         return _dict
 
     @classmethod
@@ -88,9 +92,16 @@ class RequestDownload(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "params": [RequestDownloadParamsInner.from_dict(_item) for _item in obj["params"]] if obj.get("params") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "params": (
+                    [
+                        RequestDownloadParamsInner.from_dict(_item)
+                        for _item in obj["params"]
+                    ]
+                    if obj.get("params") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

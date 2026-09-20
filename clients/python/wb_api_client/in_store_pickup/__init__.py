@@ -31,58 +31,132 @@ from wb_api_client.in_store_pickup.exceptions import ApiAttributeError
 from wb_api_client.in_store_pickup.exceptions import ApiException
 
 # import models into sdk package
-from wb_api_client.in_store_pickup.models.api_batch_customs_declaration_error_response import ApiBatchCustomsDeclarationErrorResponse
+from wb_api_client.in_store_pickup.models.api_batch_customs_declaration_error_response import (
+    ApiBatchCustomsDeclarationErrorResponse,
+)
 from wb_api_client.in_store_pickup.models.api_batch_error import ApiBatchError
-from wb_api_client.in_store_pickup.models.api_batch_error_final_price_response import ApiBatchErrorFinalPriceResponse
-from wb_api_client.in_store_pickup.models.api_batch_error_response import ApiBatchErrorResponse
-from wb_api_client.in_store_pickup.models.api_check_identity_request import ApiCheckIdentityRequest
+from wb_api_client.in_store_pickup.models.api_batch_error_final_price_response import (
+    ApiBatchErrorFinalPriceResponse,
+)
+from wb_api_client.in_store_pickup.models.api_batch_error_response import (
+    ApiBatchErrorResponse,
+)
+from wb_api_client.in_store_pickup.models.api_check_identity_request import (
+    ApiCheckIdentityRequest,
+)
 from wb_api_client.in_store_pickup.models.api_checked_identity import ApiCheckedIdentity
-from wb_api_client.in_store_pickup.models.api_customs_declaration_set_response import ApiCustomsDeclarationSetResponse
+from wb_api_client.in_store_pickup.models.api_customs_declaration_set_response import (
+    ApiCustomsDeclarationSetResponse,
+)
 from wb_api_client.in_store_pickup.models.api_error import ApiError
 from wb_api_client.in_store_pickup.models.api_gtin import ApiGTIN
 from wb_api_client.in_store_pickup.models.api_imei import ApiIMEI
-from wb_api_client.in_store_pickup.models.api_meta_details_response import ApiMetaDetailsResponse
-from wb_api_client.in_store_pickup.models.api_meta_details_response_results_inner import ApiMetaDetailsResponseResultsInner
-from wb_api_client.in_store_pickup.models.api_meta_details_response_results_inner_errors_inner import ApiMetaDetailsResponseResultsInnerErrorsInner
-from wb_api_client.in_store_pickup.models.api_meta_details_response_results_inner_errors_inner_meta_details_inner import ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner
-from wb_api_client.in_store_pickup.models.api_meta_error_response import ApiMetaErrorResponse
-from wb_api_client.in_store_pickup.models.api_meta_set_response import ApiMetaSetResponse
-from wb_api_client.in_store_pickup.models.api_meta_set_responses import ApiMetaSetResponses
+from wb_api_client.in_store_pickup.models.api_meta_details_response import (
+    ApiMetaDetailsResponse,
+)
+from wb_api_client.in_store_pickup.models.api_meta_details_response_results_inner import (
+    ApiMetaDetailsResponseResultsInner,
+)
+from wb_api_client.in_store_pickup.models.api_meta_details_response_results_inner_errors_inner import (
+    ApiMetaDetailsResponseResultsInnerErrorsInner,
+)
+from wb_api_client.in_store_pickup.models.api_meta_details_response_results_inner_errors_inner_meta_details_inner import (
+    ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner,
+)
+from wb_api_client.in_store_pickup.models.api_meta_error_response import (
+    ApiMetaErrorResponse,
+)
+from wb_api_client.in_store_pickup.models.api_meta_set_response import (
+    ApiMetaSetResponse,
+)
+from wb_api_client.in_store_pickup.models.api_meta_set_responses import (
+    ApiMetaSetResponses,
+)
 from wb_api_client.in_store_pickup.models.api_new_order import ApiNewOrder
-from wb_api_client.in_store_pickup.models.api_new_order_options import ApiNewOrderOptions
+from wb_api_client.in_store_pickup.models.api_new_order_options import (
+    ApiNewOrderOptions,
+)
 from wb_api_client.in_store_pickup.models.api_new_orders import ApiNewOrders
 from wb_api_client.in_store_pickup.models.api_order import ApiOrder
-from wb_api_client.in_store_pickup.models.api_order_client_info import ApiOrderClientInfo
-from wb_api_client.in_store_pickup.models.api_order_client_info_resp import ApiOrderClientInfoResp
-from wb_api_client.in_store_pickup.models.api_order_final_price_result import ApiOrderFinalPriceResult
-from wb_api_client.in_store_pickup.models.api_order_final_price_result_data import ApiOrderFinalPriceResultData
+from wb_api_client.in_store_pickup.models.api_order_client_info import (
+    ApiOrderClientInfo,
+)
+from wb_api_client.in_store_pickup.models.api_order_client_info_resp import (
+    ApiOrderClientInfoResp,
+)
+from wb_api_client.in_store_pickup.models.api_order_final_price_result import (
+    ApiOrderFinalPriceResult,
+)
+from wb_api_client.in_store_pickup.models.api_order_final_price_result_data import (
+    ApiOrderFinalPriceResultData,
+)
 from wb_api_client.in_store_pickup.models.api_order_options import ApiOrderOptions
 from wb_api_client.in_store_pickup.models.api_order_status_v2 import ApiOrderStatusV2
-from wb_api_client.in_store_pickup.models.api_order_statuses_v2 import ApiOrderStatusesV2
+from wb_api_client.in_store_pickup.models.api_order_statuses_v2 import (
+    ApiOrderStatusesV2,
+)
 from wb_api_client.in_store_pickup.models.api_orders import ApiOrders
-from wb_api_client.in_store_pickup.models.api_orders_error_response import ApiOrdersErrorResponse
-from wb_api_client.in_store_pickup.models.api_orders_final_price_response import ApiOrdersFinalPriceResponse
-from wb_api_client.in_store_pickup.models.api_orders_gtin_set_request import ApiOrdersGTINSetRequest
-from wb_api_client.in_store_pickup.models.api_orders_imei_set_request import ApiOrdersIMEISetRequest
-from wb_api_client.in_store_pickup.models.api_orders_meta_delete_request import ApiOrdersMetaDeleteRequest
-from wb_api_client.in_store_pickup.models.api_orders_meta_details_response import ApiOrdersMetaDetailsResponse
-from wb_api_client.in_store_pickup.models.api_orders_meta_details_response_orders_inner import ApiOrdersMetaDetailsResponseOrdersInner
-from wb_api_client.in_store_pickup.models.api_orders_meta_details_response_orders_inner_errors_inner import ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner
-from wb_api_client.in_store_pickup.models.api_orders_meta_details_response_orders_inner_meta_details_inner import ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
+from wb_api_client.in_store_pickup.models.api_orders_error_response import (
+    ApiOrdersErrorResponse,
+)
+from wb_api_client.in_store_pickup.models.api_orders_final_price_response import (
+    ApiOrdersFinalPriceResponse,
+)
+from wb_api_client.in_store_pickup.models.api_orders_gtin_set_request import (
+    ApiOrdersGTINSetRequest,
+)
+from wb_api_client.in_store_pickup.models.api_orders_imei_set_request import (
+    ApiOrdersIMEISetRequest,
+)
+from wb_api_client.in_store_pickup.models.api_orders_meta_delete_request import (
+    ApiOrdersMetaDeleteRequest,
+)
+from wb_api_client.in_store_pickup.models.api_orders_meta_details_response import (
+    ApiOrdersMetaDetailsResponse,
+)
+from wb_api_client.in_store_pickup.models.api_orders_meta_details_response_orders_inner import (
+    ApiOrdersMetaDetailsResponseOrdersInner,
+)
+from wb_api_client.in_store_pickup.models.api_orders_meta_details_response_orders_inner_errors_inner import (
+    ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner,
+)
+from wb_api_client.in_store_pickup.models.api_orders_meta_details_response_orders_inner_meta_details_inner import (
+    ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner,
+)
 from wb_api_client.in_store_pickup.models.api_orders_request import ApiOrdersRequest
-from wb_api_client.in_store_pickup.models.api_orders_request_v2 import ApiOrdersRequestV2
+from wb_api_client.in_store_pickup.models.api_orders_request_v2 import (
+    ApiOrdersRequestV2,
+)
 from wb_api_client.in_store_pickup.models.api_orders_response import ApiOrdersResponse
 from wb_api_client.in_store_pickup.models.api_orders_responses import ApiOrdersResponses
-from wb_api_client.in_store_pickup.models.api_orders_sgtins_set_request import ApiOrdersSGTINsSetRequest
-from wb_api_client.in_store_pickup.models.api_orders_uin_set_request import ApiOrdersUINSetRequest
+from wb_api_client.in_store_pickup.models.api_orders_sgtins_set_request import (
+    ApiOrdersSGTINsSetRequest,
+)
+from wb_api_client.in_store_pickup.models.api_orders_uin_set_request import (
+    ApiOrdersUINSetRequest,
+)
 from wb_api_client.in_store_pickup.models.api_sgtins import ApiSGTINs
-from wb_api_client.in_store_pickup.models.api_status_set_customs_declaration_response import ApiStatusSetCustomsDeclarationResponse
-from wb_api_client.in_store_pickup.models.api_status_set_response import ApiStatusSetResponse
-from wb_api_client.in_store_pickup.models.api_status_set_responses import ApiStatusSetResponses
+from wb_api_client.in_store_pickup.models.api_status_set_customs_declaration_response import (
+    ApiStatusSetCustomsDeclarationResponse,
+)
+from wb_api_client.in_store_pickup.models.api_status_set_response import (
+    ApiStatusSetResponse,
+)
+from wb_api_client.in_store_pickup.models.api_status_set_responses import (
+    ApiStatusSetResponses,
+)
 from wb_api_client.in_store_pickup.models.api_uin import ApiUIN
 from wb_api_client.in_store_pickup.models.error import Error
-from wb_api_client.in_store_pickup.models.get_v3_click_collect_orders_new401_response import GetV3ClickCollectOrdersNew401Response
-from wb_api_client.in_store_pickup.models.get_v3_click_collect_orders_new402_response import GetV3ClickCollectOrdersNew402Response
-from wb_api_client.in_store_pickup.models.post_v3_click_collect_orders_meta_customs_declaration_request import PostV3ClickCollectOrdersMetaCustomsDeclarationRequest
-from wb_api_client.in_store_pickup.models.post_v3_click_collect_orders_meta_customs_declaration_request_orders_inner import PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner
+from wb_api_client.in_store_pickup.models.get_v3_click_collect_orders_new401_response import (
+    GetV3ClickCollectOrdersNew401Response,
+)
+from wb_api_client.in_store_pickup.models.get_v3_click_collect_orders_new402_response import (
+    GetV3ClickCollectOrdersNew402Response,
+)
+from wb_api_client.in_store_pickup.models.post_v3_click_collect_orders_meta_customs_declaration_request import (
+    PostV3ClickCollectOrdersMetaCustomsDeclarationRequest,
+)
+from wb_api_client.in_store_pickup.models.post_v3_click_collect_orders_meta_customs_declaration_request_orders_inner import (
+    PostV3ClickCollectOrdersMetaCustomsDeclarationRequestOrdersInner,
+)
 from wb_api_client.in_store_pickup.models.response4_xx import Response4XX

@@ -23,12 +23,19 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class SetRecomReqRecListInnerRecommendationsInner(BaseModel):
     """
     SetRecomReqRecListInnerRecommendationsInner
-    """ # noqa: E501
-    recom_nm: Optional[StrictInt] = Field(default=0, description="Артикул WB рекомендуемого товара", alias="recomNm")
-    sort: Optional[Annotated[int, Field(le=20, strict=True, ge=0)]] = Field(default=20, description="Позиция товара в списке рекомендаций.   Допустимые значения:  - `1`–`20` — фиксированная позиция:    - при создании или замене (`replace: true`) задаёт порядок отображения    - при добавлении (`replace: false`) вставляет товар на указанную позицию, существующие сдвигаются  - `0` — автоматическая сортировка товаров:    - при создании или замене (`replace: true`) — в порядке расположения товаров в массиве `recommendations`    - при добавлении (`replace: false`) — в конец списка существующих рекомендаций, сохраняя порядок из массива `recommendations` ")
+    """  # noqa: E501
+
+    recom_nm: Optional[StrictInt] = Field(
+        default=0, description="Артикул WB рекомендуемого товара", alias="recomNm"
+    )
+    sort: Optional[Annotated[int, Field(le=20, strict=True, ge=0)]] = Field(
+        default=20,
+        description="Позиция товара в списке рекомендаций.   Допустимые значения:  - `1`–`20` — фиксированная позиция:    - при создании или замене (`replace: true`) задаёт порядок отображения    - при добавлении (`replace: false`) вставляет товар на указанную позицию, существующие сдвигаются  - `0` — автоматическая сортировка товаров:    - при создании или замене (`replace: true`) — в порядке расположения товаров в массиве `recommendations`    - при добавлении (`replace: false`) — в конец списка существующих рекомендаций, сохраняя порядок из массива `recommendations` ",
+    )
     __properties: ClassVar[List[str]] = ["recomNm", "sort"]
 
     model_config = ConfigDict(
@@ -36,7 +43,6 @@ class SetRecomReqRecListInnerRecommendationsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +68,7 @@ class SetRecomReqRecListInnerRecommendationsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,10 +86,10 @@ class SetRecomReqRecListInnerRecommendationsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "recomNm": obj.get("recomNm") if obj.get("recomNm") is not None else 0,
-            "sort": obj.get("sort") if obj.get("sort") is not None else 20
-        })
+        _obj = cls.model_validate(
+            {
+                "recomNm": obj.get("recomNm") if obj.get("recomNm") is not None else 0,
+                "sort": obj.get("sort") if obj.get("sort") is not None else 20,
+            }
+        )
         return _obj
-
-

@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.promotion.models.post_v1_bids_min_response200_bids_inner_bids_inner import PostV1BidsMinResponse200BidsInnerBidsInner
+from wb_api_client.promotion.models.post_v1_bids_min_response200_bids_inner_bids_inner import (
+    PostV1BidsMinResponse200BidsInnerBidsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV1BidsMinResponse200BidsInner(BaseModel):
     """
     PostV1BidsMinResponse200BidsInner
-    """ # noqa: E501
-    bids: List[PostV1BidsMinResponse200BidsInnerBidsInner] = Field(description="Список ставок по местам размещения")
+    """  # noqa: E501
+
+    bids: List[PostV1BidsMinResponse200BidsInnerBidsInner] = Field(
+        description="Список ставок по местам размещения"
+    )
     nm_id: StrictInt = Field(description="Артикул WB")
     __properties: ClassVar[List[str]] = ["bids", "nm_id"]
 
@@ -36,7 +42,6 @@ class PostV1BidsMinResponse200BidsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class PostV1BidsMinResponse200BidsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +80,7 @@ class PostV1BidsMinResponse200BidsInner(BaseModel):
             for _item_bids in self.bids:
                 if _item_bids:
                     _items.append(_item_bids.to_dict())
-            _dict['bids'] = _items
+            _dict["bids"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +92,17 @@ class PostV1BidsMinResponse200BidsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "bids": [PostV1BidsMinResponse200BidsInnerBidsInner.from_dict(_item) for _item in obj["bids"]] if obj.get("bids") is not None else None,
-            "nm_id": obj.get("nm_id")
-        })
+        _obj = cls.model_validate(
+            {
+                "bids": (
+                    [
+                        PostV1BidsMinResponse200BidsInnerBidsInner.from_dict(_item)
+                        for _item in obj["bids"]
+                    ]
+                    if obj.get("bids") is not None
+                    else None
+                ),
+                "nm_id": obj.get("nm_id"),
+            }
+        )
         return _obj
-
-

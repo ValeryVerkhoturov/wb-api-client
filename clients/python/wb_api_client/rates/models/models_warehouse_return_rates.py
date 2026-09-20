@@ -22,29 +22,84 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsWarehouseReturnRates(BaseModel):
     """
     ModelsWarehouseReturnRates
-    """ # noqa: E501
-    delivery_dump_kgt_office_base: Optional[StrictStr] = Field(default=None, description="**Стоимость возврата при грузовой доставке, доставка на ПВЗ (базовая цена за 1 л), ₽** Применяется для крупногабаритных товаров, когда:   - продавец хочет вывезти товары со склада WB;   - на складе обнаружили бракованные товары;   - покупатель возвращает товар, но его нельзя вернуть в продажу. ", alias="deliveryDumpKgtOfficeBase")
-    delivery_dump_kgt_office_liter: Optional[StrictStr] = Field(default=None, description="\\*\\*Стоимость возврата при грузовой доставке, доставка на ПВЗ (доп. литр), ₽\\*\\* Стоимость за каждый дополнительный литр.", alias="deliveryDumpKgtOfficeLiter")
-    delivery_dump_kgt_return_expr: Optional[StrictStr] = Field(default=None, description="\\*\\*Стоимость возврата при грузовой доставке, обратная логистика невостребованного возврата, ₽\\*\\* Грузовая доставка невостребованного возврата обратно на склад WB. За единицу товара.", alias="deliveryDumpKgtReturnExpr")
-    delivery_dump_srg_office_expr: Optional[StrictStr] = Field(default=None, description="\\*\\*Стоимость возврата неопознанного складом товара за каждую единицу, доставка на ПВЗ, ₽\\*\\* Применяется для товаров, которые не смогли принять на складе.", alias="deliveryDumpSrgOfficeExpr")
-    delivery_dump_srg_return_expr: Optional[StrictStr] = Field(default=None, description="\\*\\*Стоимость возврата неопознанного складом товара за каждую единицу, обратная логистика невостребованного возврата, ₽\\*\\* Доставка невостребованного возврата обратно на склад WB.", alias="deliveryDumpSrgReturnExpr")
-    delivery_dump_sup_courier_base: Optional[StrictStr] = Field(default=None, description="**Стоимость возврата, доставка курьером (базовая цена за 1 л), ₽**  Применяется, когда:   - продавец хочет вывезти товары со склада Wildberries   - на складе обнаружили бракованные товары   - покупатель возвращает товар, но его нельзя вернуть в продажу   - подключён автовозврат товаров, продаваемых по схеме Маркетплейс ", alias="deliveryDumpSupCourierBase")
-    delivery_dump_sup_courier_liter: Optional[StrictStr] = Field(default=None, description="\\*\\*Стоимость возврата, доставка курьером (доп. л), ₽\\*\\*  Стоимость за каждый дополнительный литр.", alias="deliveryDumpSupCourierLiter")
-    delivery_dump_sup_office_base: Optional[StrictStr] = Field(default=None, description="**Стоимость возврата, доставка на ПВЗ (базовая цена за 1 л), ₽**  Применяется, когда:   - продавец хочет вывезти товары со склада Wildberries   - на складе обнаружили бракованные товары   - покупатель возвращает товар, но его нельзя вернуть в продажу   - подключён автовозврат товаров, продаваемых по схеме Маркетплейс ", alias="deliveryDumpSupOfficeBase")
-    delivery_dump_sup_office_liter: Optional[StrictStr] = Field(default=None, description="\\*\\*Стоимость возврата, доставка на ПВЗ (доп. литр), ₽\\*\\* Стоимость за каждый дополнительный литр", alias="deliveryDumpSupOfficeLiter")
-    delivery_dump_sup_return_expr: Optional[StrictStr] = Field(default=None, description="\\*\\*Стоимость возврата, обратная логистика невостребованного возврата, за единицу товара, ₽\\*\\* Доставка невостребованного возврата обратно на склад Wildberries. Применяется, когда: - продавец хочет вывезти товары со склада Wildberries - на складе обнаружили бракованные товары - покупатель возвращает товар, но его нельзя вернуть в продажу - подключён автовозврат товаров, продаваемых по схеме Маркетплейс", alias="deliveryDumpSupReturnExpr")
-    warehouse_name: Optional[StrictStr] = Field(default=None, description="Название склада", alias="warehouseName")
-    __properties: ClassVar[List[str]] = ["deliveryDumpKgtOfficeBase", "deliveryDumpKgtOfficeLiter", "deliveryDumpKgtReturnExpr", "deliveryDumpSrgOfficeExpr", "deliveryDumpSrgReturnExpr", "deliveryDumpSupCourierBase", "deliveryDumpSupCourierLiter", "deliveryDumpSupOfficeBase", "deliveryDumpSupOfficeLiter", "deliveryDumpSupReturnExpr", "warehouseName"]
+    """  # noqa: E501
+
+    delivery_dump_kgt_office_base: Optional[StrictStr] = Field(
+        default=None,
+        description="**Стоимость возврата при грузовой доставке, доставка на ПВЗ (базовая цена за 1 л), ₽** Применяется для крупногабаритных товаров, когда:   - продавец хочет вывезти товары со склада WB;   - на складе обнаружили бракованные товары;   - покупатель возвращает товар, но его нельзя вернуть в продажу. ",
+        alias="deliveryDumpKgtOfficeBase",
+    )
+    delivery_dump_kgt_office_liter: Optional[StrictStr] = Field(
+        default=None,
+        description="\\*\\*Стоимость возврата при грузовой доставке, доставка на ПВЗ (доп. литр), ₽\\*\\* Стоимость за каждый дополнительный литр.",
+        alias="deliveryDumpKgtOfficeLiter",
+    )
+    delivery_dump_kgt_return_expr: Optional[StrictStr] = Field(
+        default=None,
+        description="\\*\\*Стоимость возврата при грузовой доставке, обратная логистика невостребованного возврата, ₽\\*\\* Грузовая доставка невостребованного возврата обратно на склад WB. За единицу товара.",
+        alias="deliveryDumpKgtReturnExpr",
+    )
+    delivery_dump_srg_office_expr: Optional[StrictStr] = Field(
+        default=None,
+        description="\\*\\*Стоимость возврата неопознанного складом товара за каждую единицу, доставка на ПВЗ, ₽\\*\\* Применяется для товаров, которые не смогли принять на складе.",
+        alias="deliveryDumpSrgOfficeExpr",
+    )
+    delivery_dump_srg_return_expr: Optional[StrictStr] = Field(
+        default=None,
+        description="\\*\\*Стоимость возврата неопознанного складом товара за каждую единицу, обратная логистика невостребованного возврата, ₽\\*\\* Доставка невостребованного возврата обратно на склад WB.",
+        alias="deliveryDumpSrgReturnExpr",
+    )
+    delivery_dump_sup_courier_base: Optional[StrictStr] = Field(
+        default=None,
+        description="**Стоимость возврата, доставка курьером (базовая цена за 1 л), ₽**  Применяется, когда:   - продавец хочет вывезти товары со склада Wildberries   - на складе обнаружили бракованные товары   - покупатель возвращает товар, но его нельзя вернуть в продажу   - подключён автовозврат товаров, продаваемых по схеме Маркетплейс ",
+        alias="deliveryDumpSupCourierBase",
+    )
+    delivery_dump_sup_courier_liter: Optional[StrictStr] = Field(
+        default=None,
+        description="\\*\\*Стоимость возврата, доставка курьером (доп. л), ₽\\*\\*  Стоимость за каждый дополнительный литр.",
+        alias="deliveryDumpSupCourierLiter",
+    )
+    delivery_dump_sup_office_base: Optional[StrictStr] = Field(
+        default=None,
+        description="**Стоимость возврата, доставка на ПВЗ (базовая цена за 1 л), ₽**  Применяется, когда:   - продавец хочет вывезти товары со склада Wildberries   - на складе обнаружили бракованные товары   - покупатель возвращает товар, но его нельзя вернуть в продажу   - подключён автовозврат товаров, продаваемых по схеме Маркетплейс ",
+        alias="deliveryDumpSupOfficeBase",
+    )
+    delivery_dump_sup_office_liter: Optional[StrictStr] = Field(
+        default=None,
+        description="\\*\\*Стоимость возврата, доставка на ПВЗ (доп. литр), ₽\\*\\* Стоимость за каждый дополнительный литр",
+        alias="deliveryDumpSupOfficeLiter",
+    )
+    delivery_dump_sup_return_expr: Optional[StrictStr] = Field(
+        default=None,
+        description="\\*\\*Стоимость возврата, обратная логистика невостребованного возврата, за единицу товара, ₽\\*\\* Доставка невостребованного возврата обратно на склад Wildberries. Применяется, когда: - продавец хочет вывезти товары со склада Wildberries - на складе обнаружили бракованные товары - покупатель возвращает товар, но его нельзя вернуть в продажу - подключён автовозврат товаров, продаваемых по схеме Маркетплейс",
+        alias="deliveryDumpSupReturnExpr",
+    )
+    warehouse_name: Optional[StrictStr] = Field(
+        default=None, description="Название склада", alias="warehouseName"
+    )
+    __properties: ClassVar[List[str]] = [
+        "deliveryDumpKgtOfficeBase",
+        "deliveryDumpKgtOfficeLiter",
+        "deliveryDumpKgtReturnExpr",
+        "deliveryDumpSrgOfficeExpr",
+        "deliveryDumpSrgReturnExpr",
+        "deliveryDumpSupCourierBase",
+        "deliveryDumpSupCourierLiter",
+        "deliveryDumpSupOfficeBase",
+        "deliveryDumpSupOfficeLiter",
+        "deliveryDumpSupReturnExpr",
+        "warehouseName",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -70,8 +125,7 @@ class ModelsWarehouseReturnRates(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -89,19 +143,19 @@ class ModelsWarehouseReturnRates(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "deliveryDumpKgtOfficeBase": obj.get("deliveryDumpKgtOfficeBase"),
-            "deliveryDumpKgtOfficeLiter": obj.get("deliveryDumpKgtOfficeLiter"),
-            "deliveryDumpKgtReturnExpr": obj.get("deliveryDumpKgtReturnExpr"),
-            "deliveryDumpSrgOfficeExpr": obj.get("deliveryDumpSrgOfficeExpr"),
-            "deliveryDumpSrgReturnExpr": obj.get("deliveryDumpSrgReturnExpr"),
-            "deliveryDumpSupCourierBase": obj.get("deliveryDumpSupCourierBase"),
-            "deliveryDumpSupCourierLiter": obj.get("deliveryDumpSupCourierLiter"),
-            "deliveryDumpSupOfficeBase": obj.get("deliveryDumpSupOfficeBase"),
-            "deliveryDumpSupOfficeLiter": obj.get("deliveryDumpSupOfficeLiter"),
-            "deliveryDumpSupReturnExpr": obj.get("deliveryDumpSupReturnExpr"),
-            "warehouseName": obj.get("warehouseName")
-        })
+        _obj = cls.model_validate(
+            {
+                "deliveryDumpKgtOfficeBase": obj.get("deliveryDumpKgtOfficeBase"),
+                "deliveryDumpKgtOfficeLiter": obj.get("deliveryDumpKgtOfficeLiter"),
+                "deliveryDumpKgtReturnExpr": obj.get("deliveryDumpKgtReturnExpr"),
+                "deliveryDumpSrgOfficeExpr": obj.get("deliveryDumpSrgOfficeExpr"),
+                "deliveryDumpSrgReturnExpr": obj.get("deliveryDumpSrgReturnExpr"),
+                "deliveryDumpSupCourierBase": obj.get("deliveryDumpSupCourierBase"),
+                "deliveryDumpSupCourierLiter": obj.get("deliveryDumpSupCourierLiter"),
+                "deliveryDumpSupOfficeBase": obj.get("deliveryDumpSupOfficeBase"),
+                "deliveryDumpSupOfficeLiter": obj.get("deliveryDumpSupOfficeLiter"),
+                "deliveryDumpSupReturnExpr": obj.get("deliveryDumpSupReturnExpr"),
+                "warehouseName": obj.get("warehouseName"),
+            }
+        )
         return _obj
-
-

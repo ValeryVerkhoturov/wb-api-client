@@ -23,24 +23,46 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class SalesReportListReq(BaseModel):
     """
     Параметры запроса
-    """ # noqa: E501
-    date_from: StrictStr = Field(description="Начальная дата отчёта. Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд. Дата передаётся в формате [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339), время — в часовом поясе Москва `UTC+3`. Примеры: - `2025-06-20` - `2025-06-20T23:59:59` - `2025-06-20T00:00:00.12345` - `2025-06-20T00:00:00`", alias="dateFrom")
-    date_to: StrictStr = Field(description="Конечная дата отчёта. Дата в формате [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339). Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд. Время передаётся в часовом поясе Москва `UTC+3`. Примеры: - `2025-06-20` - `2025-06-20T23:59:59` - `2025-06-20T00:00:00.12345` - `2025-06-20T00:00:00`", alias="dateTo")
-    limit: Optional[Annotated[int, Field(le=1000, strict=True)]] = Field(default=1000, description="Количество отчётов в ответе")
-    offset: Optional[StrictInt] = Field(default=0, description="Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента")
-    period: Optional[StrictStr] = Field(default='weekly', description="Периодичность отчётов:   - `weekly` — еженедельные   - `daily` — ежедневные ")
-    __properties: ClassVar[List[str]] = ["dateFrom", "dateTo", "limit", "offset", "period"]
+    """  # noqa: E501
 
-    @field_validator('period')
+    date_from: StrictStr = Field(
+        description="Начальная дата отчёта. Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд. Дата передаётся в формате [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339), время — в часовом поясе Москва `UTC+3`. Примеры: - `2025-06-20` - `2025-06-20T23:59:59` - `2025-06-20T00:00:00.12345` - `2025-06-20T00:00:00`",
+        alias="dateFrom",
+    )
+    date_to: StrictStr = Field(
+        description="Конечная дата отчёта. Дата в формате [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339). Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд. Время передаётся в часовом поясе Москва `UTC+3`. Примеры: - `2025-06-20` - `2025-06-20T23:59:59` - `2025-06-20T00:00:00.12345` - `2025-06-20T00:00:00`",
+        alias="dateTo",
+    )
+    limit: Optional[Annotated[int, Field(le=1000, strict=True)]] = Field(
+        default=1000, description="Количество отчётов в ответе"
+    )
+    offset: Optional[StrictInt] = Field(
+        default=0,
+        description="Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента",
+    )
+    period: Optional[StrictStr] = Field(
+        default="weekly",
+        description="Периодичность отчётов:   - `weekly` — еженедельные   - `daily` — ежедневные ",
+    )
+    __properties: ClassVar[List[str]] = [
+        "dateFrom",
+        "dateTo",
+        "limit",
+        "offset",
+        "period",
+    ]
+
+    @field_validator("period")
     def period_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['daily', 'weekly']):
+        if value not in set(["daily", "weekly"]):
             raise ValueError("must be one of enum values ('daily', 'weekly')")
         return value
 
@@ -49,7 +71,6 @@ class SalesReportListReq(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -75,8 +96,7 @@ class SalesReportListReq(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -94,13 +114,15 @@ class SalesReportListReq(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "dateFrom": obj.get("dateFrom"),
-            "dateTo": obj.get("dateTo"),
-            "limit": obj.get("limit") if obj.get("limit") is not None else 1000,
-            "offset": obj.get("offset") if obj.get("offset") is not None else 0,
-            "period": obj.get("period") if obj.get("period") is not None else 'weekly'
-        })
+        _obj = cls.model_validate(
+            {
+                "dateFrom": obj.get("dateFrom"),
+                "dateTo": obj.get("dateTo"),
+                "limit": obj.get("limit") if obj.get("limit") is not None else 1000,
+                "offset": obj.get("offset") if obj.get("offset") is not None else 0,
+                "period": (
+                    obj.get("period") if obj.get("period") is not None else "weekly"
+                ),
+            }
+        )
         return _obj
-
-

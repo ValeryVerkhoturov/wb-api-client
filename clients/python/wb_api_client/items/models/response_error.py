@@ -22,13 +22,17 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ResponseError(BaseModel):
     """
     ResponseError
-    """ # noqa: E501
+    """  # noqa: E501
+
     data: Optional[Dict[str, Any]] = Field(default=None, description="Данные ошибки")
     error: Optional[StrictBool] = Field(default=None, description="Флаг ошибки")
-    error_text: Optional[StrictStr] = Field(default=None, description="Текст ошибки", alias="errorText")
+    error_text: Optional[StrictStr] = Field(
+        default=None, description="Текст ошибки", alias="errorText"
+    )
     __properties: ClassVar[List[str]] = ["data", "error", "errorText"]
 
     model_config = ConfigDict(
@@ -36,7 +40,6 @@ class ResponseError(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class ResponseError(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,7 +75,7 @@ class ResponseError(BaseModel):
         # set to None if data (nullable) is None
         # and model_fields_set contains the field
         if self.data is None and "data" in self.model_fields_set:
-            _dict['data'] = None
+            _dict["data"] = None
 
         return _dict
 
@@ -86,11 +88,11 @@ class ResponseError(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "data": obj.get("data"),
-            "error": obj.get("error"),
-            "errorText": obj.get("errorText")
-        })
+        _obj = cls.model_validate(
+            {
+                "data": obj.get("data"),
+                "error": obj.get("error"),
+                "errorText": obj.get("errorText"),
+            }
+        )
         return _obj
-
-

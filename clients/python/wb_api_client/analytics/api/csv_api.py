@@ -19,11 +19,21 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBytes, StrictStr
 from typing import List, Optional, Tuple, Union
 from typing_extensions import Annotated
-from wb_api_client.analytics.models.nm_report_create_report_response import NmReportCreateReportResponse
-from wb_api_client.analytics.models.nm_report_get_reports_response import NmReportGetReportsResponse
-from wb_api_client.analytics.models.nm_report_retry_report_request import NmReportRetryReportRequest
-from wb_api_client.analytics.models.nm_report_retry_report_response import NmReportRetryReportResponse
-from wb_api_client.analytics.models.post_v2_nm_report_downloads_request import PostV2NmReportDownloadsRequest
+from wb_api_client.analytics.models.nm_report_create_report_response import (
+    NmReportCreateReportResponse,
+)
+from wb_api_client.analytics.models.nm_report_get_reports_response import (
+    NmReportGetReportsResponse,
+)
+from wb_api_client.analytics.models.nm_report_retry_report_request import (
+    NmReportRetryReportRequest,
+)
+from wb_api_client.analytics.models.nm_report_retry_report_response import (
+    NmReportRetryReportResponse,
+)
+from wb_api_client.analytics.models.post_v2_nm_report_downloads_request import (
+    PostV2NmReportDownloadsRequest,
+)
 
 from wb_api_client.analytics.api_client import ApiClient, RequestSerialized
 from wb_api_client.analytics.api_response import ApiResponse
@@ -42,18 +52,18 @@ class CSVApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def get_v2_nm_report_downloads(
         self,
-        filter_download_ids: Annotated[Optional[List[StrictStr]], Field(description="ID отчёта")] = None,
+        filter_download_ids: Annotated[
+            Optional[List[StrictStr]], Field(description="ID отчёта")
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -86,26 +96,25 @@ class CSVApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_nm_report_downloads_serialize(
             filter_download_ids=filter_download_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "NmReportGetReportsResponse",
-            '400': "GetV2NmReportDownloadsResponse400",
-            '401': "PostV3SalesFunnelProducts401Response",
-            '403': "ErrorObject",
-            '429': "PostV3SalesFunnelProducts401Response",
+            "200": "NmReportGetReportsResponse",
+            "400": "GetV2NmReportDownloadsResponse400",
+            "401": "PostV3SalesFunnelProducts401Response",
+            "403": "ErrorObject",
+            "429": "PostV3SalesFunnelProducts401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -113,18 +122,18 @@ class CSVApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v2_nm_report_downloads_with_http_info(
         self,
-        filter_download_ids: Annotated[Optional[List[StrictStr]], Field(description="ID отчёта")] = None,
+        filter_download_ids: Annotated[
+            Optional[List[StrictStr]], Field(description="ID отчёта")
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -157,26 +166,25 @@ class CSVApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_nm_report_downloads_serialize(
             filter_download_ids=filter_download_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "NmReportGetReportsResponse",
-            '400': "GetV2NmReportDownloadsResponse400",
-            '401': "PostV3SalesFunnelProducts401Response",
-            '403': "ErrorObject",
-            '429': "PostV3SalesFunnelProducts401Response",
+            "200": "NmReportGetReportsResponse",
+            "400": "GetV2NmReportDownloadsResponse400",
+            "401": "PostV3SalesFunnelProducts401Response",
+            "403": "ErrorObject",
+            "429": "PostV3SalesFunnelProducts401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -184,18 +192,18 @@ class CSVApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v2_nm_report_downloads_without_preload_content(
         self,
-        filter_download_ids: Annotated[Optional[List[StrictStr]], Field(description="ID отчёта")] = None,
+        filter_download_ids: Annotated[
+            Optional[List[StrictStr]], Field(description="ID отчёта")
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -228,29 +236,27 @@ class CSVApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_nm_report_downloads_serialize(
             filter_download_ids=filter_download_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "NmReportGetReportsResponse",
-            '400': "GetV2NmReportDownloadsResponse400",
-            '401': "PostV3SalesFunnelProducts401Response",
-            '403': "ErrorObject",
-            '429': "PostV3SalesFunnelProducts401Response",
+            "200": "NmReportGetReportsResponse",
+            "400": "GetV2NmReportDownloadsResponse400",
+            "401": "PostV3SalesFunnelProducts401Response",
+            "403": "ErrorObject",
+            "429": "PostV3SalesFunnelProducts401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v2_nm_report_downloads_serialize(
         self,
@@ -261,13 +267,11 @@ class CSVApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://seller-analytics-api.wildberries.ru'
-        ]
+        _hosts = ["https://seller-analytics-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
         _collection_formats: Dict[str, str] = {
-            'filter[downloadIds]': 'multi',
+            "filter[downloadIds]": "multi",
         }
 
         _path_params: Dict[str, str] = {}
@@ -282,32 +286,25 @@ class CSVApi:
         # process the path parameters
         # process the query parameters
         if filter_download_ids is not None:
-            
-            _query_params.append(('filter[downloadIds]', filter_download_ids))
-            
+
+            _query_params.append(("filter[downloadIds]", filter_download_ids))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/nm-report/downloads',
+            method="GET",
+            resource_path="/api/v2/nm-report/downloads",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -317,11 +314,8 @@ class CSVApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v2_nm_report_downloads_file_download_id(
@@ -331,9 +325,8 @@ class CSVApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -366,34 +359,32 @@ class CSVApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_nm_report_downloads_file_download_id_serialize(
             download_id=download_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "bytearray",
-            '400': "GetV2NmReportDownloadsFileDownloadIdResponse400",
-            '401': "PostV3SalesFunnelProducts401Response",
-            '402': "PostV3SalesFunnelProducts402Response",
-            '403': "ErrorObject",
-            '429': "PostV3SalesFunnelProducts401Response",
+            "200": "bytearray",
+            "400": "GetV2NmReportDownloadsFileDownloadIdResponse400",
+            "401": "PostV3SalesFunnelProducts401Response",
+            "402": "PostV3SalesFunnelProducts402Response",
+            "403": "ErrorObject",
+            "429": "PostV3SalesFunnelProducts401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v2_nm_report_downloads_file_download_id_with_http_info(
@@ -403,9 +394,8 @@ class CSVApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -438,34 +428,32 @@ class CSVApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_nm_report_downloads_file_download_id_serialize(
             download_id=download_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "bytearray",
-            '400': "GetV2NmReportDownloadsFileDownloadIdResponse400",
-            '401': "PostV3SalesFunnelProducts401Response",
-            '402': "PostV3SalesFunnelProducts402Response",
-            '403': "ErrorObject",
-            '429': "PostV3SalesFunnelProducts401Response",
+            "200": "bytearray",
+            "400": "GetV2NmReportDownloadsFileDownloadIdResponse400",
+            "401": "PostV3SalesFunnelProducts401Response",
+            "402": "PostV3SalesFunnelProducts402Response",
+            "403": "ErrorObject",
+            "429": "PostV3SalesFunnelProducts401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v2_nm_report_downloads_file_download_id_without_preload_content(
@@ -475,9 +463,8 @@ class CSVApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -510,30 +497,28 @@ class CSVApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_nm_report_downloads_file_download_id_serialize(
             download_id=download_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "bytearray",
-            '400': "GetV2NmReportDownloadsFileDownloadIdResponse400",
-            '401': "PostV3SalesFunnelProducts401Response",
-            '402': "PostV3SalesFunnelProducts402Response",
-            '403': "ErrorObject",
-            '429': "PostV3SalesFunnelProducts401Response",
+            "200": "bytearray",
+            "400": "GetV2NmReportDownloadsFileDownloadIdResponse400",
+            "401": "PostV3SalesFunnelProducts401Response",
+            "402": "PostV3SalesFunnelProducts402Response",
+            "403": "ErrorObject",
+            "429": "PostV3SalesFunnelProducts401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v2_nm_report_downloads_file_download_id_serialize(
         self,
@@ -544,13 +529,10 @@ class CSVApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://seller-analytics-api.wildberries.ru'
-        ]
+        _hosts = ["https://seller-analytics-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -563,32 +545,24 @@ class CSVApi:
 
         # process the path parameters
         if download_id is not None:
-            _path_params['downloadId'] = download_id
+            _path_params["downloadId"] = download_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/zip', 
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/zip", "application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/nm-report/downloads/file/{downloadId}',
+            method="GET",
+            resource_path="/api/v2/nm-report/downloads/file/{downloadId}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -598,23 +572,21 @@ class CSVApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v2_nm_report_downloads(
         self,
-        post_v2_nm_report_downloads_request: Optional[PostV2NmReportDownloadsRequest] = None,
+        post_v2_nm_report_downloads_request: Optional[
+            PostV2NmReportDownloadsRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -647,27 +619,26 @@ class CSVApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v2_nm_report_downloads_serialize(
             post_v2_nm_report_downloads_request=post_v2_nm_report_downloads_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "NmReportCreateReportResponse",
-            '400': "PostV2NmReportDownloadsResponse400",
-            '401': "PostV3SalesFunnelProducts401Response",
-            '402': "PostV3SalesFunnelProducts402Response",
-            '403': "ErrorObject",
-            '429': "PostV2NmReportDownloads429Response",
+            "200": "NmReportCreateReportResponse",
+            "400": "PostV2NmReportDownloadsResponse400",
+            "401": "PostV3SalesFunnelProducts401Response",
+            "402": "PostV3SalesFunnelProducts402Response",
+            "403": "ErrorObject",
+            "429": "PostV2NmReportDownloads429Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -675,18 +646,18 @@ class CSVApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def post_v2_nm_report_downloads_with_http_info(
         self,
-        post_v2_nm_report_downloads_request: Optional[PostV2NmReportDownloadsRequest] = None,
+        post_v2_nm_report_downloads_request: Optional[
+            PostV2NmReportDownloadsRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -719,27 +690,26 @@ class CSVApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v2_nm_report_downloads_serialize(
             post_v2_nm_report_downloads_request=post_v2_nm_report_downloads_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "NmReportCreateReportResponse",
-            '400': "PostV2NmReportDownloadsResponse400",
-            '401': "PostV3SalesFunnelProducts401Response",
-            '402': "PostV3SalesFunnelProducts402Response",
-            '403': "ErrorObject",
-            '429': "PostV2NmReportDownloads429Response",
+            "200": "NmReportCreateReportResponse",
+            "400": "PostV2NmReportDownloadsResponse400",
+            "401": "PostV3SalesFunnelProducts401Response",
+            "402": "PostV3SalesFunnelProducts402Response",
+            "403": "ErrorObject",
+            "429": "PostV2NmReportDownloads429Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -747,18 +717,18 @@ class CSVApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def post_v2_nm_report_downloads_without_preload_content(
         self,
-        post_v2_nm_report_downloads_request: Optional[PostV2NmReportDownloadsRequest] = None,
+        post_v2_nm_report_downloads_request: Optional[
+            PostV2NmReportDownloadsRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -791,30 +761,28 @@ class CSVApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v2_nm_report_downloads_serialize(
             post_v2_nm_report_downloads_request=post_v2_nm_report_downloads_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "NmReportCreateReportResponse",
-            '400': "PostV2NmReportDownloadsResponse400",
-            '401': "PostV3SalesFunnelProducts401Response",
-            '402': "PostV3SalesFunnelProducts402Response",
-            '403': "ErrorObject",
-            '429': "PostV2NmReportDownloads429Response",
+            "200": "NmReportCreateReportResponse",
+            "400": "PostV2NmReportDownloadsResponse400",
+            "401": "PostV3SalesFunnelProducts401Response",
+            "402": "PostV3SalesFunnelProducts402Response",
+            "403": "ErrorObject",
+            "429": "PostV2NmReportDownloads429Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v2_nm_report_downloads_serialize(
         self,
@@ -825,13 +793,10 @@ class CSVApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://seller-analytics-api.wildberries.ru'
-        ]
+        _hosts = ["https://seller-analytics-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -850,38 +815,28 @@ class CSVApi:
         if post_v2_nm_report_downloads_request is not None:
             _body_params = post_v2_nm_report_downloads_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v2/nm-report/downloads',
+            method="POST",
+            resource_path="/api/v2/nm-report/downloads",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -891,11 +846,8 @@ class CSVApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v2_nm_report_downloads_retry(
@@ -905,9 +857,8 @@ class CSVApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -940,33 +891,31 @@ class CSVApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v2_nm_report_downloads_retry_serialize(
             nm_report_retry_report_request=nm_report_retry_report_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "NmReportRetryReportResponse",
-            '400': "PostV2NmReportDownloadsRetryResponse400",
-            '401': "PostV3SalesFunnelProducts401Response",
-            '403': "ErrorObject",
-            '429': "PostV3SalesFunnelProducts401Response",
+            "200": "NmReportRetryReportResponse",
+            "400": "PostV2NmReportDownloadsRetryResponse400",
+            "401": "PostV3SalesFunnelProducts401Response",
+            "403": "ErrorObject",
+            "429": "PostV3SalesFunnelProducts401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v2_nm_report_downloads_retry_with_http_info(
@@ -976,9 +925,8 @@ class CSVApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1011,33 +959,31 @@ class CSVApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v2_nm_report_downloads_retry_serialize(
             nm_report_retry_report_request=nm_report_retry_report_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "NmReportRetryReportResponse",
-            '400': "PostV2NmReportDownloadsRetryResponse400",
-            '401': "PostV3SalesFunnelProducts401Response",
-            '403': "ErrorObject",
-            '429': "PostV3SalesFunnelProducts401Response",
+            "200": "NmReportRetryReportResponse",
+            "400": "PostV2NmReportDownloadsRetryResponse400",
+            "401": "PostV3SalesFunnelProducts401Response",
+            "403": "ErrorObject",
+            "429": "PostV3SalesFunnelProducts401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v2_nm_report_downloads_retry_without_preload_content(
@@ -1047,9 +993,8 @@ class CSVApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1082,29 +1027,27 @@ class CSVApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v2_nm_report_downloads_retry_serialize(
             nm_report_retry_report_request=nm_report_retry_report_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "NmReportRetryReportResponse",
-            '400': "PostV2NmReportDownloadsRetryResponse400",
-            '401': "PostV3SalesFunnelProducts401Response",
-            '403': "ErrorObject",
-            '429': "PostV3SalesFunnelProducts401Response",
+            "200": "NmReportRetryReportResponse",
+            "400": "PostV2NmReportDownloadsRetryResponse400",
+            "401": "PostV3SalesFunnelProducts401Response",
+            "403": "ErrorObject",
+            "429": "PostV3SalesFunnelProducts401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v2_nm_report_downloads_retry_serialize(
         self,
@@ -1115,13 +1058,10 @@ class CSVApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://seller-analytics-api.wildberries.ru'
-        ]
+        _hosts = ["https://seller-analytics-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1140,38 +1080,28 @@ class CSVApi:
         if nm_report_retry_report_request is not None:
             _body_params = nm_report_retry_report_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v2/nm-report/downloads/retry',
+            method="POST",
+            resource_path="/api/v2/nm-report/downloads/retry",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1181,7 +1111,5 @@ class CSVApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

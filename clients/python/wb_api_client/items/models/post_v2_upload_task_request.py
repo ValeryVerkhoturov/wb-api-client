@@ -23,11 +23,15 @@ from wb_api_client.items.models.item import Item
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2UploadTaskRequest(BaseModel):
     """
     PostV2UploadTaskRequest
-    """ # noqa: E501
-    data: List[Item] = Field(description="Товары, цены и скидки для них. Максимум 1 000 товаров. Цена и скидка не могут быть пустыми одновременно.  Если новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в [детализации загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask).  Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine)")
+    """  # noqa: E501
+
+    data: List[Item] = Field(
+        description="Товары, цены и скидки для них. Максимум 1 000 товаров. Цена и скидка не могут быть пустыми одновременно.  Если новая цена товара со скидкой будет меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), товар попадёт в [карантин](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) и будет продаваться по старой цене. Ошибка об этом будет в [детализации загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask).  Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine)"
+    )
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class PostV2UploadTaskRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class PostV2UploadTaskRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +77,7 @@ class PostV2UploadTaskRequest(BaseModel):
             for _item_data in self.data:
                 if _item_data:
                     _items.append(_item_data.to_dict())
-            _dict['data'] = _items
+            _dict["data"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +89,13 @@ class PostV2UploadTaskRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "data": [Item.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "data": (
+                    [Item.from_dict(_item) for _item in obj["data"]]
+                    if obj.get("data") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

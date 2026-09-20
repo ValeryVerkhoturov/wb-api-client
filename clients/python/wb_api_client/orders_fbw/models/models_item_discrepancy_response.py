@@ -20,27 +20,44 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.orders_fbw.models.models_discrepancy_response_item import ModelsDiscrepancyResponseItem
+from wb_api_client.orders_fbw.models.models_discrepancy_response_item import (
+    ModelsDiscrepancyResponseItem,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ModelsItemDiscrepancyResponse(BaseModel):
     """
     ModelsItemDiscrepancyResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     package_code: StrictStr = Field(description="ID упаковки", alias="packageCode")
-    video_url: StrictStr = Field(description="Видео фиксации расхождений в процессе приёмки", alias="videoUrl")
-    video_starts_at: datetime = Field(description="Дата и время видеофиксации расхождений в процессе приемки", alias="videoStartsAt")
-    video_unavailable: StrictBool = Field(description="Доступность видео:    - `false` — видео доступно    - `true` — видео недоступно ", alias="videoUnavailable")
+    video_url: StrictStr = Field(
+        description="Видео фиксации расхождений в процессе приёмки", alias="videoUrl"
+    )
+    video_starts_at: datetime = Field(
+        description="Дата и время видеофиксации расхождений в процессе приемки",
+        alias="videoStartsAt",
+    )
+    video_unavailable: StrictBool = Field(
+        description="Доступность видео:    - `false` — видео доступно    - `true` — видео недоступно ",
+        alias="videoUnavailable",
+    )
     items: List[ModelsDiscrepancyResponseItem] = Field(description="Товары поставки")
-    __properties: ClassVar[List[str]] = ["packageCode", "videoUrl", "videoStartsAt", "videoUnavailable", "items"]
+    __properties: ClassVar[List[str]] = [
+        "packageCode",
+        "videoUrl",
+        "videoStartsAt",
+        "videoUnavailable",
+        "items",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -66,8 +83,7 @@ class ModelsItemDiscrepancyResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,7 +96,7 @@ class ModelsItemDiscrepancyResponse(BaseModel):
             for _item_items in self.items:
                 if _item_items:
                     _items.append(_item_items.to_dict())
-            _dict['items'] = _items
+            _dict["items"] = _items
         return _dict
 
     @classmethod
@@ -92,13 +108,20 @@ class ModelsItemDiscrepancyResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "packageCode": obj.get("packageCode"),
-            "videoUrl": obj.get("videoUrl"),
-            "videoStartsAt": obj.get("videoStartsAt"),
-            "videoUnavailable": obj.get("videoUnavailable"),
-            "items": [ModelsDiscrepancyResponseItem.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "packageCode": obj.get("packageCode"),
+                "videoUrl": obj.get("videoUrl"),
+                "videoStartsAt": obj.get("videoStartsAt"),
+                "videoUnavailable": obj.get("videoUnavailable"),
+                "items": (
+                    [
+                        ModelsDiscrepancyResponseItem.from_dict(_item)
+                        for _item in obj["items"]
+                    ]
+                    if obj.get("items") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

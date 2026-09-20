@@ -19,17 +19,23 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.in_store_pickup.models.api_batch_error_response import ApiBatchErrorResponse
+from wb_api_client.in_store_pickup.models.api_batch_error_response import (
+    ApiBatchErrorResponse,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ApiStatusSetResponse(BaseModel):
     """
     ApiStatusSetResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
     is_error: StrictBool = Field(description="Есть ли ошибки", alias="isError")
-    errors: Optional[List[ApiBatchErrorResponse]] = Field(default=None, description="Детали ошибки")
+    errors: Optional[List[ApiBatchErrorResponse]] = Field(
+        default=None, description="Детали ошибки"
+    )
     __properties: ClassVar[List[str]] = ["orderId", "isError", "errors"]
 
     model_config = ConfigDict(
@@ -37,7 +43,6 @@ class ApiStatusSetResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +68,7 @@ class ApiStatusSetResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +81,7 @@ class ApiStatusSetResponse(BaseModel):
             for _item_errors in self.errors:
                 if _item_errors:
                     _items.append(_item_errors.to_dict())
-            _dict['errors'] = _items
+            _dict["errors"] = _items
         return _dict
 
     @classmethod
@@ -89,11 +93,15 @@ class ApiStatusSetResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "orderId": obj.get("orderId"),
-            "isError": obj.get("isError"),
-            "errors": [ApiBatchErrorResponse.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "orderId": obj.get("orderId"),
+                "isError": obj.get("isError"),
+                "errors": (
+                    [ApiBatchErrorResponse.from_dict(_item) for _item in obj["errors"]]
+                    if obj.get("errors") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

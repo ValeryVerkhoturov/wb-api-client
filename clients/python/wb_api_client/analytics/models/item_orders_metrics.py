@@ -23,12 +23,16 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ItemOrdersMetrics(BaseModel):
     """
     ItemOrdersMetrics
-    """ # noqa: E501
+    """  # noqa: E501
+
     dt: date = Field(description="Дата сбора статистики")
-    avg_position: StrictInt = Field(description="Средняя позиция товара в результатах поиска", alias="avgPosition")
+    avg_position: StrictInt = Field(
+        description="Средняя позиция товара в результатах поиска", alias="avgPosition"
+    )
     orders: StrictInt = Field(description="Сколько раз товары из поиска заказали")
     __properties: ClassVar[List[str]] = ["dt", "avgPosition", "orders"]
 
@@ -37,7 +41,6 @@ class ItemOrdersMetrics(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +66,7 @@ class ItemOrdersMetrics(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,11 +84,11 @@ class ItemOrdersMetrics(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "dt": obj.get("dt"),
-            "avgPosition": obj.get("avgPosition"),
-            "orders": obj.get("orders")
-        })
+        _obj = cls.model_validate(
+            {
+                "dt": obj.get("dt"),
+                "avgPosition": obj.get("avgPosition"),
+                "orders": obj.get("orders"),
+            }
+        )
         return _obj
-
-

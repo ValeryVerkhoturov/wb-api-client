@@ -22,27 +22,62 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class DeliveryDatesInfoRespOrdersInner(BaseModel):
     """
     DeliveryDatesInfoRespOrdersInner
-    """ # noqa: E501
-    d_time_from: Optional[StrictStr] = Field(default=None, description="Актуальное время доставки \"с\"", alias="dTimeFrom")
-    d_time_to: Optional[StrictStr] = Field(default=None, description="Актуальное время доставки \"по\"", alias="dTimeTo")
-    d_time_from_old: Optional[StrictStr] = Field(default=None, description="Прежнее время доставки \"с\". Доступно первые сутки после изменения", alias="dTimeFromOld")
-    d_time_to_old: Optional[StrictStr] = Field(default=None, description="Прежнее время доставки \"по\". Доступно первые сутки после изменения", alias="dTimeToOld")
-    d_date_old: Optional[StrictStr] = Field(default=None, description="Прежняя дата доставки. Доступна первые сутки после изменения", alias="dDateOld")
-    d_date: Optional[StrictStr] = Field(default=None, description="Актуальная дата доставки, указанная покупателем", alias="dDate")
-    d_date_from: Optional[StrictStr] = Field(default=None, description="Не используется", alias="dDateFrom")
-    d_date_to: Optional[StrictStr] = Field(default=None, description="Не используется", alias="dDateTo")
+    """  # noqa: E501
+
+    d_time_from: Optional[StrictStr] = Field(
+        default=None, description='Актуальное время доставки "с"', alias="dTimeFrom"
+    )
+    d_time_to: Optional[StrictStr] = Field(
+        default=None, description='Актуальное время доставки "по"', alias="dTimeTo"
+    )
+    d_time_from_old: Optional[StrictStr] = Field(
+        default=None,
+        description='Прежнее время доставки "с". Доступно первые сутки после изменения',
+        alias="dTimeFromOld",
+    )
+    d_time_to_old: Optional[StrictStr] = Field(
+        default=None,
+        description='Прежнее время доставки "по". Доступно первые сутки после изменения',
+        alias="dTimeToOld",
+    )
+    d_date_old: Optional[StrictStr] = Field(
+        default=None,
+        description="Прежняя дата доставки. Доступна первые сутки после изменения",
+        alias="dDateOld",
+    )
+    d_date: Optional[StrictStr] = Field(
+        default=None,
+        description="Актуальная дата доставки, указанная покупателем",
+        alias="dDate",
+    )
+    d_date_from: Optional[StrictStr] = Field(
+        default=None, description="Не используется", alias="dDateFrom"
+    )
+    d_date_to: Optional[StrictStr] = Field(
+        default=None, description="Не используется", alias="dDateTo"
+    )
     id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания")
-    __properties: ClassVar[List[str]] = ["dTimeFrom", "dTimeTo", "dTimeFromOld", "dTimeToOld", "dDateOld", "dDate", "dDateFrom", "dDateTo", "id"]
+    __properties: ClassVar[List[str]] = [
+        "dTimeFrom",
+        "dTimeTo",
+        "dTimeFromOld",
+        "dTimeToOld",
+        "dDateOld",
+        "dDate",
+        "dDateFrom",
+        "dDateTo",
+        "id",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -68,8 +103,7 @@ class DeliveryDatesInfoRespOrdersInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,37 +113,37 @@ class DeliveryDatesInfoRespOrdersInner(BaseModel):
         # set to None if d_time_from (nullable) is None
         # and model_fields_set contains the field
         if self.d_time_from is None and "d_time_from" in self.model_fields_set:
-            _dict['dTimeFrom'] = None
+            _dict["dTimeFrom"] = None
 
         # set to None if d_time_to (nullable) is None
         # and model_fields_set contains the field
         if self.d_time_to is None and "d_time_to" in self.model_fields_set:
-            _dict['dTimeTo'] = None
+            _dict["dTimeTo"] = None
 
         # set to None if d_time_from_old (nullable) is None
         # and model_fields_set contains the field
         if self.d_time_from_old is None and "d_time_from_old" in self.model_fields_set:
-            _dict['dTimeFromOld'] = None
+            _dict["dTimeFromOld"] = None
 
         # set to None if d_time_to_old (nullable) is None
         # and model_fields_set contains the field
         if self.d_time_to_old is None and "d_time_to_old" in self.model_fields_set:
-            _dict['dTimeToOld'] = None
+            _dict["dTimeToOld"] = None
 
         # set to None if d_date_old (nullable) is None
         # and model_fields_set contains the field
         if self.d_date_old is None and "d_date_old" in self.model_fields_set:
-            _dict['dDateOld'] = None
+            _dict["dDateOld"] = None
 
         # set to None if d_date_from (nullable) is None
         # and model_fields_set contains the field
         if self.d_date_from is None and "d_date_from" in self.model_fields_set:
-            _dict['dDateFrom'] = None
+            _dict["dDateFrom"] = None
 
         # set to None if d_date_to (nullable) is None
         # and model_fields_set contains the field
         if self.d_date_to is None and "d_date_to" in self.model_fields_set:
-            _dict['dDateTo'] = None
+            _dict["dDateTo"] = None
 
         return _dict
 
@@ -122,17 +156,17 @@ class DeliveryDatesInfoRespOrdersInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "dTimeFrom": obj.get("dTimeFrom"),
-            "dTimeTo": obj.get("dTimeTo"),
-            "dTimeFromOld": obj.get("dTimeFromOld"),
-            "dTimeToOld": obj.get("dTimeToOld"),
-            "dDateOld": obj.get("dDateOld"),
-            "dDate": obj.get("dDate"),
-            "dDateFrom": obj.get("dDateFrom"),
-            "dDateTo": obj.get("dDateTo"),
-            "id": obj.get("id")
-        })
+        _obj = cls.model_validate(
+            {
+                "dTimeFrom": obj.get("dTimeFrom"),
+                "dTimeTo": obj.get("dTimeTo"),
+                "dTimeFromOld": obj.get("dTimeFromOld"),
+                "dTimeToOld": obj.get("dTimeToOld"),
+                "dDateOld": obj.get("dDateOld"),
+                "dDate": obj.get("dDate"),
+                "dDateFrom": obj.get("dDateFrom"),
+                "dDateTo": obj.get("dDateTo"),
+                "id": obj.get("id"),
+            }
+        )
         return _obj
-
-

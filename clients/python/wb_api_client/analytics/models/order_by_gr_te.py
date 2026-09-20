@@ -22,25 +22,44 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class OrderByGrTe(BaseModel):
     """
     Параметры сортировки
-    """ # noqa: E501
-    var_field: StrictStr = Field(description="Поле для сортировки:   - `avgPosition` — по средней позиции   - `addToCart` — по добавлениям в корзину   - `openCard` — по открытию карточки (переход на страницу товара)   - `orders` — по количеству заказов   - `cartToOrder` — по конверсии в заказ из поиска   - `openToCart` — по конверсии в корзину из поиска   - `visibility` — по видимости товара ", alias="field")
-    mode: StrictStr = Field(description="Порядок сортировки:   - `asc` — по возрастанию   - `desc` — по убыванию ")
+    """  # noqa: E501
+
+    var_field: StrictStr = Field(
+        description="Поле для сортировки:   - `avgPosition` — по средней позиции   - `addToCart` — по добавлениям в корзину   - `openCard` — по открытию карточки (переход на страницу товара)   - `orders` — по количеству заказов   - `cartToOrder` — по конверсии в заказ из поиска   - `openToCart` — по конверсии в корзину из поиска   - `visibility` — по видимости товара ",
+        alias="field",
+    )
+    mode: StrictStr = Field(
+        description="Порядок сортировки:   - `asc` — по возрастанию   - `desc` — по убыванию "
+    )
     __properties: ClassVar[List[str]] = ["field", "mode"]
 
-    @field_validator('var_field')
+    @field_validator("var_field")
     def var_field_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['avgPosition', 'openCard', 'addToCart', 'openToCart', 'orders', 'cartToOrder', 'visibility']):
-            raise ValueError("must be one of enum values ('avgPosition', 'openCard', 'addToCart', 'openToCart', 'orders', 'cartToOrder', 'visibility')")
+        if value not in set(
+            [
+                "avgPosition",
+                "openCard",
+                "addToCart",
+                "openToCart",
+                "orders",
+                "cartToOrder",
+                "visibility",
+            ]
+        ):
+            raise ValueError(
+                "must be one of enum values ('avgPosition', 'openCard', 'addToCart', 'openToCart', 'orders', 'cartToOrder', 'visibility')"
+            )
         return value
 
-    @field_validator('mode')
+    @field_validator("mode")
     def mode_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['asc', 'desc']):
+        if value not in set(["asc", "desc"]):
             raise ValueError("must be one of enum values ('asc', 'desc')")
         return value
 
@@ -49,7 +68,6 @@ class OrderByGrTe(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -75,8 +93,7 @@ class OrderByGrTe(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -94,10 +111,5 @@ class OrderByGrTe(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "field": obj.get("field"),
-            "mode": obj.get("mode")
-        })
+        _obj = cls.model_validate({"field": obj.get("field"), "mode": obj.get("mode")})
         return _obj
-
-

@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.communications.models.get_v1_feedbacks_response200_data_feedbacks_inner import GetV1FeedbacksResponse200DataFeedbacksInner
+from wb_api_client.communications.models.get_v1_feedbacks_response200_data_feedbacks_inner import (
+    GetV1FeedbacksResponse200DataFeedbacksInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV1FeedbacksArchiveResponse200Data(BaseModel):
     """
     GetV1FeedbacksArchiveResponse200Data
-    """ # noqa: E501
-    feedbacks: Optional[List[GetV1FeedbacksResponse200DataFeedbacksInner]] = Field(default=None, description="Массив отзывов")
+    """  # noqa: E501
+
+    feedbacks: Optional[List[GetV1FeedbacksResponse200DataFeedbacksInner]] = Field(
+        default=None, description="Массив отзывов"
+    )
     __properties: ClassVar[List[str]] = ["feedbacks"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class GetV1FeedbacksArchiveResponse200Data(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class GetV1FeedbacksArchiveResponse200Data(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +79,7 @@ class GetV1FeedbacksArchiveResponse200Data(BaseModel):
             for _item_feedbacks in self.feedbacks:
                 if _item_feedbacks:
                     _items.append(_item_feedbacks.to_dict())
-            _dict['feedbacks'] = _items
+            _dict["feedbacks"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +91,16 @@ class GetV1FeedbacksArchiveResponse200Data(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "feedbacks": [GetV1FeedbacksResponse200DataFeedbacksInner.from_dict(_item) for _item in obj["feedbacks"]] if obj.get("feedbacks") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "feedbacks": (
+                    [
+                        GetV1FeedbacksResponse200DataFeedbacksInner.from_dict(_item)
+                        for _item in obj["feedbacks"]
+                    ]
+                    if obj.get("feedbacks") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

@@ -23,23 +23,50 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PutV3FbsSuppliesSupplyIdSpotRequest(BaseModel):
     """
     PutV3FbsSuppliesSupplyIdSpotRequest
-    """ # noqa: E501
-    carrier_name: Annotated[str, Field(min_length=1, strict=True, max_length=1000)] = Field(description="Наименование перевозчика", alias="carrierName")
-    carrier_tax_number: Annotated[str, Field(min_length=1, strict=True, max_length=50)] = Field(description="ИНН перевозчика", alias="carrierTaxNumber")
-    carrier_country_code: Annotated[str, Field(min_length=3, strict=True, max_length=3)] = Field(description="Код страны перевозчика по [ОКСМ](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm)", alias="carrierCountryCode")
-    vehicle_registration_number: Annotated[str, Field(min_length=1, strict=True, max_length=30)] = Field(description="Регистрационный номер транспортного средства", alias="vehicleRegistrationNumber")
-    trailer_registration_number: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=30)]] = Field(default=None, description="Регистрационный номер прицепа", alias="trailerRegistrationNumber")
-    __properties: ClassVar[List[str]] = ["carrierName", "carrierTaxNumber", "carrierCountryCode", "vehicleRegistrationNumber", "trailerRegistrationNumber"]
+    """  # noqa: E501
+
+    carrier_name: Annotated[str, Field(min_length=1, strict=True, max_length=1000)] = (
+        Field(description="Наименование перевозчика", alias="carrierName")
+    )
+    carrier_tax_number: Annotated[
+        str, Field(min_length=1, strict=True, max_length=50)
+    ] = Field(description="ИНН перевозчика", alias="carrierTaxNumber")
+    carrier_country_code: Annotated[
+        str, Field(min_length=3, strict=True, max_length=3)
+    ] = Field(
+        description="Код страны перевозчика по [ОКСМ](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm)",
+        alias="carrierCountryCode",
+    )
+    vehicle_registration_number: Annotated[
+        str, Field(min_length=1, strict=True, max_length=30)
+    ] = Field(
+        description="Регистрационный номер транспортного средства",
+        alias="vehicleRegistrationNumber",
+    )
+    trailer_registration_number: Optional[
+        Annotated[str, Field(min_length=1, strict=True, max_length=30)]
+    ] = Field(
+        default=None,
+        description="Регистрационный номер прицепа",
+        alias="trailerRegistrationNumber",
+    )
+    __properties: ClassVar[List[str]] = [
+        "carrierName",
+        "carrierTaxNumber",
+        "carrierCountryCode",
+        "vehicleRegistrationNumber",
+        "trailerRegistrationNumber",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +92,7 @@ class PutV3FbsSuppliesSupplyIdSpotRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -84,13 +110,13 @@ class PutV3FbsSuppliesSupplyIdSpotRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "carrierName": obj.get("carrierName"),
-            "carrierTaxNumber": obj.get("carrierTaxNumber"),
-            "carrierCountryCode": obj.get("carrierCountryCode"),
-            "vehicleRegistrationNumber": obj.get("vehicleRegistrationNumber"),
-            "trailerRegistrationNumber": obj.get("trailerRegistrationNumber")
-        })
+        _obj = cls.model_validate(
+            {
+                "carrierName": obj.get("carrierName"),
+                "carrierTaxNumber": obj.get("carrierTaxNumber"),
+                "carrierCountryCode": obj.get("carrierCountryCode"),
+                "vehicleRegistrationNumber": obj.get("vehicleRegistrationNumber"),
+                "trailerRegistrationNumber": obj.get("trailerRegistrationNumber"),
+            }
+        )
         return _obj
-
-

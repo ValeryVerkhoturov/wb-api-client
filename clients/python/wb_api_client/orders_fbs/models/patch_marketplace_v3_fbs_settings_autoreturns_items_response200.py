@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_items_response200_results_inner import PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
+from wb_api_client.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_items_response200_results_inner import (
+    PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200(BaseModel):
     """
     PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
-    """ # noqa: E501
+    """  # noqa: E501
+
     results: List[PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner]
     __properties: ClassVar[List[str]] = ["results"]
 
@@ -35,7 +39,6 @@ class PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +77,7 @@ class PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200(BaseModel):
             for _item_results in self.results:
                 if _item_results:
                     _items.append(_item_results.to_dict())
-            _dict['results'] = _items
+            _dict["results"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +89,18 @@ class PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "results": [PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner.from_dict(_item) for _item in obj["results"]] if obj.get("results") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "results": (
+                    [
+                        PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["results"]
+                    ]
+                    if obj.get("results") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

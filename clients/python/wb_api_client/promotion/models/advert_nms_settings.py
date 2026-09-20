@@ -24,10 +24,12 @@ from wb_api_client.promotion.models.advert_subcategory import AdvertSubcategory
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class AdvertNMsSettings(BaseModel):
     """
     AdvertNMsSettings
-    """ # noqa: E501
+    """  # noqa: E501
+
     bids_kopecks: AdvertBidsKopecks
     subject: AdvertSubcategory
     nm_id: StrictInt = Field(description="Артикул WB")
@@ -38,7 +40,6 @@ class AdvertNMsSettings(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +65,7 @@ class AdvertNMsSettings(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -74,10 +74,10 @@ class AdvertNMsSettings(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of bids_kopecks
         if self.bids_kopecks:
-            _dict['bids_kopecks'] = self.bids_kopecks.to_dict()
+            _dict["bids_kopecks"] = self.bids_kopecks.to_dict()
         # override the default output from pydantic by calling `to_dict()` of subject
         if self.subject:
-            _dict['subject'] = self.subject.to_dict()
+            _dict["subject"] = self.subject.to_dict()
         return _dict
 
     @classmethod
@@ -89,11 +89,19 @@ class AdvertNMsSettings(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "bids_kopecks": AdvertBidsKopecks.from_dict(obj["bids_kopecks"]) if obj.get("bids_kopecks") is not None else None,
-            "subject": AdvertSubcategory.from_dict(obj["subject"]) if obj.get("subject") is not None else None,
-            "nm_id": obj.get("nm_id")
-        })
+        _obj = cls.model_validate(
+            {
+                "bids_kopecks": (
+                    AdvertBidsKopecks.from_dict(obj["bids_kopecks"])
+                    if obj.get("bids_kopecks") is not None
+                    else None
+                ),
+                "subject": (
+                    AdvertSubcategory.from_dict(obj["subject"])
+                    if obj.get("subject") is not None
+                    else None
+                ),
+                "nm_id": obj.get("nm_id"),
+            }
+        )
         return _obj
-
-

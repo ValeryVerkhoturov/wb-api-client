@@ -19,27 +19,38 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.brands_response_error_errors_inner import BrandsResponseErrorErrorsInner
+from wb_api_client.items.models.brands_response_error_errors_inner import (
+    BrandsResponseErrorErrorsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class BrandsResponseError(BaseModel):
     """
     BrandsResponseError
-    """ # noqa: E501
+    """  # noqa: E501
+
     title: StrictStr = Field(description="Заголовок ошибки")
     detail: StrictStr = Field(description="Детали ошибки")
     origin: StrictStr = Field(description="ID внутреннего сервиса WB")
-    request_id: StrictStr = Field(description="Уникальный ID запроса", alias="requestId")
+    request_id: StrictStr = Field(
+        description="Уникальный ID запроса", alias="requestId"
+    )
     errors: Optional[List[BrandsResponseErrorErrorsInner]] = None
-    __properties: ClassVar[List[str]] = ["title", "detail", "origin", "requestId", "errors"]
+    __properties: ClassVar[List[str]] = [
+        "title",
+        "detail",
+        "origin",
+        "requestId",
+        "errors",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +76,7 @@ class BrandsResponseError(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,7 +89,7 @@ class BrandsResponseError(BaseModel):
             for _item_errors in self.errors:
                 if _item_errors:
                     _items.append(_item_errors.to_dict())
-            _dict['errors'] = _items
+            _dict["errors"] = _items
         return _dict
 
     @classmethod
@@ -91,13 +101,20 @@ class BrandsResponseError(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "title": obj.get("title"),
-            "detail": obj.get("detail"),
-            "origin": obj.get("origin"),
-            "requestId": obj.get("requestId"),
-            "errors": [BrandsResponseErrorErrorsInner.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "title": obj.get("title"),
+                "detail": obj.get("detail"),
+                "origin": obj.get("origin"),
+                "requestId": obj.get("requestId"),
+                "errors": (
+                    [
+                        BrandsResponseErrorErrorsInner.from_dict(_item)
+                        for _item in obj["errors"]
+                    ]
+                    if obj.get("errors") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

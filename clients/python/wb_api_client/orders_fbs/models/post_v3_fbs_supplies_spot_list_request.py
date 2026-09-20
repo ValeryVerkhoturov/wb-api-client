@@ -22,11 +22,15 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV3FbsSuppliesSpotListRequest(BaseModel):
     """
     PostV3FbsSuppliesSpotListRequest
-    """ # noqa: E501
-    supply_ids: List[StrictStr] = Field(description="Список ID поставок", alias="supplyIds")
+    """  # noqa: E501
+
+    supply_ids: List[StrictStr] = Field(
+        description="Список ID поставок", alias="supplyIds"
+    )
     __properties: ClassVar[List[str]] = ["supplyIds"]
 
     model_config = ConfigDict(
@@ -34,7 +38,6 @@ class PostV3FbsSuppliesSpotListRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,8 +63,7 @@ class PostV3FbsSuppliesSpotListRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,9 +81,5 @@ class PostV3FbsSuppliesSpotListRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "supplyIds": obj.get("supplyIds")
-        })
+        _obj = cls.model_validate({"supplyIds": obj.get("supplyIds")})
         return _obj
-
-

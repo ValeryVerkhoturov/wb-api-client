@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.promotion.models.v0_get_norm_query_stats_item import V0GetNormQueryStatsItem
+from wb_api_client.promotion.models.v0_get_norm_query_stats_item import (
+    V0GetNormQueryStatsItem,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class V0GetNormQueryStatsResponse(BaseModel):
     """
     Статистика по поисковым кластерам
-    """ # noqa: E501
+    """  # noqa: E501
+
     stats: List[V0GetNormQueryStatsItem]
     __properties: ClassVar[List[str]] = ["stats"]
 
@@ -35,7 +39,6 @@ class V0GetNormQueryStatsResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class V0GetNormQueryStatsResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +77,7 @@ class V0GetNormQueryStatsResponse(BaseModel):
             for _item_stats in self.stats:
                 if _item_stats:
                     _items.append(_item_stats.to_dict())
-            _dict['stats'] = _items
+            _dict["stats"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +89,13 @@ class V0GetNormQueryStatsResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "stats": [V0GetNormQueryStatsItem.from_dict(_item) for _item in obj["stats"]] if obj.get("stats") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "stats": (
+                    [V0GetNormQueryStatsItem.from_dict(_item) for _item in obj["stats"]]
+                    if obj.get("stats") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

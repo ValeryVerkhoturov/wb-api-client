@@ -23,22 +23,40 @@ from wb_api_client.dbs.models.api_batch_error_response import ApiBatchErrorRespo
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiOrderStatusV2(BaseModel):
     """
     ApiOrderStatusV2
-    """ # noqa: E501
-    errors: Optional[List[ApiBatchErrorResponse]] = Field(default=None, description="Информация об ошибке")
-    order_id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", alias="orderId")
-    supplier_status: Optional[StrictStr] = Field(default=None, description="Статус сборочного задания, установленный продавцом", alias="supplierStatus")
-    wb_status: Optional[StrictStr] = Field(default=None, description="Статус сборочного задания в системе Wildberries", alias="wbStatus")
-    __properties: ClassVar[List[str]] = ["errors", "orderId", "supplierStatus", "wbStatus"]
+    """  # noqa: E501
+
+    errors: Optional[List[ApiBatchErrorResponse]] = Field(
+        default=None, description="Информация об ошибке"
+    )
+    order_id: Optional[StrictInt] = Field(
+        default=None, description="ID сборочного задания", alias="orderId"
+    )
+    supplier_status: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус сборочного задания, установленный продавцом",
+        alias="supplierStatus",
+    )
+    wb_status: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус сборочного задания в системе Wildberries",
+        alias="wbStatus",
+    )
+    __properties: ClassVar[List[str]] = [
+        "errors",
+        "orderId",
+        "supplierStatus",
+        "wbStatus",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +82,7 @@ class ApiOrderStatusV2(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -78,7 +95,7 @@ class ApiOrderStatusV2(BaseModel):
             for _item_errors in self.errors:
                 if _item_errors:
                     _items.append(_item_errors.to_dict())
-            _dict['errors'] = _items
+            _dict["errors"] = _items
         return _dict
 
     @classmethod
@@ -90,12 +107,16 @@ class ApiOrderStatusV2(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "errors": [ApiBatchErrorResponse.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None,
-            "orderId": obj.get("orderId"),
-            "supplierStatus": obj.get("supplierStatus"),
-            "wbStatus": obj.get("wbStatus")
-        })
+        _obj = cls.model_validate(
+            {
+                "errors": (
+                    [ApiBatchErrorResponse.from_dict(_item) for _item in obj["errors"]]
+                    if obj.get("errors") is not None
+                    else None
+                ),
+                "orderId": obj.get("orderId"),
+                "supplierStatus": obj.get("supplierStatus"),
+                "wbStatus": obj.get("wbStatus"),
+            }
+        )
         return _obj
-
-

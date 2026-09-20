@@ -23,25 +23,48 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1AdvertsResponse200Inner(BaseModel):
     """
     GetV1AdvertsResponse200Inner
-    """ # noqa: E501
-    advert_id: Optional[StrictInt] = Field(default=None, description="ID медиакампании", alias="advertId")
-    name: Optional[StrictStr] = Field(default=None, description="Название медиакампании")
+    """  # noqa: E501
+
+    advert_id: Optional[StrictInt] = Field(
+        default=None, description="ID медиакампании", alias="advertId"
+    )
+    name: Optional[StrictStr] = Field(
+        default=None, description="Название медиакампании"
+    )
     brand: Optional[StrictStr] = Field(default=None, description="Название бренда")
-    type: Optional[StrictInt] = Field(default=None, description="Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам ")
-    status: Optional[StrictInt] = Field(default=None, description="Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза ")
-    create_time: Optional[datetime] = Field(default=None, description="Время создания медиакампании", alias="createTime")
-    end_time: Optional[datetime] = Field(default=None, description="Время завершения медиакампании", alias="endTime")
-    __properties: ClassVar[List[str]] = ["advertId", "name", "brand", "type", "status", "createTime", "endTime"]
+    type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам ",
+    )
+    status: Optional[StrictInt] = Field(
+        default=None,
+        description="Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза ",
+    )
+    create_time: Optional[datetime] = Field(
+        default=None, description="Время создания медиакампании", alias="createTime"
+    )
+    end_time: Optional[datetime] = Field(
+        default=None, description="Время завершения медиакампании", alias="endTime"
+    )
+    __properties: ClassVar[List[str]] = [
+        "advertId",
+        "name",
+        "brand",
+        "type",
+        "status",
+        "createTime",
+        "endTime",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -67,8 +90,7 @@ class GetV1AdvertsResponse200Inner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -86,15 +108,15 @@ class GetV1AdvertsResponse200Inner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advertId": obj.get("advertId"),
-            "name": obj.get("name"),
-            "brand": obj.get("brand"),
-            "type": obj.get("type"),
-            "status": obj.get("status"),
-            "createTime": obj.get("createTime"),
-            "endTime": obj.get("endTime")
-        })
+        _obj = cls.model_validate(
+            {
+                "advertId": obj.get("advertId"),
+                "name": obj.get("name"),
+                "brand": obj.get("brand"),
+                "type": obj.get("type"),
+                "status": obj.get("status"),
+                "createTime": obj.get("createTime"),
+                "endTime": obj.get("endTime"),
+            }
+        )
         return _obj
-
-

@@ -24,7 +24,9 @@ from wb_api_client.finances.models.get_categories import GetCategories
 from wb_api_client.finances.models.get_doc import GetDoc
 from wb_api_client.finances.models.get_docs import GetDocs
 from wb_api_client.finances.models.get_list import GetList
-from wb_api_client.finances.models.get_v1_account_balance_response200 import GetV1AccountBalanceResponse200
+from wb_api_client.finances.models.get_v1_account_balance_response200 import (
+    GetV1AccountBalanceResponse200,
+)
 from wb_api_client.finances.models.request_download import RequestDownload
 
 from wb_api_client.finances.api_client import ApiClient, RequestSerialized
@@ -44,7 +46,6 @@ class DefaultApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def get_v1_account_balance(
         self,
@@ -52,9 +53,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -85,32 +85,30 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_account_balance_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1AccountBalanceResponse200",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "GetV1AccountBalance403Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "GetV1AccountBalanceResponse200",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "GetV1AccountBalance403Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_account_balance_with_http_info(
@@ -119,9 +117,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -152,32 +149,30 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_account_balance_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1AccountBalanceResponse200",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "GetV1AccountBalance403Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "GetV1AccountBalanceResponse200",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "GetV1AccountBalance403Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_account_balance_without_preload_content(
@@ -186,9 +181,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -219,28 +213,26 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_account_balance_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1AccountBalanceResponse200",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "GetV1AccountBalance403Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "GetV1AccountBalanceResponse200",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "GetV1AccountBalance403Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_account_balance_serialize(
         self,
@@ -250,13 +242,10 @@ class DefaultApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://finance-api.wildberries.ru'
-        ]
+        _hosts = ["https://finance-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -273,25 +262,18 @@ class DefaultApi:
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/account/balance',
+            method="GET",
+            resource_path="/api/v1/account/balance",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -301,23 +283,24 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_documents_categories(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык поля `title`:   - `ru` — русский   - `en` — английский   - `zh` — китайский ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык поля `title`:   - `ru` — русский   - `en` — английский   - `zh` — китайский "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -328,7 +311,7 @@ class DefaultApi:
 
         Метод возвращает категории документов для получения [списка документов продавца](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
 
-        :param locale: Язык поля `title`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
+        :param locale: Язык поля `title`:   - `ru` — русский   - `en` — английский   - `zh` — китайский
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -350,26 +333,25 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_documents_categories_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCategories",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "GetV1AccountBalance403Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "GetCategories",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "GetV1AccountBalance403Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -377,18 +359,21 @@ class DefaultApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v1_documents_categories_with_http_info(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык поля `title`:   - `ru` — русский   - `en` — английский   - `zh` — китайский ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык поля `title`:   - `ru` — русский   - `en` — английский   - `zh` — китайский "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -399,7 +384,7 @@ class DefaultApi:
 
         Метод возвращает категории документов для получения [списка документов продавца](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
 
-        :param locale: Язык поля `title`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
+        :param locale: Язык поля `title`:   - `ru` — русский   - `en` — английский   - `zh` — китайский
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -421,26 +406,25 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_documents_categories_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCategories",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "GetV1AccountBalance403Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "GetCategories",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "GetV1AccountBalance403Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -448,18 +432,21 @@ class DefaultApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v1_documents_categories_without_preload_content(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык поля `title`:   - `ru` — русский   - `en` — английский   - `zh` — китайский ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык поля `title`:   - `ru` — русский   - `en` — английский   - `zh` — китайский "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -470,7 +457,7 @@ class DefaultApi:
 
         Метод возвращает категории документов для получения [списка документов продавца](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsList).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
 
-        :param locale: Язык поля `title`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
+        :param locale: Язык поля `title`:   - `ru` — русский   - `en` — английский   - `zh` — китайский
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -492,29 +479,27 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_documents_categories_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCategories",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "GetV1AccountBalance403Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "GetCategories",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "GetV1AccountBalance403Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_documents_categories_serialize(
         self,
@@ -525,13 +510,10 @@ class DefaultApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://documents-api.wildberries.ru'
-        ]
+        _hosts = ["https://documents-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -545,32 +527,25 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if locale is not None:
-            
-            _query_params.append(('locale', locale))
-            
+
+            _query_params.append(("locale", locale))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/documents/categories',
+            method="GET",
+            resource_path="/api/v1/documents/categories",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -580,24 +555,22 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_documents_download(
         self,
-        service_name: Annotated[StrictStr, Field(description="Уникальный ID документа")],
+        service_name: Annotated[
+            StrictStr, Field(description="Уникальный ID документа")
+        ],
         extension: Annotated[StrictStr, Field(description="Формат документа")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -632,7 +605,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_documents_download_serialize(
             service_name=service_name,
@@ -640,20 +613,19 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetDoc",
-            '400': "GetV1DocumentsList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "GetV1AccountBalance403Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "GetDoc",
+            "400": "GetV1DocumentsList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "GetV1AccountBalance403Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -661,19 +633,19 @@ class DefaultApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v1_documents_download_with_http_info(
         self,
-        service_name: Annotated[StrictStr, Field(description="Уникальный ID документа")],
+        service_name: Annotated[
+            StrictStr, Field(description="Уникальный ID документа")
+        ],
         extension: Annotated[StrictStr, Field(description="Формат документа")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -708,7 +680,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_documents_download_serialize(
             service_name=service_name,
@@ -716,20 +688,19 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetDoc",
-            '400': "GetV1DocumentsList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "GetV1AccountBalance403Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "GetDoc",
+            "400": "GetV1DocumentsList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "GetV1AccountBalance403Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -737,19 +708,19 @@ class DefaultApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v1_documents_download_without_preload_content(
         self,
-        service_name: Annotated[StrictStr, Field(description="Уникальный ID документа")],
+        service_name: Annotated[
+            StrictStr, Field(description="Уникальный ID документа")
+        ],
         extension: Annotated[StrictStr, Field(description="Формат документа")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -784,7 +755,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_documents_download_serialize(
             service_name=service_name,
@@ -792,23 +763,21 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetDoc",
-            '400': "GetV1DocumentsList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "GetV1AccountBalance403Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "GetDoc",
+            "400": "GetV1DocumentsList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "GetV1AccountBalance403Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_documents_download_serialize(
         self,
@@ -820,13 +789,10 @@ class DefaultApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://documents-api.wildberries.ru'
-        ]
+        _hosts = ["https://documents-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -840,36 +806,29 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if service_name is not None:
-            
-            _query_params.append(('serviceName', service_name))
-            
+
+            _query_params.append(("serviceName", service_name))
+
         if extension is not None:
-            
-            _query_params.append(('extension', extension))
-            
+
+            _query_params.append(("extension", extension))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/documents/download',
+            method="GET",
+            resource_path="/api/v1/documents/download",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -879,31 +838,60 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_documents_list(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык поля `category`:   - `ru` — русский   - `en` — английский   - `zh` — китайский ")] = None,
-        begin_time: Annotated[Optional[date], Field(description="Начало периода. Только вместе с `endTime`")] = None,
-        end_time: Annotated[Optional[date], Field(description="Конец периода. Только вместе с `beginTime`")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="Сортировка:   - `date` — по дате создания документа   - `category` — по категории (только при `locale=ru`)  Только вместе с `order` ")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Сортировка:   - `desc` — по убыванию   - `asc` — по возрастанию  Только вместе с `sort` ")] = None,
-        category: Annotated[Optional[StrictStr], Field(description="ID [категории документов](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля `name`")] = None,
-        service_name: Annotated[Optional[StrictStr], Field(description="Уникальный ID документа")] = None,
-        limit: Annotated[Optional[Annotated[int, Field(le=50, strict=True)]], Field(description="Максимальное количество строк ответа")] = None,
-        offset: Annotated[Optional[StrictInt], Field(description="После какой строки выдавать данные")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык поля `category`:   - `ru` — русский   - `en` — английский   - `zh` — китайский "
+            ),
+        ] = None,
+        begin_time: Annotated[
+            Optional[date],
+            Field(description="Начало периода. Только вместе с `endTime`"),
+        ] = None,
+        end_time: Annotated[
+            Optional[date],
+            Field(description="Конец периода. Только вместе с `beginTime`"),
+        ] = None,
+        sort: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Сортировка:   - `date` — по дате создания документа   - `category` — по категории (только при `locale=ru`)  Только вместе с `order` "
+            ),
+        ] = None,
+        order: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Сортировка:   - `desc` — по убыванию   - `asc` — по возрастанию  Только вместе с `sort` "
+            ),
+        ] = None,
+        category: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="ID [категории документов](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля `name`"
+            ),
+        ] = None,
+        service_name: Annotated[
+            Optional[StrictStr], Field(description="Уникальный ID документа")
+        ] = None,
+        limit: Annotated[
+            Optional[Annotated[int, Field(le=50, strict=True)]],
+            Field(description="Максимальное количество строк ответа"),
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt], Field(description="После какой строки выдавать данные")
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -914,15 +902,15 @@ class DefaultApi:
 
         Метод возвращает список документов продавца. Вы можете получить [один](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsDownload) или [несколько](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/postV1DocumentsDownloadAll) документов из полученного списка.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
 
-        :param locale: Язык поля `category`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
+        :param locale: Язык поля `category`:   - `ru` — русский   - `en` — английский   - `zh` — китайский
         :type locale: str
         :param begin_time: Начало периода. Только вместе с `endTime`
         :type begin_time: date
         :param end_time: Конец периода. Только вместе с `beginTime`
         :type end_time: date
-        :param sort: Сортировка:   - `date` — по дате создания документа   - `category` — по категории (только при `locale=ru`)  Только вместе с `order` 
+        :param sort: Сортировка:   - `date` — по дате создания документа   - `category` — по категории (только при `locale=ru`)  Только вместе с `order`
         :type sort: str
-        :param order: Сортировка:   - `desc` — по убыванию   - `asc` — по возрастанию  Только вместе с `sort` 
+        :param order: Сортировка:   - `desc` — по убыванию   - `asc` — по возрастанию  Только вместе с `sort`
         :type order: str
         :param category: ID [категории документов](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля `name`
         :type category: str
@@ -952,7 +940,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_documents_list_serialize(
             locale=locale,
@@ -967,20 +955,19 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetList",
-            '400': "GetV1DocumentsList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "GetV1AccountBalance403Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "GetList",
+            "400": "GetV1DocumentsList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "GetV1AccountBalance403Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -988,26 +975,57 @@ class DefaultApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v1_documents_list_with_http_info(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык поля `category`:   - `ru` — русский   - `en` — английский   - `zh` — китайский ")] = None,
-        begin_time: Annotated[Optional[date], Field(description="Начало периода. Только вместе с `endTime`")] = None,
-        end_time: Annotated[Optional[date], Field(description="Конец периода. Только вместе с `beginTime`")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="Сортировка:   - `date` — по дате создания документа   - `category` — по категории (только при `locale=ru`)  Только вместе с `order` ")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Сортировка:   - `desc` — по убыванию   - `asc` — по возрастанию  Только вместе с `sort` ")] = None,
-        category: Annotated[Optional[StrictStr], Field(description="ID [категории документов](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля `name`")] = None,
-        service_name: Annotated[Optional[StrictStr], Field(description="Уникальный ID документа")] = None,
-        limit: Annotated[Optional[Annotated[int, Field(le=50, strict=True)]], Field(description="Максимальное количество строк ответа")] = None,
-        offset: Annotated[Optional[StrictInt], Field(description="После какой строки выдавать данные")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык поля `category`:   - `ru` — русский   - `en` — английский   - `zh` — китайский "
+            ),
+        ] = None,
+        begin_time: Annotated[
+            Optional[date],
+            Field(description="Начало периода. Только вместе с `endTime`"),
+        ] = None,
+        end_time: Annotated[
+            Optional[date],
+            Field(description="Конец периода. Только вместе с `beginTime`"),
+        ] = None,
+        sort: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Сортировка:   - `date` — по дате создания документа   - `category` — по категории (только при `locale=ru`)  Только вместе с `order` "
+            ),
+        ] = None,
+        order: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Сортировка:   - `desc` — по убыванию   - `asc` — по возрастанию  Только вместе с `sort` "
+            ),
+        ] = None,
+        category: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="ID [категории документов](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля `name`"
+            ),
+        ] = None,
+        service_name: Annotated[
+            Optional[StrictStr], Field(description="Уникальный ID документа")
+        ] = None,
+        limit: Annotated[
+            Optional[Annotated[int, Field(le=50, strict=True)]],
+            Field(description="Максимальное количество строк ответа"),
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt], Field(description="После какой строки выдавать данные")
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1018,15 +1036,15 @@ class DefaultApi:
 
         Метод возвращает список документов продавца. Вы можете получить [один](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsDownload) или [несколько](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/postV1DocumentsDownloadAll) документов из полученного списка.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
 
-        :param locale: Язык поля `category`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
+        :param locale: Язык поля `category`:   - `ru` — русский   - `en` — английский   - `zh` — китайский
         :type locale: str
         :param begin_time: Начало периода. Только вместе с `endTime`
         :type begin_time: date
         :param end_time: Конец периода. Только вместе с `beginTime`
         :type end_time: date
-        :param sort: Сортировка:   - `date` — по дате создания документа   - `category` — по категории (только при `locale=ru`)  Только вместе с `order` 
+        :param sort: Сортировка:   - `date` — по дате создания документа   - `category` — по категории (только при `locale=ru`)  Только вместе с `order`
         :type sort: str
-        :param order: Сортировка:   - `desc` — по убыванию   - `asc` — по возрастанию  Только вместе с `sort` 
+        :param order: Сортировка:   - `desc` — по убыванию   - `asc` — по возрастанию  Только вместе с `sort`
         :type order: str
         :param category: ID [категории документов](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля `name`
         :type category: str
@@ -1056,7 +1074,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_documents_list_serialize(
             locale=locale,
@@ -1071,20 +1089,19 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetList",
-            '400': "GetV1DocumentsList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "GetV1AccountBalance403Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "GetList",
+            "400": "GetV1DocumentsList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "GetV1AccountBalance403Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1092,26 +1109,57 @@ class DefaultApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v1_documents_list_without_preload_content(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык поля `category`:   - `ru` — русский   - `en` — английский   - `zh` — китайский ")] = None,
-        begin_time: Annotated[Optional[date], Field(description="Начало периода. Только вместе с `endTime`")] = None,
-        end_time: Annotated[Optional[date], Field(description="Конец периода. Только вместе с `beginTime`")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="Сортировка:   - `date` — по дате создания документа   - `category` — по категории (только при `locale=ru`)  Только вместе с `order` ")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Сортировка:   - `desc` — по убыванию   - `asc` — по возрастанию  Только вместе с `sort` ")] = None,
-        category: Annotated[Optional[StrictStr], Field(description="ID [категории документов](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля `name`")] = None,
-        service_name: Annotated[Optional[StrictStr], Field(description="Уникальный ID документа")] = None,
-        limit: Annotated[Optional[Annotated[int, Field(le=50, strict=True)]], Field(description="Максимальное количество строк ответа")] = None,
-        offset: Annotated[Optional[StrictInt], Field(description="После какой строки выдавать данные")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык поля `category`:   - `ru` — русский   - `en` — английский   - `zh` — китайский "
+            ),
+        ] = None,
+        begin_time: Annotated[
+            Optional[date],
+            Field(description="Начало периода. Только вместе с `endTime`"),
+        ] = None,
+        end_time: Annotated[
+            Optional[date],
+            Field(description="Конец периода. Только вместе с `beginTime`"),
+        ] = None,
+        sort: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Сортировка:   - `date` — по дате создания документа   - `category` — по категории (только при `locale=ru`)  Только вместе с `order` "
+            ),
+        ] = None,
+        order: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Сортировка:   - `desc` — по убыванию   - `asc` — по возрастанию  Только вместе с `sort` "
+            ),
+        ] = None,
+        category: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="ID [категории документов](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля `name`"
+            ),
+        ] = None,
+        service_name: Annotated[
+            Optional[StrictStr], Field(description="Уникальный ID документа")
+        ] = None,
+        limit: Annotated[
+            Optional[Annotated[int, Field(le=50, strict=True)]],
+            Field(description="Максимальное количество строк ответа"),
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt], Field(description="После какой строки выдавать данные")
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1122,15 +1170,15 @@ class DefaultApi:
 
         Метод возвращает список документов продавца. Вы можете получить [один](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/getV1DocumentsDownload) или [несколько](https://dev.wildberries.ru/openapi/documents-and-accounting#tag/documents/operation/postV1DocumentsDownloadAll) документов из полученного списка.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 24 ч | 1 запрос | 24 ч | 1 запрос |
 
-        :param locale: Язык поля `category`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
+        :param locale: Язык поля `category`:   - `ru` — русский   - `en` — английский   - `zh` — китайский
         :type locale: str
         :param begin_time: Начало периода. Только вместе с `endTime`
         :type begin_time: date
         :param end_time: Конец периода. Только вместе с `beginTime`
         :type end_time: date
-        :param sort: Сортировка:   - `date` — по дате создания документа   - `category` — по категории (только при `locale=ru`)  Только вместе с `order` 
+        :param sort: Сортировка:   - `date` — по дате создания документа   - `category` — по категории (только при `locale=ru`)  Только вместе с `order`
         :type sort: str
-        :param order: Сортировка:   - `desc` — по убыванию   - `asc` — по возрастанию  Только вместе с `sort` 
+        :param order: Сортировка:   - `desc` — по убыванию   - `asc` — по возрастанию  Только вместе с `sort`
         :type order: str
         :param category: ID [категории документов](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля `name`
         :type category: str
@@ -1160,7 +1208,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_documents_list_serialize(
             locale=locale,
@@ -1175,23 +1223,21 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetList",
-            '400': "GetV1DocumentsList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "GetV1AccountBalance403Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "GetList",
+            "400": "GetV1DocumentsList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "GetV1AccountBalance403Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_documents_list_serialize(
         self,
@@ -1210,13 +1256,10 @@ class DefaultApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://documents-api.wildberries.ru'
-        ]
+        _hosts = ["https://documents-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1230,82 +1273,71 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if locale is not None:
-            
-            _query_params.append(('locale', locale))
-            
+
+            _query_params.append(("locale", locale))
+
         if begin_time is not None:
             if isinstance(begin_time, date):
                 _query_params.append(
                     (
-                        'beginTime',
-                        begin_time.strftime(
-                            self.api_client.configuration.date_format
-                        )
+                        "beginTime",
+                        begin_time.strftime(self.api_client.configuration.date_format),
                     )
                 )
             else:
-                _query_params.append(('beginTime', begin_time))
-            
+                _query_params.append(("beginTime", begin_time))
+
         if end_time is not None:
             if isinstance(end_time, date):
                 _query_params.append(
                     (
-                        'endTime',
-                        end_time.strftime(
-                            self.api_client.configuration.date_format
-                        )
+                        "endTime",
+                        end_time.strftime(self.api_client.configuration.date_format),
                     )
                 )
             else:
-                _query_params.append(('endTime', end_time))
-            
+                _query_params.append(("endTime", end_time))
+
         if sort is not None:
-            
-            _query_params.append(('sort', sort))
-            
+
+            _query_params.append(("sort", sort))
+
         if order is not None:
-            
-            _query_params.append(('order', order))
-            
+
+            _query_params.append(("order", order))
+
         if category is not None:
-            
-            _query_params.append(('category', category))
-            
+
+            _query_params.append(("category", category))
+
         if service_name is not None:
-            
-            _query_params.append(('serviceName', service_name))
-            
+
+            _query_params.append(("serviceName", service_name))
+
         if limit is not None:
-            
-            _query_params.append(('limit', limit))
-            
+
+            _query_params.append(("limit", limit))
+
         if offset is not None:
-            
-            _query_params.append(('offset', offset))
-            
+
+            _query_params.append(("offset", offset))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/documents/list',
+            method="GET",
+            resource_path="/api/v1/documents/list",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1315,11 +1347,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v1_documents_download_all(
@@ -1329,9 +1358,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1364,34 +1392,32 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_documents_download_all_serialize(
             request_download=request_download,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetDocs",
-            '400': "GetV1DocumentsList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "GetV1AccountBalance403Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "GetDocs",
+            "400": "GetV1DocumentsList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "GetV1AccountBalance403Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v1_documents_download_all_with_http_info(
@@ -1401,9 +1427,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1436,34 +1461,32 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_documents_download_all_serialize(
             request_download=request_download,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetDocs",
-            '400': "GetV1DocumentsList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "GetV1AccountBalance403Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "GetDocs",
+            "400": "GetV1DocumentsList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "GetV1AccountBalance403Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v1_documents_download_all_without_preload_content(
@@ -1473,9 +1496,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1508,30 +1530,28 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_documents_download_all_serialize(
             request_download=request_download,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetDocs",
-            '400': "GetV1DocumentsList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "GetV1AccountBalance403Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "GetDocs",
+            "400": "GetV1DocumentsList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "GetV1AccountBalance403Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v1_documents_download_all_serialize(
         self,
@@ -1542,13 +1562,10 @@ class DefaultApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://documents-api.wildberries.ru'
-        ]
+        _hosts = ["https://documents-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1567,38 +1584,28 @@ class DefaultApi:
         if request_download is not None:
             _body_params = request_download
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v1/documents/download/all',
+            method="POST",
+            resource_path="/api/v1/documents/download/all",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1608,7 +1615,5 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

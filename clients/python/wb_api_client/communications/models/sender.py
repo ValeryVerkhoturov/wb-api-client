@@ -20,19 +20,17 @@ from typing_extensions import Self
 
 class Sender(str, Enum):
     """
-    Отправитель: - `client` — покупатель - `seller` — продавец - `wb` — Wildberries 
+    Отправитель: - `client` — покупатель - `seller` — продавец - `wb` — Wildberries
     """
 
     """
     allowed enum values
     """
-    CLIENT = 'client'
-    SELLER = 'seller'
-    WB = 'wb'
+    CLIENT = "client"
+    SELLER = "seller"
+    WB = "wb"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of Sender from a JSON string"""
         return cls(json.loads(json_str))
-
-

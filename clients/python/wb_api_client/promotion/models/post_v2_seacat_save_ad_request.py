@@ -22,46 +22,68 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2SeacatSaveAdRequest(BaseModel):
     """
     PostV2SeacatSaveAdRequest
-    """ # noqa: E501
-    name: StrictStr = Field(description="Название кампании")
-    nms: Optional[List[StrictInt]] = Field(default=None, description="Карточки товаров для кампании. Доступные карточки товаров можно получить с помощью метода [Карточки товаров для кампаний](./promotion#tag/creatingCampaigns/operation/postV2SupplierNms). Максимум 50 товаров (`nm`) ")
-    bid_type: Optional[StrictStr] = Field(default='manual', description="Тип ставки:   - `manual` — ручная   - `unified` — единая ")
-    payment_type: Optional[StrictStr] = Field(default='cpm', description="Тип оплаты: - `cpm` — за показы - `cpc` — за клик. При создании с этим типом оплаты в кампании автоматически устанавливается минимальная ставка ")
-    placement_types: Optional[List[StrictStr]] = Field(default=None, description="Места размещения:   - `search` — в поиске   - `recommendations` — в рекомендациях  Укажите только для кампании с ручной ставкой ")
-    __properties: ClassVar[List[str]] = ["name", "nms", "bid_type", "payment_type", "placement_types"]
+    """  # noqa: E501
 
-    @field_validator('bid_type')
+    name: StrictStr = Field(description="Название кампании")
+    nms: Optional[List[StrictInt]] = Field(
+        default=None,
+        description="Карточки товаров для кампании. Доступные карточки товаров можно получить с помощью метода [Карточки товаров для кампаний](./promotion#tag/creatingCampaigns/operation/postV2SupplierNms). Максимум 50 товаров (`nm`) ",
+    )
+    bid_type: Optional[StrictStr] = Field(
+        default="manual",
+        description="Тип ставки:   - `manual` — ручная   - `unified` — единая ",
+    )
+    payment_type: Optional[StrictStr] = Field(
+        default="cpm",
+        description="Тип оплаты: - `cpm` — за показы - `cpc` — за клик. При создании с этим типом оплаты в кампании автоматически устанавливается минимальная ставка ",
+    )
+    placement_types: Optional[List[StrictStr]] = Field(
+        default=None,
+        description="Места размещения:   - `search` — в поиске   - `recommendations` — в рекомендациях  Укажите только для кампании с ручной ставкой ",
+    )
+    __properties: ClassVar[List[str]] = [
+        "name",
+        "nms",
+        "bid_type",
+        "payment_type",
+        "placement_types",
+    ]
+
+    @field_validator("bid_type")
     def bid_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['manual', 'unified']):
+        if value not in set(["manual", "unified"]):
             raise ValueError("must be one of enum values ('manual', 'unified')")
         return value
 
-    @field_validator('payment_type')
+    @field_validator("payment_type")
     def payment_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['cpm', 'cpc']):
+        if value not in set(["cpm", "cpc"]):
             raise ValueError("must be one of enum values ('cpm', 'cpc')")
         return value
 
-    @field_validator('placement_types')
+    @field_validator("placement_types")
     def placement_types_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
         for i in value:
-            if i not in set(['search', 'recommendations']):
-                raise ValueError("each list item must be one of ('search', 'recommendations')")
+            if i not in set(["search", "recommendations"]):
+                raise ValueError(
+                    "each list item must be one of ('search', 'recommendations')"
+                )
         return value
 
     model_config = ConfigDict(
@@ -69,7 +91,6 @@ class PostV2SeacatSaveAdRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -95,8 +116,7 @@ class PostV2SeacatSaveAdRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -114,13 +134,19 @@ class PostV2SeacatSaveAdRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "nms": obj.get("nms"),
-            "bid_type": obj.get("bid_type") if obj.get("bid_type") is not None else 'manual',
-            "payment_type": obj.get("payment_type") if obj.get("payment_type") is not None else 'cpm',
-            "placement_types": obj.get("placement_types")
-        })
+        _obj = cls.model_validate(
+            {
+                "name": obj.get("name"),
+                "nms": obj.get("nms"),
+                "bid_type": (
+                    obj.get("bid_type") if obj.get("bid_type") is not None else "manual"
+                ),
+                "payment_type": (
+                    obj.get("payment_type")
+                    if obj.get("payment_type") is not None
+                    else "cpm"
+                ),
+                "placement_types": obj.get("placement_types"),
+            }
+        )
         return _obj
-
-

@@ -23,11 +23,16 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiOrderGroupsRequest(BaseModel):
     """
     ApiOrderGroupsRequest
-    """ # noqa: E501
-    groups: Optional[Annotated[List[StrictStr], Field(max_length=1000)]] = Field(default=None, description="Список значений `groupId`. Можно получить из [новых](./dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew) и [завершенных](./dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrders) сборочных заданий")
+    """  # noqa: E501
+
+    groups: Optional[Annotated[List[StrictStr], Field(max_length=1000)]] = Field(
+        default=None,
+        description="Список значений `groupId`. Можно получить из [новых](./dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew) и [завершенных](./dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrders) сборочных заданий",
+    )
     __properties: ClassVar[List[str]] = ["groups"]
 
     model_config = ConfigDict(
@@ -35,7 +40,6 @@ class ApiOrderGroupsRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +65,7 @@ class ApiOrderGroupsRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,9 +83,5 @@ class ApiOrderGroupsRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "groups": obj.get("groups")
-        })
+        _obj = cls.model_validate({"groups": obj.get("groups")})
         return _obj
-
-

@@ -19,19 +19,30 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.in_store_pickup.models.api_orders_meta_details_response_orders_inner_errors_inner import ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner
-from wb_api_client.in_store_pickup.models.api_orders_meta_details_response_orders_inner_meta_details_inner import ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
+from wb_api_client.in_store_pickup.models.api_orders_meta_details_response_orders_inner_errors_inner import (
+    ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner,
+)
+from wb_api_client.in_store_pickup.models.api_orders_meta_details_response_orders_inner_meta_details_inner import (
+    ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ApiOrdersMetaDetailsResponseOrdersInner(BaseModel):
     """
     ApiOrdersMetaDetailsResponseOrdersInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
     is_error: StrictBool = Field(description="Есть ли ошибки", alias="isError")
-    errors: Optional[List[ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner]] = Field(default=None, description="Информация об ошибке")
-    meta_details: List[ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner] = Field(description="Идентификаторы маркировки и статусы их валидации", alias="metaDetails")
+    errors: Optional[List[ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner]] = Field(
+        default=None, description="Информация об ошибке"
+    )
+    meta_details: List[ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner] = Field(
+        description="Идентификаторы маркировки и статусы их валидации",
+        alias="metaDetails",
+    )
     __properties: ClassVar[List[str]] = ["orderId", "isError", "errors", "metaDetails"]
 
     model_config = ConfigDict(
@@ -39,7 +50,6 @@ class ApiOrdersMetaDetailsResponseOrdersInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +75,7 @@ class ApiOrdersMetaDetailsResponseOrdersInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,14 +88,14 @@ class ApiOrdersMetaDetailsResponseOrdersInner(BaseModel):
             for _item_errors in self.errors:
                 if _item_errors:
                     _items.append(_item_errors.to_dict())
-            _dict['errors'] = _items
+            _dict["errors"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in meta_details (list)
         _items = []
         if self.meta_details:
             for _item_meta_details in self.meta_details:
                 if _item_meta_details:
                     _items.append(_item_meta_details.to_dict())
-            _dict['metaDetails'] = _items
+            _dict["metaDetails"] = _items
         return _dict
 
     @classmethod
@@ -98,12 +107,30 @@ class ApiOrdersMetaDetailsResponseOrdersInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "orderId": obj.get("orderId"),
-            "isError": obj.get("isError"),
-            "errors": [ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None,
-            "metaDetails": [ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner.from_dict(_item) for _item in obj["metaDetails"]] if obj.get("metaDetails") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "orderId": obj.get("orderId"),
+                "isError": obj.get("isError"),
+                "errors": (
+                    [
+                        ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["errors"]
+                    ]
+                    if obj.get("errors") is not None
+                    else None
+                ),
+                "metaDetails": (
+                    [
+                        ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["metaDetails"]
+                    ]
+                    if obj.get("metaDetails") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

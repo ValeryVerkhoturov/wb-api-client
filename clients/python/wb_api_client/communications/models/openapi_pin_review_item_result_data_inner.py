@@ -17,35 +17,64 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.communications.models.openapi_result_err import OpenapiResultErr
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class OpenapiPinReviewItemResultDataInner(BaseModel):
     """
     OpenapiPinReviewItemResultDataInner
-    """ # noqa: E501
-    feedback_id: StrictStr = Field(description="ID отзыва", alias="feedbackId")
-    pin_id: Optional[StrictInt] = Field(default=None, description="ID операции закрепления. Если поле отсутствует — закрепить отзыв не удалось ", alias="pinId")
-    pin_method: StrictStr = Field(description="Метод закрепления:   - `subscription` — подписка Джем   - `tariff` — тарифная опция ", alias="pinMethod")
-    pin_on: StrictStr = Field(description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ", alias="pinOn")
-    is_errors: StrictBool = Field(description="Есть ли ошибки", alias="isErrors")
-    errors: Optional[List[OpenapiResultErr]] = Field(default=None, description="Детали ошибок")
-    __properties: ClassVar[List[str]] = ["feedbackId", "pinId", "pinMethod", "pinOn", "isErrors", "errors"]
+    """  # noqa: E501
 
-    @field_validator('pin_method')
+    feedback_id: StrictStr = Field(description="ID отзыва", alias="feedbackId")
+    pin_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID операции закрепления. Если поле отсутствует — закрепить отзыв не удалось ",
+        alias="pinId",
+    )
+    pin_method: StrictStr = Field(
+        description="Метод закрепления:   - `subscription` — подписка Джем   - `tariff` — тарифная опция ",
+        alias="pinMethod",
+    )
+    pin_on: StrictStr = Field(
+        description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ",
+        alias="pinOn",
+    )
+    is_errors: StrictBool = Field(description="Есть ли ошибки", alias="isErrors")
+    errors: Optional[List[OpenapiResultErr]] = Field(
+        default=None, description="Детали ошибок"
+    )
+    __properties: ClassVar[List[str]] = [
+        "feedbackId",
+        "pinId",
+        "pinMethod",
+        "pinOn",
+        "isErrors",
+        "errors",
+    ]
+
+    @field_validator("pin_method")
     def pin_method_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['tariff', 'subscription']):
+        if value not in set(["tariff", "subscription"]):
             raise ValueError("must be one of enum values ('tariff', 'subscription')")
         return value
 
-    @field_validator('pin_on')
+    @field_validator("pin_on")
     def pin_on_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['nm', 'imt']):
+        if value not in set(["nm", "imt"]):
             raise ValueError("must be one of enum values ('nm', 'imt')")
         return value
 
@@ -54,7 +83,6 @@ class OpenapiPinReviewItemResultDataInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -80,8 +108,7 @@ class OpenapiPinReviewItemResultDataInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -94,7 +121,7 @@ class OpenapiPinReviewItemResultDataInner(BaseModel):
             for _item_errors in self.errors:
                 if _item_errors:
                     _items.append(_item_errors.to_dict())
-            _dict['errors'] = _items
+            _dict["errors"] = _items
         return _dict
 
     @classmethod
@@ -106,14 +133,18 @@ class OpenapiPinReviewItemResultDataInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "feedbackId": obj.get("feedbackId"),
-            "pinId": obj.get("pinId"),
-            "pinMethod": obj.get("pinMethod"),
-            "pinOn": obj.get("pinOn"),
-            "isErrors": obj.get("isErrors"),
-            "errors": [OpenapiResultErr.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "feedbackId": obj.get("feedbackId"),
+                "pinId": obj.get("pinId"),
+                "pinMethod": obj.get("pinMethod"),
+                "pinOn": obj.get("pinOn"),
+                "isErrors": obj.get("isErrors"),
+                "errors": (
+                    [OpenapiResultErr.from_dict(_item) for _item in obj["errors"]]
+                    if obj.get("errors") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

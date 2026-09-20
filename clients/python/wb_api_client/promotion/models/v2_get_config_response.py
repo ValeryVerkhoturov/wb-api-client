@@ -22,23 +22,44 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V2GetConfigResponse(BaseModel):
     """
     V2GetConfigResponse
-    """ # noqa: E501
-    currency: StrictStr = Field(description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    currency_code: StrictInt = Field(description="Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)", alias="currencyCode")
-    cpm_step: StrictInt = Field(description="Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний", alias="cpmStep")
-    cpc_step: StrictInt = Field(description="Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC", alias="cpcStep")
-    min_top_up: StrictInt = Field(description="Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при `\"minTopUp\": 10000` и `\"currency\": \"UZS\"` — 100 узбекских сум ", alias="minTopUp")
-    __properties: ClassVar[List[str]] = ["currency", "currencyCode", "cpmStep", "cpcStep", "minTopUp"]
+    """  # noqa: E501
+
+    currency: StrictStr = Field(
+        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
+    currency_code: StrictInt = Field(
+        description="Код валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        alias="currencyCode",
+    )
+    cpm_step: StrictInt = Field(
+        description="Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для CPM-кампаний",
+        alias="cpmStep",
+    )
+    cpc_step: StrictInt = Field(
+        description="Шаг ставки в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) для кампаний CPC",
+        alias="cpcStep",
+    )
+    min_top_up: StrictInt = Field(
+        description='Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при `"minTopUp": 10000` и `"currency": "UZS"` — 100 узбекских сум ',
+        alias="minTopUp",
+    )
+    __properties: ClassVar[List[str]] = [
+        "currency",
+        "currencyCode",
+        "cpmStep",
+        "cpcStep",
+        "minTopUp",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +85,7 @@ class V2GetConfigResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,13 +103,13 @@ class V2GetConfigResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "currency": obj.get("currency"),
-            "currencyCode": obj.get("currencyCode"),
-            "cpmStep": obj.get("cpmStep"),
-            "cpcStep": obj.get("cpcStep"),
-            "minTopUp": obj.get("minTopUp")
-        })
+        _obj = cls.model_validate(
+            {
+                "currency": obj.get("currency"),
+                "currencyCode": obj.get("currencyCode"),
+                "cpmStep": obj.get("cpmStep"),
+                "cpcStep": obj.get("cpcStep"),
+                "minTopUp": obj.get("minTopUp"),
+            }
+        )
         return _obj
-
-

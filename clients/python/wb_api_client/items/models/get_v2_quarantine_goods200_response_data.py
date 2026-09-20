@@ -23,11 +23,17 @@ from wb_api_client.items.models.quarantine_items import QuarantineItems
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV2QuarantineGoods200ResponseData(BaseModel):
     """
     Данные ответа
-    """ # noqa: E501
-    quarantine_goods: Optional[List[QuarantineItems]] = Field(default=None, description="Информация о товарах в карантине", alias="quarantineGoods")
+    """  # noqa: E501
+
+    quarantine_goods: Optional[List[QuarantineItems]] = Field(
+        default=None,
+        description="Информация о товарах в карантине",
+        alias="quarantineGoods",
+    )
     __properties: ClassVar[List[str]] = ["quarantineGoods"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class GetV2QuarantineGoods200ResponseData(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class GetV2QuarantineGoods200ResponseData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +79,7 @@ class GetV2QuarantineGoods200ResponseData(BaseModel):
             for _item_quarantine_goods in self.quarantine_goods:
                 if _item_quarantine_goods:
                     _items.append(_item_quarantine_goods.to_dict())
-            _dict['quarantineGoods'] = _items
+            _dict["quarantineGoods"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +91,16 @@ class GetV2QuarantineGoods200ResponseData(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "quarantineGoods": [QuarantineItems.from_dict(_item) for _item in obj["quarantineGoods"]] if obj.get("quarantineGoods") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "quarantineGoods": (
+                    [
+                        QuarantineItems.from_dict(_item)
+                        for _item in obj["quarantineGoods"]
+                    ]
+                    if obj.get("quarantineGoods") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

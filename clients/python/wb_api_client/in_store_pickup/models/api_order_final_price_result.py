@@ -19,19 +19,29 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.in_store_pickup.models.api_batch_error_final_price_response import ApiBatchErrorFinalPriceResponse
-from wb_api_client.in_store_pickup.models.api_order_final_price_result_data import ApiOrderFinalPriceResultData
+from wb_api_client.in_store_pickup.models.api_batch_error_final_price_response import (
+    ApiBatchErrorFinalPriceResponse,
+)
+from wb_api_client.in_store_pickup.models.api_order_final_price_result_data import (
+    ApiOrderFinalPriceResultData,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ApiOrderFinalPriceResult(BaseModel):
     """
     ApiOrderFinalPriceResult
-    """ # noqa: E501
+    """  # noqa: E501
+
     order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
     data: Optional[ApiOrderFinalPriceResultData] = None
-    errors: Optional[List[ApiBatchErrorFinalPriceResponse]] = Field(default=None, description="Детали ошибки")
-    is_error: Optional[StrictBool] = Field(default=None, description="Есть ли ошибки", alias="isError")
+    errors: Optional[List[ApiBatchErrorFinalPriceResponse]] = Field(
+        default=None, description="Детали ошибки"
+    )
+    is_error: Optional[StrictBool] = Field(
+        default=None, description="Есть ли ошибки", alias="isError"
+    )
     __properties: ClassVar[List[str]] = ["orderId", "data", "errors", "isError"]
 
     model_config = ConfigDict(
@@ -39,7 +49,6 @@ class ApiOrderFinalPriceResult(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +74,7 @@ class ApiOrderFinalPriceResult(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,14 +83,14 @@ class ApiOrderFinalPriceResult(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of data
         if self.data:
-            _dict['data'] = self.data.to_dict()
+            _dict["data"] = self.data.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in errors (list)
         _items = []
         if self.errors:
             for _item_errors in self.errors:
                 if _item_errors:
                     _items.append(_item_errors.to_dict())
-            _dict['errors'] = _items
+            _dict["errors"] = _items
         return _dict
 
     @classmethod
@@ -94,12 +102,23 @@ class ApiOrderFinalPriceResult(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "orderId": obj.get("orderId"),
-            "data": ApiOrderFinalPriceResultData.from_dict(obj["data"]) if obj.get("data") is not None else None,
-            "errors": [ApiBatchErrorFinalPriceResponse.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None,
-            "isError": obj.get("isError")
-        })
+        _obj = cls.model_validate(
+            {
+                "orderId": obj.get("orderId"),
+                "data": (
+                    ApiOrderFinalPriceResultData.from_dict(obj["data"])
+                    if obj.get("data") is not None
+                    else None
+                ),
+                "errors": (
+                    [
+                        ApiBatchErrorFinalPriceResponse.from_dict(_item)
+                        for _item in obj["errors"]
+                    ]
+                    if obj.get("errors") is not None
+                    else None
+                ),
+                "isError": obj.get("isError"),
+            }
+        )
         return _obj
-
-

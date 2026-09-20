@@ -23,24 +23,50 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class SellerTaskMetadataBuffer(BaseModel):
     """
     Данные ответа
-    """ # noqa: E501
-    upload_id: Optional[StrictInt] = Field(default=None, description="ID загрузки", alias="uploadID")
-    status: Optional[StrictInt] = Field(default=None, description="Статус загрузки: `1` — в обработке ")
-    upload_date: Optional[datetime] = Field(default=None, description="Дата и время, когда загрузка создана", alias="uploadDate")
-    activation_date: Optional[datetime] = Field(default=None, description="Дата и время, когда загрузка отправляется в обработку", alias="activationDate")
-    over_all_goods_number: Optional[StrictInt] = Field(default=None, description="Всего товаров", alias="overAllGoodsNumber")
-    success_goods_number: Optional[StrictInt] = Field(default=None, description="Товаров без ошибок (0, потому что загрузка в обработке)", alias="successGoodsNumber")
-    __properties: ClassVar[List[str]] = ["uploadID", "status", "uploadDate", "activationDate", "overAllGoodsNumber", "successGoodsNumber"]
+    """  # noqa: E501
+
+    upload_id: Optional[StrictInt] = Field(
+        default=None, description="ID загрузки", alias="uploadID"
+    )
+    status: Optional[StrictInt] = Field(
+        default=None, description="Статус загрузки: `1` — в обработке "
+    )
+    upload_date: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время, когда загрузка создана",
+        alias="uploadDate",
+    )
+    activation_date: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время, когда загрузка отправляется в обработку",
+        alias="activationDate",
+    )
+    over_all_goods_number: Optional[StrictInt] = Field(
+        default=None, description="Всего товаров", alias="overAllGoodsNumber"
+    )
+    success_goods_number: Optional[StrictInt] = Field(
+        default=None,
+        description="Товаров без ошибок (0, потому что загрузка в обработке)",
+        alias="successGoodsNumber",
+    )
+    __properties: ClassVar[List[str]] = [
+        "uploadID",
+        "status",
+        "uploadDate",
+        "activationDate",
+        "overAllGoodsNumber",
+        "successGoodsNumber",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -66,8 +92,7 @@ class SellerTaskMetadataBuffer(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -85,14 +110,14 @@ class SellerTaskMetadataBuffer(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "uploadID": obj.get("uploadID"),
-            "status": obj.get("status"),
-            "uploadDate": obj.get("uploadDate"),
-            "activationDate": obj.get("activationDate"),
-            "overAllGoodsNumber": obj.get("overAllGoodsNumber"),
-            "successGoodsNumber": obj.get("successGoodsNumber")
-        })
+        _obj = cls.model_validate(
+            {
+                "uploadID": obj.get("uploadID"),
+                "status": obj.get("status"),
+                "uploadDate": obj.get("uploadDate"),
+                "activationDate": obj.get("activationDate"),
+                "overAllGoodsNumber": obj.get("overAllGoodsNumber"),
+                "successGoodsNumber": obj.get("successGoodsNumber"),
+            }
+        )
         return _obj
-
-

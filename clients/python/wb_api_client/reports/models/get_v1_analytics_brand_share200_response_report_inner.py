@@ -22,22 +22,42 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1AnalyticsBrandShare200ResponseReportInner(BaseModel):
     """
     GetV1AnalyticsBrandShare200ResponseReportInner
-    """ # noqa: E501
-    apply_date: Optional[StrictStr] = Field(default=None, description="Дата", alias="applyDate")
-    brand_rating: Optional[StrictInt] = Field(default=None, description="Рейтинг бренда в родительской категории", alias="brandRating")
-    price_percent: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Доля от продаж в родительской категории — цена, %", alias="pricePercent")
-    qty_percent: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Доля от продаж в родительской категории — количество, %", alias="qtyPercent")
-    __properties: ClassVar[List[str]] = ["applyDate", "brandRating", "pricePercent", "qtyPercent"]
+    """  # noqa: E501
+
+    apply_date: Optional[StrictStr] = Field(
+        default=None, description="Дата", alias="applyDate"
+    )
+    brand_rating: Optional[StrictInt] = Field(
+        default=None,
+        description="Рейтинг бренда в родительской категории",
+        alias="brandRating",
+    )
+    price_percent: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Доля от продаж в родительской категории — цена, %",
+        alias="pricePercent",
+    )
+    qty_percent: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Доля от продаж в родительской категории — количество, %",
+        alias="qtyPercent",
+    )
+    __properties: ClassVar[List[str]] = [
+        "applyDate",
+        "brandRating",
+        "pricePercent",
+        "qtyPercent",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +83,7 @@ class GetV1AnalyticsBrandShare200ResponseReportInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,12 +101,12 @@ class GetV1AnalyticsBrandShare200ResponseReportInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "applyDate": obj.get("applyDate"),
-            "brandRating": obj.get("brandRating"),
-            "pricePercent": obj.get("pricePercent"),
-            "qtyPercent": obj.get("qtyPercent")
-        })
+        _obj = cls.model_validate(
+            {
+                "applyDate": obj.get("applyDate"),
+                "brandRating": obj.get("brandRating"),
+                "pricePercent": obj.get("pricePercent"),
+                "qtyPercent": obj.get("qtyPercent"),
+            }
+        )
         return _obj
-
-

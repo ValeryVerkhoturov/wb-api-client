@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.v0_get_norm_query_list_response_item import V0GetNormQueryListResponseItem
+from wb_api_client.promotion.models.v0_get_norm_query_list_response_item import (
+    V0GetNormQueryListResponseItem,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class V0GetNormQueryListResponse(BaseModel):
     """
     V0GetNormQueryListResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     items: Optional[List[V0GetNormQueryListResponseItem]]
     __properties: ClassVar[List[str]] = ["items"]
 
@@ -35,7 +39,6 @@ class V0GetNormQueryListResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class V0GetNormQueryListResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,11 +77,11 @@ class V0GetNormQueryListResponse(BaseModel):
             for _item_items in self.items:
                 if _item_items:
                     _items.append(_item_items.to_dict())
-            _dict['items'] = _items
+            _dict["items"] = _items
         # set to None if items (nullable) is None
         # and model_fields_set contains the field
         if self.items is None and "items" in self.model_fields_set:
-            _dict['items'] = None
+            _dict["items"] = None
 
         return _dict
 
@@ -92,9 +94,16 @@ class V0GetNormQueryListResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "items": [V0GetNormQueryListResponseItem.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "items": (
+                    [
+                        V0GetNormQueryListResponseItem.from_dict(_item)
+                        for _item in obj["items"]
+                    ]
+                    if obj.get("items") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

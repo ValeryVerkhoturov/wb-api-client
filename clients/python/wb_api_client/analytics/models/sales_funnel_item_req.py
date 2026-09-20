@@ -19,17 +19,30 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.analytics.models.sales_funnel_item_req_params import SalesFunnelItemReqParams
+from wb_api_client.analytics.models.sales_funnel_item_req_params import (
+    SalesFunnelItemReqParams,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class SalesFunnelItemReq(BaseModel):
     """
     SalesFunnelItemReq
-    """ # noqa: E501
-    id: StrictStr = Field(description="ID отчёта в UUID-формате. Генерируется продавцом самостоятельно")
-    report_type: StrictStr = Field(description="Тип отчёта `DETAIL_HISTORY_REPORT` — Воронка продаж. По артикулам WB", alias="reportType")
-    user_report_name: Optional[StrictStr] = Field(default=None, description="Название отчёта. Если не указано, сформируется автоматически", alias="userReportName")
+    """  # noqa: E501
+
+    id: StrictStr = Field(
+        description="ID отчёта в UUID-формате. Генерируется продавцом самостоятельно"
+    )
+    report_type: StrictStr = Field(
+        description="Тип отчёта `DETAIL_HISTORY_REPORT` — Воронка продаж. По артикулам WB",
+        alias="reportType",
+    )
+    user_report_name: Optional[StrictStr] = Field(
+        default=None,
+        description="Название отчёта. Если не указано, сформируется автоматически",
+        alias="userReportName",
+    )
     params: SalesFunnelItemReqParams
     __properties: ClassVar[List[str]] = ["id", "reportType", "userReportName", "params"]
 
@@ -38,7 +51,6 @@ class SalesFunnelItemReq(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +76,7 @@ class SalesFunnelItemReq(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -74,7 +85,7 @@ class SalesFunnelItemReq(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of params
         if self.params:
-            _dict['params'] = self.params.to_dict()
+            _dict["params"] = self.params.to_dict()
         return _dict
 
     @classmethod
@@ -86,12 +97,16 @@ class SalesFunnelItemReq(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "reportType": obj.get("reportType"),
-            "userReportName": obj.get("userReportName"),
-            "params": SalesFunnelItemReqParams.from_dict(obj["params"]) if obj.get("params") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "reportType": obj.get("reportType"),
+                "userReportName": obj.get("userReportName"),
+                "params": (
+                    SalesFunnelItemReqParams.from_dict(obj["params"])
+                    if obj.get("params") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

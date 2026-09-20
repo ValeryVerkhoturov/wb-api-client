@@ -19,22 +19,54 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from wb_api_client.communications.models.get_v1_feedback_response200 import GetV1FeedbackResponse200
-from wb_api_client.communications.models.get_v1_feedbacks_archive_response200 import GetV1FeedbacksArchiveResponse200
-from wb_api_client.communications.models.get_v1_feedbacks_count_response200 import GetV1FeedbacksCountResponse200
-from wb_api_client.communications.models.get_v1_feedbacks_count_unanswered_response200 import GetV1FeedbacksCountUnansweredResponse200
-from wb_api_client.communications.models.get_v1_feedbacks_response200 import GetV1FeedbacksResponse200
-from wb_api_client.communications.models.get_v1_new_feedbacks_questions_response200 import GetV1NewFeedbacksQuestionsResponse200
-from wb_api_client.communications.models.get_v1_question_response200 import GetV1QuestionResponse200
-from wb_api_client.communications.models.get_v1_questions_count_response200 import GetV1QuestionsCountResponse200
-from wb_api_client.communications.models.get_v1_questions_count_unanswered_response200 import GetV1QuestionsCountUnansweredResponse200
-from wb_api_client.communications.models.get_v1_questions_response200 import GetV1QuestionsResponse200
-from wb_api_client.communications.models.patch_v1_feedbacks_answer_request import PatchV1FeedbacksAnswerRequest
-from wb_api_client.communications.models.patch_v1_questions_request import PatchV1QuestionsRequest
-from wb_api_client.communications.models.patch_v1_questions_response200 import PatchV1QuestionsResponse200
-from wb_api_client.communications.models.post_v1_feedbacks_answer_request import PostV1FeedbacksAnswerRequest
-from wb_api_client.communications.models.post_v1_feedbacks_order_return_request import PostV1FeedbacksOrderReturnRequest
-from wb_api_client.communications.models.post_v1_feedbacks_order_return_response200 import PostV1FeedbacksOrderReturnResponse200
+from wb_api_client.communications.models.get_v1_feedback_response200 import (
+    GetV1FeedbackResponse200,
+)
+from wb_api_client.communications.models.get_v1_feedbacks_archive_response200 import (
+    GetV1FeedbacksArchiveResponse200,
+)
+from wb_api_client.communications.models.get_v1_feedbacks_count_response200 import (
+    GetV1FeedbacksCountResponse200,
+)
+from wb_api_client.communications.models.get_v1_feedbacks_count_unanswered_response200 import (
+    GetV1FeedbacksCountUnansweredResponse200,
+)
+from wb_api_client.communications.models.get_v1_feedbacks_response200 import (
+    GetV1FeedbacksResponse200,
+)
+from wb_api_client.communications.models.get_v1_new_feedbacks_questions_response200 import (
+    GetV1NewFeedbacksQuestionsResponse200,
+)
+from wb_api_client.communications.models.get_v1_question_response200 import (
+    GetV1QuestionResponse200,
+)
+from wb_api_client.communications.models.get_v1_questions_count_response200 import (
+    GetV1QuestionsCountResponse200,
+)
+from wb_api_client.communications.models.get_v1_questions_count_unanswered_response200 import (
+    GetV1QuestionsCountUnansweredResponse200,
+)
+from wb_api_client.communications.models.get_v1_questions_response200 import (
+    GetV1QuestionsResponse200,
+)
+from wb_api_client.communications.models.patch_v1_feedbacks_answer_request import (
+    PatchV1FeedbacksAnswerRequest,
+)
+from wb_api_client.communications.models.patch_v1_questions_request import (
+    PatchV1QuestionsRequest,
+)
+from wb_api_client.communications.models.patch_v1_questions_response200 import (
+    PatchV1QuestionsResponse200,
+)
+from wb_api_client.communications.models.post_v1_feedbacks_answer_request import (
+    PostV1FeedbacksAnswerRequest,
+)
+from wb_api_client.communications.models.post_v1_feedbacks_order_return_request import (
+    PostV1FeedbacksOrderReturnRequest,
+)
+from wb_api_client.communications.models.post_v1_feedbacks_order_return_response200 import (
+    PostV1FeedbacksOrderReturnResponse200,
+)
 
 from wb_api_client.communications.api_client import ApiClient, RequestSerialized
 from wb_api_client.communications.api_response import ApiResponse
@@ -53,7 +85,6 @@ class DefaultApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def get_v1_feedback(
         self,
@@ -62,9 +93,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -97,34 +127,32 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_feedback_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1FeedbackResponse200",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '422': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1FeedbackResponse200",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "PostV1FeedbacksAnswer403Response",
+            "422": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_feedback_with_http_info(
@@ -134,9 +162,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -169,34 +196,32 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_feedback_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1FeedbackResponse200",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '422': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1FeedbackResponse200",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "PostV1FeedbacksAnswer403Response",
+            "422": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_feedback_without_preload_content(
@@ -206,9 +231,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -241,30 +265,28 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_feedback_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1FeedbackResponse200",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '422': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1FeedbackResponse200",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "PostV1FeedbacksAnswer403Response",
+            "422": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_feedback_serialize(
         self,
@@ -276,13 +298,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru',
-            'https://feedbacks-api-sandbox.wildberries.ru'
+            "https://feedbacks-api.wildberries.ru",
+            "https://feedbacks-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -296,32 +317,25 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if id is not None:
-            
-            _query_params.append(('id', id))
-            
+
+            _query_params.append(("id", id))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/feedback',
+            method="GET",
+            resource_path="/api/v1/feedback",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -331,29 +345,44 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_feedbacks(
         self,
-        is_answered: Annotated[StrictBool, Field(description="Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет ")],
-        take: Annotated[StrictInt, Field(description="Количество отзывов (max. 5 000)")],
-        skip: Annotated[StrictInt, Field(description="Количество отзывов для пропуска (max. 199990)")],
+        is_answered: Annotated[
+            StrictBool,
+            Field(
+                description="Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет "
+            ),
+        ],
+        take: Annotated[
+            StrictInt, Field(description="Количество отзывов (max. 5 000)")
+        ],
+        skip: Annotated[
+            StrictInt,
+            Field(description="Количество отзывов для пропуска (max. 199990)"),
+        ],
         nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Сортировка отзывов по дате (dateAsc/dateDesc)")] = None,
-        date_from: Annotated[Optional[StrictInt], Field(description="Дата начала периода в формате Unix timestamp")] = None,
-        date_to: Annotated[Optional[StrictInt], Field(description="Дата конца периода в формате Unix timestamp")] = None,
+        order: Annotated[
+            Optional[StrictStr],
+            Field(description="Сортировка отзывов по дате (dateAsc/dateDesc)"),
+        ] = None,
+        date_from: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата начала периода в формате Unix timestamp"),
+        ] = None,
+        date_to: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата конца периода в формате Unix timestamp"),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -398,7 +427,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_feedbacks_serialize(
             is_answered=is_answered,
@@ -411,20 +440,19 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1FeedbacksResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1FeedbacksResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -432,24 +460,41 @@ class DefaultApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v1_feedbacks_with_http_info(
         self,
-        is_answered: Annotated[StrictBool, Field(description="Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет ")],
-        take: Annotated[StrictInt, Field(description="Количество отзывов (max. 5 000)")],
-        skip: Annotated[StrictInt, Field(description="Количество отзывов для пропуска (max. 199990)")],
+        is_answered: Annotated[
+            StrictBool,
+            Field(
+                description="Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет "
+            ),
+        ],
+        take: Annotated[
+            StrictInt, Field(description="Количество отзывов (max. 5 000)")
+        ],
+        skip: Annotated[
+            StrictInt,
+            Field(description="Количество отзывов для пропуска (max. 199990)"),
+        ],
         nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Сортировка отзывов по дате (dateAsc/dateDesc)")] = None,
-        date_from: Annotated[Optional[StrictInt], Field(description="Дата начала периода в формате Unix timestamp")] = None,
-        date_to: Annotated[Optional[StrictInt], Field(description="Дата конца периода в формате Unix timestamp")] = None,
+        order: Annotated[
+            Optional[StrictStr],
+            Field(description="Сортировка отзывов по дате (dateAsc/dateDesc)"),
+        ] = None,
+        date_from: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата начала периода в формате Unix timestamp"),
+        ] = None,
+        date_to: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата конца периода в формате Unix timestamp"),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -494,7 +539,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_feedbacks_serialize(
             is_answered=is_answered,
@@ -507,20 +552,19 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1FeedbacksResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1FeedbacksResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -528,24 +572,41 @@ class DefaultApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v1_feedbacks_without_preload_content(
         self,
-        is_answered: Annotated[StrictBool, Field(description="Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет ")],
-        take: Annotated[StrictInt, Field(description="Количество отзывов (max. 5 000)")],
-        skip: Annotated[StrictInt, Field(description="Количество отзывов для пропуска (max. 199990)")],
+        is_answered: Annotated[
+            StrictBool,
+            Field(
+                description="Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет "
+            ),
+        ],
+        take: Annotated[
+            StrictInt, Field(description="Количество отзывов (max. 5 000)")
+        ],
+        skip: Annotated[
+            StrictInt,
+            Field(description="Количество отзывов для пропуска (max. 199990)"),
+        ],
         nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Сортировка отзывов по дате (dateAsc/dateDesc)")] = None,
-        date_from: Annotated[Optional[StrictInt], Field(description="Дата начала периода в формате Unix timestamp")] = None,
-        date_to: Annotated[Optional[StrictInt], Field(description="Дата конца периода в формате Unix timestamp")] = None,
+        order: Annotated[
+            Optional[StrictStr],
+            Field(description="Сортировка отзывов по дате (dateAsc/dateDesc)"),
+        ] = None,
+        date_from: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата начала периода в формате Unix timestamp"),
+        ] = None,
+        date_to: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата конца периода в формате Unix timestamp"),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -590,7 +651,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_feedbacks_serialize(
             is_answered=is_answered,
@@ -603,23 +664,21 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1FeedbacksResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1FeedbacksResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_feedbacks_serialize(
         self,
@@ -637,13 +696,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru',
-            'https://feedbacks-api-sandbox.wildberries.ru'
+            "https://feedbacks-api.wildberries.ru",
+            "https://feedbacks-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -657,56 +715,49 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if is_answered is not None:
-            
-            _query_params.append(('isAnswered', is_answered))
-            
+
+            _query_params.append(("isAnswered", is_answered))
+
         if nm_id is not None:
-            
-            _query_params.append(('nmId', nm_id))
-            
+
+            _query_params.append(("nmId", nm_id))
+
         if take is not None:
-            
-            _query_params.append(('take', take))
-            
+
+            _query_params.append(("take", take))
+
         if skip is not None:
-            
-            _query_params.append(('skip', skip))
-            
+
+            _query_params.append(("skip", skip))
+
         if order is not None:
-            
-            _query_params.append(('order', order))
-            
+
+            _query_params.append(("order", order))
+
         if date_from is not None:
-            
-            _query_params.append(('dateFrom', date_from))
-            
+
+            _query_params.append(("dateFrom", date_from))
+
         if date_to is not None:
-            
-            _query_params.append(('dateTo', date_to))
-            
+
+            _query_params.append(("dateTo", date_to))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/feedbacks',
+            method="GET",
+            resource_path="/api/v1/feedbacks",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -716,26 +767,29 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_feedbacks_archive(
         self,
-        take: Annotated[StrictInt, Field(description="Количество отзывов (max. 5 000)")],
-        skip: Annotated[StrictInt, Field(description="Количество отзывов для пропуска")],
+        take: Annotated[
+            StrictInt, Field(description="Количество отзывов (max. 5 000)")
+        ],
+        skip: Annotated[
+            StrictInt, Field(description="Количество отзывов для пропуска")
+        ],
         nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Сортировка отзывов по дате (dateAsc/dateDesc)")] = None,
+        order: Annotated[
+            Optional[StrictStr],
+            Field(description="Сортировка отзывов по дате (dateAsc/dateDesc)"),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -774,7 +828,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_feedbacks_archive_serialize(
             take=take,
@@ -784,21 +838,20 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1FeedbacksArchiveResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '422': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1FeedbacksArchiveResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "422": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -806,21 +859,26 @@ class DefaultApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v1_feedbacks_archive_with_http_info(
         self,
-        take: Annotated[StrictInt, Field(description="Количество отзывов (max. 5 000)")],
-        skip: Annotated[StrictInt, Field(description="Количество отзывов для пропуска")],
+        take: Annotated[
+            StrictInt, Field(description="Количество отзывов (max. 5 000)")
+        ],
+        skip: Annotated[
+            StrictInt, Field(description="Количество отзывов для пропуска")
+        ],
         nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Сортировка отзывов по дате (dateAsc/dateDesc)")] = None,
+        order: Annotated[
+            Optional[StrictStr],
+            Field(description="Сортировка отзывов по дате (dateAsc/dateDesc)"),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -859,7 +917,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_feedbacks_archive_serialize(
             take=take,
@@ -869,21 +927,20 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1FeedbacksArchiveResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '422': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1FeedbacksArchiveResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "422": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -891,21 +948,26 @@ class DefaultApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v1_feedbacks_archive_without_preload_content(
         self,
-        take: Annotated[StrictInt, Field(description="Количество отзывов (max. 5 000)")],
-        skip: Annotated[StrictInt, Field(description="Количество отзывов для пропуска")],
+        take: Annotated[
+            StrictInt, Field(description="Количество отзывов (max. 5 000)")
+        ],
+        skip: Annotated[
+            StrictInt, Field(description="Количество отзывов для пропуска")
+        ],
         nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Сортировка отзывов по дате (dateAsc/dateDesc)")] = None,
+        order: Annotated[
+            Optional[StrictStr],
+            Field(description="Сортировка отзывов по дате (dateAsc/dateDesc)"),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -944,7 +1006,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_feedbacks_archive_serialize(
             take=take,
@@ -954,24 +1016,22 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1FeedbacksArchiveResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '422': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1FeedbacksArchiveResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "422": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_feedbacks_archive_serialize(
         self,
@@ -986,13 +1046,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru',
-            'https://feedbacks-api-sandbox.wildberries.ru'
+            "https://feedbacks-api.wildberries.ru",
+            "https://feedbacks-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1006,44 +1065,37 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if nm_id is not None:
-            
-            _query_params.append(('nmId', nm_id))
-            
+
+            _query_params.append(("nmId", nm_id))
+
         if take is not None:
-            
-            _query_params.append(('take', take))
-            
+
+            _query_params.append(("take", take))
+
         if skip is not None:
-            
-            _query_params.append(('skip', skip))
-            
+
+            _query_params.append(("skip", skip))
+
         if order is not None:
-            
-            _query_params.append(('order', order))
-            
+
+            _query_params.append(("order", order))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/feedbacks/archive',
+            method="GET",
+            resource_path="/api/v1/feedbacks/archive",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1053,25 +1105,32 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_feedbacks_count(
         self,
-        is_answered: Annotated[StrictBool, Field(description="Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет ")],
-        date_from: Annotated[Optional[StrictInt], Field(description="Дата начала периода в формате Unix timestamp")] = None,
-        date_to: Annotated[Optional[StrictInt], Field(description="Дата конца периода в формате Unix timestamp")] = None,
+        is_answered: Annotated[
+            StrictBool,
+            Field(
+                description="Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет "
+            ),
+        ],
+        date_from: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата начала периода в формате Unix timestamp"),
+        ] = None,
+        date_to: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата конца периода в формате Unix timestamp"),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1108,7 +1167,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_feedbacks_count_serialize(
             is_answered=is_answered,
@@ -1117,20 +1176,19 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1FeedbacksCountResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1FeedbacksCountResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1138,20 +1196,29 @@ class DefaultApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v1_feedbacks_count_with_http_info(
         self,
-        is_answered: Annotated[StrictBool, Field(description="Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет ")],
-        date_from: Annotated[Optional[StrictInt], Field(description="Дата начала периода в формате Unix timestamp")] = None,
-        date_to: Annotated[Optional[StrictInt], Field(description="Дата конца периода в формате Unix timestamp")] = None,
+        is_answered: Annotated[
+            StrictBool,
+            Field(
+                description="Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет "
+            ),
+        ],
+        date_from: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата начала периода в формате Unix timestamp"),
+        ] = None,
+        date_to: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата конца периода в формате Unix timestamp"),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1188,7 +1255,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_feedbacks_count_serialize(
             is_answered=is_answered,
@@ -1197,20 +1264,19 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1FeedbacksCountResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1FeedbacksCountResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1218,20 +1284,29 @@ class DefaultApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v1_feedbacks_count_without_preload_content(
         self,
-        is_answered: Annotated[StrictBool, Field(description="Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет ")],
-        date_from: Annotated[Optional[StrictInt], Field(description="Дата начала периода в формате Unix timestamp")] = None,
-        date_to: Annotated[Optional[StrictInt], Field(description="Дата конца периода в формате Unix timestamp")] = None,
+        is_answered: Annotated[
+            StrictBool,
+            Field(
+                description="Вернуть только обработанные отзывы:   - `true` — да   - `false` — нет "
+            ),
+        ],
+        date_from: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата начала периода в формате Unix timestamp"),
+        ] = None,
+        date_to: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата конца периода в формате Unix timestamp"),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1268,7 +1343,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_feedbacks_count_serialize(
             is_answered=is_answered,
@@ -1277,23 +1352,21 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1FeedbacksCountResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1FeedbacksCountResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_feedbacks_count_serialize(
         self,
@@ -1307,13 +1380,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru',
-            'https://feedbacks-api-sandbox.wildberries.ru'
+            "https://feedbacks-api.wildberries.ru",
+            "https://feedbacks-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1327,40 +1399,33 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if date_from is not None:
-            
-            _query_params.append(('dateFrom', date_from))
-            
+
+            _query_params.append(("dateFrom", date_from))
+
         if date_to is not None:
-            
-            _query_params.append(('dateTo', date_to))
-            
+
+            _query_params.append(("dateTo", date_to))
+
         if is_answered is not None:
-            
-            _query_params.append(('isAnswered', is_answered))
-            
+
+            _query_params.append(("isAnswered", is_answered))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/feedbacks/count',
+            method="GET",
+            resource_path="/api/v1/feedbacks/count",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1370,11 +1435,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_feedbacks_count_unanswered(
@@ -1383,9 +1445,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1416,32 +1477,30 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_feedbacks_count_unanswered_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1FeedbacksCountUnansweredResponse200",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1FeedbacksCountUnansweredResponse200",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_feedbacks_count_unanswered_with_http_info(
@@ -1450,9 +1509,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1483,32 +1541,30 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_feedbacks_count_unanswered_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1FeedbacksCountUnansweredResponse200",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1FeedbacksCountUnansweredResponse200",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_feedbacks_count_unanswered_without_preload_content(
@@ -1517,9 +1573,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1550,28 +1605,26 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_feedbacks_count_unanswered_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1FeedbacksCountUnansweredResponse200",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1FeedbacksCountUnansweredResponse200",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_feedbacks_count_unanswered_serialize(
         self,
@@ -1582,13 +1635,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru',
-            'https://feedbacks-api-sandbox.wildberries.ru'
+            "https://feedbacks-api.wildberries.ru",
+            "https://feedbacks-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1605,25 +1657,18 @@ class DefaultApi:
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/feedbacks/count-unanswered',
+            method="GET",
+            resource_path="/api/v1/feedbacks/count-unanswered",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1633,11 +1678,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_new_feedbacks_questions(
@@ -1646,9 +1688,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1679,32 +1720,30 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_new_feedbacks_questions_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1NewFeedbacksQuestionsResponse200",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1NewFeedbacksQuestionsResponse200",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_new_feedbacks_questions_with_http_info(
@@ -1713,9 +1752,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1746,32 +1784,30 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_new_feedbacks_questions_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1NewFeedbacksQuestionsResponse200",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1NewFeedbacksQuestionsResponse200",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_new_feedbacks_questions_without_preload_content(
@@ -1780,9 +1816,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1813,28 +1848,26 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_new_feedbacks_questions_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1NewFeedbacksQuestionsResponse200",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1NewFeedbacksQuestionsResponse200",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_new_feedbacks_questions_serialize(
         self,
@@ -1845,13 +1878,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru',
-            'https://feedbacks-api-sandbox.wildberries.ru'
+            "https://feedbacks-api.wildberries.ru",
+            "https://feedbacks-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1868,25 +1900,18 @@ class DefaultApi:
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/new-feedbacks-questions',
+            method="GET",
+            resource_path="/api/v1/new-feedbacks-questions",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1896,11 +1921,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_question(
@@ -1910,9 +1932,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1945,34 +1966,32 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_question_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1QuestionResponse200",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '422': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1QuestionResponse200",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "422": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_question_with_http_info(
@@ -1982,9 +2001,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2017,34 +2035,32 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_question_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1QuestionResponse200",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '422': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1QuestionResponse200",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "422": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_question_without_preload_content(
@@ -2054,9 +2070,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2089,30 +2104,28 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_question_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1QuestionResponse200",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '422': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1QuestionResponse200",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "422": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_question_serialize(
         self,
@@ -2124,13 +2137,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru',
-            'https://feedbacks-api-sandbox.wildberries.ru'
+            "https://feedbacks-api.wildberries.ru",
+            "https://feedbacks-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2144,32 +2156,25 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if id is not None:
-            
-            _query_params.append(('id', id))
-            
+
+            _query_params.append(("id", id))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/question',
+            method="GET",
+            resource_path="/api/v1/question",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2179,29 +2184,49 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_questions(
         self,
-        is_answered: Annotated[StrictBool, Field(description="Есть ли ответ на вопрос:   - `true` — да   - `false` — нет ")],
-        take: Annotated[StrictInt, Field(description="Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров `take` и `skip` не должна превышать 10 000) ")],
-        skip: Annotated[StrictInt, Field(description="Количество вопросов для пропуска (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров `take` и `skip` не должна превышать 10 000) ")],
+        is_answered: Annotated[
+            StrictBool,
+            Field(
+                description="Есть ли ответ на вопрос:   - `true` — да   - `false` — нет "
+            ),
+        ],
+        take: Annotated[
+            StrictInt,
+            Field(
+                description="Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров `take` и `skip` не должна превышать 10 000) "
+            ),
+        ],
+        skip: Annotated[
+            StrictInt,
+            Field(
+                description="Количество вопросов для пропуска (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров `take` и `skip` не должна превышать 10 000) "
+            ),
+        ],
         nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Сортировка вопросов по дате (`dateAsc`/`dateDesc`)")] = None,
-        date_from: Annotated[Optional[StrictInt], Field(description="Дата начала периода в формате Unix timestamp")] = None,
-        date_to: Annotated[Optional[StrictInt], Field(description="Дата конца периода в формате Unix timestamp")] = None,
+        order: Annotated[
+            Optional[StrictStr],
+            Field(description="Сортировка вопросов по дате (`dateAsc`/`dateDesc`)"),
+        ] = None,
+        date_from: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата начала периода в формате Unix timestamp"),
+        ] = None,
+        date_to: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата конца периода в формате Unix timestamp"),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2246,7 +2271,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_questions_serialize(
             is_answered=is_answered,
@@ -2259,20 +2284,19 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1QuestionsResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1QuestionsResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2280,24 +2304,46 @@ class DefaultApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v1_questions_with_http_info(
         self,
-        is_answered: Annotated[StrictBool, Field(description="Есть ли ответ на вопрос:   - `true` — да   - `false` — нет ")],
-        take: Annotated[StrictInt, Field(description="Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров `take` и `skip` не должна превышать 10 000) ")],
-        skip: Annotated[StrictInt, Field(description="Количество вопросов для пропуска (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров `take` и `skip` не должна превышать 10 000) ")],
+        is_answered: Annotated[
+            StrictBool,
+            Field(
+                description="Есть ли ответ на вопрос:   - `true` — да   - `false` — нет "
+            ),
+        ],
+        take: Annotated[
+            StrictInt,
+            Field(
+                description="Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров `take` и `skip` не должна превышать 10 000) "
+            ),
+        ],
+        skip: Annotated[
+            StrictInt,
+            Field(
+                description="Количество вопросов для пропуска (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров `take` и `skip` не должна превышать 10 000) "
+            ),
+        ],
         nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Сортировка вопросов по дате (`dateAsc`/`dateDesc`)")] = None,
-        date_from: Annotated[Optional[StrictInt], Field(description="Дата начала периода в формате Unix timestamp")] = None,
-        date_to: Annotated[Optional[StrictInt], Field(description="Дата конца периода в формате Unix timestamp")] = None,
+        order: Annotated[
+            Optional[StrictStr],
+            Field(description="Сортировка вопросов по дате (`dateAsc`/`dateDesc`)"),
+        ] = None,
+        date_from: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата начала периода в формате Unix timestamp"),
+        ] = None,
+        date_to: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата конца периода в формате Unix timestamp"),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2342,7 +2388,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_questions_serialize(
             is_answered=is_answered,
@@ -2355,20 +2401,19 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1QuestionsResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1QuestionsResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2376,24 +2421,46 @@ class DefaultApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v1_questions_without_preload_content(
         self,
-        is_answered: Annotated[StrictBool, Field(description="Есть ли ответ на вопрос:   - `true` — да   - `false` — нет ")],
-        take: Annotated[StrictInt, Field(description="Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров `take` и `skip` не должна превышать 10 000) ")],
-        skip: Annotated[StrictInt, Field(description="Количество вопросов для пропуска (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров `take` и `skip` не должна превышать 10 000) ")],
+        is_answered: Annotated[
+            StrictBool,
+            Field(
+                description="Есть ли ответ на вопрос:   - `true` — да   - `false` — нет "
+            ),
+        ],
+        take: Annotated[
+            StrictInt,
+            Field(
+                description="Количество запрашиваемых вопросов (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров `take` и `skip` не должна превышать 10 000) "
+            ),
+        ],
+        skip: Annotated[
+            StrictInt,
+            Field(
+                description="Количество вопросов для пропуска (максимально допустимое значение для параметра - 10 000, при этом сумма значений параметров `take` и `skip` не должна превышать 10 000) "
+            ),
+        ],
         nm_id: Annotated[Optional[StrictInt], Field(description="Артикул WB")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Сортировка вопросов по дате (`dateAsc`/`dateDesc`)")] = None,
-        date_from: Annotated[Optional[StrictInt], Field(description="Дата начала периода в формате Unix timestamp")] = None,
-        date_to: Annotated[Optional[StrictInt], Field(description="Дата конца периода в формате Unix timestamp")] = None,
+        order: Annotated[
+            Optional[StrictStr],
+            Field(description="Сортировка вопросов по дате (`dateAsc`/`dateDesc`)"),
+        ] = None,
+        date_from: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата начала периода в формате Unix timestamp"),
+        ] = None,
+        date_to: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата конца периода в формате Unix timestamp"),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2438,7 +2505,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_questions_serialize(
             is_answered=is_answered,
@@ -2451,23 +2518,21 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1QuestionsResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1QuestionsResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_questions_serialize(
         self,
@@ -2485,13 +2550,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru',
-            'https://feedbacks-api-sandbox.wildberries.ru'
+            "https://feedbacks-api.wildberries.ru",
+            "https://feedbacks-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2505,56 +2569,49 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if is_answered is not None:
-            
-            _query_params.append(('isAnswered', is_answered))
-            
+
+            _query_params.append(("isAnswered", is_answered))
+
         if nm_id is not None:
-            
-            _query_params.append(('nmId', nm_id))
-            
+
+            _query_params.append(("nmId", nm_id))
+
         if take is not None:
-            
-            _query_params.append(('take', take))
-            
+
+            _query_params.append(("take", take))
+
         if skip is not None:
-            
-            _query_params.append(('skip', skip))
-            
+
+            _query_params.append(("skip", skip))
+
         if order is not None:
-            
-            _query_params.append(('order', order))
-            
+
+            _query_params.append(("order", order))
+
         if date_from is not None:
-            
-            _query_params.append(('dateFrom', date_from))
-            
+
+            _query_params.append(("dateFrom", date_from))
+
         if date_to is not None:
-            
-            _query_params.append(('dateTo', date_to))
-            
+
+            _query_params.append(("dateTo", date_to))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/questions',
+            method="GET",
+            resource_path="/api/v1/questions",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2564,25 +2621,32 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_questions_count(
         self,
-        date_from: Annotated[Optional[StrictInt], Field(description="Дата начала периода в формате Unix timestamp")] = None,
-        date_to: Annotated[Optional[StrictInt], Field(description="Дата конца периода в формате Unix timestamp")] = None,
-        is_answered: Annotated[Optional[StrictBool], Field(description="Есть ли ответ на вопрос:   - `true` — да   - `false` — нет ")] = None,
+        date_from: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата начала периода в формате Unix timestamp"),
+        ] = None,
+        date_to: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата конца периода в формате Unix timestamp"),
+        ] = None,
+        is_answered: Annotated[
+            Optional[StrictBool],
+            Field(
+                description="Есть ли ответ на вопрос:   - `true` — да   - `false` — нет "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2597,7 +2661,7 @@ class DefaultApi:
         :type date_from: int
         :param date_to: Дата конца периода в формате Unix timestamp
         :type date_to: int
-        :param is_answered: Есть ли ответ на вопрос:   - `true` — да   - `false` — нет 
+        :param is_answered: Есть ли ответ на вопрос:   - `true` — да   - `false` — нет
         :type is_answered: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2619,7 +2683,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_questions_count_serialize(
             date_from=date_from,
@@ -2628,20 +2692,19 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1QuestionsCountResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1QuestionsCountResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2649,20 +2712,29 @@ class DefaultApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v1_questions_count_with_http_info(
         self,
-        date_from: Annotated[Optional[StrictInt], Field(description="Дата начала периода в формате Unix timestamp")] = None,
-        date_to: Annotated[Optional[StrictInt], Field(description="Дата конца периода в формате Unix timestamp")] = None,
-        is_answered: Annotated[Optional[StrictBool], Field(description="Есть ли ответ на вопрос:   - `true` — да   - `false` — нет ")] = None,
+        date_from: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата начала периода в формате Unix timestamp"),
+        ] = None,
+        date_to: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата конца периода в формате Unix timestamp"),
+        ] = None,
+        is_answered: Annotated[
+            Optional[StrictBool],
+            Field(
+                description="Есть ли ответ на вопрос:   - `true` — да   - `false` — нет "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2677,7 +2749,7 @@ class DefaultApi:
         :type date_from: int
         :param date_to: Дата конца периода в формате Unix timestamp
         :type date_to: int
-        :param is_answered: Есть ли ответ на вопрос:   - `true` — да   - `false` — нет 
+        :param is_answered: Есть ли ответ на вопрос:   - `true` — да   - `false` — нет
         :type is_answered: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2699,7 +2771,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_questions_count_serialize(
             date_from=date_from,
@@ -2708,20 +2780,19 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1QuestionsCountResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1QuestionsCountResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2729,20 +2800,29 @@ class DefaultApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v1_questions_count_without_preload_content(
         self,
-        date_from: Annotated[Optional[StrictInt], Field(description="Дата начала периода в формате Unix timestamp")] = None,
-        date_to: Annotated[Optional[StrictInt], Field(description="Дата конца периода в формате Unix timestamp")] = None,
-        is_answered: Annotated[Optional[StrictBool], Field(description="Есть ли ответ на вопрос:   - `true` — да   - `false` — нет ")] = None,
+        date_from: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата начала периода в формате Unix timestamp"),
+        ] = None,
+        date_to: Annotated[
+            Optional[StrictInt],
+            Field(description="Дата конца периода в формате Unix timestamp"),
+        ] = None,
+        is_answered: Annotated[
+            Optional[StrictBool],
+            Field(
+                description="Есть ли ответ на вопрос:   - `true` — да   - `false` — нет "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2757,7 +2837,7 @@ class DefaultApi:
         :type date_from: int
         :param date_to: Дата конца периода в формате Unix timestamp
         :type date_to: int
-        :param is_answered: Есть ли ответ на вопрос:   - `true` — да   - `false` — нет 
+        :param is_answered: Есть ли ответ на вопрос:   - `true` — да   - `false` — нет
         :type is_answered: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2779,7 +2859,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_questions_count_serialize(
             date_from=date_from,
@@ -2788,23 +2868,21 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1QuestionsCountResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1QuestionsCountResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_questions_count_serialize(
         self,
@@ -2818,13 +2896,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru',
-            'https://feedbacks-api-sandbox.wildberries.ru'
+            "https://feedbacks-api.wildberries.ru",
+            "https://feedbacks-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2838,40 +2915,33 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if date_from is not None:
-            
-            _query_params.append(('dateFrom', date_from))
-            
+
+            _query_params.append(("dateFrom", date_from))
+
         if date_to is not None:
-            
-            _query_params.append(('dateTo', date_to))
-            
+
+            _query_params.append(("dateTo", date_to))
+
         if is_answered is not None:
-            
-            _query_params.append(('isAnswered', is_answered))
-            
+
+            _query_params.append(("isAnswered", is_answered))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/questions/count',
+            method="GET",
+            resource_path="/api/v1/questions/count",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2881,11 +2951,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_questions_count_unanswered(
@@ -2894,9 +2961,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2927,32 +2993,30 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_questions_count_unanswered_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1QuestionsCountUnansweredResponse200",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1QuestionsCountUnansweredResponse200",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_questions_count_unanswered_with_http_info(
@@ -2961,9 +3025,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2994,32 +3057,30 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_questions_count_unanswered_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1QuestionsCountUnansweredResponse200",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1QuestionsCountUnansweredResponse200",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_questions_count_unanswered_without_preload_content(
@@ -3028,9 +3089,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3061,28 +3121,26 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_questions_count_unanswered_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1QuestionsCountUnansweredResponse200",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "GetV1QuestionsCountUnansweredResponse200",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_questions_count_unanswered_serialize(
         self,
@@ -3093,13 +3151,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru',
-            'https://feedbacks-api-sandbox.wildberries.ru'
+            "https://feedbacks-api.wildberries.ru",
+            "https://feedbacks-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3116,25 +3173,18 @@ class DefaultApi:
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/questions/count-unanswered',
+            method="GET",
+            resource_path="/api/v1/questions/count-unanswered",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3144,23 +3194,21 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def patch_v1_feedbacks_answer(
         self,
-        patch_v1_feedbacks_answer_request: Optional[PatchV1FeedbacksAnswerRequest] = None,
+        patch_v1_feedbacks_answer_request: Optional[
+            PatchV1FeedbacksAnswerRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3193,26 +3241,25 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_v1_feedbacks_answer_serialize(
             patch_v1_feedbacks_answer_request=patch_v1_feedbacks_answer_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "204": None,
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "PostV1FeedbacksAnswer403Response",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3220,18 +3267,18 @@ class DefaultApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def patch_v1_feedbacks_answer_with_http_info(
         self,
-        patch_v1_feedbacks_answer_request: Optional[PatchV1FeedbacksAnswerRequest] = None,
+        patch_v1_feedbacks_answer_request: Optional[
+            PatchV1FeedbacksAnswerRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3264,26 +3311,25 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_v1_feedbacks_answer_serialize(
             patch_v1_feedbacks_answer_request=patch_v1_feedbacks_answer_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "204": None,
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "PostV1FeedbacksAnswer403Response",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3291,18 +3337,18 @@ class DefaultApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def patch_v1_feedbacks_answer_without_preload_content(
         self,
-        patch_v1_feedbacks_answer_request: Optional[PatchV1FeedbacksAnswerRequest] = None,
+        patch_v1_feedbacks_answer_request: Optional[
+            PatchV1FeedbacksAnswerRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3335,29 +3381,27 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_v1_feedbacks_answer_serialize(
             patch_v1_feedbacks_answer_request=patch_v1_feedbacks_answer_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "204": None,
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "PostV1FeedbacksAnswer403Response",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _patch_v1_feedbacks_answer_serialize(
         self,
@@ -3369,13 +3413,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru',
-            'https://feedbacks-api-sandbox.wildberries.ru'
+            "https://feedbacks-api.wildberries.ru",
+            "https://feedbacks-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3394,37 +3437,28 @@ class DefaultApi:
         if patch_v1_feedbacks_answer_request is not None:
             _body_params = patch_v1_feedbacks_answer_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PATCH',
-            resource_path='/api/v1/feedbacks/answer',
+            method="PATCH",
+            resource_path="/api/v1/feedbacks/answer",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3434,11 +3468,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def patch_v1_questions(
@@ -3448,9 +3479,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3483,36 +3513,34 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_v1_questions_serialize(
             patch_v1_questions_request=patch_v1_questions_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchV1QuestionsResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '404': "ResponseFeedbackQuestionErr",
-            '422': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "PatchV1QuestionsResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "404": "ResponseFeedbackQuestionErr",
+            "422": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def patch_v1_questions_with_http_info(
@@ -3522,9 +3550,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3557,36 +3584,34 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_v1_questions_serialize(
             patch_v1_questions_request=patch_v1_questions_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchV1QuestionsResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '404': "ResponseFeedbackQuestionErr",
-            '422': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "PatchV1QuestionsResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "404": "ResponseFeedbackQuestionErr",
+            "422": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def patch_v1_questions_without_preload_content(
@@ -3596,9 +3621,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3631,32 +3655,30 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_v1_questions_serialize(
             patch_v1_questions_request=patch_v1_questions_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchV1QuestionsResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "ResponseFeedbackQuestionErr",
-            '404': "ResponseFeedbackQuestionErr",
-            '422': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "PatchV1QuestionsResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "ResponseFeedbackQuestionErr",
+            "404": "ResponseFeedbackQuestionErr",
+            "422": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _patch_v1_questions_serialize(
         self,
@@ -3668,13 +3690,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru',
-            'https://feedbacks-api-sandbox.wildberries.ru'
+            "https://feedbacks-api.wildberries.ru",
+            "https://feedbacks-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3693,38 +3714,28 @@ class DefaultApi:
         if patch_v1_questions_request is not None:
             _body_params = patch_v1_questions_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PATCH',
-            resource_path='/api/v1/questions',
+            method="PATCH",
+            resource_path="/api/v1/questions",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3734,11 +3745,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v1_feedbacks_answer(
@@ -3748,9 +3756,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3783,34 +3790,32 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_feedbacks_answer_serialize(
             post_v1_feedbacks_answer_request=post_v1_feedbacks_answer_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "StandardizedFQError",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "204": None,
+            "400": "StandardizedFQError",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "PostV1FeedbacksAnswer403Response",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v1_feedbacks_answer_with_http_info(
@@ -3820,9 +3825,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3855,34 +3859,32 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_feedbacks_answer_serialize(
             post_v1_feedbacks_answer_request=post_v1_feedbacks_answer_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "StandardizedFQError",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "204": None,
+            "400": "StandardizedFQError",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "PostV1FeedbacksAnswer403Response",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v1_feedbacks_answer_without_preload_content(
@@ -3892,9 +3894,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3927,30 +3928,28 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_feedbacks_answer_serialize(
             post_v1_feedbacks_answer_request=post_v1_feedbacks_answer_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "StandardizedFQError",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "204": None,
+            "400": "StandardizedFQError",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "PostV1FeedbacksAnswer403Response",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v1_feedbacks_answer_serialize(
         self,
@@ -3962,13 +3961,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru',
-            'https://feedbacks-api-sandbox.wildberries.ru'
+            "https://feedbacks-api.wildberries.ru",
+            "https://feedbacks-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3987,38 +3985,28 @@ class DefaultApi:
         if post_v1_feedbacks_answer_request is not None:
             _body_params = post_v1_feedbacks_answer_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v1/feedbacks/answer',
+            method="POST",
+            resource_path="/api/v1/feedbacks/answer",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4028,11 +4016,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v1_feedbacks_order_return(
@@ -4042,9 +4027,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4077,35 +4061,33 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_feedbacks_order_return_serialize(
             post_v1_feedbacks_order_return_request=post_v1_feedbacks_order_return_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV1FeedbacksOrderReturnResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '422': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "PostV1FeedbacksOrderReturnResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "PostV1FeedbacksAnswer403Response",
+            "422": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v1_feedbacks_order_return_with_http_info(
@@ -4115,9 +4097,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4150,35 +4131,33 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_feedbacks_order_return_serialize(
             post_v1_feedbacks_order_return_request=post_v1_feedbacks_order_return_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV1FeedbacksOrderReturnResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '422': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "PostV1FeedbacksOrderReturnResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "PostV1FeedbacksAnswer403Response",
+            "422": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v1_feedbacks_order_return_without_preload_content(
@@ -4188,9 +4167,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4223,31 +4201,29 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_feedbacks_order_return_serialize(
             post_v1_feedbacks_order_return_request=post_v1_feedbacks_order_return_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV1FeedbacksOrderReturnResponse200",
-            '400': "ResponseFeedbackQuestionErr",
-            '401': "GetV1NewFeedbacksQuestions401Response",
-            '402': "GetV1NewFeedbacksQuestions402Response",
-            '403': "PostV1FeedbacksAnswer403Response",
-            '422': "ResponseFeedbackQuestionErr",
-            '429': "GetV1NewFeedbacksQuestions401Response",
+            "200": "PostV1FeedbacksOrderReturnResponse200",
+            "400": "ResponseFeedbackQuestionErr",
+            "401": "GetV1NewFeedbacksQuestions401Response",
+            "402": "GetV1NewFeedbacksQuestions402Response",
+            "403": "PostV1FeedbacksAnswer403Response",
+            "422": "ResponseFeedbackQuestionErr",
+            "429": "GetV1NewFeedbacksQuestions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v1_feedbacks_order_return_serialize(
         self,
@@ -4259,13 +4235,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://feedbacks-api.wildberries.ru',
-            'https://feedbacks-api-sandbox.wildberries.ru'
+            "https://feedbacks-api.wildberries.ru",
+            "https://feedbacks-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -4284,38 +4259,28 @@ class DefaultApi:
         if post_v1_feedbacks_order_return_request is not None:
             _body_params = post_v1_feedbacks_order_return_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v1/feedbacks/order/return',
+            method="POST",
+            resource_path="/api/v1/feedbacks/order/return",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4325,7 +4290,5 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

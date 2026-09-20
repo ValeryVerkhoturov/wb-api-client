@@ -23,33 +23,65 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class SupplySpotDataResponseSuppliesInnerSpot(BaseModel):
     """
     SupplySpotDataResponseSuppliesInnerSpot
-    """ # noqa: E501
-    status: StrictStr = Field(description="Статус СПОТ:   - `pending` — ожидается результат формирования ДОПП — документа о предстоящей поставке   - `completed` — ДОПП успешно сформирован. Можно [получить QR-код](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdStickersSpot)   - `failed` — ошибка формирования ДОПП. Подробнее в поле `errorCode` ")
-    carrier_name: Annotated[str, Field(min_length=1, strict=True, max_length=1000)] = Field(description="Наименование перевозчика", alias="carrierName")
-    carrier_tax_number: StrictStr = Field(description="ИНН перевозчика", alias="carrierTaxNumber")
-    carrier_country_code: StrictStr = Field(description="Код страны перевозчика по [ОКСМ](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm)", alias="carrierCountryCode")
-    vehicle_registration_number: StrictStr = Field(description="Регистрационный номер транспортного средства", alias="vehicleRegistrationNumber")
-    trailer_registration_number: Optional[StrictStr] = Field(default=None, description="Регистрационный номер прицепа", alias="trailerRegistrationNumber")
-    error_code: Optional[StrictStr] = Field(default=None, description="Код ошибки от сервиса формирования ДОПП — документа о предстоящей поставке. Возвращается при `\"status\": \"failed\"`. Чтобы исправить ошибку, проверьте данные СПОТ и [добавьте их в поставку](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdSpot) ещё раз ", alias="errorCode")
-    __properties: ClassVar[List[str]] = ["status", "carrierName", "carrierTaxNumber", "carrierCountryCode", "vehicleRegistrationNumber", "trailerRegistrationNumber", "errorCode"]
+    """  # noqa: E501
 
-    @field_validator('status')
+    status: StrictStr = Field(
+        description="Статус СПОТ:   - `pending` — ожидается результат формирования ДОПП — документа о предстоящей поставке   - `completed` — ДОПП успешно сформирован. Можно [получить QR-код](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdStickersSpot)   - `failed` — ошибка формирования ДОПП. Подробнее в поле `errorCode` "
+    )
+    carrier_name: Annotated[str, Field(min_length=1, strict=True, max_length=1000)] = (
+        Field(description="Наименование перевозчика", alias="carrierName")
+    )
+    carrier_tax_number: StrictStr = Field(
+        description="ИНН перевозчика", alias="carrierTaxNumber"
+    )
+    carrier_country_code: StrictStr = Field(
+        description="Код страны перевозчика по [ОКСМ](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm)",
+        alias="carrierCountryCode",
+    )
+    vehicle_registration_number: StrictStr = Field(
+        description="Регистрационный номер транспортного средства",
+        alias="vehicleRegistrationNumber",
+    )
+    trailer_registration_number: Optional[StrictStr] = Field(
+        default=None,
+        description="Регистрационный номер прицепа",
+        alias="trailerRegistrationNumber",
+    )
+    error_code: Optional[StrictStr] = Field(
+        default=None,
+        description='Код ошибки от сервиса формирования ДОПП — документа о предстоящей поставке. Возвращается при `"status": "failed"`. Чтобы исправить ошибку, проверьте данные СПОТ и [добавьте их в поставку](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdSpot) ещё раз ',
+        alias="errorCode",
+    )
+    __properties: ClassVar[List[str]] = [
+        "status",
+        "carrierName",
+        "carrierTaxNumber",
+        "carrierCountryCode",
+        "vehicleRegistrationNumber",
+        "trailerRegistrationNumber",
+        "errorCode",
+    ]
+
+    @field_validator("status")
     def status_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['pending', 'completed', 'failed']):
-            raise ValueError("must be one of enum values ('pending', 'completed', 'failed')")
+        if value not in set(["pending", "completed", "failed"]):
+            raise ValueError(
+                "must be one of enum values ('pending', 'completed', 'failed')"
+            )
         return value
 
-    @field_validator('error_code')
+    @field_validator("error_code")
     def error_code_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['doppFailed']):
+        if value not in set(["doppFailed"]):
             raise ValueError("must be one of enum values ('doppFailed')")
         return value
 
@@ -58,7 +90,6 @@ class SupplySpotDataResponseSuppliesInnerSpot(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -84,8 +115,7 @@ class SupplySpotDataResponseSuppliesInnerSpot(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -103,15 +133,15 @@ class SupplySpotDataResponseSuppliesInnerSpot(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "status": obj.get("status"),
-            "carrierName": obj.get("carrierName"),
-            "carrierTaxNumber": obj.get("carrierTaxNumber"),
-            "carrierCountryCode": obj.get("carrierCountryCode"),
-            "vehicleRegistrationNumber": obj.get("vehicleRegistrationNumber"),
-            "trailerRegistrationNumber": obj.get("trailerRegistrationNumber"),
-            "errorCode": obj.get("errorCode")
-        })
+        _obj = cls.model_validate(
+            {
+                "status": obj.get("status"),
+                "carrierName": obj.get("carrierName"),
+                "carrierTaxNumber": obj.get("carrierTaxNumber"),
+                "carrierCountryCode": obj.get("carrierCountryCode"),
+                "vehicleRegistrationNumber": obj.get("vehicleRegistrationNumber"),
+                "trailerRegistrationNumber": obj.get("trailerRegistrationNumber"),
+                "errorCode": obj.get("errorCode"),
+            }
+        )
         return _obj
-
-

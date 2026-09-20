@@ -22,10 +22,12 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V1GetNormQueryStatsRequestItemsInner(BaseModel):
     """
     V1GetNormQueryStatsRequestItemsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     advert_id: StrictInt = Field(description="ID кампании", alias="advertId")
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
     __properties: ClassVar[List[str]] = ["advertId", "nmId"]
@@ -35,7 +37,6 @@ class V1GetNormQueryStatsRequestItemsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +62,7 @@ class V1GetNormQueryStatsRequestItemsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +80,7 @@ class V1GetNormQueryStatsRequestItemsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advertId": obj.get("advertId"),
-            "nmId": obj.get("nmId")
-        })
+        _obj = cls.model_validate(
+            {"advertId": obj.get("advertId"), "nmId": obj.get("nmId")}
+        )
         return _obj
-
-

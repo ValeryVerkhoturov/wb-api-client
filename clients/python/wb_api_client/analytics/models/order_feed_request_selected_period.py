@@ -23,12 +23,19 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class OrderFeedRequestSelectedPeriod(BaseModel):
     """
     Запрашиваемый период. По дате текущего статуса заказа
-    """ # noqa: E501
-    start: datetime = Field(description="Дата и время начала периода. Не ранее 31 суток от текущей даты и не позднее `end`")
-    end: Optional[datetime] = Field(default=None, description="Дата и время конца периода. Не ранее 31 суток от текущей даты")
+    """  # noqa: E501
+
+    start: datetime = Field(
+        description="Дата и время начала периода. Не ранее 31 суток от текущей даты и не позднее `end`"
+    )
+    end: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время конца периода. Не ранее 31 суток от текущей даты",
+    )
     __properties: ClassVar[List[str]] = ["start", "end"]
 
     model_config = ConfigDict(
@@ -36,7 +43,6 @@ class OrderFeedRequestSelectedPeriod(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +68,7 @@ class OrderFeedRequestSelectedPeriod(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,10 +86,5 @@ class OrderFeedRequestSelectedPeriod(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "start": obj.get("start"),
-            "end": obj.get("end")
-        })
+        _obj = cls.model_validate({"start": obj.get("start"), "end": obj.get("end")})
         return _obj
-
-

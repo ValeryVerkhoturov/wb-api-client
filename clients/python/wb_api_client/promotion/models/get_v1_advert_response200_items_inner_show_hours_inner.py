@@ -22,12 +22,18 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1AdvertResponse200ItemsInnerShowHoursInner(BaseModel):
     """
     GetV1AdvertResponse200ItemsInnerShowHoursInner
-    """ # noqa: E501
-    var_from: Optional[StrictInt] = Field(default=None, description="Начало показа", alias="From")
-    to: Optional[StrictInt] = Field(default=None, description="Конец показа", alias="To")
+    """  # noqa: E501
+
+    var_from: Optional[StrictInt] = Field(
+        default=None, description="Начало показа", alias="From"
+    )
+    to: Optional[StrictInt] = Field(
+        default=None, description="Конец показа", alias="To"
+    )
     __properties: ClassVar[List[str]] = ["From", "To"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class GetV1AdvertResponse200ItemsInnerShowHoursInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class GetV1AdvertResponse200ItemsInnerShowHoursInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +84,5 @@ class GetV1AdvertResponse200ItemsInnerShowHoursInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "From": obj.get("From"),
-            "To": obj.get("To")
-        })
+        _obj = cls.model_validate({"From": obj.get("From"), "To": obj.get("To")})
         return _obj
-
-

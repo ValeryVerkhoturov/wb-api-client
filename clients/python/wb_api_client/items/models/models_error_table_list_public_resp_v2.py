@@ -19,16 +19,24 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.items.models.models_error_table_list_public_resp_v2_item import ModelsErrorTableListPublicRespV2Item
-from wb_api_client.items.models.viewer_contract_public_errors_cursor_output import ViewerContractPublicErrorsCursorOutput
+from wb_api_client.items.models.models_error_table_list_public_resp_v2_item import (
+    ModelsErrorTableListPublicRespV2Item,
+)
+from wb_api_client.items.models.viewer_contract_public_errors_cursor_output import (
+    ViewerContractPublicErrorsCursorOutput,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ModelsErrorTableListPublicRespV2(BaseModel):
     """
     Данные ответа
-    """ # noqa: E501
-    items: List[ModelsErrorTableListPublicRespV2Item] = Field(description="Пакеты данных")
+    """  # noqa: E501
+
+    items: List[ModelsErrorTableListPublicRespV2Item] = Field(
+        description="Пакеты данных"
+    )
     cursor: ViewerContractPublicErrorsCursorOutput
     __properties: ClassVar[List[str]] = ["items", "cursor"]
 
@@ -37,7 +45,6 @@ class ModelsErrorTableListPublicRespV2(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +70,7 @@ class ModelsErrorTableListPublicRespV2(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,10 +83,10 @@ class ModelsErrorTableListPublicRespV2(BaseModel):
             for _item_items in self.items:
                 if _item_items:
                     _items.append(_item_items.to_dict())
-            _dict['items'] = _items
+            _dict["items"] = _items
         # override the default output from pydantic by calling `to_dict()` of cursor
         if self.cursor:
-            _dict['cursor'] = self.cursor.to_dict()
+            _dict["cursor"] = self.cursor.to_dict()
         return _dict
 
     @classmethod
@@ -92,10 +98,21 @@ class ModelsErrorTableListPublicRespV2(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "items": [ModelsErrorTableListPublicRespV2Item.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None,
-            "cursor": ViewerContractPublicErrorsCursorOutput.from_dict(obj["cursor"]) if obj.get("cursor") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "items": (
+                    [
+                        ModelsErrorTableListPublicRespV2Item.from_dict(_item)
+                        for _item in obj["items"]
+                    ]
+                    if obj.get("items") is not None
+                    else None
+                ),
+                "cursor": (
+                    ViewerContractPublicErrorsCursorOutput.from_dict(obj["cursor"])
+                    if obj.get("cursor") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

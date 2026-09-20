@@ -23,10 +23,12 @@ from wb_api_client.promotion.models.v1_budget_advert import V1BudgetAdvert
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V2BudgetResponse(BaseModel):
     """
     V2BudgetResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     adverts: Optional[List[V1BudgetAdvert]] = Field(description="Данные по кампаниям")
     __properties: ClassVar[List[str]] = ["adverts"]
 
@@ -35,7 +37,6 @@ class V2BudgetResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +62,7 @@ class V2BudgetResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,11 +75,11 @@ class V2BudgetResponse(BaseModel):
             for _item_adverts in self.adverts:
                 if _item_adverts:
                     _items.append(_item_adverts.to_dict())
-            _dict['adverts'] = _items
+            _dict["adverts"] = _items
         # set to None if adverts (nullable) is None
         # and model_fields_set contains the field
         if self.adverts is None and "adverts" in self.model_fields_set:
-            _dict['adverts'] = None
+            _dict["adverts"] = None
 
         return _dict
 
@@ -92,9 +92,13 @@ class V2BudgetResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "adverts": [V1BudgetAdvert.from_dict(_item) for _item in obj["adverts"]] if obj.get("adverts") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "adverts": (
+                    [V1BudgetAdvert.from_dict(_item) for _item in obj["adverts"]]
+                    if obj.get("adverts") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

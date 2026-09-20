@@ -23,12 +23,19 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class CreateInviteRequestInvite(BaseModel):
     """
     CreateInviteRequestInvite
-    """ # noqa: E501
-    phone_number: StrictStr = Field(description="Номер телефона пользователя для приглашения. **Поддерживаются номера телефонов из стран:**• Азербайджан • Армения • Барбадос • Беларусь • Бразилия • Гонконг • Грузия • Италия • Казахстан • Китай • Кыргызстан • Макао • ОАЭ • Россия • Сербия • Таджикистан • Турция • Узбекистан • Чехия • Швеция", alias="phoneNumber")
-    position: Optional[Annotated[str, Field(strict=True, max_length=150)]] = Field(default=None, description="Должность пользователя")
+    """  # noqa: E501
+
+    phone_number: StrictStr = Field(
+        description="Номер телефона пользователя для приглашения. **Поддерживаются номера телефонов из стран:**• Азербайджан • Армения • Барбадос • Беларусь • Бразилия • Гонконг • Грузия • Италия • Казахстан • Китай • Кыргызстан • Макао • ОАЭ • Россия • Сербия • Таджикистан • Турция • Узбекистан • Чехия • Швеция",
+        alias="phoneNumber",
+    )
+    position: Optional[Annotated[str, Field(strict=True, max_length=150)]] = Field(
+        default=None, description="Должность пользователя"
+    )
     __properties: ClassVar[List[str]] = ["phoneNumber", "position"]
 
     model_config = ConfigDict(
@@ -36,7 +43,6 @@ class CreateInviteRequestInvite(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +68,7 @@ class CreateInviteRequestInvite(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,10 +86,7 @@ class CreateInviteRequestInvite(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "phoneNumber": obj.get("phoneNumber"),
-            "position": obj.get("position")
-        })
+        _obj = cls.model_validate(
+            {"phoneNumber": obj.get("phoneNumber"), "position": obj.get("position")}
+        )
         return _obj
-
-

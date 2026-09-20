@@ -20,19 +20,17 @@ from typing_extensions import Self
 
 class StockType(str, Enum):
     """
-    Тип складов хранения товаров:   - `\"\"` — все   - `wb` — склады WB   - `mp` — склады продавца 
+    Тип складов хранения товаров:   - `\"\"` — все   - `wb` — склады WB   - `mp` — склады продавца
     """
 
     """
     allowed enum values
     """
-    EMPTY = ''
-    WB = 'wb'
-    MP = 'mp'
+    EMPTY = ""
+    WB = "wb"
+    MP = "mp"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of StockType from a JSON string"""
         return cls(json.loads(json_str))
-
-

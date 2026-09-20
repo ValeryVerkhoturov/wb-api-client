@@ -23,12 +23,19 @@ from wb_api_client.items.models.set_recom_res_errors_inner import SetRecomResErr
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class SetRecomRes(BaseModel):
     """
     SetRecomRes
-    """ # noqa: E501
-    is_error: StrictBool = Field(description="Есть ли ошибки:   - `false` — ошибок нет. Запрос полностью успешен   - `true` — ошибки есть ", alias="isError")
-    errors: Optional[List[SetRecomResErrorsInner]] = Field(default=None, description="Ошибки. При `\"isError\":true`")
+    """  # noqa: E501
+
+    is_error: StrictBool = Field(
+        description="Есть ли ошибки:   - `false` — ошибок нет. Запрос полностью успешен   - `true` — ошибки есть ",
+        alias="isError",
+    )
+    errors: Optional[List[SetRecomResErrorsInner]] = Field(
+        default=None, description='Ошибки. При `"isError":true`'
+    )
     __properties: ClassVar[List[str]] = ["isError", "errors"]
 
     model_config = ConfigDict(
@@ -36,7 +43,6 @@ class SetRecomRes(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +68,7 @@ class SetRecomRes(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +81,7 @@ class SetRecomRes(BaseModel):
             for _item_errors in self.errors:
                 if _item_errors:
                     _items.append(_item_errors.to_dict())
-            _dict['errors'] = _items
+            _dict["errors"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +93,14 @@ class SetRecomRes(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "isError": obj.get("isError"),
-            "errors": [SetRecomResErrorsInner.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "isError": obj.get("isError"),
+                "errors": (
+                    [SetRecomResErrorsInner.from_dict(_item) for _item in obj["errors"]]
+                    if obj.get("errors") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

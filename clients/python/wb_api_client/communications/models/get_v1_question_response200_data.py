@@ -20,31 +20,58 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.communications.models.get_v1_question_response200_data_answer import GetV1QuestionResponse200DataAnswer
-from wb_api_client.communications.models.get_v1_question_response200_data_product_details import GetV1QuestionResponse200DataProductDetails
+from wb_api_client.communications.models.get_v1_question_response200_data_answer import (
+    GetV1QuestionResponse200DataAnswer,
+)
+from wb_api_client.communications.models.get_v1_question_response200_data_product_details import (
+    GetV1QuestionResponse200DataProductDetails,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV1QuestionResponse200Data(BaseModel):
     """
     GetV1QuestionResponse200Data
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictStr] = Field(default=None, description="ID вопроса")
     text: Optional[StrictStr] = Field(default=None, description="Текст вопроса")
-    created_date: Optional[datetime] = Field(default=None, description="Дата и время создания вопроса", alias="createdDate")
-    state: Optional[StrictStr] = Field(default=None, description="Статус вопроса:   - `none` - вопрос отклонён продавцом (такой вопрос не отображается на портале покупателей)   - `wbRu` - ответ предоставлен, вопрос отображается на сайте покупателей   - `suppliersPortalSynch` - новый вопрос ")
+    created_date: Optional[datetime] = Field(
+        default=None, description="Дата и время создания вопроса", alias="createdDate"
+    )
+    state: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус вопроса:   - `none` - вопрос отклонён продавцом (такой вопрос не отображается на портале покупателей)   - `wbRu` - ответ предоставлен, вопрос отображается на сайте покупателей   - `suppliersPortalSynch` - новый вопрос ",
+    )
     answer: Optional[GetV1QuestionResponse200DataAnswer] = None
-    product_details: Optional[GetV1QuestionResponse200DataProductDetails] = Field(default=None, alias="productDetails")
-    was_viewed: Optional[StrictBool] = Field(default=None, description="Просмотрен ли вопрос", alias="wasViewed")
-    is_warned: Optional[StrictBool] = Field(default=None, description="Признак подозрительного вопроса. Если `true`, то вопрос опубликован, но на портале продавцов вы увидите баннер \\*\\*Сообщение подозрительное\\*\\*", alias="isWarned")
-    __properties: ClassVar[List[str]] = ["id", "text", "createdDate", "state", "answer", "productDetails", "wasViewed", "isWarned"]
+    product_details: Optional[GetV1QuestionResponse200DataProductDetails] = Field(
+        default=None, alias="productDetails"
+    )
+    was_viewed: Optional[StrictBool] = Field(
+        default=None, description="Просмотрен ли вопрос", alias="wasViewed"
+    )
+    is_warned: Optional[StrictBool] = Field(
+        default=None,
+        description="Признак подозрительного вопроса. Если `true`, то вопрос опубликован, но на портале продавцов вы увидите баннер \\*\\*Сообщение подозрительное\\*\\*",
+        alias="isWarned",
+    )
+    __properties: ClassVar[List[str]] = [
+        "id",
+        "text",
+        "createdDate",
+        "state",
+        "answer",
+        "productDetails",
+        "wasViewed",
+        "isWarned",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -70,8 +97,7 @@ class GetV1QuestionResponse200Data(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,14 +106,14 @@ class GetV1QuestionResponse200Data(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of answer
         if self.answer:
-            _dict['answer'] = self.answer.to_dict()
+            _dict["answer"] = self.answer.to_dict()
         # override the default output from pydantic by calling `to_dict()` of product_details
         if self.product_details:
-            _dict['productDetails'] = self.product_details.to_dict()
+            _dict["productDetails"] = self.product_details.to_dict()
         # set to None if answer (nullable) is None
         # and model_fields_set contains the field
         if self.answer is None and "answer" in self.model_fields_set:
-            _dict['answer'] = None
+            _dict["answer"] = None
 
         return _dict
 
@@ -100,16 +126,26 @@ class GetV1QuestionResponse200Data(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "text": obj.get("text"),
-            "createdDate": obj.get("createdDate"),
-            "state": obj.get("state"),
-            "answer": GetV1QuestionResponse200DataAnswer.from_dict(obj["answer"]) if obj.get("answer") is not None else None,
-            "productDetails": GetV1QuestionResponse200DataProductDetails.from_dict(obj["productDetails"]) if obj.get("productDetails") is not None else None,
-            "wasViewed": obj.get("wasViewed"),
-            "isWarned": obj.get("isWarned")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "text": obj.get("text"),
+                "createdDate": obj.get("createdDate"),
+                "state": obj.get("state"),
+                "answer": (
+                    GetV1QuestionResponse200DataAnswer.from_dict(obj["answer"])
+                    if obj.get("answer") is not None
+                    else None
+                ),
+                "productDetails": (
+                    GetV1QuestionResponse200DataProductDetails.from_dict(
+                        obj["productDetails"]
+                    )
+                    if obj.get("productDetails") is not None
+                    else None
+                ),
+                "wasViewed": obj.get("wasViewed"),
+                "isWarned": obj.get("isWarned"),
+            }
+        )
         return _obj
-
-

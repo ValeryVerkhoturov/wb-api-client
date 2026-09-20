@@ -23,11 +23,15 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsItem(BaseModel):
     """
     ModelsItem
-    """ # noqa: E501
-    quantity: Annotated[int, Field(le=999999, strict=True, ge=1)] = Field(description="Количество единиц товара ")
+    """  # noqa: E501
+
+    quantity: Annotated[int, Field(le=999999, strict=True, ge=1)] = Field(
+        description="Количество единиц товара "
+    )
     sku: StrictStr = Field(description="Баркод из карточки товара")
     __properties: ClassVar[List[str]] = ["quantity", "sku"]
 
@@ -36,7 +40,6 @@ class ModelsItem(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class ModelsItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,10 +83,7 @@ class ModelsItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "quantity": obj.get("quantity"),
-            "sku": obj.get("sku")
-        })
+        _obj = cls.model_validate(
+            {"quantity": obj.get("quantity"), "sku": obj.get("sku")}
+        )
         return _obj
-
-

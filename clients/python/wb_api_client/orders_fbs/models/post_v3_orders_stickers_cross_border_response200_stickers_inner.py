@@ -17,32 +17,73 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBytes, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBytes,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV3OrdersStickersCrossBorderResponse200StickersInner(BaseModel):
     """
     PostV3OrdersStickersCrossBorderResponse200StickersInner
-    """ # noqa: E501
-    order_id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", alias="orderId")
-    status: Optional[StrictStr] = Field(default=None, description="Статус генерации стикера:   - `awaitingTrackNumber` — стикер не готов. Ожидается трек-номер от перевозчика.   - `ready` — стикер готов ")
-    parcel_id: Optional[StrictStr] = Field(default=None, description="Трек-номер в стикере для отслеживания сборочного задания", alias="parcelId")
-    file: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="Стикер в формате PDF, кодировка base64")
-    part_a: Optional[StrictStr] = Field(default=None, description="Первая часть ID стикера для печати подписи", alias="partA")
-    part_b: Optional[StrictStr] = Field(default=None, description="Вторая часть ID стикера для печати подписи", alias="partB")
-    barcode: Optional[StrictStr] = Field(default=None, description="Закодированное значение стикера")
-    __properties: ClassVar[List[str]] = ["orderId", "status", "parcelId", "file", "partA", "partB", "barcode"]
+    """  # noqa: E501
 
-    @field_validator('status')
+    order_id: Optional[StrictInt] = Field(
+        default=None, description="ID сборочного задания", alias="orderId"
+    )
+    status: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус генерации стикера:   - `awaitingTrackNumber` — стикер не готов. Ожидается трек-номер от перевозчика.   - `ready` — стикер готов ",
+    )
+    parcel_id: Optional[StrictStr] = Field(
+        default=None,
+        description="Трек-номер в стикере для отслеживания сборочного задания",
+        alias="parcelId",
+    )
+    file: Optional[Union[StrictBytes, StrictStr]] = Field(
+        default=None, description="Стикер в формате PDF, кодировка base64"
+    )
+    part_a: Optional[StrictStr] = Field(
+        default=None,
+        description="Первая часть ID стикера для печати подписи",
+        alias="partA",
+    )
+    part_b: Optional[StrictStr] = Field(
+        default=None,
+        description="Вторая часть ID стикера для печати подписи",
+        alias="partB",
+    )
+    barcode: Optional[StrictStr] = Field(
+        default=None, description="Закодированное значение стикера"
+    )
+    __properties: ClassVar[List[str]] = [
+        "orderId",
+        "status",
+        "parcelId",
+        "file",
+        "partA",
+        "partB",
+        "barcode",
+    ]
+
+    @field_validator("status")
     def status_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['awaitingTrackNumber', 'ready']):
-            raise ValueError("must be one of enum values ('awaitingTrackNumber', 'ready')")
+        if value not in set(["awaitingTrackNumber", "ready"]):
+            raise ValueError(
+                "must be one of enum values ('awaitingTrackNumber', 'ready')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -50,7 +91,6 @@ class PostV3OrdersStickersCrossBorderResponse200StickersInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -76,8 +116,7 @@ class PostV3OrdersStickersCrossBorderResponse200StickersInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -95,15 +134,15 @@ class PostV3OrdersStickersCrossBorderResponse200StickersInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "orderId": obj.get("orderId"),
-            "status": obj.get("status"),
-            "parcelId": obj.get("parcelId"),
-            "file": obj.get("file"),
-            "partA": obj.get("partA"),
-            "partB": obj.get("partB"),
-            "barcode": obj.get("barcode")
-        })
+        _obj = cls.model_validate(
+            {
+                "orderId": obj.get("orderId"),
+                "status": obj.get("status"),
+                "parcelId": obj.get("parcelId"),
+                "file": obj.get("file"),
+                "partA": obj.get("partA"),
+                "partB": obj.get("partB"),
+                "barcode": obj.get("barcode"),
+            }
+        )
         return _obj
-
-

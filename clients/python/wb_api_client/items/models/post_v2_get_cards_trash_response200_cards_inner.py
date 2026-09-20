@@ -19,39 +19,86 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_characteristics_inner import PostV2GetCardsListResponse200CardsInnerCharacteristicsInner
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_dimensions import PostV2GetCardsListResponse200CardsInnerDimensions
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_photos_inner import PostV2GetCardsListResponse200CardsInnerPhotosInner
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_wholesale import PostV2GetCardsListResponse200CardsInnerWholesale
-from wb_api_client.items.models.post_v2_get_cards_trash_response200_cards_inner_sizes_inner import PostV2GetCardsTrashResponse200CardsInnerSizesInner
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_characteristics_inner import (
+    PostV2GetCardsListResponse200CardsInnerCharacteristicsInner,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_dimensions import (
+    PostV2GetCardsListResponse200CardsInnerDimensions,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_photos_inner import (
+    PostV2GetCardsListResponse200CardsInnerPhotosInner,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_wholesale import (
+    PostV2GetCardsListResponse200CardsInnerWholesale,
+)
+from wb_api_client.items.models.post_v2_get_cards_trash_response200_cards_inner_sizes_inner import (
+    PostV2GetCardsTrashResponse200CardsInnerSizesInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV2GetCardsTrashResponse200CardsInner(BaseModel):
     """
     PostV2GetCardsTrashResponse200CardsInner
-    """ # noqa: E501
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmID")
-    vendor_code: Optional[StrictStr] = Field(default=None, description="Артикул продавца", alias="vendorCode")
-    kiz_marked: Optional[StrictBool] = Field(default=False, description="Есть ли подтверждение от продавца, что обязательный код маркировки [Честного знака](https://честныйзнак.рф/) нанесён на товар:   - `true` — да   - `false` — нет  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа `needKiz` ", alias="kizMarked")
-    subject_id: Optional[StrictInt] = Field(default=None, description="ID предмета", alias="subjectID")
-    subject_name: Optional[StrictStr] = Field(default=None, description="Название предмета", alias="subjectName")
-    photos: Optional[List[PostV2GetCardsListResponse200CardsInnerPhotosInner]] = Field(default=None, description="Массив фото")
+    """  # noqa: E501
+
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmID"
+    )
+    vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Артикул продавца", alias="vendorCode"
+    )
+    kiz_marked: Optional[StrictBool] = Field(
+        default=False,
+        description="Есть ли подтверждение от продавца, что обязательный код маркировки [Честного знака](https://честныйзнак.рф/) нанесён на товар:   - `true` — да   - `false` — нет  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа `needKiz` ",
+        alias="kizMarked",
+    )
+    subject_id: Optional[StrictInt] = Field(
+        default=None, description="ID предмета", alias="subjectID"
+    )
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Название предмета", alias="subjectName"
+    )
+    photos: Optional[List[PostV2GetCardsListResponse200CardsInnerPhotosInner]] = Field(
+        default=None, description="Массив фото"
+    )
     video: Optional[StrictStr] = Field(default=None, description="URL видео")
     wholesale: Optional[PostV2GetCardsListResponse200CardsInnerWholesale] = None
-    sizes: Optional[List[PostV2GetCardsTrashResponse200CardsInnerSizesInner]] = Field(default=None, description="Массив размеров")
+    sizes: Optional[List[PostV2GetCardsTrashResponse200CardsInnerSizesInner]] = Field(
+        default=None, description="Массив размеров"
+    )
     dimensions: Optional[PostV2GetCardsListResponse200CardsInnerDimensions] = None
-    characteristics: Optional[List[PostV2GetCardsListResponse200CardsInnerCharacteristicsInner]] = Field(default=None, description="Характеристики")
-    created_at: Optional[StrictStr] = Field(default=None, description="Date and time the item was listed", alias="createdAt")
-    trashed_at: Optional[StrictStr] = Field(default=None, description="Дата и время помещения в корзину", alias="trashedAt")
-    __properties: ClassVar[List[str]] = ["nmID", "vendorCode", "kizMarked", "subjectID", "subjectName", "photos", "video", "wholesale", "sizes", "dimensions", "characteristics", "createdAt", "trashedAt"]
+    characteristics: Optional[
+        List[PostV2GetCardsListResponse200CardsInnerCharacteristicsInner]
+    ] = Field(default=None, description="Характеристики")
+    created_at: Optional[StrictStr] = Field(
+        default=None, description="Date and time the item was listed", alias="createdAt"
+    )
+    trashed_at: Optional[StrictStr] = Field(
+        default=None, description="Дата и время помещения в корзину", alias="trashedAt"
+    )
+    __properties: ClassVar[List[str]] = [
+        "nmID",
+        "vendorCode",
+        "kizMarked",
+        "subjectID",
+        "subjectName",
+        "photos",
+        "video",
+        "wholesale",
+        "sizes",
+        "dimensions",
+        "characteristics",
+        "createdAt",
+        "trashedAt",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -77,8 +124,7 @@ class PostV2GetCardsTrashResponse200CardsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -91,31 +137,31 @@ class PostV2GetCardsTrashResponse200CardsInner(BaseModel):
             for _item_photos in self.photos:
                 if _item_photos:
                     _items.append(_item_photos.to_dict())
-            _dict['photos'] = _items
+            _dict["photos"] = _items
         # override the default output from pydantic by calling `to_dict()` of wholesale
         if self.wholesale:
-            _dict['wholesale'] = self.wholesale.to_dict()
+            _dict["wholesale"] = self.wholesale.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in sizes (list)
         _items = []
         if self.sizes:
             for _item_sizes in self.sizes:
                 if _item_sizes:
                     _items.append(_item_sizes.to_dict())
-            _dict['sizes'] = _items
+            _dict["sizes"] = _items
         # override the default output from pydantic by calling `to_dict()` of dimensions
         if self.dimensions:
-            _dict['dimensions'] = self.dimensions.to_dict()
+            _dict["dimensions"] = self.dimensions.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in characteristics (list)
         _items = []
         if self.characteristics:
             for _item_characteristics in self.characteristics:
                 if _item_characteristics:
                     _items.append(_item_characteristics.to_dict())
-            _dict['characteristics'] = _items
+            _dict["characteristics"] = _items
         # set to None if characteristics (nullable) is None
         # and model_fields_set contains the field
         if self.characteristics is None and "characteristics" in self.model_fields_set:
-            _dict['characteristics'] = None
+            _dict["characteristics"] = None
 
         return _dict
 
@@ -128,21 +174,62 @@ class PostV2GetCardsTrashResponse200CardsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmID": obj.get("nmID"),
-            "vendorCode": obj.get("vendorCode"),
-            "kizMarked": obj.get("kizMarked") if obj.get("kizMarked") is not None else False,
-            "subjectID": obj.get("subjectID"),
-            "subjectName": obj.get("subjectName"),
-            "photos": [PostV2GetCardsListResponse200CardsInnerPhotosInner.from_dict(_item) for _item in obj["photos"]] if obj.get("photos") is not None else None,
-            "video": obj.get("video"),
-            "wholesale": PostV2GetCardsListResponse200CardsInnerWholesale.from_dict(obj["wholesale"]) if obj.get("wholesale") is not None else None,
-            "sizes": [PostV2GetCardsTrashResponse200CardsInnerSizesInner.from_dict(_item) for _item in obj["sizes"]] if obj.get("sizes") is not None else None,
-            "dimensions": PostV2GetCardsListResponse200CardsInnerDimensions.from_dict(obj["dimensions"]) if obj.get("dimensions") is not None else None,
-            "characteristics": [PostV2GetCardsListResponse200CardsInnerCharacteristicsInner.from_dict(_item) for _item in obj["characteristics"]] if obj.get("characteristics") is not None else None,
-            "createdAt": obj.get("createdAt"),
-            "trashedAt": obj.get("trashedAt")
-        })
+        _obj = cls.model_validate(
+            {
+                "nmID": obj.get("nmID"),
+                "vendorCode": obj.get("vendorCode"),
+                "kizMarked": (
+                    obj.get("kizMarked") if obj.get("kizMarked") is not None else False
+                ),
+                "subjectID": obj.get("subjectID"),
+                "subjectName": obj.get("subjectName"),
+                "photos": (
+                    [
+                        PostV2GetCardsListResponse200CardsInnerPhotosInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["photos"]
+                    ]
+                    if obj.get("photos") is not None
+                    else None
+                ),
+                "video": obj.get("video"),
+                "wholesale": (
+                    PostV2GetCardsListResponse200CardsInnerWholesale.from_dict(
+                        obj["wholesale"]
+                    )
+                    if obj.get("wholesale") is not None
+                    else None
+                ),
+                "sizes": (
+                    [
+                        PostV2GetCardsTrashResponse200CardsInnerSizesInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["sizes"]
+                    ]
+                    if obj.get("sizes") is not None
+                    else None
+                ),
+                "dimensions": (
+                    PostV2GetCardsListResponse200CardsInnerDimensions.from_dict(
+                        obj["dimensions"]
+                    )
+                    if obj.get("dimensions") is not None
+                    else None
+                ),
+                "characteristics": (
+                    [
+                        PostV2GetCardsListResponse200CardsInnerCharacteristicsInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["characteristics"]
+                    ]
+                    if obj.get("characteristics") is not None
+                    else None
+                ),
+                "createdAt": obj.get("createdAt"),
+                "trashedAt": obj.get("trashedAt"),
+            }
+        )
         return _obj
-
-

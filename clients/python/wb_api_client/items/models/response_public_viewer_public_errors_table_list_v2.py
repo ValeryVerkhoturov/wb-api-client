@@ -19,26 +19,36 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.models_error_table_list_public_resp_v2 import ModelsErrorTableListPublicRespV2
+from wb_api_client.items.models.models_error_table_list_public_resp_v2 import (
+    ModelsErrorTableListPublicRespV2,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ResponsePublicViewerPublicErrorsTableListV2(BaseModel):
     """
     ResponsePublicViewerPublicErrorsTableListV2
-    """ # noqa: E501
+    """  # noqa: E501
+
     data: ModelsErrorTableListPublicRespV2
     error: StrictBool = Field(description="Флаг ошибки")
     error_text: StrictStr = Field(description="Описание ошибки", alias="errorText")
-    additional_errors: Optional[Dict[str, Any]] = Field(description="Дополнительные ошибки", alias="additionalErrors")
-    __properties: ClassVar[List[str]] = ["data", "error", "errorText", "additionalErrors"]
+    additional_errors: Optional[Dict[str, Any]] = Field(
+        description="Дополнительные ошибки", alias="additionalErrors"
+    )
+    __properties: ClassVar[List[str]] = [
+        "data",
+        "error",
+        "errorText",
+        "additionalErrors",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +74,7 @@ class ResponsePublicViewerPublicErrorsTableListV2(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -74,11 +83,14 @@ class ResponsePublicViewerPublicErrorsTableListV2(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of data
         if self.data:
-            _dict['data'] = self.data.to_dict()
+            _dict["data"] = self.data.to_dict()
         # set to None if additional_errors (nullable) is None
         # and model_fields_set contains the field
-        if self.additional_errors is None and "additional_errors" in self.model_fields_set:
-            _dict['additionalErrors'] = None
+        if (
+            self.additional_errors is None
+            and "additional_errors" in self.model_fields_set
+        ):
+            _dict["additionalErrors"] = None
 
         return _dict
 
@@ -91,12 +103,16 @@ class ResponsePublicViewerPublicErrorsTableListV2(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "data": ModelsErrorTableListPublicRespV2.from_dict(obj["data"]) if obj.get("data") is not None else None,
-            "error": obj.get("error"),
-            "errorText": obj.get("errorText"),
-            "additionalErrors": obj.get("additionalErrors")
-        })
+        _obj = cls.model_validate(
+            {
+                "data": (
+                    ModelsErrorTableListPublicRespV2.from_dict(obj["data"])
+                    if obj.get("data") is not None
+                    else None
+                ),
+                "error": obj.get("error"),
+                "errorText": obj.get("errorText"),
+                "additionalErrors": obj.get("additionalErrors"),
+            }
+        )
         return _obj
-
-

@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.analytics.models.items_response_products_inner import ItemsResponseProductsInner
+from wb_api_client.analytics.models.items_response_products_inner import (
+    ItemsResponseProductsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ItemsResponse(BaseModel):
     """
     ItemsResponse
-    """ # noqa: E501
-    products: List[ItemsResponseProductsInner] = Field(description="Список карточек товаров")
+    """  # noqa: E501
+
+    products: List[ItemsResponseProductsInner] = Field(
+        description="Список карточек товаров"
+    )
     currency: StrictStr = Field(description="Валюта отчёта")
     __properties: ClassVar[List[str]] = ["products", "currency"]
 
@@ -36,7 +42,6 @@ class ItemsResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class ItemsResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +80,7 @@ class ItemsResponse(BaseModel):
             for _item_products in self.products:
                 if _item_products:
                     _items.append(_item_products.to_dict())
-            _dict['products'] = _items
+            _dict["products"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +92,17 @@ class ItemsResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "products": [ItemsResponseProductsInner.from_dict(_item) for _item in obj["products"]] if obj.get("products") is not None else None,
-            "currency": obj.get("currency")
-        })
+        _obj = cls.model_validate(
+            {
+                "products": (
+                    [
+                        ItemsResponseProductsInner.from_dict(_item)
+                        for _item in obj["products"]
+                    ]
+                    if obj.get("products") is not None
+                    else None
+                ),
+                "currency": obj.get("currency"),
+            }
+        )
         return _obj
-
-

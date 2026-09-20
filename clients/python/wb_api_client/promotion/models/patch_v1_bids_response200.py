@@ -19,16 +19,24 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.promotion.models.patch_v1_bids_response200_bids_inner import PatchV1BidsResponse200BidsInner
+from wb_api_client.promotion.models.patch_v1_bids_response200_bids_inner import (
+    PatchV1BidsResponse200BidsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PatchV1BidsResponse200(BaseModel):
     """
     PatchV1BidsResponse200
-    """ # noqa: E501
-    bids: List[PatchV1BidsResponse200BidsInner] = Field(description="Результат отработки запроса")
-    currency: StrictStr = Field(description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    """  # noqa: E501
+
+    bids: List[PatchV1BidsResponse200BidsInner] = Field(
+        description="Результат отработки запроса"
+    )
+    currency: StrictStr = Field(
+        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
     __properties: ClassVar[List[str]] = ["bids", "currency"]
 
     model_config = ConfigDict(
@@ -36,7 +44,6 @@ class PatchV1BidsResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +69,7 @@ class PatchV1BidsResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +82,7 @@ class PatchV1BidsResponse200(BaseModel):
             for _item_bids in self.bids:
                 if _item_bids:
                     _items.append(_item_bids.to_dict())
-            _dict['bids'] = _items
+            _dict["bids"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +94,17 @@ class PatchV1BidsResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "bids": [PatchV1BidsResponse200BidsInner.from_dict(_item) for _item in obj["bids"]] if obj.get("bids") is not None else None,
-            "currency": obj.get("currency")
-        })
+        _obj = cls.model_validate(
+            {
+                "bids": (
+                    [
+                        PatchV1BidsResponse200BidsInner.from_dict(_item)
+                        for _item in obj["bids"]
+                    ]
+                    if obj.get("bids") is not None
+                    else None
+                ),
+                "currency": obj.get("currency"),
+            }
+        )
         return _obj
-
-

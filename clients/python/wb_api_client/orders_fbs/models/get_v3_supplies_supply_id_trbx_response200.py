@@ -23,10 +23,12 @@ from wb_api_client.orders_fbs.models.supply_trbx import SupplyTrbx
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV3SuppliesSupplyIdTrbxResponse200(BaseModel):
     """
     GetV3SuppliesSupplyIdTrbxResponse200
-    """ # noqa: E501
+    """  # noqa: E501
+
     trbxes: Optional[List[SupplyTrbx]] = None
     __properties: ClassVar[List[str]] = ["trbxes"]
 
@@ -35,7 +37,6 @@ class GetV3SuppliesSupplyIdTrbxResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +62,7 @@ class GetV3SuppliesSupplyIdTrbxResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +75,7 @@ class GetV3SuppliesSupplyIdTrbxResponse200(BaseModel):
             for _item_trbxes in self.trbxes:
                 if _item_trbxes:
                     _items.append(_item_trbxes.to_dict())
-            _dict['trbxes'] = _items
+            _dict["trbxes"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +87,13 @@ class GetV3SuppliesSupplyIdTrbxResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "trbxes": [SupplyTrbx.from_dict(_item) for _item in obj["trbxes"]] if obj.get("trbxes") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "trbxes": (
+                    [SupplyTrbx.from_dict(_item) for _item in obj["trbxes"]]
+                    if obj.get("trbxes") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

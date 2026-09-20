@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.orders_fbs.models.supply_spot_data_response_supplies_inner import SupplySpotDataResponseSuppliesInner
+from wb_api_client.orders_fbs.models.supply_spot_data_response_supplies_inner import (
+    SupplySpotDataResponseSuppliesInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class SupplySpotDataResponse(BaseModel):
     """
     SupplySpotDataResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     supplies: List[SupplySpotDataResponseSuppliesInner]
     __properties: ClassVar[List[str]] = ["supplies"]
 
@@ -35,7 +39,6 @@ class SupplySpotDataResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class SupplySpotDataResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +77,7 @@ class SupplySpotDataResponse(BaseModel):
             for _item_supplies in self.supplies:
                 if _item_supplies:
                     _items.append(_item_supplies.to_dict())
-            _dict['supplies'] = _items
+            _dict["supplies"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +89,16 @@ class SupplySpotDataResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "supplies": [SupplySpotDataResponseSuppliesInner.from_dict(_item) for _item in obj["supplies"]] if obj.get("supplies") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "supplies": (
+                    [
+                        SupplySpotDataResponseSuppliesInner.from_dict(_item)
+                        for _item in obj["supplies"]
+                    ]
+                    if obj.get("supplies") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

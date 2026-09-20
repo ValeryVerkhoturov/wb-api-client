@@ -22,24 +22,45 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetListDataDocumentsInner(BaseModel):
     """
     GetListDataDocumentsInner
-    """ # noqa: E501
-    service_name: Optional[StrictStr] = Field(default=None, description="Уникальный ID документа", alias="serviceName")
+    """  # noqa: E501
+
+    service_name: Optional[StrictStr] = Field(
+        default=None, description="Уникальный ID документа", alias="serviceName"
+    )
     name: Optional[StrictStr] = Field(default=None, description="Название документа")
-    category: Optional[StrictStr] = Field(default=None, description="Название [категории документов](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля ответа `title`")
-    extensions: Optional[List[StrictStr]] = Field(default=None, description="Форматы документа")
-    creation_time: Optional[StrictStr] = Field(default=None, description="Дата и время создания документа", alias="creationTime")
-    viewed: Optional[StrictBool] = Field(default=None, description="Выгружен ли документ в личном кабинете")
-    __properties: ClassVar[List[str]] = ["serviceName", "name", "category", "extensions", "creationTime", "viewed"]
+    category: Optional[StrictStr] = Field(
+        default=None,
+        description="Название [категории документов](./documents-and-accounting#tag/documents/operation/getV1DocumentsCategories) из поля ответа `title`",
+    )
+    extensions: Optional[List[StrictStr]] = Field(
+        default=None, description="Форматы документа"
+    )
+    creation_time: Optional[StrictStr] = Field(
+        default=None,
+        description="Дата и время создания документа",
+        alias="creationTime",
+    )
+    viewed: Optional[StrictBool] = Field(
+        default=None, description="Выгружен ли документ в личном кабинете"
+    )
+    __properties: ClassVar[List[str]] = [
+        "serviceName",
+        "name",
+        "category",
+        "extensions",
+        "creationTime",
+        "viewed",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +86,7 @@ class GetListDataDocumentsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -84,14 +104,14 @@ class GetListDataDocumentsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "serviceName": obj.get("serviceName"),
-            "name": obj.get("name"),
-            "category": obj.get("category"),
-            "extensions": obj.get("extensions"),
-            "creationTime": obj.get("creationTime"),
-            "viewed": obj.get("viewed")
-        })
+        _obj = cls.model_validate(
+            {
+                "serviceName": obj.get("serviceName"),
+                "name": obj.get("name"),
+                "category": obj.get("category"),
+                "extensions": obj.get("extensions"),
+                "creationTime": obj.get("creationTime"),
+                "viewed": obj.get("viewed"),
+            }
+        )
         return _obj
-
-

@@ -22,12 +22,16 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV2DirectoryColorsResponse200DataInner(BaseModel):
     """
     GetV2DirectoryColorsResponse200DataInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     name: Optional[StrictStr] = Field(default=None, description="Наименование цвета")
-    parent_name: Optional[StrictStr] = Field(default=None, description="Наименование родительского цвета", alias="parentName")
+    parent_name: Optional[StrictStr] = Field(
+        default=None, description="Наименование родительского цвета", alias="parentName"
+    )
     __properties: ClassVar[List[str]] = ["name", "parentName"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class GetV2DirectoryColorsResponse200DataInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class GetV2DirectoryColorsResponse200DataInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +82,7 @@ class GetV2DirectoryColorsResponse200DataInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "parentName": obj.get("parentName")
-        })
+        _obj = cls.model_validate(
+            {"name": obj.get("name"), "parentName": obj.get("parentName")}
+        )
         return _obj
-
-

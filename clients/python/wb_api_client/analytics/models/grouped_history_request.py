@@ -19,29 +19,51 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.analytics.models.items_request_selected_period import ItemsRequestSelectedPeriod
+from wb_api_client.analytics.models.items_request_selected_period import (
+    ItemsRequestSelectedPeriod,
+)
 from wb_api_client.analytics.models.level import Level
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GroupedHistoryRequest(BaseModel):
     """
     GroupedHistoryRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     selected_period: ItemsRequestSelectedPeriod = Field(alias="selectedPeriod")
-    brand_names: Optional[List[StrictStr]] = Field(default=None, description="Список брендов для фильтрации", alias="brandNames")
-    subject_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID предметов для фильтрации", alias="subjectIds")
-    tag_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID ярлыков для фильтрации", alias="tagIds")
-    skip_deleted_nm: Optional[StrictBool] = Field(default=None, description="Скрыть удалённые товары", alias="skipDeletedNm")
-    aggregation_level: Optional[Level] = Field(default=Level.DAY, alias="aggregationLevel")
-    __properties: ClassVar[List[str]] = ["selectedPeriod", "brandNames", "subjectIds", "tagIds", "skipDeletedNm", "aggregationLevel"]
+    brand_names: Optional[List[StrictStr]] = Field(
+        default=None, description="Список брендов для фильтрации", alias="brandNames"
+    )
+    subject_ids: Optional[List[StrictInt]] = Field(
+        default=None,
+        description="Список ID предметов для фильтрации",
+        alias="subjectIds",
+    )
+    tag_ids: Optional[List[StrictInt]] = Field(
+        default=None, description="Список ID ярлыков для фильтрации", alias="tagIds"
+    )
+    skip_deleted_nm: Optional[StrictBool] = Field(
+        default=None, description="Скрыть удалённые товары", alias="skipDeletedNm"
+    )
+    aggregation_level: Optional[Level] = Field(
+        default=Level.DAY, alias="aggregationLevel"
+    )
+    __properties: ClassVar[List[str]] = [
+        "selectedPeriod",
+        "brandNames",
+        "subjectIds",
+        "tagIds",
+        "skipDeletedNm",
+        "aggregationLevel",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -67,8 +89,7 @@ class GroupedHistoryRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +98,7 @@ class GroupedHistoryRequest(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of selected_period
         if self.selected_period:
-            _dict['selectedPeriod'] = self.selected_period.to_dict()
+            _dict["selectedPeriod"] = self.selected_period.to_dict()
         return _dict
 
     @classmethod
@@ -89,14 +110,22 @@ class GroupedHistoryRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "selectedPeriod": ItemsRequestSelectedPeriod.from_dict(obj["selectedPeriod"]) if obj.get("selectedPeriod") is not None else None,
-            "brandNames": obj.get("brandNames"),
-            "subjectIds": obj.get("subjectIds"),
-            "tagIds": obj.get("tagIds"),
-            "skipDeletedNm": obj.get("skipDeletedNm"),
-            "aggregationLevel": obj.get("aggregationLevel") if obj.get("aggregationLevel") is not None else Level.DAY
-        })
+        _obj = cls.model_validate(
+            {
+                "selectedPeriod": (
+                    ItemsRequestSelectedPeriod.from_dict(obj["selectedPeriod"])
+                    if obj.get("selectedPeriod") is not None
+                    else None
+                ),
+                "brandNames": obj.get("brandNames"),
+                "subjectIds": obj.get("subjectIds"),
+                "tagIds": obj.get("tagIds"),
+                "skipDeletedNm": obj.get("skipDeletedNm"),
+                "aggregationLevel": (
+                    obj.get("aggregationLevel")
+                    if obj.get("aggregationLevel") is not None
+                    else Level.DAY
+                ),
+            }
+        )
         return _obj
-
-

@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.orders_fbs.models.supply_spot_data_response_supplies_inner_error import SupplySpotDataResponseSuppliesInnerError
-from wb_api_client.orders_fbs.models.supply_spot_data_response_supplies_inner_spot import SupplySpotDataResponseSuppliesInnerSpot
+from wb_api_client.orders_fbs.models.supply_spot_data_response_supplies_inner_error import (
+    SupplySpotDataResponseSuppliesInnerError,
+)
+from wb_api_client.orders_fbs.models.supply_spot_data_response_supplies_inner_spot import (
+    SupplySpotDataResponseSuppliesInnerSpot,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class SupplySpotDataResponseSuppliesInner(BaseModel):
     """
     SupplySpotDataResponseSuppliesInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: StrictStr = Field(description="ID поставки")
     spot: Optional[SupplySpotDataResponseSuppliesInnerSpot] = None
     error: Optional[SupplySpotDataResponseSuppliesInnerError] = None
@@ -38,7 +44,6 @@ class SupplySpotDataResponseSuppliesInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +69,7 @@ class SupplySpotDataResponseSuppliesInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -74,10 +78,10 @@ class SupplySpotDataResponseSuppliesInner(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of spot
         if self.spot:
-            _dict['spot'] = self.spot.to_dict()
+            _dict["spot"] = self.spot.to_dict()
         # override the default output from pydantic by calling `to_dict()` of error
         if self.error:
-            _dict['error'] = self.error.to_dict()
+            _dict["error"] = self.error.to_dict()
         return _dict
 
     @classmethod
@@ -89,11 +93,19 @@ class SupplySpotDataResponseSuppliesInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "spot": SupplySpotDataResponseSuppliesInnerSpot.from_dict(obj["spot"]) if obj.get("spot") is not None else None,
-            "error": SupplySpotDataResponseSuppliesInnerError.from_dict(obj["error"]) if obj.get("error") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "spot": (
+                    SupplySpotDataResponseSuppliesInnerSpot.from_dict(obj["spot"])
+                    if obj.get("spot") is not None
+                    else None
+                ),
+                "error": (
+                    SupplySpotDataResponseSuppliesInnerError.from_dict(obj["error"])
+                    if obj.get("error") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

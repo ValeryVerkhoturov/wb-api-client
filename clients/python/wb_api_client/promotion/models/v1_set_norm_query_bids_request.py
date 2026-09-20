@@ -20,14 +20,18 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
-from wb_api_client.promotion.models.v1_set_norm_query_bids_request_item import V1SetNormQueryBidsRequestItem
+from wb_api_client.promotion.models.v1_set_norm_query_bids_request_item import (
+    V1SetNormQueryBidsRequestItem,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class V1SetNormQueryBidsRequest(BaseModel):
     """
     V1SetNormQueryBidsRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     bids: Annotated[List[V1SetNormQueryBidsRequestItem], Field(max_length=100)]
     __properties: ClassVar[List[str]] = ["bids"]
 
@@ -36,7 +40,6 @@ class V1SetNormQueryBidsRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class V1SetNormQueryBidsRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +78,7 @@ class V1SetNormQueryBidsRequest(BaseModel):
             for _item_bids in self.bids:
                 if _item_bids:
                     _items.append(_item_bids.to_dict())
-            _dict['bids'] = _items
+            _dict["bids"] = _items
         return _dict
 
     @classmethod
@@ -88,9 +90,16 @@ class V1SetNormQueryBidsRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "bids": [V1SetNormQueryBidsRequestItem.from_dict(_item) for _item in obj["bids"]] if obj.get("bids") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "bids": (
+                    [
+                        V1SetNormQueryBidsRequestItem.from_dict(_item)
+                        for _item in obj["bids"]
+                    ]
+                    if obj.get("bids") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

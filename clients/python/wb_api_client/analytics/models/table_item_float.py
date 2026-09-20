@@ -22,12 +22,16 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class TableItemFloat(BaseModel):
     """
     Рейтинг продавца
-    """ # noqa: E501
+    """  # noqa: E501
+
     current: Union[StrictFloat, StrictInt] = Field(description="Текущий рейтинг")
-    dynamics: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Динамика по сравнению с предыдущим периодом, %")
+    dynamics: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Динамика по сравнению с предыдущим периодом, %"
+    )
     __properties: ClassVar[List[str]] = ["current", "dynamics"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class TableItemFloat(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class TableItemFloat(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +82,7 @@ class TableItemFloat(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "current": obj.get("current"),
-            "dynamics": obj.get("dynamics")
-        })
+        _obj = cls.model_validate(
+            {"current": obj.get("current"), "dynamics": obj.get("dynamics")}
+        )
         return _obj
-
-

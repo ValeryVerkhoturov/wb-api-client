@@ -17,36 +17,102 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+)
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsAcceptanceCoefficient(BaseModel):
     """
     ModelsAcceptanceCoefficient
-    """ # noqa: E501
-    var_date: Optional[StrictStr] = Field(default=None, description="Дата начала действия коэффициента", alias="date")
-    coefficient: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Коэффициент приёмки:   - `-1` — приёмка недоступна, вне зависимости от значения поля `allowUnload`   - `0` — бесплатная приёмка   - от `1` — множитель стоимости приёмки ")
-    warehouse_id: Optional[StrictInt] = Field(default=None, description="ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/informationForFormingSupplies/operation/getV1Warehouses)", alias="warehouseID")
-    warehouse_name: Optional[StrictStr] = Field(default=None, description="Название склада", alias="warehouseName")
-    allow_unload: Optional[StrictBool] = Field(default=None, description="Доступность приёмки для поставок данного типа, смотри значение поля `boxTypeID`:   - `true` — приёмка доступна  - `false` — приёмка не доступна ", alias="allowUnload")
-    box_type_id: Optional[StrictInt] = Field(default=None, description="ID типа поставки: - `2` — Короба - `5` — Монопаллеты - `6` — Суперсейф  Для типа поставки \\*\\*QR-поставка с коробами\\*\\* поле не возвращается", alias="boxTypeID")
-    storage_coef: Optional[StrictStr] = Field(default=None, description="Коэффициент хранения", alias="storageCoef")
-    delivery_coef: Optional[StrictStr] = Field(default=None, description="Коэффициент логистики", alias="deliveryCoef")
-    delivery_base_liter: Optional[StrictStr] = Field(default=None, description="Стоимость логистики первого литра", alias="deliveryBaseLiter")
-    delivery_additional_liter: Optional[StrictStr] = Field(default=None, description="Стоимость логистики каждого следующего литра", alias="deliveryAdditionalLiter")
-    storage_base_liter: Optional[StrictStr] = Field(default=None, description="Стоимость хранения:   - для паллет — стоимость за одну паллету   - для коробов — стоимость хранения за первый литр ", alias="storageBaseLiter")
-    storage_additional_liter: Optional[StrictStr] = Field(default=None, description="Стоимость хранения каждого последующего литра:   - для паллет — всегда будет `null`, т.к. стоимость хранения за единицу паллеты определяется в `StorageBaseLiter`   - для коробов — стоимость хранения за каждый последующий литр ", alias="storageAdditionalLiter")
-    is_sorting_center: Optional[StrictBool] = Field(default=None, description="Тип склада:   - `true` — сортировочный центр (СЦ)  - `false` — обычный ", alias="isSortingCenter")
-    __properties: ClassVar[List[str]] = ["date", "coefficient", "warehouseID", "warehouseName", "allowUnload", "boxTypeID", "storageCoef", "deliveryCoef", "deliveryBaseLiter", "deliveryAdditionalLiter", "storageBaseLiter", "storageAdditionalLiter", "isSortingCenter"]
+    """  # noqa: E501
+
+    var_date: Optional[StrictStr] = Field(
+        default=None, description="Дата начала действия коэффициента", alias="date"
+    )
+    coefficient: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Коэффициент приёмки:   - `-1` — приёмка недоступна, вне зависимости от значения поля `allowUnload`   - `0` — бесплатная приёмка   - от `1` — множитель стоимости приёмки ",
+    )
+    warehouse_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/informationForFormingSupplies/operation/getV1Warehouses)",
+        alias="warehouseID",
+    )
+    warehouse_name: Optional[StrictStr] = Field(
+        default=None, description="Название склада", alias="warehouseName"
+    )
+    allow_unload: Optional[StrictBool] = Field(
+        default=None,
+        description="Доступность приёмки для поставок данного типа, смотри значение поля `boxTypeID`:   - `true` — приёмка доступна  - `false` — приёмка не доступна ",
+        alias="allowUnload",
+    )
+    box_type_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID типа поставки: - `2` — Короба - `5` — Монопаллеты - `6` — Суперсейф  Для типа поставки \\*\\*QR-поставка с коробами\\*\\* поле не возвращается",
+        alias="boxTypeID",
+    )
+    storage_coef: Optional[StrictStr] = Field(
+        default=None, description="Коэффициент хранения", alias="storageCoef"
+    )
+    delivery_coef: Optional[StrictStr] = Field(
+        default=None, description="Коэффициент логистики", alias="deliveryCoef"
+    )
+    delivery_base_liter: Optional[StrictStr] = Field(
+        default=None,
+        description="Стоимость логистики первого литра",
+        alias="deliveryBaseLiter",
+    )
+    delivery_additional_liter: Optional[StrictStr] = Field(
+        default=None,
+        description="Стоимость логистики каждого следующего литра",
+        alias="deliveryAdditionalLiter",
+    )
+    storage_base_liter: Optional[StrictStr] = Field(
+        default=None,
+        description="Стоимость хранения:   - для паллет — стоимость за одну паллету   - для коробов — стоимость хранения за первый литр ",
+        alias="storageBaseLiter",
+    )
+    storage_additional_liter: Optional[StrictStr] = Field(
+        default=None,
+        description="Стоимость хранения каждого последующего литра:   - для паллет — всегда будет `null`, т.к. стоимость хранения за единицу паллеты определяется в `StorageBaseLiter`   - для коробов — стоимость хранения за каждый последующий литр ",
+        alias="storageAdditionalLiter",
+    )
+    is_sorting_center: Optional[StrictBool] = Field(
+        default=None,
+        description="Тип склада:   - `true` — сортировочный центр (СЦ)  - `false` — обычный ",
+        alias="isSortingCenter",
+    )
+    __properties: ClassVar[List[str]] = [
+        "date",
+        "coefficient",
+        "warehouseID",
+        "warehouseName",
+        "allowUnload",
+        "boxTypeID",
+        "storageCoef",
+        "deliveryCoef",
+        "deliveryBaseLiter",
+        "deliveryAdditionalLiter",
+        "storageBaseLiter",
+        "storageAdditionalLiter",
+        "isSortingCenter",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -72,8 +138,7 @@ class ModelsAcceptanceCoefficient(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,32 +148,44 @@ class ModelsAcceptanceCoefficient(BaseModel):
         # set to None if storage_coef (nullable) is None
         # and model_fields_set contains the field
         if self.storage_coef is None and "storage_coef" in self.model_fields_set:
-            _dict['storageCoef'] = None
+            _dict["storageCoef"] = None
 
         # set to None if delivery_coef (nullable) is None
         # and model_fields_set contains the field
         if self.delivery_coef is None and "delivery_coef" in self.model_fields_set:
-            _dict['deliveryCoef'] = None
+            _dict["deliveryCoef"] = None
 
         # set to None if delivery_base_liter (nullable) is None
         # and model_fields_set contains the field
-        if self.delivery_base_liter is None and "delivery_base_liter" in self.model_fields_set:
-            _dict['deliveryBaseLiter'] = None
+        if (
+            self.delivery_base_liter is None
+            and "delivery_base_liter" in self.model_fields_set
+        ):
+            _dict["deliveryBaseLiter"] = None
 
         # set to None if delivery_additional_liter (nullable) is None
         # and model_fields_set contains the field
-        if self.delivery_additional_liter is None and "delivery_additional_liter" in self.model_fields_set:
-            _dict['deliveryAdditionalLiter'] = None
+        if (
+            self.delivery_additional_liter is None
+            and "delivery_additional_liter" in self.model_fields_set
+        ):
+            _dict["deliveryAdditionalLiter"] = None
 
         # set to None if storage_base_liter (nullable) is None
         # and model_fields_set contains the field
-        if self.storage_base_liter is None and "storage_base_liter" in self.model_fields_set:
-            _dict['storageBaseLiter'] = None
+        if (
+            self.storage_base_liter is None
+            and "storage_base_liter" in self.model_fields_set
+        ):
+            _dict["storageBaseLiter"] = None
 
         # set to None if storage_additional_liter (nullable) is None
         # and model_fields_set contains the field
-        if self.storage_additional_liter is None and "storage_additional_liter" in self.model_fields_set:
-            _dict['storageAdditionalLiter'] = None
+        if (
+            self.storage_additional_liter is None
+            and "storage_additional_liter" in self.model_fields_set
+        ):
+            _dict["storageAdditionalLiter"] = None
 
         return _dict
 
@@ -121,21 +198,21 @@ class ModelsAcceptanceCoefficient(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "date": obj.get("date"),
-            "coefficient": obj.get("coefficient"),
-            "warehouseID": obj.get("warehouseID"),
-            "warehouseName": obj.get("warehouseName"),
-            "allowUnload": obj.get("allowUnload"),
-            "boxTypeID": obj.get("boxTypeID"),
-            "storageCoef": obj.get("storageCoef"),
-            "deliveryCoef": obj.get("deliveryCoef"),
-            "deliveryBaseLiter": obj.get("deliveryBaseLiter"),
-            "deliveryAdditionalLiter": obj.get("deliveryAdditionalLiter"),
-            "storageBaseLiter": obj.get("storageBaseLiter"),
-            "storageAdditionalLiter": obj.get("storageAdditionalLiter"),
-            "isSortingCenter": obj.get("isSortingCenter")
-        })
+        _obj = cls.model_validate(
+            {
+                "date": obj.get("date"),
+                "coefficient": obj.get("coefficient"),
+                "warehouseID": obj.get("warehouseID"),
+                "warehouseName": obj.get("warehouseName"),
+                "allowUnload": obj.get("allowUnload"),
+                "boxTypeID": obj.get("boxTypeID"),
+                "storageCoef": obj.get("storageCoef"),
+                "deliveryCoef": obj.get("deliveryCoef"),
+                "deliveryBaseLiter": obj.get("deliveryBaseLiter"),
+                "deliveryAdditionalLiter": obj.get("deliveryAdditionalLiter"),
+                "storageBaseLiter": obj.get("storageBaseLiter"),
+                "storageAdditionalLiter": obj.get("storageAdditionalLiter"),
+                "isSortingCenter": obj.get("isSortingCenter"),
+            }
+        )
         return _obj
-
-

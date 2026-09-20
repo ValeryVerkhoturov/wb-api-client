@@ -22,11 +22,15 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class OrdersRequestAPI(BaseModel):
     """
     OrdersRequestAPI
-    """ # noqa: E501
-    orders: Optional[List[StrictInt]] = Field(default=None, description="Список ID сборочных заданий")
+    """  # noqa: E501
+
+    orders: Optional[List[StrictInt]] = Field(
+        default=None, description="Список ID сборочных заданий"
+    )
     __properties: ClassVar[List[str]] = ["orders"]
 
     model_config = ConfigDict(
@@ -34,7 +38,6 @@ class OrdersRequestAPI(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,8 +63,7 @@ class OrdersRequestAPI(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,9 +81,5 @@ class OrdersRequestAPI(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "orders": obj.get("orders")
-        })
+        _obj = cls.model_validate({"orders": obj.get("orders")})
         return _obj
-
-

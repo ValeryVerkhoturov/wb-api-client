@@ -22,13 +22,22 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class Http409SupplyDeliverErrorDataOrdersInnerMetaDetailsInner(BaseModel):
     """
     Http409SupplyDeliverErrorDataOrdersInnerMetaDetailsInner
-    """ # noqa: E501
-    key: Optional[StrictStr] = Field(default=None, description="Идентификатор маркировки")
-    value: Optional[StrictStr] = Field(default=None, description="Значение идентификатора маркировки")
-    decision: Optional[StrictStr] = Field(default=None, description="[Статус проверки](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs): - `imei`   - `pending` — Проверка маркировки продолжается. Дождитесь изменения статуса проверки   - `required` — Маркировка обязательна и не закреплена за сборочным заданием   - `imeiInvalidFormat` — Неверный формат маркировки   - `imeiAlreadySold` — Товар с этим IMEI уже продан - `uin`   - `required` — Маркировка обязательна и не закреплена за сборочным заданием   - `pending` — Проверка маркировки продолжается. Дождитесь изменения статуса проверки   - `uinInvalidFormat` — Неверный формат маркировки   - `uinBadStatus` — Некорректный статус партии   - `uinBadProcess` — Некорректная стадия обработки   - `uinBadStatusAndBadProcess` — Некорректный статус партии. Некорректная стадия обработки   - `uinNotFound` — Не найден в [ГИИС](https://minfin.gov.ru/ru/perfomance/jewels/dmdk).     При получении этой ошибки убедитесь, что УИН:       - указан в загруженной спецификации с договором на доставку. Если спецификация загружена более 30 минут назад, [удалите УИН](./orders-fbs#tag/fbsLabelIdentifiers/operation/deleteV3OrdersOrderIdMeta) из сборочного задания и [добавьте его](./orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin) заново       - зарегистрирован в ГИИС ДМДК       - указан корректно и считывается с бирки без ошибок       - находится в обороте - `sgtin`   - `required` — Маркировка обязательна и не закреплена за сборочным заданием   - `pending` — Проверка маркировки продолжается. Дождитесь изменения статуса проверки   - `sgtinInvalidFormat` — Неверный формат маркировки   - `sgtinNoGS` — Маркировка не содержит GS-разделитель `\\u001d`   - `sgtinHasInvalidSymbols` — Маркировка содержит некорректные символы или пробелы   - `sgtinHasNonLatinSymbols` — Маркировка содержит символы, не относящиеся к специальным или латинице   - `sgtinInvalidPattern` — Структура маркировки некорректна   - `sgtinNotFound` — Маркировка не найдена в [Честном знаке](https://chestnyznak.ru)   - `sgtinEmitted` —  Маркировка эмитирована   - `sgtinApplied` — Не пройдена процедура Ввод в оборот   - `sgtinWrittenOff` — Списан   - `sgtinRetired` — Выбыл   - `sgtinWithdrawn` — Выбыл   - `sgtinDisaggregation` — Расформирован   - `sgtinDisaggregated` — Расформирован   - `sgtinAppliedNotPaid` — Не оплачен - `gtin`   - `required` — Маркировка обязательна и не закреплена за сборочным заданием - `expiration`   - `required` — Маркировка обязательна и не закреплена за сборочным заданием - `customsDeclaration`   - `required` — Маркировка обязательна и не закреплена за сборочным заданием ")
+    """  # noqa: E501
+
+    key: Optional[StrictStr] = Field(
+        default=None, description="Идентификатор маркировки"
+    )
+    value: Optional[StrictStr] = Field(
+        default=None, description="Значение идентификатора маркировки"
+    )
+    decision: Optional[StrictStr] = Field(
+        default=None,
+        description="[Статус проверки](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs): - `imei`   - `pending` — Проверка маркировки продолжается. Дождитесь изменения статуса проверки   - `required` — Маркировка обязательна и не закреплена за сборочным заданием   - `imeiInvalidFormat` — Неверный формат маркировки   - `imeiAlreadySold` — Товар с этим IMEI уже продан - `uin`   - `required` — Маркировка обязательна и не закреплена за сборочным заданием   - `pending` — Проверка маркировки продолжается. Дождитесь изменения статуса проверки   - `uinInvalidFormat` — Неверный формат маркировки   - `uinBadStatus` — Некорректный статус партии   - `uinBadProcess` — Некорректная стадия обработки   - `uinBadStatusAndBadProcess` — Некорректный статус партии. Некорректная стадия обработки   - `uinNotFound` — Не найден в [ГИИС](https://minfin.gov.ru/ru/perfomance/jewels/dmdk).     При получении этой ошибки убедитесь, что УИН:       - указан в загруженной спецификации с договором на доставку. Если спецификация загружена более 30 минут назад, [удалите УИН](./orders-fbs#tag/fbsLabelIdentifiers/operation/deleteV3OrdersOrderIdMeta) из сборочного задания и [добавьте его](./orders-fbs#tag/fbsLabelIdentifiers/operation/putV3OrdersOrderIdMetaUin) заново       - зарегистрирован в ГИИС ДМДК       - указан корректно и считывается с бирки без ошибок       - находится в обороте - `sgtin`   - `required` — Маркировка обязательна и не закреплена за сборочным заданием   - `pending` — Проверка маркировки продолжается. Дождитесь изменения статуса проверки   - `sgtinInvalidFormat` — Неверный формат маркировки   - `sgtinNoGS` — Маркировка не содержит GS-разделитель `\\u001d`   - `sgtinHasInvalidSymbols` — Маркировка содержит некорректные символы или пробелы   - `sgtinHasNonLatinSymbols` — Маркировка содержит символы, не относящиеся к специальным или латинице   - `sgtinInvalidPattern` — Структура маркировки некорректна   - `sgtinNotFound` — Маркировка не найдена в [Честном знаке](https://chestnyznak.ru)   - `sgtinEmitted` —  Маркировка эмитирована   - `sgtinApplied` — Не пройдена процедура Ввод в оборот   - `sgtinWrittenOff` — Списан   - `sgtinRetired` — Выбыл   - `sgtinWithdrawn` — Выбыл   - `sgtinDisaggregation` — Расформирован   - `sgtinDisaggregated` — Расформирован   - `sgtinAppliedNotPaid` — Не оплачен - `gtin`   - `required` — Маркировка обязательна и не закреплена за сборочным заданием - `expiration`   - `required` — Маркировка обязательна и не закреплена за сборочным заданием - `customsDeclaration`   - `required` — Маркировка обязательна и не закреплена за сборочным заданием ",
+    )
     __properties: ClassVar[List[str]] = ["key", "value", "decision"]
 
     model_config = ConfigDict(
@@ -36,7 +45,6 @@ class Http409SupplyDeliverErrorDataOrdersInnerMetaDetailsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +70,7 @@ class Http409SupplyDeliverErrorDataOrdersInnerMetaDetailsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +88,11 @@ class Http409SupplyDeliverErrorDataOrdersInnerMetaDetailsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "key": obj.get("key"),
-            "value": obj.get("value"),
-            "decision": obj.get("decision")
-        })
+        _obj = cls.model_validate(
+            {
+                "key": obj.get("key"),
+                "value": obj.get("value"),
+                "decision": obj.get("decision"),
+            }
+        )
         return _obj
-
-

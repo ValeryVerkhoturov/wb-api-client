@@ -19,29 +19,48 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.orders_fbs.models.arhive_order_error400_errors_inner import ArhiveOrderError400ErrorsInner
+from wb_api_client.orders_fbs.models.arhive_order_error400_errors_inner import (
+    ArhiveOrderError400ErrorsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ArhiveOrderError400(BaseModel):
     """
     ArhiveOrderError400
-    """ # noqa: E501
+    """  # noqa: E501
+
     code: Optional[StrictStr] = Field(default=None, description="Код ошибки")
     detail: StrictStr = Field(description="Детали ошибки")
-    errors: Optional[List[ArhiveOrderError400ErrorsInner]] = Field(default=None, description="Информация об ошибке")
-    origin: Optional[StrictStr] = Field(default=None, description="ID внутреннего сервиса WB")
-    request_id: Optional[StrictStr] = Field(default=None, description="Уникальный ID запроса", alias="requestId")
-    status: Optional[StrictInt] = Field(default=None, description="HTTP статус-код ответа")
+    errors: Optional[List[ArhiveOrderError400ErrorsInner]] = Field(
+        default=None, description="Информация об ошибке"
+    )
+    origin: Optional[StrictStr] = Field(
+        default=None, description="ID внутреннего сервиса WB"
+    )
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="Уникальный ID запроса", alias="requestId"
+    )
+    status: Optional[StrictInt] = Field(
+        default=None, description="HTTP статус-код ответа"
+    )
     title: StrictStr = Field(description="Заголовок ошибки")
-    __properties: ClassVar[List[str]] = ["code", "detail", "errors", "origin", "requestId", "status", "title"]
+    __properties: ClassVar[List[str]] = [
+        "code",
+        "detail",
+        "errors",
+        "origin",
+        "requestId",
+        "status",
+        "title",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -67,8 +86,7 @@ class ArhiveOrderError400(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,7 +99,7 @@ class ArhiveOrderError400(BaseModel):
             for _item_errors in self.errors:
                 if _item_errors:
                     _items.append(_item_errors.to_dict())
-            _dict['errors'] = _items
+            _dict["errors"] = _items
         return _dict
 
     @classmethod
@@ -93,15 +111,22 @@ class ArhiveOrderError400(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "code": obj.get("code"),
-            "detail": obj.get("detail"),
-            "errors": [ArhiveOrderError400ErrorsInner.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None,
-            "origin": obj.get("origin"),
-            "requestId": obj.get("requestId"),
-            "status": obj.get("status"),
-            "title": obj.get("title")
-        })
+        _obj = cls.model_validate(
+            {
+                "code": obj.get("code"),
+                "detail": obj.get("detail"),
+                "errors": (
+                    [
+                        ArhiveOrderError400ErrorsInner.from_dict(_item)
+                        for _item in obj["errors"]
+                    ]
+                    if obj.get("errors") is not None
+                    else None
+                ),
+                "origin": obj.get("origin"),
+                "requestId": obj.get("requestId"),
+                "status": obj.get("status"),
+                "title": obj.get("title"),
+            }
+        )
         return _obj
-
-

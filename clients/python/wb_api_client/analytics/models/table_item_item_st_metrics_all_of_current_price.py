@@ -22,12 +22,20 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class TableItemItemStMetricsAllOfCurrentPrice(BaseModel):
     """
     Текущая цена
-    """ # noqa: E501
-    min_price: StrictInt = Field(description="Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)", alias="minPrice")
-    max_price: StrictInt = Field(description="Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)", alias="maxPrice")
+    """  # noqa: E501
+
+    min_price: StrictInt = Field(
+        description="Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)",
+        alias="minPrice",
+    )
+    max_price: StrictInt = Field(
+        description="Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)",
+        alias="maxPrice",
+    )
     __properties: ClassVar[List[str]] = ["minPrice", "maxPrice"]
 
     model_config = ConfigDict(
@@ -35,7 +43,6 @@ class TableItemItemStMetricsAllOfCurrentPrice(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +68,7 @@ class TableItemItemStMetricsAllOfCurrentPrice(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +86,7 @@ class TableItemItemStMetricsAllOfCurrentPrice(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "minPrice": obj.get("minPrice"),
-            "maxPrice": obj.get("maxPrice")
-        })
+        _obj = cls.model_validate(
+            {"minPrice": obj.get("minPrice"), "maxPrice": obj.get("maxPrice")}
+        )
         return _obj
-
-

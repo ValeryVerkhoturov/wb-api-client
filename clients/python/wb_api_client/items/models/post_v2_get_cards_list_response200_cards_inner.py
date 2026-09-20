@@ -19,49 +19,124 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_characteristics_inner import PostV2GetCardsListResponse200CardsInnerCharacteristicsInner
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_dimensions import PostV2GetCardsListResponse200CardsInnerDimensions
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_documents import PostV2GetCardsListResponse200CardsInnerDocuments
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_photos_inner import PostV2GetCardsListResponse200CardsInnerPhotosInner
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_sizes_inner import PostV2GetCardsListResponse200CardsInnerSizesInner
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_tags_inner import PostV2GetCardsListResponse200CardsInnerTagsInner
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_wholesale import PostV2GetCardsListResponse200CardsInnerWholesale
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_characteristics_inner import (
+    PostV2GetCardsListResponse200CardsInnerCharacteristicsInner,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_dimensions import (
+    PostV2GetCardsListResponse200CardsInnerDimensions,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_documents import (
+    PostV2GetCardsListResponse200CardsInnerDocuments,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_photos_inner import (
+    PostV2GetCardsListResponse200CardsInnerPhotosInner,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_sizes_inner import (
+    PostV2GetCardsListResponse200CardsInnerSizesInner,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_tags_inner import (
+    PostV2GetCardsListResponse200CardsInnerTagsInner,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_wholesale import (
+    PostV2GetCardsListResponse200CardsInnerWholesale,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV2GetCardsListResponse200CardsInner(BaseModel):
     """
     PostV2GetCardsListResponse200CardsInner
-    """ # noqa: E501
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmID")
-    imt_id: Optional[StrictInt] = Field(default=None, description="ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть `imtID`, даже если она не объединена с другими карточками", alias="imtID")
-    nm_uuid: Optional[StrictStr] = Field(default=None, description="Внутренний технический ID карточки товара", alias="nmUUID")
-    subject_id: Optional[StrictInt] = Field(default=None, description="ID предмета", alias="subjectID")
-    subject_name: Optional[StrictStr] = Field(default=None, description="Название предмета", alias="subjectName")
-    vendor_code: Optional[StrictStr] = Field(default=None, description="Артикул продавца", alias="vendorCode")
+    """  # noqa: E501
+
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmID"
+    )
+    imt_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть `imtID`, даже если она не объединена с другими карточками",
+        alias="imtID",
+    )
+    nm_uuid: Optional[StrictStr] = Field(
+        default=None,
+        description="Внутренний технический ID карточки товара",
+        alias="nmUUID",
+    )
+    subject_id: Optional[StrictInt] = Field(
+        default=None, description="ID предмета", alias="subjectID"
+    )
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Название предмета", alias="subjectName"
+    )
+    vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Артикул продавца", alias="vendorCode"
+    )
     brand: Optional[StrictStr] = Field(default=None, description="Бренд")
     title: Optional[StrictStr] = Field(default=None, description="Наименование товара")
-    description: Optional[StrictStr] = Field(default=None, description="Описание товара")
-    need_kiz: Optional[StrictBool] = Field(default=None, description="Требуется ли код маркировки [Честного знака](https://честныйзнак.рф/) для этого товара:   - `false` — не требуется   - `true` — требуется ", alias="needKiz")
-    kiz_marked: Optional[StrictBool] = Field(default=False, description="Есть ли подтверждение от продавца, что обязательный код маркировки [Честного знака](https://честныйзнак.рф/) нанесён на товар:   - `true` — да   - `false` — нет  Является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, указано в поле `needKiz` ", alias="kizMarked")
-    photos: Optional[List[PostV2GetCardsListResponse200CardsInnerPhotosInner]] = Field(default=None, description="Массив фото")
+    description: Optional[StrictStr] = Field(
+        default=None, description="Описание товара"
+    )
+    need_kiz: Optional[StrictBool] = Field(
+        default=None,
+        description="Требуется ли код маркировки [Честного знака](https://честныйзнак.рф/) для этого товара:   - `false` — не требуется   - `true` — требуется ",
+        alias="needKiz",
+    )
+    kiz_marked: Optional[StrictBool] = Field(
+        default=False,
+        description="Есть ли подтверждение от продавца, что обязательный код маркировки [Честного знака](https://честныйзнак.рф/) нанесён на товар:   - `true` — да   - `false` — нет  Является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, указано в поле `needKiz` ",
+        alias="kizMarked",
+    )
+    photos: Optional[List[PostV2GetCardsListResponse200CardsInnerPhotosInner]] = Field(
+        default=None, description="Массив фото"
+    )
     video: Optional[StrictStr] = Field(default=None, description="URL видео")
     wholesale: Optional[PostV2GetCardsListResponse200CardsInnerWholesale] = None
     dimensions: Optional[PostV2GetCardsListResponse200CardsInnerDimensions] = None
     documents: Optional[PostV2GetCardsListResponse200CardsInnerDocuments] = None
-    characteristics: Optional[List[PostV2GetCardsListResponse200CardsInnerCharacteristicsInner]] = Field(default=None, description="Характеристики")
-    sizes: Optional[List[PostV2GetCardsListResponse200CardsInnerSizesInner]] = Field(default=None, description="Размеры товара")
-    tags: Optional[List[PostV2GetCardsListResponse200CardsInnerTagsInner]] = Field(default=None, description="Ярлыки")
-    created_at: Optional[StrictStr] = Field(default=None, description="Дата и время создания", alias="createdAt")
-    updated_at: Optional[StrictStr] = Field(default=None, description="Дата и время изменения", alias="updatedAt")
-    __properties: ClassVar[List[str]] = ["nmID", "imtID", "nmUUID", "subjectID", "subjectName", "vendorCode", "brand", "title", "description", "needKiz", "kizMarked", "photos", "video", "wholesale", "dimensions", "documents", "characteristics", "sizes", "tags", "createdAt", "updatedAt"]
+    characteristics: Optional[
+        List[PostV2GetCardsListResponse200CardsInnerCharacteristicsInner]
+    ] = Field(default=None, description="Характеристики")
+    sizes: Optional[List[PostV2GetCardsListResponse200CardsInnerSizesInner]] = Field(
+        default=None, description="Размеры товара"
+    )
+    tags: Optional[List[PostV2GetCardsListResponse200CardsInnerTagsInner]] = Field(
+        default=None, description="Ярлыки"
+    )
+    created_at: Optional[StrictStr] = Field(
+        default=None, description="Дата и время создания", alias="createdAt"
+    )
+    updated_at: Optional[StrictStr] = Field(
+        default=None, description="Дата и время изменения", alias="updatedAt"
+    )
+    __properties: ClassVar[List[str]] = [
+        "nmID",
+        "imtID",
+        "nmUUID",
+        "subjectID",
+        "subjectName",
+        "vendorCode",
+        "brand",
+        "title",
+        "description",
+        "needKiz",
+        "kizMarked",
+        "photos",
+        "video",
+        "wholesale",
+        "dimensions",
+        "documents",
+        "characteristics",
+        "sizes",
+        "tags",
+        "createdAt",
+        "updatedAt",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -87,8 +162,7 @@ class PostV2GetCardsListResponse200CardsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -101,37 +175,37 @@ class PostV2GetCardsListResponse200CardsInner(BaseModel):
             for _item_photos in self.photos:
                 if _item_photos:
                     _items.append(_item_photos.to_dict())
-            _dict['photos'] = _items
+            _dict["photos"] = _items
         # override the default output from pydantic by calling `to_dict()` of wholesale
         if self.wholesale:
-            _dict['wholesale'] = self.wholesale.to_dict()
+            _dict["wholesale"] = self.wholesale.to_dict()
         # override the default output from pydantic by calling `to_dict()` of dimensions
         if self.dimensions:
-            _dict['dimensions'] = self.dimensions.to_dict()
+            _dict["dimensions"] = self.dimensions.to_dict()
         # override the default output from pydantic by calling `to_dict()` of documents
         if self.documents:
-            _dict['documents'] = self.documents.to_dict()
+            _dict["documents"] = self.documents.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in characteristics (list)
         _items = []
         if self.characteristics:
             for _item_characteristics in self.characteristics:
                 if _item_characteristics:
                     _items.append(_item_characteristics.to_dict())
-            _dict['characteristics'] = _items
+            _dict["characteristics"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in sizes (list)
         _items = []
         if self.sizes:
             for _item_sizes in self.sizes:
                 if _item_sizes:
                     _items.append(_item_sizes.to_dict())
-            _dict['sizes'] = _items
+            _dict["sizes"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in tags (list)
         _items = []
         if self.tags:
             for _item_tags in self.tags:
                 if _item_tags:
                     _items.append(_item_tags.to_dict())
-            _dict['tags'] = _items
+            _dict["tags"] = _items
         return _dict
 
     @classmethod
@@ -143,29 +217,85 @@ class PostV2GetCardsListResponse200CardsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmID": obj.get("nmID"),
-            "imtID": obj.get("imtID"),
-            "nmUUID": obj.get("nmUUID"),
-            "subjectID": obj.get("subjectID"),
-            "subjectName": obj.get("subjectName"),
-            "vendorCode": obj.get("vendorCode"),
-            "brand": obj.get("brand"),
-            "title": obj.get("title"),
-            "description": obj.get("description"),
-            "needKiz": obj.get("needKiz"),
-            "kizMarked": obj.get("kizMarked") if obj.get("kizMarked") is not None else False,
-            "photos": [PostV2GetCardsListResponse200CardsInnerPhotosInner.from_dict(_item) for _item in obj["photos"]] if obj.get("photos") is not None else None,
-            "video": obj.get("video"),
-            "wholesale": PostV2GetCardsListResponse200CardsInnerWholesale.from_dict(obj["wholesale"]) if obj.get("wholesale") is not None else None,
-            "dimensions": PostV2GetCardsListResponse200CardsInnerDimensions.from_dict(obj["dimensions"]) if obj.get("dimensions") is not None else None,
-            "documents": PostV2GetCardsListResponse200CardsInnerDocuments.from_dict(obj["documents"]) if obj.get("documents") is not None else None,
-            "characteristics": [PostV2GetCardsListResponse200CardsInnerCharacteristicsInner.from_dict(_item) for _item in obj["characteristics"]] if obj.get("characteristics") is not None else None,
-            "sizes": [PostV2GetCardsListResponse200CardsInnerSizesInner.from_dict(_item) for _item in obj["sizes"]] if obj.get("sizes") is not None else None,
-            "tags": [PostV2GetCardsListResponse200CardsInnerTagsInner.from_dict(_item) for _item in obj["tags"]] if obj.get("tags") is not None else None,
-            "createdAt": obj.get("createdAt"),
-            "updatedAt": obj.get("updatedAt")
-        })
+        _obj = cls.model_validate(
+            {
+                "nmID": obj.get("nmID"),
+                "imtID": obj.get("imtID"),
+                "nmUUID": obj.get("nmUUID"),
+                "subjectID": obj.get("subjectID"),
+                "subjectName": obj.get("subjectName"),
+                "vendorCode": obj.get("vendorCode"),
+                "brand": obj.get("brand"),
+                "title": obj.get("title"),
+                "description": obj.get("description"),
+                "needKiz": obj.get("needKiz"),
+                "kizMarked": (
+                    obj.get("kizMarked") if obj.get("kizMarked") is not None else False
+                ),
+                "photos": (
+                    [
+                        PostV2GetCardsListResponse200CardsInnerPhotosInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["photos"]
+                    ]
+                    if obj.get("photos") is not None
+                    else None
+                ),
+                "video": obj.get("video"),
+                "wholesale": (
+                    PostV2GetCardsListResponse200CardsInnerWholesale.from_dict(
+                        obj["wholesale"]
+                    )
+                    if obj.get("wholesale") is not None
+                    else None
+                ),
+                "dimensions": (
+                    PostV2GetCardsListResponse200CardsInnerDimensions.from_dict(
+                        obj["dimensions"]
+                    )
+                    if obj.get("dimensions") is not None
+                    else None
+                ),
+                "documents": (
+                    PostV2GetCardsListResponse200CardsInnerDocuments.from_dict(
+                        obj["documents"]
+                    )
+                    if obj.get("documents") is not None
+                    else None
+                ),
+                "characteristics": (
+                    [
+                        PostV2GetCardsListResponse200CardsInnerCharacteristicsInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["characteristics"]
+                    ]
+                    if obj.get("characteristics") is not None
+                    else None
+                ),
+                "sizes": (
+                    [
+                        PostV2GetCardsListResponse200CardsInnerSizesInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["sizes"]
+                    ]
+                    if obj.get("sizes") is not None
+                    else None
+                ),
+                "tags": (
+                    [
+                        PostV2GetCardsListResponse200CardsInnerTagsInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["tags"]
+                    ]
+                    if obj.get("tags") is not None
+                    else None
+                ),
+                "createdAt": obj.get("createdAt"),
+                "updatedAt": obj.get("updatedAt"),
+            }
+        )
         return _obj
-
-

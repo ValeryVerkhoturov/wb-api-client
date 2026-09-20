@@ -22,26 +22,58 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1UpdResponse200Inner(BaseModel):
     """
     GetV1UpdResponse200Inner
-    """ # noqa: E501
-    upd_num: Optional[StrictInt] = Field(default=None, description="Номер выставленного документа", alias="updNum")
-    upd_time: Optional[StrictStr] = Field(default=None, description="Время списания", alias="updTime")
-    upd_sum: Optional[StrictInt] = Field(default=None, description="Выставленная сумма в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)", alias="updSum")
-    advert_id: Optional[StrictInt] = Field(default=None, description="ID кампании", alias="advertId")
-    camp_name: Optional[StrictStr] = Field(default=None, description="Название кампании", alias="campName")
-    advert_type: Optional[StrictInt] = Field(default=None, description="Тип кампании", alias="advertType")
-    payment_type: Optional[StrictStr] = Field(default=None, description="Источник списания:  - `Баланс`  - `Бонусы`  - `Счёт`  - `Кэшбэк` ", alias="paymentType")
-    advert_status: Optional[StrictInt] = Field(default=None, description="Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе ", alias="advertStatus")
-    __properties: ClassVar[List[str]] = ["updNum", "updTime", "updSum", "advertId", "campName", "advertType", "paymentType", "advertStatus"]
+    """  # noqa: E501
+
+    upd_num: Optional[StrictInt] = Field(
+        default=None, description="Номер выставленного документа", alias="updNum"
+    )
+    upd_time: Optional[StrictStr] = Field(
+        default=None, description="Время списания", alias="updTime"
+    )
+    upd_sum: Optional[StrictInt] = Field(
+        default=None,
+        description="Выставленная сумма в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+        alias="updSum",
+    )
+    advert_id: Optional[StrictInt] = Field(
+        default=None, description="ID кампании", alias="advertId"
+    )
+    camp_name: Optional[StrictStr] = Field(
+        default=None, description="Название кампании", alias="campName"
+    )
+    advert_type: Optional[StrictInt] = Field(
+        default=None, description="Тип кампании", alias="advertType"
+    )
+    payment_type: Optional[StrictStr] = Field(
+        default=None,
+        description="Источник списания:  - `Баланс`  - `Бонусы`  - `Счёт`  - `Кэшбэк` ",
+        alias="paymentType",
+    )
+    advert_status: Optional[StrictInt] = Field(
+        default=None,
+        description="Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе ",
+        alias="advertStatus",
+    )
+    __properties: ClassVar[List[str]] = [
+        "updNum",
+        "updTime",
+        "updSum",
+        "advertId",
+        "campName",
+        "advertType",
+        "paymentType",
+        "advertStatus",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -67,8 +99,7 @@ class GetV1UpdResponse200Inner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -78,7 +109,7 @@ class GetV1UpdResponse200Inner(BaseModel):
         # set to None if upd_time (nullable) is None
         # and model_fields_set contains the field
         if self.upd_time is None and "upd_time" in self.model_fields_set:
-            _dict['updTime'] = None
+            _dict["updTime"] = None
 
         return _dict
 
@@ -91,16 +122,16 @@ class GetV1UpdResponse200Inner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "updNum": obj.get("updNum"),
-            "updTime": obj.get("updTime"),
-            "updSum": obj.get("updSum"),
-            "advertId": obj.get("advertId"),
-            "campName": obj.get("campName"),
-            "advertType": obj.get("advertType"),
-            "paymentType": obj.get("paymentType"),
-            "advertStatus": obj.get("advertStatus")
-        })
+        _obj = cls.model_validate(
+            {
+                "updNum": obj.get("updNum"),
+                "updTime": obj.get("updTime"),
+                "updSum": obj.get("updSum"),
+                "advertId": obj.get("advertId"),
+                "campName": obj.get("campName"),
+                "advertType": obj.get("advertType"),
+                "paymentType": obj.get("paymentType"),
+                "advertStatus": obj.get("advertStatus"),
+            }
+        )
         return _obj
-
-

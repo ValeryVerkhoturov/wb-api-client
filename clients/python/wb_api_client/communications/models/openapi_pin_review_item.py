@@ -22,26 +22,34 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class OpenapiPinReviewItem(BaseModel):
     """
     OpenapiPinReviewItem
-    """ # noqa: E501
-    pin_method: StrictStr = Field(description="Метод закрепления:   - `subscription` — подписка Джем   - `tariff` — тарифная опция ", alias="pinMethod")
-    pin_on: StrictStr = Field(description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ", alias="pinOn")
+    """  # noqa: E501
+
+    pin_method: StrictStr = Field(
+        description="Метод закрепления:   - `subscription` — подписка Джем   - `tariff` — тарифная опция ",
+        alias="pinMethod",
+    )
+    pin_on: StrictStr = Field(
+        description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ",
+        alias="pinOn",
+    )
     feedback_id: StrictStr = Field(description="ID отзыва", alias="feedbackId")
     __properties: ClassVar[List[str]] = ["pinMethod", "pinOn", "feedbackId"]
 
-    @field_validator('pin_method')
+    @field_validator("pin_method")
     def pin_method_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['tariff', 'subscription']):
+        if value not in set(["tariff", "subscription"]):
             raise ValueError("must be one of enum values ('tariff', 'subscription')")
         return value
 
-    @field_validator('pin_on')
+    @field_validator("pin_on")
     def pin_on_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['nm', 'imt']):
+        if value not in set(["nm", "imt"]):
             raise ValueError("must be one of enum values ('nm', 'imt')")
         return value
 
@@ -50,7 +58,6 @@ class OpenapiPinReviewItem(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -76,8 +83,7 @@ class OpenapiPinReviewItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -95,11 +101,11 @@ class OpenapiPinReviewItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "pinMethod": obj.get("pinMethod"),
-            "pinOn": obj.get("pinOn"),
-            "feedbackId": obj.get("feedbackId")
-        })
+        _obj = cls.model_validate(
+            {
+                "pinMethod": obj.get("pinMethod"),
+                "pinOn": obj.get("pinOn"),
+                "feedbackId": obj.get("feedbackId"),
+            }
+        )
         return _obj
-
-

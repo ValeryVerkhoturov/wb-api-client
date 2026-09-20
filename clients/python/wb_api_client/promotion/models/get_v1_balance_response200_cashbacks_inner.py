@@ -22,13 +22,23 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1BalanceResponse200CashbacksInner(BaseModel):
     """
     GetV1BalanceResponse200CashbacksInner
-    """ # noqa: E501
-    sum: Optional[StrictInt] = Field(default=None, description="Промо-бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    percent: Optional[StrictInt] = Field(default=None, description="Процент от суммы пополнения бюджета кампании, который можно оплатить промо-бонусами за один раз")
-    expiration_date: Optional[StrictStr] = Field(default=None, description="Дата окончания действия промо-бонусов")
+    """  # noqa: E501
+
+    sum: Optional[StrictInt] = Field(
+        default=None,
+        description="Промо-бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
+    percent: Optional[StrictInt] = Field(
+        default=None,
+        description="Процент от суммы пополнения бюджета кампании, который можно оплатить промо-бонусами за один раз",
+    )
+    expiration_date: Optional[StrictStr] = Field(
+        default=None, description="Дата окончания действия промо-бонусов"
+    )
     __properties: ClassVar[List[str]] = ["sum", "percent", "expiration_date"]
 
     model_config = ConfigDict(
@@ -36,7 +46,6 @@ class GetV1BalanceResponse200CashbacksInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +71,7 @@ class GetV1BalanceResponse200CashbacksInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +89,11 @@ class GetV1BalanceResponse200CashbacksInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "sum": obj.get("sum"),
-            "percent": obj.get("percent"),
-            "expiration_date": obj.get("expiration_date")
-        })
+        _obj = cls.model_validate(
+            {
+                "sum": obj.get("sum"),
+                "percent": obj.get("percent"),
+                "expiration_date": obj.get("expiration_date"),
+            }
+        )
         return _obj
-
-

@@ -22,11 +22,15 @@ from typing import Any, ClassVar, Dict, List, Optional, Tuple, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV3MediaFileRequest(BaseModel):
     """
     PostV3MediaFileRequest
-    """ # noqa: E501
-    uploadfile: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None
+    """  # noqa: E501
+
+    uploadfile: Optional[
+        Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]
+    ] = None
     __properties: ClassVar[List[str]] = ["uploadfile"]
 
     model_config = ConfigDict(
@@ -34,7 +38,6 @@ class PostV3MediaFileRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,8 +63,7 @@ class PostV3MediaFileRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,9 +81,5 @@ class PostV3MediaFileRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "uploadfile": obj.get("uploadfile")
-        })
+        _obj = cls.model_validate({"uploadfile": obj.get("uploadfile")})
         return _obj
-
-

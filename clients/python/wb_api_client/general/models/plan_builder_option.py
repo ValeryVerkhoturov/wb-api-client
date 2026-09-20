@@ -18,35 +18,78 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from wb_api_client.general.models.plan_builder_option_promotion import PlanBuilderOptionPromotion
+from wb_api_client.general.models.plan_builder_option_promotion import (
+    PlanBuilderOptionPromotion,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PlanBuilderOption(BaseModel):
     """
     PlanBuilderOption
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictStr] = Field(default=None, description="ID опции")
     slug: Optional[StrictStr] = Field(default=None, description="Код опции")
-    name: Optional[StrictStr] = Field(default=None, description="Название опции на языке из параметра `locale`")
-    status: Optional[StrictStr] = Field(default=None, description="Статус опции:   - `active` — активна   - `pendingActivation` — подключена, начнёт работать с 00:00 следующего дня   - `pendingDeactivation` — отключена, перестанет работать с 00:00 следующего дня ")
-    activated_at: Optional[datetime] = Field(default=None, description="Дата активации опции", alias="activatedAt")
-    expires_at: Optional[datetime] = Field(default=None, description="Дата окончания минимального срока действия опции. До этого дня опцию нельзя отключить", alias="expiresAt")
-    commission_rate: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Стоимость подключения опции, % от оборота. Возвращается, если в ответе нет объекта `promotion`", alias="commissionRate")
-    period_duration: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Минимальный срок действия опции в днях", alias="periodDuration")
+    name: Optional[StrictStr] = Field(
+        default=None, description="Название опции на языке из параметра `locale`"
+    )
+    status: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус опции:   - `active` — активна   - `pendingActivation` — подключена, начнёт работать с 00:00 следующего дня   - `pendingDeactivation` — отключена, перестанет работать с 00:00 следующего дня ",
+    )
+    activated_at: Optional[datetime] = Field(
+        default=None, description="Дата активации опции", alias="activatedAt"
+    )
+    expires_at: Optional[datetime] = Field(
+        default=None,
+        description="Дата окончания минимального срока действия опции. До этого дня опцию нельзя отключить",
+        alias="expiresAt",
+    )
+    commission_rate: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Стоимость подключения опции, % от оборота. Возвращается, если в ответе нет объекта `promotion`",
+        alias="commissionRate",
+    )
+    period_duration: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Минимальный срок действия опции в днях",
+        alias="periodDuration",
+    )
     promotion: Optional[PlanBuilderOptionPromotion] = None
-    __properties: ClassVar[List[str]] = ["id", "slug", "name", "status", "activatedAt", "expiresAt", "commissionRate", "periodDuration", "promotion"]
+    __properties: ClassVar[List[str]] = [
+        "id",
+        "slug",
+        "name",
+        "status",
+        "activatedAt",
+        "expiresAt",
+        "commissionRate",
+        "periodDuration",
+        "promotion",
+    ]
 
-    @field_validator('status')
+    @field_validator("status")
     def status_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['active', 'pendingActivation', 'pendingDeactivation']):
-            raise ValueError("must be one of enum values ('active', 'pendingActivation', 'pendingDeactivation')")
+        if value not in set(["active", "pendingActivation", "pendingDeactivation"]):
+            raise ValueError(
+                "must be one of enum values ('active', 'pendingActivation', 'pendingDeactivation')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -54,7 +97,6 @@ class PlanBuilderOption(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -80,8 +122,7 @@ class PlanBuilderOption(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -90,7 +131,7 @@ class PlanBuilderOption(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of promotion
         if self.promotion:
-            _dict['promotion'] = self.promotion.to_dict()
+            _dict["promotion"] = self.promotion.to_dict()
         return _dict
 
     @classmethod
@@ -102,17 +143,21 @@ class PlanBuilderOption(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "slug": obj.get("slug"),
-            "name": obj.get("name"),
-            "status": obj.get("status"),
-            "activatedAt": obj.get("activatedAt"),
-            "expiresAt": obj.get("expiresAt"),
-            "commissionRate": obj.get("commissionRate"),
-            "periodDuration": obj.get("periodDuration"),
-            "promotion": PlanBuilderOptionPromotion.from_dict(obj["promotion"]) if obj.get("promotion") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "slug": obj.get("slug"),
+                "name": obj.get("name"),
+                "status": obj.get("status"),
+                "activatedAt": obj.get("activatedAt"),
+                "expiresAt": obj.get("expiresAt"),
+                "commissionRate": obj.get("commissionRate"),
+                "periodDuration": obj.get("periodDuration"),
+                "promotion": (
+                    PlanBuilderOptionPromotion.from_dict(obj["promotion"])
+                    if obj.get("promotion") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

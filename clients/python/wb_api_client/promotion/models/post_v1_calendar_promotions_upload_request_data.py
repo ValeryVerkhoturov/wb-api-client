@@ -23,13 +23,26 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV1CalendarPromotionsUploadRequestData(BaseModel):
     """
     Данные запроса
-    """ # noqa: E501
-    promotion_id: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="ID акции", alias="promotionID")
-    upload_now: Optional[StrictBool] = Field(default=None, description="Установить скидку:   - `true` — сейчас   - `false` — в момент старта акции ", alias="uploadNow")
-    nomenclatures: Optional[Annotated[List[Annotated[int, Field(strict=True, ge=1)]], Field(min_length=1, max_length=1000)]] = Field(default=None, description="Артикулы WB, которые можно добавить в акцию")
+    """  # noqa: E501
+
+    promotion_id: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(
+        default=None, description="ID акции", alias="promotionID"
+    )
+    upload_now: Optional[StrictBool] = Field(
+        default=None,
+        description="Установить скидку:   - `true` — сейчас   - `false` — в момент старта акции ",
+        alias="uploadNow",
+    )
+    nomenclatures: Optional[
+        Annotated[
+            List[Annotated[int, Field(strict=True, ge=1)]],
+            Field(min_length=1, max_length=1000),
+        ]
+    ] = Field(default=None, description="Артикулы WB, которые можно добавить в акцию")
     __properties: ClassVar[List[str]] = ["promotionID", "uploadNow", "nomenclatures"]
 
     model_config = ConfigDict(
@@ -37,7 +50,6 @@ class PostV1CalendarPromotionsUploadRequestData(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +75,7 @@ class PostV1CalendarPromotionsUploadRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,11 +93,11 @@ class PostV1CalendarPromotionsUploadRequestData(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "promotionID": obj.get("promotionID"),
-            "uploadNow": obj.get("uploadNow"),
-            "nomenclatures": obj.get("nomenclatures")
-        })
+        _obj = cls.model_validate(
+            {
+                "promotionID": obj.get("promotionID"),
+                "uploadNow": obj.get("uploadNow"),
+                "nomenclatures": obj.get("nomenclatures"),
+            }
+        )
         return _obj
-
-

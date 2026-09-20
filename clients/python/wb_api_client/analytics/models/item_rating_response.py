@@ -25,10 +25,12 @@ from wb_api_client.analytics.models.table_item_float import TableItemFloat
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ItemRatingResponse(BaseModel):
     """
     Данные ответа
-    """ # noqa: E501
+    """  # noqa: E501
+
     seller_rating: TableItemFloat = Field(alias="sellerRating")
     feedback_increase: FeedbacksIncreaseItem = Field(alias="feedbackIncrease")
     items: List[DistributionTableItem] = Field(description="Данные по товарам")
@@ -39,7 +41,6 @@ class ItemRatingResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +66,7 @@ class ItemRatingResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,17 +75,17 @@ class ItemRatingResponse(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of seller_rating
         if self.seller_rating:
-            _dict['sellerRating'] = self.seller_rating.to_dict()
+            _dict["sellerRating"] = self.seller_rating.to_dict()
         # override the default output from pydantic by calling `to_dict()` of feedback_increase
         if self.feedback_increase:
-            _dict['feedbackIncrease'] = self.feedback_increase.to_dict()
+            _dict["feedbackIncrease"] = self.feedback_increase.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in items (list)
         _items = []
         if self.items:
             for _item_items in self.items:
                 if _item_items:
                     _items.append(_item_items.to_dict())
-            _dict['items'] = _items
+            _dict["items"] = _items
         return _dict
 
     @classmethod
@@ -97,11 +97,23 @@ class ItemRatingResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "sellerRating": TableItemFloat.from_dict(obj["sellerRating"]) if obj.get("sellerRating") is not None else None,
-            "feedbackIncrease": FeedbacksIncreaseItem.from_dict(obj["feedbackIncrease"]) if obj.get("feedbackIncrease") is not None else None,
-            "items": [DistributionTableItem.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "sellerRating": (
+                    TableItemFloat.from_dict(obj["sellerRating"])
+                    if obj.get("sellerRating") is not None
+                    else None
+                ),
+                "feedbackIncrease": (
+                    FeedbacksIncreaseItem.from_dict(obj["feedbackIncrease"])
+                    if obj.get("feedbackIncrease") is not None
+                    else None
+                ),
+                "items": (
+                    [DistributionTableItem.from_dict(_item) for _item in obj["items"]]
+                    if obj.get("items") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

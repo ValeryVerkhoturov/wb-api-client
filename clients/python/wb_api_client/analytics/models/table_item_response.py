@@ -23,10 +23,12 @@ from wb_api_client.analytics.models.table_item_item_st import TableItemItemSt
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class TableItemResponse(BaseModel):
     """
     TableItemResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     items: List[TableItemItemSt] = Field(description="Множество данных по товарам")
     currency: StrictStr = Field(description="Валюта отчёта")
     __properties: ClassVar[List[str]] = ["items", "currency"]
@@ -36,7 +38,6 @@ class TableItemResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +63,7 @@ class TableItemResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +76,7 @@ class TableItemResponse(BaseModel):
             for _item_items in self.items:
                 if _item_items:
                     _items.append(_item_items.to_dict())
-            _dict['items'] = _items
+            _dict["items"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +88,14 @@ class TableItemResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "items": [TableItemItemSt.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None,
-            "currency": obj.get("currency")
-        })
+        _obj = cls.model_validate(
+            {
+                "items": (
+                    [TableItemItemSt.from_dict(_item) for _item in obj["items"]]
+                    if obj.get("items") is not None
+                    else None
+                ),
+                "currency": obj.get("currency"),
+            }
+        )
         return _obj
-
-

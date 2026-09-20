@@ -22,13 +22,20 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class SizeGoodReq(BaseModel):
     """
     SizeGoodReq
-    """ # noqa: E501
+    """  # noqa: E501
+
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmID")
-    size_id: StrictInt = Field(description="ID размера. Можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле `sizeID`. В методах Контента это поле `chrtID`", alias="sizeID")
-    price: StrictInt = Field(description="Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле `currencyIsoCode4217`")
+    size_id: StrictInt = Field(
+        description="ID размера. Можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле `sizeID`. В методах Контента это поле `chrtID`",
+        alias="sizeID",
+    )
+    price: StrictInt = Field(
+        description="Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле `currencyIsoCode4217`"
+    )
     __properties: ClassVar[List[str]] = ["nmID", "sizeID", "price"]
 
     model_config = ConfigDict(
@@ -36,7 +43,6 @@ class SizeGoodReq(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +68,7 @@ class SizeGoodReq(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +86,11 @@ class SizeGoodReq(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmID": obj.get("nmID"),
-            "sizeID": obj.get("sizeID"),
-            "price": obj.get("price")
-        })
+        _obj = cls.model_validate(
+            {
+                "nmID": obj.get("nmID"),
+                "sizeID": obj.get("sizeID"),
+                "price": obj.get("price"),
+            }
+        )
         return _obj
-
-

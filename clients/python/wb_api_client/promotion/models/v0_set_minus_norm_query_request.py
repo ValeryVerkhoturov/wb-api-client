@@ -23,10 +23,12 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V0SetMinusNormQueryRequest(BaseModel):
     """
     V0SetMinusNormQueryRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     advert_id: StrictInt = Field(description="ID кампании")
     nm_id: StrictInt = Field(description="Артикул WB")
     norm_queries: Annotated[List[StrictStr], Field(max_length=1000)]
@@ -37,7 +39,6 @@ class V0SetMinusNormQueryRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +64,7 @@ class V0SetMinusNormQueryRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,11 +82,11 @@ class V0SetMinusNormQueryRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advert_id": obj.get("advert_id"),
-            "nm_id": obj.get("nm_id"),
-            "norm_queries": obj.get("norm_queries")
-        })
+        _obj = cls.model_validate(
+            {
+                "advert_id": obj.get("advert_id"),
+                "nm_id": obj.get("nm_id"),
+                "norm_queries": obj.get("norm_queries"),
+            }
+        )
         return _obj
-
-

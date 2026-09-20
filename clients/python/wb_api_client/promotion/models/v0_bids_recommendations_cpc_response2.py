@@ -19,27 +19,41 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.v0_bid_recommendation_cpc_levels import V0BidRecommendationCPCLevels
+from wb_api_client.promotion.models.v0_bid_recommendation_cpc_levels import (
+    V0BidRecommendationCPCLevels,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class V0BidsRecommendationsCpcResponse2(BaseModel):
     """
     V0BidsRecommendationsCpcResponse2
-    """ # noqa: E501
-    advert_id: Optional[StrictInt] = Field(default=None, description="ID кампании", alias="advertId")
-    levels: Optional[List[V0BidRecommendationCPCLevels]] = Field(default=None, description="Рекомендуемые ставки для карточек товаров")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId")
-    payment_type: Optional[StrictStr] = Field(default=None, description="Тип оплаты:   - `cpc` — за клики ", alias="paymentType")
+    """  # noqa: E501
+
+    advert_id: Optional[StrictInt] = Field(
+        default=None, description="ID кампании", alias="advertId"
+    )
+    levels: Optional[List[V0BidRecommendationCPCLevels]] = Field(
+        default=None, description="Рекомендуемые ставки для карточек товаров"
+    )
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
+    payment_type: Optional[StrictStr] = Field(
+        default=None,
+        description="Тип оплаты:   - `cpc` — за клики ",
+        alias="paymentType",
+    )
     __properties: ClassVar[List[str]] = ["advertId", "levels", "nmId", "paymentType"]
 
-    @field_validator('payment_type')
+    @field_validator("payment_type")
     def payment_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['cpc']):
+        if value not in set(["cpc"]):
             raise ValueError("must be one of enum values ('cpc')")
         return value
 
@@ -48,7 +62,6 @@ class V0BidsRecommendationsCpcResponse2(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -74,8 +87,7 @@ class V0BidsRecommendationsCpcResponse2(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -88,7 +100,7 @@ class V0BidsRecommendationsCpcResponse2(BaseModel):
             for _item_levels in self.levels:
                 if _item_levels:
                     _items.append(_item_levels.to_dict())
-            _dict['levels'] = _items
+            _dict["levels"] = _items
         return _dict
 
     @classmethod
@@ -100,12 +112,19 @@ class V0BidsRecommendationsCpcResponse2(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advertId": obj.get("advertId"),
-            "levels": [V0BidRecommendationCPCLevels.from_dict(_item) for _item in obj["levels"]] if obj.get("levels") is not None else None,
-            "nmId": obj.get("nmId"),
-            "paymentType": obj.get("paymentType")
-        })
+        _obj = cls.model_validate(
+            {
+                "advertId": obj.get("advertId"),
+                "levels": (
+                    [
+                        V0BidRecommendationCPCLevels.from_dict(_item)
+                        for _item in obj["levels"]
+                    ]
+                    if obj.get("levels") is not None
+                    else None
+                ),
+                "nmId": obj.get("nmId"),
+                "paymentType": obj.get("paymentType"),
+            }
+        )
         return _obj
-
-

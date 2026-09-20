@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.communications.models.openapi_seller_limits_response_data_subscription import OpenapiSellerLimitsResponseDataSubscription
-from wb_api_client.communications.models.openapi_seller_limits_response_data_tariff import OpenapiSellerLimitsResponseDataTariff
+from wb_api_client.communications.models.openapi_seller_limits_response_data_subscription import (
+    OpenapiSellerLimitsResponseDataSubscription,
+)
+from wb_api_client.communications.models.openapi_seller_limits_response_data_tariff import (
+    OpenapiSellerLimitsResponseDataTariff,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class OpenapiSellerLimitsResponseData(BaseModel):
     """
     OpenapiSellerLimitsResponseData
-    """ # noqa: E501
+    """  # noqa: E501
+
     subscription: Optional[OpenapiSellerLimitsResponseDataSubscription] = None
     tariff: Optional[OpenapiSellerLimitsResponseDataTariff] = None
     __properties: ClassVar[List[str]] = ["subscription", "tariff"]
@@ -37,7 +43,6 @@ class OpenapiSellerLimitsResponseData(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +68,7 @@ class OpenapiSellerLimitsResponseData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,19 +77,19 @@ class OpenapiSellerLimitsResponseData(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of subscription
         if self.subscription:
-            _dict['subscription'] = self.subscription.to_dict()
+            _dict["subscription"] = self.subscription.to_dict()
         # override the default output from pydantic by calling `to_dict()` of tariff
         if self.tariff:
-            _dict['tariff'] = self.tariff.to_dict()
+            _dict["tariff"] = self.tariff.to_dict()
         # set to None if subscription (nullable) is None
         # and model_fields_set contains the field
         if self.subscription is None and "subscription" in self.model_fields_set:
-            _dict['subscription'] = None
+            _dict["subscription"] = None
 
         # set to None if tariff (nullable) is None
         # and model_fields_set contains the field
         if self.tariff is None and "tariff" in self.model_fields_set:
-            _dict['tariff'] = None
+            _dict["tariff"] = None
 
         return _dict
 
@@ -98,10 +102,20 @@ class OpenapiSellerLimitsResponseData(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "subscription": OpenapiSellerLimitsResponseDataSubscription.from_dict(obj["subscription"]) if obj.get("subscription") is not None else None,
-            "tariff": OpenapiSellerLimitsResponseDataTariff.from_dict(obj["tariff"]) if obj.get("tariff") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "subscription": (
+                    OpenapiSellerLimitsResponseDataSubscription.from_dict(
+                        obj["subscription"]
+                    )
+                    if obj.get("subscription") is not None
+                    else None
+                ),
+                "tariff": (
+                    OpenapiSellerLimitsResponseDataTariff.from_dict(obj["tariff"])
+                    if obj.get("tariff") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

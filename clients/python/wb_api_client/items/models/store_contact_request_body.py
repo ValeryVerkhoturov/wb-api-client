@@ -20,15 +20,21 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from wb_api_client.items.models.store_contact_request_body_contacts_inner import StoreContactRequestBodyContactsInner
+from wb_api_client.items.models.store_contact_request_body_contacts_inner import (
+    StoreContactRequestBodyContactsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class StoreContactRequestBody(BaseModel):
     """
     Контакты склада продавца
-    """ # noqa: E501
-    contacts: Optional[Annotated[List[StoreContactRequestBodyContactsInner], Field(max_length=5)]] = None
+    """  # noqa: E501
+
+    contacts: Optional[
+        Annotated[List[StoreContactRequestBodyContactsInner], Field(max_length=5)]
+    ] = None
     __properties: ClassVar[List[str]] = ["contacts"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class StoreContactRequestBody(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class StoreContactRequestBody(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +80,7 @@ class StoreContactRequestBody(BaseModel):
             for _item_contacts in self.contacts:
                 if _item_contacts:
                     _items.append(_item_contacts.to_dict())
-            _dict['contacts'] = _items
+            _dict["contacts"] = _items
         return _dict
 
     @classmethod
@@ -88,9 +92,16 @@ class StoreContactRequestBody(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "contacts": [StoreContactRequestBodyContactsInner.from_dict(_item) for _item in obj["contacts"]] if obj.get("contacts") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "contacts": (
+                    [
+                        StoreContactRequestBodyContactsInner.from_dict(_item)
+                        for _item in obj["contacts"]
+                    ]
+                    if obj.get("contacts") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

@@ -20,14 +20,18 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.table_office_item import TableOfficeItem
-from wb_api_client.analytics.models.table_size_response_sizes_inner_metrics import TableSizeResponseSizesInnerMetrics
+from wb_api_client.analytics.models.table_size_response_sizes_inner_metrics import (
+    TableSizeResponseSizesInnerMetrics,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class TableSizeResponseSizesInner(BaseModel):
     """
     TableSizeResponseSizesInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     name: StrictStr = Field(description="Название размера")
     chrt_id: StrictInt = Field(description="ID размера", alias="chrtID")
     offices: Optional[List[TableOfficeItem]] = Field(default=None, description="Склады")
@@ -39,7 +43,6 @@ class TableSizeResponseSizesInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +68,7 @@ class TableSizeResponseSizesInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,10 +81,10 @@ class TableSizeResponseSizesInner(BaseModel):
             for _item_offices in self.offices:
                 if _item_offices:
                     _items.append(_item_offices.to_dict())
-            _dict['offices'] = _items
+            _dict["offices"] = _items
         # override the default output from pydantic by calling `to_dict()` of metrics
         if self.metrics:
-            _dict['metrics'] = self.metrics.to_dict()
+            _dict["metrics"] = self.metrics.to_dict()
         return _dict
 
     @classmethod
@@ -94,12 +96,20 @@ class TableSizeResponseSizesInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "chrtID": obj.get("chrtID"),
-            "offices": [TableOfficeItem.from_dict(_item) for _item in obj["offices"]] if obj.get("offices") is not None else None,
-            "metrics": TableSizeResponseSizesInnerMetrics.from_dict(obj["metrics"]) if obj.get("metrics") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "name": obj.get("name"),
+                "chrtID": obj.get("chrtID"),
+                "offices": (
+                    [TableOfficeItem.from_dict(_item) for _item in obj["offices"]]
+                    if obj.get("offices") is not None
+                    else None
+                ),
+                "metrics": (
+                    TableSizeResponseSizesInnerMetrics.from_dict(obj["metrics"])
+                    if obj.get("metrics") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

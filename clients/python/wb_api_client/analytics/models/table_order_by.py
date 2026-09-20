@@ -24,10 +24,12 @@ from wb_api_client.analytics.models.table_group_field import TableGroupField
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class TableOrderBy(BaseModel):
     """
     Вид сортировки данных
-    """ # noqa: E501
+    """  # noqa: E501
+
     var_field: TableGroupField = Field(alias="field")
     mode: OrderByMode
     __properties: ClassVar[List[str]] = ["field", "mode"]
@@ -37,7 +39,6 @@ class TableOrderBy(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +64,7 @@ class TableOrderBy(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,10 +82,5 @@ class TableOrderBy(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "field": obj.get("field"),
-            "mode": obj.get("mode")
-        })
+        _obj = cls.model_validate({"field": obj.get("field"), "mode": obj.get("mode")})
         return _obj
-
-

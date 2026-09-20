@@ -23,36 +23,55 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class SubscriptionsJamInfo(BaseModel):
     """
     Информация о подписке Джем
-    """ # noqa: E501
-    state: StrictStr = Field(description="Статус подписки:   - `active` — активна   - `inactive` — истекла или отменена ")
-    activation_source: StrictStr = Field(description="Источник подключения подписки:   - `constructor` — покупка через раздел **Конструктор тарифов**   - `jam` — покупка через раздел **Подписка «Джем»** ", alias="activationSource")
-    level: StrictStr = Field(description="Уровень подписки:   - `standard`   - `advanced`   - `premium` ")
-    since: datetime = Field(description="Дата и время первой активации подписки. Не меняется при продлении или повторной активации")
-    till: datetime = Field(description="Дата и время окончания подписки")
-    __properties: ClassVar[List[str]] = ["state", "activationSource", "level", "since", "till"]
+    """  # noqa: E501
 
-    @field_validator('state')
+    state: StrictStr = Field(
+        description="Статус подписки:   - `active` — активна   - `inactive` — истекла или отменена "
+    )
+    activation_source: StrictStr = Field(
+        description="Источник подключения подписки:   - `constructor` — покупка через раздел **Конструктор тарифов**   - `jam` — покупка через раздел **Подписка «Джем»** ",
+        alias="activationSource",
+    )
+    level: StrictStr = Field(
+        description="Уровень подписки:   - `standard`   - `advanced`   - `premium` "
+    )
+    since: datetime = Field(
+        description="Дата и время первой активации подписки. Не меняется при продлении или повторной активации"
+    )
+    till: datetime = Field(description="Дата и время окончания подписки")
+    __properties: ClassVar[List[str]] = [
+        "state",
+        "activationSource",
+        "level",
+        "since",
+        "till",
+    ]
+
+    @field_validator("state")
     def state_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['active', 'inactive']):
+        if value not in set(["active", "inactive"]):
             raise ValueError("must be one of enum values ('active', 'inactive')")
         return value
 
-    @field_validator('activation_source')
+    @field_validator("activation_source")
     def activation_source_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['constructor', 'jam']):
+        if value not in set(["constructor", "jam"]):
             raise ValueError("must be one of enum values ('constructor', 'jam')")
         return value
 
-    @field_validator('level')
+    @field_validator("level")
     def level_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['standard', 'advanced', 'premium']):
-            raise ValueError("must be one of enum values ('standard', 'advanced', 'premium')")
+        if value not in set(["standard", "advanced", "premium"]):
+            raise ValueError(
+                "must be one of enum values ('standard', 'advanced', 'premium')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -60,7 +79,6 @@ class SubscriptionsJamInfo(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -86,8 +104,7 @@ class SubscriptionsJamInfo(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -105,13 +122,13 @@ class SubscriptionsJamInfo(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "state": obj.get("state"),
-            "activationSource": obj.get("activationSource"),
-            "level": obj.get("level"),
-            "since": obj.get("since"),
-            "till": obj.get("till")
-        })
+        _obj = cls.model_validate(
+            {
+                "state": obj.get("state"),
+                "activationSource": obj.get("activationSource"),
+                "level": obj.get("level"),
+                "since": obj.get("since"),
+                "till": obj.get("till"),
+            }
+        )
         return _obj
-
-

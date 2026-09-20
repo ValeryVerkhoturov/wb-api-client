@@ -24,23 +24,38 @@ from wb_api_client.general.models.plan_builder_package import PlanBuilderPackage
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PlanBuilderOptionsInfo(BaseModel):
     """
     PlanBuilderOptionsInfo
-    """ # noqa: E501
-    active_option_count: Union[StrictFloat, StrictInt] = Field(description="Количество активных опций, не включённых в пакеты", alias="activeOptionCount")
-    active_package_count: Union[StrictFloat, StrictInt] = Field(description="Количество активных пакетов опций", alias="activePackageCount")
-    total_commission_rate: Union[StrictFloat, StrictInt] = Field(description="Итоговая комиссия за подключённые опции и пакеты, % от оборота", alias="totalCommissionRate")
+    """  # noqa: E501
+
+    active_option_count: Union[StrictFloat, StrictInt] = Field(
+        description="Количество активных опций, не включённых в пакеты",
+        alias="activeOptionCount",
+    )
+    active_package_count: Union[StrictFloat, StrictInt] = Field(
+        description="Количество активных пакетов опций", alias="activePackageCount"
+    )
+    total_commission_rate: Union[StrictFloat, StrictInt] = Field(
+        description="Итоговая комиссия за подключённые опции и пакеты, % от оборота",
+        alias="totalCommissionRate",
+    )
     packages: List[PlanBuilderPackage] = Field(description="Подключённые пакеты опций")
     options: List[PlanBuilderOption] = Field(description="Подключённые опции")
-    __properties: ClassVar[List[str]] = ["activeOptionCount", "activePackageCount", "totalCommissionRate", "packages", "options"]
+    __properties: ClassVar[List[str]] = [
+        "activeOptionCount",
+        "activePackageCount",
+        "totalCommissionRate",
+        "packages",
+        "options",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -66,8 +81,7 @@ class PlanBuilderOptionsInfo(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,14 +94,14 @@ class PlanBuilderOptionsInfo(BaseModel):
             for _item_packages in self.packages:
                 if _item_packages:
                     _items.append(_item_packages.to_dict())
-            _dict['packages'] = _items
+            _dict["packages"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in options (list)
         _items = []
         if self.options:
             for _item_options in self.options:
                 if _item_options:
                     _items.append(_item_options.to_dict())
-            _dict['options'] = _items
+            _dict["options"] = _items
         return _dict
 
     @classmethod
@@ -99,13 +113,21 @@ class PlanBuilderOptionsInfo(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "activeOptionCount": obj.get("activeOptionCount"),
-            "activePackageCount": obj.get("activePackageCount"),
-            "totalCommissionRate": obj.get("totalCommissionRate"),
-            "packages": [PlanBuilderPackage.from_dict(_item) for _item in obj["packages"]] if obj.get("packages") is not None else None,
-            "options": [PlanBuilderOption.from_dict(_item) for _item in obj["options"]] if obj.get("options") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "activeOptionCount": obj.get("activeOptionCount"),
+                "activePackageCount": obj.get("activePackageCount"),
+                "totalCommissionRate": obj.get("totalCommissionRate"),
+                "packages": (
+                    [PlanBuilderPackage.from_dict(_item) for _item in obj["packages"]]
+                    if obj.get("packages") is not None
+                    else None
+                ),
+                "options": (
+                    [PlanBuilderOption.from_dict(_item) for _item in obj["options"]]
+                    if obj.get("options") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

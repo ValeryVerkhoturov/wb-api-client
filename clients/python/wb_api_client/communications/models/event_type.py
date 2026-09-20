@@ -20,17 +20,15 @@ from typing_extensions import Self
 
 class EventType(str, Enum):
     """
-    Тип события: - `message` — сообщение 
+    Тип события: - `message` — сообщение
     """
 
     """
     allowed enum values
     """
-    MESSAGE = 'message'
+    MESSAGE = "message"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of EventType from a JSON string"""
         return cls(json.loads(json_str))
-
-

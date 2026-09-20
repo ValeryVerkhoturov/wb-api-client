@@ -19,15 +19,29 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt
 from typing import List
 from typing_extensions import Annotated
-from wb_api_client.finances.models.acquiring_report_list_req import AcquiringReportListReq
-from wb_api_client.finances.models.acquiring_report_list_res import AcquiringReportListRes
-from wb_api_client.finances.models.acquiring_reports_detailed_req import AcquiringReportsDetailedReq
-from wb_api_client.finances.models.acquiring_reports_detailed_res import AcquiringReportsDetailedRes
-from wb_api_client.finances.models.financial_reports_detailed_report_id_req import FinancialReportsDetailedReportIdReq
+from wb_api_client.finances.models.acquiring_report_list_req import (
+    AcquiringReportListReq,
+)
+from wb_api_client.finances.models.acquiring_report_list_res import (
+    AcquiringReportListRes,
+)
+from wb_api_client.finances.models.acquiring_reports_detailed_req import (
+    AcquiringReportsDetailedReq,
+)
+from wb_api_client.finances.models.acquiring_reports_detailed_res import (
+    AcquiringReportsDetailedRes,
+)
+from wb_api_client.finances.models.financial_reports_detailed_report_id_req import (
+    FinancialReportsDetailedReportIdReq,
+)
 from wb_api_client.finances.models.sales_report_list_req import SalesReportListReq
 from wb_api_client.finances.models.sales_report_list_res import SalesReportListRes
-from wb_api_client.finances.models.sales_reports_detailed_req import SalesReportsDetailedReq
-from wb_api_client.finances.models.sales_reports_detailed_res import SalesReportsDetailedRes
+from wb_api_client.finances.models.sales_reports_detailed_req import (
+    SalesReportsDetailedReq,
+)
+from wb_api_client.finances.models.sales_reports_detailed_res import (
+    SalesReportsDetailedRes,
+)
 
 from wb_api_client.finances.api_client import ApiClient, RequestSerialized
 from wb_api_client.finances.api_response import ApiResponse
@@ -46,7 +60,6 @@ class Api:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def post_v1_acquiring_detailed(
         self,
@@ -55,9 +68,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -90,35 +102,33 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_acquiring_detailed_serialize(
             acquiring_reports_detailed_req=acquiring_reports_detailed_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[AcquiringReportsDetailedRes]",
-            '204': None,
-            '400': "PostV1AcquiringList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "Response4XX",
-            '429': "GetV1AccountBalance401Response",
+            "200": "List[AcquiringReportsDetailedRes]",
+            "204": None,
+            "400": "PostV1AcquiringList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "Response4XX",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v1_acquiring_detailed_with_http_info(
@@ -128,9 +138,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -163,35 +172,33 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_acquiring_detailed_serialize(
             acquiring_reports_detailed_req=acquiring_reports_detailed_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[AcquiringReportsDetailedRes]",
-            '204': None,
-            '400': "PostV1AcquiringList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "Response4XX",
-            '429': "GetV1AccountBalance401Response",
+            "200": "List[AcquiringReportsDetailedRes]",
+            "204": None,
+            "400": "PostV1AcquiringList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "Response4XX",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v1_acquiring_detailed_without_preload_content(
@@ -201,9 +208,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -236,31 +242,29 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_acquiring_detailed_serialize(
             acquiring_reports_detailed_req=acquiring_reports_detailed_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[AcquiringReportsDetailedRes]",
-            '204': None,
-            '400': "PostV1AcquiringList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "Response4XX",
-            '429': "GetV1AccountBalance401Response",
+            "200": "List[AcquiringReportsDetailedRes]",
+            "204": None,
+            "400": "PostV1AcquiringList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "Response4XX",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v1_acquiring_detailed_serialize(
         self,
@@ -271,13 +275,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://finance-api.wildberries.ru'
-        ]
+        _hosts = ["https://finance-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -296,38 +297,28 @@ class Api:
         if acquiring_reports_detailed_req is not None:
             _body_params = acquiring_reports_detailed_req
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/finance/v1/acquiring/detailed',
+            method="POST",
+            resource_path="/api/finance/v1/acquiring/detailed",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -337,11 +328,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v1_acquiring_detailed_report_id(
@@ -352,9 +340,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -389,7 +376,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_acquiring_detailed_report_id_serialize(
             report_id=report_id,
@@ -397,29 +384,27 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[AcquiringReportsDetailedRes]",
-            '204': None,
-            '400': "PostV1AcquiringList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "Response4XX",
-            '404': "PostV1AcquiringDetailedReportId404Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "List[AcquiringReportsDetailedRes]",
+            "204": None,
+            "400": "PostV1AcquiringList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "Response4XX",
+            "404": "PostV1AcquiringDetailedReportId404Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v1_acquiring_detailed_report_id_with_http_info(
@@ -430,9 +415,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -467,7 +451,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_acquiring_detailed_report_id_serialize(
             report_id=report_id,
@@ -475,29 +459,27 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[AcquiringReportsDetailedRes]",
-            '204': None,
-            '400': "PostV1AcquiringList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "Response4XX",
-            '404': "PostV1AcquiringDetailedReportId404Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "List[AcquiringReportsDetailedRes]",
+            "204": None,
+            "400": "PostV1AcquiringList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "Response4XX",
+            "404": "PostV1AcquiringDetailedReportId404Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v1_acquiring_detailed_report_id_without_preload_content(
@@ -508,9 +490,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -545,7 +526,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_acquiring_detailed_report_id_serialize(
             report_id=report_id,
@@ -553,25 +534,23 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[AcquiringReportsDetailedRes]",
-            '204': None,
-            '400': "PostV1AcquiringList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "Response4XX",
-            '404': "PostV1AcquiringDetailedReportId404Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "List[AcquiringReportsDetailedRes]",
+            "204": None,
+            "400": "PostV1AcquiringList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "Response4XX",
+            "404": "PostV1AcquiringDetailedReportId404Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v1_acquiring_detailed_report_id_serialize(
         self,
@@ -583,13 +562,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://finance-api.wildberries.ru'
-        ]
+        _hosts = ["https://finance-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -602,7 +578,7 @@ class Api:
 
         # process the path parameters
         if report_id is not None:
-            _path_params['reportId'] = report_id
+            _path_params["reportId"] = report_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -610,38 +586,28 @@ class Api:
         if financial_reports_detailed_report_id_req is not None:
             _body_params = financial_reports_detailed_report_id_req
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/finance/v1/acquiring/detailed/{reportId}',
+            method="POST",
+            resource_path="/api/finance/v1/acquiring/detailed/{reportId}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -651,11 +617,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v1_acquiring_list(
@@ -665,9 +628,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -700,34 +662,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_acquiring_list_serialize(
             acquiring_report_list_req=acquiring_report_list_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[AcquiringReportListRes]",
-            '204': None,
-            '400': "PostV1AcquiringList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '403': "Response4XX",
-            '429': "GetV1AccountBalance401Response",
+            "200": "List[AcquiringReportListRes]",
+            "204": None,
+            "400": "PostV1AcquiringList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "403": "Response4XX",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v1_acquiring_list_with_http_info(
@@ -737,9 +697,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -772,34 +731,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_acquiring_list_serialize(
             acquiring_report_list_req=acquiring_report_list_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[AcquiringReportListRes]",
-            '204': None,
-            '400': "PostV1AcquiringList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '403': "Response4XX",
-            '429': "GetV1AccountBalance401Response",
+            "200": "List[AcquiringReportListRes]",
+            "204": None,
+            "400": "PostV1AcquiringList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "403": "Response4XX",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v1_acquiring_list_without_preload_content(
@@ -809,9 +766,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -844,30 +800,28 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_acquiring_list_serialize(
             acquiring_report_list_req=acquiring_report_list_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[AcquiringReportListRes]",
-            '204': None,
-            '400': "PostV1AcquiringList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '403': "Response4XX",
-            '429': "GetV1AccountBalance401Response",
+            "200": "List[AcquiringReportListRes]",
+            "204": None,
+            "400": "PostV1AcquiringList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "403": "Response4XX",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v1_acquiring_list_serialize(
         self,
@@ -878,13 +832,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://finance-api.wildberries.ru'
-        ]
+        _hosts = ["https://finance-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -903,38 +854,28 @@ class Api:
         if acquiring_report_list_req is not None:
             _body_params = acquiring_report_list_req
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/finance/v1/acquiring/list',
+            method="POST",
+            resource_path="/api/finance/v1/acquiring/list",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -944,11 +885,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v1_sales_reports_detailed(
@@ -958,9 +896,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -993,35 +930,33 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_sales_reports_detailed_serialize(
             sales_reports_detailed_req=sales_reports_detailed_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[SalesReportsDetailedRes]",
-            '204': None,
-            '400': "PostV1SalesReportsList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "GetV1AccountBalance403Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "List[SalesReportsDetailedRes]",
+            "204": None,
+            "400": "PostV1SalesReportsList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "GetV1AccountBalance403Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v1_sales_reports_detailed_with_http_info(
@@ -1031,9 +966,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1066,35 +1000,33 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_sales_reports_detailed_serialize(
             sales_reports_detailed_req=sales_reports_detailed_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[SalesReportsDetailedRes]",
-            '204': None,
-            '400': "PostV1SalesReportsList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "GetV1AccountBalance403Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "List[SalesReportsDetailedRes]",
+            "204": None,
+            "400": "PostV1SalesReportsList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "GetV1AccountBalance403Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v1_sales_reports_detailed_without_preload_content(
@@ -1104,9 +1036,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1139,31 +1070,29 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_sales_reports_detailed_serialize(
             sales_reports_detailed_req=sales_reports_detailed_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[SalesReportsDetailedRes]",
-            '204': None,
-            '400': "PostV1SalesReportsList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "GetV1AccountBalance403Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "List[SalesReportsDetailedRes]",
+            "204": None,
+            "400": "PostV1SalesReportsList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "GetV1AccountBalance403Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v1_sales_reports_detailed_serialize(
         self,
@@ -1174,13 +1103,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://finance-api.wildberries.ru'
-        ]
+        _hosts = ["https://finance-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1199,38 +1125,28 @@ class Api:
         if sales_reports_detailed_req is not None:
             _body_params = sales_reports_detailed_req
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/finance/v1/sales-reports/detailed',
+            method="POST",
+            resource_path="/api/finance/v1/sales-reports/detailed",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1240,24 +1156,25 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v1_sales_reports_detailed_report_id(
         self,
-        report_id: Annotated[StrictInt, Field(description="ID отчёта. Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint)")],
+        report_id: Annotated[
+            StrictInt,
+            Field(
+                description="ID отчёта. Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint)"
+            ),
+        ],
         financial_reports_detailed_report_id_req: FinancialReportsDetailedReportIdReq,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1292,7 +1209,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_sales_reports_detailed_report_id_serialize(
             report_id=report_id,
@@ -1300,22 +1217,21 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[SalesReportsDetailedRes]",
-            '204': None,
-            '400': "PostV1SalesReportsList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "Response4XX",
-            '404': "PostV1SalesReportsDetailedReportId404Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "List[SalesReportsDetailedRes]",
+            "204": None,
+            "400": "PostV1SalesReportsList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "Response4XX",
+            "404": "PostV1SalesReportsDetailedReportId404Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1323,19 +1239,22 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def post_v1_sales_reports_detailed_report_id_with_http_info(
         self,
-        report_id: Annotated[StrictInt, Field(description="ID отчёта. Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint)")],
+        report_id: Annotated[
+            StrictInt,
+            Field(
+                description="ID отчёта. Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint)"
+            ),
+        ],
         financial_reports_detailed_report_id_req: FinancialReportsDetailedReportIdReq,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1370,7 +1289,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_sales_reports_detailed_report_id_serialize(
             report_id=report_id,
@@ -1378,22 +1297,21 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[SalesReportsDetailedRes]",
-            '204': None,
-            '400': "PostV1SalesReportsList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "Response4XX",
-            '404': "PostV1SalesReportsDetailedReportId404Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "List[SalesReportsDetailedRes]",
+            "204": None,
+            "400": "PostV1SalesReportsList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "Response4XX",
+            "404": "PostV1SalesReportsDetailedReportId404Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1401,19 +1319,22 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def post_v1_sales_reports_detailed_report_id_without_preload_content(
         self,
-        report_id: Annotated[StrictInt, Field(description="ID отчёта. Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint)")],
+        report_id: Annotated[
+            StrictInt,
+            Field(
+                description="ID отчёта. Для ежедневных отчётов вместо стандартной десериализации рекомендуем использовать нестандартные библиотеки с поддержкой [BigInt](https://www.npmjs.com/package/json-bigint)"
+            ),
+        ],
         financial_reports_detailed_report_id_req: FinancialReportsDetailedReportIdReq,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1448,7 +1369,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_sales_reports_detailed_report_id_serialize(
             report_id=report_id,
@@ -1456,25 +1377,23 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[SalesReportsDetailedRes]",
-            '204': None,
-            '400': "PostV1SalesReportsList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '402': "GetV1AccountBalance402Response",
-            '403': "Response4XX",
-            '404': "PostV1SalesReportsDetailedReportId404Response",
-            '429': "GetV1AccountBalance401Response",
+            "200": "List[SalesReportsDetailedRes]",
+            "204": None,
+            "400": "PostV1SalesReportsList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "402": "GetV1AccountBalance402Response",
+            "403": "Response4XX",
+            "404": "PostV1SalesReportsDetailedReportId404Response",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v1_sales_reports_detailed_report_id_serialize(
         self,
@@ -1486,13 +1405,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://finance-api.wildberries.ru'
-        ]
+        _hosts = ["https://finance-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1505,7 +1421,7 @@ class Api:
 
         # process the path parameters
         if report_id is not None:
-            _path_params['reportId'] = report_id
+            _path_params["reportId"] = report_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -1513,38 +1429,28 @@ class Api:
         if financial_reports_detailed_report_id_req is not None:
             _body_params = financial_reports_detailed_report_id_req
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/finance/v1/sales-reports/detailed/{reportId}',
+            method="POST",
+            resource_path="/api/finance/v1/sales-reports/detailed/{reportId}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1554,11 +1460,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v1_sales_reports_list(
@@ -1568,9 +1471,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1603,34 +1505,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_sales_reports_list_serialize(
             sales_report_list_req=sales_report_list_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[SalesReportListRes]",
-            '204': None,
-            '400': "PostV1SalesReportsList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '403': "Response4XX",
-            '429': "GetV1AccountBalance401Response",
+            "200": "List[SalesReportListRes]",
+            "204": None,
+            "400": "PostV1SalesReportsList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "403": "Response4XX",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v1_sales_reports_list_with_http_info(
@@ -1640,9 +1540,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1675,34 +1574,32 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_sales_reports_list_serialize(
             sales_report_list_req=sales_report_list_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[SalesReportListRes]",
-            '204': None,
-            '400': "PostV1SalesReportsList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '403': "Response4XX",
-            '429': "GetV1AccountBalance401Response",
+            "200": "List[SalesReportListRes]",
+            "204": None,
+            "400": "PostV1SalesReportsList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "403": "Response4XX",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v1_sales_reports_list_without_preload_content(
@@ -1712,9 +1609,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1747,30 +1643,28 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_sales_reports_list_serialize(
             sales_report_list_req=sales_report_list_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[SalesReportListRes]",
-            '204': None,
-            '400': "PostV1SalesReportsList400Response",
-            '401': "GetV1AccountBalance401Response",
-            '403': "Response4XX",
-            '429': "GetV1AccountBalance401Response",
+            "200": "List[SalesReportListRes]",
+            "204": None,
+            "400": "PostV1SalesReportsList400Response",
+            "401": "GetV1AccountBalance401Response",
+            "403": "Response4XX",
+            "429": "GetV1AccountBalance401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v1_sales_reports_list_serialize(
         self,
@@ -1781,13 +1675,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://finance-api.wildberries.ru'
-        ]
+        _hosts = ["https://finance-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1806,38 +1697,28 @@ class Api:
         if sales_report_list_req is not None:
             _body_params = sales_report_list_req
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/finance/v1/sales-reports/list',
+            method="POST",
+            resource_path="/api/finance/v1/sales-reports/list",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1847,7 +1728,5 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

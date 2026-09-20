@@ -22,12 +22,16 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class FullStatsErrorErrorsInner(BaseModel):
     """
     FullStatsErrorErrorsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
-    var_field: Optional[StrictStr] = Field(default=None, description="Параметр с ошибкой", alias="field")
+    var_field: Optional[StrictStr] = Field(
+        default=None, description="Параметр с ошибкой", alias="field"
+    )
     __properties: ClassVar[List[str]] = ["detail", "field"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class FullStatsErrorErrorsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class FullStatsErrorErrorsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +82,7 @@ class FullStatsErrorErrorsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "detail": obj.get("detail"),
-            "field": obj.get("field")
-        })
+        _obj = cls.model_validate(
+            {"detail": obj.get("detail"), "field": obj.get("field")}
+        )
         return _obj
-
-

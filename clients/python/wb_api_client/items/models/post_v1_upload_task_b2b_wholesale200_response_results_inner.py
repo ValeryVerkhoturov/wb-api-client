@@ -19,16 +19,22 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.post_v1_upload_task_b2b_wholesale200_response_results_inner_error import PostV1UploadTaskB2bWholesale200ResponseResultsInnerError
+from wb_api_client.items.models.post_v1_upload_task_b2b_wholesale200_response_results_inner_error import (
+    PostV1UploadTaskB2bWholesale200ResponseResultsInnerError,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV1UploadTaskB2bWholesale200ResponseResultsInner(BaseModel):
     """
     PostV1UploadTaskB2bWholesale200ResponseResultsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    success: StrictBool = Field(description="Успешна ли установка скидки на товар:   - `false` — неуспешна   - `true` — успешна ")
+    success: StrictBool = Field(
+        description="Успешна ли установка скидки на товар:   - `false` — неуспешна   - `true` — успешна "
+    )
     error: Optional[PostV1UploadTaskB2bWholesale200ResponseResultsInnerError] = None
     __properties: ClassVar[List[str]] = ["nmId", "success", "error"]
 
@@ -37,7 +43,6 @@ class PostV1UploadTaskB2bWholesale200ResponseResultsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +68,7 @@ class PostV1UploadTaskB2bWholesale200ResponseResultsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,7 +77,7 @@ class PostV1UploadTaskB2bWholesale200ResponseResultsInner(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of error
         if self.error:
-            _dict['error'] = self.error.to_dict()
+            _dict["error"] = self.error.to_dict()
         return _dict
 
     @classmethod
@@ -85,11 +89,17 @@ class PostV1UploadTaskB2bWholesale200ResponseResultsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmId": obj.get("nmId"),
-            "success": obj.get("success"),
-            "error": PostV1UploadTaskB2bWholesale200ResponseResultsInnerError.from_dict(obj["error"]) if obj.get("error") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "nmId": obj.get("nmId"),
+                "success": obj.get("success"),
+                "error": (
+                    PostV1UploadTaskB2bWholesale200ResponseResultsInnerError.from_dict(
+                        obj["error"]
+                    )
+                    if obj.get("error") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

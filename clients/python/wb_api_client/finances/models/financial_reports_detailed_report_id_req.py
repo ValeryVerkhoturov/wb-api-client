@@ -23,13 +23,24 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class FinancialReportsDetailedReportIdReq(BaseModel):
     """
     Параметры запроса
-    """ # noqa: E501
-    limit: Optional[Annotated[int, Field(le=100000, strict=True)]] = Field(default=100000, description="Количество строк в ответе")
-    rrd_id: Optional[StrictInt] = Field(default=0, description="ID строки ответа. Необходим для получения отчёта частями. Начинайте загрузку отчёта с `\"rrdid\":0`. В последующих запросах передавайте значение `rrdId` из последней строки предыдущего ответа. Повторяйте запрос, пока не получите ответ `204`", alias="rrdId")
-    fields: Optional[List[StrictStr]] = Field(default=None, description="Список полей, которые вернутся в ответе. Если параметр не указан, возвращаются все поля")
+    """  # noqa: E501
+
+    limit: Optional[Annotated[int, Field(le=100000, strict=True)]] = Field(
+        default=100000, description="Количество строк в ответе"
+    )
+    rrd_id: Optional[StrictInt] = Field(
+        default=0,
+        description='ID строки ответа. Необходим для получения отчёта частями. Начинайте загрузку отчёта с `"rrdid":0`. В последующих запросах передавайте значение `rrdId` из последней строки предыдущего ответа. Повторяйте запрос, пока не получите ответ `204`',
+        alias="rrdId",
+    )
+    fields: Optional[List[StrictStr]] = Field(
+        default=None,
+        description="Список полей, которые вернутся в ответе. Если параметр не указан, возвращаются все поля",
+    )
     __properties: ClassVar[List[str]] = ["limit", "rrdId", "fields"]
 
     model_config = ConfigDict(
@@ -37,7 +48,6 @@ class FinancialReportsDetailedReportIdReq(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +73,7 @@ class FinancialReportsDetailedReportIdReq(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,11 +91,11 @@ class FinancialReportsDetailedReportIdReq(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "limit": obj.get("limit") if obj.get("limit") is not None else 100000,
-            "rrdId": obj.get("rrdId") if obj.get("rrdId") is not None else 0,
-            "fields": obj.get("fields")
-        })
+        _obj = cls.model_validate(
+            {
+                "limit": obj.get("limit") if obj.get("limit") is not None else 100000,
+                "rrdId": obj.get("rrdId") if obj.get("rrdId") is not None else 0,
+                "fields": obj.get("fields"),
+            }
+        )
         return _obj
-
-

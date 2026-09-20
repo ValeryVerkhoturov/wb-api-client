@@ -23,13 +23,19 @@ from wb_api_client.promotion.models.placement_type import PlacementType
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV1BidsMinResponse200BidsInnerBidsInner(BaseModel):
     """
     PostV1BidsMinResponse200BidsInnerBidsInner
-    """ # noqa: E501
-    currency: StrictStr = Field(description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    """  # noqa: E501
+
+    currency: StrictStr = Field(
+        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
     type: PlacementType
-    value: StrictInt = Field(description="Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) ")
+    value: StrictInt = Field(
+        description="Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) "
+    )
     __properties: ClassVar[List[str]] = ["currency", "type", "value"]
 
     model_config = ConfigDict(
@@ -37,7 +43,6 @@ class PostV1BidsMinResponse200BidsInnerBidsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +68,7 @@ class PostV1BidsMinResponse200BidsInnerBidsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,11 +86,11 @@ class PostV1BidsMinResponse200BidsInnerBidsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "currency": obj.get("currency"),
-            "type": obj.get("type"),
-            "value": obj.get("value")
-        })
+        _obj = cls.model_validate(
+            {
+                "currency": obj.get("currency"),
+                "type": obj.get("type"),
+                "value": obj.get("value"),
+            }
+        )
         return _obj
-
-

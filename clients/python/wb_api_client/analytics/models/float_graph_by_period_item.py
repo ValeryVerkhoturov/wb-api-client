@@ -23,13 +23,17 @@ from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class FloatGraphByPeriodItem(BaseModel):
     """
     Среднее количество заказов за месяц
-    """ # noqa: E501
+    """  # noqa: E501
+
     start: date = Field(description="Начало месяца")
     end: date = Field(description="Конец месяца")
-    value: Union[StrictFloat, StrictInt] = Field(description="Среднее количество заказов")
+    value: Union[StrictFloat, StrictInt] = Field(
+        description="Среднее количество заказов"
+    )
     __properties: ClassVar[List[str]] = ["start", "end", "value"]
 
     model_config = ConfigDict(
@@ -37,7 +41,6 @@ class FloatGraphByPeriodItem(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +66,7 @@ class FloatGraphByPeriodItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,11 +84,11 @@ class FloatGraphByPeriodItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "start": obj.get("start"),
-            "end": obj.get("end"),
-            "value": obj.get("value")
-        })
+        _obj = cls.model_validate(
+            {
+                "start": obj.get("start"),
+                "end": obj.get("end"),
+                "value": obj.get("value"),
+            }
+        )
         return _obj
-
-

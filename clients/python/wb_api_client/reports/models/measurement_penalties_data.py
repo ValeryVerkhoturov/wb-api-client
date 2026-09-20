@@ -19,16 +19,22 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.reports.models.measurement_penalties_data_reports_inner import MeasurementPenaltiesDataReportsInner
+from wb_api_client.reports.models.measurement_penalties_data_reports_inner import (
+    MeasurementPenaltiesDataReportsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class MeasurementPenaltiesData(BaseModel):
     """
     Данные ответа
-    """ # noqa: E501
+    """  # noqa: E501
+
     reports: List[MeasurementPenaltiesDataReportsInner] = Field(description="Удержания")
-    total: StrictInt = Field(description="Количество удержаний в отчёте. Без учёта `limit` и `offset`")
+    total: StrictInt = Field(
+        description="Количество удержаний в отчёте. Без учёта `limit` и `offset`"
+    )
     __properties: ClassVar[List[str]] = ["reports", "total"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class MeasurementPenaltiesData(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class MeasurementPenaltiesData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +80,7 @@ class MeasurementPenaltiesData(BaseModel):
             for _item_reports in self.reports:
                 if _item_reports:
                     _items.append(_item_reports.to_dict())
-            _dict['reports'] = _items
+            _dict["reports"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +92,17 @@ class MeasurementPenaltiesData(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "reports": [MeasurementPenaltiesDataReportsInner.from_dict(_item) for _item in obj["reports"]] if obj.get("reports") is not None else None,
-            "total": obj.get("total")
-        })
+        _obj = cls.model_validate(
+            {
+                "reports": (
+                    [
+                        MeasurementPenaltiesDataReportsInner.from_dict(_item)
+                        for _item in obj["reports"]
+                    ]
+                    if obj.get("reports") is not None
+                    else None
+                ),
+                "total": obj.get("total"),
+            }
+        )
         return _obj
-
-

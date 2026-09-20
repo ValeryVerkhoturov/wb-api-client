@@ -22,13 +22,22 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiBatchErrorDeliverResponseMetaDetailsInner(BaseModel):
     """
     ApiBatchErrorDeliverResponseMetaDetailsInner
-    """ # noqa: E501
-    key: Optional[StrictStr] = Field(default=None, description="Идентификатор маркировки")
-    value: Optional[StrictStr] = Field(default=None, description="Значение идентификатора маркировки")
-    decision: Optional[StrictStr] = Field(default=None, description="Статус проверки: - `sgtin`   - `sgtinInvalidFormat` — Неверный формат маркировки   - `sgtinNotFound` — Маркировка не найдена в [Честном знаке](https://chestnyznak.ru)   - `sgtinEmitted` —  Маркировка эмитирована   - `sgtinApplied` — Не пройдена процедура Ввод в оборот   - `sgtinWrittenOff` — Списан   - `sgtinRetired` — Выбыл   - `sgtinWithdrawn` — Выбыл   - `sgtinDisaggregation` — Расформирован   - `sgtinDisaggregated` — Расформирован   - `sgtinAppliedNotPaid` — Не оплачен   - `pending` — Маркировка на проверке ")
+    """  # noqa: E501
+
+    key: Optional[StrictStr] = Field(
+        default=None, description="Идентификатор маркировки"
+    )
+    value: Optional[StrictStr] = Field(
+        default=None, description="Значение идентификатора маркировки"
+    )
+    decision: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус проверки: - `sgtin`   - `sgtinInvalidFormat` — Неверный формат маркировки   - `sgtinNotFound` — Маркировка не найдена в [Честном знаке](https://chestnyznak.ru)   - `sgtinEmitted` —  Маркировка эмитирована   - `sgtinApplied` — Не пройдена процедура Ввод в оборот   - `sgtinWrittenOff` — Списан   - `sgtinRetired` — Выбыл   - `sgtinWithdrawn` — Выбыл   - `sgtinDisaggregation` — Расформирован   - `sgtinDisaggregated` — Расформирован   - `sgtinAppliedNotPaid` — Не оплачен   - `pending` — Маркировка на проверке ",
+    )
     __properties: ClassVar[List[str]] = ["key", "value", "decision"]
 
     model_config = ConfigDict(
@@ -36,7 +45,6 @@ class ApiBatchErrorDeliverResponseMetaDetailsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +70,7 @@ class ApiBatchErrorDeliverResponseMetaDetailsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +88,11 @@ class ApiBatchErrorDeliverResponseMetaDetailsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "key": obj.get("key"),
-            "value": obj.get("value"),
-            "decision": obj.get("decision")
-        })
+        _obj = cls.model_validate(
+            {
+                "key": obj.get("key"),
+                "value": obj.get("value"),
+                "decision": obj.get("decision"),
+            }
+        )
         return _obj
-
-

@@ -22,10 +22,12 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsGoodInBox(BaseModel):
     """
     ModelsGoodInBox
-    """ # noqa: E501
+    """  # noqa: E501
+
     barcode: Optional[StrictStr] = Field(default=None, description="Баркод")
     quantity: Optional[StrictInt] = Field(default=None, description="Количество, шт")
     __properties: ClassVar[List[str]] = ["barcode", "quantity"]
@@ -35,7 +37,6 @@ class ModelsGoodInBox(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +62,7 @@ class ModelsGoodInBox(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +80,7 @@ class ModelsGoodInBox(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "barcode": obj.get("barcode"),
-            "quantity": obj.get("quantity")
-        })
+        _obj = cls.model_validate(
+            {"barcode": obj.get("barcode"), "quantity": obj.get("quantity")}
+        )
         return _obj
-
-

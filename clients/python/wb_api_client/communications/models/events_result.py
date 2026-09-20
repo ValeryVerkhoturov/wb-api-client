@@ -24,23 +24,43 @@ from wb_api_client.communications.models.event import Event
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class EventsResult(BaseModel):
     """
     EventsResult
-    """ # noqa: E501
-    next: Optional[StrictInt] = Field(default=None, description="Пагинатор. Значение поля необходимо указать в запросе для получения следующего пакета данных")
-    newest_event_time: Optional[datetime] = Field(default=None, description="Время новейшего события в ответе", alias="newestEventTime")
-    oldest_event_time: Optional[datetime] = Field(default=None, description="Время старейшего события в ответе", alias="oldestEventTime")
-    total_events: Optional[StrictInt] = Field(default=None, description="Количество событий", alias="totalEvents")
+    """  # noqa: E501
+
+    next: Optional[StrictInt] = Field(
+        default=None,
+        description="Пагинатор. Значение поля необходимо указать в запросе для получения следующего пакета данных",
+    )
+    newest_event_time: Optional[datetime] = Field(
+        default=None,
+        description="Время новейшего события в ответе",
+        alias="newestEventTime",
+    )
+    oldest_event_time: Optional[datetime] = Field(
+        default=None,
+        description="Время старейшего события в ответе",
+        alias="oldestEventTime",
+    )
+    total_events: Optional[StrictInt] = Field(
+        default=None, description="Количество событий", alias="totalEvents"
+    )
     events: Optional[List[Event]] = None
-    __properties: ClassVar[List[str]] = ["next", "newestEventTime", "oldestEventTime", "totalEvents", "events"]
+    __properties: ClassVar[List[str]] = [
+        "next",
+        "newestEventTime",
+        "oldestEventTime",
+        "totalEvents",
+        "events",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -66,8 +86,7 @@ class EventsResult(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,7 +99,7 @@ class EventsResult(BaseModel):
             for _item_events in self.events:
                 if _item_events:
                     _items.append(_item_events.to_dict())
-            _dict['events'] = _items
+            _dict["events"] = _items
         return _dict
 
     @classmethod
@@ -92,13 +111,17 @@ class EventsResult(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "next": obj.get("next"),
-            "newestEventTime": obj.get("newestEventTime"),
-            "oldestEventTime": obj.get("oldestEventTime"),
-            "totalEvents": obj.get("totalEvents"),
-            "events": [Event.from_dict(_item) for _item in obj["events"]] if obj.get("events") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "next": obj.get("next"),
+                "newestEventTime": obj.get("newestEventTime"),
+                "oldestEventTime": obj.get("oldestEventTime"),
+                "totalEvents": obj.get("totalEvents"),
+                "events": (
+                    [Event.from_dict(_item) for _item in obj["events"]]
+                    if obj.get("events") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

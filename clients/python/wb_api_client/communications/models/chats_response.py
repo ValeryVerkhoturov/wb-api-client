@@ -23,12 +23,16 @@ from wb_api_client.communications.models.chat import Chat
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ChatsResponse(BaseModel):
     """
     ChatsResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     result: Optional[List[Chat]] = None
-    errors: Optional[List[StrictStr]] = Field(default=None, description="Ошибки, если есть")
+    errors: Optional[List[StrictStr]] = Field(
+        default=None, description="Ошибки, если есть"
+    )
     __properties: ClassVar[List[str]] = ["result", "errors"]
 
     model_config = ConfigDict(
@@ -36,7 +40,6 @@ class ChatsResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class ChatsResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,11 +78,11 @@ class ChatsResponse(BaseModel):
             for _item_result in self.result:
                 if _item_result:
                     _items.append(_item_result.to_dict())
-            _dict['result'] = _items
+            _dict["result"] = _items
         # set to None if errors (nullable) is None
         # and model_fields_set contains the field
         if self.errors is None and "errors" in self.model_fields_set:
-            _dict['errors'] = None
+            _dict["errors"] = None
 
         return _dict
 
@@ -93,10 +95,14 @@ class ChatsResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "result": [Chat.from_dict(_item) for _item in obj["result"]] if obj.get("result") is not None else None,
-            "errors": obj.get("errors")
-        })
+        _obj = cls.model_validate(
+            {
+                "result": (
+                    [Chat.from_dict(_item) for _item in obj["result"]]
+                    if obj.get("result") is not None
+                    else None
+                ),
+                "errors": obj.get("errors"),
+            }
+        )
         return _obj
-
-

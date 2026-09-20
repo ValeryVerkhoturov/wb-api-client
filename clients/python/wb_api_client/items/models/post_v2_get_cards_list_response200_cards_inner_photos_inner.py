@@ -22,13 +22,19 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2GetCardsListResponse200CardsInnerPhotosInner(BaseModel):
     """
     PostV2GetCardsListResponse200CardsInnerPhotosInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     big: Optional[StrictStr] = Field(default=None, description="URL фото `900x1200`")
-    c246x328: Optional[StrictStr] = Field(default=None, description="URL фото `248x328`")
-    c516x688: Optional[StrictStr] = Field(default=None, description="URL фото `516x688`")
+    c246x328: Optional[StrictStr] = Field(
+        default=None, description="URL фото `248x328`"
+    )
+    c516x688: Optional[StrictStr] = Field(
+        default=None, description="URL фото `516x688`"
+    )
     square: Optional[StrictStr] = Field(default=None, description="URL фото `600x600`")
     tm: Optional[StrictStr] = Field(default=None, description="URL фото `75x100`")
     __properties: ClassVar[List[str]] = ["big", "c246x328", "c516x688", "square", "tm"]
@@ -38,7 +44,6 @@ class PostV2GetCardsListResponse200CardsInnerPhotosInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +69,7 @@ class PostV2GetCardsListResponse200CardsInnerPhotosInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,13 +87,13 @@ class PostV2GetCardsListResponse200CardsInnerPhotosInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "big": obj.get("big"),
-            "c246x328": obj.get("c246x328"),
-            "c516x688": obj.get("c516x688"),
-            "square": obj.get("square"),
-            "tm": obj.get("tm")
-        })
+        _obj = cls.model_validate(
+            {
+                "big": obj.get("big"),
+                "c246x328": obj.get("c246x328"),
+                "c516x688": obj.get("c516x688"),
+                "square": obj.get("square"),
+                "tm": obj.get("tm"),
+            }
+        )
         return _obj
-
-

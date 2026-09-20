@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.dbs.models.post_v3_dbs_orders_stickers_response200_stickers_inner import PostV3DbsOrdersStickersResponse200StickersInner
+from wb_api_client.dbs.models.post_v3_dbs_orders_stickers_response200_stickers_inner import (
+    PostV3DbsOrdersStickersResponse200StickersInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV3DbsOrdersStickersResponse200(BaseModel):
     """
     PostV3DbsOrdersStickersResponse200
-    """ # noqa: E501
-    stickers: Optional[List[PostV3DbsOrdersStickersResponse200StickersInner]] = Field(default=None, description="Стикеры")
+    """  # noqa: E501
+
+    stickers: Optional[List[PostV3DbsOrdersStickersResponse200StickersInner]] = Field(
+        default=None, description="Стикеры"
+    )
     __properties: ClassVar[List[str]] = ["stickers"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class PostV3DbsOrdersStickersResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class PostV3DbsOrdersStickersResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +79,7 @@ class PostV3DbsOrdersStickersResponse200(BaseModel):
             for _item_stickers in self.stickers:
                 if _item_stickers:
                     _items.append(_item_stickers.to_dict())
-            _dict['stickers'] = _items
+            _dict["stickers"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +91,16 @@ class PostV3DbsOrdersStickersResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "stickers": [PostV3DbsOrdersStickersResponse200StickersInner.from_dict(_item) for _item in obj["stickers"]] if obj.get("stickers") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "stickers": (
+                    [
+                        PostV3DbsOrdersStickersResponse200StickersInner.from_dict(_item)
+                        for _item in obj["stickers"]
+                    ]
+                    if obj.get("stickers") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

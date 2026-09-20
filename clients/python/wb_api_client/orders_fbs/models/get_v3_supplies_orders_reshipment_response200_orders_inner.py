@@ -22,12 +22,18 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV3SuppliesOrdersReshipmentResponse200OrdersInner(BaseModel):
     """
     GetV3SuppliesOrdersReshipmentResponse200OrdersInner
-    """ # noqa: E501
-    supply_id: Optional[Any] = Field(default=None, description="ID поставки", alias="supplyID")
-    order_id: Optional[Any] = Field(default=None, description="ID сборочного задания", alias="orderID")
+    """  # noqa: E501
+
+    supply_id: Optional[Any] = Field(
+        default=None, description="ID поставки", alias="supplyID"
+    )
+    order_id: Optional[Any] = Field(
+        default=None, description="ID сборочного задания", alias="orderID"
+    )
     __properties: ClassVar[List[str]] = ["supplyID", "orderID"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class GetV3SuppliesOrdersReshipmentResponse200OrdersInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class GetV3SuppliesOrdersReshipmentResponse200OrdersInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -72,12 +76,12 @@ class GetV3SuppliesOrdersReshipmentResponse200OrdersInner(BaseModel):
         # set to None if supply_id (nullable) is None
         # and model_fields_set contains the field
         if self.supply_id is None and "supply_id" in self.model_fields_set:
-            _dict['supplyID'] = None
+            _dict["supplyID"] = None
 
         # set to None if order_id (nullable) is None
         # and model_fields_set contains the field
         if self.order_id is None and "order_id" in self.model_fields_set:
-            _dict['orderID'] = None
+            _dict["orderID"] = None
 
         return _dict
 
@@ -90,10 +94,7 @@ class GetV3SuppliesOrdersReshipmentResponse200OrdersInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "supplyID": obj.get("supplyID"),
-            "orderID": obj.get("orderID")
-        })
+        _obj = cls.model_validate(
+            {"supplyID": obj.get("supplyID"), "orderID": obj.get("orderID")}
+        )
         return _obj
-
-

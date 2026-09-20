@@ -20,15 +20,22 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
-from wb_api_client.items.models.put_v3_stocks_warehouse_id_request_stocks_inner import PutV3StocksWarehouseIdRequestStocksInner
+from wb_api_client.items.models.put_v3_stocks_warehouse_id_request_stocks_inner import (
+    PutV3StocksWarehouseIdRequestStocksInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PutV3StocksWarehouseIdRequest(BaseModel):
     """
     PutV3StocksWarehouseIdRequest
-    """ # noqa: E501
-    stocks: Annotated[List[PutV3StocksWarehouseIdRequestStocksInner], Field(min_length=1, max_length=1000)] = Field(description="Массив ID размеров товаров и их остатков")
+    """  # noqa: E501
+
+    stocks: Annotated[
+        List[PutV3StocksWarehouseIdRequestStocksInner],
+        Field(min_length=1, max_length=1000),
+    ] = Field(description="Массив ID размеров товаров и их остатков")
     __properties: ClassVar[List[str]] = ["stocks"]
 
     model_config = ConfigDict(
@@ -36,7 +43,6 @@ class PutV3StocksWarehouseIdRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +68,7 @@ class PutV3StocksWarehouseIdRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +81,7 @@ class PutV3StocksWarehouseIdRequest(BaseModel):
             for _item_stocks in self.stocks:
                 if _item_stocks:
                     _items.append(_item_stocks.to_dict())
-            _dict['stocks'] = _items
+            _dict["stocks"] = _items
         return _dict
 
     @classmethod
@@ -88,9 +93,16 @@ class PutV3StocksWarehouseIdRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "stocks": [PutV3StocksWarehouseIdRequestStocksInner.from_dict(_item) for _item in obj["stocks"]] if obj.get("stocks") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "stocks": (
+                    [
+                        PutV3StocksWarehouseIdRequestStocksInner.from_dict(_item)
+                        for _item in obj["stocks"]
+                    ]
+                    if obj.get("stocks") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

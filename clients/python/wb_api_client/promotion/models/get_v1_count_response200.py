@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.get_v1_count_response200_adverts import GetV1CountResponse200Adverts
+from wb_api_client.promotion.models.get_v1_count_response200_adverts import (
+    GetV1CountResponse200Adverts,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV1CountResponse200(BaseModel):
     """
     GetV1CountResponse200
-    """ # noqa: E501
-    all: Optional[StrictInt] = Field(default=None, description="Общее количество медиакампаний всех статусов и типов")
+    """  # noqa: E501
+
+    all: Optional[StrictInt] = Field(
+        default=None, description="Общее количество медиакампаний всех статусов и типов"
+    )
     adverts: Optional[GetV1CountResponse200Adverts] = None
     __properties: ClassVar[List[str]] = ["all", "adverts"]
 
@@ -36,7 +42,6 @@ class GetV1CountResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class GetV1CountResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -72,11 +76,11 @@ class GetV1CountResponse200(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of adverts
         if self.adverts:
-            _dict['adverts'] = self.adverts.to_dict()
+            _dict["adverts"] = self.adverts.to_dict()
         # set to None if adverts (nullable) is None
         # and model_fields_set contains the field
         if self.adverts is None and "adverts" in self.model_fields_set:
-            _dict['adverts'] = None
+            _dict["adverts"] = None
 
         return _dict
 
@@ -89,10 +93,14 @@ class GetV1CountResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "all": obj.get("all"),
-            "adverts": GetV1CountResponse200Adverts.from_dict(obj["adverts"]) if obj.get("adverts") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "all": obj.get("all"),
+                "adverts": (
+                    GetV1CountResponse200Adverts.from_dict(obj["adverts"])
+                    if obj.get("adverts") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

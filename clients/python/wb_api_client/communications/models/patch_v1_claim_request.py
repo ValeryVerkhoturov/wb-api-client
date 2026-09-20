@@ -23,13 +23,22 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PatchV1ClaimRequest(BaseModel):
     """
     PatchV1ClaimRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: StrictStr = Field(description="ID заявки")
-    action: StrictStr = Field(description="Действие с заявкой. Используйте одно из значений массива `actions` — ответа [метода получения заявок](./customer-communication#tag/buyersReturns/operation/getV1Claims)")
-    comment: Optional[Annotated[str, Field(min_length=10, strict=True, max_length=1000)]] = Field(default=None, description="Комментарий. Применимо только при `\"action\":\"rejectcustom\"` или `\"action\":\"approvecc1\"`. При `\"action\":\"rejectcustom\"` параметр обязателен")
+    action: StrictStr = Field(
+        description="Действие с заявкой. Используйте одно из значений массива `actions` — ответа [метода получения заявок](./customer-communication#tag/buyersReturns/operation/getV1Claims)"
+    )
+    comment: Optional[
+        Annotated[str, Field(min_length=10, strict=True, max_length=1000)]
+    ] = Field(
+        default=None,
+        description='Комментарий. Применимо только при `"action":"rejectcustom"` или `"action":"approvecc1"`. При `"action":"rejectcustom"` параметр обязателен',
+    )
     __properties: ClassVar[List[str]] = ["id", "action", "comment"]
 
     model_config = ConfigDict(
@@ -37,7 +46,6 @@ class PatchV1ClaimRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +71,7 @@ class PatchV1ClaimRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,11 +89,11 @@ class PatchV1ClaimRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "action": obj.get("action"),
-            "comment": obj.get("comment")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "action": obj.get("action"),
+                "comment": obj.get("comment"),
+            }
+        )
         return _obj
-
-

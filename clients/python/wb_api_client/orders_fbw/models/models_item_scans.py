@@ -23,22 +23,39 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsItemScans(BaseModel):
     """
     ModelsItemScans
-    """ # noqa: E501
-    scan_id: StrictInt = Field(description="ID сканирования", alias="scanId")
-    declared_sku: StrictStr = Field(description="Баркод, заявленный при формировании поставки", alias="declaredSku")
-    scan_time: datetime = Field(description="Дата и время сканирования", alias="scanTime")
-    discrepancy_label: StrictStr = Field(description="Тип расхождения товара:  - `surplus` — товара больше, чем заявлено  - `shortage` — товара меньше, чем заявлено  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки ", alias="discrepancyLabel")
-    actual_sku: StrictStr = Field(description="Фактический баркод", alias="actualSku")
-    __properties: ClassVar[List[str]] = ["scanId", "declaredSku", "scanTime", "discrepancyLabel", "actualSku"]
+    """  # noqa: E501
 
-    @field_validator('discrepancy_label')
+    scan_id: StrictInt = Field(description="ID сканирования", alias="scanId")
+    declared_sku: StrictStr = Field(
+        description="Баркод, заявленный при формировании поставки", alias="declaredSku"
+    )
+    scan_time: datetime = Field(
+        description="Дата и время сканирования", alias="scanTime"
+    )
+    discrepancy_label: StrictStr = Field(
+        description="Тип расхождения товара:  - `surplus` — товара больше, чем заявлено  - `shortage` — товара меньше, чем заявлено  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки ",
+        alias="discrepancyLabel",
+    )
+    actual_sku: StrictStr = Field(description="Фактический баркод", alias="actualSku")
+    __properties: ClassVar[List[str]] = [
+        "scanId",
+        "declaredSku",
+        "scanTime",
+        "discrepancyLabel",
+        "actualSku",
+    ]
+
+    @field_validator("discrepancy_label")
     def discrepancy_label_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['surplus', 'shortage', 're-sorting']):
-            raise ValueError("must be one of enum values ('surplus', 'shortage', 're-sorting')")
+        if value not in set(["surplus", "shortage", "re-sorting"]):
+            raise ValueError(
+                "must be one of enum values ('surplus', 'shortage', 're-sorting')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -46,7 +63,6 @@ class ModelsItemScans(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -72,8 +88,7 @@ class ModelsItemScans(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -91,13 +106,13 @@ class ModelsItemScans(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "scanId": obj.get("scanId"),
-            "declaredSku": obj.get("declaredSku"),
-            "scanTime": obj.get("scanTime"),
-            "discrepancyLabel": obj.get("discrepancyLabel"),
-            "actualSku": obj.get("actualSku")
-        })
+        _obj = cls.model_validate(
+            {
+                "scanId": obj.get("scanId"),
+                "declaredSku": obj.get("declaredSku"),
+                "scanTime": obj.get("scanTime"),
+                "discrepancyLabel": obj.get("discrepancyLabel"),
+                "actualSku": obj.get("actualSku"),
+            }
+        )
         return _obj
-
-

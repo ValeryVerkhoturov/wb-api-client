@@ -20,16 +20,25 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from wb_api_client.items.models.set_recom_req_rec_list_inner import SetRecomReqRecListInner
+from wb_api_client.items.models.set_recom_req_rec_list_inner import (
+    SetRecomReqRecListInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class SetRecomReq(BaseModel):
     """
     Запрос на добавление или замену рекомендаций
-    """ # noqa: E501
-    rec_list: Annotated[List[SetRecomReqRecListInner], Field(min_length=1, max_length=5000)] = Field(description="Список рекомендаций для товаров", alias="recList")
-    replace: Optional[StrictBool] = Field(default=False, description="Действие в запросе:   - `false` — добавить новые рекомендации к существующим   - `true` — заменить существующие рекомендации новыми ")
+    """  # noqa: E501
+
+    rec_list: Annotated[
+        List[SetRecomReqRecListInner], Field(min_length=1, max_length=5000)
+    ] = Field(description="Список рекомендаций для товаров", alias="recList")
+    replace: Optional[StrictBool] = Field(
+        default=False,
+        description="Действие в запросе:   - `false` — добавить новые рекомендации к существующим   - `true` — заменить существующие рекомендации новыми ",
+    )
     __properties: ClassVar[List[str]] = ["recList", "replace"]
 
     model_config = ConfigDict(
@@ -37,7 +46,6 @@ class SetRecomReq(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +71,7 @@ class SetRecomReq(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +84,7 @@ class SetRecomReq(BaseModel):
             for _item_rec_list in self.rec_list:
                 if _item_rec_list:
                     _items.append(_item_rec_list.to_dict())
-            _dict['recList'] = _items
+            _dict["recList"] = _items
         return _dict
 
     @classmethod
@@ -89,10 +96,19 @@ class SetRecomReq(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "recList": [SetRecomReqRecListInner.from_dict(_item) for _item in obj["recList"]] if obj.get("recList") is not None else None,
-            "replace": obj.get("replace") if obj.get("replace") is not None else False
-        })
+        _obj = cls.model_validate(
+            {
+                "recList": (
+                    [
+                        SetRecomReqRecListInner.from_dict(_item)
+                        for _item in obj["recList"]
+                    ]
+                    if obj.get("recList") is not None
+                    else None
+                ),
+                "replace": (
+                    obj.get("replace") if obj.get("replace") is not None else False
+                ),
+            }
+        )
         return _obj
-
-

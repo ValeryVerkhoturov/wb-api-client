@@ -19,27 +19,52 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.rates.models.models_warehouse_return_rates import ModelsWarehouseReturnRates
+from wb_api_client.rates.models.models_warehouse_return_rates import (
+    ModelsWarehouseReturnRates,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ModelsWarehousesReturnRates(BaseModel):
     """
     ModelsWarehousesReturnRates
-    """ # noqa: E501
+    """  # noqa: E501
+
     currency: Optional[StrictStr] = Field(default=None, description="Валюта тарифов")
-    dt_next_delivery_dump_kgt: Optional[StrictStr] = Field(default=None, description="Дата начала следующего тарифа при грузовой доставке", alias="dtNextDeliveryDumpKgt")
-    dt_next_delivery_dump_srg: Optional[StrictStr] = Field(default=None, description="Дата начала следующего тарифа для неопознанных товаров", alias="dtNextDeliveryDumpSrg")
-    dt_next_delivery_dump_sup: Optional[StrictStr] = Field(default=None, description="Дата начала следующего тарифа при обычной доставке", alias="dtNextDeliveryDumpSup")
-    warehouse_list: Optional[List[ModelsWarehouseReturnRates]] = Field(default=None, description="Тарифы на возврат, сгруппированные по складам:   - стоимость возврата брака и возврата по инициативе продавца при грузовой доставке.   - стоимость возврата неопознанного складом товара.   - стоимость возврата брака, возврата по инициативе продавца и автовозвратов Маркетплейс (в пункт выдачи и обратно).  Можно получить стоимость возврата в пункт выдачи (ПВЗ) и обратной логистики — если продавец не забрал товары из пункта выдачи за 7 дней. ", alias="warehouseList")
-    __properties: ClassVar[List[str]] = ["currency", "dtNextDeliveryDumpKgt", "dtNextDeliveryDumpSrg", "dtNextDeliveryDumpSup", "warehouseList"]
+    dt_next_delivery_dump_kgt: Optional[StrictStr] = Field(
+        default=None,
+        description="Дата начала следующего тарифа при грузовой доставке",
+        alias="dtNextDeliveryDumpKgt",
+    )
+    dt_next_delivery_dump_srg: Optional[StrictStr] = Field(
+        default=None,
+        description="Дата начала следующего тарифа для неопознанных товаров",
+        alias="dtNextDeliveryDumpSrg",
+    )
+    dt_next_delivery_dump_sup: Optional[StrictStr] = Field(
+        default=None,
+        description="Дата начала следующего тарифа при обычной доставке",
+        alias="dtNextDeliveryDumpSup",
+    )
+    warehouse_list: Optional[List[ModelsWarehouseReturnRates]] = Field(
+        default=None,
+        description="Тарифы на возврат, сгруппированные по складам:   - стоимость возврата брака и возврата по инициативе продавца при грузовой доставке.   - стоимость возврата неопознанного складом товара.   - стоимость возврата брака, возврата по инициативе продавца и автовозвратов Маркетплейс (в пункт выдачи и обратно).  Можно получить стоимость возврата в пункт выдачи (ПВЗ) и обратной логистики — если продавец не забрал товары из пункта выдачи за 7 дней. ",
+        alias="warehouseList",
+    )
+    __properties: ClassVar[List[str]] = [
+        "currency",
+        "dtNextDeliveryDumpKgt",
+        "dtNextDeliveryDumpSrg",
+        "dtNextDeliveryDumpSup",
+        "warehouseList",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +90,7 @@ class ModelsWarehousesReturnRates(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,11 +103,11 @@ class ModelsWarehousesReturnRates(BaseModel):
             for _item_warehouse_list in self.warehouse_list:
                 if _item_warehouse_list:
                     _items.append(_item_warehouse_list.to_dict())
-            _dict['warehouseList'] = _items
+            _dict["warehouseList"] = _items
         # set to None if warehouse_list (nullable) is None
         # and model_fields_set contains the field
         if self.warehouse_list is None and "warehouse_list" in self.model_fields_set:
-            _dict['warehouseList'] = None
+            _dict["warehouseList"] = None
 
         return _dict
 
@@ -96,13 +120,20 @@ class ModelsWarehousesReturnRates(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "currency": obj.get("currency"),
-            "dtNextDeliveryDumpKgt": obj.get("dtNextDeliveryDumpKgt"),
-            "dtNextDeliveryDumpSrg": obj.get("dtNextDeliveryDumpSrg"),
-            "dtNextDeliveryDumpSup": obj.get("dtNextDeliveryDumpSup"),
-            "warehouseList": [ModelsWarehouseReturnRates.from_dict(_item) for _item in obj["warehouseList"]] if obj.get("warehouseList") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "currency": obj.get("currency"),
+                "dtNextDeliveryDumpKgt": obj.get("dtNextDeliveryDumpKgt"),
+                "dtNextDeliveryDumpSrg": obj.get("dtNextDeliveryDumpSrg"),
+                "dtNextDeliveryDumpSup": obj.get("dtNextDeliveryDumpSup"),
+                "warehouseList": (
+                    [
+                        ModelsWarehouseReturnRates.from_dict(_item)
+                        for _item in obj["warehouseList"]
+                    ]
+                    if obj.get("warehouseList") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

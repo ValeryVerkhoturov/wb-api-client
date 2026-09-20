@@ -22,11 +22,16 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class SwaggerPublicErrorsOrderV2(BaseModel):
     """
     Порядок выдачи пакетов
-    """ # noqa: E501
-    ascending: Optional[StrictBool] = Field(default=True, description="- `false` — сортировка по убыванию - `true` — сортировка по возрастанию ")
+    """  # noqa: E501
+
+    ascending: Optional[StrictBool] = Field(
+        default=True,
+        description="- `false` — сортировка по убыванию - `true` — сортировка по возрастанию ",
+    )
     __properties: ClassVar[List[str]] = ["ascending"]
 
     model_config = ConfigDict(
@@ -34,7 +39,6 @@ class SwaggerPublicErrorsOrderV2(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,8 +64,7 @@ class SwaggerPublicErrorsOrderV2(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,9 +82,11 @@ class SwaggerPublicErrorsOrderV2(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "ascending": obj.get("ascending") if obj.get("ascending") is not None else True
-        })
+        _obj = cls.model_validate(
+            {
+                "ascending": (
+                    obj.get("ascending") if obj.get("ascending") is not None else True
+                )
+            }
+        )
         return _obj
-
-

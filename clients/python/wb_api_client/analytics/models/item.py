@@ -24,28 +24,46 @@ from wb_api_client.analytics.models.tag import Tag
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class Item(BaseModel):
     """
     Item
-    """ # noqa: E501
+    """  # noqa: E501
+
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
     title: StrictStr = Field(description="Название карточки товара")
     vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode")
     brand_name: StrictStr = Field(description="Бренд", alias="brandName")
     subject_id: StrictInt = Field(description="ID предмета", alias="subjectId")
-    subject_name: StrictStr = Field(description="Название предмета", alias="subjectName")
+    subject_name: StrictStr = Field(
+        description="Название предмета", alias="subjectName"
+    )
     tags: List[Tag] = Field(description="Ярлыки")
-    product_rating: Union[StrictFloat, StrictInt] = Field(description="Оценка карточки", alias="productRating")
-    feedback_rating: Union[StrictFloat, StrictInt] = Field(description="Оценка пользователей", alias="feedbackRating")
+    product_rating: Union[StrictFloat, StrictInt] = Field(
+        description="Оценка карточки", alias="productRating"
+    )
+    feedback_rating: Union[StrictFloat, StrictInt] = Field(
+        description="Оценка пользователей", alias="feedbackRating"
+    )
     stocks: ItemStocks
-    __properties: ClassVar[List[str]] = ["nmId", "title", "vendorCode", "brandName", "subjectId", "subjectName", "tags", "productRating", "feedbackRating", "stocks"]
+    __properties: ClassVar[List[str]] = [
+        "nmId",
+        "title",
+        "vendorCode",
+        "brandName",
+        "subjectId",
+        "subjectName",
+        "tags",
+        "productRating",
+        "feedbackRating",
+        "stocks",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -71,8 +89,7 @@ class Item(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -85,10 +102,10 @@ class Item(BaseModel):
             for _item_tags in self.tags:
                 if _item_tags:
                     _items.append(_item_tags.to_dict())
-            _dict['tags'] = _items
+            _dict["tags"] = _items
         # override the default output from pydantic by calling `to_dict()` of stocks
         if self.stocks:
-            _dict['stocks'] = self.stocks.to_dict()
+            _dict["stocks"] = self.stocks.to_dict()
         return _dict
 
     @classmethod
@@ -100,18 +117,26 @@ class Item(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmId": obj.get("nmId"),
-            "title": obj.get("title"),
-            "vendorCode": obj.get("vendorCode"),
-            "brandName": obj.get("brandName"),
-            "subjectId": obj.get("subjectId"),
-            "subjectName": obj.get("subjectName"),
-            "tags": [Tag.from_dict(_item) for _item in obj["tags"]] if obj.get("tags") is not None else None,
-            "productRating": obj.get("productRating"),
-            "feedbackRating": obj.get("feedbackRating"),
-            "stocks": ItemStocks.from_dict(obj["stocks"]) if obj.get("stocks") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "nmId": obj.get("nmId"),
+                "title": obj.get("title"),
+                "vendorCode": obj.get("vendorCode"),
+                "brandName": obj.get("brandName"),
+                "subjectId": obj.get("subjectId"),
+                "subjectName": obj.get("subjectName"),
+                "tags": (
+                    [Tag.from_dict(_item) for _item in obj["tags"]]
+                    if obj.get("tags") is not None
+                    else None
+                ),
+                "productRating": obj.get("productRating"),
+                "feedbackRating": obj.get("feedbackRating"),
+                "stocks": (
+                    ItemStocks.from_dict(obj["stocks"])
+                    if obj.get("stocks") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

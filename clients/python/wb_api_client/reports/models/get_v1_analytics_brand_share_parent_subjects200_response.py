@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.reports.models.get_v1_analytics_brand_share_parent_subjects200_response_data_inner import GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner
+from wb_api_client.reports.models.get_v1_analytics_brand_share_parent_subjects200_response_data_inner import (
+    GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV1AnalyticsBrandShareParentSubjects200Response(BaseModel):
     """
     GetV1AnalyticsBrandShareParentSubjects200Response
-    """ # noqa: E501
-    data: Optional[List[GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner]] = Field(default=None, description="Категории бренда")
+    """  # noqa: E501
+
+    data: Optional[List[GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner]] = (
+        Field(default=None, description="Категории бренда")
+    )
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class GetV1AnalyticsBrandShareParentSubjects200Response(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class GetV1AnalyticsBrandShareParentSubjects200Response(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +79,7 @@ class GetV1AnalyticsBrandShareParentSubjects200Response(BaseModel):
             for _item_data in self.data:
                 if _item_data:
                     _items.append(_item_data.to_dict())
-            _dict['data'] = _items
+            _dict["data"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +91,18 @@ class GetV1AnalyticsBrandShareParentSubjects200Response(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "data": [GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "data": (
+                    [
+                        GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["data"]
+                    ]
+                    if obj.get("data") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

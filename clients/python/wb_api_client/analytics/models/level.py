@@ -26,12 +26,10 @@ class Level(str, Enum):
     """
     allowed enum values
     """
-    DAY = 'day'
-    WEEK = 'week'
+    DAY = "day"
+    WEEK = "week"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of Level from a JSON string"""
         return cls(json.loads(json_str))
-
-

@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.orders_fbw.models.models_draft_add_items_result_error import ModelsDraftAddItemsResultError
+from wb_api_client.orders_fbw.models.models_draft_add_items_result_error import (
+    ModelsDraftAddItemsResultError,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ModelsDraftAddItemsResultItem(BaseModel):
     """
     ModelsDraftAddItemsResultItem
-    """ # noqa: E501
+    """  # noqa: E501
+
     error: ModelsDraftAddItemsResultError = Field(description="Детали ошибки")
     sku: StrictStr = Field(description="Баркод")
     __properties: ClassVar[List[str]] = ["error", "sku"]
@@ -36,7 +40,6 @@ class ModelsDraftAddItemsResultItem(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class ModelsDraftAddItemsResultItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -72,7 +74,7 @@ class ModelsDraftAddItemsResultItem(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of error
         if self.error:
-            _dict['error'] = self.error.to_dict()
+            _dict["error"] = self.error.to_dict()
         return _dict
 
     @classmethod
@@ -84,10 +86,14 @@ class ModelsDraftAddItemsResultItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "error": ModelsDraftAddItemsResultError.from_dict(obj["error"]) if obj.get("error") is not None else None,
-            "sku": obj.get("sku")
-        })
+        _obj = cls.model_validate(
+            {
+                "error": (
+                    ModelsDraftAddItemsResultError.from_dict(obj["error"])
+                    if obj.get("error") is not None
+                    else None
+                ),
+                "sku": obj.get("sku"),
+            }
+        )
         return _obj
-
-

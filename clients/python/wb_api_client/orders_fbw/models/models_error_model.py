@@ -22,23 +22,34 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsErrorModel(BaseModel):
     """
     ModelsErrorModel
-    """ # noqa: E501
+    """  # noqa: E501
+
     status: Optional[StrictInt] = Field(default=None, description="HTTP статус-код")
     title: Optional[StrictStr] = Field(default=None, description="ID ошибки")
     detail: Optional[StrictStr] = Field(default=None, description="Описание ошибки")
-    request_id: Optional[StrictStr] = Field(default=None, description="ID запроса", alias="requestId")
-    origin: Optional[StrictStr] = Field(default=None, description="Сервис, вернувший ошибку")
-    __properties: ClassVar[List[str]] = ["status", "title", "detail", "requestId", "origin"]
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="ID запроса", alias="requestId"
+    )
+    origin: Optional[StrictStr] = Field(
+        default=None, description="Сервис, вернувший ошибку"
+    )
+    __properties: ClassVar[List[str]] = [
+        "status",
+        "title",
+        "detail",
+        "requestId",
+        "origin",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +75,7 @@ class ModelsErrorModel(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,13 +93,13 @@ class ModelsErrorModel(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "status": obj.get("status"),
-            "title": obj.get("title"),
-            "detail": obj.get("detail"),
-            "requestId": obj.get("requestId"),
-            "origin": obj.get("origin")
-        })
+        _obj = cls.model_validate(
+            {
+                "status": obj.get("status"),
+                "title": obj.get("title"),
+                "detail": obj.get("detail"),
+                "requestId": obj.get("requestId"),
+                "origin": obj.get("origin"),
+            }
+        )
         return _obj
-
-

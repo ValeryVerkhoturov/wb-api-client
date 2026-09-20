@@ -19,17 +19,29 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.communications.models.get_v1_questions_response200_data_questions_inner import GetV1QuestionsResponse200DataQuestionsInner
+from wb_api_client.communications.models.get_v1_questions_response200_data_questions_inner import (
+    GetV1QuestionsResponse200DataQuestionsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV1QuestionsResponse200Data(BaseModel):
     """
     GetV1QuestionsResponse200Data
-    """ # noqa: E501
-    count_unanswered: Optional[StrictInt] = Field(default=None, description="Количество неотвеченных вопросов", alias="countUnanswered")
-    count_archive: Optional[StrictInt] = Field(default=None, description="Количество отвеченных вопросов", alias="countArchive")
-    questions: Optional[List[GetV1QuestionsResponse200DataQuestionsInner]] = Field(default=None, description="Вопросы")
+    """  # noqa: E501
+
+    count_unanswered: Optional[StrictInt] = Field(
+        default=None,
+        description="Количество неотвеченных вопросов",
+        alias="countUnanswered",
+    )
+    count_archive: Optional[StrictInt] = Field(
+        default=None, description="Количество отвеченных вопросов", alias="countArchive"
+    )
+    questions: Optional[List[GetV1QuestionsResponse200DataQuestionsInner]] = Field(
+        default=None, description="Вопросы"
+    )
     __properties: ClassVar[List[str]] = ["countUnanswered", "countArchive", "questions"]
 
     model_config = ConfigDict(
@@ -37,7 +49,6 @@ class GetV1QuestionsResponse200Data(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +74,7 @@ class GetV1QuestionsResponse200Data(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +87,7 @@ class GetV1QuestionsResponse200Data(BaseModel):
             for _item_questions in self.questions:
                 if _item_questions:
                     _items.append(_item_questions.to_dict())
-            _dict['questions'] = _items
+            _dict["questions"] = _items
         return _dict
 
     @classmethod
@@ -89,11 +99,18 @@ class GetV1QuestionsResponse200Data(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "countUnanswered": obj.get("countUnanswered"),
-            "countArchive": obj.get("countArchive"),
-            "questions": [GetV1QuestionsResponse200DataQuestionsInner.from_dict(_item) for _item in obj["questions"]] if obj.get("questions") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "countUnanswered": obj.get("countUnanswered"),
+                "countArchive": obj.get("countArchive"),
+                "questions": (
+                    [
+                        GetV1QuestionsResponse200DataQuestionsInner.from_dict(_item)
+                        for _item in obj["questions"]
+                    ]
+                    if obj.get("questions") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

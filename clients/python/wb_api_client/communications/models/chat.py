@@ -24,23 +24,40 @@ from wb_api_client.communications.models.listing import Listing
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class Chat(BaseModel):
     """
     Chat
-    """ # noqa: E501
-    chat_id: Optional[StrictStr] = Field(default=None, description="ID чата", alias="chatID")
-    reply_sign: Optional[StrictStr] = Field(default=None, description="Подпись чата. Требуется при [отправке сообщения](./customer-communication#tag/buyersChat/operation/postV1SellerMessage) ", alias="replySign")
-    client_name: Optional[StrictStr] = Field(default=None, description="Имя покупателя", alias="clientName")
+    """  # noqa: E501
+
+    chat_id: Optional[StrictStr] = Field(
+        default=None, description="ID чата", alias="chatID"
+    )
+    reply_sign: Optional[StrictStr] = Field(
+        default=None,
+        description="Подпись чата. Требуется при [отправке сообщения](./customer-communication#tag/buyersChat/operation/postV1SellerMessage) ",
+        alias="replySign",
+    )
+    client_name: Optional[StrictStr] = Field(
+        default=None, description="Имя покупателя", alias="clientName"
+    )
     good_card: Optional[Listing] = Field(default=None, alias="goodCard")
-    last_message: Optional[LastMessage] = Field(default=None, description="Последнее сообщение в чате", alias="lastMessage")
-    __properties: ClassVar[List[str]] = ["chatID", "replySign", "clientName", "goodCard", "lastMessage"]
+    last_message: Optional[LastMessage] = Field(
+        default=None, description="Последнее сообщение в чате", alias="lastMessage"
+    )
+    __properties: ClassVar[List[str]] = [
+        "chatID",
+        "replySign",
+        "clientName",
+        "goodCard",
+        "lastMessage",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -66,8 +83,7 @@ class Chat(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,10 +92,10 @@ class Chat(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of good_card
         if self.good_card:
-            _dict['goodCard'] = self.good_card.to_dict()
+            _dict["goodCard"] = self.good_card.to_dict()
         # override the default output from pydantic by calling `to_dict()` of last_message
         if self.last_message:
-            _dict['lastMessage'] = self.last_message.to_dict()
+            _dict["lastMessage"] = self.last_message.to_dict()
         return _dict
 
     @classmethod
@@ -91,13 +107,21 @@ class Chat(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "chatID": obj.get("chatID"),
-            "replySign": obj.get("replySign"),
-            "clientName": obj.get("clientName"),
-            "goodCard": Listing.from_dict(obj["goodCard"]) if obj.get("goodCard") is not None else None,
-            "lastMessage": LastMessage.from_dict(obj["lastMessage"]) if obj.get("lastMessage") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "chatID": obj.get("chatID"),
+                "replySign": obj.get("replySign"),
+                "clientName": obj.get("clientName"),
+                "goodCard": (
+                    Listing.from_dict(obj["goodCard"])
+                    if obj.get("goodCard") is not None
+                    else None
+                ),
+                "lastMessage": (
+                    LastMessage.from_dict(obj["lastMessage"])
+                    if obj.get("lastMessage") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

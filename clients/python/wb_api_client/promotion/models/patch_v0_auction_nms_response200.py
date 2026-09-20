@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.promotion.models.patch_v0_auction_nms_response200_nms_inner import PatchV0AuctionNmsResponse200NmsInner
+from wb_api_client.promotion.models.patch_v0_auction_nms_response200_nms_inner import (
+    PatchV0AuctionNmsResponse200NmsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PatchV0AuctionNmsResponse200(BaseModel):
     """
     PatchV0AuctionNmsResponse200
-    """ # noqa: E501
-    nms: List[PatchV0AuctionNmsResponse200NmsInner] = Field(description="Результат отработки запроса")
+    """  # noqa: E501
+
+    nms: List[PatchV0AuctionNmsResponse200NmsInner] = Field(
+        description="Результат отработки запроса"
+    )
     __properties: ClassVar[List[str]] = ["nms"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class PatchV0AuctionNmsResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class PatchV0AuctionNmsResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +79,7 @@ class PatchV0AuctionNmsResponse200(BaseModel):
             for _item_nms in self.nms:
                 if _item_nms:
                     _items.append(_item_nms.to_dict())
-            _dict['nms'] = _items
+            _dict["nms"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +91,16 @@ class PatchV0AuctionNmsResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nms": [PatchV0AuctionNmsResponse200NmsInner.from_dict(_item) for _item in obj["nms"]] if obj.get("nms") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "nms": (
+                    [
+                        PatchV0AuctionNmsResponse200NmsInner.from_dict(_item)
+                        for _item in obj["nms"]
+                    ]
+                    if obj.get("nms") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

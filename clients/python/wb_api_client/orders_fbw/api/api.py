@@ -20,9 +20,13 @@ from pydantic import Field, StrictInt
 from typing import List, Optional
 from typing_extensions import Annotated
 from wb_api_client.orders_fbw.models.models_good import ModelsGood
-from wb_api_client.orders_fbw.models.models_options_result_model import ModelsOptionsResultModel
+from wb_api_client.orders_fbw.models.models_options_result_model import (
+    ModelsOptionsResultModel,
+)
 from wb_api_client.orders_fbw.models.models_transit_tariff import ModelsTransitTariff
-from wb_api_client.orders_fbw.models.models_warehouses_result_items import ModelsWarehousesResultItems
+from wb_api_client.orders_fbw.models.models_warehouses_result_items import (
+    ModelsWarehousesResultItems,
+)
 
 from wb_api_client.orders_fbw.api_client import ApiClient, RequestSerialized
 from wb_api_client.orders_fbw.api_response import ApiResponse
@@ -41,7 +45,6 @@ class Api:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def get_v1_transit_tariffs(
         self,
@@ -49,9 +52,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -82,31 +84,29 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_transit_tariffs_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ModelsTransitTariff]",
-            '401': "PostV1AcceptanceOptions401Response",
-            '403': "PostV1AcceptanceOptions403Response",
-            '429': "PostV1AcceptanceOptions401Response",
+            "200": "List[ModelsTransitTariff]",
+            "401": "PostV1AcceptanceOptions401Response",
+            "403": "PostV1AcceptanceOptions403Response",
+            "429": "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_transit_tariffs_with_http_info(
@@ -115,9 +115,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -148,31 +147,29 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_transit_tariffs_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ModelsTransitTariff]",
-            '401': "PostV1AcceptanceOptions401Response",
-            '403': "PostV1AcceptanceOptions403Response",
-            '429': "PostV1AcceptanceOptions401Response",
+            "200": "List[ModelsTransitTariff]",
+            "401": "PostV1AcceptanceOptions401Response",
+            "403": "PostV1AcceptanceOptions403Response",
+            "429": "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_transit_tariffs_without_preload_content(
@@ -181,9 +178,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -214,27 +210,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_transit_tariffs_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ModelsTransitTariff]",
-            '401': "PostV1AcceptanceOptions401Response",
-            '403': "PostV1AcceptanceOptions403Response",
-            '429': "PostV1AcceptanceOptions401Response",
+            "200": "List[ModelsTransitTariff]",
+            "401": "PostV1AcceptanceOptions401Response",
+            "403": "PostV1AcceptanceOptions403Response",
+            "429": "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_transit_tariffs_serialize(
         self,
@@ -244,13 +238,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://supplies-api.wildberries.ru'
-        ]
+        _hosts = ["https://supplies-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -267,25 +258,18 @@ class Api:
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/transit-tariffs',
+            method="GET",
+            resource_path="/api/v1/transit-tariffs",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -295,11 +279,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_warehouses(
@@ -308,9 +289,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -341,32 +321,30 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_warehouses_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ModelsWarehousesResultItems]",
-            '401': "PostV1AcceptanceOptions401Response",
-            '403': "PostV1AcceptanceOptions403Response",
-            '404': None,
-            '429': "PostV1AcceptanceOptions401Response",
+            "200": "List[ModelsWarehousesResultItems]",
+            "401": "PostV1AcceptanceOptions401Response",
+            "403": "PostV1AcceptanceOptions403Response",
+            "404": None,
+            "429": "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_warehouses_with_http_info(
@@ -375,9 +353,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -408,32 +385,30 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_warehouses_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ModelsWarehousesResultItems]",
-            '401': "PostV1AcceptanceOptions401Response",
-            '403': "PostV1AcceptanceOptions403Response",
-            '404': None,
-            '429': "PostV1AcceptanceOptions401Response",
+            "200": "List[ModelsWarehousesResultItems]",
+            "401": "PostV1AcceptanceOptions401Response",
+            "403": "PostV1AcceptanceOptions403Response",
+            "404": None,
+            "429": "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_warehouses_without_preload_content(
@@ -442,9 +417,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -475,28 +449,26 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_warehouses_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ModelsWarehousesResultItems]",
-            '401': "PostV1AcceptanceOptions401Response",
-            '403': "PostV1AcceptanceOptions403Response",
-            '404': None,
-            '429': "PostV1AcceptanceOptions401Response",
+            "200": "List[ModelsWarehousesResultItems]",
+            "401": "PostV1AcceptanceOptions401Response",
+            "403": "PostV1AcceptanceOptions403Response",
+            "404": None,
+            "429": "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_warehouses_serialize(
         self,
@@ -507,13 +479,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://supplies-api.wildberries.ru',
-            'https://supplies-api-sandbox.wildberries.ru'
+            "https://supplies-api.wildberries.ru",
+            "https://supplies-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -530,25 +501,18 @@ class Api:
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/warehouses',
+            method="GET",
+            resource_path="/api/v1/warehouses",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -558,24 +522,25 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v1_acceptance_options(
         self,
         models_good: Annotated[List[ModelsGood], Field(max_length=5000)],
-        warehouse_id: Annotated[Optional[StrictInt], Field(description="ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*")] = None,
+        warehouse_id: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*"
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -610,7 +575,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_acceptance_options_serialize(
             models_good=models_good,
@@ -618,21 +583,20 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModelsOptionsResultModel",
-            '400': "ModelsErrorModel",
-            '401': "PostV1AcceptanceOptions401Response",
-            '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
-            '404': None,
-            '429': "PostV1AcceptanceOptions401Response",
+            "200": "ModelsOptionsResultModel",
+            "400": "ModelsErrorModel",
+            "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
+            "403": "PostV1AcceptanceOptions403Response",
+            "404": None,
+            "429": "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -640,19 +604,22 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def post_v1_acceptance_options_with_http_info(
         self,
         models_good: Annotated[List[ModelsGood], Field(max_length=5000)],
-        warehouse_id: Annotated[Optional[StrictInt], Field(description="ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*")] = None,
+        warehouse_id: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*"
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -687,7 +654,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_acceptance_options_serialize(
             models_good=models_good,
@@ -695,21 +662,20 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModelsOptionsResultModel",
-            '400': "ModelsErrorModel",
-            '401': "PostV1AcceptanceOptions401Response",
-            '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
-            '404': None,
-            '429': "PostV1AcceptanceOptions401Response",
+            "200": "ModelsOptionsResultModel",
+            "400": "ModelsErrorModel",
+            "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
+            "403": "PostV1AcceptanceOptions403Response",
+            "404": None,
+            "429": "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -717,19 +683,22 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def post_v1_acceptance_options_without_preload_content(
         self,
         models_good: Annotated[List[ModelsGood], Field(max_length=5000)],
-        warehouse_id: Annotated[Optional[StrictInt], Field(description="ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*")] = None,
+        warehouse_id: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*"
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -764,7 +733,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_acceptance_options_serialize(
             models_good=models_good,
@@ -772,24 +741,22 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModelsOptionsResultModel",
-            '400': "ModelsErrorModel",
-            '401': "PostV1AcceptanceOptions401Response",
-            '402': "PostV1AcceptanceOptions402Response",
-            '403': "PostV1AcceptanceOptions403Response",
-            '404': None,
-            '429': "PostV1AcceptanceOptions401Response",
+            "200": "ModelsOptionsResultModel",
+            "400": "ModelsErrorModel",
+            "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
+            "403": "PostV1AcceptanceOptions403Response",
+            "404": None,
+            "429": "PostV1AcceptanceOptions401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v1_acceptance_options_serialize(
         self,
@@ -802,13 +769,13 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://supplies-api.wildberries.ru',
-            'https://supplies-api-sandbox.wildberries.ru'
+            "https://supplies-api.wildberries.ru",
+            "https://supplies-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
         _collection_formats: Dict[str, str] = {
-            'ModelsGood': '',
+            "ModelsGood": "",
         }
 
         _path_params: Dict[str, str] = {}
@@ -823,47 +790,37 @@ class Api:
         # process the path parameters
         # process the query parameters
         if warehouse_id is not None:
-            
-            _query_params.append(('warehouseID', warehouse_id))
-            
+
+            _query_params.append(("warehouseID", warehouse_id))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
         if models_good is not None:
             _body_params = models_good
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v1/acceptance/options',
+            method="POST",
+            resource_path="/api/v1/acceptance/options",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -873,7 +830,5 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

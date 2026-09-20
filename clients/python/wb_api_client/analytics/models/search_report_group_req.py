@@ -19,17 +19,30 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.analytics.models.search_report_group_req_params import SearchReportGroupReqParams
+from wb_api_client.analytics.models.search_report_group_req_params import (
+    SearchReportGroupReqParams,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class SearchReportGroupReq(BaseModel):
     """
     SearchReportGroupReq
-    """ # noqa: E501
-    id: StrictStr = Field(description="ID отчёта в UUID-формате. Генерируется продавцом самостоятельно")
-    report_type: StrictStr = Field(description="Тип отчёта `SEARCH_QUERIES_PREMIUM_REPORT_GROUP` — Отчёт по параметрам поиска. По предметам, брендам и ярлыкам", alias="reportType")
-    user_report_name: Optional[StrictStr] = Field(default=None, description="Название отчёта. Если не указано, сформируется автоматически", alias="userReportName")
+    """  # noqa: E501
+
+    id: StrictStr = Field(
+        description="ID отчёта в UUID-формате. Генерируется продавцом самостоятельно"
+    )
+    report_type: StrictStr = Field(
+        description="Тип отчёта `SEARCH_QUERIES_PREMIUM_REPORT_GROUP` — Отчёт по параметрам поиска. По предметам, брендам и ярлыкам",
+        alias="reportType",
+    )
+    user_report_name: Optional[StrictStr] = Field(
+        default=None,
+        description="Название отчёта. Если не указано, сформируется автоматически",
+        alias="userReportName",
+    )
     params: SearchReportGroupReqParams
     __properties: ClassVar[List[str]] = ["id", "reportType", "userReportName", "params"]
 
@@ -38,7 +51,6 @@ class SearchReportGroupReq(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +76,7 @@ class SearchReportGroupReq(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -74,7 +85,7 @@ class SearchReportGroupReq(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of params
         if self.params:
-            _dict['params'] = self.params.to_dict()
+            _dict["params"] = self.params.to_dict()
         return _dict
 
     @classmethod
@@ -86,12 +97,16 @@ class SearchReportGroupReq(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "reportType": obj.get("reportType"),
-            "userReportName": obj.get("userReportName"),
-            "params": SearchReportGroupReqParams.from_dict(obj["params"]) if obj.get("params") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "reportType": obj.get("reportType"),
+                "userReportName": obj.get("userReportName"),
+                "params": (
+                    SearchReportGroupReqParams.from_dict(obj["params"])
+                    if obj.get("params") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

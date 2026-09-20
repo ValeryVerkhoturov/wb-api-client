@@ -22,12 +22,16 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiBatchCustomsDeclarationErrorResponse(BaseModel):
     """
     ApiBatchCustomsDeclarationErrorResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     code: StrictInt = Field(description="Код ошибки:   - `404`   - `409`   - `400` ")
-    detail: StrictStr = Field(description="- `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `OrderNotB2B` — операция доступна только для сборочных заданий с признаком B2B-продажи `\"isB2b\":true` - `InvalidOriginCountryCode` — некорректный код страны происхождения товара ")
+    detail: StrictStr = Field(
+        description='- `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `OrderNotB2B` — операция доступна только для сборочных заданий с признаком B2B-продажи `"isB2b":true` - `InvalidOriginCountryCode` — некорректный код страны происхождения товара '
+    )
     __properties: ClassVar[List[str]] = ["code", "detail"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class ApiBatchCustomsDeclarationErrorResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class ApiBatchCustomsDeclarationErrorResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +82,7 @@ class ApiBatchCustomsDeclarationErrorResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "code": obj.get("code"),
-            "detail": obj.get("detail")
-        })
+        _obj = cls.model_validate(
+            {"code": obj.get("code"), "detail": obj.get("detail")}
+        )
         return _obj
-
-

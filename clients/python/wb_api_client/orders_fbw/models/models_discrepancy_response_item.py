@@ -23,24 +23,51 @@ from wb_api_client.orders_fbw.models.models_item_scans import ModelsItemScans
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsDiscrepancyResponseItem(BaseModel):
     """
     ModelsDiscrepancyResponseItem
-    """ # noqa: E501
-    declared_sku: StrictStr = Field(description="Баркод, заявленный при формировании поставки", alias="declaredSku")
-    discrepancy_type: StrictStr = Field(description="Тип расхождения в целом по коробу:  - `surplus` — товара в коробе больше заявленного  - `shortage` — товара в коробе меньше заявленного  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки ", alias="discrepancyType")
-    declared_amount: StrictInt = Field(description="Количество товара, заявленное при формировании поставки", alias="declaredAmount")
-    actual_amount: StrictInt = Field(description="Фактическое количество товара", alias="actualAmount")
-    discrepancy_quantity: StrictInt = Field(description="Разница между заявленным и фактическим количеством товара", alias="discrepancyQuantity")
-    actual_sku: StrictStr = Field(description="Фактический баркод", alias="actualSku")
-    sku_scans: Optional[List[ModelsItemScans]] = Field(description="Результаты сканирования товаров", alias="skuScans")
-    __properties: ClassVar[List[str]] = ["declaredSku", "discrepancyType", "declaredAmount", "actualAmount", "discrepancyQuantity", "actualSku", "skuScans"]
+    """  # noqa: E501
 
-    @field_validator('discrepancy_type')
+    declared_sku: StrictStr = Field(
+        description="Баркод, заявленный при формировании поставки", alias="declaredSku"
+    )
+    discrepancy_type: StrictStr = Field(
+        description="Тип расхождения в целом по коробу:  - `surplus` — товара в коробе больше заявленного  - `shortage` — товара в коробе меньше заявленного  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки ",
+        alias="discrepancyType",
+    )
+    declared_amount: StrictInt = Field(
+        description="Количество товара, заявленное при формировании поставки",
+        alias="declaredAmount",
+    )
+    actual_amount: StrictInt = Field(
+        description="Фактическое количество товара", alias="actualAmount"
+    )
+    discrepancy_quantity: StrictInt = Field(
+        description="Разница между заявленным и фактическим количеством товара",
+        alias="discrepancyQuantity",
+    )
+    actual_sku: StrictStr = Field(description="Фактический баркод", alias="actualSku")
+    sku_scans: Optional[List[ModelsItemScans]] = Field(
+        description="Результаты сканирования товаров", alias="skuScans"
+    )
+    __properties: ClassVar[List[str]] = [
+        "declaredSku",
+        "discrepancyType",
+        "declaredAmount",
+        "actualAmount",
+        "discrepancyQuantity",
+        "actualSku",
+        "skuScans",
+    ]
+
+    @field_validator("discrepancy_type")
     def discrepancy_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['surplus', 'shortage', 're-sorting']):
-            raise ValueError("must be one of enum values ('surplus', 'shortage', 're-sorting')")
+        if value not in set(["surplus", "shortage", "re-sorting"]):
+            raise ValueError(
+                "must be one of enum values ('surplus', 'shortage', 're-sorting')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -48,7 +75,6 @@ class ModelsDiscrepancyResponseItem(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -74,8 +100,7 @@ class ModelsDiscrepancyResponseItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -88,11 +113,11 @@ class ModelsDiscrepancyResponseItem(BaseModel):
             for _item_sku_scans in self.sku_scans:
                 if _item_sku_scans:
                     _items.append(_item_sku_scans.to_dict())
-            _dict['skuScans'] = _items
+            _dict["skuScans"] = _items
         # set to None if sku_scans (nullable) is None
         # and model_fields_set contains the field
         if self.sku_scans is None and "sku_scans" in self.model_fields_set:
-            _dict['skuScans'] = None
+            _dict["skuScans"] = None
 
         return _dict
 
@@ -105,15 +130,19 @@ class ModelsDiscrepancyResponseItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "declaredSku": obj.get("declaredSku"),
-            "discrepancyType": obj.get("discrepancyType"),
-            "declaredAmount": obj.get("declaredAmount"),
-            "actualAmount": obj.get("actualAmount"),
-            "discrepancyQuantity": obj.get("discrepancyQuantity"),
-            "actualSku": obj.get("actualSku"),
-            "skuScans": [ModelsItemScans.from_dict(_item) for _item in obj["skuScans"]] if obj.get("skuScans") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "declaredSku": obj.get("declaredSku"),
+                "discrepancyType": obj.get("discrepancyType"),
+                "declaredAmount": obj.get("declaredAmount"),
+                "actualAmount": obj.get("actualAmount"),
+                "discrepancyQuantity": obj.get("discrepancyQuantity"),
+                "actualSku": obj.get("actualSku"),
+                "skuScans": (
+                    [ModelsItemScans.from_dict(_item) for _item in obj["skuScans"]]
+                    if obj.get("skuScans") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

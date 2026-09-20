@@ -20,16 +20,30 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from wb_api_client.items.models.set_recom_req_rec_list_inner_recommendations_inner import SetRecomReqRecListInnerRecommendationsInner
+from wb_api_client.items.models.set_recom_req_rec_list_inner_recommendations_inner import (
+    SetRecomReqRecListInnerRecommendationsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class SetRecomReqRecListInner(BaseModel):
     """
     SetRecomReqRecListInner
-    """ # noqa: E501
-    nm_id: Optional[StrictInt] = Field(default=0, description="Артикул WB", alias="nmId")
-    recommendations: Optional[Annotated[List[SetRecomReqRecListInnerRecommendationsInner], Field(min_length=0, max_length=20)]] = Field(default=None, description="Рекомендуемые товары.  Укажите `recomNm` товаров, чтобы добавить их в рекомендации к указанному `nmId`.  При отправке пустого массива `[]` все текущие рекомендации для указанного `nmId` будут удалены.")
+    """  # noqa: E501
+
+    nm_id: Optional[StrictInt] = Field(
+        default=0, description="Артикул WB", alias="nmId"
+    )
+    recommendations: Optional[
+        Annotated[
+            List[SetRecomReqRecListInnerRecommendationsInner],
+            Field(min_length=0, max_length=20),
+        ]
+    ] = Field(
+        default=None,
+        description="Рекомендуемые товары.  Укажите `recomNm` товаров, чтобы добавить их в рекомендации к указанному `nmId`.  При отправке пустого массива `[]` все текущие рекомендации для указанного `nmId` будут удалены.",
+    )
     __properties: ClassVar[List[str]] = ["nmId", "recommendations"]
 
     model_config = ConfigDict(
@@ -37,7 +51,6 @@ class SetRecomReqRecListInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +76,7 @@ class SetRecomReqRecListInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +89,7 @@ class SetRecomReqRecListInner(BaseModel):
             for _item_recommendations in self.recommendations:
                 if _item_recommendations:
                     _items.append(_item_recommendations.to_dict())
-            _dict['recommendations'] = _items
+            _dict["recommendations"] = _items
         return _dict
 
     @classmethod
@@ -89,10 +101,17 @@ class SetRecomReqRecListInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmId": obj.get("nmId") if obj.get("nmId") is not None else 0,
-            "recommendations": [SetRecomReqRecListInnerRecommendationsInner.from_dict(_item) for _item in obj["recommendations"]] if obj.get("recommendations") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "nmId": obj.get("nmId") if obj.get("nmId") is not None else 0,
+                "recommendations": (
+                    [
+                        SetRecomReqRecListInnerRecommendationsInner.from_dict(_item)
+                        for _item in obj["recommendations"]
+                    ]
+                    if obj.get("recommendations") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

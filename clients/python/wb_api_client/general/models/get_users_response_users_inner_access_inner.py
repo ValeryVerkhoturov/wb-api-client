@@ -17,24 +17,62 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetUsersResponseUsersInnerAccessInner(BaseModel):
     """
     GetUsersResponseUsersInnerAccessInner
-    """ # noqa: E501
-    code: StrictStr = Field(description="Код раздела профиля продавца, к которому пользователь получит доступ: * `balance` — Просмотр баланса и вывод средств * `brands` — Управление брендами * `changeJam` — Доступ к подключению подписки **Джем**: **А/Б тесты**, отметки на фото, автозапуски видео, сравнение карточек * `discountPrice` — Изменение цен на товары, управление скидками и акциями * `finance` — Финансовая аналитика. Статистика по балансу, финансовые отчёты, история платежей * `showcase` — Управление витриной магазина * `suppliersDocuments` — Просмотр и скачивание документов по работе с площадкой * `supply` — Создание и управление поставками FBW * `questions` — Просмотр и ответы на вопросы покупателей * `pinFeedbacks` — Возможность закреплять и откреплять отзывы * `pointsForReviews` — Баллы за отзывы * `feedbacks` — Просмотр и ответы на отзывы покупателей * `oldAnalyticsReports` — Отчёты * `marketplace` — Свой склад * `brandsFlow` — Мои бренды * `copyrightComplaints` — Обращения правообладателей * `pretrialClaims` — Досудебные претензии * `sellersChat` — Чат с покупателями * `brandzone` — Бренд-зона. Публикация изменений * `brandzoneSubscribe` — Управление подпиской бренд-зоны ")
-    disabled: StrictBool = Field(description="* `true` — доступ к разделу запрещён * `false` — доступ к разделу разрешён ")
+    """  # noqa: E501
+
+    code: StrictStr = Field(
+        description="Код раздела профиля продавца, к которому пользователь получит доступ: * `balance` — Просмотр баланса и вывод средств * `brands` — Управление брендами * `changeJam` — Доступ к подключению подписки **Джем**: **А/Б тесты**, отметки на фото, автозапуски видео, сравнение карточек * `discountPrice` — Изменение цен на товары, управление скидками и акциями * `finance` — Финансовая аналитика. Статистика по балансу, финансовые отчёты, история платежей * `showcase` — Управление витриной магазина * `suppliersDocuments` — Просмотр и скачивание документов по работе с площадкой * `supply` — Создание и управление поставками FBW * `questions` — Просмотр и ответы на вопросы покупателей * `pinFeedbacks` — Возможность закреплять и откреплять отзывы * `pointsForReviews` — Баллы за отзывы * `feedbacks` — Просмотр и ответы на отзывы покупателей * `oldAnalyticsReports` — Отчёты * `marketplace` — Свой склад * `brandsFlow` — Мои бренды * `copyrightComplaints` — Обращения правообладателей * `pretrialClaims` — Досудебные претензии * `sellersChat` — Чат с покупателями * `brandzone` — Бренд-зона. Публикация изменений * `brandzoneSubscribe` — Управление подпиской бренд-зоны "
+    )
+    disabled: StrictBool = Field(
+        description="* `true` — доступ к разделу запрещён * `false` — доступ к разделу разрешён "
+    )
     __properties: ClassVar[List[str]] = ["code", "disabled"]
 
-    @field_validator('code')
+    @field_validator("code")
     def code_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['balance', 'brands', 'changeJam', 'discountPrice', 'finance', 'showcase', 'suppliersDocuments', 'supply', 'questions', 'pinFeedbacks', 'pointsForReviews', 'feedbacks', 'oldAnalyticsReports', 'marketplace', 'brandsFlow', 'copyrightComplaints', 'pretrialClaims', 'sellersChat', 'brandzone', 'brandzoneSubscribe']):
-            raise ValueError("must be one of enum values ('balance', 'brands', 'changeJam', 'discountPrice', 'finance', 'showcase', 'suppliersDocuments', 'supply', 'questions', 'pinFeedbacks', 'pointsForReviews', 'feedbacks', 'oldAnalyticsReports', 'marketplace', 'brandsFlow', 'copyrightComplaints', 'pretrialClaims', 'sellersChat', 'brandzone', 'brandzoneSubscribe')")
+        if value not in set(
+            [
+                "balance",
+                "brands",
+                "changeJam",
+                "discountPrice",
+                "finance",
+                "showcase",
+                "suppliersDocuments",
+                "supply",
+                "questions",
+                "pinFeedbacks",
+                "pointsForReviews",
+                "feedbacks",
+                "oldAnalyticsReports",
+                "marketplace",
+                "brandsFlow",
+                "copyrightComplaints",
+                "pretrialClaims",
+                "sellersChat",
+                "brandzone",
+                "brandzoneSubscribe",
+            ]
+        ):
+            raise ValueError(
+                "must be one of enum values ('balance', 'brands', 'changeJam', 'discountPrice', 'finance', 'showcase', 'suppliersDocuments', 'supply', 'questions', 'pinFeedbacks', 'pointsForReviews', 'feedbacks', 'oldAnalyticsReports', 'marketplace', 'brandsFlow', 'copyrightComplaints', 'pretrialClaims', 'sellersChat', 'brandzone', 'brandzoneSubscribe')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -42,7 +80,6 @@ class GetUsersResponseUsersInnerAccessInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -68,8 +105,7 @@ class GetUsersResponseUsersInnerAccessInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -87,10 +123,7 @@ class GetUsersResponseUsersInnerAccessInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "code": obj.get("code"),
-            "disabled": obj.get("disabled")
-        })
+        _obj = cls.model_validate(
+            {"code": obj.get("code"), "disabled": obj.get("disabled")}
+        )
         return _obj
-
-

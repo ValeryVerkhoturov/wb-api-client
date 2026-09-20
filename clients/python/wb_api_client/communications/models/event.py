@@ -25,29 +25,67 @@ from wb_api_client.communications.models.sender import Sender
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class Event(BaseModel):
     """
     Event
-    """ # noqa: E501
-    chat_id: Optional[StrictStr] = Field(default=None, description="ID чата", alias="chatID")
-    event_id: Optional[StrictStr] = Field(default=None, description="ID события", alias="eventID")
+    """  # noqa: E501
+
+    chat_id: Optional[StrictStr] = Field(
+        default=None, description="ID чата", alias="chatID"
+    )
+    event_id: Optional[StrictStr] = Field(
+        default=None, description="ID события", alias="eventID"
+    )
     event_type: Optional[EventType] = Field(default=None, alias="eventType")
-    is_new_chat: Optional[StrictBool] = Field(default=None, description="Признак нового чата: - `false` — чат не новый - `true` — чат новый ", alias="isNewChat")
+    is_new_chat: Optional[StrictBool] = Field(
+        default=None,
+        description="Признак нового чата: - `false` — чат не новый - `true` — чат новый ",
+        alias="isNewChat",
+    )
     message: Optional[EventMessage] = None
-    source: Optional[StrictStr] = Field(default=None, description="Источник отправки сообщения: - `seller-portal` — портал продавцов - `seller-public-api` — API Чата с покупателями - `rusite` — портал покупателей - `global` — портал `global.wildberries.ru` - `ios` —  мобильная операционная система от **Apple** - `android` — операционная система **Android** от **Google** ")
-    add_timestamp: Optional[StrictInt] = Field(default=None, description="Время появления события на сервере. Формат Unix timestamp", alias="addTimestamp")
-    add_time: Optional[StrictStr] = Field(default=None, description="Время появления события на сервере в UTC", alias="addTime")
-    reply_sign: Optional[StrictStr] = Field(default=None, description="Подпись чата. Доступна только при `\"isNewChat\": true`. Требуется при [отправке сообщения](./customer-communication#tag/buyersChat/operation/postV1SellerMessage) ", alias="replySign")
+    source: Optional[StrictStr] = Field(
+        default=None,
+        description="Источник отправки сообщения: - `seller-portal` — портал продавцов - `seller-public-api` — API Чата с покупателями - `rusite` — портал покупателей - `global` — портал `global.wildberries.ru` - `ios` —  мобильная операционная система от **Apple** - `android` — операционная система **Android** от **Google** ",
+    )
+    add_timestamp: Optional[StrictInt] = Field(
+        default=None,
+        description="Время появления события на сервере. Формат Unix timestamp",
+        alias="addTimestamp",
+    )
+    add_time: Optional[StrictStr] = Field(
+        default=None,
+        description="Время появления события на сервере в UTC",
+        alias="addTime",
+    )
+    reply_sign: Optional[StrictStr] = Field(
+        default=None,
+        description='Подпись чата. Доступна только при `"isNewChat": true`. Требуется при [отправке сообщения](./customer-communication#tag/buyersChat/operation/postV1SellerMessage) ',
+        alias="replySign",
+    )
     sender: Optional[Sender] = None
-    client_name: Optional[StrictStr] = Field(default=None, description="Имя покупателя", alias="clientName")
-    __properties: ClassVar[List[str]] = ["chatID", "eventID", "eventType", "isNewChat", "message", "source", "addTimestamp", "addTime", "replySign", "sender", "clientName"]
+    client_name: Optional[StrictStr] = Field(
+        default=None, description="Имя покупателя", alias="clientName"
+    )
+    __properties: ClassVar[List[str]] = [
+        "chatID",
+        "eventID",
+        "eventType",
+        "isNewChat",
+        "message",
+        "source",
+        "addTimestamp",
+        "addTime",
+        "replySign",
+        "sender",
+        "clientName",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -73,8 +111,7 @@ class Event(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,7 +120,7 @@ class Event(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of message
         if self.message:
-            _dict['message'] = self.message.to_dict()
+            _dict["message"] = self.message.to_dict()
         return _dict
 
     @classmethod
@@ -95,19 +132,23 @@ class Event(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "chatID": obj.get("chatID"),
-            "eventID": obj.get("eventID"),
-            "eventType": obj.get("eventType"),
-            "isNewChat": obj.get("isNewChat"),
-            "message": EventMessage.from_dict(obj["message"]) if obj.get("message") is not None else None,
-            "source": obj.get("source"),
-            "addTimestamp": obj.get("addTimestamp"),
-            "addTime": obj.get("addTime"),
-            "replySign": obj.get("replySign"),
-            "sender": obj.get("sender"),
-            "clientName": obj.get("clientName")
-        })
+        _obj = cls.model_validate(
+            {
+                "chatID": obj.get("chatID"),
+                "eventID": obj.get("eventID"),
+                "eventType": obj.get("eventType"),
+                "isNewChat": obj.get("isNewChat"),
+                "message": (
+                    EventMessage.from_dict(obj["message"])
+                    if obj.get("message") is not None
+                    else None
+                ),
+                "source": obj.get("source"),
+                "addTimestamp": obj.get("addTimestamp"),
+                "addTime": obj.get("addTime"),
+                "replySign": obj.get("replySign"),
+                "sender": obj.get("sender"),
+                "clientName": obj.get("clientName"),
+            }
+        )
         return _obj
-
-

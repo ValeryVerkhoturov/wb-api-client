@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.reports.models.models_excise_report_response_data_inner import ModelsExciseReportResponseDataInner
+from wb_api_client.reports.models.models_excise_report_response_data_inner import (
+    ModelsExciseReportResponseDataInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ModelsExciseReportResponse(BaseModel):
     """
     ModelsExciseReportResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     data: Optional[List[ModelsExciseReportResponseDataInner]] = None
     __properties: ClassVar[List[str]] = ["data"]
 
@@ -35,7 +39,6 @@ class ModelsExciseReportResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class ModelsExciseReportResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +77,7 @@ class ModelsExciseReportResponse(BaseModel):
             for _item_data in self.data:
                 if _item_data:
                     _items.append(_item_data.to_dict())
-            _dict['data'] = _items
+            _dict["data"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +89,16 @@ class ModelsExciseReportResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "data": [ModelsExciseReportResponseDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "data": (
+                    [
+                        ModelsExciseReportResponseDataInner.from_dict(_item)
+                        for _item in obj["data"]
+                    ]
+                    if obj.get("data") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

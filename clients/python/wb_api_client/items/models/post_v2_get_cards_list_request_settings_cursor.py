@@ -23,13 +23,23 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2GetCardsListRequestSettingsCursor(BaseModel):
     """
-    Курсор 
-    """ # noqa: E501
-    limit: Optional[Annotated[int, Field(le=100, strict=True)]] = Field(default=10, description="Сколько карточек товаров выдать в ответе")
-    updated_at: Optional[StrictStr] = Field(default=None, description="Дата и время изменения", alias="updatedAt")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB, с которого надо запрашивать следующий список карточек товаров", alias="nmID")
+    Курсор
+    """  # noqa: E501
+
+    limit: Optional[Annotated[int, Field(le=100, strict=True)]] = Field(
+        default=10, description="Сколько карточек товаров выдать в ответе"
+    )
+    updated_at: Optional[StrictStr] = Field(
+        default=None, description="Дата и время изменения", alias="updatedAt"
+    )
+    nm_id: Optional[StrictInt] = Field(
+        default=None,
+        description="Артикул WB, с которого надо запрашивать следующий список карточек товаров",
+        alias="nmID",
+    )
     __properties: ClassVar[List[str]] = ["limit", "updatedAt", "nmID"]
 
     model_config = ConfigDict(
@@ -37,7 +47,6 @@ class PostV2GetCardsListRequestSettingsCursor(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +72,7 @@ class PostV2GetCardsListRequestSettingsCursor(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -74,7 +82,7 @@ class PostV2GetCardsListRequestSettingsCursor(BaseModel):
         # set to None if updated_at (nullable) is None
         # and model_fields_set contains the field
         if self.updated_at is None and "updated_at" in self.model_fields_set:
-            _dict['updatedAt'] = None
+            _dict["updatedAt"] = None
 
         return _dict
 
@@ -87,11 +95,11 @@ class PostV2GetCardsListRequestSettingsCursor(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "limit": obj.get("limit") if obj.get("limit") is not None else 10,
-            "updatedAt": obj.get("updatedAt"),
-            "nmID": obj.get("nmID")
-        })
+        _obj = cls.model_validate(
+            {
+                "limit": obj.get("limit") if obj.get("limit") is not None else 10,
+                "updatedAt": obj.get("updatedAt"),
+                "nmID": obj.get("nmID"),
+            }
+        )
         return _obj
-
-

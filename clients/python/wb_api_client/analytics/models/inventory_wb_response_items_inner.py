@@ -22,26 +22,51 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class InventoryWbResponseItemsInner(BaseModel):
     """
     InventoryWbResponseItemsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
     chrt_id: StrictInt = Field(description="ID размера", alias="chrtId")
-    warehouse_id: StrictInt = Field(description="ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `-999999`", alias="warehouseId")
-    warehouse_name: StrictStr = Field(description="Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`", alias="warehouseName")
-    region_name: StrictStr = Field(description="Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`", alias="regionName")
-    quantity: StrictInt = Field(description="Количество товара на складе, доступное клиентам для добавления в корзину")
-    in_way_to_client: StrictInt = Field(description="В пути к клиенту", alias="inWayToClient")
-    in_way_from_client: StrictInt = Field(description="В пути от клиента", alias="inWayFromClient")
-    __properties: ClassVar[List[str]] = ["nmId", "chrtId", "warehouseId", "warehouseName", "regionName", "quantity", "inWayToClient", "inWayFromClient"]
+    warehouse_id: StrictInt = Field(
+        description="ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `-999999`",
+        alias="warehouseId",
+    )
+    warehouse_name: StrictStr = Field(
+        description="Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`",
+        alias="warehouseName",
+    )
+    region_name: StrictStr = Field(
+        description="Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`",
+        alias="regionName",
+    )
+    quantity: StrictInt = Field(
+        description="Количество товара на складе, доступное клиентам для добавления в корзину"
+    )
+    in_way_to_client: StrictInt = Field(
+        description="В пути к клиенту", alias="inWayToClient"
+    )
+    in_way_from_client: StrictInt = Field(
+        description="В пути от клиента", alias="inWayFromClient"
+    )
+    __properties: ClassVar[List[str]] = [
+        "nmId",
+        "chrtId",
+        "warehouseId",
+        "warehouseName",
+        "regionName",
+        "quantity",
+        "inWayToClient",
+        "inWayFromClient",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -67,8 +92,7 @@ class InventoryWbResponseItemsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -86,16 +110,16 @@ class InventoryWbResponseItemsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmId": obj.get("nmId"),
-            "chrtId": obj.get("chrtId"),
-            "warehouseId": obj.get("warehouseId"),
-            "warehouseName": obj.get("warehouseName"),
-            "regionName": obj.get("regionName"),
-            "quantity": obj.get("quantity"),
-            "inWayToClient": obj.get("inWayToClient"),
-            "inWayFromClient": obj.get("inWayFromClient")
-        })
+        _obj = cls.model_validate(
+            {
+                "nmId": obj.get("nmId"),
+                "chrtId": obj.get("chrtId"),
+                "warehouseId": obj.get("warehouseId"),
+                "warehouseName": obj.get("warehouseName"),
+                "regionName": obj.get("regionName"),
+                "quantity": obj.get("quantity"),
+                "inWayToClient": obj.get("inWayToClient"),
+                "inWayFromClient": obj.get("inWayFromClient"),
+            }
+        )
         return _obj
-
-

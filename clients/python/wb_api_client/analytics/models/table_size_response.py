@@ -20,16 +20,24 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.analytics.models.table_office_item import TableOfficeItem
-from wb_api_client.analytics.models.table_size_response_sizes_inner import TableSizeResponseSizesInner
+from wb_api_client.analytics.models.table_size_response_sizes_inner import (
+    TableSizeResponseSizesInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class TableSizeResponse(BaseModel):
     """
     TableSizeResponse
-    """ # noqa: E501
-    offices: Optional[List[TableOfficeItem]] = Field(default=None, description="Множество данных по складам")
-    sizes: Optional[List[TableSizeResponseSizesInner]] = Field(default=None, description="Множество данных по размерам товара")
+    """  # noqa: E501
+
+    offices: Optional[List[TableOfficeItem]] = Field(
+        default=None, description="Множество данных по складам"
+    )
+    sizes: Optional[List[TableSizeResponseSizesInner]] = Field(
+        default=None, description="Множество данных по размерам товара"
+    )
     currency: StrictStr = Field(description="Валюта отчёта")
     __properties: ClassVar[List[str]] = ["offices", "sizes", "currency"]
 
@@ -38,7 +46,6 @@ class TableSizeResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +71,7 @@ class TableSizeResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -78,14 +84,14 @@ class TableSizeResponse(BaseModel):
             for _item_offices in self.offices:
                 if _item_offices:
                     _items.append(_item_offices.to_dict())
-            _dict['offices'] = _items
+            _dict["offices"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in sizes (list)
         _items = []
         if self.sizes:
             for _item_sizes in self.sizes:
                 if _item_sizes:
                     _items.append(_item_sizes.to_dict())
-            _dict['sizes'] = _items
+            _dict["sizes"] = _items
         return _dict
 
     @classmethod
@@ -97,11 +103,22 @@ class TableSizeResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "offices": [TableOfficeItem.from_dict(_item) for _item in obj["offices"]] if obj.get("offices") is not None else None,
-            "sizes": [TableSizeResponseSizesInner.from_dict(_item) for _item in obj["sizes"]] if obj.get("sizes") is not None else None,
-            "currency": obj.get("currency")
-        })
+        _obj = cls.model_validate(
+            {
+                "offices": (
+                    [TableOfficeItem.from_dict(_item) for _item in obj["offices"]]
+                    if obj.get("offices") is not None
+                    else None
+                ),
+                "sizes": (
+                    [
+                        TableSizeResponseSizesInner.from_dict(_item)
+                        for _item in obj["sizes"]
+                    ]
+                    if obj.get("sizes") is not None
+                    else None
+                ),
+                "currency": obj.get("currency"),
+            }
+        )
         return _obj
-
-

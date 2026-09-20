@@ -19,30 +19,57 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from wb_api_client.reports.models.get_v1_warehouse_remains_tasks_task_id_download_response200_inner_warehouses_inner import GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner
+from wb_api_client.reports.models.get_v1_warehouse_remains_tasks_task_id_download_response200_inner_warehouses_inner import (
+    GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner(BaseModel):
     """
     GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner
-    """ # noqa: E501
+    """  # noqa: E501
+
     brand: Optional[StrictStr] = Field(default=None, description="Бренд")
-    subject_name: Optional[StrictStr] = Field(default=None, description="Название предмета", alias="subjectName")
-    vendor_code: Optional[StrictStr] = Field(default=None, description="Артикул продавца", alias="vendorCode")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId")
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Название предмета", alias="subjectName"
+    )
+    vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Артикул продавца", alias="vendorCode"
+    )
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
     barcode: Optional[StrictStr] = Field(default=None, description="Баркод")
-    tech_size: Optional[StrictStr] = Field(default=None, description="Размер", alias="techSize")
-    volume: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Объём, л")
-    warehouses: Optional[List[GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner]] = Field(default=None, description="Остатки на складах и товары в пути. Будут в ответе только при ненулевом `quantity`")
-    __properties: ClassVar[List[str]] = ["brand", "subjectName", "vendorCode", "nmId", "barcode", "techSize", "volume", "warehouses"]
+    tech_size: Optional[StrictStr] = Field(
+        default=None, description="Размер", alias="techSize"
+    )
+    volume: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Объём, л"
+    )
+    warehouses: Optional[
+        List[GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner]
+    ] = Field(
+        default=None,
+        description="Остатки на складах и товары в пути. Будут в ответе только при ненулевом `quantity`",
+    )
+    __properties: ClassVar[List[str]] = [
+        "brand",
+        "subjectName",
+        "vendorCode",
+        "nmId",
+        "barcode",
+        "techSize",
+        "volume",
+        "warehouses",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -68,8 +95,7 @@ class GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,7 +108,7 @@ class GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner(BaseModel):
             for _item_warehouses in self.warehouses:
                 if _item_warehouses:
                     _items.append(_item_warehouses.to_dict())
-            _dict['warehouses'] = _items
+            _dict["warehouses"] = _items
         return _dict
 
     @classmethod
@@ -94,16 +120,25 @@ class GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "brand": obj.get("brand"),
-            "subjectName": obj.get("subjectName"),
-            "vendorCode": obj.get("vendorCode"),
-            "nmId": obj.get("nmId"),
-            "barcode": obj.get("barcode"),
-            "techSize": obj.get("techSize"),
-            "volume": obj.get("volume"),
-            "warehouses": [GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner.from_dict(_item) for _item in obj["warehouses"]] if obj.get("warehouses") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "brand": obj.get("brand"),
+                "subjectName": obj.get("subjectName"),
+                "vendorCode": obj.get("vendorCode"),
+                "nmId": obj.get("nmId"),
+                "barcode": obj.get("barcode"),
+                "techSize": obj.get("techSize"),
+                "volume": obj.get("volume"),
+                "warehouses": (
+                    [
+                        GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["warehouses"]
+                    ]
+                    if obj.get("warehouses") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

@@ -22,13 +22,19 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class SearchReportPositionChartItem(BaseModel):
     """
     SearchReportPositionChartItem
-    """ # noqa: E501
+    """  # noqa: E501
+
     dt: StrictStr = Field(description="Дата")
-    average: StrictInt = Field(description="Средняя позиция товара в результатах поиска")
-    median: StrictInt = Field(description="Медианная позиция товара в результатах поиска")
+    average: StrictInt = Field(
+        description="Средняя позиция товара в результатах поиска"
+    )
+    median: StrictInt = Field(
+        description="Медианная позиция товара в результатах поиска"
+    )
     __properties: ClassVar[List[str]] = ["dt", "average", "median"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class SearchReportPositionChartItem(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class SearchReportPositionChartItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +85,11 @@ class SearchReportPositionChartItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "dt": obj.get("dt"),
-            "average": obj.get("average"),
-            "median": obj.get("median")
-        })
+        _obj = cls.model_validate(
+            {
+                "dt": obj.get("dt"),
+                "average": obj.get("average"),
+                "median": obj.get("median"),
+            }
+        )
         return _obj
-
-

@@ -17,47 +17,124 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Union
-from wb_api_client.analytics.models.float_graph_by_period_item import FloatGraphByPeriodItem
-from wb_api_client.analytics.models.table_common_metrics_avg_stock_turnover import TableCommonMetricsAvgStockTurnover
-from wb_api_client.analytics.models.table_common_metrics_office_missing_time import TableCommonMetricsOfficeMissingTime
-from wb_api_client.analytics.models.table_common_metrics_sale_rate import TableCommonMetricsSaleRate
-from wb_api_client.analytics.models.table_item_item_st_metrics_all_of_current_price import TableItemItemStMetricsAllOfCurrentPrice
+from wb_api_client.analytics.models.float_graph_by_period_item import (
+    FloatGraphByPeriodItem,
+)
+from wb_api_client.analytics.models.table_common_metrics_avg_stock_turnover import (
+    TableCommonMetricsAvgStockTurnover,
+)
+from wb_api_client.analytics.models.table_common_metrics_office_missing_time import (
+    TableCommonMetricsOfficeMissingTime,
+)
+from wb_api_client.analytics.models.table_common_metrics_sale_rate import (
+    TableCommonMetricsSaleRate,
+)
+from wb_api_client.analytics.models.table_item_item_st_metrics_all_of_current_price import (
+    TableItemItemStMetricsAllOfCurrentPrice,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class TableItemItemStMetrics(BaseModel):
     """
     Метрики товара
-    """ # noqa: E501
+    """  # noqa: E501
+
     orders_count: StrictInt = Field(description="Заказы, шт.", alias="ordersCount")
     orders_sum: StrictInt = Field(description="Заказы, сумма", alias="ordersSum")
-    avg_orders: Union[StrictFloat, StrictInt] = Field(description="Среднее количество заказов в день", alias="avgOrders")
-    avg_orders_by_month: List[FloatGraphByPeriodItem] = Field(description="Среднее количество заказов по месяцам", alias="avgOrdersByMonth")
+    avg_orders: Union[StrictFloat, StrictInt] = Field(
+        description="Среднее количество заказов в день", alias="avgOrders"
+    )
+    avg_orders_by_month: List[FloatGraphByPeriodItem] = Field(
+        description="Среднее количество заказов по месяцам", alias="avgOrdersByMonth"
+    )
     buyout_count: StrictInt = Field(description="Выкупы, шт.", alias="buyoutCount")
     buyout_sum: StrictInt = Field(description="Выкупы, сумма", alias="buyoutSum")
-    buyout_percent: StrictInt = Field(description="Процент выкупа", alias="buyoutPercent")
-    stock_count: StrictInt = Field(description="Остатки на текущий день, шт.", alias="stockCount")
-    stock_sum: StrictInt = Field(description="Стоимость остатков на текущий день", alias="stockSum")
+    buyout_percent: StrictInt = Field(
+        description="Процент выкупа", alias="buyoutPercent"
+    )
+    stock_count: StrictInt = Field(
+        description="Остатки на текущий день, шт.", alias="stockCount"
+    )
+    stock_sum: StrictInt = Field(
+        description="Стоимость остатков на текущий день", alias="stockSum"
+    )
     sale_rate: TableCommonMetricsSaleRate = Field(alias="saleRate")
-    avg_stock_turnover: TableCommonMetricsAvgStockTurnover = Field(alias="avgStockTurnover")
-    to_client_count: StrictInt = Field(description="В пути к клиенту, шт.", alias="toClientCount")
-    from_client_count: StrictInt = Field(description="В пути от клиента, шт.", alias="fromClientCount")
-    office_missing_time: TableCommonMetricsOfficeMissingTime = Field(alias="officeMissingTime")
-    lost_orders_count: Union[StrictFloat, StrictInt] = Field(description="Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ", alias="lostOrdersCount")
-    lost_orders_sum: Union[StrictFloat, StrictInt] = Field(description="Упущенные заказы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ", alias="lostOrdersSum")
-    lost_buyouts_count: Union[StrictFloat, StrictInt] = Field(description="Упущенные выкупы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ", alias="lostBuyoutsCount")
-    lost_buyouts_sum: Union[StrictFloat, StrictInt] = Field(description="Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ", alias="lostBuyoutsSum")
+    avg_stock_turnover: TableCommonMetricsAvgStockTurnover = Field(
+        alias="avgStockTurnover"
+    )
+    to_client_count: StrictInt = Field(
+        description="В пути к клиенту, шт.", alias="toClientCount"
+    )
+    from_client_count: StrictInt = Field(
+        description="В пути от клиента, шт.", alias="fromClientCount"
+    )
+    office_missing_time: TableCommonMetricsOfficeMissingTime = Field(
+        alias="officeMissingTime"
+    )
+    lost_orders_count: Union[StrictFloat, StrictInt] = Field(
+        description="Упущенные заказы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ",
+        alias="lostOrdersCount",
+    )
+    lost_orders_sum: Union[StrictFloat, StrictInt] = Field(
+        description="Упущенные заказы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ",
+        alias="lostOrdersSum",
+    )
+    lost_buyouts_count: Union[StrictFloat, StrictInt] = Field(
+        description="Упущенные выкупы, шт. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ",
+        alias="lostBuyoutsCount",
+    )
+    lost_buyouts_sum: Union[StrictFloat, StrictInt] = Field(
+        description="Упущенные выкупы, сумма. Особые случаи:   1. Значение меньше `0` и не равно `-2` — значение не рассчитано   2. Значение `-2` — нулевое значение ",
+        alias="lostBuyoutsSum",
+    )
     current_price: TableItemItemStMetricsAllOfCurrentPrice = Field(alias="currentPrice")
-    availability: StrictStr = Field(description="Доступность товара:   - `deficient` — Дефицит   - `actual` — Актуальный   - `balanced` — Баланс   - `nonActual` — Неактуальный   - `nonLiquid` — Неликвид   - `invalidData` — Не рассчитано ")
-    __properties: ClassVar[List[str]] = ["ordersCount", "ordersSum", "avgOrders", "avgOrdersByMonth", "buyoutCount", "buyoutSum", "buyoutPercent", "stockCount", "stockSum", "saleRate", "avgStockTurnover", "toClientCount", "fromClientCount", "officeMissingTime", "lostOrdersCount", "lostOrdersSum", "lostBuyoutsCount", "lostBuyoutsSum", "currentPrice", "availability"]
+    availability: StrictStr = Field(
+        description="Доступность товара:   - `deficient` — Дефицит   - `actual` — Актуальный   - `balanced` — Баланс   - `nonActual` — Неактуальный   - `nonLiquid` — Неликвид   - `invalidData` — Не рассчитано "
+    )
+    __properties: ClassVar[List[str]] = [
+        "ordersCount",
+        "ordersSum",
+        "avgOrders",
+        "avgOrdersByMonth",
+        "buyoutCount",
+        "buyoutSum",
+        "buyoutPercent",
+        "stockCount",
+        "stockSum",
+        "saleRate",
+        "avgStockTurnover",
+        "toClientCount",
+        "fromClientCount",
+        "officeMissingTime",
+        "lostOrdersCount",
+        "lostOrdersSum",
+        "lostBuyoutsCount",
+        "lostBuyoutsSum",
+        "currentPrice",
+        "availability",
+    ]
 
-    @field_validator('availability')
+    @field_validator("availability")
     def availability_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['deficient', 'actual', 'balanced', 'nonActual', 'nonLiquid', 'invalidData']):
-            raise ValueError("must be one of enum values ('deficient', 'actual', 'balanced', 'nonActual', 'nonLiquid', 'invalidData')")
+        if value not in set(
+            ["deficient", "actual", "balanced", "nonActual", "nonLiquid", "invalidData"]
+        ):
+            raise ValueError(
+                "must be one of enum values ('deficient', 'actual', 'balanced', 'nonActual', 'nonLiquid', 'invalidData')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -65,7 +142,6 @@ class TableItemItemStMetrics(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -91,8 +167,7 @@ class TableItemItemStMetrics(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -105,19 +180,19 @@ class TableItemItemStMetrics(BaseModel):
             for _item_avg_orders_by_month in self.avg_orders_by_month:
                 if _item_avg_orders_by_month:
                     _items.append(_item_avg_orders_by_month.to_dict())
-            _dict['avgOrdersByMonth'] = _items
+            _dict["avgOrdersByMonth"] = _items
         # override the default output from pydantic by calling `to_dict()` of sale_rate
         if self.sale_rate:
-            _dict['saleRate'] = self.sale_rate.to_dict()
+            _dict["saleRate"] = self.sale_rate.to_dict()
         # override the default output from pydantic by calling `to_dict()` of avg_stock_turnover
         if self.avg_stock_turnover:
-            _dict['avgStockTurnover'] = self.avg_stock_turnover.to_dict()
+            _dict["avgStockTurnover"] = self.avg_stock_turnover.to_dict()
         # override the default output from pydantic by calling `to_dict()` of office_missing_time
         if self.office_missing_time:
-            _dict['officeMissingTime'] = self.office_missing_time.to_dict()
+            _dict["officeMissingTime"] = self.office_missing_time.to_dict()
         # override the default output from pydantic by calling `to_dict()` of current_price
         if self.current_price:
-            _dict['currentPrice'] = self.current_price.to_dict()
+            _dict["currentPrice"] = self.current_price.to_dict()
         return _dict
 
     @classmethod
@@ -129,28 +204,57 @@ class TableItemItemStMetrics(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "ordersCount": obj.get("ordersCount"),
-            "ordersSum": obj.get("ordersSum"),
-            "avgOrders": obj.get("avgOrders"),
-            "avgOrdersByMonth": [FloatGraphByPeriodItem.from_dict(_item) for _item in obj["avgOrdersByMonth"]] if obj.get("avgOrdersByMonth") is not None else None,
-            "buyoutCount": obj.get("buyoutCount"),
-            "buyoutSum": obj.get("buyoutSum"),
-            "buyoutPercent": obj.get("buyoutPercent"),
-            "stockCount": obj.get("stockCount"),
-            "stockSum": obj.get("stockSum"),
-            "saleRate": TableCommonMetricsSaleRate.from_dict(obj["saleRate"]) if obj.get("saleRate") is not None else None,
-            "avgStockTurnover": TableCommonMetricsAvgStockTurnover.from_dict(obj["avgStockTurnover"]) if obj.get("avgStockTurnover") is not None else None,
-            "toClientCount": obj.get("toClientCount"),
-            "fromClientCount": obj.get("fromClientCount"),
-            "officeMissingTime": TableCommonMetricsOfficeMissingTime.from_dict(obj["officeMissingTime"]) if obj.get("officeMissingTime") is not None else None,
-            "lostOrdersCount": obj.get("lostOrdersCount"),
-            "lostOrdersSum": obj.get("lostOrdersSum"),
-            "lostBuyoutsCount": obj.get("lostBuyoutsCount"),
-            "lostBuyoutsSum": obj.get("lostBuyoutsSum"),
-            "currentPrice": TableItemItemStMetricsAllOfCurrentPrice.from_dict(obj["currentPrice"]) if obj.get("currentPrice") is not None else None,
-            "availability": obj.get("availability")
-        })
+        _obj = cls.model_validate(
+            {
+                "ordersCount": obj.get("ordersCount"),
+                "ordersSum": obj.get("ordersSum"),
+                "avgOrders": obj.get("avgOrders"),
+                "avgOrdersByMonth": (
+                    [
+                        FloatGraphByPeriodItem.from_dict(_item)
+                        for _item in obj["avgOrdersByMonth"]
+                    ]
+                    if obj.get("avgOrdersByMonth") is not None
+                    else None
+                ),
+                "buyoutCount": obj.get("buyoutCount"),
+                "buyoutSum": obj.get("buyoutSum"),
+                "buyoutPercent": obj.get("buyoutPercent"),
+                "stockCount": obj.get("stockCount"),
+                "stockSum": obj.get("stockSum"),
+                "saleRate": (
+                    TableCommonMetricsSaleRate.from_dict(obj["saleRate"])
+                    if obj.get("saleRate") is not None
+                    else None
+                ),
+                "avgStockTurnover": (
+                    TableCommonMetricsAvgStockTurnover.from_dict(
+                        obj["avgStockTurnover"]
+                    )
+                    if obj.get("avgStockTurnover") is not None
+                    else None
+                ),
+                "toClientCount": obj.get("toClientCount"),
+                "fromClientCount": obj.get("fromClientCount"),
+                "officeMissingTime": (
+                    TableCommonMetricsOfficeMissingTime.from_dict(
+                        obj["officeMissingTime"]
+                    )
+                    if obj.get("officeMissingTime") is not None
+                    else None
+                ),
+                "lostOrdersCount": obj.get("lostOrdersCount"),
+                "lostOrdersSum": obj.get("lostOrdersSum"),
+                "lostBuyoutsCount": obj.get("lostBuyoutsCount"),
+                "lostBuyoutsSum": obj.get("lostBuyoutsSum"),
+                "currentPrice": (
+                    TableItemItemStMetricsAllOfCurrentPrice.from_dict(
+                        obj["currentPrice"]
+                    )
+                    if obj.get("currentPrice") is not None
+                    else None
+                ),
+                "availability": obj.get("availability"),
+            }
+        )
         return _obj
-
-

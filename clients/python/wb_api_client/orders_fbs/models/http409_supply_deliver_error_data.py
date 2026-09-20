@@ -19,15 +19,22 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.orders_fbs.models.http409_supply_deliver_error_data_orders_inner import Http409SupplyDeliverErrorDataOrdersInner
+from wb_api_client.orders_fbs.models.http409_supply_deliver_error_data_orders_inner import (
+    Http409SupplyDeliverErrorDataOrdersInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class Http409SupplyDeliverErrorData(BaseModel):
     """
     Дополнительные данные ошибки
-    """ # noqa: E501
-    orders: Optional[List[Http409SupplyDeliverErrorDataOrdersInner]] = Field(default=None, description="Сборочные задания, идентификаторы маркировки которых не прошли или ещё не завершили проверку")
+    """  # noqa: E501
+
+    orders: Optional[List[Http409SupplyDeliverErrorDataOrdersInner]] = Field(
+        default=None,
+        description="Сборочные задания, идентификаторы маркировки которых не прошли или ещё не завершили проверку",
+    )
     __properties: ClassVar[List[str]] = ["orders"]
 
     model_config = ConfigDict(
@@ -35,7 +42,6 @@ class Http409SupplyDeliverErrorData(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +67,7 @@ class Http409SupplyDeliverErrorData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +80,7 @@ class Http409SupplyDeliverErrorData(BaseModel):
             for _item_orders in self.orders:
                 if _item_orders:
                     _items.append(_item_orders.to_dict())
-            _dict['orders'] = _items
+            _dict["orders"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +92,16 @@ class Http409SupplyDeliverErrorData(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "orders": [Http409SupplyDeliverErrorDataOrdersInner.from_dict(_item) for _item in obj["orders"]] if obj.get("orders") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "orders": (
+                    [
+                        Http409SupplyDeliverErrorDataOrdersInner.from_dict(_item)
+                        for _item in obj["orders"]
+                    ]
+                    if obj.get("orders") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

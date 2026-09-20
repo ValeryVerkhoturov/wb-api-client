@@ -24,10 +24,12 @@ from wb_api_client.orders_dbw.models.api_sgtins import ApiSGTINs
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiOrdersSGTINsSetRequest(BaseModel):
     """
     ApiOrdersSGTINsSetRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     orders: Annotated[List[ApiSGTINs], Field(max_length=1000)]
     __properties: ClassVar[List[str]] = ["orders"]
 
@@ -36,7 +38,6 @@ class ApiOrdersSGTINsSetRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +63,7 @@ class ApiOrdersSGTINsSetRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +76,7 @@ class ApiOrdersSGTINsSetRequest(BaseModel):
             for _item_orders in self.orders:
                 if _item_orders:
                     _items.append(_item_orders.to_dict())
-            _dict['orders'] = _items
+            _dict["orders"] = _items
         return _dict
 
     @classmethod
@@ -88,9 +88,13 @@ class ApiOrdersSGTINsSetRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "orders": [ApiSGTINs.from_dict(_item) for _item in obj["orders"]] if obj.get("orders") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "orders": (
+                    [ApiSGTINs.from_dict(_item) for _item in obj["orders"]]
+                    if obj.get("orders") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

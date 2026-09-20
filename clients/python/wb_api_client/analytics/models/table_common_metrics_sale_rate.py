@@ -22,10 +22,12 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class TableCommonMetricsSaleRate(BaseModel):
     """
-    Оборачиваемость текущих остатков. Особые случаи:   1. `\"hours\":-1` — бесконечная длительность   2. `\"hours\":-2` — нулевая длительность   3. `\"hours\":-3` — нерассчитанная длительность 
-    """ # noqa: E501
+    Оборачиваемость текущих остатков. Особые случаи:   1. `\"hours\":-1` — бесконечная длительность   2. `\"hours\":-2` — нулевая длительность   3. `\"hours\":-3` — нерассчитанная длительность
+    """  # noqa: E501
+
     days: StrictInt = Field(description="Количество дней")
     hours: StrictInt = Field(description="Количество часов")
     __properties: ClassVar[List[str]] = ["days", "hours"]
@@ -35,7 +37,6 @@ class TableCommonMetricsSaleRate(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +62,7 @@ class TableCommonMetricsSaleRate(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +80,5 @@ class TableCommonMetricsSaleRate(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "days": obj.get("days"),
-            "hours": obj.get("hours")
-        })
+        _obj = cls.model_validate({"days": obj.get("days"), "hours": obj.get("hours")})
         return _obj
-
-

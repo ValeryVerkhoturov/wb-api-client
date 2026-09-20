@@ -23,12 +23,16 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class VisibilityInfoByDayInner(BaseModel):
     """
     VisibilityInfoByDayInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     dt: date = Field(description="Дата")
-    visibility: StrictInt = Field(description="Видимость карточки в результатах поиска, %")
+    visibility: StrictInt = Field(
+        description="Видимость карточки в результатах поиска, %"
+    )
     open: StrictInt = Field(description="Количество переходов в карточку")
     __properties: ClassVar[List[str]] = ["dt", "visibility", "open"]
 
@@ -37,7 +41,6 @@ class VisibilityInfoByDayInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +66,7 @@ class VisibilityInfoByDayInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,11 +84,11 @@ class VisibilityInfoByDayInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "dt": obj.get("dt"),
-            "visibility": obj.get("visibility"),
-            "open": obj.get("open")
-        })
+        _obj = cls.model_validate(
+            {
+                "dt": obj.get("dt"),
+                "visibility": obj.get("visibility"),
+                "open": obj.get("open"),
+            }
+        )
         return _obj
-
-

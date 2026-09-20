@@ -22,21 +22,27 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetPingResponse200(BaseModel):
     """
     GetPingResponse200
-    """ # noqa: E501
-    ts: Optional[StrictStr] = Field(default=None, description="Timestamp запроса", alias="TS")
-    status: Optional[StrictStr] = Field(default=None, description="Статус", alias="Status")
+    """  # noqa: E501
+
+    ts: Optional[StrictStr] = Field(
+        default=None, description="Timestamp запроса", alias="TS"
+    )
+    status: Optional[StrictStr] = Field(
+        default=None, description="Статус", alias="Status"
+    )
     __properties: ClassVar[List[str]] = ["TS", "Status"]
 
-    @field_validator('status')
+    @field_validator("status")
     def status_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['OK']):
+        if value not in set(["OK"]):
             raise ValueError("must be one of enum values ('OK')")
         return value
 
@@ -45,7 +51,6 @@ class GetPingResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -71,8 +76,7 @@ class GetPingResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -90,10 +94,5 @@ class GetPingResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "TS": obj.get("TS"),
-            "Status": obj.get("Status")
-        })
+        _obj = cls.model_validate({"TS": obj.get("TS"), "Status": obj.get("Status")})
         return _obj
-
-

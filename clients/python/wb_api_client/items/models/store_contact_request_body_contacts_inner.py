@@ -23,12 +23,19 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class StoreContactRequestBodyContactsInner(BaseModel):
     """
     StoreContactRequestBodyContactsInner
-    """ # noqa: E501
-    comment: Optional[Annotated[str, Field(strict=True, max_length=1000)]] = Field(default=None, description="Комментарий")
-    phone: Optional[StrictStr] = Field(default=None, description="Номер телефона. Поддерживаются коды стран: - `+7` — Россия, Казахстан - `+374` — Армения - `+375` — Беларусь - `+996` — Кыргызстан")
+    """  # noqa: E501
+
+    comment: Optional[Annotated[str, Field(strict=True, max_length=1000)]] = Field(
+        default=None, description="Комментарий"
+    )
+    phone: Optional[StrictStr] = Field(
+        default=None,
+        description="Номер телефона. Поддерживаются коды стран: - `+7` — Россия, Казахстан - `+374` — Армения - `+375` — Беларусь - `+996` — Кыргызстан",
+    )
     __properties: ClassVar[List[str]] = ["comment", "phone"]
 
     model_config = ConfigDict(
@@ -36,7 +43,6 @@ class StoreContactRequestBodyContactsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +68,7 @@ class StoreContactRequestBodyContactsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,10 +86,7 @@ class StoreContactRequestBodyContactsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "comment": obj.get("comment"),
-            "phone": obj.get("phone")
-        })
+        _obj = cls.model_validate(
+            {"comment": obj.get("comment"), "phone": obj.get("phone")}
+        )
         return _obj
-
-

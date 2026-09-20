@@ -23,12 +23,18 @@ from wb_api_client.orders_dbw.models.courier_info import CourierInfo
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class OrderCourierInfo(BaseModel):
     """
     OrderCourierInfo
-    """ # noqa: E501
-    courier_info: Optional[CourierInfo] = Field(default=None, description="Информация о курьере", alias="courierInfo")
-    order_id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", alias="orderID")
+    """  # noqa: E501
+
+    courier_info: Optional[CourierInfo] = Field(
+        default=None, description="Информация о курьере", alias="courierInfo"
+    )
+    order_id: Optional[StrictInt] = Field(
+        default=None, description="ID сборочного задания", alias="orderID"
+    )
     __properties: ClassVar[List[str]] = ["courierInfo", "orderID"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class OrderCourierInfo(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class OrderCourierInfo(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -72,7 +76,7 @@ class OrderCourierInfo(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of courier_info
         if self.courier_info:
-            _dict['courierInfo'] = self.courier_info.to_dict()
+            _dict["courierInfo"] = self.courier_info.to_dict()
         return _dict
 
     @classmethod
@@ -84,10 +88,14 @@ class OrderCourierInfo(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "courierInfo": CourierInfo.from_dict(obj["courierInfo"]) if obj.get("courierInfo") is not None else None,
-            "orderID": obj.get("orderID")
-        })
+        _obj = cls.model_validate(
+            {
+                "courierInfo": (
+                    CourierInfo.from_dict(obj["courierInfo"])
+                    if obj.get("courierInfo") is not None
+                    else None
+                ),
+                "orderID": obj.get("orderID"),
+            }
+        )
         return _obj
-
-

@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.orders_fbs.models.post_v3_orders_status_history_response200_orders_inner import PostV3OrdersStatusHistoryResponse200OrdersInner
+from wb_api_client.orders_fbs.models.post_v3_orders_status_history_response200_orders_inner import (
+    PostV3OrdersStatusHistoryResponse200OrdersInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV3OrdersStatusHistoryResponse200(BaseModel):
     """
     PostV3OrdersStatusHistoryResponse200
-    """ # noqa: E501
-    orders: Optional[List[PostV3OrdersStatusHistoryResponse200OrdersInner]] = Field(default=None, description="Список сборочных заданий")
+    """  # noqa: E501
+
+    orders: Optional[List[PostV3OrdersStatusHistoryResponse200OrdersInner]] = Field(
+        default=None, description="Список сборочных заданий"
+    )
     __properties: ClassVar[List[str]] = ["orders"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class PostV3OrdersStatusHistoryResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class PostV3OrdersStatusHistoryResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +79,7 @@ class PostV3OrdersStatusHistoryResponse200(BaseModel):
             for _item_orders in self.orders:
                 if _item_orders:
                     _items.append(_item_orders.to_dict())
-            _dict['orders'] = _items
+            _dict["orders"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +91,16 @@ class PostV3OrdersStatusHistoryResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "orders": [PostV3OrdersStatusHistoryResponse200OrdersInner.from_dict(_item) for _item in obj["orders"]] if obj.get("orders") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "orders": (
+                    [
+                        PostV3OrdersStatusHistoryResponse200OrdersInner.from_dict(_item)
+                        for _item in obj["orders"]
+                    ]
+                    if obj.get("orders") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

@@ -19,26 +19,56 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from wb_api_client.orders_dbw.models.api_orders_meta_details_response import ApiOrdersMetaDetailsResponse
-from wb_api_client.orders_dbw.models.api_orders_meta_dlete_request_v2 import ApiOrdersMetaDleteRequestV2
+from wb_api_client.orders_dbw.models.api_orders_meta_details_response import (
+    ApiOrdersMetaDetailsResponse,
+)
+from wb_api_client.orders_dbw.models.api_orders_meta_dlete_request_v2 import (
+    ApiOrdersMetaDleteRequestV2,
+)
 from wb_api_client.orders_dbw.models.api_orders_request_v2 import ApiOrdersRequestV2
-from wb_api_client.orders_dbw.models.api_orders_sgtins_set_request import ApiOrdersSGTINsSetRequest
-from wb_api_client.orders_dbw.models.api_status_set_responses import ApiStatusSetResponses
+from wb_api_client.orders_dbw.models.api_orders_sgtins_set_request import (
+    ApiOrdersSGTINsSetRequest,
+)
+from wb_api_client.orders_dbw.models.api_status_set_responses import (
+    ApiStatusSetResponses,
+)
 from wb_api_client.orders_dbw.models.client_info_resp import ClientInfoResp
-from wb_api_client.orders_dbw.models.delivery_dates_info_resp import DeliveryDatesInfoResp
+from wb_api_client.orders_dbw.models.delivery_dates_info_resp import (
+    DeliveryDatesInfoResp,
+)
 from wb_api_client.orders_dbw.models.delivery_dates_request import DeliveryDatesRequest
-from wb_api_client.orders_dbw.models.get_v3_dbw_orders_new_response200 import GetV3DbwOrdersNewResponse200
-from wb_api_client.orders_dbw.models.get_v3_dbw_orders_response200 import GetV3DbwOrdersResponse200
+from wb_api_client.orders_dbw.models.get_v3_dbw_orders_new_response200 import (
+    GetV3DbwOrdersNewResponse200,
+)
+from wb_api_client.orders_dbw.models.get_v3_dbw_orders_response200 import (
+    GetV3DbwOrdersResponse200,
+)
 from wb_api_client.orders_dbw.models.order_courier_info_resp import OrderCourierInfoResp
 from wb_api_client.orders_dbw.models.orders_request_api import OrdersRequestAPI
-from wb_api_client.orders_dbw.models.post_v3_dbw_orders_meta_delete_response200 import PostV3DbwOrdersMetaDeleteResponse200
-from wb_api_client.orders_dbw.models.post_v3_dbw_orders_status_request import PostV3DbwOrdersStatusRequest
-from wb_api_client.orders_dbw.models.post_v3_dbw_orders_status_response200 import PostV3DbwOrdersStatusResponse200
-from wb_api_client.orders_dbw.models.post_v3_dbw_orders_stickers_request import PostV3DbwOrdersStickersRequest
-from wb_api_client.orders_dbw.models.post_v3_dbw_orders_stickers_response200 import PostV3DbwOrdersStickersResponse200
-from wb_api_client.orders_dbw.models.put_v3_dbw_orders_order_id_meta_gtin_request import PutV3DbwOrdersOrderIdMetaGtinRequest
-from wb_api_client.orders_dbw.models.put_v3_dbw_orders_order_id_meta_imei_request import PutV3DbwOrdersOrderIdMetaImeiRequest
-from wb_api_client.orders_dbw.models.put_v3_dbw_orders_order_id_meta_uin_request import PutV3DbwOrdersOrderIdMetaUinRequest
+from wb_api_client.orders_dbw.models.post_v3_dbw_orders_meta_delete_response200 import (
+    PostV3DbwOrdersMetaDeleteResponse200,
+)
+from wb_api_client.orders_dbw.models.post_v3_dbw_orders_status_request import (
+    PostV3DbwOrdersStatusRequest,
+)
+from wb_api_client.orders_dbw.models.post_v3_dbw_orders_status_response200 import (
+    PostV3DbwOrdersStatusResponse200,
+)
+from wb_api_client.orders_dbw.models.post_v3_dbw_orders_stickers_request import (
+    PostV3DbwOrdersStickersRequest,
+)
+from wb_api_client.orders_dbw.models.post_v3_dbw_orders_stickers_response200 import (
+    PostV3DbwOrdersStickersResponse200,
+)
+from wb_api_client.orders_dbw.models.put_v3_dbw_orders_order_id_meta_gtin_request import (
+    PutV3DbwOrdersOrderIdMetaGtinRequest,
+)
+from wb_api_client.orders_dbw.models.put_v3_dbw_orders_order_id_meta_imei_request import (
+    PutV3DbwOrdersOrderIdMetaImeiRequest,
+)
+from wb_api_client.orders_dbw.models.put_v3_dbw_orders_order_id_meta_uin_request import (
+    PutV3DbwOrdersOrderIdMetaUinRequest,
+)
 
 from wb_api_client.orders_dbw.api_client import ApiClient, RequestSerialized
 from wb_api_client.orders_dbw.api_response import ApiResponse
@@ -57,21 +87,37 @@ class DBWApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def get_v3_dbw_orders(
         self,
-        limit: Annotated[int, Field(le=1000, strict=True, ge=1, description="Параметр пагинации. Устанавливает предельное количество возвращаемых данных")],
-        next: Annotated[StrictInt, Field(description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноименного поля в ответе")],
-        date_from: Annotated[StrictInt, Field(description="Дата начала периода в формате Unix timestamp ")],
-        date_to: Annotated[StrictInt, Field(description="Дата конца периода в формате Unix timestamp")],
+        limit: Annotated[
+            int,
+            Field(
+                le=1000,
+                strict=True,
+                ge=1,
+                description="Параметр пагинации. Устанавливает предельное количество возвращаемых данных",
+            ),
+        ],
+        next: Annotated[
+            StrictInt,
+            Field(
+                description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноименного поля в ответе"
+            ),
+        ],
+        date_from: Annotated[
+            StrictInt,
+            Field(description="Дата начала периода в формате Unix timestamp "),
+        ],
+        date_to: Annotated[
+            StrictInt, Field(description="Дата конца периода в формате Unix timestamp")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -110,7 +156,7 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_dbw_orders_serialize(
             limit=limit,
@@ -120,20 +166,19 @@ class DBWApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3DbwOrdersResponse200",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "GetV3DbwOrdersResponse200",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -141,21 +186,37 @@ class DBWApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v3_dbw_orders_with_http_info(
         self,
-        limit: Annotated[int, Field(le=1000, strict=True, ge=1, description="Параметр пагинации. Устанавливает предельное количество возвращаемых данных")],
-        next: Annotated[StrictInt, Field(description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноименного поля в ответе")],
-        date_from: Annotated[StrictInt, Field(description="Дата начала периода в формате Unix timestamp ")],
-        date_to: Annotated[StrictInt, Field(description="Дата конца периода в формате Unix timestamp")],
+        limit: Annotated[
+            int,
+            Field(
+                le=1000,
+                strict=True,
+                ge=1,
+                description="Параметр пагинации. Устанавливает предельное количество возвращаемых данных",
+            ),
+        ],
+        next: Annotated[
+            StrictInt,
+            Field(
+                description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноименного поля в ответе"
+            ),
+        ],
+        date_from: Annotated[
+            StrictInt,
+            Field(description="Дата начала периода в формате Unix timestamp "),
+        ],
+        date_to: Annotated[
+            StrictInt, Field(description="Дата конца периода в формате Unix timestamp")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -194,7 +255,7 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_dbw_orders_serialize(
             limit=limit,
@@ -204,20 +265,19 @@ class DBWApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3DbwOrdersResponse200",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "GetV3DbwOrdersResponse200",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -225,21 +285,37 @@ class DBWApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v3_dbw_orders_without_preload_content(
         self,
-        limit: Annotated[int, Field(le=1000, strict=True, ge=1, description="Параметр пагинации. Устанавливает предельное количество возвращаемых данных")],
-        next: Annotated[StrictInt, Field(description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноименного поля в ответе")],
-        date_from: Annotated[StrictInt, Field(description="Дата начала периода в формате Unix timestamp ")],
-        date_to: Annotated[StrictInt, Field(description="Дата конца периода в формате Unix timestamp")],
+        limit: Annotated[
+            int,
+            Field(
+                le=1000,
+                strict=True,
+                ge=1,
+                description="Параметр пагинации. Устанавливает предельное количество возвращаемых данных",
+            ),
+        ],
+        next: Annotated[
+            StrictInt,
+            Field(
+                description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноименного поля в ответе"
+            ),
+        ],
+        date_from: Annotated[
+            StrictInt,
+            Field(description="Дата начала периода в формате Unix timestamp "),
+        ],
+        date_to: Annotated[
+            StrictInt, Field(description="Дата конца периода в формате Unix timestamp")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -278,7 +354,7 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_dbw_orders_serialize(
             limit=limit,
@@ -288,23 +364,21 @@ class DBWApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3DbwOrdersResponse200",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "GetV3DbwOrdersResponse200",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v3_dbw_orders_serialize(
         self,
@@ -318,13 +392,10 @@ class DBWApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -338,44 +409,37 @@ class DBWApi:
         # process the path parameters
         # process the query parameters
         if limit is not None:
-            
-            _query_params.append(('limit', limit))
-            
+
+            _query_params.append(("limit", limit))
+
         if next is not None:
-            
-            _query_params.append(('next', next))
-            
+
+            _query_params.append(("next", next))
+
         if date_from is not None:
-            
-            _query_params.append(('dateFrom', date_from))
-            
+
+            _query_params.append(("dateFrom", date_from))
+
         if date_to is not None:
-            
-            _query_params.append(('dateTo', date_to))
-            
+
+            _query_params.append(("dateTo", date_to))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v3/dbw/orders',
+            method="GET",
+            resource_path="/api/v3/dbw/orders",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -385,11 +449,8 @@ class DBWApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v3_dbw_orders_new(
@@ -398,9 +459,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -431,32 +491,30 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_dbw_orders_new_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3DbwOrdersNewResponse200",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "GetV3DbwOrdersNewResponse200",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v3_dbw_orders_new_with_http_info(
@@ -465,9 +523,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -498,32 +555,30 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_dbw_orders_new_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3DbwOrdersNewResponse200",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "GetV3DbwOrdersNewResponse200",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v3_dbw_orders_new_without_preload_content(
@@ -532,9 +587,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -565,28 +619,26 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_dbw_orders_new_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3DbwOrdersNewResponse200",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "GetV3DbwOrdersNewResponse200",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v3_dbw_orders_new_serialize(
         self,
@@ -596,13 +648,10 @@ class DBWApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -619,25 +668,18 @@ class DBWApi:
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v3/dbw/orders/new',
+            method="GET",
+            resource_path="/api/v3/dbw/orders/new",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -647,11 +689,8 @@ class DBWApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def patch_v3_dbw_orders_order_id_cancel(
@@ -661,9 +700,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -696,36 +734,34 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_v3_dbw_orders_order_id_cancel_serialize(
             order_id=order_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def patch_v3_dbw_orders_order_id_cancel_with_http_info(
@@ -735,9 +771,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -770,36 +805,34 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_v3_dbw_orders_order_id_cancel_serialize(
             order_id=order_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def patch_v3_dbw_orders_order_id_cancel_without_preload_content(
@@ -809,9 +842,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -844,32 +876,30 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_v3_dbw_orders_order_id_cancel_serialize(
             order_id=order_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _patch_v3_dbw_orders_order_id_cancel_serialize(
         self,
@@ -880,13 +910,10 @@ class DBWApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -899,31 +926,24 @@ class DBWApi:
 
         # process the path parameters
         if order_id is not None:
-            _path_params['orderId'] = order_id
+            _path_params["orderId"] = order_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PATCH',
-            resource_path='/api/v3/dbw/orders/{orderId}/cancel',
+            method="PATCH",
+            resource_path="/api/v3/dbw/orders/{orderId}/cancel",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -933,11 +953,8 @@ class DBWApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def patch_v3_dbw_orders_order_id_confirm(
@@ -947,9 +964,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -982,36 +998,34 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_v3_dbw_orders_order_id_confirm_serialize(
             order_id=order_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def patch_v3_dbw_orders_order_id_confirm_with_http_info(
@@ -1021,9 +1035,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1056,36 +1069,34 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_v3_dbw_orders_order_id_confirm_serialize(
             order_id=order_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def patch_v3_dbw_orders_order_id_confirm_without_preload_content(
@@ -1095,9 +1106,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1130,32 +1140,30 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_v3_dbw_orders_order_id_confirm_serialize(
             order_id=order_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _patch_v3_dbw_orders_order_id_confirm_serialize(
         self,
@@ -1166,13 +1174,10 @@ class DBWApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1185,31 +1190,24 @@ class DBWApi:
 
         # process the path parameters
         if order_id is not None:
-            _path_params['orderId'] = order_id
+            _path_params["orderId"] = order_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PATCH',
-            resource_path='/api/v3/dbw/orders/{orderId}/confirm',
+            method="PATCH",
+            resource_path="/api/v3/dbw/orders/{orderId}/confirm",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1219,11 +1217,8 @@ class DBWApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_dbw_orders_client(
@@ -1233,9 +1228,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1268,34 +1262,32 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_client_serialize(
             orders_request_api=orders_request_api,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ClientInfoResp",
-            '400': "PostV3DbwOrdersClientResponse400",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "ClientInfoResp",
+            "400": "PostV3DbwOrdersClientResponse400",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_dbw_orders_client_with_http_info(
@@ -1305,9 +1297,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1340,34 +1331,32 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_client_serialize(
             orders_request_api=orders_request_api,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ClientInfoResp",
-            '400': "PostV3DbwOrdersClientResponse400",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "ClientInfoResp",
+            "400": "PostV3DbwOrdersClientResponse400",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_dbw_orders_client_without_preload_content(
@@ -1377,9 +1366,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1412,30 +1400,28 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_client_serialize(
             orders_request_api=orders_request_api,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ClientInfoResp",
-            '400': "PostV3DbwOrdersClientResponse400",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "ClientInfoResp",
+            "400": "PostV3DbwOrdersClientResponse400",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_dbw_orders_client_serialize(
         self,
@@ -1446,13 +1432,10 @@ class DBWApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1471,38 +1454,28 @@ class DBWApi:
         if orders_request_api is not None:
             _body_params = orders_request_api
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/dbw/orders/client',
+            method="POST",
+            resource_path="/api/marketplace/v3/dbw/orders/client",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1512,11 +1485,8 @@ class DBWApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_dbw_orders_courier(
@@ -1526,9 +1496,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1561,34 +1530,32 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_courier_serialize(
             orders_request_api=orders_request_api,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "OrderCourierInfoResp",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "OrderCourierInfoResp",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_dbw_orders_courier_with_http_info(
@@ -1598,9 +1565,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1633,34 +1599,32 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_courier_serialize(
             orders_request_api=orders_request_api,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "OrderCourierInfoResp",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "OrderCourierInfoResp",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_dbw_orders_courier_without_preload_content(
@@ -1670,9 +1634,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1705,30 +1668,28 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_courier_serialize(
             orders_request_api=orders_request_api,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "OrderCourierInfoResp",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "OrderCourierInfoResp",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_dbw_orders_courier_serialize(
         self,
@@ -1739,13 +1700,10 @@ class DBWApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1764,38 +1722,28 @@ class DBWApi:
         if orders_request_api is not None:
             _body_params = orders_request_api
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v3/dbw/orders/courier',
+            method="POST",
+            resource_path="/api/v3/dbw/orders/courier",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1805,11 +1753,8 @@ class DBWApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_dbw_orders_delivery_date(
@@ -1819,9 +1764,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1854,34 +1798,32 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_delivery_date_serialize(
             delivery_dates_request=delivery_dates_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeliveryDatesInfoResp",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "DeliveryDatesInfoResp",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_dbw_orders_delivery_date_with_http_info(
@@ -1891,9 +1833,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1926,34 +1867,32 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_delivery_date_serialize(
             delivery_dates_request=delivery_dates_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeliveryDatesInfoResp",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "DeliveryDatesInfoResp",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_dbw_orders_delivery_date_without_preload_content(
@@ -1963,9 +1902,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1998,30 +1936,28 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_delivery_date_serialize(
             delivery_dates_request=delivery_dates_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeliveryDatesInfoResp",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "DeliveryDatesInfoResp",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_dbw_orders_delivery_date_serialize(
         self,
@@ -2032,13 +1968,10 @@ class DBWApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2057,38 +1990,28 @@ class DBWApi:
         if delivery_dates_request is not None:
             _body_params = delivery_dates_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v3/dbw/orders/delivery-date',
+            method="POST",
+            resource_path="/api/v3/dbw/orders/delivery-date",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2098,11 +2021,8 @@ class DBWApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_dbw_orders_meta_delete(
@@ -2112,9 +2032,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2147,34 +2066,32 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_meta_delete_serialize(
             api_orders_meta_dlete_request_v2=api_orders_meta_dlete_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3DbwOrdersMetaDeleteResponse200",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "PostV3DbwOrdersMetaDeleteResponse200",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_dbw_orders_meta_delete_with_http_info(
@@ -2184,9 +2101,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2219,34 +2135,32 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_meta_delete_serialize(
             api_orders_meta_dlete_request_v2=api_orders_meta_dlete_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3DbwOrdersMetaDeleteResponse200",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "PostV3DbwOrdersMetaDeleteResponse200",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_dbw_orders_meta_delete_without_preload_content(
@@ -2256,9 +2170,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2291,30 +2204,28 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_meta_delete_serialize(
             api_orders_meta_dlete_request_v2=api_orders_meta_dlete_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3DbwOrdersMetaDeleteResponse200",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "PostV3DbwOrdersMetaDeleteResponse200",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_dbw_orders_meta_delete_serialize(
         self,
@@ -2325,13 +2236,10 @@ class DBWApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2350,38 +2258,28 @@ class DBWApi:
         if api_orders_meta_dlete_request_v2 is not None:
             _body_params = api_orders_meta_dlete_request_v2
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/dbw/orders/meta/delete',
+            method="POST",
+            resource_path="/api/marketplace/v3/dbw/orders/meta/delete",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2391,11 +2289,8 @@ class DBWApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_dbw_orders_meta_details(
@@ -2405,9 +2300,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2440,34 +2334,32 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_meta_details_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrdersMetaDetailsResponse",
-            '400': "ApiBatchError",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "ApiOrdersMetaDetailsResponse",
+            "400": "ApiBatchError",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_dbw_orders_meta_details_with_http_info(
@@ -2477,9 +2369,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2512,34 +2403,32 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_meta_details_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrdersMetaDetailsResponse",
-            '400': "ApiBatchError",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "ApiOrdersMetaDetailsResponse",
+            "400": "ApiBatchError",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_dbw_orders_meta_details_without_preload_content(
@@ -2549,9 +2438,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2584,30 +2472,28 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_meta_details_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiOrdersMetaDetailsResponse",
-            '400': "ApiBatchError",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "ApiBatchError",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "ApiOrdersMetaDetailsResponse",
+            "400": "ApiBatchError",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "ApiBatchError",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_dbw_orders_meta_details_serialize(
         self,
@@ -2618,13 +2504,10 @@ class DBWApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2643,38 +2526,28 @@ class DBWApi:
         if api_orders_request_v2 is not None:
             _body_params = api_orders_request_v2
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/dbw/orders/meta/details',
+            method="POST",
+            resource_path="/api/marketplace/v3/dbw/orders/meta/details",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2684,11 +2557,8 @@ class DBWApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_dbw_orders_meta_sgtin(
@@ -2698,9 +2568,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2733,34 +2602,32 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_meta_sgtin_serialize(
             api_orders_sgtins_set_request=api_orders_sgtins_set_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiStatusSetResponses",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "ApiStatusSetResponses",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_dbw_orders_meta_sgtin_with_http_info(
@@ -2770,9 +2637,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2805,34 +2671,32 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_meta_sgtin_serialize(
             api_orders_sgtins_set_request=api_orders_sgtins_set_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiStatusSetResponses",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "ApiStatusSetResponses",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_dbw_orders_meta_sgtin_without_preload_content(
@@ -2842,9 +2706,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2877,30 +2740,28 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_meta_sgtin_serialize(
             api_orders_sgtins_set_request=api_orders_sgtins_set_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiStatusSetResponses",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "ApiStatusSetResponses",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_dbw_orders_meta_sgtin_serialize(
         self,
@@ -2911,13 +2772,10 @@ class DBWApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2936,38 +2794,28 @@ class DBWApi:
         if api_orders_sgtins_set_request is not None:
             _body_params = api_orders_sgtins_set_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/dbw/orders/meta/sgtin',
+            method="POST",
+            resource_path="/api/marketplace/v3/dbw/orders/meta/sgtin",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2977,23 +2825,21 @@ class DBWApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_dbw_orders_status(
         self,
-        post_v3_dbw_orders_status_request: Optional[PostV3DbwOrdersStatusRequest] = None,
+        post_v3_dbw_orders_status_request: Optional[
+            PostV3DbwOrdersStatusRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3026,27 +2872,26 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_status_serialize(
             post_v3_dbw_orders_status_request=post_v3_dbw_orders_status_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3DbwOrdersStatusResponse200",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "PostV3DbwOrdersStatusResponse200",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3054,18 +2899,18 @@ class DBWApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def post_v3_dbw_orders_status_with_http_info(
         self,
-        post_v3_dbw_orders_status_request: Optional[PostV3DbwOrdersStatusRequest] = None,
+        post_v3_dbw_orders_status_request: Optional[
+            PostV3DbwOrdersStatusRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3098,27 +2943,26 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_status_serialize(
             post_v3_dbw_orders_status_request=post_v3_dbw_orders_status_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3DbwOrdersStatusResponse200",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "PostV3DbwOrdersStatusResponse200",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3126,18 +2970,18 @@ class DBWApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def post_v3_dbw_orders_status_without_preload_content(
         self,
-        post_v3_dbw_orders_status_request: Optional[PostV3DbwOrdersStatusRequest] = None,
+        post_v3_dbw_orders_status_request: Optional[
+            PostV3DbwOrdersStatusRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3170,30 +3014,28 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_status_serialize(
             post_v3_dbw_orders_status_request=post_v3_dbw_orders_status_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3DbwOrdersStatusResponse200",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "PostV3DbwOrdersStatusResponse200",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_dbw_orders_status_serialize(
         self,
@@ -3204,13 +3046,10 @@ class DBWApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3229,38 +3068,28 @@ class DBWApi:
         if post_v3_dbw_orders_status_request is not None:
             _body_params = post_v3_dbw_orders_status_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v3/dbw/orders/status',
+            method="POST",
+            resource_path="/api/v3/dbw/orders/status",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3270,11 +3099,8 @@ class DBWApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_dbw_orders_status_deliver(
@@ -3284,9 +3110,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3319,34 +3144,32 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_status_deliver_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiStatusSetResponses",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "ApiStatusSetResponses",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_dbw_orders_status_deliver_with_http_info(
@@ -3356,9 +3179,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3391,34 +3213,32 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_status_deliver_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiStatusSetResponses",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "ApiStatusSetResponses",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_dbw_orders_status_deliver_without_preload_content(
@@ -3428,9 +3248,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3463,30 +3282,28 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_status_deliver_serialize(
             api_orders_request_v2=api_orders_request_v2,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiStatusSetResponses",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "ApiStatusSetResponses",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_dbw_orders_status_deliver_serialize(
         self,
@@ -3497,13 +3314,10 @@ class DBWApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3522,38 +3336,28 @@ class DBWApi:
         if api_orders_request_v2 is not None:
             _body_params = api_orders_request_v2
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/dbw/orders/status/deliver',
+            method="POST",
+            resource_path="/api/marketplace/v3/dbw/orders/status/deliver",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3563,11 +3367,8 @@ class DBWApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_dbw_orders_stickers(
@@ -3575,14 +3376,15 @@ class DBWApi:
         type: Annotated[StrictStr, Field(description="Тип стикера")],
         width: Annotated[StrictInt, Field(description="Ширина стикера")],
         height: Annotated[StrictInt, Field(description="Высота стикера")],
-        post_v3_dbw_orders_stickers_request: Optional[PostV3DbwOrdersStickersRequest] = None,
+        post_v3_dbw_orders_stickers_request: Optional[
+            PostV3DbwOrdersStickersRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3621,7 +3423,7 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_stickers_serialize(
             type=type,
@@ -3631,20 +3433,19 @@ class DBWApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3DbwOrdersStickersResponse200",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "PostV3DbwOrdersStickersResponse200",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3652,21 +3453,21 @@ class DBWApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def post_v3_dbw_orders_stickers_with_http_info(
         self,
         type: Annotated[StrictStr, Field(description="Тип стикера")],
         width: Annotated[StrictInt, Field(description="Ширина стикера")],
         height: Annotated[StrictInt, Field(description="Высота стикера")],
-        post_v3_dbw_orders_stickers_request: Optional[PostV3DbwOrdersStickersRequest] = None,
+        post_v3_dbw_orders_stickers_request: Optional[
+            PostV3DbwOrdersStickersRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3705,7 +3506,7 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_stickers_serialize(
             type=type,
@@ -3715,20 +3516,19 @@ class DBWApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3DbwOrdersStickersResponse200",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "PostV3DbwOrdersStickersResponse200",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3736,21 +3536,21 @@ class DBWApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def post_v3_dbw_orders_stickers_without_preload_content(
         self,
         type: Annotated[StrictStr, Field(description="Тип стикера")],
         width: Annotated[StrictInt, Field(description="Ширина стикера")],
         height: Annotated[StrictInt, Field(description="Высота стикера")],
-        post_v3_dbw_orders_stickers_request: Optional[PostV3DbwOrdersStickersRequest] = None,
+        post_v3_dbw_orders_stickers_request: Optional[
+            PostV3DbwOrdersStickersRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3789,7 +3589,7 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_dbw_orders_stickers_serialize(
             type=type,
@@ -3799,23 +3599,21 @@ class DBWApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3DbwOrdersStickersResponse200",
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "200": "PostV3DbwOrdersStickersResponse200",
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_dbw_orders_stickers_serialize(
         self,
@@ -3829,13 +3627,10 @@ class DBWApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3849,55 +3644,45 @@ class DBWApi:
         # process the path parameters
         # process the query parameters
         if type is not None:
-            
-            _query_params.append(('type', type))
-            
+
+            _query_params.append(("type", type))
+
         if width is not None:
-            
-            _query_params.append(('width', width))
-            
+
+            _query_params.append(("width", width))
+
         if height is not None:
-            
-            _query_params.append(('height', height))
-            
+
+            _query_params.append(("height", height))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
         if post_v3_dbw_orders_stickers_request is not None:
             _body_params = post_v3_dbw_orders_stickers_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v3/dbw/orders/stickers',
+            method="POST",
+            resource_path="/api/v3/dbw/orders/stickers",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3907,11 +3692,8 @@ class DBWApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def put_v3_dbw_orders_order_id_meta_gtin(
@@ -3922,9 +3704,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3959,7 +3740,7 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_dbw_orders_order_id_meta_gtin_serialize(
             order_id=order_id,
@@ -3967,29 +3748,27 @@ class DBWApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def put_v3_dbw_orders_order_id_meta_gtin_with_http_info(
@@ -4000,9 +3779,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4037,7 +3815,7 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_dbw_orders_order_id_meta_gtin_serialize(
             order_id=order_id,
@@ -4045,29 +3823,27 @@ class DBWApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def put_v3_dbw_orders_order_id_meta_gtin_without_preload_content(
@@ -4078,9 +3854,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4115,7 +3890,7 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_dbw_orders_order_id_meta_gtin_serialize(
             order_id=order_id,
@@ -4123,25 +3898,23 @@ class DBWApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _put_v3_dbw_orders_order_id_meta_gtin_serialize(
         self,
@@ -4153,13 +3926,10 @@ class DBWApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -4172,7 +3942,7 @@ class DBWApi:
 
         # process the path parameters
         if order_id is not None:
-            _path_params['orderId'] = order_id
+            _path_params["orderId"] = order_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -4180,38 +3950,28 @@ class DBWApi:
         if put_v3_dbw_orders_order_id_meta_gtin_request is not None:
             _body_params = put_v3_dbw_orders_order_id_meta_gtin_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/v3/dbw/orders/{orderId}/meta/gtin',
+            method="PUT",
+            resource_path="/api/v3/dbw/orders/{orderId}/meta/gtin",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4221,11 +3981,8 @@ class DBWApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def put_v3_dbw_orders_order_id_meta_imei(
@@ -4236,9 +3993,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4273,7 +4029,7 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_dbw_orders_order_id_meta_imei_serialize(
             order_id=order_id,
@@ -4281,29 +4037,27 @@ class DBWApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def put_v3_dbw_orders_order_id_meta_imei_with_http_info(
@@ -4314,9 +4068,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4351,7 +4104,7 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_dbw_orders_order_id_meta_imei_serialize(
             order_id=order_id,
@@ -4359,29 +4112,27 @@ class DBWApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def put_v3_dbw_orders_order_id_meta_imei_without_preload_content(
@@ -4392,9 +4143,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4429,7 +4179,7 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_dbw_orders_order_id_meta_imei_serialize(
             order_id=order_id,
@@ -4437,25 +4187,23 @@ class DBWApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _put_v3_dbw_orders_order_id_meta_imei_serialize(
         self,
@@ -4467,13 +4215,10 @@ class DBWApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -4486,7 +4231,7 @@ class DBWApi:
 
         # process the path parameters
         if order_id is not None:
-            _path_params['orderId'] = order_id
+            _path_params["orderId"] = order_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -4494,38 +4239,28 @@ class DBWApi:
         if put_v3_dbw_orders_order_id_meta_imei_request is not None:
             _body_params = put_v3_dbw_orders_order_id_meta_imei_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/v3/dbw/orders/{orderId}/meta/imei',
+            method="PUT",
+            resource_path="/api/v3/dbw/orders/{orderId}/meta/imei",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4535,11 +4270,8 @@ class DBWApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def put_v3_dbw_orders_order_id_meta_uin(
@@ -4550,9 +4282,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4587,7 +4318,7 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_dbw_orders_order_id_meta_uin_serialize(
             order_id=order_id,
@@ -4595,29 +4326,27 @@ class DBWApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def put_v3_dbw_orders_order_id_meta_uin_with_http_info(
@@ -4628,9 +4357,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4665,7 +4393,7 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_dbw_orders_order_id_meta_uin_serialize(
             order_id=order_id,
@@ -4673,29 +4401,27 @@ class DBWApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def put_v3_dbw_orders_order_id_meta_uin_without_preload_content(
@@ -4706,9 +4432,8 @@ class DBWApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4743,7 +4468,7 @@ class DBWApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_dbw_orders_order_id_meta_uin_serialize(
             order_id=order_id,
@@ -4751,25 +4476,23 @@ class DBWApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3DbwOrdersNew401Response",
-            '402': "GetV3DbwOrdersNew402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3DbwOrdersNew401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3DbwOrdersNew401Response",
+            "402": "GetV3DbwOrdersNew402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3DbwOrdersNew401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _put_v3_dbw_orders_order_id_meta_uin_serialize(
         self,
@@ -4781,13 +4504,10 @@ class DBWApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -4800,7 +4520,7 @@ class DBWApi:
 
         # process the path parameters
         if order_id is not None:
-            _path_params['orderId'] = order_id
+            _path_params["orderId"] = order_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -4808,38 +4528,28 @@ class DBWApi:
         if put_v3_dbw_orders_order_id_meta_uin_request is not None:
             _body_params = put_v3_dbw_orders_order_id_meta_uin_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/v3/dbw/orders/{orderId}/meta/uin',
+            method="PUT",
+            resource_path="/api/v3/dbw/orders/{orderId}/meta/uin",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4849,7 +4559,5 @@ class DBWApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

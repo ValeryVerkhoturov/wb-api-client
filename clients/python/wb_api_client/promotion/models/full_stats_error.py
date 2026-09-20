@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.full_stats_error_errors_inner import FullStatsErrorErrorsInner
+from wb_api_client.promotion.models.full_stats_error_errors_inner import (
+    FullStatsErrorErrorsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class FullStatsError(BaseModel):
     """
     Ошибка
-    """ # noqa: E501
+    """  # noqa: E501
+
     errors: Optional[List[FullStatsErrorErrorsInner]] = None
     detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
     origin: StrictStr = Field(description="ID внутреннего сервиса WB")
@@ -34,14 +38,21 @@ class FullStatsError(BaseModel):
     status: StrictInt = Field(description="HTTP статус-код")
     title: StrictStr = Field(description="Заголовок ошибки")
     type: Optional[StrictStr] = Field(default=None, description="Тип ошибки")
-    __properties: ClassVar[List[str]] = ["errors", "detail", "origin", "request_id", "status", "title", "type"]
+    __properties: ClassVar[List[str]] = [
+        "errors",
+        "detail",
+        "origin",
+        "request_id",
+        "status",
+        "title",
+        "type",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -67,8 +78,7 @@ class FullStatsError(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,7 +91,7 @@ class FullStatsError(BaseModel):
             for _item_errors in self.errors:
                 if _item_errors:
                     _items.append(_item_errors.to_dict())
-            _dict['errors'] = _items
+            _dict["errors"] = _items
         return _dict
 
     @classmethod
@@ -93,15 +103,22 @@ class FullStatsError(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "errors": [FullStatsErrorErrorsInner.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None,
-            "detail": obj.get("detail"),
-            "origin": obj.get("origin"),
-            "request_id": obj.get("request_id"),
-            "status": obj.get("status"),
-            "title": obj.get("title"),
-            "type": obj.get("type")
-        })
+        _obj = cls.model_validate(
+            {
+                "errors": (
+                    [
+                        FullStatsErrorErrorsInner.from_dict(_item)
+                        for _item in obj["errors"]
+                    ]
+                    if obj.get("errors") is not None
+                    else None
+                ),
+                "detail": obj.get("detail"),
+                "origin": obj.get("origin"),
+                "request_id": obj.get("request_id"),
+                "status": obj.get("status"),
+                "title": obj.get("title"),
+                "type": obj.get("type"),
+            }
+        )
         return _obj
-
-

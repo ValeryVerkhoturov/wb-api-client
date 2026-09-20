@@ -22,27 +22,59 @@ from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class WbClubMetricsDynamic(BaseModel):
     """
     WbClubMetricsDynamic
-    """ # noqa: E501
-    order_count: StrictInt = Field(description="Динамика количества заказов с WB Клубом", alias="orderCount")
-    order_sum: StrictInt = Field(description="Динамика суммы заказов с WB Клубом", alias="orderSum")
-    buyout_sum: StrictInt = Field(description="Динамика суммы выкупов с WB Клубом", alias="buyoutSum")
-    buyout_count: StrictInt = Field(description="Динамика выкупов с WB Клубом", alias="buyoutCount")
-    cancel_sum: StrictInt = Field(description="Динамика сумм отмен и возвратов товаров с WB Клубом", alias="cancelSum")
-    cancel_count: StrictInt = Field(description="Динамика отмен и возвратов товаров с WB Клубом", alias="cancelCount")
-    avg_price: StrictInt = Field(description="Динамика средней цены на товары с WB Клубом", alias="avgPrice")
-    buyout_percent: StrictInt = Field(description="Динамика процента выкупа с WB Клубом", alias="buyoutPercent")
-    avg_order_count_per_day: Union[StrictFloat, StrictInt] = Field(description="Динамика среднего количества заказов с WB Клубом в день", alias="avgOrderCountPerDay")
-    __properties: ClassVar[List[str]] = ["orderCount", "orderSum", "buyoutSum", "buyoutCount", "cancelSum", "cancelCount", "avgPrice", "buyoutPercent", "avgOrderCountPerDay"]
+    """  # noqa: E501
+
+    order_count: StrictInt = Field(
+        description="Динамика количества заказов с WB Клубом", alias="orderCount"
+    )
+    order_sum: StrictInt = Field(
+        description="Динамика суммы заказов с WB Клубом", alias="orderSum"
+    )
+    buyout_sum: StrictInt = Field(
+        description="Динамика суммы выкупов с WB Клубом", alias="buyoutSum"
+    )
+    buyout_count: StrictInt = Field(
+        description="Динамика выкупов с WB Клубом", alias="buyoutCount"
+    )
+    cancel_sum: StrictInt = Field(
+        description="Динамика сумм отмен и возвратов товаров с WB Клубом",
+        alias="cancelSum",
+    )
+    cancel_count: StrictInt = Field(
+        description="Динамика отмен и возвратов товаров с WB Клубом",
+        alias="cancelCount",
+    )
+    avg_price: StrictInt = Field(
+        description="Динамика средней цены на товары с WB Клубом", alias="avgPrice"
+    )
+    buyout_percent: StrictInt = Field(
+        description="Динамика процента выкупа с WB Клубом", alias="buyoutPercent"
+    )
+    avg_order_count_per_day: Union[StrictFloat, StrictInt] = Field(
+        description="Динамика среднего количества заказов с WB Клубом в день",
+        alias="avgOrderCountPerDay",
+    )
+    __properties: ClassVar[List[str]] = [
+        "orderCount",
+        "orderSum",
+        "buyoutSum",
+        "buyoutCount",
+        "cancelSum",
+        "cancelCount",
+        "avgPrice",
+        "buyoutPercent",
+        "avgOrderCountPerDay",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -68,8 +100,7 @@ class WbClubMetricsDynamic(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -87,17 +118,17 @@ class WbClubMetricsDynamic(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "orderCount": obj.get("orderCount"),
-            "orderSum": obj.get("orderSum"),
-            "buyoutSum": obj.get("buyoutSum"),
-            "buyoutCount": obj.get("buyoutCount"),
-            "cancelSum": obj.get("cancelSum"),
-            "cancelCount": obj.get("cancelCount"),
-            "avgPrice": obj.get("avgPrice"),
-            "buyoutPercent": obj.get("buyoutPercent"),
-            "avgOrderCountPerDay": obj.get("avgOrderCountPerDay")
-        })
+        _obj = cls.model_validate(
+            {
+                "orderCount": obj.get("orderCount"),
+                "orderSum": obj.get("orderSum"),
+                "buyoutSum": obj.get("buyoutSum"),
+                "buyoutCount": obj.get("buyoutCount"),
+                "cancelSum": obj.get("cancelSum"),
+                "cancelCount": obj.get("cancelCount"),
+                "avgPrice": obj.get("avgPrice"),
+                "buyoutPercent": obj.get("buyoutPercent"),
+                "avgOrderCountPerDay": obj.get("avgOrderCountPerDay"),
+            }
+        )
         return _obj
-
-

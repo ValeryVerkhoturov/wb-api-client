@@ -21,26 +21,48 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_v
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.promotion.models.advert_nms_settings import AdvertNMsSettings
 from wb_api_client.promotion.models.advert_settings import AdvertSettings
-from wb_api_client.promotion.models.get_adverts_adverts_inner_restrictions import GetAdvertsAdvertsInnerRestrictions
+from wb_api_client.promotion.models.get_adverts_adverts_inner_restrictions import (
+    GetAdvertsAdvertsInnerRestrictions,
+)
 from wb_api_client.promotion.models.timestamps import Timestamps
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetAdvertsAdvertsInner(BaseModel):
     """
     GetAdvertsAdvertsInner
-    """ # noqa: E501
-    bid_type: StrictStr = Field(description="Тип ставки:   - `unified` — единая ставка   - `manual` — ручная ставка ")
-    currency: Optional[StrictStr] = Field(default=None, description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    """  # noqa: E501
+
+    bid_type: StrictStr = Field(
+        description="Тип ставки:   - `unified` — единая ставка   - `manual` — ручная ставка "
+    )
+    currency: Optional[StrictStr] = Field(
+        default=None,
+        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
     id: StrictInt = Field(description="ID кампании")
-    nm_settings: Optional[List[AdvertNMsSettings]] = Field(description="Настройки товаров")
+    nm_settings: Optional[List[AdvertNMsSettings]] = Field(
+        description="Настройки товаров"
+    )
     settings: AdvertSettings
     restrictions: GetAdvertsAdvertsInnerRestrictions
-    status: StrictInt = Field(description="Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе ")
+    status: StrictInt = Field(
+        description="Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе "
+    )
     timestamps: Timestamps
-    __properties: ClassVar[List[str]] = ["bid_type", "currency", "id", "nm_settings", "settings", "restrictions", "status", "timestamps"]
+    __properties: ClassVar[List[str]] = [
+        "bid_type",
+        "currency",
+        "id",
+        "nm_settings",
+        "settings",
+        "restrictions",
+        "status",
+        "timestamps",
+    ]
 
-    @field_validator('status')
+    @field_validator("status")
     def status_validate_enum(cls, value):
         """Validates the enum"""
         if value not in set([-1, 4, 7, 8, 9, 11]):
@@ -52,7 +74,6 @@ class GetAdvertsAdvertsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -78,8 +99,7 @@ class GetAdvertsAdvertsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -92,20 +112,20 @@ class GetAdvertsAdvertsInner(BaseModel):
             for _item_nm_settings in self.nm_settings:
                 if _item_nm_settings:
                     _items.append(_item_nm_settings.to_dict())
-            _dict['nm_settings'] = _items
+            _dict["nm_settings"] = _items
         # override the default output from pydantic by calling `to_dict()` of settings
         if self.settings:
-            _dict['settings'] = self.settings.to_dict()
+            _dict["settings"] = self.settings.to_dict()
         # override the default output from pydantic by calling `to_dict()` of restrictions
         if self.restrictions:
-            _dict['restrictions'] = self.restrictions.to_dict()
+            _dict["restrictions"] = self.restrictions.to_dict()
         # override the default output from pydantic by calling `to_dict()` of timestamps
         if self.timestamps:
-            _dict['timestamps'] = self.timestamps.to_dict()
+            _dict["timestamps"] = self.timestamps.to_dict()
         # set to None if nm_settings (nullable) is None
         # and model_fields_set contains the field
         if self.nm_settings is None and "nm_settings" in self.model_fields_set:
-            _dict['nm_settings'] = None
+            _dict["nm_settings"] = None
 
         return _dict
 
@@ -118,16 +138,32 @@ class GetAdvertsAdvertsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "bid_type": obj.get("bid_type"),
-            "currency": obj.get("currency"),
-            "id": obj.get("id"),
-            "nm_settings": [AdvertNMsSettings.from_dict(_item) for _item in obj["nm_settings"]] if obj.get("nm_settings") is not None else None,
-            "settings": AdvertSettings.from_dict(obj["settings"]) if obj.get("settings") is not None else None,
-            "restrictions": GetAdvertsAdvertsInnerRestrictions.from_dict(obj["restrictions"]) if obj.get("restrictions") is not None else None,
-            "status": obj.get("status"),
-            "timestamps": Timestamps.from_dict(obj["timestamps"]) if obj.get("timestamps") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "bid_type": obj.get("bid_type"),
+                "currency": obj.get("currency"),
+                "id": obj.get("id"),
+                "nm_settings": (
+                    [AdvertNMsSettings.from_dict(_item) for _item in obj["nm_settings"]]
+                    if obj.get("nm_settings") is not None
+                    else None
+                ),
+                "settings": (
+                    AdvertSettings.from_dict(obj["settings"])
+                    if obj.get("settings") is not None
+                    else None
+                ),
+                "restrictions": (
+                    GetAdvertsAdvertsInnerRestrictions.from_dict(obj["restrictions"])
+                    if obj.get("restrictions") is not None
+                    else None
+                ),
+                "status": obj.get("status"),
+                "timestamps": (
+                    Timestamps.from_dict(obj["timestamps"])
+                    if obj.get("timestamps") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

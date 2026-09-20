@@ -23,13 +23,25 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV1SellerMessageRequest(BaseModel):
     """
     PostV1SellerMessageRequest
-    """ # noqa: E501
-    reply_sign: Annotated[str, Field(strict=True, max_length=255)] = Field(description="Подпись чата. Можно получить из [информации по чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./customer-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле `\"isNewChat\": true`. ", alias="replySign")
-    message: Optional[Annotated[str, Field(strict=True, max_length=1000)]] = Field(default=None, description="Текст сообщения. Максимум 1000 символов.")
-    file: Optional[List[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]]] = Field(default=None, description="Файлы, формат JPEG, PDF или PNG, максимальный размер — 5 Мб каждый. Максимальный суммарный размер файлов — 30 Мб. ")
+    """  # noqa: E501
+
+    reply_sign: Annotated[str, Field(strict=True, max_length=255)] = Field(
+        description='Подпись чата. Можно получить из [информации по чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./customer-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле `"isNewChat": true`. ',
+        alias="replySign",
+    )
+    message: Optional[Annotated[str, Field(strict=True, max_length=1000)]] = Field(
+        default=None, description="Текст сообщения. Максимум 1000 символов."
+    )
+    file: Optional[
+        List[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]]
+    ] = Field(
+        default=None,
+        description="Файлы, формат JPEG, PDF или PNG, максимальный размер — 5 Мб каждый. Максимальный суммарный размер файлов — 30 Мб. ",
+    )
     __properties: ClassVar[List[str]] = ["replySign", "message", "file"]
 
     model_config = ConfigDict(
@@ -37,7 +49,6 @@ class PostV1SellerMessageRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +74,7 @@ class PostV1SellerMessageRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,11 +92,11 @@ class PostV1SellerMessageRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "replySign": obj.get("replySign"),
-            "message": obj.get("message"),
-            "file": obj.get("file")
-        })
+        _obj = cls.model_validate(
+            {
+                "replySign": obj.get("replySign"),
+                "message": obj.get("message"),
+                "file": obj.get("file"),
+            }
+        )
         return _obj
-
-

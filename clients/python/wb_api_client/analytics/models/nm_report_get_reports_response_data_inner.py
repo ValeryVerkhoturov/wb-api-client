@@ -23,25 +23,38 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class NmReportGetReportsResponseDataInner(BaseModel):
     """
     NmReportGetReportsResponseDataInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: StrictStr = Field(description="ID отчёта")
-    created_at: StrictStr = Field(description="Дата и время завершения генерации", alias="createdAt")
-    status: StrictStr = Field(description="Статус отчёта:  * `WAITING` — в очереди на обработку * `PROCESSING` — генерируется * `SUCCESS —` готов * `RETRY` — ожидает повторной обработки * `FAILED` — не получилось сгенерировать, сгенерируйте повторно ")
+    created_at: StrictStr = Field(
+        description="Дата и время завершения генерации", alias="createdAt"
+    )
+    status: StrictStr = Field(
+        description="Статус отчёта:  * `WAITING` — в очереди на обработку * `PROCESSING` — генерируется * `SUCCESS —` готов * `RETRY` — ожидает повторной обработки * `FAILED` — не получилось сгенерировать, сгенерируйте повторно "
+    )
     name: StrictStr = Field(description="Название отчёта")
     size: StrictInt = Field(description="Размер отчёта, Б")
     start_date: date = Field(description="Начало периода", alias="startDate")
     end_date: date = Field(description="Конец периода", alias="endDate")
-    __properties: ClassVar[List[str]] = ["id", "createdAt", "status", "name", "size", "startDate", "endDate"]
+    __properties: ClassVar[List[str]] = [
+        "id",
+        "createdAt",
+        "status",
+        "name",
+        "size",
+        "startDate",
+        "endDate",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -67,8 +80,7 @@ class NmReportGetReportsResponseDataInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -86,15 +98,15 @@ class NmReportGetReportsResponseDataInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "createdAt": obj.get("createdAt"),
-            "status": obj.get("status"),
-            "name": obj.get("name"),
-            "size": obj.get("size"),
-            "startDate": obj.get("startDate"),
-            "endDate": obj.get("endDate")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "createdAt": obj.get("createdAt"),
+                "status": obj.get("status"),
+                "name": obj.get("name"),
+                "size": obj.get("size"),
+                "startDate": obj.get("startDate"),
+                "endDate": obj.get("endDate"),
+            }
+        )
         return _obj
-
-

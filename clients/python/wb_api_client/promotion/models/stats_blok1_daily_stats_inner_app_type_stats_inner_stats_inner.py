@@ -22,14 +22,23 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner(BaseModel):
     """
     StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner
-    """ # noqa: E501
-    views: Optional[StrictInt] = Field(default=None, description="Количество просмотров")
+    """  # noqa: E501
+
+    views: Optional[StrictInt] = Field(
+        default=None, description="Количество просмотров"
+    )
     clicks: Optional[StrictInt] = Field(default=None, description="Количество кликов")
-    atbs: Optional[StrictInt] = Field(default=None, description="Количество добавлений товаров в корзину")
-    ctr: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании ")
+    atbs: Optional[StrictInt] = Field(
+        default=None, description="Количество добавлений товаров в корзину"
+    )
+    ctr: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании ",
+    )
     __properties: ClassVar[List[str]] = ["views", "clicks", "atbs", "ctr"]
 
     model_config = ConfigDict(
@@ -37,7 +46,6 @@ class StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +71,7 @@ class StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,12 +89,12 @@ class StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "views": obj.get("views"),
-            "clicks": obj.get("clicks"),
-            "atbs": obj.get("atbs"),
-            "ctr": obj.get("ctr")
-        })
+        _obj = cls.model_validate(
+            {
+                "views": obj.get("views"),
+                "clicks": obj.get("clicks"),
+                "atbs": obj.get("atbs"),
+                "ctr": obj.get("ctr"),
+            }
+        )
         return _obj
-
-

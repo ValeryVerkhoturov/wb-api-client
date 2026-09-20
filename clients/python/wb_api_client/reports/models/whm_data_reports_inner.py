@@ -23,27 +23,48 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class WHMDataReportsInner(BaseModel):
     """
     WHMDataReportsInner
-    """ # noqa: E501
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId")
-    subject_name: Optional[StrictStr] = Field(default=None, description="Предмет", alias="subjectName")
-    dim_id: Optional[StrictInt] = Field(default=None, description="ID замера", alias="dimId")
-    volume: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Объём, л")
+    """  # noqa: E501
+
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Предмет", alias="subjectName"
+    )
+    dim_id: Optional[StrictInt] = Field(
+        default=None, description="ID замера", alias="dimId"
+    )
+    volume: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Объём, л"
+    )
     width: Optional[StrictInt] = Field(default=None, description="Ширина, см")
     length: Optional[StrictInt] = Field(default=None, description="Длина, см")
     height: Optional[StrictInt] = Field(default=None, description="Высота, см")
-    photo_urls: Optional[List[StrictStr]] = Field(default=None, description="Фото замеров", alias="photoUrls")
+    photo_urls: Optional[List[StrictStr]] = Field(
+        default=None, description="Фото замеров", alias="photoUrls"
+    )
     dt: Optional[datetime] = Field(default=None, description="Дата и время")
-    __properties: ClassVar[List[str]] = ["nmId", "subjectName", "dimId", "volume", "width", "length", "height", "photoUrls", "dt"]
+    __properties: ClassVar[List[str]] = [
+        "nmId",
+        "subjectName",
+        "dimId",
+        "volume",
+        "width",
+        "length",
+        "height",
+        "photoUrls",
+        "dt",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -69,8 +90,7 @@ class WHMDataReportsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -88,17 +108,17 @@ class WHMDataReportsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmId": obj.get("nmId"),
-            "subjectName": obj.get("subjectName"),
-            "dimId": obj.get("dimId"),
-            "volume": obj.get("volume"),
-            "width": obj.get("width"),
-            "length": obj.get("length"),
-            "height": obj.get("height"),
-            "photoUrls": obj.get("photoUrls"),
-            "dt": obj.get("dt")
-        })
+        _obj = cls.model_validate(
+            {
+                "nmId": obj.get("nmId"),
+                "subjectName": obj.get("subjectName"),
+                "dimId": obj.get("dimId"),
+                "volume": obj.get("volume"),
+                "width": obj.get("width"),
+                "length": obj.get("length"),
+                "height": obj.get("height"),
+                "photoUrls": obj.get("photoUrls"),
+                "dt": obj.get("dt"),
+            }
+        )
         return _obj
-
-

@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.orders_fbs.models.http409_supply_deliver_error_data import Http409SupplyDeliverErrorData
+from wb_api_client.orders_fbs.models.http409_supply_deliver_error_data import (
+    Http409SupplyDeliverErrorData,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class Http409SupplyDeliverError(BaseModel):
     """
     Http409SupplyDeliverError
-    """ # noqa: E501
+    """  # noqa: E501
+
     code: Optional[StrictStr] = Field(default=None, description="Код ошибки")
     message: Optional[StrictStr] = Field(default=None, description="Описание ошибки")
     data: Optional[Http409SupplyDeliverErrorData] = None
@@ -37,7 +41,6 @@ class Http409SupplyDeliverError(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +66,7 @@ class Http409SupplyDeliverError(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,11 +75,11 @@ class Http409SupplyDeliverError(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of data
         if self.data:
-            _dict['data'] = self.data.to_dict()
+            _dict["data"] = self.data.to_dict()
         # set to None if data (nullable) is None
         # and model_fields_set contains the field
         if self.data is None and "data" in self.model_fields_set:
-            _dict['data'] = None
+            _dict["data"] = None
 
         return _dict
 
@@ -90,11 +92,15 @@ class Http409SupplyDeliverError(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "code": obj.get("code"),
-            "message": obj.get("message"),
-            "data": Http409SupplyDeliverErrorData.from_dict(obj["data"]) if obj.get("data") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "code": obj.get("code"),
+                "message": obj.get("message"),
+                "data": (
+                    Http409SupplyDeliverErrorData.from_dict(obj["data"])
+                    if obj.get("data") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

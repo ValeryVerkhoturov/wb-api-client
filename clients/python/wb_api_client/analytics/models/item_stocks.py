@@ -22,13 +22,21 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ItemStocks(BaseModel):
     """
     Остатки
-    """ # noqa: E501
-    wb: StrictInt = Field(description="Общее количество остатков на складах WB на текущий день, шт.")
-    mp: StrictInt = Field(description="Общее количество остатков на складах продавца на текущий день, шт.")
-    balance_sum: StrictInt = Field(description="Сумма остатков на складах на текущий день, шт.", alias="balanceSum")
+    """  # noqa: E501
+
+    wb: StrictInt = Field(
+        description="Общее количество остатков на складах WB на текущий день, шт."
+    )
+    mp: StrictInt = Field(
+        description="Общее количество остатков на складах продавца на текущий день, шт."
+    )
+    balance_sum: StrictInt = Field(
+        description="Сумма остатков на складах на текущий день, шт.", alias="balanceSum"
+    )
     __properties: ClassVar[List[str]] = ["wb", "mp", "balanceSum"]
 
     model_config = ConfigDict(
@@ -36,7 +44,6 @@ class ItemStocks(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +69,7 @@ class ItemStocks(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +87,11 @@ class ItemStocks(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "wb": obj.get("wb"),
-            "mp": obj.get("mp"),
-            "balanceSum": obj.get("balanceSum")
-        })
+        _obj = cls.model_validate(
+            {
+                "wb": obj.get("wb"),
+                "mp": obj.get("mp"),
+                "balanceSum": obj.get("balanceSum"),
+            }
+        )
         return _obj
-
-

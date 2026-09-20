@@ -22,14 +22,25 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiOrderClientInfo(BaseModel):
     """
     ApiOrderClientInfo
-    """ # noqa: E501
-    phone: Optional[StrictStr] = Field(default=None, description="Телефон для связи с покупателем. Чтобы связаться с покупателем наберите этот номер и введите добавочный код. Данный номер не является прямым номером покупателя ")
-    first_name: Optional[StrictStr] = Field(default=None, description="Имя покупателя", alias="firstName")
-    order_id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", alias="orderID")
-    phone_code: Optional[StrictInt] = Field(default=None, description="Добавочный код", alias="phoneCode")
+    """  # noqa: E501
+
+    phone: Optional[StrictStr] = Field(
+        default=None,
+        description="Телефон для связи с покупателем. Чтобы связаться с покупателем наберите этот номер и введите добавочный код. Данный номер не является прямым номером покупателя ",
+    )
+    first_name: Optional[StrictStr] = Field(
+        default=None, description="Имя покупателя", alias="firstName"
+    )
+    order_id: Optional[StrictInt] = Field(
+        default=None, description="ID сборочного задания", alias="orderID"
+    )
+    phone_code: Optional[StrictInt] = Field(
+        default=None, description="Добавочный код", alias="phoneCode"
+    )
     __properties: ClassVar[List[str]] = ["phone", "firstName", "orderID", "phoneCode"]
 
     model_config = ConfigDict(
@@ -37,7 +48,6 @@ class ApiOrderClientInfo(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +73,7 @@ class ApiOrderClientInfo(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,12 +91,12 @@ class ApiOrderClientInfo(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "phone": obj.get("phone"),
-            "firstName": obj.get("firstName"),
-            "orderID": obj.get("orderID"),
-            "phoneCode": obj.get("phoneCode")
-        })
+        _obj = cls.model_validate(
+            {
+                "phone": obj.get("phone"),
+                "firstName": obj.get("firstName"),
+                "orderID": obj.get("orderID"),
+                "phoneCode": obj.get("phoneCode"),
+            }
+        )
         return _obj
-
-

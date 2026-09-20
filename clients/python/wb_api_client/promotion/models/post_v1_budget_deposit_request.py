@@ -22,23 +22,46 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV1BudgetDepositRequest(BaseModel):
     """
     PostV1BudgetDepositRequest
-    """ # noqa: E501
-    sum: Optional[StrictInt] = Field(default=None, description="Общая сумма пополнения бюджета в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    cashback_sum: Optional[StrictInt] = Field(default=None, description="Сумма пополнения бюджета промо-бонусами.  Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance).  Оставшаяся часть общей суммы спишется с указанного источника пополнения. Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance).  Оставшаяся часть общей суммы спишется с указанного источника пополнения.  Списать промо-бонусы можно только для источников пополнения: - `0` — счёт - `1` — баланс")
-    cashback_percent: Optional[StrictInt] = Field(default=None, description="Процент от суммы пополнения, который можно пополнить промо-бонусами. Нужно указать значение поля percent из ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance)  Если вы указали `cashback\\_sum`, параметр `cashback\\_percent` становится обязательным")
-    type: Optional[StrictInt] = Field(default=None, description="Тип источника пополнения: - `0` — Счёт - `1` — Баланс - `3` — Бонусы ")
-    var_return: Optional[StrictBool] = Field(default=None, description="Флаг возврата ответа (`true` — в ответе вернется обновлённый размер бюджета кампании, `false` или не указать параметр вообще — не вернётся.)", alias="return")
-    __properties: ClassVar[List[str]] = ["sum", "cashback_sum", "cashback_percent", "type", "return"]
+    """  # noqa: E501
+
+    sum: Optional[StrictInt] = Field(
+        default=None,
+        description="Общая сумма пополнения бюджета в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
+    cashback_sum: Optional[StrictInt] = Field(
+        default=None,
+        description="Сумма пополнения бюджета промо-бонусами.  Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance).  Оставшаяся часть общей суммы спишется с указанного источника пополнения. Пополнить можно только определённый процент от общей суммы, указанный в поле `percent` ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance).  Оставшаяся часть общей суммы спишется с указанного источника пополнения.  Списать промо-бонусы можно только для источников пополнения: - `0` — счёт - `1` — баланс",
+    )
+    cashback_percent: Optional[StrictInt] = Field(
+        default=None,
+        description="Процент от суммы пополнения, который можно пополнить промо-бонусами. Нужно указать значение поля percent из ответа метода получения [баланса](./promotion#tag/finances/operation/getV1Balance)  Если вы указали `cashback\\_sum`, параметр `cashback\\_percent` становится обязательным",
+    )
+    type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип источника пополнения: - `0` — Счёт - `1` — Баланс - `3` — Бонусы ",
+    )
+    var_return: Optional[StrictBool] = Field(
+        default=None,
+        description="Флаг возврата ответа (`true` — в ответе вернется обновлённый размер бюджета кампании, `false` или не указать параметр вообще — не вернётся.)",
+        alias="return",
+    )
+    __properties: ClassVar[List[str]] = [
+        "sum",
+        "cashback_sum",
+        "cashback_percent",
+        "type",
+        "return",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +87,7 @@ class PostV1BudgetDepositRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,13 +105,13 @@ class PostV1BudgetDepositRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "sum": obj.get("sum"),
-            "cashback_sum": obj.get("cashback_sum"),
-            "cashback_percent": obj.get("cashback_percent"),
-            "type": obj.get("type"),
-            "return": obj.get("return")
-        })
+        _obj = cls.model_validate(
+            {
+                "sum": obj.get("sum"),
+                "cashback_sum": obj.get("cashback_sum"),
+                "cashback_percent": obj.get("cashback_percent"),
+                "type": obj.get("type"),
+                "return": obj.get("return"),
+            }
+        )
         return _obj
-
-

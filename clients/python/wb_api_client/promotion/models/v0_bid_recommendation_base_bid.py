@@ -22,11 +22,17 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V0BidRecommendationBaseBid(BaseModel):
     """
     V0BidRecommendationBaseBid
-    """ # noqa: E501
-    bid_kopecks: Optional[StrictInt] = Field(default=None, description="Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).", alias="bidKopecks")
+    """  # noqa: E501
+
+    bid_kopecks: Optional[StrictInt] = Field(
+        default=None,
+        description="Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).",
+        alias="bidKopecks",
+    )
     __properties: ClassVar[List[str]] = ["bidKopecks"]
 
     model_config = ConfigDict(
@@ -34,7 +40,6 @@ class V0BidRecommendationBaseBid(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,8 +65,7 @@ class V0BidRecommendationBaseBid(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,9 +83,5 @@ class V0BidRecommendationBaseBid(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "bidKopecks": obj.get("bidKopecks")
-        })
+        _obj = cls.model_validate({"bidKopecks": obj.get("bidKopecks")})
         return _obj
-
-

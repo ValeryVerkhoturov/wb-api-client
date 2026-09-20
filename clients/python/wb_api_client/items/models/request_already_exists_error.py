@@ -19,17 +19,23 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.request_already_exists_error_data import RequestAlreadyExistsErrorData
+from wb_api_client.items.models.request_already_exists_error_data import (
+    RequestAlreadyExistsErrorData,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class RequestAlreadyExistsError(BaseModel):
     """
     RequestAlreadyExistsError
-    """ # noqa: E501
+    """  # noqa: E501
+
     data: Optional[RequestAlreadyExistsErrorData] = None
     error: Optional[StrictBool] = Field(default=None, description="Флаг ошибки")
-    error_text: Optional[StrictStr] = Field(default=None, description="Текст ошибки", alias="errorText")
+    error_text: Optional[StrictStr] = Field(
+        default=None, description="Текст ошибки", alias="errorText"
+    )
     __properties: ClassVar[List[str]] = ["data", "error", "errorText"]
 
     model_config = ConfigDict(
@@ -37,7 +43,6 @@ class RequestAlreadyExistsError(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +68,7 @@ class RequestAlreadyExistsError(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,7 +77,7 @@ class RequestAlreadyExistsError(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of data
         if self.data:
-            _dict['data'] = self.data.to_dict()
+            _dict["data"] = self.data.to_dict()
         return _dict
 
     @classmethod
@@ -85,11 +89,15 @@ class RequestAlreadyExistsError(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "data": RequestAlreadyExistsErrorData.from_dict(obj["data"]) if obj.get("data") is not None else None,
-            "error": obj.get("error"),
-            "errorText": obj.get("errorText")
-        })
+        _obj = cls.model_validate(
+            {
+                "data": (
+                    RequestAlreadyExistsErrorData.from_dict(obj["data"])
+                    if obj.get("data") is not None
+                    else None
+                ),
+                "error": obj.get("error"),
+                "errorText": obj.get("errorText"),
+            }
+        )
         return _obj
-
-

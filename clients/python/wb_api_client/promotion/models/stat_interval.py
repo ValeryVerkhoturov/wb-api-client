@@ -24,12 +24,16 @@ from wb_api_client.promotion.models.stats_blok1 import StatsBlok1
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class StatInterval(BaseModel):
     """
     StatInterval
-    """ # noqa: E501
+    """  # noqa: E501
+
     interval: StatIntervalInterval
-    stats: Optional[List[StatsBlok1]] = Field(default=None, description="Блок статистики")
+    stats: Optional[List[StatsBlok1]] = Field(
+        default=None, description="Блок статистики"
+    )
     __properties: ClassVar[List[str]] = ["interval", "stats"]
 
     model_config = ConfigDict(
@@ -37,7 +41,6 @@ class StatInterval(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +66,7 @@ class StatInterval(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,14 +75,14 @@ class StatInterval(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of interval
         if self.interval:
-            _dict['interval'] = self.interval.to_dict()
+            _dict["interval"] = self.interval.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in stats (list)
         _items = []
         if self.stats:
             for _item_stats in self.stats:
                 if _item_stats:
                     _items.append(_item_stats.to_dict())
-            _dict['stats'] = _items
+            _dict["stats"] = _items
         return _dict
 
     @classmethod
@@ -92,10 +94,18 @@ class StatInterval(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "interval": StatIntervalInterval.from_dict(obj["interval"]) if obj.get("interval") is not None else None,
-            "stats": [StatsBlok1.from_dict(_item) for _item in obj["stats"]] if obj.get("stats") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "interval": (
+                    StatIntervalInterval.from_dict(obj["interval"])
+                    if obj.get("interval") is not None
+                    else None
+                ),
+                "stats": (
+                    [StatsBlok1.from_dict(_item) for _item in obj["stats"]]
+                    if obj.get("stats") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

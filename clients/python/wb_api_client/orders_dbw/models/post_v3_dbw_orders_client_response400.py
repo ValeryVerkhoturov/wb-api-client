@@ -22,25 +22,40 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV3DbwOrdersClientResponse400(BaseModel):
     """
     PostV3DbwOrdersClientResponse400
-    """ # noqa: E501
+    """  # noqa: E501
+
     code: Optional[StrictStr] = Field(default=None, description="Код ошибки")
     message: Optional[StrictStr] = Field(default=None, description="Описание ошибки")
-    data: Optional[Dict[str, Any]] = Field(default=None, description="Дополнительные данные ошибки")
+    data: Optional[Dict[str, Any]] = Field(
+        default=None, description="Дополнительные данные ошибки"
+    )
     detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
-    origin: Optional[StrictStr] = Field(default=None, description="ID внутреннего сервиса WB")
-    request_id: Optional[StrictStr] = Field(default=None, description="Уникальный ID запроса", alias="requestId")
+    origin: Optional[StrictStr] = Field(
+        default=None, description="ID внутреннего сервиса WB"
+    )
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="Уникальный ID запроса", alias="requestId"
+    )
     title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки")
-    __properties: ClassVar[List[str]] = ["code", "message", "data", "detail", "origin", "requestId", "title"]
+    __properties: ClassVar[List[str]] = [
+        "code",
+        "message",
+        "data",
+        "detail",
+        "origin",
+        "requestId",
+        "title",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -66,8 +81,7 @@ class PostV3DbwOrdersClientResponse400(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,12 +91,12 @@ class PostV3DbwOrdersClientResponse400(BaseModel):
         # set to None if data (nullable) is None
         # and model_fields_set contains the field
         if self.data is None and "data" in self.model_fields_set:
-            _dict['data'] = None
+            _dict["data"] = None
 
         # set to None if detail (nullable) is None
         # and model_fields_set contains the field
         if self.detail is None and "detail" in self.model_fields_set:
-            _dict['detail'] = None
+            _dict["detail"] = None
 
         return _dict
 
@@ -95,15 +109,15 @@ class PostV3DbwOrdersClientResponse400(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "code": obj.get("code"),
-            "message": obj.get("message"),
-            "data": obj.get("data"),
-            "detail": obj.get("detail"),
-            "origin": obj.get("origin"),
-            "requestId": obj.get("requestId"),
-            "title": obj.get("title")
-        })
+        _obj = cls.model_validate(
+            {
+                "code": obj.get("code"),
+                "message": obj.get("message"),
+                "data": obj.get("data"),
+                "detail": obj.get("detail"),
+                "origin": obj.get("origin"),
+                "requestId": obj.get("requestId"),
+                "title": obj.get("title"),
+            }
+        )
         return _obj
-
-

@@ -22,11 +22,17 @@ from typing_extensions import Annotated
 from wb_api_client.general.models.create_invite_request import CreateInviteRequest
 from wb_api_client.general.models.create_invite_response import CreateInviteResponse
 from wb_api_client.general.models.get_users_response import GetUsersResponse
-from wb_api_client.general.models.get_v1_seller_info_response200 import GetV1SellerInfoResponse200
-from wb_api_client.general.models.plan_builder_options_info import PlanBuilderOptionsInfo
+from wb_api_client.general.models.get_v1_seller_info_response200 import (
+    GetV1SellerInfoResponse200,
+)
+from wb_api_client.general.models.plan_builder_options_info import (
+    PlanBuilderOptionsInfo,
+)
 from wb_api_client.general.models.subscriptions_jam_info import SubscriptionsJamInfo
 from wb_api_client.general.models.supplier_rating_model import SupplierRatingModel
-from wb_api_client.general.models.update_user_access_request import UpdateUserAccessRequest
+from wb_api_client.general.models.update_user_access_request import (
+    UpdateUserAccessRequest,
+)
 
 from wb_api_client.general.api_client import ApiClient, RequestSerialized
 from wb_api_client.general.api_response import ApiResponse
@@ -45,18 +51,19 @@ class Api:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def delete_v1_user(
         self,
-        deleted_user_id: Annotated[StrictInt, Field(description="ID пользователя, которому будет закрыт доступ")],
+        deleted_user_id: Annotated[
+            StrictInt,
+            Field(description="ID пользователя, которому будет закрыт доступ"),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -89,26 +96,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._delete_v1_user_serialize(
             deleted_user_id=deleted_user_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '401': "GetPing401Response",
-            '403': "Response4XX",
-            '429': "GetPing401Response",
+            "200": None,
+            "400": "ErrorResponse",
+            "401": "GetPing401Response",
+            "403": "Response4XX",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -116,18 +122,19 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def delete_v1_user_with_http_info(
         self,
-        deleted_user_id: Annotated[StrictInt, Field(description="ID пользователя, которому будет закрыт доступ")],
+        deleted_user_id: Annotated[
+            StrictInt,
+            Field(description="ID пользователя, которому будет закрыт доступ"),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -160,26 +167,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._delete_v1_user_serialize(
             deleted_user_id=deleted_user_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '401': "GetPing401Response",
-            '403': "Response4XX",
-            '429': "GetPing401Response",
+            "200": None,
+            "400": "ErrorResponse",
+            "401": "GetPing401Response",
+            "403": "Response4XX",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -187,18 +193,19 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def delete_v1_user_without_preload_content(
         self,
-        deleted_user_id: Annotated[StrictInt, Field(description="ID пользователя, которому будет закрыт доступ")],
+        deleted_user_id: Annotated[
+            StrictInt,
+            Field(description="ID пользователя, которому будет закрыт доступ"),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -231,29 +238,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._delete_v1_user_serialize(
             deleted_user_id=deleted_user_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '401': "GetPing401Response",
-            '403': "Response4XX",
-            '429': "GetPing401Response",
+            "200": None,
+            "400": "ErrorResponse",
+            "401": "GetPing401Response",
+            "403": "Response4XX",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _delete_v1_user_serialize(
         self,
@@ -264,13 +269,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://user-management-api.wildberries.ru'
-        ]
+        _hosts = ["https://user-management-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -284,32 +286,25 @@ class Api:
         # process the path parameters
         # process the query parameters
         if deleted_user_id is not None:
-            
-            _query_params.append(('deletedUserID', deleted_user_id))
-            
+
+            _query_params.append(("deletedUserID", deleted_user_id))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='DELETE',
-            resource_path='/api/v1/user',
+            method="DELETE",
+            resource_path="/api/v1/user",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -319,11 +314,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_rating(
@@ -332,9 +324,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -365,32 +356,30 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_rating_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SupplierRatingModel",
-            '401': "GetPing401Response",
-            '402': "GetV1SellerInfo402Response",
-            '403': "Response4XX",
-            '429': "GetPing401Response",
+            "200": "SupplierRatingModel",
+            "401": "GetPing401Response",
+            "402": "GetV1SellerInfo402Response",
+            "403": "Response4XX",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_rating_with_http_info(
@@ -399,9 +388,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -432,32 +420,30 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_rating_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SupplierRatingModel",
-            '401': "GetPing401Response",
-            '402': "GetV1SellerInfo402Response",
-            '403': "Response4XX",
-            '429': "GetPing401Response",
+            "200": "SupplierRatingModel",
+            "401": "GetPing401Response",
+            "402": "GetV1SellerInfo402Response",
+            "403": "Response4XX",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_rating_without_preload_content(
@@ -466,9 +452,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -499,28 +484,26 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_rating_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SupplierRatingModel",
-            '401': "GetPing401Response",
-            '402': "GetV1SellerInfo402Response",
-            '403': "Response4XX",
-            '429': "GetPing401Response",
+            "200": "SupplierRatingModel",
+            "401": "GetPing401Response",
+            "402": "GetV1SellerInfo402Response",
+            "403": "Response4XX",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_rating_serialize(
         self,
@@ -530,13 +513,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://feedbacks-api.wildberries.ru'
-        ]
+        _hosts = ["https://feedbacks-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -553,25 +533,18 @@ class Api:
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/common/v1/rating',
+            method="GET",
+            resource_path="/api/common/v1/rating",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -581,11 +554,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_seller_info(
@@ -594,9 +564,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -627,31 +596,29 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_seller_info_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1SellerInfoResponse200",
-            '401': "GetPing401Response",
-            '402': "GetV1SellerInfo402Response",
-            '429': "GetPing401Response",
+            "200": "GetV1SellerInfoResponse200",
+            "401": "GetPing401Response",
+            "402": "GetV1SellerInfo402Response",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_seller_info_with_http_info(
@@ -660,9 +627,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -693,31 +659,29 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_seller_info_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1SellerInfoResponse200",
-            '401': "GetPing401Response",
-            '402': "GetV1SellerInfo402Response",
-            '429': "GetPing401Response",
+            "200": "GetV1SellerInfoResponse200",
+            "401": "GetPing401Response",
+            "402": "GetV1SellerInfo402Response",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_seller_info_without_preload_content(
@@ -726,9 +690,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -759,27 +722,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_seller_info_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1SellerInfoResponse200",
-            '401': "GetPing401Response",
-            '402': "GetV1SellerInfo402Response",
-            '429': "GetPing401Response",
+            "200": "GetV1SellerInfoResponse200",
+            "401": "GetPing401Response",
+            "402": "GetV1SellerInfo402Response",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_seller_info_serialize(
         self,
@@ -789,13 +750,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://common-api.wildberries.ru'
-        ]
+        _hosts = ["https://common-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -812,25 +770,18 @@ class Api:
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/seller-info',
+            method="GET",
+            resource_path="/api/v1/seller-info",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -840,11 +791,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_subscriptions(
@@ -853,9 +801,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -886,32 +833,30 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_subscriptions_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SubscriptionsJamInfo",
-            '401': "GetPing401Response",
-            '402': "GetV1SellerInfo402Response",
-            '403': "Response4XX",
-            '429': "GetPing401Response",
+            "200": "SubscriptionsJamInfo",
+            "401": "GetPing401Response",
+            "402": "GetV1SellerInfo402Response",
+            "403": "Response4XX",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_subscriptions_with_http_info(
@@ -920,9 +865,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -953,32 +897,30 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_subscriptions_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SubscriptionsJamInfo",
-            '401': "GetPing401Response",
-            '402': "GetV1SellerInfo402Response",
-            '403': "Response4XX",
-            '429': "GetPing401Response",
+            "200": "SubscriptionsJamInfo",
+            "401": "GetPing401Response",
+            "402": "GetV1SellerInfo402Response",
+            "403": "Response4XX",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_subscriptions_without_preload_content(
@@ -987,9 +929,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1020,28 +961,26 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_subscriptions_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SubscriptionsJamInfo",
-            '401': "GetPing401Response",
-            '402': "GetV1SellerInfo402Response",
-            '403': "Response4XX",
-            '429': "GetPing401Response",
+            "200": "SubscriptionsJamInfo",
+            "401": "GetPing401Response",
+            "402": "GetV1SellerInfo402Response",
+            "403": "Response4XX",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_subscriptions_serialize(
         self,
@@ -1051,13 +990,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://common-api.wildberries.ru'
-        ]
+        _hosts = ["https://common-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1074,25 +1010,18 @@ class Api:
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/common/v1/subscriptions',
+            method="GET",
+            resource_path="/api/common/v1/subscriptions",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1102,23 +1031,24 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_tariff_constructor_options(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа:   - `ru` — русский   - `en` — английский ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа:   - `ru` — русский   - `en` — английский "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1129,7 +1059,7 @@ class Api:
 
         Информацию об опциях Конструктора тарифов можно получить с токеном любой [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Сервисному** токену  Метод возвращает информацию обо всех опциях и пакетах опций, которые продавец подключил в [Конструкторе тарифов](https://seller.wildberries.ru/tariff-constructor).  Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов |
 
-        :param locale: Язык полей ответа:   - `ru` — русский   - `en` — английский 
+        :param locale: Язык полей ответа:   - `ru` — русский   - `en` — английский
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1151,27 +1081,26 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_tariff_constructor_options_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PlanBuilderOptionsInfo",
-            '400': "PlanBuilderErrors",
-            '401': "GetPing401Response",
-            '403': "Response4XX",
-            '404': "PlanBuilderErrors",
-            '429': "GetPing401Response",
+            "200": "PlanBuilderOptionsInfo",
+            "400": "PlanBuilderErrors",
+            "401": "GetPing401Response",
+            "403": "Response4XX",
+            "404": "PlanBuilderErrors",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1179,18 +1108,21 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v1_tariff_constructor_options_with_http_info(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа:   - `ru` — русский   - `en` — английский ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа:   - `ru` — русский   - `en` — английский "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1201,7 +1133,7 @@ class Api:
 
         Информацию об опциях Конструктора тарифов можно получить с токеном любой [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Сервисному** токену  Метод возвращает информацию обо всех опциях и пакетах опций, которые продавец подключил в [Конструкторе тарифов](https://seller.wildberries.ru/tariff-constructor).  Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов |
 
-        :param locale: Язык полей ответа:   - `ru` — русский   - `en` — английский 
+        :param locale: Язык полей ответа:   - `ru` — русский   - `en` — английский
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1223,27 +1155,26 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_tariff_constructor_options_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PlanBuilderOptionsInfo",
-            '400': "PlanBuilderErrors",
-            '401': "GetPing401Response",
-            '403': "Response4XX",
-            '404': "PlanBuilderErrors",
-            '429': "GetPing401Response",
+            "200": "PlanBuilderOptionsInfo",
+            "400": "PlanBuilderErrors",
+            "401": "GetPing401Response",
+            "403": "Response4XX",
+            "404": "PlanBuilderErrors",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1251,18 +1182,21 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v1_tariff_constructor_options_without_preload_content(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа:   - `ru` — русский   - `en` — английский ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа:   - `ru` — русский   - `en` — английский "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1273,7 +1207,7 @@ class Api:
 
         Информацию об опциях Конструктора тарифов можно получить с токеном любой [категории](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Kategorii-tokenov)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Сервисному** токену  Метод возвращает информацию обо всех опциях и пакетах опций, которые продавец подключил в [Конструкторе тарифов](https://seller.wildberries.ru/tariff-constructor).  Опции, входящие в подключённые пакеты, возвращаются в массиве `packages`. Опции, подключённые вне пакетов, возвращаются в массиве `options`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 1 запрос | 1 мин | 10 запросов |
 
-        :param locale: Язык полей ответа:   - `ru` — русский   - `en` — английский 
+        :param locale: Язык полей ответа:   - `ru` — русский   - `en` — английский
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1295,30 +1229,28 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_tariff_constructor_options_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PlanBuilderOptionsInfo",
-            '400': "PlanBuilderErrors",
-            '401': "GetPing401Response",
-            '403': "Response4XX",
-            '404': "PlanBuilderErrors",
-            '429': "GetPing401Response",
+            "200": "PlanBuilderOptionsInfo",
+            "400": "PlanBuilderErrors",
+            "401": "GetPing401Response",
+            "403": "Response4XX",
+            "404": "PlanBuilderErrors",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_tariff_constructor_options_serialize(
         self,
@@ -1329,13 +1261,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://common-api.wildberries.ru'
-        ]
+        _hosts = ["https://common-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1349,32 +1278,25 @@ class Api:
         # process the path parameters
         # process the query parameters
         if locale is not None:
-            
-            _query_params.append(('locale', locale))
-            
+
+            _query_params.append(("locale", locale))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/common/v1/tariff-constructor/options',
+            method="GET",
+            resource_path="/api/common/v1/tariff-constructor/options",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1384,25 +1306,36 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_users(
         self,
-        limit: Annotated[Optional[Annotated[int, Field(le=100, strict=True)]], Field(description="Количество активных или приглашённых пользователей в ответе")] = None,
-        offset: Annotated[Optional[StrictInt], Field(description="Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента ")] = None,
-        is_invite_only: Annotated[Optional[StrictBool], Field(description="- `true` — список приглашённых пользователей, которые ещё не активировали доступ - `false` или не указан — список активных пользователей профиля продавца ")] = None,
+        limit: Annotated[
+            Optional[Annotated[int, Field(le=100, strict=True)]],
+            Field(
+                description="Количество активных или приглашённых пользователей в ответе"
+            ),
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента "
+            ),
+        ] = None,
+        is_invite_only: Annotated[
+            Optional[StrictBool],
+            Field(
+                description="- `true` — список приглашённых пользователей, которые ещё не активировали доступ - `false` или не указан — список активных пользователей профиля продавца "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1415,9 +1348,9 @@ class Api:
 
         :param limit: Количество активных или приглашённых пользователей в ответе
         :type limit: int
-        :param offset: Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента 
+        :param offset: Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
         :type offset: int
-        :param is_invite_only: - `true` — список приглашённых пользователей, которые ещё не активировали доступ - `false` или не указан — список активных пользователей профиля продавца 
+        :param is_invite_only: - `true` — список приглашённых пользователей, которые ещё не активировали доступ - `false` или не указан — список активных пользователей профиля продавца
         :type is_invite_only: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1439,7 +1372,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_users_serialize(
             limit=limit,
@@ -1448,19 +1381,18 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUsersResponse",
-            '400': "ErrorResponse",
-            '401': "GetPing401Response",
-            '403': "Response4XX",
-            '429': "GetPing401Response",
+            "200": "GetUsersResponse",
+            "400": "ErrorResponse",
+            "401": "GetPing401Response",
+            "403": "Response4XX",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1468,20 +1400,33 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v1_users_with_http_info(
         self,
-        limit: Annotated[Optional[Annotated[int, Field(le=100, strict=True)]], Field(description="Количество активных или приглашённых пользователей в ответе")] = None,
-        offset: Annotated[Optional[StrictInt], Field(description="Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента ")] = None,
-        is_invite_only: Annotated[Optional[StrictBool], Field(description="- `true` — список приглашённых пользователей, которые ещё не активировали доступ - `false` или не указан — список активных пользователей профиля продавца ")] = None,
+        limit: Annotated[
+            Optional[Annotated[int, Field(le=100, strict=True)]],
+            Field(
+                description="Количество активных или приглашённых пользователей в ответе"
+            ),
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента "
+            ),
+        ] = None,
+        is_invite_only: Annotated[
+            Optional[StrictBool],
+            Field(
+                description="- `true` — список приглашённых пользователей, которые ещё не активировали доступ - `false` или не указан — список активных пользователей профиля продавца "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1494,9 +1439,9 @@ class Api:
 
         :param limit: Количество активных или приглашённых пользователей в ответе
         :type limit: int
-        :param offset: Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента 
+        :param offset: Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
         :type offset: int
-        :param is_invite_only: - `true` — список приглашённых пользователей, которые ещё не активировали доступ - `false` или не указан — список активных пользователей профиля продавца 
+        :param is_invite_only: - `true` — список приглашённых пользователей, которые ещё не активировали доступ - `false` или не указан — список активных пользователей профиля продавца
         :type is_invite_only: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1518,7 +1463,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_users_serialize(
             limit=limit,
@@ -1527,19 +1472,18 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUsersResponse",
-            '400': "ErrorResponse",
-            '401': "GetPing401Response",
-            '403': "Response4XX",
-            '429': "GetPing401Response",
+            "200": "GetUsersResponse",
+            "400": "ErrorResponse",
+            "401": "GetPing401Response",
+            "403": "Response4XX",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1547,20 +1491,33 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v1_users_without_preload_content(
         self,
-        limit: Annotated[Optional[Annotated[int, Field(le=100, strict=True)]], Field(description="Количество активных или приглашённых пользователей в ответе")] = None,
-        offset: Annotated[Optional[StrictInt], Field(description="Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента ")] = None,
-        is_invite_only: Annotated[Optional[StrictBool], Field(description="- `true` — список приглашённых пользователей, которые ещё не активировали доступ - `false` или не указан — список активных пользователей профиля продавца ")] = None,
+        limit: Annotated[
+            Optional[Annotated[int, Field(le=100, strict=True)]],
+            Field(
+                description="Количество активных или приглашённых пользователей в ответе"
+            ),
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента "
+            ),
+        ] = None,
+        is_invite_only: Annotated[
+            Optional[StrictBool],
+            Field(
+                description="- `true` — список приглашённых пользователей, которые ещё не активировали доступ - `false` или не указан — список активных пользователей профиля продавца "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1573,9 +1530,9 @@ class Api:
 
         :param limit: Количество активных или приглашённых пользователей в ответе
         :type limit: int
-        :param offset: Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента 
+        :param offset: Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
         :type offset: int
-        :param is_invite_only: - `true` — список приглашённых пользователей, которые ещё не активировали доступ - `false` или не указан — список активных пользователей профиля продавца 
+        :param is_invite_only: - `true` — список приглашённых пользователей, которые ещё не активировали доступ - `false` или не указан — список активных пользователей профиля продавца
         :type is_invite_only: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1597,7 +1554,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_users_serialize(
             limit=limit,
@@ -1606,22 +1563,20 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUsersResponse",
-            '400': "ErrorResponse",
-            '401': "GetPing401Response",
-            '403': "Response4XX",
-            '429': "GetPing401Response",
+            "200": "GetUsersResponse",
+            "400": "ErrorResponse",
+            "401": "GetPing401Response",
+            "403": "Response4XX",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_users_serialize(
         self,
@@ -1634,13 +1589,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://user-management-api.wildberries.ru'
-        ]
+        _hosts = ["https://user-management-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1654,40 +1606,33 @@ class Api:
         # process the path parameters
         # process the query parameters
         if limit is not None:
-            
-            _query_params.append(('limit', limit))
-            
+
+            _query_params.append(("limit", limit))
+
         if offset is not None:
-            
-            _query_params.append(('offset', offset))
-            
+
+            _query_params.append(("offset", offset))
+
         if is_invite_only is not None:
-            
-            _query_params.append(('isInviteOnly', is_invite_only))
-            
+
+            _query_params.append(("isInviteOnly", is_invite_only))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/users',
+            method="GET",
+            resource_path="/api/v1/users",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1697,11 +1642,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v1_invite(
@@ -1711,9 +1653,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1746,33 +1687,31 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_invite_serialize(
             create_invite_request=create_invite_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateInviteResponse",
-            '400': "ErrorResponse",
-            '401': "GetPing401Response",
-            '403': "Response4XX",
-            '429': "GetPing401Response",
+            "200": "CreateInviteResponse",
+            "400": "ErrorResponse",
+            "401": "GetPing401Response",
+            "403": "Response4XX",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v1_invite_with_http_info(
@@ -1782,9 +1721,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1817,33 +1755,31 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_invite_serialize(
             create_invite_request=create_invite_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateInviteResponse",
-            '400': "ErrorResponse",
-            '401': "GetPing401Response",
-            '403': "Response4XX",
-            '429': "GetPing401Response",
+            "200": "CreateInviteResponse",
+            "400": "ErrorResponse",
+            "401": "GetPing401Response",
+            "403": "Response4XX",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v1_invite_without_preload_content(
@@ -1853,9 +1789,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1888,29 +1823,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_invite_serialize(
             create_invite_request=create_invite_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateInviteResponse",
-            '400': "ErrorResponse",
-            '401': "GetPing401Response",
-            '403': "Response4XX",
-            '429': "GetPing401Response",
+            "200": "CreateInviteResponse",
+            "400": "ErrorResponse",
+            "401": "GetPing401Response",
+            "403": "Response4XX",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v1_invite_serialize(
         self,
@@ -1921,13 +1854,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://user-management-api.wildberries.ru'
-        ]
+        _hosts = ["https://user-management-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1946,38 +1876,28 @@ class Api:
         if create_invite_request is not None:
             _body_params = create_invite_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v1/invite',
+            method="POST",
+            resource_path="/api/v1/invite",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1987,11 +1907,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def put_v1_users_access(
@@ -2001,9 +1918,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2036,33 +1952,31 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v1_users_access_serialize(
             update_user_access_request=update_user_access_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '401': "GetPing401Response",
-            '403': "Response4XX",
-            '429': "GetPing401Response",
+            "200": None,
+            "400": "ErrorResponse",
+            "401": "GetPing401Response",
+            "403": "Response4XX",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def put_v1_users_access_with_http_info(
@@ -2072,9 +1986,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2107,33 +2020,31 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v1_users_access_serialize(
             update_user_access_request=update_user_access_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '401': "GetPing401Response",
-            '403': "Response4XX",
-            '429': "GetPing401Response",
+            "200": None,
+            "400": "ErrorResponse",
+            "401": "GetPing401Response",
+            "403": "Response4XX",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def put_v1_users_access_without_preload_content(
@@ -2143,9 +2054,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2178,29 +2088,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v1_users_access_serialize(
             update_user_access_request=update_user_access_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '401': "GetPing401Response",
-            '403': "Response4XX",
-            '429': "GetPing401Response",
+            "200": None,
+            "400": "ErrorResponse",
+            "401": "GetPing401Response",
+            "403": "Response4XX",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _put_v1_users_access_serialize(
         self,
@@ -2211,13 +2119,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://user-management-api.wildberries.ru'
-        ]
+        _hosts = ["https://user-management-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2236,38 +2141,28 @@ class Api:
         if update_user_access_request is not None:
             _body_params = update_user_access_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/v1/users/access',
+            method="PUT",
+            resource_path="/api/v1/users/access",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2277,7 +2172,5 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

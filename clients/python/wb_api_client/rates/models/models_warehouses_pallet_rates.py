@@ -19,26 +19,44 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.rates.models.models_warehouse_pallet_rates import ModelsWarehousePalletRates
+from wb_api_client.rates.models.models_warehouse_pallet_rates import (
+    ModelsWarehousePalletRates,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ModelsWarehousesPalletRates(BaseModel):
     """
     ModelsWarehousesPalletRates
-    """ # noqa: E501
+    """  # noqa: E501
+
     currency: Optional[StrictStr] = Field(default=None, description="Валюта тарифов")
-    dt_next_pallet: Optional[StrictStr] = Field(default=None, description="Дата начала следующего тарифа", alias="dtNextPallet")
-    dt_till_max: Optional[StrictStr] = Field(default=None, description="Дата окончания последнего установленного тарифа", alias="dtTillMax")
-    warehouse_list: Optional[List[ModelsWarehousePalletRates]] = Field(default=None, description="Тарифы для монопаллет, сгруппированные по складам", alias="warehouseList")
-    __properties: ClassVar[List[str]] = ["currency", "dtNextPallet", "dtTillMax", "warehouseList"]
+    dt_next_pallet: Optional[StrictStr] = Field(
+        default=None, description="Дата начала следующего тарифа", alias="dtNextPallet"
+    )
+    dt_till_max: Optional[StrictStr] = Field(
+        default=None,
+        description="Дата окончания последнего установленного тарифа",
+        alias="dtTillMax",
+    )
+    warehouse_list: Optional[List[ModelsWarehousePalletRates]] = Field(
+        default=None,
+        description="Тарифы для монопаллет, сгруппированные по складам",
+        alias="warehouseList",
+    )
+    __properties: ClassVar[List[str]] = [
+        "currency",
+        "dtNextPallet",
+        "dtTillMax",
+        "warehouseList",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +82,7 @@ class ModelsWarehousesPalletRates(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -78,11 +95,11 @@ class ModelsWarehousesPalletRates(BaseModel):
             for _item_warehouse_list in self.warehouse_list:
                 if _item_warehouse_list:
                     _items.append(_item_warehouse_list.to_dict())
-            _dict['warehouseList'] = _items
+            _dict["warehouseList"] = _items
         # set to None if warehouse_list (nullable) is None
         # and model_fields_set contains the field
         if self.warehouse_list is None and "warehouse_list" in self.model_fields_set:
-            _dict['warehouseList'] = None
+            _dict["warehouseList"] = None
 
         return _dict
 
@@ -95,12 +112,19 @@ class ModelsWarehousesPalletRates(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "currency": obj.get("currency"),
-            "dtNextPallet": obj.get("dtNextPallet"),
-            "dtTillMax": obj.get("dtTillMax"),
-            "warehouseList": [ModelsWarehousePalletRates.from_dict(_item) for _item in obj["warehouseList"]] if obj.get("warehouseList") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "currency": obj.get("currency"),
+                "dtNextPallet": obj.get("dtNextPallet"),
+                "dtTillMax": obj.get("dtTillMax"),
+                "warehouseList": (
+                    [
+                        ModelsWarehousePalletRates.from_dict(_item)
+                        for _item in obj["warehouseList"]
+                    ]
+                    if obj.get("warehouseList") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

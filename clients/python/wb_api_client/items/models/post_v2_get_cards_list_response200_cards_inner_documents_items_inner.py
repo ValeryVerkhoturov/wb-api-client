@@ -20,33 +20,75 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_documents_items_inner_verdict import PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_documents_items_inner_verdict import (
+    PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner(BaseModel):
     """
     PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictStr] = Field(default=None, description="ID документа")
-    type: Optional[StrictInt] = Field(default=None, description="Тип документа:   - `1` — Сертификат соответствия   - `2` — Декларация о соответствии   - `3` — Свидетельство о государственной регистрации (СГР)   - `4` — Регистрационное удостоверение (РУ) на медицинские изделия   - `5` — Регистрационное удостоверение Республики Беларусь   - `7` — Данные о регистрации пестицида   - `8` — Данные о регистрации агрохимиката   - `9` — Регистрационное удостоверение (РУ) на лекарственные препараты ")
+    type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип документа:   - `1` — Сертификат соответствия   - `2` — Декларация о соответствии   - `3` — Свидетельство о государственной регистрации (СГР)   - `4` — Регистрационное удостоверение (РУ) на медицинские изделия   - `5` — Регистрационное удостоверение Республики Беларусь   - `7` — Данные о регистрации пестицида   - `8` — Данные о регистрации агрохимиката   - `9` — Регистрационное удостоверение (РУ) на лекарственные препараты ",
+    )
     number: Optional[StrictStr] = Field(default=None, description="Номер документа")
-    product_number: Optional[StrictStr] = Field(default=None, description="Дополнительный номер документа", alias="productNumber")
-    trade_name: Optional[StrictStr] = Field(default=None, description="Торговое наименование", alias="tradeName")
-    applicant: Optional[StrictStr] = Field(default=None, description="Представитель изготовителя медицинского изделия")
-    start_date: Optional[datetime] = Field(default=None, description="Дата и время начала срока действия документа", alias="startDate")
-    end_date: Optional[datetime] = Field(default=None, description="Дата и время окончания срока действия документа", alias="endDate")
-    is_endless: Optional[StrictBool] = Field(default=None, description="Бессрочный ли документ:   - `true` — да, документ бессрочный   - `false` — нет, у документа есть срок действия ", alias="isEndless")
-    verdict: Optional[PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict] = None
-    created_at: Optional[datetime] = Field(default=None, description="Дата добавления документа", alias="createdAt")
-    __properties: ClassVar[List[str]] = ["id", "type", "number", "productNumber", "tradeName", "applicant", "startDate", "endDate", "isEndless", "verdict", "createdAt"]
+    product_number: Optional[StrictStr] = Field(
+        default=None,
+        description="Дополнительный номер документа",
+        alias="productNumber",
+    )
+    trade_name: Optional[StrictStr] = Field(
+        default=None, description="Торговое наименование", alias="tradeName"
+    )
+    applicant: Optional[StrictStr] = Field(
+        default=None, description="Представитель изготовителя медицинского изделия"
+    )
+    start_date: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время начала срока действия документа",
+        alias="startDate",
+    )
+    end_date: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время окончания срока действия документа",
+        alias="endDate",
+    )
+    is_endless: Optional[StrictBool] = Field(
+        default=None,
+        description="Бессрочный ли документ:   - `true` — да, документ бессрочный   - `false` — нет, у документа есть срок действия ",
+        alias="isEndless",
+    )
+    verdict: Optional[
+        PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict
+    ] = None
+    created_at: Optional[datetime] = Field(
+        default=None, description="Дата добавления документа", alias="createdAt"
+    )
+    __properties: ClassVar[List[str]] = [
+        "id",
+        "type",
+        "number",
+        "productNumber",
+        "tradeName",
+        "applicant",
+        "startDate",
+        "endDate",
+        "isEndless",
+        "verdict",
+        "createdAt",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -72,8 +114,7 @@ class PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,7 +123,7 @@ class PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of verdict
         if self.verdict:
-            _dict['verdict'] = self.verdict.to_dict()
+            _dict["verdict"] = self.verdict.to_dict()
         return _dict
 
     @classmethod
@@ -94,19 +135,25 @@ class PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "type": obj.get("type"),
-            "number": obj.get("number"),
-            "productNumber": obj.get("productNumber"),
-            "tradeName": obj.get("tradeName"),
-            "applicant": obj.get("applicant"),
-            "startDate": obj.get("startDate"),
-            "endDate": obj.get("endDate"),
-            "isEndless": obj.get("isEndless"),
-            "verdict": PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict.from_dict(obj["verdict"]) if obj.get("verdict") is not None else None,
-            "createdAt": obj.get("createdAt")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "type": obj.get("type"),
+                "number": obj.get("number"),
+                "productNumber": obj.get("productNumber"),
+                "tradeName": obj.get("tradeName"),
+                "applicant": obj.get("applicant"),
+                "startDate": obj.get("startDate"),
+                "endDate": obj.get("endDate"),
+                "isEndless": obj.get("isEndless"),
+                "verdict": (
+                    PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict.from_dict(
+                        obj["verdict"]
+                    )
+                    if obj.get("verdict") is not None
+                    else None
+                ),
+                "createdAt": obj.get("createdAt"),
+            }
+        )
         return _obj
-
-

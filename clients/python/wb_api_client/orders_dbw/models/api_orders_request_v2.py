@@ -23,11 +23,15 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiOrdersRequestV2(BaseModel):
     """
     ApiOrdersRequestV2
-    """ # noqa: E501
-    orders_ids: Annotated[List[StrictInt], Field(max_length=1000)] = Field(description="Список ID сборочных заданий", alias="ordersIds")
+    """  # noqa: E501
+
+    orders_ids: Annotated[List[StrictInt], Field(max_length=1000)] = Field(
+        description="Список ID сборочных заданий", alias="ordersIds"
+    )
     __properties: ClassVar[List[str]] = ["ordersIds"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class ApiOrdersRequestV2(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class ApiOrdersRequestV2(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,9 +82,5 @@ class ApiOrdersRequestV2(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "ordersIds": obj.get("ordersIds")
-        })
+        _obj = cls.model_validate({"ordersIds": obj.get("ordersIds")})
         return _obj
-
-

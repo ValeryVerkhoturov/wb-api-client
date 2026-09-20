@@ -23,29 +23,61 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class History(BaseModel):
     """
     History
-    """ # noqa: E501
+    """  # noqa: E501
+
     var_date: date = Field(description="Дата сбора статистики", alias="date")
-    open_count: StrictInt = Field(description="Количество переходов в карточку товара", alias="openCount")
-    cart_count: StrictInt = Field(description="Положили в корзину, шт.", alias="cartCount")
-    order_count: StrictInt = Field(description="Заказали товаров, шт.", alias="orderCount")
+    open_count: StrictInt = Field(
+        description="Количество переходов в карточку товара", alias="openCount"
+    )
+    cart_count: StrictInt = Field(
+        description="Положили в корзину, шт.", alias="cartCount"
+    )
+    order_count: StrictInt = Field(
+        description="Заказали товаров, шт.", alias="orderCount"
+    )
     order_sum: StrictInt = Field(description="Заказали на сумму", alias="orderSum")
-    buyout_count: StrictInt = Field(description="Выкупили товаров, шт.", alias="buyoutCount")
+    buyout_count: StrictInt = Field(
+        description="Выкупили товаров, шт.", alias="buyoutCount"
+    )
     buyout_sum: StrictInt = Field(description="Выкупили на сумму", alias="buyoutSum")
-    buyout_percent: StrictInt = Field(description="Процент выкупа", alias="buyoutPercent")
-    add_to_cart_conversion: StrictInt = Field(description="Конверсия в корзину. Какой процент посетителей, открывших карточку товара, добавили товар в корзину, %", alias="addToCartConversion")
-    cart_to_order_conversion: StrictInt = Field(description="Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ", alias="cartToOrderConversion")
-    add_to_wishlist_count: StrictInt = Field(description="Количество добавлений товара в **Отложенные**", alias="addToWishlistCount")
-    __properties: ClassVar[List[str]] = ["date", "openCount", "cartCount", "orderCount", "orderSum", "buyoutCount", "buyoutSum", "buyoutPercent", "addToCartConversion", "cartToOrderConversion", "addToWishlistCount"]
+    buyout_percent: StrictInt = Field(
+        description="Процент выкупа", alias="buyoutPercent"
+    )
+    add_to_cart_conversion: StrictInt = Field(
+        description="Конверсия в корзину. Какой процент посетителей, открывших карточку товара, добавили товар в корзину, %",
+        alias="addToCartConversion",
+    )
+    cart_to_order_conversion: StrictInt = Field(
+        description="Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ",
+        alias="cartToOrderConversion",
+    )
+    add_to_wishlist_count: StrictInt = Field(
+        description="Количество добавлений товара в **Отложенные**",
+        alias="addToWishlistCount",
+    )
+    __properties: ClassVar[List[str]] = [
+        "date",
+        "openCount",
+        "cartCount",
+        "orderCount",
+        "orderSum",
+        "buyoutCount",
+        "buyoutSum",
+        "buyoutPercent",
+        "addToCartConversion",
+        "cartToOrderConversion",
+        "addToWishlistCount",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -71,8 +103,7 @@ class History(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -90,19 +121,19 @@ class History(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "date": obj.get("date"),
-            "openCount": obj.get("openCount"),
-            "cartCount": obj.get("cartCount"),
-            "orderCount": obj.get("orderCount"),
-            "orderSum": obj.get("orderSum"),
-            "buyoutCount": obj.get("buyoutCount"),
-            "buyoutSum": obj.get("buyoutSum"),
-            "buyoutPercent": obj.get("buyoutPercent"),
-            "addToCartConversion": obj.get("addToCartConversion"),
-            "cartToOrderConversion": obj.get("cartToOrderConversion"),
-            "addToWishlistCount": obj.get("addToWishlistCount")
-        })
+        _obj = cls.model_validate(
+            {
+                "date": obj.get("date"),
+                "openCount": obj.get("openCount"),
+                "cartCount": obj.get("cartCount"),
+                "orderCount": obj.get("orderCount"),
+                "orderSum": obj.get("orderSum"),
+                "buyoutCount": obj.get("buyoutCount"),
+                "buyoutSum": obj.get("buyoutSum"),
+                "buyoutPercent": obj.get("buyoutPercent"),
+                "addToCartConversion": obj.get("addToCartConversion"),
+                "cartToOrderConversion": obj.get("cartToOrderConversion"),
+                "addToWishlistCount": obj.get("addToWishlistCount"),
+            }
+        )
         return _obj
-
-

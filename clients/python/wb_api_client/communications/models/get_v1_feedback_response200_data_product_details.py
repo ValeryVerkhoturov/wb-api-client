@@ -22,25 +22,50 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1FeedbackResponse200DataProductDetails(BaseModel):
     """
     Item information
-    """ # noqa: E501
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId")
-    imt_id: Optional[StrictInt] = Field(default=None, description="ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров", alias="imtId")
-    product_name: Optional[StrictStr] = Field(default=None, description="Название товара", alias="productName")
-    supplier_article: Optional[StrictStr] = Field(default=None, description="Артикул продавца", alias="supplierArticle")
-    supplier_name: Optional[StrictStr] = Field(default=None, description="Имя продавца", alias="supplierName")
-    brand_name: Optional[StrictStr] = Field(default=None, description="Бренд товара", alias="brandName")
-    size: Optional[StrictStr] = Field(default=None, description="Размер товара (`techSize` в КТ)")
-    __properties: ClassVar[List[str]] = ["nmId", "imtId", "productName", "supplierArticle", "supplierName", "brandName", "size"]
+    """  # noqa: E501
+
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
+    imt_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров",
+        alias="imtId",
+    )
+    product_name: Optional[StrictStr] = Field(
+        default=None, description="Название товара", alias="productName"
+    )
+    supplier_article: Optional[StrictStr] = Field(
+        default=None, description="Артикул продавца", alias="supplierArticle"
+    )
+    supplier_name: Optional[StrictStr] = Field(
+        default=None, description="Имя продавца", alias="supplierName"
+    )
+    brand_name: Optional[StrictStr] = Field(
+        default=None, description="Бренд товара", alias="brandName"
+    )
+    size: Optional[StrictStr] = Field(
+        default=None, description="Размер товара (`techSize` в КТ)"
+    )
+    __properties: ClassVar[List[str]] = [
+        "nmId",
+        "imtId",
+        "productName",
+        "supplierArticle",
+        "supplierName",
+        "brandName",
+        "size",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -66,8 +91,7 @@ class GetV1FeedbackResponse200DataProductDetails(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,18 +100,21 @@ class GetV1FeedbackResponse200DataProductDetails(BaseModel):
         )
         # set to None if supplier_article (nullable) is None
         # and model_fields_set contains the field
-        if self.supplier_article is None and "supplier_article" in self.model_fields_set:
-            _dict['supplierArticle'] = None
+        if (
+            self.supplier_article is None
+            and "supplier_article" in self.model_fields_set
+        ):
+            _dict["supplierArticle"] = None
 
         # set to None if supplier_name (nullable) is None
         # and model_fields_set contains the field
         if self.supplier_name is None and "supplier_name" in self.model_fields_set:
-            _dict['supplierName'] = None
+            _dict["supplierName"] = None
 
         # set to None if brand_name (nullable) is None
         # and model_fields_set contains the field
         if self.brand_name is None and "brand_name" in self.model_fields_set:
-            _dict['brandName'] = None
+            _dict["brandName"] = None
 
         return _dict
 
@@ -100,15 +127,15 @@ class GetV1FeedbackResponse200DataProductDetails(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmId": obj.get("nmId"),
-            "imtId": obj.get("imtId"),
-            "productName": obj.get("productName"),
-            "supplierArticle": obj.get("supplierArticle"),
-            "supplierName": obj.get("supplierName"),
-            "brandName": obj.get("brandName"),
-            "size": obj.get("size")
-        })
+        _obj = cls.model_validate(
+            {
+                "nmId": obj.get("nmId"),
+                "imtId": obj.get("imtId"),
+                "productName": obj.get("productName"),
+                "supplierArticle": obj.get("supplierArticle"),
+                "supplierName": obj.get("supplierName"),
+                "brandName": obj.get("brandName"),
+                "size": obj.get("size"),
+            }
+        )
         return _obj
-
-

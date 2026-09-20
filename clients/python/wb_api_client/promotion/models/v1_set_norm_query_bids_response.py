@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.promotion.models.norm_query_bid_fail_response_item import NormQueryBidFailResponseItem
-from wb_api_client.promotion.models.v1_set_norm_query_bids_success_response_item import V1SetNormQueryBidsSuccessResponseItem
+from wb_api_client.promotion.models.norm_query_bid_fail_response_item import (
+    NormQueryBidFailResponseItem,
+)
+from wb_api_client.promotion.models.v1_set_norm_query_bids_success_response_item import (
+    V1SetNormQueryBidsSuccessResponseItem,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class V1SetNormQueryBidsResponse(BaseModel):
     """
     V1SetNormQueryBidsResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     success: List[V1SetNormQueryBidsSuccessResponseItem]
     failed: List[NormQueryBidFailResponseItem]
     __properties: ClassVar[List[str]] = ["success", "failed"]
@@ -37,7 +43,6 @@ class V1SetNormQueryBidsResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +68,7 @@ class V1SetNormQueryBidsResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,14 +81,14 @@ class V1SetNormQueryBidsResponse(BaseModel):
             for _item_success in self.success:
                 if _item_success:
                     _items.append(_item_success.to_dict())
-            _dict['success'] = _items
+            _dict["success"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in failed (list)
         _items = []
         if self.failed:
             for _item_failed in self.failed:
                 if _item_failed:
                     _items.append(_item_failed.to_dict())
-            _dict['failed'] = _items
+            _dict["failed"] = _items
         return _dict
 
     @classmethod
@@ -96,10 +100,24 @@ class V1SetNormQueryBidsResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "success": [V1SetNormQueryBidsSuccessResponseItem.from_dict(_item) for _item in obj["success"]] if obj.get("success") is not None else None,
-            "failed": [NormQueryBidFailResponseItem.from_dict(_item) for _item in obj["failed"]] if obj.get("failed") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "success": (
+                    [
+                        V1SetNormQueryBidsSuccessResponseItem.from_dict(_item)
+                        for _item in obj["success"]
+                    ]
+                    if obj.get("success") is not None
+                    else None
+                ),
+                "failed": (
+                    [
+                        NormQueryBidFailResponseItem.from_dict(_item)
+                        for _item in obj["failed"]
+                    ]
+                    if obj.get("failed") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

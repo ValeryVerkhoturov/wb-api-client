@@ -22,23 +22,36 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1AnalyticsAntifraudDetails200ResponseDetailsInner(BaseModel):
     """
     GetV1AnalyticsAntifraudDetails200ResponseDetailsInner
-    """ # noqa: E501
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmID")
+    """  # noqa: E501
+
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmID"
+    )
     sum: Optional[StrictInt] = Field(default=None, description="Сумма заказа")
     currency: Optional[StrictStr] = Field(default=None, description="Валюта заказа")
-    date_from: Optional[StrictStr] = Field(default=None, description="Начало отчётного периода", alias="dateFrom")
-    date_to: Optional[StrictStr] = Field(default=None, description="Конец отчётного периода", alias="dateTo")
-    __properties: ClassVar[List[str]] = ["nmID", "sum", "currency", "dateFrom", "dateTo"]
+    date_from: Optional[StrictStr] = Field(
+        default=None, description="Начало отчётного периода", alias="dateFrom"
+    )
+    date_to: Optional[StrictStr] = Field(
+        default=None, description="Конец отчётного периода", alias="dateTo"
+    )
+    __properties: ClassVar[List[str]] = [
+        "nmID",
+        "sum",
+        "currency",
+        "dateFrom",
+        "dateTo",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +77,7 @@ class GetV1AnalyticsAntifraudDetails200ResponseDetailsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,13 +95,13 @@ class GetV1AnalyticsAntifraudDetails200ResponseDetailsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmID": obj.get("nmID"),
-            "sum": obj.get("sum"),
-            "currency": obj.get("currency"),
-            "dateFrom": obj.get("dateFrom"),
-            "dateTo": obj.get("dateTo")
-        })
+        _obj = cls.model_validate(
+            {
+                "nmID": obj.get("nmID"),
+                "sum": obj.get("sum"),
+                "currency": obj.get("currency"),
+                "dateFrom": obj.get("dateFrom"),
+                "dateTo": obj.get("dateTo"),
+            }
+        )
         return _obj
-
-

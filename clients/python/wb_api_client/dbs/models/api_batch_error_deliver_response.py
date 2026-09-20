@@ -19,17 +19,30 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.dbs.models.api_batch_error_deliver_response_meta_details_inner import ApiBatchErrorDeliverResponseMetaDetailsInner
+from wb_api_client.dbs.models.api_batch_error_deliver_response_meta_details_inner import (
+    ApiBatchErrorDeliverResponseMetaDetailsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ApiBatchErrorDeliverResponse(BaseModel):
     """
     ApiBatchErrorDeliverResponse
-    """ # noqa: E501
-    code: Optional[StrictInt] = Field(default=None, description="Код ошибки:   - `404`   - `409` ")
-    detail: Optional[StrictStr] = Field(default=None, description="- `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI - `MetaValidationFail` — ошибки валидации идентификатора маркировки ")
-    meta_details: Optional[List[ApiBatchErrorDeliverResponseMetaDetailsInner]] = Field(default=None, description="Детали ошибки валидации идентификаторов маркировки", alias="metaDetails")
+    """  # noqa: E501
+
+    code: Optional[StrictInt] = Field(
+        default=None, description="Код ошибки:   - `404`   - `409` "
+    )
+    detail: Optional[StrictStr] = Field(
+        default=None,
+        description="- `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `ImeiIsNotFilled` — не заполнен IMEI - `MetaValidationFail` — ошибки валидации идентификатора маркировки ",
+    )
+    meta_details: Optional[List[ApiBatchErrorDeliverResponseMetaDetailsInner]] = Field(
+        default=None,
+        description="Детали ошибки валидации идентификаторов маркировки",
+        alias="metaDetails",
+    )
     __properties: ClassVar[List[str]] = ["code", "detail", "metaDetails"]
 
     model_config = ConfigDict(
@@ -37,7 +50,6 @@ class ApiBatchErrorDeliverResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +75,7 @@ class ApiBatchErrorDeliverResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +88,7 @@ class ApiBatchErrorDeliverResponse(BaseModel):
             for _item_meta_details in self.meta_details:
                 if _item_meta_details:
                     _items.append(_item_meta_details.to_dict())
-            _dict['metaDetails'] = _items
+            _dict["metaDetails"] = _items
         return _dict
 
     @classmethod
@@ -89,11 +100,18 @@ class ApiBatchErrorDeliverResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "code": obj.get("code"),
-            "detail": obj.get("detail"),
-            "metaDetails": [ApiBatchErrorDeliverResponseMetaDetailsInner.from_dict(_item) for _item in obj["metaDetails"]] if obj.get("metaDetails") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "code": obj.get("code"),
+                "detail": obj.get("detail"),
+                "metaDetails": (
+                    [
+                        ApiBatchErrorDeliverResponseMetaDetailsInner.from_dict(_item)
+                        for _item in obj["metaDetails"]
+                    ]
+                    if obj.get("metaDetails") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

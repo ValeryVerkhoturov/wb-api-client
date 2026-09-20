@@ -17,45 +17,171 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsSupplyDetails(BaseModel):
     """
     ModelsSupplyDetails
-    """ # noqa: E501
-    phone: Optional[StrictStr] = Field(default=None, description="Телефон пользователя, создавшего поставку")
-    status_id: Optional[StrictInt] = Field(default=None, description="ID статуса поставки:   - `1` — Не запланировано   - `2` — Запланировано   - `3` — Отгрузка разрешена   - `4` — Идёт приёмка   - `5` — Принято   - `6` — Отгружено на воротах ", alias="statusID")
-    virtual_type_id: Optional[StrictInt] = Field(default=None, description="ID типа виртуальной поставки. Отображается только для поставок с `\"boxTypeID\":0`.   - `0` — Перенос остатков   - `1` — Обезличка   - `4` — QR-поставка   - `5` — Допринято   - `6` — Скан-приёмка ", alias="virtualTypeID")
-    box_type_id: Optional[StrictInt] = Field(default=None, description="ID типа поставки:   - `0` — Без коробов (виртуальная поставка)   - `1` и `2` — Короба   - `5` — Монопаллеты   - `6` — Суперсейф ", alias="boxTypeID")
-    create_date: Optional[StrictStr] = Field(default=None, description="Дата и время создания поставки", alias="createDate")
-    supply_date: Optional[StrictStr] = Field(default=None, description="Плановая дата отгрузки поставки", alias="supplyDate")
-    fact_date: Optional[StrictStr] = Field(default=None, description="Дата фактической отгрузки поставки", alias="factDate")
-    updated_date: Optional[StrictStr] = Field(default=None, description="Дата изменения поставки", alias="updatedDate")
-    warehouse_id: Optional[StrictInt] = Field(default=None, description="ID склада, на который планируется поставка", alias="warehouseID")
-    warehouse_name: Optional[StrictStr] = Field(default=None, description="Название склада, на который планируется поставка", alias="warehouseName")
-    actual_warehouse_id: Optional[StrictInt] = Field(default=None, description="ID склада, на который поставка была привезена", alias="actualWarehouseID")
-    actual_warehouse_name: Optional[StrictStr] = Field(default=None, description="Название склада, на который поставка привезена", alias="actualWarehouseName")
-    transit_warehouse_id: Optional[StrictInt] = Field(default=None, description="ID транзитного склада", alias="transitWarehouseID")
-    transit_warehouse_name: Optional[StrictStr] = Field(default=None, description="Название транзитного склада", alias="transitWarehouseName")
-    acceptance_cost: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Предварительная стоимость приёмки, ₽", alias="acceptanceCost")
-    paid_acceptance_coefficient: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Коэффициент приёмки", alias="paidAcceptanceCoefficient")
-    reject_reason: Optional[StrictStr] = Field(default=None, description="Причина, по которой поставка не может быть принята", alias="rejectReason")
-    supplier_assign_name: Optional[StrictStr] = Field(default=None, description="Краткое название продавца", alias="supplierAssignName")
-    storage_coef: Optional[StrictStr] = Field(default=None, description="Коэффициент хранения", alias="storageCoef")
-    delivery_coef: Optional[StrictStr] = Field(default=None, description="Коэффициент логистики", alias="deliveryCoef")
-    quantity: Optional[StrictInt] = Field(default=None, description="Добавлено в поставку/заказ, шт")
-    ready_for_sale_quantity: Optional[StrictInt] = Field(default=None, description="Поступило в продажу, шт", alias="readyForSaleQuantity")
-    accepted_quantity: Optional[StrictInt] = Field(default=None, description="Принято, шт", alias="acceptedQuantity")
-    unloading_quantity: Optional[StrictInt] = Field(default=None, description="Количество товара, находящегося на раскладке, шт", alias="unloadingQuantity")
-    depersonalized_quantity: Optional[StrictInt] = Field(default=None, description="Количество обезличенного товара, шт", alias="depersonalizedQuantity")
-    discrepancies: Optional[StrictInt] = Field(default=None, description="Расхождения между заявленным и фактическим количеством товара в поставке.  Только при `\"statusID\":5`")
-    is_box_on_pallet: Optional[StrictBool] = Field(default=None, description="Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `\"boxTypeID\": 2` ", alias="isBoxOnPallet")
-    __properties: ClassVar[List[str]] = ["phone", "statusID", "virtualTypeID", "boxTypeID", "createDate", "supplyDate", "factDate", "updatedDate", "warehouseID", "warehouseName", "actualWarehouseID", "actualWarehouseName", "transitWarehouseID", "transitWarehouseName", "acceptanceCost", "paidAcceptanceCoefficient", "rejectReason", "supplierAssignName", "storageCoef", "deliveryCoef", "quantity", "readyForSaleQuantity", "acceptedQuantity", "unloadingQuantity", "depersonalizedQuantity", "discrepancies", "isBoxOnPallet"]
+    """  # noqa: E501
 
-    @field_validator('status_id')
+    phone: Optional[StrictStr] = Field(
+        default=None, description="Телефон пользователя, создавшего поставку"
+    )
+    status_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID статуса поставки:   - `1` — Не запланировано   - `2` — Запланировано   - `3` — Отгрузка разрешена   - `4` — Идёт приёмка   - `5` — Принято   - `6` — Отгружено на воротах ",
+        alias="statusID",
+    )
+    virtual_type_id: Optional[StrictInt] = Field(
+        default=None,
+        description='ID типа виртуальной поставки. Отображается только для поставок с `"boxTypeID":0`.   - `0` — Перенос остатков   - `1` — Обезличка   - `4` — QR-поставка   - `5` — Допринято   - `6` — Скан-приёмка ',
+        alias="virtualTypeID",
+    )
+    box_type_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID типа поставки:   - `0` — Без коробов (виртуальная поставка)   - `1` и `2` — Короба   - `5` — Монопаллеты   - `6` — Суперсейф ",
+        alias="boxTypeID",
+    )
+    create_date: Optional[StrictStr] = Field(
+        default=None, description="Дата и время создания поставки", alias="createDate"
+    )
+    supply_date: Optional[StrictStr] = Field(
+        default=None, description="Плановая дата отгрузки поставки", alias="supplyDate"
+    )
+    fact_date: Optional[StrictStr] = Field(
+        default=None, description="Дата фактической отгрузки поставки", alias="factDate"
+    )
+    updated_date: Optional[StrictStr] = Field(
+        default=None, description="Дата изменения поставки", alias="updatedDate"
+    )
+    warehouse_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID склада, на который планируется поставка",
+        alias="warehouseID",
+    )
+    warehouse_name: Optional[StrictStr] = Field(
+        default=None,
+        description="Название склада, на который планируется поставка",
+        alias="warehouseName",
+    )
+    actual_warehouse_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID склада, на который поставка была привезена",
+        alias="actualWarehouseID",
+    )
+    actual_warehouse_name: Optional[StrictStr] = Field(
+        default=None,
+        description="Название склада, на который поставка привезена",
+        alias="actualWarehouseName",
+    )
+    transit_warehouse_id: Optional[StrictInt] = Field(
+        default=None, description="ID транзитного склада", alias="transitWarehouseID"
+    )
+    transit_warehouse_name: Optional[StrictStr] = Field(
+        default=None,
+        description="Название транзитного склада",
+        alias="transitWarehouseName",
+    )
+    acceptance_cost: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Предварительная стоимость приёмки, ₽",
+        alias="acceptanceCost",
+    )
+    paid_acceptance_coefficient: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Коэффициент приёмки",
+        alias="paidAcceptanceCoefficient",
+    )
+    reject_reason: Optional[StrictStr] = Field(
+        default=None,
+        description="Причина, по которой поставка не может быть принята",
+        alias="rejectReason",
+    )
+    supplier_assign_name: Optional[StrictStr] = Field(
+        default=None,
+        description="Краткое название продавца",
+        alias="supplierAssignName",
+    )
+    storage_coef: Optional[StrictStr] = Field(
+        default=None, description="Коэффициент хранения", alias="storageCoef"
+    )
+    delivery_coef: Optional[StrictStr] = Field(
+        default=None, description="Коэффициент логистики", alias="deliveryCoef"
+    )
+    quantity: Optional[StrictInt] = Field(
+        default=None, description="Добавлено в поставку/заказ, шт"
+    )
+    ready_for_sale_quantity: Optional[StrictInt] = Field(
+        default=None,
+        description="Поступило в продажу, шт",
+        alias="readyForSaleQuantity",
+    )
+    accepted_quantity: Optional[StrictInt] = Field(
+        default=None, description="Принято, шт", alias="acceptedQuantity"
+    )
+    unloading_quantity: Optional[StrictInt] = Field(
+        default=None,
+        description="Количество товара, находящегося на раскладке, шт",
+        alias="unloadingQuantity",
+    )
+    depersonalized_quantity: Optional[StrictInt] = Field(
+        default=None,
+        description="Количество обезличенного товара, шт",
+        alias="depersonalizedQuantity",
+    )
+    discrepancies: Optional[StrictInt] = Field(
+        default=None,
+        description='Расхождения между заявленным и фактическим количеством товара в поставке.  Только при `"statusID":5`',
+    )
+    is_box_on_pallet: Optional[StrictBool] = Field(
+        default=None,
+        description='Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `"boxTypeID": 2` ',
+        alias="isBoxOnPallet",
+    )
+    __properties: ClassVar[List[str]] = [
+        "phone",
+        "statusID",
+        "virtualTypeID",
+        "boxTypeID",
+        "createDate",
+        "supplyDate",
+        "factDate",
+        "updatedDate",
+        "warehouseID",
+        "warehouseName",
+        "actualWarehouseID",
+        "actualWarehouseName",
+        "transitWarehouseID",
+        "transitWarehouseName",
+        "acceptanceCost",
+        "paidAcceptanceCoefficient",
+        "rejectReason",
+        "supplierAssignName",
+        "storageCoef",
+        "deliveryCoef",
+        "quantity",
+        "readyForSaleQuantity",
+        "acceptedQuantity",
+        "unloadingQuantity",
+        "depersonalizedQuantity",
+        "discrepancies",
+        "isBoxOnPallet",
+    ]
+
+    @field_validator("status_id")
     def status_id_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -70,7 +196,6 @@ class ModelsSupplyDetails(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -96,8 +221,7 @@ class ModelsSupplyDetails(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -107,62 +231,77 @@ class ModelsSupplyDetails(BaseModel):
         # set to None if supply_date (nullable) is None
         # and model_fields_set contains the field
         if self.supply_date is None and "supply_date" in self.model_fields_set:
-            _dict['supplyDate'] = None
+            _dict["supplyDate"] = None
 
         # set to None if fact_date (nullable) is None
         # and model_fields_set contains the field
         if self.fact_date is None and "fact_date" in self.model_fields_set:
-            _dict['factDate'] = None
+            _dict["factDate"] = None
 
         # set to None if updated_date (nullable) is None
         # and model_fields_set contains the field
         if self.updated_date is None and "updated_date" in self.model_fields_set:
-            _dict['updatedDate'] = None
+            _dict["updatedDate"] = None
 
         # set to None if actual_warehouse_id (nullable) is None
         # and model_fields_set contains the field
-        if self.actual_warehouse_id is None and "actual_warehouse_id" in self.model_fields_set:
-            _dict['actualWarehouseID'] = None
+        if (
+            self.actual_warehouse_id is None
+            and "actual_warehouse_id" in self.model_fields_set
+        ):
+            _dict["actualWarehouseID"] = None
 
         # set to None if transit_warehouse_id (nullable) is None
         # and model_fields_set contains the field
-        if self.transit_warehouse_id is None and "transit_warehouse_id" in self.model_fields_set:
-            _dict['transitWarehouseID'] = None
+        if (
+            self.transit_warehouse_id is None
+            and "transit_warehouse_id" in self.model_fields_set
+        ):
+            _dict["transitWarehouseID"] = None
 
         # set to None if acceptance_cost (nullable) is None
         # and model_fields_set contains the field
         if self.acceptance_cost is None and "acceptance_cost" in self.model_fields_set:
-            _dict['acceptanceCost'] = None
+            _dict["acceptanceCost"] = None
 
         # set to None if paid_acceptance_coefficient (nullable) is None
         # and model_fields_set contains the field
-        if self.paid_acceptance_coefficient is None and "paid_acceptance_coefficient" in self.model_fields_set:
-            _dict['paidAcceptanceCoefficient'] = None
+        if (
+            self.paid_acceptance_coefficient is None
+            and "paid_acceptance_coefficient" in self.model_fields_set
+        ):
+            _dict["paidAcceptanceCoefficient"] = None
 
         # set to None if reject_reason (nullable) is None
         # and model_fields_set contains the field
         if self.reject_reason is None and "reject_reason" in self.model_fields_set:
-            _dict['rejectReason'] = None
+            _dict["rejectReason"] = None
 
         # set to None if supplier_assign_name (nullable) is None
         # and model_fields_set contains the field
-        if self.supplier_assign_name is None and "supplier_assign_name" in self.model_fields_set:
-            _dict['supplierAssignName'] = None
+        if (
+            self.supplier_assign_name is None
+            and "supplier_assign_name" in self.model_fields_set
+        ):
+            _dict["supplierAssignName"] = None
 
         # set to None if storage_coef (nullable) is None
         # and model_fields_set contains the field
         if self.storage_coef is None and "storage_coef" in self.model_fields_set:
-            _dict['storageCoef'] = None
+            _dict["storageCoef"] = None
 
         # set to None if delivery_coef (nullable) is None
         # and model_fields_set contains the field
         if self.delivery_coef is None and "delivery_coef" in self.model_fields_set:
-            _dict['deliveryCoef'] = None
+            _dict["deliveryCoef"] = None
 
         # set to None if depersonalized_quantity (nullable) is None
         # and model_fields_set contains the field
-        if self.depersonalized_quantity is None and "depersonalized_quantity" in self.model_fields_set:
-            _dict['depersonalizedQuantity'] = None
+        if (
+            self.depersonalized_quantity is None
+            and "depersonalized_quantity" in self.model_fields_set
+        ):
+            _dict["depersonalizedQuantity"] = None
 
         return _dict
 
@@ -175,35 +314,35 @@ class ModelsSupplyDetails(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "phone": obj.get("phone"),
-            "statusID": obj.get("statusID"),
-            "virtualTypeID": obj.get("virtualTypeID"),
-            "boxTypeID": obj.get("boxTypeID"),
-            "createDate": obj.get("createDate"),
-            "supplyDate": obj.get("supplyDate"),
-            "factDate": obj.get("factDate"),
-            "updatedDate": obj.get("updatedDate"),
-            "warehouseID": obj.get("warehouseID"),
-            "warehouseName": obj.get("warehouseName"),
-            "actualWarehouseID": obj.get("actualWarehouseID"),
-            "actualWarehouseName": obj.get("actualWarehouseName"),
-            "transitWarehouseID": obj.get("transitWarehouseID"),
-            "transitWarehouseName": obj.get("transitWarehouseName"),
-            "acceptanceCost": obj.get("acceptanceCost"),
-            "paidAcceptanceCoefficient": obj.get("paidAcceptanceCoefficient"),
-            "rejectReason": obj.get("rejectReason"),
-            "supplierAssignName": obj.get("supplierAssignName"),
-            "storageCoef": obj.get("storageCoef"),
-            "deliveryCoef": obj.get("deliveryCoef"),
-            "quantity": obj.get("quantity"),
-            "readyForSaleQuantity": obj.get("readyForSaleQuantity"),
-            "acceptedQuantity": obj.get("acceptedQuantity"),
-            "unloadingQuantity": obj.get("unloadingQuantity"),
-            "depersonalizedQuantity": obj.get("depersonalizedQuantity"),
-            "discrepancies": obj.get("discrepancies"),
-            "isBoxOnPallet": obj.get("isBoxOnPallet")
-        })
+        _obj = cls.model_validate(
+            {
+                "phone": obj.get("phone"),
+                "statusID": obj.get("statusID"),
+                "virtualTypeID": obj.get("virtualTypeID"),
+                "boxTypeID": obj.get("boxTypeID"),
+                "createDate": obj.get("createDate"),
+                "supplyDate": obj.get("supplyDate"),
+                "factDate": obj.get("factDate"),
+                "updatedDate": obj.get("updatedDate"),
+                "warehouseID": obj.get("warehouseID"),
+                "warehouseName": obj.get("warehouseName"),
+                "actualWarehouseID": obj.get("actualWarehouseID"),
+                "actualWarehouseName": obj.get("actualWarehouseName"),
+                "transitWarehouseID": obj.get("transitWarehouseID"),
+                "transitWarehouseName": obj.get("transitWarehouseName"),
+                "acceptanceCost": obj.get("acceptanceCost"),
+                "paidAcceptanceCoefficient": obj.get("paidAcceptanceCoefficient"),
+                "rejectReason": obj.get("rejectReason"),
+                "supplierAssignName": obj.get("supplierAssignName"),
+                "storageCoef": obj.get("storageCoef"),
+                "deliveryCoef": obj.get("deliveryCoef"),
+                "quantity": obj.get("quantity"),
+                "readyForSaleQuantity": obj.get("readyForSaleQuantity"),
+                "acceptedQuantity": obj.get("acceptedQuantity"),
+                "unloadingQuantity": obj.get("unloadingQuantity"),
+                "depersonalizedQuantity": obj.get("depersonalizedQuantity"),
+                "discrepancies": obj.get("discrepancies"),
+                "isBoxOnPallet": obj.get("isBoxOnPallet"),
+            }
+        )
         return _obj
-
-

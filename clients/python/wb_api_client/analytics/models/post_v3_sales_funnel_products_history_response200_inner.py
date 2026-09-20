@@ -20,14 +20,18 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from wb_api_client.analytics.models.history import History
-from wb_api_client.analytics.models.post_v3_sales_funnel_products_history_response200_inner_product import PostV3SalesFunnelProductsHistoryResponse200InnerProduct
+from wb_api_client.analytics.models.post_v3_sales_funnel_products_history_response200_inner_product import (
+    PostV3SalesFunnelProductsHistoryResponse200InnerProduct,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV3SalesFunnelProductsHistoryResponse200Inner(BaseModel):
     """
     PostV3SalesFunnelProductsHistoryResponse200Inner
-    """ # noqa: E501
+    """  # noqa: E501
+
     product: PostV3SalesFunnelProductsHistoryResponse200InnerProduct
     history: List[History] = Field(description="Статистика за период")
     currency: StrictStr = Field(description="Валюта отчёта")
@@ -38,7 +42,6 @@ class PostV3SalesFunnelProductsHistoryResponse200Inner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +67,7 @@ class PostV3SalesFunnelProductsHistoryResponse200Inner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -74,14 +76,14 @@ class PostV3SalesFunnelProductsHistoryResponse200Inner(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of product
         if self.product:
-            _dict['product'] = self.product.to_dict()
+            _dict["product"] = self.product.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in history (list)
         _items = []
         if self.history:
             for _item_history in self.history:
                 if _item_history:
                     _items.append(_item_history.to_dict())
-            _dict['history'] = _items
+            _dict["history"] = _items
         return _dict
 
     @classmethod
@@ -93,11 +95,21 @@ class PostV3SalesFunnelProductsHistoryResponse200Inner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "product": PostV3SalesFunnelProductsHistoryResponse200InnerProduct.from_dict(obj["product"]) if obj.get("product") is not None else None,
-            "history": [History.from_dict(_item) for _item in obj["history"]] if obj.get("history") is not None else None,
-            "currency": obj.get("currency")
-        })
+        _obj = cls.model_validate(
+            {
+                "product": (
+                    PostV3SalesFunnelProductsHistoryResponse200InnerProduct.from_dict(
+                        obj["product"]
+                    )
+                    if obj.get("product") is not None
+                    else None
+                ),
+                "history": (
+                    [History.from_dict(_item) for _item in obj["history"]]
+                    if obj.get("history") is not None
+                    else None
+                ),
+                "currency": obj.get("currency"),
+            }
+        )
         return _obj
-
-

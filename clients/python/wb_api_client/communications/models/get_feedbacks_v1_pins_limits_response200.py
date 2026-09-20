@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.communications.models.openapi_seller_limits_response_data import OpenapiSellerLimitsResponseData
+from wb_api_client.communications.models.openapi_seller_limits_response_data import (
+    OpenapiSellerLimitsResponseData,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetFeedbacksV1PinsLimitsResponse200(BaseModel):
     """
     GetFeedbacksV1PinsLimitsResponse200
-    """ # noqa: E501
+    """  # noqa: E501
+
     data: OpenapiSellerLimitsResponseData
     __properties: ClassVar[List[str]] = ["data"]
 
@@ -35,7 +39,6 @@ class GetFeedbacksV1PinsLimitsResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class GetFeedbacksV1PinsLimitsResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -71,7 +73,7 @@ class GetFeedbacksV1PinsLimitsResponse200(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of data
         if self.data:
-            _dict['data'] = self.data.to_dict()
+            _dict["data"] = self.data.to_dict()
         return _dict
 
     @classmethod
@@ -83,9 +85,13 @@ class GetFeedbacksV1PinsLimitsResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "data": OpenapiSellerLimitsResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "data": (
+                    OpenapiSellerLimitsResponseData.from_dict(obj["data"])
+                    if obj.get("data") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

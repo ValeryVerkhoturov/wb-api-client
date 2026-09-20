@@ -22,10 +22,12 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class StatCampaignNotFound(BaseModel):
     """
     StatCampaignNotFound
-    """ # noqa: E501
+    """  # noqa: E501
+
     advert_id: Optional[StrictInt] = Field(default=None, description="ID кампании")
     error: Optional[StrictStr] = Field(default=None, description="Описание ошибки")
     __properties: ClassVar[List[str]] = ["advert_id", "error"]
@@ -35,7 +37,6 @@ class StatCampaignNotFound(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +62,7 @@ class StatCampaignNotFound(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +80,7 @@ class StatCampaignNotFound(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advert_id": obj.get("advert_id"),
-            "error": obj.get("error")
-        })
+        _obj = cls.model_validate(
+            {"advert_id": obj.get("advert_id"), "error": obj.get("error")}
+        )
         return _obj
-
-

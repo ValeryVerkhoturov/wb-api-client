@@ -22,20 +22,30 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsDateFilterRequest(BaseModel):
     """
     ModelsDateFilterRequest
-    """ # noqa: E501
-    var_from: Optional[StrictStr] = Field(default=None, description="Дата начала периода", alias="from")
-    till: Optional[StrictStr] = Field(default=None, description="Дата окончания периода")
-    type: StrictStr = Field(description="Тип дат:   - `factDate` — дата фактической отгрузки поставки   - `createDate` — дата создания поставки   - `supplyDate` — плановая дата отгрузки поставки   - `updatedDate` — дата изменения поставки ")
+    """  # noqa: E501
+
+    var_from: Optional[StrictStr] = Field(
+        default=None, description="Дата начала периода", alias="from"
+    )
+    till: Optional[StrictStr] = Field(
+        default=None, description="Дата окончания периода"
+    )
+    type: StrictStr = Field(
+        description="Тип дат:   - `factDate` — дата фактической отгрузки поставки   - `createDate` — дата создания поставки   - `supplyDate` — плановая дата отгрузки поставки   - `updatedDate` — дата изменения поставки "
+    )
     __properties: ClassVar[List[str]] = ["from", "till", "type"]
 
-    @field_validator('type')
+    @field_validator("type")
     def type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['factDate', 'createDate', 'supplyDate', 'updatedDate']):
-            raise ValueError("must be one of enum values ('factDate', 'createDate', 'supplyDate', 'updatedDate')")
+        if value not in set(["factDate", "createDate", "supplyDate", "updatedDate"]):
+            raise ValueError(
+                "must be one of enum values ('factDate', 'createDate', 'supplyDate', 'updatedDate')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -43,7 +53,6 @@ class ModelsDateFilterRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -69,8 +78,7 @@ class ModelsDateFilterRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -88,11 +96,7 @@ class ModelsDateFilterRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "from": obj.get("from"),
-            "till": obj.get("till"),
-            "type": obj.get("type")
-        })
+        _obj = cls.model_validate(
+            {"from": obj.get("from"), "till": obj.get("till"), "type": obj.get("type")}
+        )
         return _obj
-
-

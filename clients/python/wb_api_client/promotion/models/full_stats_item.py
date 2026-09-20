@@ -19,38 +19,75 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from wb_api_client.promotion.models.full_stats_item_booster_stats_inner import FullStatsItemBoosterStatsInner
-from wb_api_client.promotion.models.full_stats_item_days_inner import FullStatsItemDaysInner
+from wb_api_client.promotion.models.full_stats_item_booster_stats_inner import (
+    FullStatsItemBoosterStatsInner,
+)
+from wb_api_client.promotion.models.full_stats_item_days_inner import (
+    FullStatsItemDaysInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class FullStatsItem(BaseModel):
     """
     Статистика по одной кампании за период, указанный в запросе. По всем артикулам WB и платформам
-    """ # noqa: E501
+    """  # noqa: E501
+
     advert_id: StrictInt = Field(description="ID кампании", alias="advertId")
     atbs: StrictInt = Field(description="Количество добавлений товаров в корзину")
-    booster_stats: Optional[List[FullStatsItemBoosterStatsInner]] = Field(default=None, description="Статистика по средней позиции товара (для кампаний с единой ставкой)", alias="boosterStats")
+    booster_stats: Optional[List[FullStatsItemBoosterStatsInner]] = Field(
+        default=None,
+        description="Статистика по средней позиции товара (для кампаний с единой ставкой)",
+        alias="boosterStats",
+    )
     canceled: StrictInt = Field(description="Отмены, шт.")
     clicks: StrictInt = Field(description="Количество кликов")
-    cpc: Union[StrictFloat, StrictInt] = Field(description="Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    cr: Union[StrictFloat, StrictInt] = Field(description="CR (conversion rate) — отношение количества заказов к общему количеству кликов")
-    ctr: Union[StrictFloat, StrictInt] = Field(description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах")
+    cpc: Union[StrictFloat, StrictInt] = Field(
+        description="Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
+    cr: Union[StrictFloat, StrictInt] = Field(
+        description="CR (conversion rate) — отношение количества заказов к общему количеству кликов"
+    )
+    ctr: Union[StrictFloat, StrictInt] = Field(
+        description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах"
+    )
     days: List[FullStatsItemDaysInner] = Field(description="Статистка по дням")
     orders: StrictInt = Field(description="Количество заказов")
     shks: StrictInt = Field(description="Количество заказанных товаров, шт.")
-    sum: Union[StrictFloat, StrictInt] = Field(description="Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    sum_price: Union[StrictFloat, StrictInt] = Field(description="Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    sum: Union[StrictFloat, StrictInt] = Field(
+        description="Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
+    sum_price: Union[StrictFloat, StrictInt] = Field(
+        description="Сумма заказов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
     views: StrictInt = Field(description="Количество просмотров")
-    currency: StrictStr = Field(description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    __properties: ClassVar[List[str]] = ["advertId", "atbs", "boosterStats", "canceled", "clicks", "cpc", "cr", "ctr", "days", "orders", "shks", "sum", "sum_price", "views", "currency"]
+    currency: StrictStr = Field(
+        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
+    __properties: ClassVar[List[str]] = [
+        "advertId",
+        "atbs",
+        "boosterStats",
+        "canceled",
+        "clicks",
+        "cpc",
+        "cr",
+        "ctr",
+        "days",
+        "orders",
+        "shks",
+        "sum",
+        "sum_price",
+        "views",
+        "currency",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -76,8 +113,7 @@ class FullStatsItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -90,14 +126,14 @@ class FullStatsItem(BaseModel):
             for _item_booster_stats in self.booster_stats:
                 if _item_booster_stats:
                     _items.append(_item_booster_stats.to_dict())
-            _dict['boosterStats'] = _items
+            _dict["boosterStats"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in days (list)
         _items = []
         if self.days:
             for _item_days in self.days:
                 if _item_days:
                     _items.append(_item_days.to_dict())
-            _dict['days'] = _items
+            _dict["days"] = _items
         return _dict
 
     @classmethod
@@ -109,23 +145,34 @@ class FullStatsItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advertId": obj.get("advertId"),
-            "atbs": obj.get("atbs"),
-            "boosterStats": [FullStatsItemBoosterStatsInner.from_dict(_item) for _item in obj["boosterStats"]] if obj.get("boosterStats") is not None else None,
-            "canceled": obj.get("canceled"),
-            "clicks": obj.get("clicks"),
-            "cpc": obj.get("cpc"),
-            "cr": obj.get("cr"),
-            "ctr": obj.get("ctr"),
-            "days": [FullStatsItemDaysInner.from_dict(_item) for _item in obj["days"]] if obj.get("days") is not None else None,
-            "orders": obj.get("orders"),
-            "shks": obj.get("shks"),
-            "sum": obj.get("sum"),
-            "sum_price": obj.get("sum_price"),
-            "views": obj.get("views"),
-            "currency": obj.get("currency")
-        })
+        _obj = cls.model_validate(
+            {
+                "advertId": obj.get("advertId"),
+                "atbs": obj.get("atbs"),
+                "boosterStats": (
+                    [
+                        FullStatsItemBoosterStatsInner.from_dict(_item)
+                        for _item in obj["boosterStats"]
+                    ]
+                    if obj.get("boosterStats") is not None
+                    else None
+                ),
+                "canceled": obj.get("canceled"),
+                "clicks": obj.get("clicks"),
+                "cpc": obj.get("cpc"),
+                "cr": obj.get("cr"),
+                "ctr": obj.get("ctr"),
+                "days": (
+                    [FullStatsItemDaysInner.from_dict(_item) for _item in obj["days"]]
+                    if obj.get("days") is not None
+                    else None
+                ),
+                "orders": obj.get("orders"),
+                "shks": obj.get("shks"),
+                "sum": obj.get("sum"),
+                "sum_price": obj.get("sum_price"),
+                "views": obj.get("views"),
+                "currency": obj.get("currency"),
+            }
+        )
         return _obj
-
-

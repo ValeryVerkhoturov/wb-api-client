@@ -22,12 +22,20 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2TagNomenclatureLinkRequest(BaseModel):
     """
     PostV2TagNomenclatureLinkRequest
-    """ # noqa: E501
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmID")
-    tags_ids: Optional[List[StrictInt]] = Field(default=None, description="Массив числовых ID ярлыков. Что бы снять ярлыки с карточки товара, необходимо передать пустой массив. Чтобы добавить ярлыки к уже имеющимся в карточке товара, необходимо в запросе передать новые ярлыки и ярлыки, которые уже есть в карточке товара.", alias="tagsIDs")
+    """  # noqa: E501
+
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmID"
+    )
+    tags_ids: Optional[List[StrictInt]] = Field(
+        default=None,
+        description="Массив числовых ID ярлыков. Что бы снять ярлыки с карточки товара, необходимо передать пустой массив. Чтобы добавить ярлыки к уже имеющимся в карточке товара, необходимо в запросе передать новые ярлыки и ярлыки, которые уже есть в карточке товара.",
+        alias="tagsIDs",
+    )
     __properties: ClassVar[List[str]] = ["nmID", "tagsIDs"]
 
     model_config = ConfigDict(
@@ -35,7 +43,6 @@ class PostV2TagNomenclatureLinkRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +68,7 @@ class PostV2TagNomenclatureLinkRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +86,7 @@ class PostV2TagNomenclatureLinkRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmID": obj.get("nmID"),
-            "tagsIDs": obj.get("tagsIDs")
-        })
+        _obj = cls.model_validate(
+            {"nmID": obj.get("nmID"), "tagsIDs": obj.get("tagsIDs")}
+        )
         return _obj
-
-

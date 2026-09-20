@@ -19,16 +19,23 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.items.models.wholesale_discount_threshold_req import WholesaleDiscountThresholdReq
+from wb_api_client.items.models.wholesale_discount_threshold_req import (
+    WholesaleDiscountThresholdReq,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV1UploadTaskB2bWholesaleRequestDataInner(BaseModel):
     """
     PostV1UploadTaskB2bWholesaleRequestDataInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    wholesale_discount_threshold: List[WholesaleDiscountThresholdReq] = Field(description="Оптовые скидки разных уровней для B2B", alias="wholesaleDiscountThreshold")
+    wholesale_discount_threshold: List[WholesaleDiscountThresholdReq] = Field(
+        description="Оптовые скидки разных уровней для B2B",
+        alias="wholesaleDiscountThreshold",
+    )
     __properties: ClassVar[List[str]] = ["nmId", "wholesaleDiscountThreshold"]
 
     model_config = ConfigDict(
@@ -36,7 +43,6 @@ class PostV1UploadTaskB2bWholesaleRequestDataInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +68,7 @@ class PostV1UploadTaskB2bWholesaleRequestDataInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +81,7 @@ class PostV1UploadTaskB2bWholesaleRequestDataInner(BaseModel):
             for _item_wholesale_discount_threshold in self.wholesale_discount_threshold:
                 if _item_wholesale_discount_threshold:
                     _items.append(_item_wholesale_discount_threshold.to_dict())
-            _dict['wholesaleDiscountThreshold'] = _items
+            _dict["wholesaleDiscountThreshold"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +93,17 @@ class PostV1UploadTaskB2bWholesaleRequestDataInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmId": obj.get("nmId"),
-            "wholesaleDiscountThreshold": [WholesaleDiscountThresholdReq.from_dict(_item) for _item in obj["wholesaleDiscountThreshold"]] if obj.get("wholesaleDiscountThreshold") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "nmId": obj.get("nmId"),
+                "wholesaleDiscountThreshold": (
+                    [
+                        WholesaleDiscountThresholdReq.from_dict(_item)
+                        for _item in obj["wholesaleDiscountThreshold"]
+                    ]
+                    if obj.get("wholesaleDiscountThreshold") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

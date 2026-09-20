@@ -19,7 +19,9 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
-from wb_api_client.rates.models.models_acceptance_coefficient import ModelsAcceptanceCoefficient
+from wb_api_client.rates.models.models_acceptance_coefficient import (
+    ModelsAcceptanceCoefficient,
+)
 from wb_api_client.rates.models.rates_box_response import RatesBoxResponse
 from wb_api_client.rates.models.rates_pallet_response import RatesPalletResponse
 from wb_api_client.rates.models.return_rates_response import ReturnRatesResponse
@@ -41,18 +43,21 @@ class Api:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def get_v1_acceptance_coefficients(
         self,
-        warehouse_ids: Annotated[Optional[StrictStr], Field(description="ID складов. По умолчанию возвращаются данные по всем складам")] = None,
+        warehouse_ids: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="ID складов. По умолчанию возвращаются данные по всем складам"
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -85,28 +90,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_acceptance_coefficients_serialize(
             warehouse_ids=warehouse_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ModelsAcceptanceCoefficient]",
-            '400': "ModelsErrorModel",
-            '401': "GetV1TariffsCommission401Response",
-            '402': "GetV1TariffsCommission402Response",
-            '403': None,
-            '404': None,
-            '429': "GetV1TariffsCommission401Response",
+            "200": "List[ModelsAcceptanceCoefficient]",
+            "400": "ModelsErrorModel",
+            "401": "GetV1TariffsCommission401Response",
+            "402": "GetV1TariffsCommission402Response",
+            "403": None,
+            "404": None,
+            "429": "GetV1TariffsCommission401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -114,18 +118,21 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v1_acceptance_coefficients_with_http_info(
         self,
-        warehouse_ids: Annotated[Optional[StrictStr], Field(description="ID складов. По умолчанию возвращаются данные по всем складам")] = None,
+        warehouse_ids: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="ID складов. По умолчанию возвращаются данные по всем складам"
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -158,28 +165,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_acceptance_coefficients_serialize(
             warehouse_ids=warehouse_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ModelsAcceptanceCoefficient]",
-            '400': "ModelsErrorModel",
-            '401': "GetV1TariffsCommission401Response",
-            '402': "GetV1TariffsCommission402Response",
-            '403': None,
-            '404': None,
-            '429': "GetV1TariffsCommission401Response",
+            "200": "List[ModelsAcceptanceCoefficient]",
+            "400": "ModelsErrorModel",
+            "401": "GetV1TariffsCommission401Response",
+            "402": "GetV1TariffsCommission402Response",
+            "403": None,
+            "404": None,
+            "429": "GetV1TariffsCommission401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -187,18 +193,21 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v1_acceptance_coefficients_without_preload_content(
         self,
-        warehouse_ids: Annotated[Optional[StrictStr], Field(description="ID складов. По умолчанию возвращаются данные по всем складам")] = None,
+        warehouse_ids: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="ID складов. По умолчанию возвращаются данные по всем складам"
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -231,31 +240,29 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_acceptance_coefficients_serialize(
             warehouse_ids=warehouse_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ModelsAcceptanceCoefficient]",
-            '400': "ModelsErrorModel",
-            '401': "GetV1TariffsCommission401Response",
-            '402': "GetV1TariffsCommission402Response",
-            '403': None,
-            '404': None,
-            '429': "GetV1TariffsCommission401Response",
+            "200": "List[ModelsAcceptanceCoefficient]",
+            "400": "ModelsErrorModel",
+            "401": "GetV1TariffsCommission401Response",
+            "402": "GetV1TariffsCommission402Response",
+            "403": None,
+            "404": None,
+            "429": "GetV1TariffsCommission401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_acceptance_coefficients_serialize(
         self,
@@ -266,13 +273,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://common-api.wildberries.ru'
-        ]
+        _hosts = ["https://common-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -286,32 +290,25 @@ class Api:
         # process the path parameters
         # process the query parameters
         if warehouse_ids is not None:
-            
-            _query_params.append(('warehouseIDs', warehouse_ids))
-            
+
+            _query_params.append(("warehouseIDs", warehouse_ids))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/tariffs/v1/acceptance/coefficients',
+            method="GET",
+            resource_path="/api/tariffs/v1/acceptance/coefficients",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -321,11 +318,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_tariffs_box(
@@ -335,9 +329,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -370,33 +363,31 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_tariffs_box_serialize(
             var_date=var_date,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RatesBoxResponse",
-            '400': "BadRequest",
-            '401': "GetV1TariffsCommission401Response",
-            '402': "GetV1TariffsCommission402Response",
-            '429': "GetV1TariffsCommission401Response",
+            "200": "RatesBoxResponse",
+            "400": "BadRequest",
+            "401": "GetV1TariffsCommission401Response",
+            "402": "GetV1TariffsCommission402Response",
+            "429": "GetV1TariffsCommission401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_tariffs_box_with_http_info(
@@ -406,9 +397,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -441,33 +431,31 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_tariffs_box_serialize(
             var_date=var_date,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RatesBoxResponse",
-            '400': "BadRequest",
-            '401': "GetV1TariffsCommission401Response",
-            '402': "GetV1TariffsCommission402Response",
-            '429': "GetV1TariffsCommission401Response",
+            "200": "RatesBoxResponse",
+            "400": "BadRequest",
+            "401": "GetV1TariffsCommission401Response",
+            "402": "GetV1TariffsCommission402Response",
+            "429": "GetV1TariffsCommission401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_tariffs_box_without_preload_content(
@@ -477,9 +465,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -512,29 +499,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_tariffs_box_serialize(
             var_date=var_date,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RatesBoxResponse",
-            '400': "BadRequest",
-            '401': "GetV1TariffsCommission401Response",
-            '402': "GetV1TariffsCommission402Response",
-            '429': "GetV1TariffsCommission401Response",
+            "200": "RatesBoxResponse",
+            "400": "BadRequest",
+            "401": "GetV1TariffsCommission401Response",
+            "402": "GetV1TariffsCommission402Response",
+            "429": "GetV1TariffsCommission401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_tariffs_box_serialize(
         self,
@@ -545,13 +530,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://common-api.wildberries.ru'
-        ]
+        _hosts = ["https://common-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -565,32 +547,25 @@ class Api:
         # process the path parameters
         # process the query parameters
         if var_date is not None:
-            
-            _query_params.append(('date', var_date))
-            
+
+            _query_params.append(("date", var_date))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/tariffs/box',
+            method="GET",
+            resource_path="/api/v1/tariffs/box",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -600,11 +575,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_tariffs_pallet(
@@ -614,9 +586,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -649,33 +620,31 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_tariffs_pallet_serialize(
             var_date=var_date,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RatesPalletResponse",
-            '400': "BadRequest",
-            '401': "GetV1TariffsCommission401Response",
-            '402': "GetV1TariffsCommission402Response",
-            '429': "GetV1TariffsCommission401Response",
+            "200": "RatesPalletResponse",
+            "400": "BadRequest",
+            "401": "GetV1TariffsCommission401Response",
+            "402": "GetV1TariffsCommission402Response",
+            "429": "GetV1TariffsCommission401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_tariffs_pallet_with_http_info(
@@ -685,9 +654,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -720,33 +688,31 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_tariffs_pallet_serialize(
             var_date=var_date,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RatesPalletResponse",
-            '400': "BadRequest",
-            '401': "GetV1TariffsCommission401Response",
-            '402': "GetV1TariffsCommission402Response",
-            '429': "GetV1TariffsCommission401Response",
+            "200": "RatesPalletResponse",
+            "400": "BadRequest",
+            "401": "GetV1TariffsCommission401Response",
+            "402": "GetV1TariffsCommission402Response",
+            "429": "GetV1TariffsCommission401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_tariffs_pallet_without_preload_content(
@@ -756,9 +722,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -791,29 +756,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_tariffs_pallet_serialize(
             var_date=var_date,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RatesPalletResponse",
-            '400': "BadRequest",
-            '401': "GetV1TariffsCommission401Response",
-            '402': "GetV1TariffsCommission402Response",
-            '429': "GetV1TariffsCommission401Response",
+            "200": "RatesPalletResponse",
+            "400": "BadRequest",
+            "401": "GetV1TariffsCommission401Response",
+            "402": "GetV1TariffsCommission402Response",
+            "429": "GetV1TariffsCommission401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_tariffs_pallet_serialize(
         self,
@@ -824,13 +787,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://common-api.wildberries.ru'
-        ]
+        _hosts = ["https://common-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -844,32 +804,25 @@ class Api:
         # process the path parameters
         # process the query parameters
         if var_date is not None:
-            
-            _query_params.append(('date', var_date))
-            
+
+            _query_params.append(("date", var_date))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/tariffs/pallet',
+            method="GET",
+            resource_path="/api/v1/tariffs/pallet",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -879,11 +832,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_tariffs_return(
@@ -893,9 +843,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -928,33 +877,31 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_tariffs_return_serialize(
             var_date=var_date,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ReturnRatesResponse",
-            '400': "BadRequest",
-            '401': "GetV1TariffsCommission401Response",
-            '402': "GetV1TariffsCommission402Response",
-            '429': "GetV1TariffsCommission401Response",
+            "200": "ReturnRatesResponse",
+            "400": "BadRequest",
+            "401": "GetV1TariffsCommission401Response",
+            "402": "GetV1TariffsCommission402Response",
+            "429": "GetV1TariffsCommission401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_tariffs_return_with_http_info(
@@ -964,9 +911,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -999,33 +945,31 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_tariffs_return_serialize(
             var_date=var_date,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ReturnRatesResponse",
-            '400': "BadRequest",
-            '401': "GetV1TariffsCommission401Response",
-            '402': "GetV1TariffsCommission402Response",
-            '429': "GetV1TariffsCommission401Response",
+            "200": "ReturnRatesResponse",
+            "400": "BadRequest",
+            "401": "GetV1TariffsCommission401Response",
+            "402": "GetV1TariffsCommission402Response",
+            "429": "GetV1TariffsCommission401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_tariffs_return_without_preload_content(
@@ -1035,9 +979,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1070,29 +1013,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_tariffs_return_serialize(
             var_date=var_date,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ReturnRatesResponse",
-            '400': "BadRequest",
-            '401': "GetV1TariffsCommission401Response",
-            '402': "GetV1TariffsCommission402Response",
-            '429': "GetV1TariffsCommission401Response",
+            "200": "ReturnRatesResponse",
+            "400": "BadRequest",
+            "401": "GetV1TariffsCommission401Response",
+            "402": "GetV1TariffsCommission402Response",
+            "429": "GetV1TariffsCommission401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_tariffs_return_serialize(
         self,
@@ -1103,13 +1044,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://common-api.wildberries.ru'
-        ]
+        _hosts = ["https://common-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1123,32 +1061,25 @@ class Api:
         # process the path parameters
         # process the query parameters
         if var_date is not None:
-            
-            _query_params.append(('date', var_date))
-            
+
+            _query_params.append(("date", var_date))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/tariffs/return',
+            method="GET",
+            resource_path="/api/v1/tariffs/return",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1158,7 +1089,5 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

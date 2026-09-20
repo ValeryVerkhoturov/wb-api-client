@@ -18,7 +18,15 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from wb_api_client.dbs.models.order_new_dbs_address import OrderNewDBSAddress
@@ -26,49 +34,154 @@ from wb_api_client.dbs.models.order_new_dbs_options import OrderNewDBSOptions
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class OrderNewDBS(BaseModel):
     """
     OrderNewDBS
-    """ # noqa: E501
-    sale_price: Optional[StrictInt] = Field(default=None, description="Цена в валюте продажи с учетом скидки продавца, без учета скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях ", alias="salePrice")
-    required_meta: Optional[List[StrictStr]] = Field(default=None, description="Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei) обязательно для [предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) `Смартфоны`, `\"subjectId\":515`", alias="requiredMeta")
-    comment: Optional[Annotated[str, Field(strict=True, max_length=300)]] = Field(default=None, description="Комментарий покупателя")
+    """  # noqa: E501
+
+    sale_price: Optional[StrictInt] = Field(
+        default=None,
+        description="Цена в валюте продажи с учетом скидки продавца, без учета скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях ",
+        alias="salePrice",
+    )
+    required_meta: Optional[List[StrictStr]] = Field(
+        default=None,
+        description='Список идентификаторов маркировки, доступных для сборочного задания. [Указывать IMEI](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei) обязательно для [предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) `Смартфоны`, `"subjectId":515`',
+        alias="requiredMeta",
+    )
+    comment: Optional[Annotated[str, Field(strict=True, max_length=300)]] = Field(
+        default=None, description="Комментарий покупателя"
+    )
     options: Optional[OrderNewDBSOptions] = None
     address: Optional[OrderNewDBSAddress] = None
-    order_uid: Optional[StrictStr] = Field(default=None, description="ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUID`", alias="orderUid")
-    group_id: Optional[StrictStr] = Field(default=None, description="ID группы сборочных заданий.  Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)", alias="groupId")
+    order_uid: Optional[StrictStr] = Field(
+        default=None,
+        description="ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUID`",
+        alias="orderUid",
+    )
+    group_id: Optional[StrictStr] = Field(
+        default=None,
+        description="ID группы сборочных заданий.  Объединяет сборочные задания, поступившие на один склад (`warehouseId`) в рамках одной транзакции покупателя (`orderUid`)",
+        alias="groupId",
+    )
     article: Optional[StrictStr] = Field(default=None, description="Артикул продавца")
-    color_code: Optional[StrictStr] = Field(default=None, description="Код цвета (только для колеруемых товаров)", alias="colorCode")
-    rid: Optional[Any] = Field(default=None, description="Уникальный ID заказа. Примечание: `rid` — это `srid` в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)")
-    created_at: Optional[datetime] = Field(default=None, description="Дата создания сборочного задания", alias="createdAt")
-    delivery_type: Optional[StrictStr] = Field(default=None, description="Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца ", alias="deliveryType")
-    skus: Optional[List[StrictStr]] = Field(default=None, description="Массив баркодов товара")
+    color_code: Optional[StrictStr] = Field(
+        default=None,
+        description="Код цвета (только для колеруемых товаров)",
+        alias="colorCode",
+    )
+    rid: Optional[Any] = Field(
+        default=None,
+        description="Уникальный ID заказа. Примечание: `rid` — это `srid` в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)",
+    )
+    created_at: Optional[datetime] = Field(
+        default=None, description="Дата создания сборочного задания", alias="createdAt"
+    )
+    delivery_type: Optional[StrictStr] = Field(
+        default=None,
+        description="Тип доставки:   - `dbs` — доставка силами продавца   - `dbsPickupPoint` — доставка силами продавца в ПВЗ   - `edbs` — экспресс-доставка силами продавца ",
+        alias="deliveryType",
+    )
+    skus: Optional[List[StrictStr]] = Field(
+        default=None, description="Массив баркодов товара"
+    )
     id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания")
-    warehouse_id: Optional[StrictInt] = Field(default=None, description="ID склада продавца, на который поступило сборочное задание", alias="warehouseId")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId")
-    chrt_id: Optional[StrictInt] = Field(default=None, description="ID размера товара в системе WB", alias="chrtId")
-    price: Optional[StrictInt] = Field(default=None, description="Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях")
-    final_price: Optional[StrictInt] = Field(default=None, description="Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.  Код валюты продажи указан в поле `currencyCode`.  Предоставляется в информационных целях.  Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/dbs/orders/final-price](./docs/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа того же метода", alias="finalPrice")
-    converted_final_price: Optional[StrictInt] = Field(default=None, description="Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.  Предоставляется в информационных целях.  Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/dbs/orders/final-price](./docs/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода", alias="convertedFinalPrice")
-    converted_price: Optional[StrictInt] = Field(default=None, description="Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях", alias="convertedPrice")
-    currency_code: Optional[StrictInt] = Field(default=None, description="Код валюты продажи", alias="currencyCode")
-    converted_currency_code: Optional[StrictInt] = Field(default=None, description="Код валюты страны продавца", alias="convertedCurrencyCode")
-    cargo_type: Optional[StrictInt] = Field(default=None, description="Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoType")
-    is_zero_order: Optional[StrictBool] = Field(default=None, description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену ", alias="isZeroOrder")
-    wb_sticker_id: Optional[StrictInt] = Field(default=None, description="ID стикера. Отображается только для заказов в ПВЗ", alias="wbStickerId")
-    __properties: ClassVar[List[str]] = ["salePrice", "requiredMeta", "comment", "options", "address", "orderUid", "groupId", "article", "colorCode", "rid", "createdAt", "deliveryType", "skus", "id", "warehouseId", "nmId", "chrtId", "price", "finalPrice", "convertedFinalPrice", "convertedPrice", "currencyCode", "convertedCurrencyCode", "cargoType", "isZeroOrder", "wbStickerId"]
+    warehouse_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID склада продавца, на который поступило сборочное задание",
+        alias="warehouseId",
+    )
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
+    chrt_id: Optional[StrictInt] = Field(
+        default=None, description="ID размера товара в системе WB", alias="chrtId"
+    )
+    price: Optional[StrictInt] = Field(
+        default=None,
+        description="Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях",
+    )
+    final_price: Optional[StrictInt] = Field(
+        default=None,
+        description='Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.  Код валюты продажи указан в поле `currencyCode`.  Предоставляется в информационных целях.  Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/dbs/orders/final-price](./docs/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа того же метода',
+        alias="finalPrice",
+    )
+    converted_final_price: Optional[StrictInt] = Field(
+        default=None,
+        description='Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.  Предоставляется в информационных целях.  Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/dbs/orders/final-price](./docs/openapi/dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода',
+        alias="convertedFinalPrice",
+    )
+    converted_price: Optional[StrictInt] = Field(
+        default=None,
+        description="Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях",
+        alias="convertedPrice",
+    )
+    currency_code: Optional[StrictInt] = Field(
+        default=None, description="Код валюты продажи", alias="currencyCode"
+    )
+    converted_currency_code: Optional[StrictInt] = Field(
+        default=None,
+        description="Код валюты страны продавца",
+        alias="convertedCurrencyCode",
+    )
+    cargo_type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ",
+        alias="cargoType",
+    )
+    is_zero_order: Optional[StrictBool] = Field(
+        default=None,
+        description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену ",
+        alias="isZeroOrder",
+    )
+    wb_sticker_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID стикера. Отображается только для заказов в ПВЗ",
+        alias="wbStickerId",
+    )
+    __properties: ClassVar[List[str]] = [
+        "salePrice",
+        "requiredMeta",
+        "comment",
+        "options",
+        "address",
+        "orderUid",
+        "groupId",
+        "article",
+        "colorCode",
+        "rid",
+        "createdAt",
+        "deliveryType",
+        "skus",
+        "id",
+        "warehouseId",
+        "nmId",
+        "chrtId",
+        "price",
+        "finalPrice",
+        "convertedFinalPrice",
+        "convertedPrice",
+        "currencyCode",
+        "convertedCurrencyCode",
+        "cargoType",
+        "isZeroOrder",
+        "wbStickerId",
+    ]
 
-    @field_validator('delivery_type')
+    @field_validator("delivery_type")
     def delivery_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['dbs', 'edbs', 'dbsPickupPoint']):
-            raise ValueError("must be one of enum values ('dbs', 'edbs', 'dbsPickupPoint')")
+        if value not in set(["dbs", "edbs", "dbsPickupPoint"]):
+            raise ValueError(
+                "must be one of enum values ('dbs', 'edbs', 'dbsPickupPoint')"
+            )
         return value
 
-    @field_validator('cargo_type')
+    @field_validator("cargo_type")
     def cargo_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -83,7 +196,6 @@ class OrderNewDBS(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -109,8 +221,7 @@ class OrderNewDBS(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -119,24 +230,24 @@ class OrderNewDBS(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of options
         if self.options:
-            _dict['options'] = self.options.to_dict()
+            _dict["options"] = self.options.to_dict()
         # override the default output from pydantic by calling `to_dict()` of address
         if self.address:
-            _dict['address'] = self.address.to_dict()
+            _dict["address"] = self.address.to_dict()
         # set to None if sale_price (nullable) is None
         # and model_fields_set contains the field
         if self.sale_price is None and "sale_price" in self.model_fields_set:
-            _dict['salePrice'] = None
+            _dict["salePrice"] = None
 
         # set to None if required_meta (nullable) is None
         # and model_fields_set contains the field
         if self.required_meta is None and "required_meta" in self.model_fields_set:
-            _dict['requiredMeta'] = None
+            _dict["requiredMeta"] = None
 
         # set to None if rid (nullable) is None
         # and model_fields_set contains the field
         if self.rid is None and "rid" in self.model_fields_set:
-            _dict['rid'] = None
+            _dict["rid"] = None
 
         return _dict
 
@@ -149,34 +260,42 @@ class OrderNewDBS(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "salePrice": obj.get("salePrice"),
-            "requiredMeta": obj.get("requiredMeta"),
-            "comment": obj.get("comment"),
-            "options": OrderNewDBSOptions.from_dict(obj["options"]) if obj.get("options") is not None else None,
-            "address": OrderNewDBSAddress.from_dict(obj["address"]) if obj.get("address") is not None else None,
-            "orderUid": obj.get("orderUid"),
-            "groupId": obj.get("groupId"),
-            "article": obj.get("article"),
-            "colorCode": obj.get("colorCode"),
-            "rid": obj.get("rid"),
-            "createdAt": obj.get("createdAt"),
-            "deliveryType": obj.get("deliveryType"),
-            "skus": obj.get("skus"),
-            "id": obj.get("id"),
-            "warehouseId": obj.get("warehouseId"),
-            "nmId": obj.get("nmId"),
-            "chrtId": obj.get("chrtId"),
-            "price": obj.get("price"),
-            "finalPrice": obj.get("finalPrice"),
-            "convertedFinalPrice": obj.get("convertedFinalPrice"),
-            "convertedPrice": obj.get("convertedPrice"),
-            "currencyCode": obj.get("currencyCode"),
-            "convertedCurrencyCode": obj.get("convertedCurrencyCode"),
-            "cargoType": obj.get("cargoType"),
-            "isZeroOrder": obj.get("isZeroOrder"),
-            "wbStickerId": obj.get("wbStickerId")
-        })
+        _obj = cls.model_validate(
+            {
+                "salePrice": obj.get("salePrice"),
+                "requiredMeta": obj.get("requiredMeta"),
+                "comment": obj.get("comment"),
+                "options": (
+                    OrderNewDBSOptions.from_dict(obj["options"])
+                    if obj.get("options") is not None
+                    else None
+                ),
+                "address": (
+                    OrderNewDBSAddress.from_dict(obj["address"])
+                    if obj.get("address") is not None
+                    else None
+                ),
+                "orderUid": obj.get("orderUid"),
+                "groupId": obj.get("groupId"),
+                "article": obj.get("article"),
+                "colorCode": obj.get("colorCode"),
+                "rid": obj.get("rid"),
+                "createdAt": obj.get("createdAt"),
+                "deliveryType": obj.get("deliveryType"),
+                "skus": obj.get("skus"),
+                "id": obj.get("id"),
+                "warehouseId": obj.get("warehouseId"),
+                "nmId": obj.get("nmId"),
+                "chrtId": obj.get("chrtId"),
+                "price": obj.get("price"),
+                "finalPrice": obj.get("finalPrice"),
+                "convertedFinalPrice": obj.get("convertedFinalPrice"),
+                "convertedPrice": obj.get("convertedPrice"),
+                "currencyCode": obj.get("currencyCode"),
+                "convertedCurrencyCode": obj.get("convertedCurrencyCode"),
+                "cargoType": obj.get("cargoType"),
+                "isZeroOrder": obj.get("isZeroOrder"),
+                "wbStickerId": obj.get("wbStickerId"),
+            }
+        )
         return _obj
-
-

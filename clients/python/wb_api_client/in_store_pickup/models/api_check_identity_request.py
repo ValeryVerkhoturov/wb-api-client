@@ -22,11 +22,15 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiCheckIdentityRequest(BaseModel):
     """
     ApiCheckIdentityRequest
-    """ # noqa: E501
-    order_code: Optional[StrictStr] = Field(default=None, description="Уникальный ID заказа покупателя", alias="orderCode")
+    """  # noqa: E501
+
+    order_code: Optional[StrictStr] = Field(
+        default=None, description="Уникальный ID заказа покупателя", alias="orderCode"
+    )
     passcode: Optional[StrictStr] = Field(default=None, description="Код подтверждения")
     __properties: ClassVar[List[str]] = ["orderCode", "passcode"]
 
@@ -35,7 +39,6 @@ class ApiCheckIdentityRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class ApiCheckIdentityRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +82,7 @@ class ApiCheckIdentityRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "orderCode": obj.get("orderCode"),
-            "passcode": obj.get("passcode")
-        })
+        _obj = cls.model_validate(
+            {"orderCode": obj.get("orderCode"), "passcode": obj.get("passcode")}
+        )
         return _obj
-
-

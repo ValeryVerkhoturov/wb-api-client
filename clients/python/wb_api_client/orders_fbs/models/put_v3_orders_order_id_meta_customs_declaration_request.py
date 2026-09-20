@@ -23,11 +23,15 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PutV3OrdersOrderIdMetaCustomsDeclarationRequest(BaseModel):
     """
     PutV3OrdersOrderIdMetaCustomsDeclarationRequest
-    """ # noqa: E501
-    customs_declaration: Annotated[str, Field(min_length=17, strict=True, max_length=29)] = Field(description="Номер ДТ", alias="customsDeclaration")
+    """  # noqa: E501
+
+    customs_declaration: Annotated[
+        str, Field(min_length=17, strict=True, max_length=29)
+    ] = Field(description="Номер ДТ", alias="customsDeclaration")
     __properties: ClassVar[List[str]] = ["customsDeclaration"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class PutV3OrdersOrderIdMetaCustomsDeclarationRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class PutV3OrdersOrderIdMetaCustomsDeclarationRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,9 +82,5 @@ class PutV3OrdersOrderIdMetaCustomsDeclarationRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "customsDeclaration": obj.get("customsDeclaration")
-        })
+        _obj = cls.model_validate({"customsDeclaration": obj.get("customsDeclaration")})
         return _obj
-
-

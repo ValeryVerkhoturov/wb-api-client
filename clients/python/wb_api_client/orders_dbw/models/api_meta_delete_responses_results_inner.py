@@ -19,17 +19,26 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.orders_dbw.models.api_meta_delete_responses_results_inner_errors_inner import ApiMetaDeleteResponsesResultsInnerErrorsInner
+from wb_api_client.orders_dbw.models.api_meta_delete_responses_results_inner_errors_inner import (
+    ApiMetaDeleteResponsesResultsInnerErrorsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ApiMetaDeleteResponsesResultsInner(BaseModel):
     """
     ApiMetaDeleteResponsesResultsInner
-    """ # noqa: E501
-    errors: Optional[List[ApiMetaDeleteResponsesResultsInnerErrorsInner]] = Field(default=None, description="Детали ошибки")
+    """  # noqa: E501
+
+    errors: Optional[List[ApiMetaDeleteResponsesResultsInnerErrorsInner]] = Field(
+        default=None, description="Детали ошибки"
+    )
     is_error: StrictBool = Field(description="Есть ли ошибки", alias="isError")
-    order_id: StrictInt = Field(description="ID сборочного задания с успешно обновлёнными данными", alias="orderId")
+    order_id: StrictInt = Field(
+        description="ID сборочного задания с успешно обновлёнными данными",
+        alias="orderId",
+    )
     __properties: ClassVar[List[str]] = ["errors", "isError", "orderId"]
 
     model_config = ConfigDict(
@@ -37,7 +46,6 @@ class ApiMetaDeleteResponsesResultsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +71,7 @@ class ApiMetaDeleteResponsesResultsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +84,7 @@ class ApiMetaDeleteResponsesResultsInner(BaseModel):
             for _item_errors in self.errors:
                 if _item_errors:
                     _items.append(_item_errors.to_dict())
-            _dict['errors'] = _items
+            _dict["errors"] = _items
         return _dict
 
     @classmethod
@@ -89,11 +96,18 @@ class ApiMetaDeleteResponsesResultsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "errors": [ApiMetaDeleteResponsesResultsInnerErrorsInner.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None,
-            "isError": obj.get("isError"),
-            "orderId": obj.get("orderId")
-        })
+        _obj = cls.model_validate(
+            {
+                "errors": (
+                    [
+                        ApiMetaDeleteResponsesResultsInnerErrorsInner.from_dict(_item)
+                        for _item in obj["errors"]
+                    ]
+                    if obj.get("errors") is not None
+                    else None
+                ),
+                "isError": obj.get("isError"),
+                "orderId": obj.get("orderId"),
+            }
+        )
         return _obj
-
-

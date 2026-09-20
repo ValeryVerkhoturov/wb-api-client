@@ -17,34 +17,77 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+)
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from wb_api_client.analytics.models.table_group_item_metrics_add_to_cart import TableGroupItemMetricsAddToCart
-from wb_api_client.analytics.models.table_group_item_metrics_avg_position import TableGroupItemMetricsAvgPosition
-from wb_api_client.analytics.models.table_group_item_metrics_cart_to_order import TableGroupItemMetricsCartToOrder
-from wb_api_client.analytics.models.table_group_item_metrics_open_to_cart import TableGroupItemMetricsOpenToCart
-from wb_api_client.analytics.models.table_group_item_metrics_orders import TableGroupItemMetricsOrders
-from wb_api_client.analytics.models.table_group_item_metrics_visibility import TableGroupItemMetricsVisibility
-from wb_api_client.analytics.models.table_item_item_all_of_price import TableItemItemAllOfPrice
-from wb_api_client.analytics.models.visibility_info_open_card import VisibilityInfoOpenCard
+from wb_api_client.analytics.models.table_group_item_metrics_add_to_cart import (
+    TableGroupItemMetricsAddToCart,
+)
+from wb_api_client.analytics.models.table_group_item_metrics_avg_position import (
+    TableGroupItemMetricsAvgPosition,
+)
+from wb_api_client.analytics.models.table_group_item_metrics_cart_to_order import (
+    TableGroupItemMetricsCartToOrder,
+)
+from wb_api_client.analytics.models.table_group_item_metrics_open_to_cart import (
+    TableGroupItemMetricsOpenToCart,
+)
+from wb_api_client.analytics.models.table_group_item_metrics_orders import (
+    TableGroupItemMetricsOrders,
+)
+from wb_api_client.analytics.models.table_group_item_metrics_visibility import (
+    TableGroupItemMetricsVisibility,
+)
+from wb_api_client.analytics.models.table_item_item_all_of_price import (
+    TableItemItemAllOfPrice,
+)
+from wb_api_client.analytics.models.visibility_info_open_card import (
+    VisibilityInfoOpenCard,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class TableItemItem(BaseModel):
     """
     TableItemItem
-    """ # noqa: E501
+    """  # noqa: E501
+
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
     name: Optional[StrictStr] = Field(default=None, description="Название товара")
     vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode")
-    subject_name: Optional[StrictStr] = Field(default=None, description="Название предмета", alias="subjectName")
-    brand_name: Optional[StrictStr] = Field(default=None, description="Бренд", alias="brandName")
-    main_photo: Optional[StrictStr] = Field(default=None, description="URL главного фото карточки товара", alias="mainPhoto")
-    is_advertised: StrictBool = Field(description="Находится ли товар в продвижении в Поисковой выдаче", alias="isAdvertised")
-    is_substituted_sku: Optional[StrictBool] = Field(default=None, description="Искали ли товар по подменному артикулу. Поле будет в ответе при наличии в запросе `includeSubstitutedSKUs` и/или `includeSearchTexts`", alias="isSubstitutedSKU")
-    is_card_rated: StrictBool = Field(description="Есть ли рейтинг у карточки товара", alias="isCardRated")
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Название предмета", alias="subjectName"
+    )
+    brand_name: Optional[StrictStr] = Field(
+        default=None, description="Бренд", alias="brandName"
+    )
+    main_photo: Optional[StrictStr] = Field(
+        default=None, description="URL главного фото карточки товара", alias="mainPhoto"
+    )
+    is_advertised: StrictBool = Field(
+        description="Находится ли товар в продвижении в Поисковой выдаче",
+        alias="isAdvertised",
+    )
+    is_substituted_sku: Optional[StrictBool] = Field(
+        default=None,
+        description="Искали ли товар по подменному артикулу. Поле будет в ответе при наличии в запросе `includeSubstitutedSKUs` и/или `includeSearchTexts`",
+        alias="isSubstitutedSKU",
+    )
+    is_card_rated: StrictBool = Field(
+        description="Есть ли рейтинг у карточки товара", alias="isCardRated"
+    )
     rating: Union[StrictFloat, StrictInt] = Field(description="Рейтинг карточки товара")
-    feedback_rating: Union[StrictFloat, StrictInt] = Field(description="Рейтинг по отзывам", alias="feedbackRating")
+    feedback_rating: Union[StrictFloat, StrictInt] = Field(
+        description="Рейтинг по отзывам", alias="feedbackRating"
+    )
     price: TableItemItemAllOfPrice
     avg_position: TableGroupItemMetricsAvgPosition = Field(alias="avgPosition")
     open_card: VisibilityInfoOpenCard = Field(alias="openCard")
@@ -53,14 +96,33 @@ class TableItemItem(BaseModel):
     orders: TableGroupItemMetricsOrders
     cart_to_order: TableGroupItemMetricsCartToOrder = Field(alias="cartToOrder")
     visibility: TableGroupItemMetricsVisibility
-    __properties: ClassVar[List[str]] = ["nmId", "name", "vendorCode", "subjectName", "brandName", "mainPhoto", "isAdvertised", "isSubstitutedSKU", "isCardRated", "rating", "feedbackRating", "price", "avgPosition", "openCard", "addToCart", "openToCart", "orders", "cartToOrder", "visibility"]
+    __properties: ClassVar[List[str]] = [
+        "nmId",
+        "name",
+        "vendorCode",
+        "subjectName",
+        "brandName",
+        "mainPhoto",
+        "isAdvertised",
+        "isSubstitutedSKU",
+        "isCardRated",
+        "rating",
+        "feedbackRating",
+        "price",
+        "avgPosition",
+        "openCard",
+        "addToCart",
+        "openToCart",
+        "orders",
+        "cartToOrder",
+        "visibility",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -86,8 +148,7 @@ class TableItemItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -96,28 +157,28 @@ class TableItemItem(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of price
         if self.price:
-            _dict['price'] = self.price.to_dict()
+            _dict["price"] = self.price.to_dict()
         # override the default output from pydantic by calling `to_dict()` of avg_position
         if self.avg_position:
-            _dict['avgPosition'] = self.avg_position.to_dict()
+            _dict["avgPosition"] = self.avg_position.to_dict()
         # override the default output from pydantic by calling `to_dict()` of open_card
         if self.open_card:
-            _dict['openCard'] = self.open_card.to_dict()
+            _dict["openCard"] = self.open_card.to_dict()
         # override the default output from pydantic by calling `to_dict()` of add_to_cart
         if self.add_to_cart:
-            _dict['addToCart'] = self.add_to_cart.to_dict()
+            _dict["addToCart"] = self.add_to_cart.to_dict()
         # override the default output from pydantic by calling `to_dict()` of open_to_cart
         if self.open_to_cart:
-            _dict['openToCart'] = self.open_to_cart.to_dict()
+            _dict["openToCart"] = self.open_to_cart.to_dict()
         # override the default output from pydantic by calling `to_dict()` of orders
         if self.orders:
-            _dict['orders'] = self.orders.to_dict()
+            _dict["orders"] = self.orders.to_dict()
         # override the default output from pydantic by calling `to_dict()` of cart_to_order
         if self.cart_to_order:
-            _dict['cartToOrder'] = self.cart_to_order.to_dict()
+            _dict["cartToOrder"] = self.cart_to_order.to_dict()
         # override the default output from pydantic by calling `to_dict()` of visibility
         if self.visibility:
-            _dict['visibility'] = self.visibility.to_dict()
+            _dict["visibility"] = self.visibility.to_dict()
         return _dict
 
     @classmethod
@@ -129,27 +190,59 @@ class TableItemItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmId": obj.get("nmId"),
-            "name": obj.get("name"),
-            "vendorCode": obj.get("vendorCode"),
-            "subjectName": obj.get("subjectName"),
-            "brandName": obj.get("brandName"),
-            "mainPhoto": obj.get("mainPhoto"),
-            "isAdvertised": obj.get("isAdvertised"),
-            "isSubstitutedSKU": obj.get("isSubstitutedSKU"),
-            "isCardRated": obj.get("isCardRated"),
-            "rating": obj.get("rating"),
-            "feedbackRating": obj.get("feedbackRating"),
-            "price": TableItemItemAllOfPrice.from_dict(obj["price"]) if obj.get("price") is not None else None,
-            "avgPosition": TableGroupItemMetricsAvgPosition.from_dict(obj["avgPosition"]) if obj.get("avgPosition") is not None else None,
-            "openCard": VisibilityInfoOpenCard.from_dict(obj["openCard"]) if obj.get("openCard") is not None else None,
-            "addToCart": TableGroupItemMetricsAddToCart.from_dict(obj["addToCart"]) if obj.get("addToCart") is not None else None,
-            "openToCart": TableGroupItemMetricsOpenToCart.from_dict(obj["openToCart"]) if obj.get("openToCart") is not None else None,
-            "orders": TableGroupItemMetricsOrders.from_dict(obj["orders"]) if obj.get("orders") is not None else None,
-            "cartToOrder": TableGroupItemMetricsCartToOrder.from_dict(obj["cartToOrder"]) if obj.get("cartToOrder") is not None else None,
-            "visibility": TableGroupItemMetricsVisibility.from_dict(obj["visibility"]) if obj.get("visibility") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "nmId": obj.get("nmId"),
+                "name": obj.get("name"),
+                "vendorCode": obj.get("vendorCode"),
+                "subjectName": obj.get("subjectName"),
+                "brandName": obj.get("brandName"),
+                "mainPhoto": obj.get("mainPhoto"),
+                "isAdvertised": obj.get("isAdvertised"),
+                "isSubstitutedSKU": obj.get("isSubstitutedSKU"),
+                "isCardRated": obj.get("isCardRated"),
+                "rating": obj.get("rating"),
+                "feedbackRating": obj.get("feedbackRating"),
+                "price": (
+                    TableItemItemAllOfPrice.from_dict(obj["price"])
+                    if obj.get("price") is not None
+                    else None
+                ),
+                "avgPosition": (
+                    TableGroupItemMetricsAvgPosition.from_dict(obj["avgPosition"])
+                    if obj.get("avgPosition") is not None
+                    else None
+                ),
+                "openCard": (
+                    VisibilityInfoOpenCard.from_dict(obj["openCard"])
+                    if obj.get("openCard") is not None
+                    else None
+                ),
+                "addToCart": (
+                    TableGroupItemMetricsAddToCart.from_dict(obj["addToCart"])
+                    if obj.get("addToCart") is not None
+                    else None
+                ),
+                "openToCart": (
+                    TableGroupItemMetricsOpenToCart.from_dict(obj["openToCart"])
+                    if obj.get("openToCart") is not None
+                    else None
+                ),
+                "orders": (
+                    TableGroupItemMetricsOrders.from_dict(obj["orders"])
+                    if obj.get("orders") is not None
+                    else None
+                ),
+                "cartToOrder": (
+                    TableGroupItemMetricsCartToOrder.from_dict(obj["cartToOrder"])
+                    if obj.get("cartToOrder") is not None
+                    else None
+                ),
+                "visibility": (
+                    TableGroupItemMetricsVisibility.from_dict(obj["visibility"])
+                    if obj.get("visibility") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

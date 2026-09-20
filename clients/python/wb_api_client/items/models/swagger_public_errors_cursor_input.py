@@ -24,13 +24,28 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class SwaggerPublicErrorsCursorInput(BaseModel):
     """
     Пагинатор
-    """ # noqa: E501
-    limit: Optional[Union[Annotated[float, Field(le=100, strict=True)], Annotated[int, Field(le=100, strict=True)]]] = Field(default=100, description="Количество пакетов в ответе")
-    updated_at: Optional[datetime] = Field(default=None, description="Дата и время формирования последнего пакета в ответе на предыдущий запрос", alias="updatedAt")
-    batch_uuid: Optional[StrictStr] = Field(default=None, description="ID последнего пакета в ответе на предыдущий запрос", alias="batchUUID")
+    """  # noqa: E501
+
+    limit: Optional[
+        Union[
+            Annotated[float, Field(le=100, strict=True)],
+            Annotated[int, Field(le=100, strict=True)],
+        ]
+    ] = Field(default=100, description="Количество пакетов в ответе")
+    updated_at: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время формирования последнего пакета в ответе на предыдущий запрос",
+        alias="updatedAt",
+    )
+    batch_uuid: Optional[StrictStr] = Field(
+        default=None,
+        description="ID последнего пакета в ответе на предыдущий запрос",
+        alias="batchUUID",
+    )
     __properties: ClassVar[List[str]] = ["limit", "updatedAt", "batchUUID"]
 
     model_config = ConfigDict(
@@ -38,7 +53,6 @@ class SwaggerPublicErrorsCursorInput(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +78,7 @@ class SwaggerPublicErrorsCursorInput(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,11 +96,11 @@ class SwaggerPublicErrorsCursorInput(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "limit": obj.get("limit") if obj.get("limit") is not None else 100,
-            "updatedAt": obj.get("updatedAt"),
-            "batchUUID": obj.get("batchUUID")
-        })
+        _obj = cls.model_validate(
+            {
+                "limit": obj.get("limit") if obj.get("limit") is not None else 100,
+                "updatedAt": obj.get("updatedAt"),
+                "batchUUID": obj.get("batchUUID"),
+            }
+        )
         return _obj
-
-

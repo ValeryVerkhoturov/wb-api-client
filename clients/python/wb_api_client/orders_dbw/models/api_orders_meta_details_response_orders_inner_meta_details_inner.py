@@ -22,13 +22,22 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner(BaseModel):
     """
     ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner
-    """ # noqa: E501
-    key: Optional[StrictStr] = Field(default=None, description="Идентификатор маркировки")
-    value: Optional[StrictStr] = Field(default=None, description="Значение идентификатора маркировки")
-    decision: Optional[StrictStr] = Field(default=None, description="Статус проверки: - `imei`   - `pending` — Маркировка на проверке   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена   - `deadlineExceeded` — Валидация пройдена   - `imeiMaySell` — Товар допущен к продаже. Валидация пройдена   - `imeiSoldB2B` — Товар продан покупателю B2B, допущен к продаже повторно. Валидация пройдена   - `required` — Обязательная маркировка не заполнена. Валидация не пройдена   - `imeiInvalidFormat` — Неверный формат маркировки. Валидация не пройдена   - `imeiAlreadySold` — Товар с этим IMEI уже продан. Валидация не пройдена - `uin`   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена - `sgtin`   - `pending` — Маркировка на проверке   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена   - `deadlineExceeded` — Валидация пройдена   - `sgtinIntroduced` — Товар допущен к продаже. Валидация пройдена   - `sgtinSoldB2B` — Товар продан покупателю B2B, допущен к продаже повторно. Валидация пройдена   - `required` — Обязательная маркировка не заполнена. Валидация не пройдена   - `sgtinInvalidFormat` — Неверный формат маркировки. Валидация не пройдена   - `sgtinNotFound` — Маркировка не найдена в [Честном Знаке](https://chestnyznak.ru). Валидация не пройдена   - `sgtinEmitted` —  Маркировка эмитирована. Валидация не пройдена   - `sgtinApplied` — Не пройдена процедура Ввод в оборот. Валидация не пройдена   - `sgtinWrittenOff` — Списан. Валидация не пройдена   - `sgtinRetired` — Выбыл. Валидация не пройдена   - `sgtinWithdrawn` — Выбыл. Валидация не пройдена   - `sgtinDisaggregation` — Расформирован. Валидация не пройдена   - `sgtinDisaggregated` — Расформирован. Валидация не пройдена   - `sgtinAppliedNotPaid` — Не оплачен. Валидация не пройдена - `gtin`   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена - `customsDeclaration`   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена ")
+    """  # noqa: E501
+
+    key: Optional[StrictStr] = Field(
+        default=None, description="Идентификатор маркировки"
+    )
+    value: Optional[StrictStr] = Field(
+        default=None, description="Значение идентификатора маркировки"
+    )
+    decision: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус проверки: - `imei`   - `pending` — Маркировка на проверке   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена   - `deadlineExceeded` — Валидация пройдена   - `imeiMaySell` — Товар допущен к продаже. Валидация пройдена   - `imeiSoldB2B` — Товар продан покупателю B2B, допущен к продаже повторно. Валидация пройдена   - `required` — Обязательная маркировка не заполнена. Валидация не пройдена   - `imeiInvalidFormat` — Неверный формат маркировки. Валидация не пройдена   - `imeiAlreadySold` — Товар с этим IMEI уже продан. Валидация не пройдена - `uin`   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена - `sgtin`   - `pending` — Маркировка на проверке   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена   - `deadlineExceeded` — Валидация пройдена   - `sgtinIntroduced` — Товар допущен к продаже. Валидация пройдена   - `sgtinSoldB2B` — Товар продан покупателю B2B, допущен к продаже повторно. Валидация пройдена   - `required` — Обязательная маркировка не заполнена. Валидация не пройдена   - `sgtinInvalidFormat` — Неверный формат маркировки. Валидация не пройдена   - `sgtinNotFound` — Маркировка не найдена в [Честном Знаке](https://chestnyznak.ru). Валидация не пройдена   - `sgtinEmitted` —  Маркировка эмитирована. Валидация не пройдена   - `sgtinApplied` — Не пройдена процедура Ввод в оборот. Валидация не пройдена   - `sgtinWrittenOff` — Списан. Валидация не пройдена   - `sgtinRetired` — Выбыл. Валидация не пройдена   - `sgtinWithdrawn` — Выбыл. Валидация не пройдена   - `sgtinDisaggregation` — Расформирован. Валидация не пройдена   - `sgtinDisaggregated` — Расформирован. Валидация не пройдена   - `sgtinAppliedNotPaid` — Не оплачен. Валидация не пройдена - `gtin`   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена - `customsDeclaration`   - `optional` — Маркировка не обязательна   - `filled` — Валидация пройдена ",
+    )
     __properties: ClassVar[List[str]] = ["key", "value", "decision"]
 
     model_config = ConfigDict(
@@ -36,7 +45,6 @@ class ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +70,7 @@ class ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,7 +80,7 @@ class ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner(BaseModel):
         # set to None if value (nullable) is None
         # and model_fields_set contains the field
         if self.value is None and "value" in self.model_fields_set:
-            _dict['value'] = None
+            _dict["value"] = None
 
         return _dict
 
@@ -86,11 +93,11 @@ class ApiOrdersMetaDetailsResponseOrdersInnerMetaDetailsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "key": obj.get("key"),
-            "value": obj.get("value"),
-            "decision": obj.get("decision")
-        })
+        _obj = cls.model_validate(
+            {
+                "key": obj.get("key"),
+                "value": obj.get("value"),
+                "decision": obj.get("decision"),
+            }
+        )
         return _obj
-
-

@@ -22,10 +22,12 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class UpdateSupplyWaybill(BaseModel):
     """
     UpdateSupplyWaybill
-    """ # noqa: E501
+    """  # noqa: E501
+
     supply_id: StrictStr = Field(description="ID поставки", alias="supplyId")
     waybill_uuid: StrictStr = Field(description="ID ЭТрН", alias="waybillUuid")
     __properties: ClassVar[List[str]] = ["supplyId", "waybillUuid"]
@@ -35,7 +37,6 @@ class UpdateSupplyWaybill(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +62,7 @@ class UpdateSupplyWaybill(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +80,7 @@ class UpdateSupplyWaybill(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "supplyId": obj.get("supplyId"),
-            "waybillUuid": obj.get("waybillUuid")
-        })
+        _obj = cls.model_validate(
+            {"supplyId": obj.get("supplyId"), "waybillUuid": obj.get("waybillUuid")}
+        )
         return _obj
-
-

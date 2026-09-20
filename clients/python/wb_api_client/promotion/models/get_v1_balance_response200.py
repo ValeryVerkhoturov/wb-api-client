@@ -19,27 +19,50 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.get_v1_balance_response200_cashbacks_inner import GetV1BalanceResponse200CashbacksInner
+from wb_api_client.promotion.models.get_v1_balance_response200_cashbacks_inner import (
+    GetV1BalanceResponse200CashbacksInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV1BalanceResponse200(BaseModel):
     """
     GetV1BalanceResponse200
-    """ # noqa: E501
-    balance: Optional[StrictInt] = Field(default=None, description="Счёт в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    net: Optional[StrictInt] = Field(default=None, description="Баланс в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    currency: Optional[StrictStr] = Field(default=None, description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    bonus: Optional[StrictInt] = Field(default=None, description="Бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    cashbacks: Optional[List[GetV1BalanceResponse200CashbacksInner]] = Field(default=None, description="Промо-бонусы")
-    __properties: ClassVar[List[str]] = ["balance", "net", "currency", "bonus", "cashbacks"]
+    """  # noqa: E501
+
+    balance: Optional[StrictInt] = Field(
+        default=None,
+        description="Счёт в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
+    net: Optional[StrictInt] = Field(
+        default=None,
+        description="Баланс в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
+    currency: Optional[StrictStr] = Field(
+        default=None,
+        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
+    bonus: Optional[StrictInt] = Field(
+        default=None,
+        description="Бонусы в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
+    cashbacks: Optional[List[GetV1BalanceResponse200CashbacksInner]] = Field(
+        default=None, description="Промо-бонусы"
+    )
+    __properties: ClassVar[List[str]] = [
+        "balance",
+        "net",
+        "currency",
+        "bonus",
+        "cashbacks",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +88,7 @@ class GetV1BalanceResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,7 +101,7 @@ class GetV1BalanceResponse200(BaseModel):
             for _item_cashbacks in self.cashbacks:
                 if _item_cashbacks:
                     _items.append(_item_cashbacks.to_dict())
-            _dict['cashbacks'] = _items
+            _dict["cashbacks"] = _items
         return _dict
 
     @classmethod
@@ -91,13 +113,20 @@ class GetV1BalanceResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "balance": obj.get("balance"),
-            "net": obj.get("net"),
-            "currency": obj.get("currency"),
-            "bonus": obj.get("bonus"),
-            "cashbacks": [GetV1BalanceResponse200CashbacksInner.from_dict(_item) for _item in obj["cashbacks"]] if obj.get("cashbacks") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "balance": obj.get("balance"),
+                "net": obj.get("net"),
+                "currency": obj.get("currency"),
+                "bonus": obj.get("bonus"),
+                "cashbacks": (
+                    [
+                        GetV1BalanceResponse200CashbacksInner.from_dict(_item)
+                        for _item in obj["cashbacks"]
+                    ]
+                    if obj.get("cashbacks") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

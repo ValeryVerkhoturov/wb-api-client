@@ -20,35 +20,77 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.communications.models.domain_review_pin_method import DomainReviewPinMethod
+from wb_api_client.communications.models.domain_review_pin_method import (
+    DomainReviewPinMethod,
+)
 from wb_api_client.communications.models.domain_review_pin_on import DomainReviewPinOn
 from wb_api_client.communications.models.domain_review_state import DomainReviewState
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class OpenapiPinnedReviewItemResult(BaseModel):
     """
     OpenapiPinnedReviewItemResult
-    """ # noqa: E501
-    change_state_at: datetime = Field(description="Дата и время закрепления или открепления", alias="changeStateAt")
-    imt_id: StrictInt = Field(description="ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров", alias="imtId")
-    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    pin_id: StrictInt = Field(description="ID операции закрепления отзыва", alias="pinId")
-    pin_method: DomainReviewPinMethod = Field(description="Метод закрепления:   - `subscription` — подписка Джем   - `tariff` — тарифная опция ", alias="pinMethod")
-    pin_on: DomainReviewPinOn = Field(description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ", alias="pinOn")
-    feedback_id: StrictStr = Field(description="ID отзыва", alias="feedbackId")
-    state: DomainReviewState = Field(description="Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет ")
-    unpinned_cause: Optional[StrictStr] = Field(default=None, description="Причина открепления отзыва:   - `sysTariffUnpinned` — закончилась подписка или тарифная опция   - `sysLimitReached` — закончился общий лимит по подписке   - `sysNoratingUnpinned` — отзыв исключён из рейтинга. Например, удалён или забанен   - `sysAdditionalSlot` — к карточке или к группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек прикреплено максимальное количество отзывов ", alias="unpinnedCause")
-    __properties: ClassVar[List[str]] = ["changeStateAt", "imtId", "nmId", "pinId", "pinMethod", "pinOn", "feedbackId", "state", "unpinnedCause"]
+    """  # noqa: E501
 
-    @field_validator('unpinned_cause')
+    change_state_at: datetime = Field(
+        description="Дата и время закрепления или открепления", alias="changeStateAt"
+    )
+    imt_id: StrictInt = Field(
+        description="ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров",
+        alias="imtId",
+    )
+    nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
+    pin_id: StrictInt = Field(
+        description="ID операции закрепления отзыва", alias="pinId"
+    )
+    pin_method: DomainReviewPinMethod = Field(
+        description="Метод закрепления:   - `subscription` — подписка Джем   - `tariff` — тарифная опция ",
+        alias="pinMethod",
+    )
+    pin_on: DomainReviewPinOn = Field(
+        description="Место закрепления отзыва:   - `nm` — карточка товара   - `imt` — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров ",
+        alias="pinOn",
+    )
+    feedback_id: StrictStr = Field(description="ID отзыва", alias="feedbackId")
+    state: DomainReviewState = Field(
+        description="Закреплён ли отзыв:   - `pinned` — да   - `unpinned` — нет "
+    )
+    unpinned_cause: Optional[StrictStr] = Field(
+        default=None,
+        description="Причина открепления отзыва:   - `sysTariffUnpinned` — закончилась подписка или тарифная опция   - `sysLimitReached` — закончился общий лимит по подписке   - `sysNoratingUnpinned` — отзыв исключён из рейтинга. Например, удалён или забанен   - `sysAdditionalSlot` — к карточке или к группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек прикреплено максимальное количество отзывов ",
+        alias="unpinnedCause",
+    )
+    __properties: ClassVar[List[str]] = [
+        "changeStateAt",
+        "imtId",
+        "nmId",
+        "pinId",
+        "pinMethod",
+        "pinOn",
+        "feedbackId",
+        "state",
+        "unpinnedCause",
+    ]
+
+    @field_validator("unpinned_cause")
     def unpinned_cause_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['sysTariffUnpinned', 'sysLimitReached', 'sysNoratingUnpinned', 'sysAdditionalSlot']):
-            raise ValueError("must be one of enum values ('sysTariffUnpinned', 'sysLimitReached', 'sysNoratingUnpinned', 'sysAdditionalSlot')")
+        if value not in set(
+            [
+                "sysTariffUnpinned",
+                "sysLimitReached",
+                "sysNoratingUnpinned",
+                "sysAdditionalSlot",
+            ]
+        ):
+            raise ValueError(
+                "must be one of enum values ('sysTariffUnpinned', 'sysLimitReached', 'sysNoratingUnpinned', 'sysAdditionalSlot')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -56,7 +98,6 @@ class OpenapiPinnedReviewItemResult(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -82,8 +123,7 @@ class OpenapiPinnedReviewItemResult(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -101,17 +141,17 @@ class OpenapiPinnedReviewItemResult(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "changeStateAt": obj.get("changeStateAt"),
-            "imtId": obj.get("imtId"),
-            "nmId": obj.get("nmId"),
-            "pinId": obj.get("pinId"),
-            "pinMethod": obj.get("pinMethod"),
-            "pinOn": obj.get("pinOn"),
-            "feedbackId": obj.get("feedbackId"),
-            "state": obj.get("state"),
-            "unpinnedCause": obj.get("unpinnedCause")
-        })
+        _obj = cls.model_validate(
+            {
+                "changeStateAt": obj.get("changeStateAt"),
+                "imtId": obj.get("imtId"),
+                "nmId": obj.get("nmId"),
+                "pinId": obj.get("pinId"),
+                "pinMethod": obj.get("pinMethod"),
+                "pinOn": obj.get("pinOn"),
+                "feedbackId": obj.get("feedbackId"),
+                "state": obj.get("state"),
+                "unpinnedCause": obj.get("unpinnedCause"),
+            }
+        )
         return _obj
-
-

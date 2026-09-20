@@ -22,13 +22,21 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsVolumeTariff(BaseModel):
     """
     ModelsVolumeTariff
-    """ # noqa: E501
-    var_from: Optional[StrictInt] = Field(default=None, description="Объём поставки от, литры", alias="from")
-    to: Optional[StrictInt] = Field(default=None, description="Объём поставки до, литры")
-    value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Тариф, ₽ за литр")
+    """  # noqa: E501
+
+    var_from: Optional[StrictInt] = Field(
+        default=None, description="Объём поставки от, литры", alias="from"
+    )
+    to: Optional[StrictInt] = Field(
+        default=None, description="Объём поставки до, литры"
+    )
+    value: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Тариф, ₽ за литр"
+    )
     __properties: ClassVar[List[str]] = ["from", "to", "value"]
 
     model_config = ConfigDict(
@@ -36,7 +44,6 @@ class ModelsVolumeTariff(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +69,7 @@ class ModelsVolumeTariff(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +87,7 @@ class ModelsVolumeTariff(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "from": obj.get("from"),
-            "to": obj.get("to"),
-            "value": obj.get("value")
-        })
+        _obj = cls.model_validate(
+            {"from": obj.get("from"), "to": obj.get("to"), "value": obj.get("value")}
+        )
         return _obj
-
-

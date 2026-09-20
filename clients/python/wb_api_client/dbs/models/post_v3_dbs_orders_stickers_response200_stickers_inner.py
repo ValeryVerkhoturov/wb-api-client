@@ -22,15 +22,19 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV3DbsOrdersStickersResponse200StickersInner(BaseModel):
     """
     PostV3DbsOrdersStickersResponse200StickersInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
     part_a: StrictStr = Field(description="Первая часть ID стикера", alias="partA")
     part_b: StrictStr = Field(description="Вторая часть ID стикера", alias="partB")
     barcode: StrictStr = Field(description="Закодированное значение стикера")
-    file: StrictStr = Field(description="Полное представление стикера, кодировка base64")
+    file: StrictStr = Field(
+        description="Полное представление стикера, кодировка base64"
+    )
     __properties: ClassVar[List[str]] = ["orderId", "partA", "partB", "barcode", "file"]
 
     model_config = ConfigDict(
@@ -38,7 +42,6 @@ class PostV3DbsOrdersStickersResponse200StickersInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +67,7 @@ class PostV3DbsOrdersStickersResponse200StickersInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,13 +85,13 @@ class PostV3DbsOrdersStickersResponse200StickersInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "orderId": obj.get("orderId"),
-            "partA": obj.get("partA"),
-            "partB": obj.get("partB"),
-            "barcode": obj.get("barcode"),
-            "file": obj.get("file")
-        })
+        _obj = cls.model_validate(
+            {
+                "orderId": obj.get("orderId"),
+                "partA": obj.get("partA"),
+                "partB": obj.get("partB"),
+                "barcode": obj.get("barcode"),
+                "file": obj.get("file"),
+            }
+        )
         return _obj
-
-

@@ -22,12 +22,16 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V3ArchiveOrderProduct(BaseModel):
     """
     Информация о товаре
-    """ # noqa: E501
+    """  # noqa: E501
+
     article: StrictStr = Field(description="Артикул продавца")
-    chrt_id: StrictInt = Field(description="ID размера товара в системе WB", alias="chrtId")
+    chrt_id: StrictInt = Field(
+        description="ID размера товара в системе WB", alias="chrtId"
+    )
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
     skus: List[StrictStr] = Field(description="Список баркодов")
     __properties: ClassVar[List[str]] = ["article", "chrtId", "nmId", "skus"]
@@ -37,7 +41,6 @@ class V3ArchiveOrderProduct(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +66,7 @@ class V3ArchiveOrderProduct(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,12 +84,12 @@ class V3ArchiveOrderProduct(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "article": obj.get("article"),
-            "chrtId": obj.get("chrtId"),
-            "nmId": obj.get("nmId"),
-            "skus": obj.get("skus")
-        })
+        _obj = cls.model_validate(
+            {
+                "article": obj.get("article"),
+                "chrtId": obj.get("chrtId"),
+                "nmId": obj.get("nmId"),
+                "skus": obj.get("skus"),
+            }
+        )
         return _obj
-
-

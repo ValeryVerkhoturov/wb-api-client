@@ -22,22 +22,32 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class MediaErrors(BaseModel):
     """
     MediaErrors
-    """ # noqa: E501
-    additional_errors: Optional[Dict[str, Any]] = Field(default=None, description="Дополнительные ошибки", alias="additionalErrors")
+    """  # noqa: E501
+
+    additional_errors: Optional[Dict[str, Any]] = Field(
+        default=None, description="Дополнительные ошибки", alias="additionalErrors"
+    )
     data: Optional[Dict[str, Any]] = Field(default=None, description="Данные ошибки")
     error: Optional[StrictBool] = Field(default=None, description="Флаг ошибки")
-    error_text: Optional[StrictStr] = Field(default=None, description="Текст ошибки", alias="errorText")
-    __properties: ClassVar[List[str]] = ["additionalErrors", "data", "error", "errorText"]
+    error_text: Optional[StrictStr] = Field(
+        default=None, description="Текст ошибки", alias="errorText"
+    )
+    __properties: ClassVar[List[str]] = [
+        "additionalErrors",
+        "data",
+        "error",
+        "errorText",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +73,7 @@ class MediaErrors(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,13 +82,16 @@ class MediaErrors(BaseModel):
         )
         # set to None if additional_errors (nullable) is None
         # and model_fields_set contains the field
-        if self.additional_errors is None and "additional_errors" in self.model_fields_set:
-            _dict['additionalErrors'] = None
+        if (
+            self.additional_errors is None
+            and "additional_errors" in self.model_fields_set
+        ):
+            _dict["additionalErrors"] = None
 
         # set to None if data (nullable) is None
         # and model_fields_set contains the field
         if self.data is None and "data" in self.model_fields_set:
-            _dict['data'] = None
+            _dict["data"] = None
 
         return _dict
 
@@ -92,12 +104,12 @@ class MediaErrors(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "additionalErrors": obj.get("additionalErrors"),
-            "data": obj.get("data"),
-            "error": obj.get("error"),
-            "errorText": obj.get("errorText")
-        })
+        _obj = cls.model_validate(
+            {
+                "additionalErrors": obj.get("additionalErrors"),
+                "data": obj.get("data"),
+                "error": obj.get("error"),
+                "errorText": obj.get("errorText"),
+            }
+        )
         return _obj
-
-

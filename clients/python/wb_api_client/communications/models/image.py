@@ -22,13 +22,23 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class Image(BaseModel):
     """
     Изображение
-    """ # noqa: E501
-    var_date: Optional[StrictStr] = Field(default=None, description="Дата загрузки изображения", alias="date")
-    download_id: Optional[StrictStr] = Field(default=None, description="ID файла. [Получить файл](./customer-communication#tag/buyersChat/operation/getV1SellerDownloadId)", alias="downloadID")
-    url: Optional[StrictStr] = Field(default=None, description="URL для получения изображения")
+    """  # noqa: E501
+
+    var_date: Optional[StrictStr] = Field(
+        default=None, description="Дата загрузки изображения", alias="date"
+    )
+    download_id: Optional[StrictStr] = Field(
+        default=None,
+        description="ID файла. [Получить файл](./customer-communication#tag/buyersChat/operation/getV1SellerDownloadId)",
+        alias="downloadID",
+    )
+    url: Optional[StrictStr] = Field(
+        default=None, description="URL для получения изображения"
+    )
     __properties: ClassVar[List[str]] = ["date", "downloadID", "url"]
 
     model_config = ConfigDict(
@@ -36,7 +46,6 @@ class Image(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +71,7 @@ class Image(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +89,11 @@ class Image(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "date": obj.get("date"),
-            "downloadID": obj.get("downloadID"),
-            "url": obj.get("url")
-        })
+        _obj = cls.model_validate(
+            {
+                "date": obj.get("date"),
+                "downloadID": obj.get("downloadID"),
+                "url": obj.get("url"),
+            }
+        )
         return _obj
-
-

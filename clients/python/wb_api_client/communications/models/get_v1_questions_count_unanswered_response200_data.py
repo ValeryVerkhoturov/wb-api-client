@@ -22,12 +22,22 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1QuestionsCountUnansweredResponse200Data(BaseModel):
     """
     GetV1QuestionsCountUnansweredResponse200Data
-    """ # noqa: E501
-    count_unanswered: Optional[StrictInt] = Field(default=None, description="Количество неотвеченных вопросов", alias="countUnanswered")
-    count_unanswered_today: Optional[StrictInt] = Field(default=None, description="Количество неотвеченных вопросов за сегодня", alias="countUnansweredToday")
+    """  # noqa: E501
+
+    count_unanswered: Optional[StrictInt] = Field(
+        default=None,
+        description="Количество неотвеченных вопросов",
+        alias="countUnanswered",
+    )
+    count_unanswered_today: Optional[StrictInt] = Field(
+        default=None,
+        description="Количество неотвеченных вопросов за сегодня",
+        alias="countUnansweredToday",
+    )
     __properties: ClassVar[List[str]] = ["countUnanswered", "countUnansweredToday"]
 
     model_config = ConfigDict(
@@ -35,7 +45,6 @@ class GetV1QuestionsCountUnansweredResponse200Data(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +70,7 @@ class GetV1QuestionsCountUnansweredResponse200Data(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +88,10 @@ class GetV1QuestionsCountUnansweredResponse200Data(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "countUnanswered": obj.get("countUnanswered"),
-            "countUnansweredToday": obj.get("countUnansweredToday")
-        })
+        _obj = cls.model_validate(
+            {
+                "countUnanswered": obj.get("countUnanswered"),
+                "countUnansweredToday": obj.get("countUnansweredToday"),
+            }
+        )
         return _obj
-
-

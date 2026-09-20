@@ -23,12 +23,16 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiUIN(BaseModel):
     """
     ApiUIN
-    """ # noqa: E501
+    """  # noqa: E501
+
     order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
-    uin: Annotated[str, Field(min_length=16, strict=True, max_length=16)] = Field(description="УИН")
+    uin: Annotated[str, Field(min_length=16, strict=True, max_length=16)] = Field(
+        description="УИН"
+    )
     __properties: ClassVar[List[str]] = ["orderId", "uin"]
 
     model_config = ConfigDict(
@@ -36,7 +40,6 @@ class ApiUIN(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class ApiUIN(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,10 +83,7 @@ class ApiUIN(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "orderId": obj.get("orderId"),
-            "uin": obj.get("uin")
-        })
+        _obj = cls.model_validate(
+            {"orderId": obj.get("orderId"), "uin": obj.get("uin")}
+        )
         return _obj
-
-

@@ -23,11 +23,15 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PutV3OrdersOrderIdMetaSgtinRequest(BaseModel):
     """
     PutV3OrdersOrderIdMetaSgtinRequest
-    """ # noqa: E501
-    sgtins: Annotated[List[StrictStr], Field(min_length=1, max_length=100)] = Field(description="Массив кодов маркировки [Честного знака](https://честныйзнак.рф/). Вы [можете передать](https://seller.wildberries.ru/instructions/ru/ru/material/kiz-common-errors#1a16df06-567b-4260-a36d-659a60e3a0fd) коды маркировки: - полностью — с GS-разделителями и кодом проверки подлинности (криптохвостом) - в коротком формате — с GS-разделителями без кода проверки подлинности (криптохвоста) GS-разделители необходимо передавать в кодировке Unicode с экранированием — `\\u001D`")
+    """  # noqa: E501
+
+    sgtins: Annotated[List[StrictStr], Field(min_length=1, max_length=100)] = Field(
+        description="Массив кодов маркировки [Честного знака](https://честныйзнак.рф/). Вы [можете передать](https://seller.wildberries.ru/instructions/ru/ru/material/kiz-common-errors#1a16df06-567b-4260-a36d-659a60e3a0fd) коды маркировки: - полностью — с GS-разделителями и кодом проверки подлинности (криптохвостом) - в коротком формате — с GS-разделителями без кода проверки подлинности (криптохвоста) GS-разделители необходимо передавать в кодировке Unicode с экранированием — `\\u001D`"
+    )
     __properties: ClassVar[List[str]] = ["sgtins"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class PutV3OrdersOrderIdMetaSgtinRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class PutV3OrdersOrderIdMetaSgtinRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,9 +82,5 @@ class PutV3OrdersOrderIdMetaSgtinRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "sgtins": obj.get("sgtins")
-        })
+        _obj = cls.model_validate({"sgtins": obj.get("sgtins")})
         return _obj
-
-

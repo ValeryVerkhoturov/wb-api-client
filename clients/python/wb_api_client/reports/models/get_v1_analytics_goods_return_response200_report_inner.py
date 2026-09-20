@@ -23,32 +23,92 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1AnalyticsGoodsReturnResponse200ReportInner(BaseModel):
     """
     GetV1AnalyticsGoodsReturnResponse200ReportInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     barcode: Optional[StrictStr] = Field(default=None, description="Баркод")
     brand: Optional[StrictStr] = Field(default=None, description="Бренд")
-    completed_dt: Optional[StrictStr] = Field(default=None, description="Дата и время выдачи возврата продавцу", alias="completedDt")
-    dst_office_address: Optional[StrictStr] = Field(default=None, description="Адрес ПВЗ выдачи возврата", alias="dstOfficeAddress")
-    dst_office_id: Optional[StrictInt] = Field(default=None, description="ID ПВЗ выдачи возврата", alias="dstOfficeId")
-    expired_dt: Optional[StrictStr] = Field(default=None, description="Дата и время истечения срока хранения возврата", alias="expiredDt")
-    is_status_active: Optional[StrictInt] = Field(default=None, description="Тип статуса возврата:    * `0` — архивный   * `1` — активный ", alias="isStatusActive")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId")
-    order_dt: Optional[date] = Field(default=None, description="Дата заказа на возврат", alias="orderDt")
-    order_id: Optional[StrictInt] = Field(default=None, description="Номер сборочного задания", alias="orderId")
-    ready_to_return_dt: Optional[StrictStr] = Field(default=None, description="Дата и время готовности возврата к выдаче", alias="readyToReturnDt")
+    completed_dt: Optional[StrictStr] = Field(
+        default=None,
+        description="Дата и время выдачи возврата продавцу",
+        alias="completedDt",
+    )
+    dst_office_address: Optional[StrictStr] = Field(
+        default=None, description="Адрес ПВЗ выдачи возврата", alias="dstOfficeAddress"
+    )
+    dst_office_id: Optional[StrictInt] = Field(
+        default=None, description="ID ПВЗ выдачи возврата", alias="dstOfficeId"
+    )
+    expired_dt: Optional[StrictStr] = Field(
+        default=None,
+        description="Дата и время истечения срока хранения возврата",
+        alias="expiredDt",
+    )
+    is_status_active: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип статуса возврата:    * `0` — архивный   * `1` — активный ",
+        alias="isStatusActive",
+    )
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
+    order_dt: Optional[date] = Field(
+        default=None, description="Дата заказа на возврат", alias="orderDt"
+    )
+    order_id: Optional[StrictInt] = Field(
+        default=None, description="Номер сборочного задания", alias="orderId"
+    )
+    ready_to_return_dt: Optional[StrictStr] = Field(
+        default=None,
+        description="Дата и время готовности возврата к выдаче",
+        alias="readyToReturnDt",
+    )
     reason: Optional[StrictStr] = Field(default=None, description="Причина возврата")
-    return_type: Optional[StrictStr] = Field(default=None, description="Тип возврата", alias="returnType")
-    shk_id: Optional[StrictInt] = Field(default=None, description="Штрихкод", alias="shkId")
-    srid: Optional[StrictStr] = Field(default=None, description="Уникальный ID заказа на возврат")
+    return_type: Optional[StrictStr] = Field(
+        default=None, description="Тип возврата", alias="returnType"
+    )
+    shk_id: Optional[StrictInt] = Field(
+        default=None, description="Штрихкод", alias="shkId"
+    )
+    srid: Optional[StrictStr] = Field(
+        default=None, description="Уникальный ID заказа на возврат"
+    )
     status: Optional[StrictStr] = Field(default=None, description="Статус возврата")
-    sticker_id: Optional[StrictStr] = Field(default=None, description="Стикер заказа на возврат", alias="stickerId")
-    subject_name: Optional[StrictStr] = Field(default=None, description="Предмет", alias="subjectName")
-    tech_size: Optional[StrictStr] = Field(default=None, description="Размер", alias="techSize")
-    __properties: ClassVar[List[str]] = ["barcode", "brand", "completedDt", "dstOfficeAddress", "dstOfficeId", "expiredDt", "isStatusActive", "nmId", "orderDt", "orderId", "readyToReturnDt", "reason", "returnType", "shkId", "srid", "status", "stickerId", "subjectName", "techSize"]
+    sticker_id: Optional[StrictStr] = Field(
+        default=None, description="Стикер заказа на возврат", alias="stickerId"
+    )
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Предмет", alias="subjectName"
+    )
+    tech_size: Optional[StrictStr] = Field(
+        default=None, description="Размер", alias="techSize"
+    )
+    __properties: ClassVar[List[str]] = [
+        "barcode",
+        "brand",
+        "completedDt",
+        "dstOfficeAddress",
+        "dstOfficeId",
+        "expiredDt",
+        "isStatusActive",
+        "nmId",
+        "orderDt",
+        "orderId",
+        "readyToReturnDt",
+        "reason",
+        "returnType",
+        "shkId",
+        "srid",
+        "status",
+        "stickerId",
+        "subjectName",
+        "techSize",
+    ]
 
-    @field_validator('is_status_active')
+    @field_validator("is_status_active")
     def is_status_active_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -63,7 +123,6 @@ class GetV1AnalyticsGoodsReturnResponse200ReportInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -89,8 +148,7 @@ class GetV1AnalyticsGoodsReturnResponse200ReportInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -100,17 +158,20 @@ class GetV1AnalyticsGoodsReturnResponse200ReportInner(BaseModel):
         # set to None if completed_dt (nullable) is None
         # and model_fields_set contains the field
         if self.completed_dt is None and "completed_dt" in self.model_fields_set:
-            _dict['completedDt'] = None
+            _dict["completedDt"] = None
 
         # set to None if expired_dt (nullable) is None
         # and model_fields_set contains the field
         if self.expired_dt is None and "expired_dt" in self.model_fields_set:
-            _dict['expiredDt'] = None
+            _dict["expiredDt"] = None
 
         # set to None if ready_to_return_dt (nullable) is None
         # and model_fields_set contains the field
-        if self.ready_to_return_dt is None and "ready_to_return_dt" in self.model_fields_set:
-            _dict['readyToReturnDt'] = None
+        if (
+            self.ready_to_return_dt is None
+            and "ready_to_return_dt" in self.model_fields_set
+        ):
+            _dict["readyToReturnDt"] = None
 
         return _dict
 
@@ -123,27 +184,27 @@ class GetV1AnalyticsGoodsReturnResponse200ReportInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "barcode": obj.get("barcode"),
-            "brand": obj.get("brand"),
-            "completedDt": obj.get("completedDt"),
-            "dstOfficeAddress": obj.get("dstOfficeAddress"),
-            "dstOfficeId": obj.get("dstOfficeId"),
-            "expiredDt": obj.get("expiredDt"),
-            "isStatusActive": obj.get("isStatusActive"),
-            "nmId": obj.get("nmId"),
-            "orderDt": obj.get("orderDt"),
-            "orderId": obj.get("orderId"),
-            "readyToReturnDt": obj.get("readyToReturnDt"),
-            "reason": obj.get("reason"),
-            "returnType": obj.get("returnType"),
-            "shkId": obj.get("shkId"),
-            "srid": obj.get("srid"),
-            "status": obj.get("status"),
-            "stickerId": obj.get("stickerId"),
-            "subjectName": obj.get("subjectName"),
-            "techSize": obj.get("techSize")
-        })
+        _obj = cls.model_validate(
+            {
+                "barcode": obj.get("barcode"),
+                "brand": obj.get("brand"),
+                "completedDt": obj.get("completedDt"),
+                "dstOfficeAddress": obj.get("dstOfficeAddress"),
+                "dstOfficeId": obj.get("dstOfficeId"),
+                "expiredDt": obj.get("expiredDt"),
+                "isStatusActive": obj.get("isStatusActive"),
+                "nmId": obj.get("nmId"),
+                "orderDt": obj.get("orderDt"),
+                "orderId": obj.get("orderId"),
+                "readyToReturnDt": obj.get("readyToReturnDt"),
+                "reason": obj.get("reason"),
+                "returnType": obj.get("returnType"),
+                "shkId": obj.get("shkId"),
+                "srid": obj.get("srid"),
+                "status": obj.get("status"),
+                "stickerId": obj.get("stickerId"),
+                "subjectName": obj.get("subjectName"),
+                "techSize": obj.get("techSize"),
+            }
+        )
         return _obj
-
-

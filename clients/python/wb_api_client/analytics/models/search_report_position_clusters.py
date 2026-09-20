@@ -19,18 +19,30 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.analytics.models.search_report_position_clusters_below import SearchReportPositionClustersBelow
-from wb_api_client.analytics.models.search_report_position_clusters_first_hundred import SearchReportPositionClustersFirstHundred
-from wb_api_client.analytics.models.search_report_position_clusters_second_hundred import SearchReportPositionClustersSecondHundred
+from wb_api_client.analytics.models.search_report_position_clusters_below import (
+    SearchReportPositionClustersBelow,
+)
+from wb_api_client.analytics.models.search_report_position_clusters_first_hundred import (
+    SearchReportPositionClustersFirstHundred,
+)
+from wb_api_client.analytics.models.search_report_position_clusters_second_hundred import (
+    SearchReportPositionClustersSecondHundred,
+)
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class SearchReportPositionClusters(BaseModel):
     """
-    Количество товаров со средней позицией в поиске:   - `firstHundred` — от 1 до 100   - `secondHundred` — от 101 до 200   - `below` — от 201 и ниже 
-    """ # noqa: E501
-    first_hundred: SearchReportPositionClustersFirstHundred = Field(alias="firstHundred")
-    second_hundred: SearchReportPositionClustersSecondHundred = Field(alias="secondHundred")
+    Количество товаров со средней позицией в поиске:   - `firstHundred` — от 1 до 100   - `secondHundred` — от 101 до 200   - `below` — от 201 и ниже
+    """  # noqa: E501
+
+    first_hundred: SearchReportPositionClustersFirstHundred = Field(
+        alias="firstHundred"
+    )
+    second_hundred: SearchReportPositionClustersSecondHundred = Field(
+        alias="secondHundred"
+    )
     below: SearchReportPositionClustersBelow
     __properties: ClassVar[List[str]] = ["firstHundred", "secondHundred", "below"]
 
@@ -39,7 +51,6 @@ class SearchReportPositionClusters(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +76,7 @@ class SearchReportPositionClusters(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,13 +85,13 @@ class SearchReportPositionClusters(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of first_hundred
         if self.first_hundred:
-            _dict['firstHundred'] = self.first_hundred.to_dict()
+            _dict["firstHundred"] = self.first_hundred.to_dict()
         # override the default output from pydantic by calling `to_dict()` of second_hundred
         if self.second_hundred:
-            _dict['secondHundred'] = self.second_hundred.to_dict()
+            _dict["secondHundred"] = self.second_hundred.to_dict()
         # override the default output from pydantic by calling `to_dict()` of below
         if self.below:
-            _dict['below'] = self.below.to_dict()
+            _dict["below"] = self.below.to_dict()
         return _dict
 
     @classmethod
@@ -93,11 +103,27 @@ class SearchReportPositionClusters(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "firstHundred": SearchReportPositionClustersFirstHundred.from_dict(obj["firstHundred"]) if obj.get("firstHundred") is not None else None,
-            "secondHundred": SearchReportPositionClustersSecondHundred.from_dict(obj["secondHundred"]) if obj.get("secondHundred") is not None else None,
-            "below": SearchReportPositionClustersBelow.from_dict(obj["below"]) if obj.get("below") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "firstHundred": (
+                    SearchReportPositionClustersFirstHundred.from_dict(
+                        obj["firstHundred"]
+                    )
+                    if obj.get("firstHundred") is not None
+                    else None
+                ),
+                "secondHundred": (
+                    SearchReportPositionClustersSecondHundred.from_dict(
+                        obj["secondHundred"]
+                    )
+                    if obj.get("secondHundred") is not None
+                    else None
+                ),
+                "below": (
+                    SearchReportPositionClustersBelow.from_dict(obj["below"])
+                    if obj.get("below") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

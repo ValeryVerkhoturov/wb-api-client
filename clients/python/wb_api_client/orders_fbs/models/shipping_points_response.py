@@ -23,11 +23,15 @@ from wb_api_client.orders_fbs.models.shipping_point import ShippingPoint
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ShippingPointsResponse(BaseModel):
     """
     ShippingPointsResponse
-    """ # noqa: E501
-    shipping_points: List[ShippingPoint] = Field(description="Список пунктов отгрузки", alias="shippingPoints")
+    """  # noqa: E501
+
+    shipping_points: List[ShippingPoint] = Field(
+        description="Список пунктов отгрузки", alias="shippingPoints"
+    )
     __properties: ClassVar[List[str]] = ["shippingPoints"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class ShippingPointsResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class ShippingPointsResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +77,7 @@ class ShippingPointsResponse(BaseModel):
             for _item_shipping_points in self.shipping_points:
                 if _item_shipping_points:
                     _items.append(_item_shipping_points.to_dict())
-            _dict['shippingPoints'] = _items
+            _dict["shippingPoints"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +89,13 @@ class ShippingPointsResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "shippingPoints": [ShippingPoint.from_dict(_item) for _item in obj["shippingPoints"]] if obj.get("shippingPoints") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "shippingPoints": (
+                    [ShippingPoint.from_dict(_item) for _item in obj["shippingPoints"]]
+                    if obj.get("shippingPoints") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

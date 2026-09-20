@@ -23,12 +23,20 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1PromotionCountResponse200AdvertsInnerAdvertListInner(BaseModel):
     """
     GetV1PromotionCountResponse200AdvertsInnerAdvertListInner
-    """ # noqa: E501
-    advert_id: Optional[StrictInt] = Field(default=None, description="ID кампании", alias="advertId")
-    change_time: Optional[datetime] = Field(default=None, description="Дата и время последнего изменения кампании", alias="changeTime")
+    """  # noqa: E501
+
+    advert_id: Optional[StrictInt] = Field(
+        default=None, description="ID кампании", alias="advertId"
+    )
+    change_time: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время последнего изменения кампании",
+        alias="changeTime",
+    )
     __properties: ClassVar[List[str]] = ["advertId", "changeTime"]
 
     model_config = ConfigDict(
@@ -36,7 +44,6 @@ class GetV1PromotionCountResponse200AdvertsInnerAdvertListInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +69,7 @@ class GetV1PromotionCountResponse200AdvertsInnerAdvertListInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,10 +87,7 @@ class GetV1PromotionCountResponse200AdvertsInnerAdvertListInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advertId": obj.get("advertId"),
-            "changeTime": obj.get("changeTime")
-        })
+        _obj = cls.model_validate(
+            {"advertId": obj.get("advertId"), "changeTime": obj.get("changeTime")}
+        )
         return _obj
-
-

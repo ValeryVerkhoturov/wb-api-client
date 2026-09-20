@@ -17,30 +17,63 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+)
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PromoItemsList(BaseModel):
     """
     PromoItemsList
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictInt] = Field(default=None, description="Артикул WB")
-    in_action: Optional[StrictBool] = Field(default=None, description="Участвует в акции:   - `true` — да   - `false` — нет ", alias="inAction")
-    price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Текущая розничная цена")
-    currency_code: Optional[StrictStr] = Field(default=None, description="Валюта в формате ISO 4217", alias="currencyCode")
-    plan_price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Плановая цена (цена во время акции)", alias="planPrice")
+    in_action: Optional[StrictBool] = Field(
+        default=None,
+        description="Участвует в акции:   - `true` — да   - `false` — нет ",
+        alias="inAction",
+    )
+    price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Текущая розничная цена"
+    )
+    currency_code: Optional[StrictStr] = Field(
+        default=None, description="Валюта в формате ISO 4217", alias="currencyCode"
+    )
+    plan_price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Плановая цена (цена во время акции)",
+        alias="planPrice",
+    )
     discount: Optional[StrictInt] = Field(default=None, description="Текущая скидка")
-    plan_discount: Optional[StrictInt] = Field(default=None, description="Рекомендуемая скидка для участия в акции", alias="planDiscount")
-    __properties: ClassVar[List[str]] = ["id", "inAction", "price", "currencyCode", "planPrice", "discount", "planDiscount"]
+    plan_discount: Optional[StrictInt] = Field(
+        default=None,
+        description="Рекомендуемая скидка для участия в акции",
+        alias="planDiscount",
+    )
+    __properties: ClassVar[List[str]] = [
+        "id",
+        "inAction",
+        "price",
+        "currencyCode",
+        "planPrice",
+        "discount",
+        "planDiscount",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -66,8 +99,7 @@ class PromoItemsList(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -85,15 +117,15 @@ class PromoItemsList(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "inAction": obj.get("inAction"),
-            "price": obj.get("price"),
-            "currencyCode": obj.get("currencyCode"),
-            "planPrice": obj.get("planPrice"),
-            "discount": obj.get("discount"),
-            "planDiscount": obj.get("planDiscount")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "inAction": obj.get("inAction"),
+                "price": obj.get("price"),
+                "currencyCode": obj.get("currencyCode"),
+                "planPrice": obj.get("planPrice"),
+                "discount": obj.get("discount"),
+                "planDiscount": obj.get("planDiscount"),
+            }
+        )
         return _obj
-
-

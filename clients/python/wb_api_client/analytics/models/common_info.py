@@ -19,26 +19,39 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.analytics.models.common_info_advertised_products import CommonInfoAdvertisedProducts
-from wb_api_client.analytics.models.common_info_supplier_rating import CommonInfoSupplierRating
+from wb_api_client.analytics.models.common_info_advertised_products import (
+    CommonInfoAdvertisedProducts,
+)
+from wb_api_client.analytics.models.common_info_supplier_rating import (
+    CommonInfoSupplierRating,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class CommonInfo(BaseModel):
     """
     Общая информация
-    """ # noqa: E501
+    """  # noqa: E501
+
     supplier_rating: CommonInfoSupplierRating = Field(alias="supplierRating")
-    advertised_products: CommonInfoAdvertisedProducts = Field(alias="advertisedProducts")
-    total_products: StrictInt = Field(description="Общее количество товаров", alias="totalProducts")
-    __properties: ClassVar[List[str]] = ["supplierRating", "advertisedProducts", "totalProducts"]
+    advertised_products: CommonInfoAdvertisedProducts = Field(
+        alias="advertisedProducts"
+    )
+    total_products: StrictInt = Field(
+        description="Общее количество товаров", alias="totalProducts"
+    )
+    __properties: ClassVar[List[str]] = [
+        "supplierRating",
+        "advertisedProducts",
+        "totalProducts",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +77,7 @@ class CommonInfo(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -74,10 +86,10 @@ class CommonInfo(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of supplier_rating
         if self.supplier_rating:
-            _dict['supplierRating'] = self.supplier_rating.to_dict()
+            _dict["supplierRating"] = self.supplier_rating.to_dict()
         # override the default output from pydantic by calling `to_dict()` of advertised_products
         if self.advertised_products:
-            _dict['advertisedProducts'] = self.advertised_products.to_dict()
+            _dict["advertisedProducts"] = self.advertised_products.to_dict()
         return _dict
 
     @classmethod
@@ -89,11 +101,19 @@ class CommonInfo(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "supplierRating": CommonInfoSupplierRating.from_dict(obj["supplierRating"]) if obj.get("supplierRating") is not None else None,
-            "advertisedProducts": CommonInfoAdvertisedProducts.from_dict(obj["advertisedProducts"]) if obj.get("advertisedProducts") is not None else None,
-            "totalProducts": obj.get("totalProducts")
-        })
+        _obj = cls.model_validate(
+            {
+                "supplierRating": (
+                    CommonInfoSupplierRating.from_dict(obj["supplierRating"])
+                    if obj.get("supplierRating") is not None
+                    else None
+                ),
+                "advertisedProducts": (
+                    CommonInfoAdvertisedProducts.from_dict(obj["advertisedProducts"])
+                    if obj.get("advertisedProducts") is not None
+                    else None
+                ),
+                "totalProducts": obj.get("totalProducts"),
+            }
+        )
         return _obj
-
-

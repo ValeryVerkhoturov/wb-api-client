@@ -25,10 +25,12 @@ from wb_api_client.analytics.models.statistics_selected import StatisticsSelecte
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class Statistics(BaseModel):
     """
     Statistics
-    """ # noqa: E501
+    """  # noqa: E501
+
     selected: StatisticsSelected
     past: Optional[StatisticsPast] = None
     comparison: Optional[StatisticsComparison] = None
@@ -39,7 +41,6 @@ class Statistics(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +66,7 @@ class Statistics(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,13 +75,13 @@ class Statistics(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of selected
         if self.selected:
-            _dict['selected'] = self.selected.to_dict()
+            _dict["selected"] = self.selected.to_dict()
         # override the default output from pydantic by calling `to_dict()` of past
         if self.past:
-            _dict['past'] = self.past.to_dict()
+            _dict["past"] = self.past.to_dict()
         # override the default output from pydantic by calling `to_dict()` of comparison
         if self.comparison:
-            _dict['comparison'] = self.comparison.to_dict()
+            _dict["comparison"] = self.comparison.to_dict()
         return _dict
 
     @classmethod
@@ -93,11 +93,23 @@ class Statistics(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "selected": StatisticsSelected.from_dict(obj["selected"]) if obj.get("selected") is not None else None,
-            "past": StatisticsPast.from_dict(obj["past"]) if obj.get("past") is not None else None,
-            "comparison": StatisticsComparison.from_dict(obj["comparison"]) if obj.get("comparison") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "selected": (
+                    StatisticsSelected.from_dict(obj["selected"])
+                    if obj.get("selected") is not None
+                    else None
+                ),
+                "past": (
+                    StatisticsPast.from_dict(obj["past"])
+                    if obj.get("past") is not None
+                    else None
+                ),
+                "comparison": (
+                    StatisticsComparison.from_dict(obj["comparison"])
+                    if obj.get("comparison") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

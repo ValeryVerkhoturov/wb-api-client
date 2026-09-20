@@ -19,16 +19,24 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.post_v2_get_cards_list_request_settings_cursor import PostV2GetCardsListRequestSettingsCursor
-from wb_api_client.items.models.post_v2_get_cards_list_request_settings_filter import PostV2GetCardsListRequestSettingsFilter
-from wb_api_client.items.models.post_v2_get_cards_list_request_settings_sort import PostV2GetCardsListRequestSettingsSort
+from wb_api_client.items.models.post_v2_get_cards_list_request_settings_cursor import (
+    PostV2GetCardsListRequestSettingsCursor,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_request_settings_filter import (
+    PostV2GetCardsListRequestSettingsFilter,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_request_settings_sort import (
+    PostV2GetCardsListRequestSettingsSort,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV2GetCardsListRequestSettings(BaseModel):
     """
     Настройки
-    """ # noqa: E501
+    """  # noqa: E501
+
     sort: Optional[PostV2GetCardsListRequestSettingsSort] = None
     filter: Optional[PostV2GetCardsListRequestSettingsFilter] = None
     cursor: Optional[PostV2GetCardsListRequestSettingsCursor] = None
@@ -39,7 +47,6 @@ class PostV2GetCardsListRequestSettings(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +72,7 @@ class PostV2GetCardsListRequestSettings(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,13 +81,13 @@ class PostV2GetCardsListRequestSettings(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of sort
         if self.sort:
-            _dict['sort'] = self.sort.to_dict()
+            _dict["sort"] = self.sort.to_dict()
         # override the default output from pydantic by calling `to_dict()` of filter
         if self.filter:
-            _dict['filter'] = self.filter.to_dict()
+            _dict["filter"] = self.filter.to_dict()
         # override the default output from pydantic by calling `to_dict()` of cursor
         if self.cursor:
-            _dict['cursor'] = self.cursor.to_dict()
+            _dict["cursor"] = self.cursor.to_dict()
         return _dict
 
     @classmethod
@@ -93,11 +99,23 @@ class PostV2GetCardsListRequestSettings(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "sort": PostV2GetCardsListRequestSettingsSort.from_dict(obj["sort"]) if obj.get("sort") is not None else None,
-            "filter": PostV2GetCardsListRequestSettingsFilter.from_dict(obj["filter"]) if obj.get("filter") is not None else None,
-            "cursor": PostV2GetCardsListRequestSettingsCursor.from_dict(obj["cursor"]) if obj.get("cursor") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "sort": (
+                    PostV2GetCardsListRequestSettingsSort.from_dict(obj["sort"])
+                    if obj.get("sort") is not None
+                    else None
+                ),
+                "filter": (
+                    PostV2GetCardsListRequestSettingsFilter.from_dict(obj["filter"])
+                    if obj.get("filter") is not None
+                    else None
+                ),
+                "cursor": (
+                    PostV2GetCardsListRequestSettingsCursor.from_dict(obj["cursor"])
+                    if obj.get("cursor") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

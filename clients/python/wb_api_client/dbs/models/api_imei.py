@@ -23,12 +23,16 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiIMEI(BaseModel):
     """
     ApiIMEI
-    """ # noqa: E501
+    """  # noqa: E501
+
     order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
-    imei: Annotated[str, Field(min_length=15, strict=True, max_length=15)] = Field(description="IMEI")
+    imei: Annotated[str, Field(min_length=15, strict=True, max_length=15)] = Field(
+        description="IMEI"
+    )
     __properties: ClassVar[List[str]] = ["orderId", "imei"]
 
     model_config = ConfigDict(
@@ -36,7 +40,6 @@ class ApiIMEI(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class ApiIMEI(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,10 +83,7 @@ class ApiIMEI(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "orderId": obj.get("orderId"),
-            "imei": obj.get("imei")
-        })
+        _obj = cls.model_validate(
+            {"orderId": obj.get("orderId"), "imei": obj.get("imei")}
+        )
         return _obj
-
-

@@ -22,13 +22,19 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PatchV1BidsResponse200BidsInnerNmBidsInner(BaseModel):
     """
     PatchV1BidsResponse200BidsInnerNmBidsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     nm_id: StrictInt = Field(description="Артикул WB")
-    bid_kopecks: StrictInt = Field(description="Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    placement: StrictStr = Field(description="Место размещения:   - `search` — в поиске   - `recommendations`— в рекомендациях ")
+    bid_kopecks: StrictInt = Field(
+        description="Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
+    placement: StrictStr = Field(
+        description="Место размещения:   - `search` — в поиске   - `recommendations`— в рекомендациях "
+    )
     __properties: ClassVar[List[str]] = ["nm_id", "bid_kopecks", "placement"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class PatchV1BidsResponse200BidsInnerNmBidsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class PatchV1BidsResponse200BidsInnerNmBidsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +85,11 @@ class PatchV1BidsResponse200BidsInnerNmBidsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nm_id": obj.get("nm_id"),
-            "bid_kopecks": obj.get("bid_kopecks"),
-            "placement": obj.get("placement")
-        })
+        _obj = cls.model_validate(
+            {
+                "nm_id": obj.get("nm_id"),
+                "bid_kopecks": obj.get("bid_kopecks"),
+                "placement": obj.get("placement"),
+            }
+        )
         return _obj
-
-

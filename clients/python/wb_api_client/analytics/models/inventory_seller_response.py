@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.analytics.models.inventory_seller_response_items_inner import InventorySellerResponseItemsInner
+from wb_api_client.analytics.models.inventory_seller_response_items_inner import (
+    InventorySellerResponseItemsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class InventorySellerResponse(BaseModel):
     """
     Текущие остатки товаров на складах продавца
-    """ # noqa: E501
-    items: List[InventorySellerResponseItemsInner] = Field(description="Остатки товаров на складах продавца по размерам")
+    """  # noqa: E501
+
+    items: List[InventorySellerResponseItemsInner] = Field(
+        description="Остатки товаров на складах продавца по размерам"
+    )
     __properties: ClassVar[List[str]] = ["items"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class InventorySellerResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class InventorySellerResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +79,7 @@ class InventorySellerResponse(BaseModel):
             for _item_items in self.items:
                 if _item_items:
                     _items.append(_item_items.to_dict())
-            _dict['items'] = _items
+            _dict["items"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +91,16 @@ class InventorySellerResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "items": [InventorySellerResponseItemsInner.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "items": (
+                    [
+                        InventorySellerResponseItemsInner.from_dict(_item)
+                        for _item in obj["items"]
+                    ]
+                    if obj.get("items") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

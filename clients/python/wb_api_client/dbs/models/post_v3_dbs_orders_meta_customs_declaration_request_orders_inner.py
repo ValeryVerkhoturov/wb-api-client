@@ -23,21 +23,31 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner(BaseModel):
     """
     PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner
-    """ # noqa: E501
-    customs_declaration: Annotated[str, Field(min_length=17, strict=True, max_length=29)] = Field(description="Номер ДТ", alias="customsDeclaration")
+    """  # noqa: E501
+
+    customs_declaration: Annotated[
+        str, Field(min_length=17, strict=True, max_length=29)
+    ] = Field(description="Номер ДТ", alias="customsDeclaration")
     order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
-    origin_country_code: Annotated[str, Field(strict=True, max_length=3)] = Field(description="Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269). Необходимо указывать только для сборочных заданий с признаком B2B-продажи `\"isB2b\":true` ", alias="originCountryCode")
-    __properties: ClassVar[List[str]] = ["customsDeclaration", "orderId", "originCountryCode"]
+    origin_country_code: Annotated[str, Field(strict=True, max_length=3)] = Field(
+        description='Числовой код страны происхождения товара из [Общероссийского классификатора стран мира](https://esnsi.gosuslugi.ru/classifiers/16269). Необходимо указывать только для сборочных заданий с признаком B2B-продажи `"isB2b":true` ',
+        alias="originCountryCode",
+    )
+    __properties: ClassVar[List[str]] = [
+        "customsDeclaration",
+        "orderId",
+        "originCountryCode",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +73,7 @@ class PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,11 +91,11 @@ class PostV3DbsOrdersMetaCustomsDeclarationRequestOrdersInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "customsDeclaration": obj.get("customsDeclaration"),
-            "orderId": obj.get("orderId"),
-            "originCountryCode": obj.get("originCountryCode")
-        })
+        _obj = cls.model_validate(
+            {
+                "customsDeclaration": obj.get("customsDeclaration"),
+                "orderId": obj.get("orderId"),
+                "originCountryCode": obj.get("originCountryCode"),
+            }
+        )
         return _obj
-
-

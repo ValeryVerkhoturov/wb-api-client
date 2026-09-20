@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.reports.models.models_excise_report_response import ModelsExciseReportResponse
+from wb_api_client.reports.models.models_excise_report_response import (
+    ModelsExciseReportResponse,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ExciseReportResponse(BaseModel):
     """
     ExciseReportResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     response: Optional[ModelsExciseReportResponse] = None
     __properties: ClassVar[List[str]] = ["response"]
 
@@ -35,7 +39,6 @@ class ExciseReportResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class ExciseReportResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -71,7 +73,7 @@ class ExciseReportResponse(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of response
         if self.response:
-            _dict['response'] = self.response.to_dict()
+            _dict["response"] = self.response.to_dict()
         return _dict
 
     @classmethod
@@ -83,9 +85,13 @@ class ExciseReportResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "response": ModelsExciseReportResponse.from_dict(obj["response"]) if obj.get("response") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "response": (
+                    ModelsExciseReportResponse.from_dict(obj["response"])
+                    if obj.get("response") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

@@ -23,22 +23,37 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class CreateInviteResponse(BaseModel):
     """
     Данные приглашения
-    """ # noqa: E501
+    """  # noqa: E501
+
     invite_id: StrictStr = Field(description="ID приглашения", alias="inviteID")
-    expired_at: datetime = Field(description="Дата и время окончания срока действия приглашения", alias="expiredAt")
-    is_success: StrictBool = Field(description="- `true` — приглашение создано успешно - `false` — повторите запрос ", alias="isSuccess")
-    invite_url: StrictStr = Field(description="URL приглашения, по которому должен перейти пользователь", alias="inviteUrl")
-    __properties: ClassVar[List[str]] = ["inviteID", "expiredAt", "isSuccess", "inviteUrl"]
+    expired_at: datetime = Field(
+        description="Дата и время окончания срока действия приглашения",
+        alias="expiredAt",
+    )
+    is_success: StrictBool = Field(
+        description="- `true` — приглашение создано успешно - `false` — повторите запрос ",
+        alias="isSuccess",
+    )
+    invite_url: StrictStr = Field(
+        description="URL приглашения, по которому должен перейти пользователь",
+        alias="inviteUrl",
+    )
+    __properties: ClassVar[List[str]] = [
+        "inviteID",
+        "expiredAt",
+        "isSuccess",
+        "inviteUrl",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +79,7 @@ class CreateInviteResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,12 +97,12 @@ class CreateInviteResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "inviteID": obj.get("inviteID"),
-            "expiredAt": obj.get("expiredAt"),
-            "isSuccess": obj.get("isSuccess"),
-            "inviteUrl": obj.get("inviteUrl")
-        })
+        _obj = cls.model_validate(
+            {
+                "inviteID": obj.get("inviteID"),
+                "expiredAt": obj.get("expiredAt"),
+                "isSuccess": obj.get("isSuccess"),
+                "inviteUrl": obj.get("inviteUrl"),
+            }
+        )
         return _obj
-
-

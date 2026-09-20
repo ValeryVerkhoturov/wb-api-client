@@ -19,16 +19,24 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.get_v1_promotion_count_response200_adverts_inner import GetV1PromotionCountResponse200AdvertsInner
+from wb_api_client.promotion.models.get_v1_promotion_count_response200_adverts_inner import (
+    GetV1PromotionCountResponse200AdvertsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV1PromotionCountResponse200(BaseModel):
     """
     GetV1PromotionCountResponse200
-    """ # noqa: E501
-    adverts: Optional[List[GetV1PromotionCountResponse200AdvertsInner]] = Field(default=None, description="Данные по кампаниям")
-    all: Optional[StrictInt] = Field(default=None, description="Общее количество кампаний всех статусов и типов")
+    """  # noqa: E501
+
+    adverts: Optional[List[GetV1PromotionCountResponse200AdvertsInner]] = Field(
+        default=None, description="Данные по кампаниям"
+    )
+    all: Optional[StrictInt] = Field(
+        default=None, description="Общее количество кампаний всех статусов и типов"
+    )
     __properties: ClassVar[List[str]] = ["adverts", "all"]
 
     model_config = ConfigDict(
@@ -36,7 +44,6 @@ class GetV1PromotionCountResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +69,7 @@ class GetV1PromotionCountResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,11 +82,11 @@ class GetV1PromotionCountResponse200(BaseModel):
             for _item_adverts in self.adverts:
                 if _item_adverts:
                     _items.append(_item_adverts.to_dict())
-            _dict['adverts'] = _items
+            _dict["adverts"] = _items
         # set to None if adverts (nullable) is None
         # and model_fields_set contains the field
         if self.adverts is None and "adverts" in self.model_fields_set:
-            _dict['adverts'] = None
+            _dict["adverts"] = None
 
         return _dict
 
@@ -93,10 +99,17 @@ class GetV1PromotionCountResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "adverts": [GetV1PromotionCountResponse200AdvertsInner.from_dict(_item) for _item in obj["adverts"]] if obj.get("adverts") is not None else None,
-            "all": obj.get("all")
-        })
+        _obj = cls.model_validate(
+            {
+                "adverts": (
+                    [
+                        GetV1PromotionCountResponse200AdvertsInner.from_dict(_item)
+                        for _item in obj["adverts"]
+                    ]
+                    if obj.get("adverts") is not None
+                    else None
+                ),
+                "all": obj.get("all"),
+            }
+        )
         return _obj
-
-

@@ -22,24 +22,40 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsDraftItem(BaseModel):
     """
     ModelsDraftItem
-    """ # noqa: E501
+    """  # noqa: E501
+
     draft_id: StrictStr = Field(description="ID черновика", alias="draftId")
     phone: StrictStr = Field(description="Телефон пользователя, создавшего черновик")
-    created_at: StrictStr = Field(description="Дата и время создания черновика", alias="createdAt")
-    updated_at: StrictStr = Field(description="Дата и время последнего обновления черновика", alias="updatedAt")
-    sku_quantity: StrictInt = Field(description="Количество баркодов", alias="skuQuantity")
-    item_quantity: StrictInt = Field(description="Количество единиц товара", alias="itemQuantity")
-    __properties: ClassVar[List[str]] = ["draftId", "phone", "createdAt", "updatedAt", "skuQuantity", "itemQuantity"]
+    created_at: StrictStr = Field(
+        description="Дата и время создания черновика", alias="createdAt"
+    )
+    updated_at: StrictStr = Field(
+        description="Дата и время последнего обновления черновика", alias="updatedAt"
+    )
+    sku_quantity: StrictInt = Field(
+        description="Количество баркодов", alias="skuQuantity"
+    )
+    item_quantity: StrictInt = Field(
+        description="Количество единиц товара", alias="itemQuantity"
+    )
+    __properties: ClassVar[List[str]] = [
+        "draftId",
+        "phone",
+        "createdAt",
+        "updatedAt",
+        "skuQuantity",
+        "itemQuantity",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +81,7 @@ class ModelsDraftItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -84,14 +99,14 @@ class ModelsDraftItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "draftId": obj.get("draftId"),
-            "phone": obj.get("phone"),
-            "createdAt": obj.get("createdAt"),
-            "updatedAt": obj.get("updatedAt"),
-            "skuQuantity": obj.get("skuQuantity"),
-            "itemQuantity": obj.get("itemQuantity")
-        })
+        _obj = cls.model_validate(
+            {
+                "draftId": obj.get("draftId"),
+                "phone": obj.get("phone"),
+                "createdAt": obj.get("createdAt"),
+                "updatedAt": obj.get("updatedAt"),
+                "skuQuantity": obj.get("skuQuantity"),
+                "itemQuantity": obj.get("itemQuantity"),
+            }
+        )
         return _obj
-
-

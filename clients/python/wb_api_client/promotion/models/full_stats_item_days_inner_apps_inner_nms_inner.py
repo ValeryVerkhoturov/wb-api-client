@@ -22,31 +22,56 @@ from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class FullStatsItemDaysInnerAppsInnerNmsInner(BaseModel):
     """
     FullStatsItemDaysInnerAppsInnerNmsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     atbs: StrictInt = Field(description="Количество добавлений товаров в корзину")
     canceled: StrictInt = Field(description="Отмены, шт.")
     clicks: StrictInt = Field(description="Количество кликов")
-    cpc: Union[StrictFloat, StrictInt] = Field(description="Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    cr: Union[StrictFloat, StrictInt] = Field(description="CR (conversion rate) — отношение количества заказов к общему количеству кликов")
-    ctr: Union[StrictFloat, StrictInt] = Field(description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах")
+    cpc: Union[StrictFloat, StrictInt] = Field(
+        description="Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
+    cr: Union[StrictFloat, StrictInt] = Field(
+        description="CR (conversion rate) — отношение количества заказов к общему количеству кликов"
+    )
+    ctr: Union[StrictFloat, StrictInt] = Field(
+        description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах"
+    )
     name: StrictStr = Field(description="Название товара")
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
     orders: StrictInt = Field(description="Количество заказов")
     shks: StrictInt = Field(description="Количество заказанных товаров, шт.")
-    sum: Union[StrictFloat, StrictInt] = Field(description="Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    sum_price: Union[StrictFloat, StrictInt] = Field(description="Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    sum: Union[StrictFloat, StrictInt] = Field(
+        description="Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
+    sum_price: Union[StrictFloat, StrictInt] = Field(
+        description="Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
     views: StrictInt = Field(description="Количество просмотров")
-    __properties: ClassVar[List[str]] = ["atbs", "canceled", "clicks", "cpc", "cr", "ctr", "name", "nmId", "orders", "shks", "sum", "sum_price", "views"]
+    __properties: ClassVar[List[str]] = [
+        "atbs",
+        "canceled",
+        "clicks",
+        "cpc",
+        "cr",
+        "ctr",
+        "name",
+        "nmId",
+        "orders",
+        "shks",
+        "sum",
+        "sum_price",
+        "views",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -72,8 +97,7 @@ class FullStatsItemDaysInnerAppsInnerNmsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -91,21 +115,21 @@ class FullStatsItemDaysInnerAppsInnerNmsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "atbs": obj.get("atbs"),
-            "canceled": obj.get("canceled"),
-            "clicks": obj.get("clicks"),
-            "cpc": obj.get("cpc"),
-            "cr": obj.get("cr"),
-            "ctr": obj.get("ctr"),
-            "name": obj.get("name"),
-            "nmId": obj.get("nmId"),
-            "orders": obj.get("orders"),
-            "shks": obj.get("shks"),
-            "sum": obj.get("sum"),
-            "sum_price": obj.get("sum_price"),
-            "views": obj.get("views")
-        })
+        _obj = cls.model_validate(
+            {
+                "atbs": obj.get("atbs"),
+                "canceled": obj.get("canceled"),
+                "clicks": obj.get("clicks"),
+                "cpc": obj.get("cpc"),
+                "cr": obj.get("cr"),
+                "ctr": obj.get("ctr"),
+                "name": obj.get("name"),
+                "nmId": obj.get("nmId"),
+                "orders": obj.get("orders"),
+                "shks": obj.get("shks"),
+                "sum": obj.get("sum"),
+                "sum_price": obj.get("sum_price"),
+                "views": obj.get("views"),
+            }
+        )
         return _obj
-
-

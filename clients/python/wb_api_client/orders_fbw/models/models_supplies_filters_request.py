@@ -19,17 +19,29 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.orders_fbw.models.models_date_filter_request import ModelsDateFilterRequest
-from wb_api_client.orders_fbw.models.models_handy_supply_status import ModelsHandySupplyStatus
+from wb_api_client.orders_fbw.models.models_date_filter_request import (
+    ModelsDateFilterRequest,
+)
+from wb_api_client.orders_fbw.models.models_handy_supply_status import (
+    ModelsHandySupplyStatus,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ModelsSuppliesFiltersRequest(BaseModel):
     """
     ModelsSuppliesFiltersRequest
-    """ # noqa: E501
-    dates: Optional[List[ModelsDateFilterRequest]] = Field(default=None, description="Фильтр по датам")
-    status_ids: Optional[List[ModelsHandySupplyStatus]] = Field(default=None, description="Фильтр поставок по статусам. Возможные значения:   - `1` — Не запланировано   - `2` — Запланировано   - `3` — Отгрузка разрешена   - `4` — Идёт приёмка   - `5` — Принято   - `6` — Отгружено на воротах ", alias="statusIDs")
+    """  # noqa: E501
+
+    dates: Optional[List[ModelsDateFilterRequest]] = Field(
+        default=None, description="Фильтр по датам"
+    )
+    status_ids: Optional[List[ModelsHandySupplyStatus]] = Field(
+        default=None,
+        description="Фильтр поставок по статусам. Возможные значения:   - `1` — Не запланировано   - `2` — Запланировано   - `3` — Отгрузка разрешена   - `4` — Идёт приёмка   - `5` — Принято   - `6` — Отгружено на воротах ",
+        alias="statusIDs",
+    )
     __properties: ClassVar[List[str]] = ["dates", "statusIDs"]
 
     model_config = ConfigDict(
@@ -37,7 +49,6 @@ class ModelsSuppliesFiltersRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +74,7 @@ class ModelsSuppliesFiltersRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +87,7 @@ class ModelsSuppliesFiltersRequest(BaseModel):
             for _item_dates in self.dates:
                 if _item_dates:
                     _items.append(_item_dates.to_dict())
-            _dict['dates'] = _items
+            _dict["dates"] = _items
         return _dict
 
     @classmethod
@@ -89,10 +99,14 @@ class ModelsSuppliesFiltersRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "dates": [ModelsDateFilterRequest.from_dict(_item) for _item in obj["dates"]] if obj.get("dates") is not None else None,
-            "statusIDs": obj.get("statusIDs")
-        })
+        _obj = cls.model_validate(
+            {
+                "dates": (
+                    [ModelsDateFilterRequest.from_dict(_item) for _item in obj["dates"]]
+                    if obj.get("dates") is not None
+                    else None
+                ),
+                "statusIDs": obj.get("statusIDs"),
+            }
+        )
         return _obj
-
-

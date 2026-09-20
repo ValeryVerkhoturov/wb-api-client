@@ -22,10 +22,12 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V0DeleteNormQueryBidsRequestItem(BaseModel):
     """
     V0DeleteNormQueryBidsRequestItem
-    """ # noqa: E501
+    """  # noqa: E501
+
     advert_id: StrictInt = Field(description="ID кампании")
     nm_id: StrictInt = Field(description="Артикул WB")
     norm_query: StrictStr = Field(description="Поисковый кластер")
@@ -36,7 +38,6 @@ class V0DeleteNormQueryBidsRequestItem(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +63,7 @@ class V0DeleteNormQueryBidsRequestItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +81,11 @@ class V0DeleteNormQueryBidsRequestItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advert_id": obj.get("advert_id"),
-            "nm_id": obj.get("nm_id"),
-            "norm_query": obj.get("norm_query")
-        })
+        _obj = cls.model_validate(
+            {
+                "advert_id": obj.get("advert_id"),
+                "nm_id": obj.get("nm_id"),
+                "norm_query": obj.get("norm_query"),
+            }
+        )
         return _obj
-
-

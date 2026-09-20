@@ -18,40 +18,132 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.in_store_pickup.models.api_order_options import ApiOrderOptions
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiOrder(BaseModel):
     """
     ApiOrder
-    """ # noqa: E501
-    article: Optional[StrictStr] = Field(default=None, description="Артикул продавца")
-    cargo_type: Optional[StrictInt] = Field(default=None, description="Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoType")
-    chrt_id: Optional[StrictInt] = Field(default=None, description="ID размера товара в системе WB", alias="chrtId")
-    created_at: Optional[datetime] = Field(default=None, description="Дата и время создания сборочного задания", alias="createdAt")
-    price: Optional[StrictInt] = Field(default=None, description="Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях ")
-    final_price: Optional[StrictInt] = Field(default=None, description="Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.  Код валюты продажи указан в поле `currencyCode`.  Предоставляется в информационных целях.  Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода", alias="finalPrice")
-    converted_price: Optional[StrictInt] = Field(default=None, description="Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях", alias="convertedPrice")
-    converted_final_price: Optional[StrictInt] = Field(default=None, description="Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.  Предоставляется в информационных целях.  Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода", alias="convertedFinalPrice")
-    currency_code: Optional[StrictInt] = Field(default=None, description="Код валюты продажи", alias="currencyCode")
-    converted_currency_code: Optional[StrictInt] = Field(default=None, description="Код валюты страны продавца", alias="convertedCurrencyCode")
-    id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания")
-    is_zero_order: Optional[StrictBool] = Field(default=None, description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену ", alias="isZeroOrder")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId")
-    order_code: Optional[StrictStr] = Field(default=None, description="Уникальный ID заказа покупателя ", alias="orderCode")
-    pay_mode: Optional[StrictStr] = Field(default=None, description="Режим оплаты:   - `prepaid` — предоплатный   - `postpaid` — постоплатный   - `unknown` — неизвестный ", alias="payMode")
-    rid: Optional[StrictStr] = Field(default=None, description="Уникальный ID заказа. Примечание: `rid` — это `srid` в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчет о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)")
-    skus: Optional[List[StrictStr]] = Field(default=None, description="Массив баркодов товара")
-    warehouse_address: Optional[StrictStr] = Field(default=None, description="Адрес магазина (склада продавца), на который поступило сборочное задание", alias="warehouseAddress")
-    warehouse_id: Optional[StrictInt] = Field(default=None, description="ID склада продавца, на который поступило сборочное задание", alias="warehouseId")
-    tire_service: Optional[StrictBool] = Field(default=None, description="Указал ли покупатель, что ему требуется услуга шиномонтажа:   - `false` — нет, услуга шиномонтажа не требуется   - `true` — да, услуга шиномонтажа требуется ", alias="tireService")
-    options: Optional[ApiOrderOptions] = None
-    __properties: ClassVar[List[str]] = ["article", "cargoType", "chrtId", "createdAt", "price", "finalPrice", "convertedPrice", "convertedFinalPrice", "currencyCode", "convertedCurrencyCode", "id", "isZeroOrder", "nmId", "orderCode", "payMode", "rid", "skus", "warehouseAddress", "warehouseId", "tireService", "options"]
+    """  # noqa: E501
 
-    @field_validator('cargo_type')
+    article: Optional[StrictStr] = Field(default=None, description="Артикул продавца")
+    cargo_type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ",
+        alias="cargoType",
+    )
+    chrt_id: Optional[StrictInt] = Field(
+        default=None, description="ID размера товара в системе WB", alias="chrtId"
+    )
+    created_at: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время создания сборочного задания",
+        alias="createdAt",
+    )
+    price: Optional[StrictInt] = Field(
+        default=None,
+        description="Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях ",
+    )
+    final_price: Optional[StrictInt] = Field(
+        default=None,
+        description='Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.  Код валюты продажи указан в поле `currencyCode`.  Предоставляется в информационных целях.  Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода',
+        alias="finalPrice",
+    )
+    converted_price: Optional[StrictInt] = Field(
+        default=None,
+        description="Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях",
+        alias="convertedPrice",
+    )
+    converted_final_price: Optional[StrictInt] = Field(
+        default=None,
+        description='Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.  Предоставляется в информационных целях.  Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода',
+        alias="convertedFinalPrice",
+    )
+    currency_code: Optional[StrictInt] = Field(
+        default=None, description="Код валюты продажи", alias="currencyCode"
+    )
+    converted_currency_code: Optional[StrictInt] = Field(
+        default=None,
+        description="Код валюты страны продавца",
+        alias="convertedCurrencyCode",
+    )
+    id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания")
+    is_zero_order: Optional[StrictBool] = Field(
+        default=None,
+        description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену ",
+        alias="isZeroOrder",
+    )
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
+    order_code: Optional[StrictStr] = Field(
+        default=None, description="Уникальный ID заказа покупателя ", alias="orderCode"
+    )
+    pay_mode: Optional[StrictStr] = Field(
+        default=None,
+        description="Режим оплаты:   - `prepaid` — предоплатный   - `postpaid` — постоплатный   - `unknown` — неизвестный ",
+        alias="payMode",
+    )
+    rid: Optional[StrictStr] = Field(
+        default=None,
+        description="Уникальный ID заказа. Примечание: `rid` — это `srid` в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчет о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)",
+    )
+    skus: Optional[List[StrictStr]] = Field(
+        default=None, description="Массив баркодов товара"
+    )
+    warehouse_address: Optional[StrictStr] = Field(
+        default=None,
+        description="Адрес магазина (склада продавца), на который поступило сборочное задание",
+        alias="warehouseAddress",
+    )
+    warehouse_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID склада продавца, на который поступило сборочное задание",
+        alias="warehouseId",
+    )
+    tire_service: Optional[StrictBool] = Field(
+        default=None,
+        description="Указал ли покупатель, что ему требуется услуга шиномонтажа:   - `false` — нет, услуга шиномонтажа не требуется   - `true` — да, услуга шиномонтажа требуется ",
+        alias="tireService",
+    )
+    options: Optional[ApiOrderOptions] = None
+    __properties: ClassVar[List[str]] = [
+        "article",
+        "cargoType",
+        "chrtId",
+        "createdAt",
+        "price",
+        "finalPrice",
+        "convertedPrice",
+        "convertedFinalPrice",
+        "currencyCode",
+        "convertedCurrencyCode",
+        "id",
+        "isZeroOrder",
+        "nmId",
+        "orderCode",
+        "payMode",
+        "rid",
+        "skus",
+        "warehouseAddress",
+        "warehouseId",
+        "tireService",
+        "options",
+    ]
+
+    @field_validator("cargo_type")
     def cargo_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -66,7 +158,6 @@ class ApiOrder(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -92,8 +183,7 @@ class ApiOrder(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -102,7 +192,7 @@ class ApiOrder(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of options
         if self.options:
-            _dict['options'] = self.options.to_dict()
+            _dict["options"] = self.options.to_dict()
         return _dict
 
     @classmethod
@@ -114,29 +204,33 @@ class ApiOrder(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "article": obj.get("article"),
-            "cargoType": obj.get("cargoType"),
-            "chrtId": obj.get("chrtId"),
-            "createdAt": obj.get("createdAt"),
-            "price": obj.get("price"),
-            "finalPrice": obj.get("finalPrice"),
-            "convertedPrice": obj.get("convertedPrice"),
-            "convertedFinalPrice": obj.get("convertedFinalPrice"),
-            "currencyCode": obj.get("currencyCode"),
-            "convertedCurrencyCode": obj.get("convertedCurrencyCode"),
-            "id": obj.get("id"),
-            "isZeroOrder": obj.get("isZeroOrder"),
-            "nmId": obj.get("nmId"),
-            "orderCode": obj.get("orderCode"),
-            "payMode": obj.get("payMode"),
-            "rid": obj.get("rid"),
-            "skus": obj.get("skus"),
-            "warehouseAddress": obj.get("warehouseAddress"),
-            "warehouseId": obj.get("warehouseId"),
-            "tireService": obj.get("tireService"),
-            "options": ApiOrderOptions.from_dict(obj["options"]) if obj.get("options") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "article": obj.get("article"),
+                "cargoType": obj.get("cargoType"),
+                "chrtId": obj.get("chrtId"),
+                "createdAt": obj.get("createdAt"),
+                "price": obj.get("price"),
+                "finalPrice": obj.get("finalPrice"),
+                "convertedPrice": obj.get("convertedPrice"),
+                "convertedFinalPrice": obj.get("convertedFinalPrice"),
+                "currencyCode": obj.get("currencyCode"),
+                "convertedCurrencyCode": obj.get("convertedCurrencyCode"),
+                "id": obj.get("id"),
+                "isZeroOrder": obj.get("isZeroOrder"),
+                "nmId": obj.get("nmId"),
+                "orderCode": obj.get("orderCode"),
+                "payMode": obj.get("payMode"),
+                "rid": obj.get("rid"),
+                "skus": obj.get("skus"),
+                "warehouseAddress": obj.get("warehouseAddress"),
+                "warehouseId": obj.get("warehouseId"),
+                "tireService": obj.get("tireService"),
+                "options": (
+                    ApiOrderOptions.from_dict(obj["options"])
+                    if obj.get("options") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

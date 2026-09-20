@@ -23,12 +23,18 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PutV3StocksWarehouseIdRequestStocksInner(BaseModel):
     """
     PutV3StocksWarehouseIdRequestStocksInner
-    """ # noqa: E501
-    chrt_id: Optional[StrictInt] = Field(default=None, description="ID размера товара", alias="chrtId")
-    amount: Optional[Annotated[int, Field(le=100000, strict=True)]] = Field(default=None, description="Остаток")
+    """  # noqa: E501
+
+    chrt_id: Optional[StrictInt] = Field(
+        default=None, description="ID размера товара", alias="chrtId"
+    )
+    amount: Optional[Annotated[int, Field(le=100000, strict=True)]] = Field(
+        default=None, description="Остаток"
+    )
     __properties: ClassVar[List[str]] = ["chrtId", "amount"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class PutV3StocksWarehouseIdRequestStocksInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class PutV3StocksWarehouseIdRequestStocksInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,10 +85,7 @@ class PutV3StocksWarehouseIdRequestStocksInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "chrtId": obj.get("chrtId"),
-            "amount": obj.get("amount")
-        })
+        _obj = cls.model_validate(
+            {"chrtId": obj.get("chrtId"), "amount": obj.get("amount")}
+        )
         return _obj
-
-

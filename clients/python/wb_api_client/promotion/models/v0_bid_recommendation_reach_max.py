@@ -22,12 +22,22 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V0BidRecommendationReachMax(BaseModel):
     """
-    Максимальный охват: 76-100% 
-    """ # noqa: E501
-    bid_kopecks: Optional[StrictInt] = Field(default=None, description="Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).", alias="bidKopecks")
-    bid_kopecks_min: Optional[StrictInt] = Field(default=None, description="Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).", alias="bidKopecksMin")
+    Максимальный охват: 76-100%
+    """  # noqa: E501
+
+    bid_kopecks: Optional[StrictInt] = Field(
+        default=None,
+        description="Рекомендуемая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).",
+        alias="bidKopecks",
+    )
+    bid_kopecks_min: Optional[StrictInt] = Field(
+        default=None,
+        description="Минимальная ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).",
+        alias="bidKopecksMin",
+    )
     __properties: ClassVar[List[str]] = ["bidKopecks", "bidKopecksMin"]
 
     model_config = ConfigDict(
@@ -35,7 +45,6 @@ class V0BidRecommendationReachMax(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +70,7 @@ class V0BidRecommendationReachMax(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +88,10 @@ class V0BidRecommendationReachMax(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "bidKopecks": obj.get("bidKopecks"),
-            "bidKopecksMin": obj.get("bidKopecksMin")
-        })
+        _obj = cls.model_validate(
+            {
+                "bidKopecks": obj.get("bidKopecks"),
+                "bidKopecksMin": obj.get("bidKopecksMin"),
+            }
+        )
         return _obj
-
-

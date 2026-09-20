@@ -23,33 +23,80 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1Deductions200ResponseDataReportsInner(BaseModel):
     """
     GetV1Deductions200ResponseDataReportsInner
-    """ # noqa: E501
-    dt_bonus: Optional[datetime] = Field(default=None, description="Дата и время удержания", alias="dtBonus")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId")
-    old_shk_id: Optional[StrictInt] = Field(default=None, description="Старый штрихкод", alias="oldShkId")
-    old_color: Optional[StrictStr] = Field(default=None, description="Старый цвет", alias="oldColor")
-    old_size: Optional[StrictStr] = Field(default=None, description="Старый размер", alias="oldSize")
-    old_sku: Optional[StrictStr] = Field(default=None, description="Старый баркод", alias="oldSku")
-    old_vendor_code: Optional[StrictStr] = Field(default=None, description="Старый артикул продавца", alias="oldVendorCode")
-    new_shk_id: Optional[StrictInt] = Field(default=None, description="Новый штрихкод", alias="newShkId")
-    new_color: Optional[StrictStr] = Field(default=None, description="Новый цвет", alias="newColor")
-    new_size: Optional[StrictStr] = Field(default=None, description="Новый размер", alias="newSize")
-    new_sku: Optional[StrictStr] = Field(default=None, description="Новый баркод", alias="newSku")
-    new_vendor_code: Optional[StrictStr] = Field(default=None, description="Новый артикул продавца", alias="newVendorCode")
-    bonus_summ: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Сумма удержания", alias="bonusSumm")
-    bonus_type: Optional[StrictStr] = Field(default=None, description="Причина удержания", alias="bonusType")
-    photo_urls: Optional[List[StrictStr]] = Field(default=None, description="Фото замеров", alias="photoUrls")
-    __properties: ClassVar[List[str]] = ["dtBonus", "nmId", "oldShkId", "oldColor", "oldSize", "oldSku", "oldVendorCode", "newShkId", "newColor", "newSize", "newSku", "newVendorCode", "bonusSumm", "bonusType", "photoUrls"]
+    """  # noqa: E501
+
+    dt_bonus: Optional[datetime] = Field(
+        default=None, description="Дата и время удержания", alias="dtBonus"
+    )
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
+    old_shk_id: Optional[StrictInt] = Field(
+        default=None, description="Старый штрихкод", alias="oldShkId"
+    )
+    old_color: Optional[StrictStr] = Field(
+        default=None, description="Старый цвет", alias="oldColor"
+    )
+    old_size: Optional[StrictStr] = Field(
+        default=None, description="Старый размер", alias="oldSize"
+    )
+    old_sku: Optional[StrictStr] = Field(
+        default=None, description="Старый баркод", alias="oldSku"
+    )
+    old_vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Старый артикул продавца", alias="oldVendorCode"
+    )
+    new_shk_id: Optional[StrictInt] = Field(
+        default=None, description="Новый штрихкод", alias="newShkId"
+    )
+    new_color: Optional[StrictStr] = Field(
+        default=None, description="Новый цвет", alias="newColor"
+    )
+    new_size: Optional[StrictStr] = Field(
+        default=None, description="Новый размер", alias="newSize"
+    )
+    new_sku: Optional[StrictStr] = Field(
+        default=None, description="Новый баркод", alias="newSku"
+    )
+    new_vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Новый артикул продавца", alias="newVendorCode"
+    )
+    bonus_summ: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Сумма удержания", alias="bonusSumm"
+    )
+    bonus_type: Optional[StrictStr] = Field(
+        default=None, description="Причина удержания", alias="bonusType"
+    )
+    photo_urls: Optional[List[StrictStr]] = Field(
+        default=None, description="Фото замеров", alias="photoUrls"
+    )
+    __properties: ClassVar[List[str]] = [
+        "dtBonus",
+        "nmId",
+        "oldShkId",
+        "oldColor",
+        "oldSize",
+        "oldSku",
+        "oldVendorCode",
+        "newShkId",
+        "newColor",
+        "newSize",
+        "newSku",
+        "newVendorCode",
+        "bonusSumm",
+        "bonusType",
+        "photoUrls",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -75,8 +122,7 @@ class GetV1Deductions200ResponseDataReportsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -94,23 +140,23 @@ class GetV1Deductions200ResponseDataReportsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "dtBonus": obj.get("dtBonus"),
-            "nmId": obj.get("nmId"),
-            "oldShkId": obj.get("oldShkId"),
-            "oldColor": obj.get("oldColor"),
-            "oldSize": obj.get("oldSize"),
-            "oldSku": obj.get("oldSku"),
-            "oldVendorCode": obj.get("oldVendorCode"),
-            "newShkId": obj.get("newShkId"),
-            "newColor": obj.get("newColor"),
-            "newSize": obj.get("newSize"),
-            "newSku": obj.get("newSku"),
-            "newVendorCode": obj.get("newVendorCode"),
-            "bonusSumm": obj.get("bonusSumm"),
-            "bonusType": obj.get("bonusType"),
-            "photoUrls": obj.get("photoUrls")
-        })
+        _obj = cls.model_validate(
+            {
+                "dtBonus": obj.get("dtBonus"),
+                "nmId": obj.get("nmId"),
+                "oldShkId": obj.get("oldShkId"),
+                "oldColor": obj.get("oldColor"),
+                "oldSize": obj.get("oldSize"),
+                "oldSku": obj.get("oldSku"),
+                "oldVendorCode": obj.get("oldVendorCode"),
+                "newShkId": obj.get("newShkId"),
+                "newColor": obj.get("newColor"),
+                "newSize": obj.get("newSize"),
+                "newSku": obj.get("newSku"),
+                "newVendorCode": obj.get("newVendorCode"),
+                "bonusSumm": obj.get("bonusSumm"),
+                "bonusType": obj.get("bonusType"),
+                "photoUrls": obj.get("photoUrls"),
+            }
+        )
         return _obj
-
-

@@ -24,11 +24,16 @@ from wb_api_client.analytics.models.order import Order
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class OrderFeedResponse(BaseModel):
     """
     Данные ответа
-    """ # noqa: E501
-    snapshot_time: datetime = Field(description="Метка снимка данных, в рамках которого выполняется пагинация", alias="snapshotTime")
+    """  # noqa: E501
+
+    snapshot_time: datetime = Field(
+        description="Метка снимка данных, в рамках которого выполняется пагинация",
+        alias="snapshotTime",
+    )
     currency: StrictStr = Field(description="Валюта отчёта")
     orders: List[Order] = Field(description="Заказы")
     __properties: ClassVar[List[str]] = ["snapshotTime", "currency", "orders"]
@@ -38,7 +43,6 @@ class OrderFeedResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +68,7 @@ class OrderFeedResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -78,7 +81,7 @@ class OrderFeedResponse(BaseModel):
             for _item_orders in self.orders:
                 if _item_orders:
                     _items.append(_item_orders.to_dict())
-            _dict['orders'] = _items
+            _dict["orders"] = _items
         return _dict
 
     @classmethod
@@ -90,11 +93,15 @@ class OrderFeedResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "snapshotTime": obj.get("snapshotTime"),
-            "currency": obj.get("currency"),
-            "orders": [Order.from_dict(_item) for _item in obj["orders"]] if obj.get("orders") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "snapshotTime": obj.get("snapshotTime"),
+                "currency": obj.get("currency"),
+                "orders": (
+                    [Order.from_dict(_item) for _item in obj["orders"]]
+                    if obj.get("orders") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

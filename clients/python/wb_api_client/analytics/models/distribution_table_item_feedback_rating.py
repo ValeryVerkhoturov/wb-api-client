@@ -22,13 +22,19 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class DistributionTableItemFeedbackRating(BaseModel):
     """
     Рейтинг товара по отзывам
-    """ # noqa: E501
+    """  # noqa: E501
+
     current: Union[StrictFloat, StrictInt] = Field(description="Текущий рейтинг")
-    dynamics: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Динамика по сравнению с предыдущим периодом, %")
-    percentile: Optional[Union[StrictFloat, StrictInt]] = Field(description="Сколько процентов товаров этого предмета у других продавцов имеют рейтинг ниже, чем у этого товара")
+    dynamics: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Динамика по сравнению с предыдущим периодом, %"
+    )
+    percentile: Optional[Union[StrictFloat, StrictInt]] = Field(
+        description="Сколько процентов товаров этого предмета у других продавцов имеют рейтинг ниже, чем у этого товара"
+    )
     __properties: ClassVar[List[str]] = ["current", "dynamics", "percentile"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class DistributionTableItemFeedbackRating(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class DistributionTableItemFeedbackRating(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,7 +77,7 @@ class DistributionTableItemFeedbackRating(BaseModel):
         # set to None if percentile (nullable) is None
         # and model_fields_set contains the field
         if self.percentile is None and "percentile" in self.model_fields_set:
-            _dict['percentile'] = None
+            _dict["percentile"] = None
 
         return _dict
 
@@ -86,11 +90,11 @@ class DistributionTableItemFeedbackRating(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "current": obj.get("current"),
-            "dynamics": obj.get("dynamics"),
-            "percentile": obj.get("percentile")
-        })
+        _obj = cls.model_validate(
+            {
+                "current": obj.get("current"),
+                "dynamics": obj.get("dynamics"),
+                "percentile": obj.get("percentile"),
+            }
+        )
         return _obj
-
-

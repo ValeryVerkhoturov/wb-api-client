@@ -19,27 +19,44 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.analytics.models.table_common_metrics_sale_rate import TableCommonMetricsSaleRate
+from wb_api_client.analytics.models.table_common_metrics_sale_rate import (
+    TableCommonMetricsSaleRate,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class TableShippingOfficeMetrics(BaseModel):
     """
     Общие метрики по регионам/складам отгрузки
-    """ # noqa: E501
-    stock_count: StrictInt = Field(description="Остатки на текущий день, шт.", alias="stockCount")
-    stock_sum: StrictInt = Field(description="Остатки на текущий день, сумма", alias="stockSum")
+    """  # noqa: E501
+
+    stock_count: StrictInt = Field(
+        description="Остатки на текущий день, шт.", alias="stockCount"
+    )
+    stock_sum: StrictInt = Field(
+        description="Остатки на текущий день, сумма", alias="stockSum"
+    )
     sale_rate: TableCommonMetricsSaleRate = Field(alias="saleRate")
-    to_client_count: StrictInt = Field(description="В пути к клиенту, шт.", alias="toClientCount")
-    from_client_count: StrictInt = Field(description="В пути от клиента, шт.", alias="fromClientCount")
-    __properties: ClassVar[List[str]] = ["stockCount", "stockSum", "saleRate", "toClientCount", "fromClientCount"]
+    to_client_count: StrictInt = Field(
+        description="В пути к клиенту, шт.", alias="toClientCount"
+    )
+    from_client_count: StrictInt = Field(
+        description="В пути от клиента, шт.", alias="fromClientCount"
+    )
+    __properties: ClassVar[List[str]] = [
+        "stockCount",
+        "stockSum",
+        "saleRate",
+        "toClientCount",
+        "fromClientCount",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +82,7 @@ class TableShippingOfficeMetrics(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +91,7 @@ class TableShippingOfficeMetrics(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of sale_rate
         if self.sale_rate:
-            _dict['saleRate'] = self.sale_rate.to_dict()
+            _dict["saleRate"] = self.sale_rate.to_dict()
         return _dict
 
     @classmethod
@@ -87,13 +103,17 @@ class TableShippingOfficeMetrics(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "stockCount": obj.get("stockCount"),
-            "stockSum": obj.get("stockSum"),
-            "saleRate": TableCommonMetricsSaleRate.from_dict(obj["saleRate"]) if obj.get("saleRate") is not None else None,
-            "toClientCount": obj.get("toClientCount"),
-            "fromClientCount": obj.get("fromClientCount")
-        })
+        _obj = cls.model_validate(
+            {
+                "stockCount": obj.get("stockCount"),
+                "stockSum": obj.get("stockSum"),
+                "saleRate": (
+                    TableCommonMetricsSaleRate.from_dict(obj["saleRate"])
+                    if obj.get("saleRate") is not None
+                    else None
+                ),
+                "toClientCount": obj.get("toClientCount"),
+                "fromClientCount": obj.get("fromClientCount"),
+            }
+        )
         return _obj
-
-

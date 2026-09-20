@@ -21,18 +21,27 @@ from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from wb_api_client.analytics.models.position_info_average import PositionInfoAverage
 from wb_api_client.analytics.models.position_info_median import PositionInfoMedian
-from wb_api_client.analytics.models.search_report_position_chart_item import SearchReportPositionChartItem
-from wb_api_client.analytics.models.search_report_position_clusters import SearchReportPositionClusters
+from wb_api_client.analytics.models.search_report_position_chart_item import (
+    SearchReportPositionChartItem,
+)
+from wb_api_client.analytics.models.search_report_position_clusters import (
+    SearchReportPositionClusters,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PositionInfo(BaseModel):
     """
     Информация о позиции товара
-    """ # noqa: E501
+    """  # noqa: E501
+
     average: PositionInfoAverage
     median: PositionInfoMedian
-    chart_items: List[SearchReportPositionChartItem] = Field(description="Данные для чарта по средней и медианной позиции товара в результатах поиска", alias="chartItems")
+    chart_items: List[SearchReportPositionChartItem] = Field(
+        description="Данные для чарта по средней и медианной позиции товара в результатах поиска",
+        alias="chartItems",
+    )
     clusters: SearchReportPositionClusters
     __properties: ClassVar[List[str]] = ["average", "median", "chartItems", "clusters"]
 
@@ -41,7 +50,6 @@ class PositionInfo(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -67,8 +75,7 @@ class PositionInfo(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,20 +84,20 @@ class PositionInfo(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of average
         if self.average:
-            _dict['average'] = self.average.to_dict()
+            _dict["average"] = self.average.to_dict()
         # override the default output from pydantic by calling `to_dict()` of median
         if self.median:
-            _dict['median'] = self.median.to_dict()
+            _dict["median"] = self.median.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in chart_items (list)
         _items = []
         if self.chart_items:
             for _item_chart_items in self.chart_items:
                 if _item_chart_items:
                     _items.append(_item_chart_items.to_dict())
-            _dict['chartItems'] = _items
+            _dict["chartItems"] = _items
         # override the default output from pydantic by calling `to_dict()` of clusters
         if self.clusters:
-            _dict['clusters'] = self.clusters.to_dict()
+            _dict["clusters"] = self.clusters.to_dict()
         return _dict
 
     @classmethod
@@ -102,12 +109,31 @@ class PositionInfo(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "average": PositionInfoAverage.from_dict(obj["average"]) if obj.get("average") is not None else None,
-            "median": PositionInfoMedian.from_dict(obj["median"]) if obj.get("median") is not None else None,
-            "chartItems": [SearchReportPositionChartItem.from_dict(_item) for _item in obj["chartItems"]] if obj.get("chartItems") is not None else None,
-            "clusters": SearchReportPositionClusters.from_dict(obj["clusters"]) if obj.get("clusters") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "average": (
+                    PositionInfoAverage.from_dict(obj["average"])
+                    if obj.get("average") is not None
+                    else None
+                ),
+                "median": (
+                    PositionInfoMedian.from_dict(obj["median"])
+                    if obj.get("median") is not None
+                    else None
+                ),
+                "chartItems": (
+                    [
+                        SearchReportPositionChartItem.from_dict(_item)
+                        for _item in obj["chartItems"]
+                    ]
+                    if obj.get("chartItems") is not None
+                    else None
+                ),
+                "clusters": (
+                    SearchReportPositionClusters.from_dict(obj["clusters"])
+                    if obj.get("clusters") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

@@ -22,13 +22,17 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1SupplierSubjectsResponse200Inner(BaseModel):
     """
     GetV1SupplierSubjectsResponse200Inner
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictInt] = Field(default=None, description="ID предмета")
     name: Optional[StrictStr] = Field(default=None, description="Предмет")
-    count: Optional[StrictInt] = Field(default=None, description="Количество Артикулов WB (`nmId`) с таким предметом.")
+    count: Optional[StrictInt] = Field(
+        default=None, description="Количество Артикулов WB (`nmId`) с таким предметом."
+    )
     __properties: ClassVar[List[str]] = ["id", "name", "count"]
 
     model_config = ConfigDict(
@@ -36,7 +40,6 @@ class GetV1SupplierSubjectsResponse200Inner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class GetV1SupplierSubjectsResponse200Inner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +83,7 @@ class GetV1SupplierSubjectsResponse200Inner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "name": obj.get("name"),
-            "count": obj.get("count")
-        })
+        _obj = cls.model_validate(
+            {"id": obj.get("id"), "name": obj.get("name"), "count": obj.get("count")}
+        )
         return _obj
-
-

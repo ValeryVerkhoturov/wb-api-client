@@ -22,14 +22,26 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1BudgetResponse200(BaseModel):
     """
     GetV1BudgetResponse200
-    """ # noqa: E501
-    cash: Optional[StrictInt] = Field(default=None, description="Поле не используется. Значение всегда 0.")
-    netting: Optional[StrictInt] = Field(default=None, description="Поле не используется. Значение всегда 0.")
-    total: Optional[StrictInt] = Field(default=None, description="Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    currency: Optional[StrictStr] = Field(default=None, description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    """  # noqa: E501
+
+    cash: Optional[StrictInt] = Field(
+        default=None, description="Поле не используется. Значение всегда 0."
+    )
+    netting: Optional[StrictInt] = Field(
+        default=None, description="Поле не используется. Значение всегда 0."
+    )
+    total: Optional[StrictInt] = Field(
+        default=None,
+        description="Бюджет кампании в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
+    currency: Optional[StrictStr] = Field(
+        default=None,
+        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
     __properties: ClassVar[List[str]] = ["cash", "netting", "total", "currency"]
 
     model_config = ConfigDict(
@@ -37,7 +49,6 @@ class GetV1BudgetResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +74,7 @@ class GetV1BudgetResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,12 +92,12 @@ class GetV1BudgetResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "cash": obj.get("cash"),
-            "netting": obj.get("netting"),
-            "total": obj.get("total"),
-            "currency": obj.get("currency")
-        })
+        _obj = cls.model_validate(
+            {
+                "cash": obj.get("cash"),
+                "netting": obj.get("netting"),
+                "total": obj.get("total"),
+                "currency": obj.get("currency"),
+            }
+        )
         return _obj
-
-

@@ -18,43 +18,113 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+)
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class MeasurementPenaltiesDataReportsInner(BaseModel):
     """
     MeasurementPenaltiesDataReportsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
     subject_name: StrictStr = Field(description="Предмет", alias="subjectName")
     dim_id: StrictInt = Field(description="ID замера", alias="dimId")
-    prc_over: Union[StrictFloat, StrictInt] = Field(description="Разница в габаритах, %", alias="prcOver")
-    volume: Union[StrictFloat, StrictInt] = Field(description="Объём, л (фактические габариты по замеру на складе)")
-    width: StrictInt = Field(description="Ширина, см (фактические габариты по замеру на складе)")
-    length: StrictInt = Field(description="Длина, см (фактические габариты по замеру на складе)")
-    height: StrictInt = Field(description="Высота, см (фактические габариты по замеру на складе)")
-    volume_sup: Union[StrictFloat, StrictInt] = Field(description="Объём, л (габариты карточки товара)", alias="volumeSup")
-    width_sup: StrictInt = Field(description="Ширина, см (габариты карточки товара)", alias="widthSup")
-    length_sup: StrictInt = Field(description="Длина, см (габариты карточки товара)", alias="lengthSup")
-    height_sup: StrictInt = Field(description="Высота, см (габариты карточки товара)", alias="heightSup")
+    prc_over: Union[StrictFloat, StrictInt] = Field(
+        description="Разница в габаритах, %", alias="prcOver"
+    )
+    volume: Union[StrictFloat, StrictInt] = Field(
+        description="Объём, л (фактические габариты по замеру на складе)"
+    )
+    width: StrictInt = Field(
+        description="Ширина, см (фактические габариты по замеру на складе)"
+    )
+    length: StrictInt = Field(
+        description="Длина, см (фактические габариты по замеру на складе)"
+    )
+    height: StrictInt = Field(
+        description="Высота, см (фактические габариты по замеру на складе)"
+    )
+    volume_sup: Union[StrictFloat, StrictInt] = Field(
+        description="Объём, л (габариты карточки товара)", alias="volumeSup"
+    )
+    width_sup: StrictInt = Field(
+        description="Ширина, см (габариты карточки товара)", alias="widthSup"
+    )
+    length_sup: StrictInt = Field(
+        description="Длина, см (габариты карточки товара)", alias="lengthSup"
+    )
+    height_sup: StrictInt = Field(
+        description="Высота, см (габариты карточки товара)", alias="heightSup"
+    )
     photo_urls: List[StrictStr] = Field(description="Фото замеров", alias="photoUrls")
-    dt_bonus: Optional[datetime] = Field(default=None, description="Дата штрафа", alias="dtBonus")
-    is_valid: Optional[StrictBool] = Field(default=None, description="Статус обмера:   - `false` — отменён   - `true` — подтверждён ", alias="isValid")
-    is_valid_dt: Optional[datetime] = Field(default=None, description="Дата и время подтверждения или отмены обмера", alias="isValidDt")
-    reversal_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Сумма сторно", alias="reversalAmount")
-    penalty_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Сумма штрафа", alias="penaltyAmount")
-    date_start: Optional[datetime] = Field(default=None, description="Дата и время начала действия коэффициента", alias="dateStart")
-    date_end: Optional[datetime] = Field(default=None, description="Дата и время окончания действия коэффициента", alias="dateEnd")
-    __properties: ClassVar[List[str]] = ["nmId", "subjectName", "dimId", "prcOver", "volume", "width", "length", "height", "volumeSup", "widthSup", "lengthSup", "heightSup", "photoUrls", "dtBonus", "isValid", "isValidDt", "reversalAmount", "penaltyAmount", "dateStart", "dateEnd"]
+    dt_bonus: Optional[datetime] = Field(
+        default=None, description="Дата штрафа", alias="dtBonus"
+    )
+    is_valid: Optional[StrictBool] = Field(
+        default=None,
+        description="Статус обмера:   - `false` — отменён   - `true` — подтверждён ",
+        alias="isValid",
+    )
+    is_valid_dt: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время подтверждения или отмены обмера",
+        alias="isValidDt",
+    )
+    reversal_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Сумма сторно", alias="reversalAmount"
+    )
+    penalty_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Сумма штрафа", alias="penaltyAmount"
+    )
+    date_start: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время начала действия коэффициента",
+        alias="dateStart",
+    )
+    date_end: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время окончания действия коэффициента",
+        alias="dateEnd",
+    )
+    __properties: ClassVar[List[str]] = [
+        "nmId",
+        "subjectName",
+        "dimId",
+        "prcOver",
+        "volume",
+        "width",
+        "length",
+        "height",
+        "volumeSup",
+        "widthSup",
+        "lengthSup",
+        "heightSup",
+        "photoUrls",
+        "dtBonus",
+        "isValid",
+        "isValidDt",
+        "reversalAmount",
+        "penaltyAmount",
+        "dateStart",
+        "dateEnd",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -80,8 +150,7 @@ class MeasurementPenaltiesDataReportsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -99,28 +168,28 @@ class MeasurementPenaltiesDataReportsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmId": obj.get("nmId"),
-            "subjectName": obj.get("subjectName"),
-            "dimId": obj.get("dimId"),
-            "prcOver": obj.get("prcOver"),
-            "volume": obj.get("volume"),
-            "width": obj.get("width"),
-            "length": obj.get("length"),
-            "height": obj.get("height"),
-            "volumeSup": obj.get("volumeSup"),
-            "widthSup": obj.get("widthSup"),
-            "lengthSup": obj.get("lengthSup"),
-            "heightSup": obj.get("heightSup"),
-            "photoUrls": obj.get("photoUrls"),
-            "dtBonus": obj.get("dtBonus"),
-            "isValid": obj.get("isValid"),
-            "isValidDt": obj.get("isValidDt"),
-            "reversalAmount": obj.get("reversalAmount"),
-            "penaltyAmount": obj.get("penaltyAmount"),
-            "dateStart": obj.get("dateStart"),
-            "dateEnd": obj.get("dateEnd")
-        })
+        _obj = cls.model_validate(
+            {
+                "nmId": obj.get("nmId"),
+                "subjectName": obj.get("subjectName"),
+                "dimId": obj.get("dimId"),
+                "prcOver": obj.get("prcOver"),
+                "volume": obj.get("volume"),
+                "width": obj.get("width"),
+                "length": obj.get("length"),
+                "height": obj.get("height"),
+                "volumeSup": obj.get("volumeSup"),
+                "widthSup": obj.get("widthSup"),
+                "lengthSup": obj.get("lengthSup"),
+                "heightSup": obj.get("heightSup"),
+                "photoUrls": obj.get("photoUrls"),
+                "dtBonus": obj.get("dtBonus"),
+                "isValid": obj.get("isValid"),
+                "isValidDt": obj.get("isValidDt"),
+                "reversalAmount": obj.get("reversalAmount"),
+                "penaltyAmount": obj.get("penaltyAmount"),
+                "dateStart": obj.get("dateStart"),
+                "dateEnd": obj.get("dateEnd"),
+            }
+        )
         return _obj
-
-

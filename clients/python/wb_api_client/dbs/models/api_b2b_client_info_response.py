@@ -20,16 +20,22 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.dbs.models.api_b2b_client_info import ApiB2bClientInfo
-from wb_api_client.dbs.models.api_b2b_client_info_response_errors_inner import ApiB2bClientInfoResponseErrorsInner
+from wb_api_client.dbs.models.api_b2b_client_info_response_errors_inner import (
+    ApiB2bClientInfoResponseErrorsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ApiB2bClientInfoResponse(BaseModel):
     """
     ApiB2bClientInfoResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     data: Optional[ApiB2bClientInfo] = None
-    errors: Optional[List[ApiB2bClientInfoResponseErrorsInner]] = Field(default=None, description="Детали ошибки")
+    errors: Optional[List[ApiB2bClientInfoResponseErrorsInner]] = Field(
+        default=None, description="Детали ошибки"
+    )
     is_error: StrictBool = Field(description="Есть ли ошибки", alias="isError")
     order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
     __properties: ClassVar[List[str]] = ["data", "errors", "isError", "orderId"]
@@ -39,7 +45,6 @@ class ApiB2bClientInfoResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +70,7 @@ class ApiB2bClientInfoResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,14 +79,14 @@ class ApiB2bClientInfoResponse(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of data
         if self.data:
-            _dict['data'] = self.data.to_dict()
+            _dict["data"] = self.data.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in errors (list)
         _items = []
         if self.errors:
             for _item_errors in self.errors:
                 if _item_errors:
                     _items.append(_item_errors.to_dict())
-            _dict['errors'] = _items
+            _dict["errors"] = _items
         return _dict
 
     @classmethod
@@ -94,12 +98,23 @@ class ApiB2bClientInfoResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "data": ApiB2bClientInfo.from_dict(obj["data"]) if obj.get("data") is not None else None,
-            "errors": [ApiB2bClientInfoResponseErrorsInner.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None,
-            "isError": obj.get("isError"),
-            "orderId": obj.get("orderId")
-        })
+        _obj = cls.model_validate(
+            {
+                "data": (
+                    ApiB2bClientInfo.from_dict(obj["data"])
+                    if obj.get("data") is not None
+                    else None
+                ),
+                "errors": (
+                    [
+                        ApiB2bClientInfoResponseErrorsInner.from_dict(_item)
+                        for _item in obj["errors"]
+                    ]
+                    if obj.get("errors") is not None
+                    else None
+                ),
+                "isError": obj.get("isError"),
+                "orderId": obj.get("orderId"),
+            }
+        )
         return _obj
-
-

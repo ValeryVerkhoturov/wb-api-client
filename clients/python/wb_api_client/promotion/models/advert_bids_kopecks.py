@@ -22,10 +22,12 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class AdvertBidsKopecks(BaseModel):
     """
-    Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) 
-    """ # noqa: E501
+    Ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+    """  # noqa: E501
+
     search: StrictInt = Field(description="Ставка в поиске")
     recommendations: StrictInt = Field(description="Ставка в рекомендациях")
     __properties: ClassVar[List[str]] = ["search", "recommendations"]
@@ -35,7 +37,6 @@ class AdvertBidsKopecks(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +62,7 @@ class AdvertBidsKopecks(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +80,7 @@ class AdvertBidsKopecks(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "search": obj.get("search"),
-            "recommendations": obj.get("recommendations")
-        })
+        _obj = cls.model_validate(
+            {"search": obj.get("search"), "recommendations": obj.get("recommendations")}
+        )
         return _obj
-
-

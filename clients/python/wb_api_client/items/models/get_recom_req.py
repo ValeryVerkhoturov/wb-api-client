@@ -23,23 +23,41 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetRecomReq(BaseModel):
     """
     Запрос для получения рекомендаций
-    """ # noqa: E501
-    brand_names: Optional[Annotated[List[StrictStr], Field(max_length=30)]] = Field(default=None, description="Бренды", alias="brandNames")
-    limit: Optional[Annotated[int, Field(le=5000, strict=True, ge=0)]] = Field(default=20, description="Количество товаров в ответе")
-    next: Optional[StrictInt] = Field(default=0, description="Курсор. Последний `nmId` в ответе")
-    search: Optional[Annotated[str, Field(strict=True, max_length=72)]] = Field(default=None, description="Поиск:   - по артикулу WB `nmId` — полное совпадение   - по артикулу продавца `vendorCode` — частичное совпадение ")
-    subject_ids: Optional[Annotated[List[StrictInt], Field(max_length=30)]] = Field(default=None, description="ID предметов", alias="subjectIds")
-    __properties: ClassVar[List[str]] = ["brandNames", "limit", "next", "search", "subjectIds"]
+    """  # noqa: E501
+
+    brand_names: Optional[Annotated[List[StrictStr], Field(max_length=30)]] = Field(
+        default=None, description="Бренды", alias="brandNames"
+    )
+    limit: Optional[Annotated[int, Field(le=5000, strict=True, ge=0)]] = Field(
+        default=20, description="Количество товаров в ответе"
+    )
+    next: Optional[StrictInt] = Field(
+        default=0, description="Курсор. Последний `nmId` в ответе"
+    )
+    search: Optional[Annotated[str, Field(strict=True, max_length=72)]] = Field(
+        default=None,
+        description="Поиск:   - по артикулу WB `nmId` — полное совпадение   - по артикулу продавца `vendorCode` — частичное совпадение ",
+    )
+    subject_ids: Optional[Annotated[List[StrictInt], Field(max_length=30)]] = Field(
+        default=None, description="ID предметов", alias="subjectIds"
+    )
+    __properties: ClassVar[List[str]] = [
+        "brandNames",
+        "limit",
+        "next",
+        "search",
+        "subjectIds",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +83,7 @@ class GetRecomReq(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -84,13 +101,13 @@ class GetRecomReq(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "brandNames": obj.get("brandNames"),
-            "limit": obj.get("limit") if obj.get("limit") is not None else 20,
-            "next": obj.get("next") if obj.get("next") is not None else 0,
-            "search": obj.get("search"),
-            "subjectIds": obj.get("subjectIds")
-        })
+        _obj = cls.model_validate(
+            {
+                "brandNames": obj.get("brandNames"),
+                "limit": obj.get("limit") if obj.get("limit") is not None else 20,
+                "next": obj.get("next") if obj.get("next") is not None else 0,
+                "search": obj.get("search"),
+                "subjectIds": obj.get("subjectIds"),
+            }
+        )
         return _obj
-
-

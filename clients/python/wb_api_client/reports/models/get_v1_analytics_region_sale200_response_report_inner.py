@@ -22,27 +22,56 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1AnalyticsRegionSale200ResponseReportInner(BaseModel):
     """
     GetV1AnalyticsRegionSale200ResponseReportInner
-    """ # noqa: E501
-    city_name: Optional[StrictStr] = Field(default=None, description="Населённый пункт", alias="cityName")
-    country_name: Optional[StrictStr] = Field(default=None, description="Страна", alias="countryName")
-    fo_name: Optional[StrictStr] = Field(default=None, description="Федеральный округ", alias="foName")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmID")
-    region_name: Optional[StrictStr] = Field(default=None, description="Регион", alias="regionName")
+    """  # noqa: E501
+
+    city_name: Optional[StrictStr] = Field(
+        default=None, description="Населённый пункт", alias="cityName"
+    )
+    country_name: Optional[StrictStr] = Field(
+        default=None, description="Страна", alias="countryName"
+    )
+    fo_name: Optional[StrictStr] = Field(
+        default=None, description="Федеральный округ", alias="foName"
+    )
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmID"
+    )
+    region_name: Optional[StrictStr] = Field(
+        default=None, description="Регион", alias="regionName"
+    )
     sa: Optional[StrictStr] = Field(default=None, description="Артикул продавца")
-    sale_invoice_cost_price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="К перечислению за товар, ₽", alias="saleInvoiceCostPrice")
-    sale_invoice_cost_price_perc: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Доля, %", alias="saleInvoiceCostPricePerc")
-    sale_item_invoice_qty: Optional[StrictInt] = Field(default=None, description="Выкупили, шт.", alias="saleItemInvoiceQty")
-    __properties: ClassVar[List[str]] = ["cityName", "countryName", "foName", "nmID", "regionName", "sa", "saleInvoiceCostPrice", "saleInvoiceCostPricePerc", "saleItemInvoiceQty"]
+    sale_invoice_cost_price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="К перечислению за товар, ₽",
+        alias="saleInvoiceCostPrice",
+    )
+    sale_invoice_cost_price_perc: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Доля, %", alias="saleInvoiceCostPricePerc"
+    )
+    sale_item_invoice_qty: Optional[StrictInt] = Field(
+        default=None, description="Выкупили, шт.", alias="saleItemInvoiceQty"
+    )
+    __properties: ClassVar[List[str]] = [
+        "cityName",
+        "countryName",
+        "foName",
+        "nmID",
+        "regionName",
+        "sa",
+        "saleInvoiceCostPrice",
+        "saleInvoiceCostPricePerc",
+        "saleItemInvoiceQty",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -68,8 +97,7 @@ class GetV1AnalyticsRegionSale200ResponseReportInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -87,17 +115,17 @@ class GetV1AnalyticsRegionSale200ResponseReportInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "cityName": obj.get("cityName"),
-            "countryName": obj.get("countryName"),
-            "foName": obj.get("foName"),
-            "nmID": obj.get("nmID"),
-            "regionName": obj.get("regionName"),
-            "sa": obj.get("sa"),
-            "saleInvoiceCostPrice": obj.get("saleInvoiceCostPrice"),
-            "saleInvoiceCostPricePerc": obj.get("saleInvoiceCostPricePerc"),
-            "saleItemInvoiceQty": obj.get("saleItemInvoiceQty")
-        })
+        _obj = cls.model_validate(
+            {
+                "cityName": obj.get("cityName"),
+                "countryName": obj.get("countryName"),
+                "foName": obj.get("foName"),
+                "nmID": obj.get("nmID"),
+                "regionName": obj.get("regionName"),
+                "sa": obj.get("sa"),
+                "saleInvoiceCostPrice": obj.get("saleInvoiceCostPrice"),
+                "saleInvoiceCostPricePerc": obj.get("saleInvoiceCostPricePerc"),
+                "saleItemInvoiceQty": obj.get("saleItemInvoiceQty"),
+            }
+        )
         return _obj
-
-

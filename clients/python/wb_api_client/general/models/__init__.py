@@ -15,30 +15,54 @@
 
 # import models into model package
 from wb_api_client.general.models.create_invite_request import CreateInviteRequest
-from wb_api_client.general.models.create_invite_request_invite import CreateInviteRequestInvite
+from wb_api_client.general.models.create_invite_request_invite import (
+    CreateInviteRequestInvite,
+)
 from wb_api_client.general.models.create_invite_response import CreateInviteResponse
 from wb_api_client.general.models.error_response import ErrorResponse
 from wb_api_client.general.models.get_ping401_response import GetPing401Response
 from wb_api_client.general.models.get_ping403_response import GetPing403Response
 from wb_api_client.general.models.get_ping_response200 import GetPingResponse200
 from wb_api_client.general.models.get_users_response import GetUsersResponse
-from wb_api_client.general.models.get_users_response_users_inner import GetUsersResponseUsersInner
-from wb_api_client.general.models.get_users_response_users_inner_access_inner import GetUsersResponseUsersInnerAccessInner
-from wb_api_client.general.models.get_users_response_users_inner_invitee_info import GetUsersResponseUsersInnerInviteeInfo
-from wb_api_client.general.models.get_v1_seller_info402_response import GetV1SellerInfo402Response
-from wb_api_client.general.models.get_v1_seller_info_response200 import GetV1SellerInfoResponse200
+from wb_api_client.general.models.get_users_response_users_inner import (
+    GetUsersResponseUsersInner,
+)
+from wb_api_client.general.models.get_users_response_users_inner_access_inner import (
+    GetUsersResponseUsersInnerAccessInner,
+)
+from wb_api_client.general.models.get_users_response_users_inner_invitee_info import (
+    GetUsersResponseUsersInnerInviteeInfo,
+)
+from wb_api_client.general.models.get_v1_seller_info402_response import (
+    GetV1SellerInfo402Response,
+)
+from wb_api_client.general.models.get_v1_seller_info_response200 import (
+    GetV1SellerInfoResponse200,
+)
 from wb_api_client.general.models.get_v2_news_response200 import GetV2NewsResponse200
-from wb_api_client.general.models.get_v2_news_response200_data_inner import GetV2NewsResponse200DataInner
-from wb_api_client.general.models.get_v2_news_response200_data_inner_types_inner import GetV2NewsResponse200DataInnerTypesInner
+from wb_api_client.general.models.get_v2_news_response200_data_inner import (
+    GetV2NewsResponse200DataInner,
+)
+from wb_api_client.general.models.get_v2_news_response200_data_inner_types_inner import (
+    GetV2NewsResponse200DataInnerTypesInner,
+)
 from wb_api_client.general.models.plan_builder_errors import PlanBuilderErrors
 from wb_api_client.general.models.plan_builder_option import PlanBuilderOption
-from wb_api_client.general.models.plan_builder_option_promotion import PlanBuilderOptionPromotion
-from wb_api_client.general.models.plan_builder_option_short import PlanBuilderOptionShort
-from wb_api_client.general.models.plan_builder_options_info import PlanBuilderOptionsInfo
+from wb_api_client.general.models.plan_builder_option_promotion import (
+    PlanBuilderOptionPromotion,
+)
+from wb_api_client.general.models.plan_builder_option_short import (
+    PlanBuilderOptionShort,
+)
+from wb_api_client.general.models.plan_builder_options_info import (
+    PlanBuilderOptionsInfo,
+)
 from wb_api_client.general.models.plan_builder_package import PlanBuilderPackage
 from wb_api_client.general.models.plan_builder_promotion import PlanBuilderPromotion
 from wb_api_client.general.models.response4_xx import Response4XX
 from wb_api_client.general.models.subscriptions_jam_info import SubscriptionsJamInfo
 from wb_api_client.general.models.supplier_rating_model import SupplierRatingModel
-from wb_api_client.general.models.update_user_access_request import UpdateUserAccessRequest
+from wb_api_client.general.models.update_user_access_request import (
+    UpdateUserAccessRequest,
+)
 from wb_api_client.general.models.user_access import UserAccess

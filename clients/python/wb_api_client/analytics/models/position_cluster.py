@@ -20,20 +20,18 @@ from typing_extensions import Self
 
 class PositionCluster(str, Enum):
     """
-    Товары с какой средней позицией в поиске показывать в отчёте:   - `all` — все   - `firstHundred` — от 1 до 100   - `secondHundred` — от 101 до 200   - `below` — от 201 и ниже 
+    Товары с какой средней позицией в поиске показывать в отчёте:   - `all` — все   - `firstHundred` — от 1 до 100   - `secondHundred` — от 101 до 200   - `below` — от 201 и ниже
     """
 
     """
     allowed enum values
     """
-    ALL = 'all'
-    FIRSTHUNDRED = 'firstHundred'
-    SECONDHUNDRED = 'secondHundred'
-    BELOW = 'below'
+    ALL = "all"
+    FIRSTHUNDRED = "firstHundred"
+    SECONDHUNDRED = "secondHundred"
+    BELOW = "below"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of PositionCluster from a JSON string"""
         return cls(json.loads(json_str))
-
-

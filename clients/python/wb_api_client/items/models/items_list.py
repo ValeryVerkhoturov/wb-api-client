@@ -20,30 +20,62 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.items.models.items_list_sizes_inner import ItemsListSizesInner
-from wb_api_client.items.models.wholesale_discount_threshold_res import WholesaleDiscountThresholdRes
+from wb_api_client.items.models.wholesale_discount_threshold_res import (
+    WholesaleDiscountThresholdRes,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ItemsList(BaseModel):
     """
     Размеры товара
-    """ # noqa: E501
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmID")
-    vendor_code: Optional[StrictStr] = Field(default=None, description="Артикул продавца", alias="vendorCode")
-    sizes: Optional[List[ItemsListSizesInner]] = Field(default=None, description="Размер")
-    currency_iso_code4217: Optional[StrictStr] = Field(default=None, description="Валюта, по стандарту ISO 4217", alias="currencyIsoCode4217")
+    """  # noqa: E501
+
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmID"
+    )
+    vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Артикул продавца", alias="vendorCode"
+    )
+    sizes: Optional[List[ItemsListSizesInner]] = Field(
+        default=None, description="Размер"
+    )
+    currency_iso_code4217: Optional[StrictStr] = Field(
+        default=None,
+        description="Валюта, по стандарту ISO 4217",
+        alias="currencyIsoCode4217",
+    )
     discount: Optional[StrictInt] = Field(default=None, description="Скидка, %")
-    club_discount: Optional[StrictInt] = Field(default=None, description="Скидка WB Клуба, %", alias="clubDiscount")
-    editable_size_price: Optional[StrictBool] = Field(default=None, description="Можно ли устанавливать цены отдельно для разных размеров (зависит от категории товара):   - `true` — можно   - `false` — нельзя ", alias="editableSizePrice")
-    wholesale_discount_threshold: Optional[List[WholesaleDiscountThresholdRes]] = Field(default=None, description="Оптовые скидки разных уровней для B2B", alias="wholesaleDiscountThreshold")
-    __properties: ClassVar[List[str]] = ["nmID", "vendorCode", "sizes", "currencyIsoCode4217", "discount", "clubDiscount", "editableSizePrice", "wholesaleDiscountThreshold"]
+    club_discount: Optional[StrictInt] = Field(
+        default=None, description="Скидка WB Клуба, %", alias="clubDiscount"
+    )
+    editable_size_price: Optional[StrictBool] = Field(
+        default=None,
+        description="Можно ли устанавливать цены отдельно для разных размеров (зависит от категории товара):   - `true` — можно   - `false` — нельзя ",
+        alias="editableSizePrice",
+    )
+    wholesale_discount_threshold: Optional[List[WholesaleDiscountThresholdRes]] = Field(
+        default=None,
+        description="Оптовые скидки разных уровней для B2B",
+        alias="wholesaleDiscountThreshold",
+    )
+    __properties: ClassVar[List[str]] = [
+        "nmID",
+        "vendorCode",
+        "sizes",
+        "currencyIsoCode4217",
+        "discount",
+        "clubDiscount",
+        "editableSizePrice",
+        "wholesaleDiscountThreshold",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -69,8 +101,7 @@ class ItemsList(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,14 +114,14 @@ class ItemsList(BaseModel):
             for _item_sizes in self.sizes:
                 if _item_sizes:
                     _items.append(_item_sizes.to_dict())
-            _dict['sizes'] = _items
+            _dict["sizes"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in wholesale_discount_threshold (list)
         _items = []
         if self.wholesale_discount_threshold:
             for _item_wholesale_discount_threshold in self.wholesale_discount_threshold:
                 if _item_wholesale_discount_threshold:
                     _items.append(_item_wholesale_discount_threshold.to_dict())
-            _dict['wholesaleDiscountThreshold'] = _items
+            _dict["wholesaleDiscountThreshold"] = _items
         return _dict
 
     @classmethod
@@ -102,16 +133,27 @@ class ItemsList(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmID": obj.get("nmID"),
-            "vendorCode": obj.get("vendorCode"),
-            "sizes": [ItemsListSizesInner.from_dict(_item) for _item in obj["sizes"]] if obj.get("sizes") is not None else None,
-            "currencyIsoCode4217": obj.get("currencyIsoCode4217"),
-            "discount": obj.get("discount"),
-            "clubDiscount": obj.get("clubDiscount"),
-            "editableSizePrice": obj.get("editableSizePrice"),
-            "wholesaleDiscountThreshold": [WholesaleDiscountThresholdRes.from_dict(_item) for _item in obj["wholesaleDiscountThreshold"]] if obj.get("wholesaleDiscountThreshold") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "nmID": obj.get("nmID"),
+                "vendorCode": obj.get("vendorCode"),
+                "sizes": (
+                    [ItemsListSizesInner.from_dict(_item) for _item in obj["sizes"]]
+                    if obj.get("sizes") is not None
+                    else None
+                ),
+                "currencyIsoCode4217": obj.get("currencyIsoCode4217"),
+                "discount": obj.get("discount"),
+                "clubDiscount": obj.get("clubDiscount"),
+                "editableSizePrice": obj.get("editableSizePrice"),
+                "wholesaleDiscountThreshold": (
+                    [
+                        WholesaleDiscountThresholdRes.from_dict(_item)
+                        for _item in obj["wholesaleDiscountThreshold"]
+                    ]
+                    if obj.get("wholesaleDiscountThreshold") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

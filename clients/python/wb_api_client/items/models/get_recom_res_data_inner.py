@@ -23,30 +23,60 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetRecomResDataInner(BaseModel):
     """
     GetRecomResDataInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    imt_id: StrictInt = Field(description="ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров", alias="imtId")
+    imt_id: StrictInt = Field(
+        description="ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров",
+        alias="imtId",
+    )
     vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode")
     brand_name: StrictStr = Field(description="Бренд", alias="brandName")
-    updated_at: Optional[datetime] = Field(default=None, description="Дата и время последнего обновления рекомендаций", alias="updatedAt")
-    pics_count: StrictInt = Field(description="Количество изображений в карточке товара", alias="picsCount")
+    updated_at: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время последнего обновления рекомендаций",
+        alias="updatedAt",
+    )
+    pics_count: StrictInt = Field(
+        description="Количество изображений в карточке товара", alias="picsCount"
+    )
     title: StrictStr = Field(description="Название товара")
     subject_name: StrictStr = Field(description="Предмет", alias="subjectName")
     pic: StrictStr = Field(description="URL основного изображения в карточке товара")
-    recom_count: StrictInt = Field(description="Количество рекомендуемых товаров", alias="recomCount")
-    recom_pics: List[StrictStr] = Field(description="Список URL основных изображений рекомендуемых товаров", alias="recomPics")
-    recom_nms: List[StrictInt] = Field(description="Список `nmId` рекомендуемых товаров", alias="recomNms")
-    __properties: ClassVar[List[str]] = ["nmId", "imtId", "vendorCode", "brandName", "updatedAt", "picsCount", "title", "subjectName", "pic", "recomCount", "recomPics", "recomNms"]
+    recom_count: StrictInt = Field(
+        description="Количество рекомендуемых товаров", alias="recomCount"
+    )
+    recom_pics: List[StrictStr] = Field(
+        description="Список URL основных изображений рекомендуемых товаров",
+        alias="recomPics",
+    )
+    recom_nms: List[StrictInt] = Field(
+        description="Список `nmId` рекомендуемых товаров", alias="recomNms"
+    )
+    __properties: ClassVar[List[str]] = [
+        "nmId",
+        "imtId",
+        "vendorCode",
+        "brandName",
+        "updatedAt",
+        "picsCount",
+        "title",
+        "subjectName",
+        "pic",
+        "recomCount",
+        "recomPics",
+        "recomNms",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -72,8 +102,7 @@ class GetRecomResDataInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,7 +112,7 @@ class GetRecomResDataInner(BaseModel):
         # set to None if updated_at (nullable) is None
         # and model_fields_set contains the field
         if self.updated_at is None and "updated_at" in self.model_fields_set:
-            _dict['updatedAt'] = None
+            _dict["updatedAt"] = None
 
         return _dict
 
@@ -96,20 +125,20 @@ class GetRecomResDataInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmId": obj.get("nmId"),
-            "imtId": obj.get("imtId"),
-            "vendorCode": obj.get("vendorCode"),
-            "brandName": obj.get("brandName"),
-            "updatedAt": obj.get("updatedAt"),
-            "picsCount": obj.get("picsCount"),
-            "title": obj.get("title"),
-            "subjectName": obj.get("subjectName"),
-            "pic": obj.get("pic"),
-            "recomCount": obj.get("recomCount"),
-            "recomPics": obj.get("recomPics"),
-            "recomNms": obj.get("recomNms")
-        })
+        _obj = cls.model_validate(
+            {
+                "nmId": obj.get("nmId"),
+                "imtId": obj.get("imtId"),
+                "vendorCode": obj.get("vendorCode"),
+                "brandName": obj.get("brandName"),
+                "updatedAt": obj.get("updatedAt"),
+                "picsCount": obj.get("picsCount"),
+                "title": obj.get("title"),
+                "subjectName": obj.get("subjectName"),
+                "pic": obj.get("pic"),
+                "recomCount": obj.get("recomCount"),
+                "recomPics": obj.get("recomPics"),
+                "recomNms": obj.get("recomNms"),
+            }
+        )
         return _obj
-
-

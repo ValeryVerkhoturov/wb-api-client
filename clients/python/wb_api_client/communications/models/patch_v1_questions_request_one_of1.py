@@ -19,17 +19,23 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.communications.models.patch_v1_questions_request_one_of1_answer import PatchV1QuestionsRequestOneOf1Answer
+from wb_api_client.communications.models.patch_v1_questions_request_one_of1_answer import (
+    PatchV1QuestionsRequestOneOf1Answer,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PatchV1QuestionsRequestOneOf1(BaseModel):
     """
     PatchV1QuestionsRequestOneOf1
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: StrictStr = Field(description="Id вопроса")
     answer: PatchV1QuestionsRequestOneOf1Answer
-    state: StrictStr = Field(description="Статус вопроса:   - `none` - вопрос отклонён продавцом (такой вопрос не отображается на портале покупателей)   - `wbRu` - ответ предоставлен, вопрос отображается на сайте покупателей. ")
+    state: StrictStr = Field(
+        description="Статус вопроса:   - `none` - вопрос отклонён продавцом (такой вопрос не отображается на портале покупателей)   - `wbRu` - ответ предоставлен, вопрос отображается на сайте покупателей. "
+    )
     __properties: ClassVar[List[str]] = ["id", "answer", "state"]
 
     model_config = ConfigDict(
@@ -37,7 +43,6 @@ class PatchV1QuestionsRequestOneOf1(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +68,7 @@ class PatchV1QuestionsRequestOneOf1(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,7 +77,7 @@ class PatchV1QuestionsRequestOneOf1(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of answer
         if self.answer:
-            _dict['answer'] = self.answer.to_dict()
+            _dict["answer"] = self.answer.to_dict()
         return _dict
 
     @classmethod
@@ -85,11 +89,15 @@ class PatchV1QuestionsRequestOneOf1(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "answer": PatchV1QuestionsRequestOneOf1Answer.from_dict(obj["answer"]) if obj.get("answer") is not None else None,
-            "state": obj.get("state")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "answer": (
+                    PatchV1QuestionsRequestOneOf1Answer.from_dict(obj["answer"])
+                    if obj.get("answer") is not None
+                    else None
+                ),
+                "state": obj.get("state"),
+            }
+        )
         return _obj
-
-

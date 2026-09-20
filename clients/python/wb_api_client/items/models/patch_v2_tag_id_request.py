@@ -22,10 +22,12 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PatchV2TagIdRequest(BaseModel):
     """
     PatchV2TagIdRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     color: Optional[StrictStr] = Field(default=None, description="Цвет ярлыка")
     name: Optional[StrictStr] = Field(default=None, description="Имя ярлыка")
     __properties: ClassVar[List[str]] = ["color", "name"]
@@ -35,7 +37,6 @@ class PatchV2TagIdRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +62,7 @@ class PatchV2TagIdRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +80,5 @@ class PatchV2TagIdRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "color": obj.get("color"),
-            "name": obj.get("name")
-        })
+        _obj = cls.model_validate({"color": obj.get("color"), "name": obj.get("name")})
         return _obj
-
-

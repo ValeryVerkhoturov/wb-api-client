@@ -19,18 +19,30 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.v0_bid_recommendation_base_bid_competitive_bid import V0BidRecommendationBaseBidCompetitiveBid
-from wb_api_client.promotion.models.v0_bid_recommendation_base_bid_leaders_bid import V0BidRecommendationBaseBidLeadersBid
-from wb_api_client.promotion.models.v0_bid_recommendation_base_bid_top2 import V0BidRecommendationBaseBidTop2
+from wb_api_client.promotion.models.v0_bid_recommendation_base_bid_competitive_bid import (
+    V0BidRecommendationBaseBidCompetitiveBid,
+)
+from wb_api_client.promotion.models.v0_bid_recommendation_base_bid_leaders_bid import (
+    V0BidRecommendationBaseBidLeadersBid,
+)
+from wb_api_client.promotion.models.v0_bid_recommendation_base_bid_top2 import (
+    V0BidRecommendationBaseBidTop2,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class V0BidRecommendationBase(BaseModel):
     """
     Рекомендуемые ставки для карточек товаров
-    """ # noqa: E501
-    competitive_bid: Optional[V0BidRecommendationBaseBidCompetitiveBid] = Field(default=None, alias="competitiveBid")
-    leaders_bid: Optional[V0BidRecommendationBaseBidLeadersBid] = Field(default=None, alias="leadersBid")
+    """  # noqa: E501
+
+    competitive_bid: Optional[V0BidRecommendationBaseBidCompetitiveBid] = Field(
+        default=None, alias="competitiveBid"
+    )
+    leaders_bid: Optional[V0BidRecommendationBaseBidLeadersBid] = Field(
+        default=None, alias="leadersBid"
+    )
     top2: Optional[V0BidRecommendationBaseBidTop2] = None
     __properties: ClassVar[List[str]] = ["competitiveBid", "leadersBid", "top2"]
 
@@ -39,7 +51,6 @@ class V0BidRecommendationBase(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +76,7 @@ class V0BidRecommendationBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,13 +85,13 @@ class V0BidRecommendationBase(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of competitive_bid
         if self.competitive_bid:
-            _dict['competitiveBid'] = self.competitive_bid.to_dict()
+            _dict["competitiveBid"] = self.competitive_bid.to_dict()
         # override the default output from pydantic by calling `to_dict()` of leaders_bid
         if self.leaders_bid:
-            _dict['leadersBid'] = self.leaders_bid.to_dict()
+            _dict["leadersBid"] = self.leaders_bid.to_dict()
         # override the default output from pydantic by calling `to_dict()` of top2
         if self.top2:
-            _dict['top2'] = self.top2.to_dict()
+            _dict["top2"] = self.top2.to_dict()
         return _dict
 
     @classmethod
@@ -93,11 +103,25 @@ class V0BidRecommendationBase(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "competitiveBid": V0BidRecommendationBaseBidCompetitiveBid.from_dict(obj["competitiveBid"]) if obj.get("competitiveBid") is not None else None,
-            "leadersBid": V0BidRecommendationBaseBidLeadersBid.from_dict(obj["leadersBid"]) if obj.get("leadersBid") is not None else None,
-            "top2": V0BidRecommendationBaseBidTop2.from_dict(obj["top2"]) if obj.get("top2") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "competitiveBid": (
+                    V0BidRecommendationBaseBidCompetitiveBid.from_dict(
+                        obj["competitiveBid"]
+                    )
+                    if obj.get("competitiveBid") is not None
+                    else None
+                ),
+                "leadersBid": (
+                    V0BidRecommendationBaseBidLeadersBid.from_dict(obj["leadersBid"])
+                    if obj.get("leadersBid") is not None
+                    else None
+                ),
+                "top2": (
+                    V0BidRecommendationBaseBidTop2.from_dict(obj["top2"])
+                    if obj.get("top2") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

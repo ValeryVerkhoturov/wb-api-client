@@ -23,13 +23,20 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1QuestionResponse200DataAnswer(BaseModel):
     """
     Ответ
-    """ # noqa: E501
+    """  # noqa: E501
+
     text: Optional[StrictStr] = Field(default=None, description="Текст ответа")
-    editable: Optional[StrictBool] = Field(default=None, description="Можно ли отредактировать ответ (`false` - нельзя, `true` - можно)")
-    create_date: Optional[datetime] = Field(default=None, description="Дата и время создания ответа", alias="createDate")
+    editable: Optional[StrictBool] = Field(
+        default=None,
+        description="Можно ли отредактировать ответ (`false` - нельзя, `true` - можно)",
+    )
+    create_date: Optional[datetime] = Field(
+        default=None, description="Дата и время создания ответа", alias="createDate"
+    )
     __properties: ClassVar[List[str]] = ["text", "editable", "createDate"]
 
     model_config = ConfigDict(
@@ -37,7 +44,6 @@ class GetV1QuestionResponse200DataAnswer(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +69,7 @@ class GetV1QuestionResponse200DataAnswer(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,11 +87,11 @@ class GetV1QuestionResponse200DataAnswer(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "text": obj.get("text"),
-            "editable": obj.get("editable"),
-            "createDate": obj.get("createDate")
-        })
+        _obj = cls.model_validate(
+            {
+                "text": obj.get("text"),
+                "editable": obj.get("editable"),
+                "createDate": obj.get("createDate"),
+            }
+        )
         return _obj
-
-

@@ -80,6 +80,26 @@ jobs:
             exit 1
           fi
 
+      - name: black is clean
+        # Same rationale as gofmt: the diff check catches drift too, but a
+        # dedicated step gives a clearer failure message. `black` version
+        # is pinned in scripts/requirements.txt.
+        run: python -m black --check clients/python
+
+      - name: prettier is clean
+        # prettier is pinned in templates/typescript/package.json →
+        # generated clients/typescript/package.json.
+        working-directory: clients/typescript
+        run: |
+          npm install --no-audit --no-fund
+          npx --no-install prettier --check 'src/**/*.ts'
+
+      - name: spotless is clean
+        # spotless + google-java-format versions are pinned in
+        # templates/java/pom.xml → generated clients/java/pom.xml.
+        working-directory: clients/java
+        run: mvn -q spotless:check
+
       - name: Diff against committed tree
         id: diff
         # `git diff --exit-code` exits non-zero when there is drift.

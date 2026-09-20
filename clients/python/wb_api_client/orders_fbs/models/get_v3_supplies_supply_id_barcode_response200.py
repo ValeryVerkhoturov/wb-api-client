@@ -22,12 +22,19 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV3SuppliesSupplyIdBarcodeResponse200(BaseModel):
     """
     GetV3SuppliesSupplyIdBarcodeResponse200
-    """ # noqa: E501
-    barcode: Optional[StrictStr] = Field(default=None, description="Закодированное значение стикера (ID поставки)")
-    file: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="Полное представление стикера в заданном формате (кодировка base64)")
+    """  # noqa: E501
+
+    barcode: Optional[StrictStr] = Field(
+        default=None, description="Закодированное значение стикера (ID поставки)"
+    )
+    file: Optional[Union[StrictBytes, StrictStr]] = Field(
+        default=None,
+        description="Полное представление стикера в заданном формате (кодировка base64)",
+    )
     __properties: ClassVar[List[str]] = ["barcode", "file"]
 
     model_config = ConfigDict(
@@ -35,7 +42,6 @@ class GetV3SuppliesSupplyIdBarcodeResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +67,7 @@ class GetV3SuppliesSupplyIdBarcodeResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +85,7 @@ class GetV3SuppliesSupplyIdBarcodeResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "barcode": obj.get("barcode"),
-            "file": obj.get("file")
-        })
+        _obj = cls.model_validate(
+            {"barcode": obj.get("barcode"), "file": obj.get("file")}
+        )
         return _obj
-
-

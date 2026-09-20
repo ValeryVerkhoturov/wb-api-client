@@ -22,13 +22,23 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV3DbwOrdersStatusResponse200OrdersInner(BaseModel):
     """
     PostV3DbwOrdersStatusResponse200OrdersInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания")
-    supplier_status: Optional[StrictStr] = Field(default=None, description="Статус сборочного задания, установленный продавцом", alias="supplierStatus")
-    wb_status: Optional[StrictStr] = Field(default=None, description="Статус сборочного задания в системе Wildberries", alias="wbStatus")
+    supplier_status: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус сборочного задания, установленный продавцом",
+        alias="supplierStatus",
+    )
+    wb_status: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус сборочного задания в системе Wildberries",
+        alias="wbStatus",
+    )
     __properties: ClassVar[List[str]] = ["id", "supplierStatus", "wbStatus"]
 
     model_config = ConfigDict(
@@ -36,7 +46,6 @@ class PostV3DbwOrdersStatusResponse200OrdersInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +71,7 @@ class PostV3DbwOrdersStatusResponse200OrdersInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +89,11 @@ class PostV3DbwOrdersStatusResponse200OrdersInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "supplierStatus": obj.get("supplierStatus"),
-            "wbStatus": obj.get("wbStatus")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "supplierStatus": obj.get("supplierStatus"),
+                "wbStatus": obj.get("wbStatus"),
+            }
+        )
         return _obj
-
-

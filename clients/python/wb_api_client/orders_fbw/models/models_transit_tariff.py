@@ -24,23 +24,44 @@ from wb_api_client.orders_fbw.models.models_volume_tariff import ModelsVolumeTar
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsTransitTariff(BaseModel):
     """
     ModelsTransitTariff
-    """ # noqa: E501
-    transit_warehouse_name: Optional[StrictStr] = Field(default=None, description="Транзитный склад", alias="transitWarehouseName")
-    destination_warehouse_name: Optional[StrictStr] = Field(default=None, description="Склад назначения", alias="destinationWarehouseName")
-    active_from: Optional[datetime] = Field(default=None, description="С какого числа доступно транзитное направление", alias="activeFrom")
-    box_tariff: Optional[List[ModelsVolumeTariff]] = Field(default=None, description="Тариф за транзит коробов. Если `null`, транзит для коробов недоступен", alias="boxTariff")
-    pallet_tariff: Optional[StrictInt] = Field(default=None, description="Тариф за паллету, ₽", alias="palletTariff")
-    __properties: ClassVar[List[str]] = ["transitWarehouseName", "destinationWarehouseName", "activeFrom", "boxTariff", "palletTariff"]
+    """  # noqa: E501
+
+    transit_warehouse_name: Optional[StrictStr] = Field(
+        default=None, description="Транзитный склад", alias="transitWarehouseName"
+    )
+    destination_warehouse_name: Optional[StrictStr] = Field(
+        default=None, description="Склад назначения", alias="destinationWarehouseName"
+    )
+    active_from: Optional[datetime] = Field(
+        default=None,
+        description="С какого числа доступно транзитное направление",
+        alias="activeFrom",
+    )
+    box_tariff: Optional[List[ModelsVolumeTariff]] = Field(
+        default=None,
+        description="Тариф за транзит коробов. Если `null`, транзит для коробов недоступен",
+        alias="boxTariff",
+    )
+    pallet_tariff: Optional[StrictInt] = Field(
+        default=None, description="Тариф за паллету, ₽", alias="palletTariff"
+    )
+    __properties: ClassVar[List[str]] = [
+        "transitWarehouseName",
+        "destinationWarehouseName",
+        "activeFrom",
+        "boxTariff",
+        "palletTariff",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -66,8 +87,7 @@ class ModelsTransitTariff(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,11 +100,11 @@ class ModelsTransitTariff(BaseModel):
             for _item_box_tariff in self.box_tariff:
                 if _item_box_tariff:
                     _items.append(_item_box_tariff.to_dict())
-            _dict['boxTariff'] = _items
+            _dict["boxTariff"] = _items
         # set to None if box_tariff (nullable) is None
         # and model_fields_set contains the field
         if self.box_tariff is None and "box_tariff" in self.model_fields_set:
-            _dict['boxTariff'] = None
+            _dict["boxTariff"] = None
 
         return _dict
 
@@ -97,13 +117,17 @@ class ModelsTransitTariff(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "transitWarehouseName": obj.get("transitWarehouseName"),
-            "destinationWarehouseName": obj.get("destinationWarehouseName"),
-            "activeFrom": obj.get("activeFrom"),
-            "boxTariff": [ModelsVolumeTariff.from_dict(_item) for _item in obj["boxTariff"]] if obj.get("boxTariff") is not None else None,
-            "palletTariff": obj.get("palletTariff")
-        })
+        _obj = cls.model_validate(
+            {
+                "transitWarehouseName": obj.get("transitWarehouseName"),
+                "destinationWarehouseName": obj.get("destinationWarehouseName"),
+                "activeFrom": obj.get("activeFrom"),
+                "boxTariff": (
+                    [ModelsVolumeTariff.from_dict(_item) for _item in obj["boxTariff"]]
+                    if obj.get("boxTariff") is not None
+                    else None
+                ),
+                "palletTariff": obj.get("palletTariff"),
+            }
+        )
         return _obj
-
-

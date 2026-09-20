@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.promotion.models.v1_get_norm_query_stats_response_item import V1GetNormQueryStatsResponseItem
+from wb_api_client.promotion.models.v1_get_norm_query_stats_response_item import (
+    V1GetNormQueryStatsResponseItem,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class V1GetNormQueryStatsResponse(BaseModel):
     """
     V1GetNormQueryStatsResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     items: List[V1GetNormQueryStatsResponseItem]
     __properties: ClassVar[List[str]] = ["items"]
 
@@ -35,7 +39,6 @@ class V1GetNormQueryStatsResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class V1GetNormQueryStatsResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +77,7 @@ class V1GetNormQueryStatsResponse(BaseModel):
             for _item_items in self.items:
                 if _item_items:
                     _items.append(_item_items.to_dict())
-            _dict['items'] = _items
+            _dict["items"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +89,16 @@ class V1GetNormQueryStatsResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "items": [V1GetNormQueryStatsResponseItem.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "items": (
+                    [
+                        V1GetNormQueryStatsResponseItem.from_dict(_item)
+                        for _item in obj["items"]
+                    ]
+                    if obj.get("items") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

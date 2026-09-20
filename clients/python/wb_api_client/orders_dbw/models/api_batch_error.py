@@ -22,13 +22,19 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiBatchError(BaseModel):
     """
     ApiBatchError
-    """ # noqa: E501
+    """  # noqa: E501
+
     detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
-    origin: Optional[StrictStr] = Field(default=None, description="ID внутреннего сервиса WB")
-    request_id: Optional[StrictStr] = Field(default=None, description="Уникальный ID запроса", alias="requestId")
+    origin: Optional[StrictStr] = Field(
+        default=None, description="ID внутреннего сервиса WB"
+    )
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="Уникальный ID запроса", alias="requestId"
+    )
     title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки")
     __properties: ClassVar[List[str]] = ["detail", "origin", "requestId", "title"]
 
@@ -37,7 +43,6 @@ class ApiBatchError(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +68,7 @@ class ApiBatchError(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -74,7 +78,7 @@ class ApiBatchError(BaseModel):
         # set to None if detail (nullable) is None
         # and model_fields_set contains the field
         if self.detail is None and "detail" in self.model_fields_set:
-            _dict['detail'] = None
+            _dict["detail"] = None
 
         return _dict
 
@@ -87,12 +91,12 @@ class ApiBatchError(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "detail": obj.get("detail"),
-            "origin": obj.get("origin"),
-            "requestId": obj.get("requestId"),
-            "title": obj.get("title")
-        })
+        _obj = cls.model_validate(
+            {
+                "detail": obj.get("detail"),
+                "origin": obj.get("origin"),
+                "requestId": obj.get("requestId"),
+                "title": obj.get("title"),
+            }
+        )
         return _obj
-
-

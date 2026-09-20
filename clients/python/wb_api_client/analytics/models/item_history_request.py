@@ -20,27 +20,41 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from wb_api_client.analytics.models.items_request_selected_period import ItemsRequestSelectedPeriod
+from wb_api_client.analytics.models.items_request_selected_period import (
+    ItemsRequestSelectedPeriod,
+)
 from wb_api_client.analytics.models.level import Level
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ItemHistoryRequest(BaseModel):
     """
     ItemHistoryRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     selected_period: ItemsRequestSelectedPeriod = Field(alias="selectedPeriod")
-    nm_ids: Annotated[List[StrictInt], Field(min_length=1, max_length=20)] = Field(description="Артикулы WB, по которым нужно составить отчёт ", alias="nmIds")
-    skip_deleted_nm: Optional[StrictBool] = Field(default=None, description="Скрыть удалённые товары", alias="skipDeletedNm")
-    aggregation_level: Optional[Level] = Field(default=Level.DAY, alias="aggregationLevel")
-    __properties: ClassVar[List[str]] = ["selectedPeriod", "nmIds", "skipDeletedNm", "aggregationLevel"]
+    nm_ids: Annotated[List[StrictInt], Field(min_length=1, max_length=20)] = Field(
+        description="Артикулы WB, по которым нужно составить отчёт ", alias="nmIds"
+    )
+    skip_deleted_nm: Optional[StrictBool] = Field(
+        default=None, description="Скрыть удалённые товары", alias="skipDeletedNm"
+    )
+    aggregation_level: Optional[Level] = Field(
+        default=Level.DAY, alias="aggregationLevel"
+    )
+    __properties: ClassVar[List[str]] = [
+        "selectedPeriod",
+        "nmIds",
+        "skipDeletedNm",
+        "aggregationLevel",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -66,8 +80,7 @@ class ItemHistoryRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +89,7 @@ class ItemHistoryRequest(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of selected_period
         if self.selected_period:
-            _dict['selectedPeriod'] = self.selected_period.to_dict()
+            _dict["selectedPeriod"] = self.selected_period.to_dict()
         return _dict
 
     @classmethod
@@ -88,12 +101,20 @@ class ItemHistoryRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "selectedPeriod": ItemsRequestSelectedPeriod.from_dict(obj["selectedPeriod"]) if obj.get("selectedPeriod") is not None else None,
-            "nmIds": obj.get("nmIds"),
-            "skipDeletedNm": obj.get("skipDeletedNm"),
-            "aggregationLevel": obj.get("aggregationLevel") if obj.get("aggregationLevel") is not None else Level.DAY
-        })
+        _obj = cls.model_validate(
+            {
+                "selectedPeriod": (
+                    ItemsRequestSelectedPeriod.from_dict(obj["selectedPeriod"])
+                    if obj.get("selectedPeriod") is not None
+                    else None
+                ),
+                "nmIds": obj.get("nmIds"),
+                "skipDeletedNm": obj.get("skipDeletedNm"),
+                "aggregationLevel": (
+                    obj.get("aggregationLevel")
+                    if obj.get("aggregationLevel") is not None
+                    else Level.DAY
+                ),
+            }
+        )
         return _obj
-
-

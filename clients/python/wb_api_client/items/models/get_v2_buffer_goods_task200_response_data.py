@@ -23,12 +23,18 @@ from wb_api_client.items.models.good_buffer_history import GoodBufferHistory
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV2BufferGoodsTask200ResponseData(BaseModel):
     """
     Данные ответа
-    """ # noqa: E501
-    upload_id: Optional[StrictInt] = Field(default=None, description="ID загрузки", alias="uploadID")
-    buffer_goods: Optional[List[GoodBufferHistory]] = Field(default=None, description="Информация о товарах в загрузке", alias="bufferGoods")
+    """  # noqa: E501
+
+    upload_id: Optional[StrictInt] = Field(
+        default=None, description="ID загрузки", alias="uploadID"
+    )
+    buffer_goods: Optional[List[GoodBufferHistory]] = Field(
+        default=None, description="Информация о товарах в загрузке", alias="bufferGoods"
+    )
     __properties: ClassVar[List[str]] = ["uploadID", "bufferGoods"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class GetV2BufferGoodsTask200ResponseData(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class GetV2BufferGoodsTask200ResponseData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,16 +80,16 @@ class GetV2BufferGoodsTask200ResponseData(BaseModel):
             for _item_buffer_goods in self.buffer_goods:
                 if _item_buffer_goods:
                     _items.append(_item_buffer_goods.to_dict())
-            _dict['bufferGoods'] = _items
+            _dict["bufferGoods"] = _items
         # set to None if upload_id (nullable) is None
         # and model_fields_set contains the field
         if self.upload_id is None and "upload_id" in self.model_fields_set:
-            _dict['uploadID'] = None
+            _dict["uploadID"] = None
 
         # set to None if buffer_goods (nullable) is None
         # and model_fields_set contains the field
         if self.buffer_goods is None and "buffer_goods" in self.model_fields_set:
-            _dict['bufferGoods'] = None
+            _dict["bufferGoods"] = None
 
         return _dict
 
@@ -98,10 +102,14 @@ class GetV2BufferGoodsTask200ResponseData(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "uploadID": obj.get("uploadID"),
-            "bufferGoods": [GoodBufferHistory.from_dict(_item) for _item in obj["bufferGoods"]] if obj.get("bufferGoods") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "uploadID": obj.get("uploadID"),
+                "bufferGoods": (
+                    [GoodBufferHistory.from_dict(_item) for _item in obj["bufferGoods"]]
+                    if obj.get("bufferGoods") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

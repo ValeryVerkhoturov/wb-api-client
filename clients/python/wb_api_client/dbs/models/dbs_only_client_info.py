@@ -22,25 +22,57 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class DbsOnlyClientInfo(BaseModel):
     """
     DbsOnlyClientInfo
-    """ # noqa: E501
-    replacement_phone: Optional[StrictStr] = Field(default=None, description="Подменный номер для связи с покупателем. Пустое значение `\"\"` указывает, что номер еще не назначен", alias="replacementPhone")
-    first_name: Optional[StrictStr] = Field(default=None, description="Имя покупателя", alias="firstName")
-    full_name: Optional[StrictStr] = Field(default=None, description="Полное имя, используется для оформления документов. Например, документы на автомобиль", alias="fullName")
-    order_id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", alias="orderID")
-    phone: Optional[StrictStr] = Field(default=None, description="Резервный подменный номер телефона для связи с покупателем. Используйте, если недоступен основной номер из `replacementPhone`. Чтобы позвонить покупателю, наберите этот номер и добавочный код из `phoneCode`. Пустое значение `\"\"` указывает, что номер ещё не назначен")
-    phone_code: Optional[StrictInt] = Field(default=None, description="Добавочный код. Пустое значение `\"\"` указывает, что код ещё не назначен", alias="phoneCode")
-    additional_phone_codes: Optional[List[StrictStr]] = Field(default=None, description="Дополнительные добавочные коды. Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`. Пустое значение `\"\"` указывает, что код ещё не назначен", alias="additionalPhoneCodes")
-    __properties: ClassVar[List[str]] = ["replacementPhone", "firstName", "fullName", "orderID", "phone", "phoneCode", "additionalPhoneCodes"]
+    """  # noqa: E501
+
+    replacement_phone: Optional[StrictStr] = Field(
+        default=None,
+        description='Подменный номер для связи с покупателем. Пустое значение `""` указывает, что номер еще не назначен',
+        alias="replacementPhone",
+    )
+    first_name: Optional[StrictStr] = Field(
+        default=None, description="Имя покупателя", alias="firstName"
+    )
+    full_name: Optional[StrictStr] = Field(
+        default=None,
+        description="Полное имя, используется для оформления документов. Например, документы на автомобиль",
+        alias="fullName",
+    )
+    order_id: Optional[StrictInt] = Field(
+        default=None, description="ID сборочного задания", alias="orderID"
+    )
+    phone: Optional[StrictStr] = Field(
+        default=None,
+        description='Резервный подменный номер телефона для связи с покупателем. Используйте, если недоступен основной номер из `replacementPhone`. Чтобы позвонить покупателю, наберите этот номер и добавочный код из `phoneCode`. Пустое значение `""` указывает, что номер ещё не назначен',
+    )
+    phone_code: Optional[StrictInt] = Field(
+        default=None,
+        description='Добавочный код. Пустое значение `""` указывает, что код ещё не назначен',
+        alias="phoneCode",
+    )
+    additional_phone_codes: Optional[List[StrictStr]] = Field(
+        default=None,
+        description='Дополнительные добавочные коды. Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`. Пустое значение `""` указывает, что код ещё не назначен',
+        alias="additionalPhoneCodes",
+    )
+    __properties: ClassVar[List[str]] = [
+        "replacementPhone",
+        "firstName",
+        "fullName",
+        "orderID",
+        "phone",
+        "phoneCode",
+        "additionalPhoneCodes",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -66,8 +98,7 @@ class DbsOnlyClientInfo(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -85,15 +116,15 @@ class DbsOnlyClientInfo(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "replacementPhone": obj.get("replacementPhone"),
-            "firstName": obj.get("firstName"),
-            "fullName": obj.get("fullName"),
-            "orderID": obj.get("orderID"),
-            "phone": obj.get("phone"),
-            "phoneCode": obj.get("phoneCode"),
-            "additionalPhoneCodes": obj.get("additionalPhoneCodes")
-        })
+        _obj = cls.model_validate(
+            {
+                "replacementPhone": obj.get("replacementPhone"),
+                "firstName": obj.get("firstName"),
+                "fullName": obj.get("fullName"),
+                "orderID": obj.get("orderID"),
+                "phone": obj.get("phone"),
+                "phoneCode": obj.get("phoneCode"),
+                "additionalPhoneCodes": obj.get("additionalPhoneCodes"),
+            }
+        )
         return _obj
-
-

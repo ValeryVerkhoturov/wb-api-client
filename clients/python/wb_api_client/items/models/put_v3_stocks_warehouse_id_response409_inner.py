@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.put_v3_stocks_warehouse_id_response409_inner_data_inner import PutV3StocksWarehouseIdResponse409InnerDataInner
+from wb_api_client.items.models.put_v3_stocks_warehouse_id_response409_inner_data_inner import (
+    PutV3StocksWarehouseIdResponse409InnerDataInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PutV3StocksWarehouseIdResponse409Inner(BaseModel):
     """
     PutV3StocksWarehouseIdResponse409Inner
-    """ # noqa: E501
-    data: Optional[List[PutV3StocksWarehouseIdResponse409InnerDataInner]] = Field(default=None, description="Дополнительная информация об ошибке")
+    """  # noqa: E501
+
+    data: Optional[List[PutV3StocksWarehouseIdResponse409InnerDataInner]] = Field(
+        default=None, description="Дополнительная информация об ошибке"
+    )
     code: Optional[StrictStr] = Field(default=None, description="Код ошибки")
     message: Optional[StrictStr] = Field(default=None, description="Описание ошибки")
     __properties: ClassVar[List[str]] = ["data", "code", "message"]
@@ -37,7 +43,6 @@ class PutV3StocksWarehouseIdResponse409Inner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +68,7 @@ class PutV3StocksWarehouseIdResponse409Inner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,11 +81,11 @@ class PutV3StocksWarehouseIdResponse409Inner(BaseModel):
             for _item_data in self.data:
                 if _item_data:
                     _items.append(_item_data.to_dict())
-            _dict['data'] = _items
+            _dict["data"] = _items
         # set to None if data (nullable) is None
         # and model_fields_set contains the field
         if self.data is None and "data" in self.model_fields_set:
-            _dict['data'] = None
+            _dict["data"] = None
 
         return _dict
 
@@ -94,11 +98,18 @@ class PutV3StocksWarehouseIdResponse409Inner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "data": [PutV3StocksWarehouseIdResponse409InnerDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
-            "code": obj.get("code"),
-            "message": obj.get("message")
-        })
+        _obj = cls.model_validate(
+            {
+                "data": (
+                    [
+                        PutV3StocksWarehouseIdResponse409InnerDataInner.from_dict(_item)
+                        for _item in obj["data"]
+                    ]
+                    if obj.get("data") is not None
+                    else None
+                ),
+                "code": obj.get("code"),
+                "message": obj.get("message"),
+            }
+        )
         return _obj
-
-

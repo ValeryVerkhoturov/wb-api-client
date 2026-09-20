@@ -22,11 +22,15 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class DeleteV3SuppliesSupplyIdTrbxRequest(BaseModel):
     """
     DeleteV3SuppliesSupplyIdTrbxRequest
-    """ # noqa: E501
-    trbx_ids: List[StrictStr] = Field(description="Список ID грузомест, которые необходимо удалить", alias="trbxIds")
+    """  # noqa: E501
+
+    trbx_ids: List[StrictStr] = Field(
+        description="Список ID грузомест, которые необходимо удалить", alias="trbxIds"
+    )
     __properties: ClassVar[List[str]] = ["trbxIds"]
 
     model_config = ConfigDict(
@@ -34,7 +38,6 @@ class DeleteV3SuppliesSupplyIdTrbxRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,8 +63,7 @@ class DeleteV3SuppliesSupplyIdTrbxRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,9 +81,5 @@ class DeleteV3SuppliesSupplyIdTrbxRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "trbxIds": obj.get("trbxIds")
-        })
+        _obj = cls.model_validate({"trbxIds": obj.get("trbxIds")})
         return _obj
-
-

@@ -25,23 +25,32 @@ from wb_api_client.analytics.models.table_order_by import TableOrderBy
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class TableSizeRequest(BaseModel):
     """
     TableSizeRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmID")
     current_period: PeriodInv = Field(alias="currentPeriod")
     stock_type: StockType = Field(alias="stockType")
     order_by: TableOrderBy = Field(alias="orderBy")
-    include_office: StrictBool = Field(description="Включить детализацию по складам", alias="includeOffice")
-    __properties: ClassVar[List[str]] = ["nmID", "currentPeriod", "stockType", "orderBy", "includeOffice"]
+    include_office: StrictBool = Field(
+        description="Включить детализацию по складам", alias="includeOffice"
+    )
+    __properties: ClassVar[List[str]] = [
+        "nmID",
+        "currentPeriod",
+        "stockType",
+        "orderBy",
+        "includeOffice",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -67,8 +76,7 @@ class TableSizeRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,10 +85,10 @@ class TableSizeRequest(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of current_period
         if self.current_period:
-            _dict['currentPeriod'] = self.current_period.to_dict()
+            _dict["currentPeriod"] = self.current_period.to_dict()
         # override the default output from pydantic by calling `to_dict()` of order_by
         if self.order_by:
-            _dict['orderBy'] = self.order_by.to_dict()
+            _dict["orderBy"] = self.order_by.to_dict()
         return _dict
 
     @classmethod
@@ -92,13 +100,21 @@ class TableSizeRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmID": obj.get("nmID"),
-            "currentPeriod": PeriodInv.from_dict(obj["currentPeriod"]) if obj.get("currentPeriod") is not None else None,
-            "stockType": obj.get("stockType"),
-            "orderBy": TableOrderBy.from_dict(obj["orderBy"]) if obj.get("orderBy") is not None else None,
-            "includeOffice": obj.get("includeOffice")
-        })
+        _obj = cls.model_validate(
+            {
+                "nmID": obj.get("nmID"),
+                "currentPeriod": (
+                    PeriodInv.from_dict(obj["currentPeriod"])
+                    if obj.get("currentPeriod") is not None
+                    else None
+                ),
+                "stockType": obj.get("stockType"),
+                "orderBy": (
+                    TableOrderBy.from_dict(obj["orderBy"])
+                    if obj.get("orderBy") is not None
+                    else None
+                ),
+                "includeOffice": obj.get("includeOffice"),
+            }
+        )
         return _obj
-
-

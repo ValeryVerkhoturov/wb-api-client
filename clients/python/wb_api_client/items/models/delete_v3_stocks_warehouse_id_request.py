@@ -23,11 +23,15 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class DeleteV3StocksWarehouseIdRequest(BaseModel):
     """
     DeleteV3StocksWarehouseIdRequest
-    """ # noqa: E501
-    chrt_ids: Annotated[List[StrictInt], Field(min_length=1, max_length=1000)] = Field(description="Массив ID размеров товаров", alias="chrtIds")
+    """  # noqa: E501
+
+    chrt_ids: Annotated[List[StrictInt], Field(min_length=1, max_length=1000)] = Field(
+        description="Массив ID размеров товаров", alias="chrtIds"
+    )
     __properties: ClassVar[List[str]] = ["chrtIds"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class DeleteV3StocksWarehouseIdRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class DeleteV3StocksWarehouseIdRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,9 +82,5 @@ class DeleteV3StocksWarehouseIdRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "chrtIds": obj.get("chrtIds")
-        })
+        _obj = cls.model_validate({"chrtIds": obj.get("chrtIds")})
         return _obj
-
-

@@ -17,31 +17,66 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items_response200_results_inner_error_inner import PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
+from wb_api_client.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items_response200_results_inner_error_inner import (
+    PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(BaseModel):
     """
     PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
-    """ # noqa: E501
-    success: Optional[StrictBool] = Field(default=None, description="- `true` — настройки автовозврата товара успешно получены ")
-    chrt_id: StrictInt = Field(description="ID размера товара в системе WB", alias="chrtId")
-    type: Optional[StrictStr] = Field(default=None, description="Куда будет возвращён товар:   - `auto` — место возврата определяется автоматически   - `byWarehouse` — на склад WB   - `byPickupPoint` — на пункт выдачи заказов   - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ ")
-    changeable: Optional[StrictBool] = Field(default=None, description="- `true` — настройки автовозврата товара можно изменить ")
-    error: Optional[List[PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner]] = Field(default=None, description="Детали ошибки")
-    __properties: ClassVar[List[str]] = ["success", "chrtId", "type", "changeable", "error"]
+    """  # noqa: E501
 
-    @field_validator('type')
+    success: Optional[StrictBool] = Field(
+        default=None,
+        description="- `true` — настройки автовозврата товара успешно получены ",
+    )
+    chrt_id: StrictInt = Field(
+        description="ID размера товара в системе WB", alias="chrtId"
+    )
+    type: Optional[StrictStr] = Field(
+        default=None,
+        description="Куда будет возвращён товар:   - `auto` — место возврата определяется автоматически   - `byWarehouse` — на склад WB   - `byPickupPoint` — на пункт выдачи заказов   - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ ",
+    )
+    changeable: Optional[StrictBool] = Field(
+        default=None,
+        description="- `true` — настройки автовозврата товара можно изменить ",
+    )
+    error: Optional[
+        List[
+            PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
+        ]
+    ] = Field(default=None, description="Детали ошибки")
+    __properties: ClassVar[List[str]] = [
+        "success",
+        "chrtId",
+        "type",
+        "changeable",
+        "error",
+    ]
+
+    @field_validator("type")
     def type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['auto', 'byWarehouse', 'byPickupPoint', 'byCourier']):
-            raise ValueError("must be one of enum values ('auto', 'byWarehouse', 'byPickupPoint', 'byCourier')")
+        if value not in set(["auto", "byWarehouse", "byPickupPoint", "byCourier"]):
+            raise ValueError(
+                "must be one of enum values ('auto', 'byWarehouse', 'byPickupPoint', 'byCourier')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -49,7 +84,6 @@ class PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(BaseMo
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -75,8 +109,7 @@ class PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(BaseMo
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -89,7 +122,7 @@ class PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(BaseMo
             for _item_error in self.error:
                 if _item_error:
                     _items.append(_item_error.to_dict())
-            _dict['error'] = _items
+            _dict["error"] = _items
         return _dict
 
     @classmethod
@@ -101,13 +134,22 @@ class PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner(BaseMo
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "success": obj.get("success"),
-            "chrtId": obj.get("chrtId"),
-            "type": obj.get("type"),
-            "changeable": obj.get("changeable"),
-            "error": [PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner.from_dict(_item) for _item in obj["error"]] if obj.get("error") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "success": obj.get("success"),
+                "chrtId": obj.get("chrtId"),
+                "type": obj.get("type"),
+                "changeable": obj.get("changeable"),
+                "error": (
+                    [
+                        PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["error"]
+                    ]
+                    if obj.get("error") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

@@ -20,31 +20,60 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.get_v1_advert_response200_extended import GetV1AdvertResponse200Extended
-from wb_api_client.promotion.models.get_v1_advert_response200_items_inner import GetV1AdvertResponse200ItemsInner
+from wb_api_client.promotion.models.get_v1_advert_response200_extended import (
+    GetV1AdvertResponse200Extended,
+)
+from wb_api_client.promotion.models.get_v1_advert_response200_items_inner import (
+    GetV1AdvertResponse200ItemsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV1AdvertResponse200(BaseModel):
     """
     GetV1AdvertResponse200
-    """ # noqa: E501
-    advert_id: Optional[StrictInt] = Field(default=None, description="ID медиакампании", alias="advertId")
-    name: Optional[StrictStr] = Field(default=None, description="Название медиакампании")
+    """  # noqa: E501
+
+    advert_id: Optional[StrictInt] = Field(
+        default=None, description="ID медиакампании", alias="advertId"
+    )
+    name: Optional[StrictStr] = Field(
+        default=None, description="Название медиакампании"
+    )
     brand: Optional[StrictStr] = Field(default=None, description="Название бренда")
-    type: Optional[StrictInt] = Field(default=None, description="Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам ")
-    status: Optional[StrictInt] = Field(default=None, description="Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза ")
-    create_time: Optional[datetime] = Field(default=None, description="Время создания медиакампании", alias="createTime")
+    type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам ",
+    )
+    status: Optional[StrictInt] = Field(
+        default=None,
+        description="Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза ",
+    )
+    create_time: Optional[datetime] = Field(
+        default=None, description="Время создания медиакампании", alias="createTime"
+    )
     extended: Optional[GetV1AdvertResponse200Extended] = None
-    items: Optional[List[GetV1AdvertResponse200ItemsInner]] = Field(default=None, description="Информация о баннере.  Наличие в ответе тех или иных полей зависит от конфигурации медиакампании.")
-    __properties: ClassVar[List[str]] = ["advertId", "name", "brand", "type", "status", "createTime", "extended", "items"]
+    items: Optional[List[GetV1AdvertResponse200ItemsInner]] = Field(
+        default=None,
+        description="Информация о баннере.  Наличие в ответе тех или иных полей зависит от конфигурации медиакампании.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "advertId",
+        "name",
+        "brand",
+        "type",
+        "status",
+        "createTime",
+        "extended",
+        "items",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -70,8 +99,7 @@ class GetV1AdvertResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,14 +108,14 @@ class GetV1AdvertResponse200(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of extended
         if self.extended:
-            _dict['extended'] = self.extended.to_dict()
+            _dict["extended"] = self.extended.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in items (list)
         _items = []
         if self.items:
             for _item_items in self.items:
                 if _item_items:
                     _items.append(_item_items.to_dict())
-            _dict['items'] = _items
+            _dict["items"] = _items
         return _dict
 
     @classmethod
@@ -99,16 +127,27 @@ class GetV1AdvertResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advertId": obj.get("advertId"),
-            "name": obj.get("name"),
-            "brand": obj.get("brand"),
-            "type": obj.get("type"),
-            "status": obj.get("status"),
-            "createTime": obj.get("createTime"),
-            "extended": GetV1AdvertResponse200Extended.from_dict(obj["extended"]) if obj.get("extended") is not None else None,
-            "items": [GetV1AdvertResponse200ItemsInner.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "advertId": obj.get("advertId"),
+                "name": obj.get("name"),
+                "brand": obj.get("brand"),
+                "type": obj.get("type"),
+                "status": obj.get("status"),
+                "createTime": obj.get("createTime"),
+                "extended": (
+                    GetV1AdvertResponse200Extended.from_dict(obj["extended"])
+                    if obj.get("extended") is not None
+                    else None
+                ),
+                "items": (
+                    [
+                        GetV1AdvertResponse200ItemsInner.from_dict(_item)
+                        for _item in obj["items"]
+                    ]
+                    if obj.get("items") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

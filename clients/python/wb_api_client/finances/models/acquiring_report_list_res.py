@@ -23,26 +23,46 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class AcquiringReportListRes(BaseModel):
     """
     Список отчётов об издержках на приём платежей
-    """ # noqa: E501
+    """  # noqa: E501
+
     report_id: StrictInt = Field(description="ID отчёта", alias="reportId")
-    seller_finance_name: StrictStr = Field(description="Наименование продавца", alias="sellerFinanceName")
-    date_from: date = Field(description="Дата начала отчётного периода", alias="dateFrom")
+    seller_finance_name: StrictStr = Field(
+        description="Наименование продавца", alias="sellerFinanceName"
+    )
+    date_from: date = Field(
+        description="Дата начала отчётного периода", alias="dateFrom"
+    )
     date_to: date = Field(description="Дата конца отчётного периода", alias="dateTo")
-    create_date: date = Field(description="Дата формирования отчёта", alias="createDate")
+    create_date: date = Field(
+        description="Дата формирования отчёта", alias="createDate"
+    )
     currency: StrictStr = Field(description="Валюта отчёта")
-    acquiring_fee_sum: StrictStr = Field(description="Сумма издержек по эквайрингу", alias="acquiringFeeSum")
-    acquiring_fee_vat_sum: StrictStr = Field(description="В том числе НДС", alias="acquiringFeeVatSum")
-    __properties: ClassVar[List[str]] = ["reportId", "sellerFinanceName", "dateFrom", "dateTo", "createDate", "currency", "acquiringFeeSum", "acquiringFeeVatSum"]
+    acquiring_fee_sum: StrictStr = Field(
+        description="Сумма издержек по эквайрингу", alias="acquiringFeeSum"
+    )
+    acquiring_fee_vat_sum: StrictStr = Field(
+        description="В том числе НДС", alias="acquiringFeeVatSum"
+    )
+    __properties: ClassVar[List[str]] = [
+        "reportId",
+        "sellerFinanceName",
+        "dateFrom",
+        "dateTo",
+        "createDate",
+        "currency",
+        "acquiringFeeSum",
+        "acquiringFeeVatSum",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -68,8 +88,7 @@ class AcquiringReportListRes(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -87,16 +106,16 @@ class AcquiringReportListRes(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "reportId": obj.get("reportId"),
-            "sellerFinanceName": obj.get("sellerFinanceName"),
-            "dateFrom": obj.get("dateFrom"),
-            "dateTo": obj.get("dateTo"),
-            "createDate": obj.get("createDate"),
-            "currency": obj.get("currency"),
-            "acquiringFeeSum": obj.get("acquiringFeeSum"),
-            "acquiringFeeVatSum": obj.get("acquiringFeeVatSum")
-        })
+        _obj = cls.model_validate(
+            {
+                "reportId": obj.get("reportId"),
+                "sellerFinanceName": obj.get("sellerFinanceName"),
+                "dateFrom": obj.get("dateFrom"),
+                "dateTo": obj.get("dateTo"),
+                "createDate": obj.get("createDate"),
+                "currency": obj.get("currency"),
+                "acquiringFeeSum": obj.get("acquiringFeeSum"),
+                "acquiringFeeVatSum": obj.get("acquiringFeeVatSum"),
+            }
+        )
         return _obj
-
-

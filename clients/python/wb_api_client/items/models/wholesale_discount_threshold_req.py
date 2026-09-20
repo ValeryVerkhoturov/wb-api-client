@@ -22,12 +22,20 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class WholesaleDiscountThresholdReq(BaseModel):
     """
     WholesaleDiscountThresholdReq
-    """ # noqa: E501
-    min_quantity: StrictInt = Field(description="Минимальное количество единиц товара для скидки", alias="minQuantity")
-    wholesale_discount: StrictInt = Field(description="Скидка, %. Чтобы удалить скидку, укажите `0`. Такой запрос одновременно удалит скидки на этом уровне и на всех более высоких уровнях `level` — вне зависимости от указания их в запросе", alias="wholesaleDiscount")
+    """  # noqa: E501
+
+    min_quantity: StrictInt = Field(
+        description="Минимальное количество единиц товара для скидки",
+        alias="minQuantity",
+    )
+    wholesale_discount: StrictInt = Field(
+        description="Скидка, %. Чтобы удалить скидку, укажите `0`. Такой запрос одновременно удалит скидки на этом уровне и на всех более высоких уровнях `level` — вне зависимости от указания их в запросе",
+        alias="wholesaleDiscount",
+    )
     level: StrictInt = Field(description="Уровень скидки")
     __properties: ClassVar[List[str]] = ["minQuantity", "wholesaleDiscount", "level"]
 
@@ -36,7 +44,6 @@ class WholesaleDiscountThresholdReq(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +69,7 @@ class WholesaleDiscountThresholdReq(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +87,11 @@ class WholesaleDiscountThresholdReq(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "minQuantity": obj.get("minQuantity"),
-            "wholesaleDiscount": obj.get("wholesaleDiscount"),
-            "level": obj.get("level")
-        })
+        _obj = cls.model_validate(
+            {
+                "minQuantity": obj.get("minQuantity"),
+                "wholesaleDiscount": obj.get("wholesaleDiscount"),
+                "level": obj.get("level"),
+            }
+        )
         return _obj
-
-

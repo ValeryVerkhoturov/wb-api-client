@@ -23,23 +23,46 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetUsersResponseUsersInnerInviteeInfo(BaseModel):
     """
     Информация о приглашении, если пользователь приглашён
-    """ # noqa: E501
-    phone_number: Optional[StrictStr] = Field(default=None, description="Номер телефона приглашённого пользователя", alias="phoneNumber")
-    position: Optional[StrictStr] = Field(default=None, description="Должность приглашённого пользователя")
-    invite_uuid: Optional[StrictStr] = Field(default=None, description="ID приглашения", alias="inviteUuid")
-    expired_at: Optional[datetime] = Field(default=None, description="Дата и время окончания срока действия приглашения", alias="expiredAt")
-    is_active: Optional[StrictBool] = Field(default=None, description="- `true` — приглашение активно - `false` — приглашение неактивно ", alias="isActive")
-    __properties: ClassVar[List[str]] = ["phoneNumber", "position", "inviteUuid", "expiredAt", "isActive"]
+    """  # noqa: E501
+
+    phone_number: Optional[StrictStr] = Field(
+        default=None,
+        description="Номер телефона приглашённого пользователя",
+        alias="phoneNumber",
+    )
+    position: Optional[StrictStr] = Field(
+        default=None, description="Должность приглашённого пользователя"
+    )
+    invite_uuid: Optional[StrictStr] = Field(
+        default=None, description="ID приглашения", alias="inviteUuid"
+    )
+    expired_at: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время окончания срока действия приглашения",
+        alias="expiredAt",
+    )
+    is_active: Optional[StrictBool] = Field(
+        default=None,
+        description="- `true` — приглашение активно - `false` — приглашение неактивно ",
+        alias="isActive",
+    )
+    __properties: ClassVar[List[str]] = [
+        "phoneNumber",
+        "position",
+        "inviteUuid",
+        "expiredAt",
+        "isActive",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +88,7 @@ class GetUsersResponseUsersInnerInviteeInfo(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -84,13 +106,13 @@ class GetUsersResponseUsersInnerInviteeInfo(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "phoneNumber": obj.get("phoneNumber"),
-            "position": obj.get("position"),
-            "inviteUuid": obj.get("inviteUuid"),
-            "expiredAt": obj.get("expiredAt"),
-            "isActive": obj.get("isActive")
-        })
+        _obj = cls.model_validate(
+            {
+                "phoneNumber": obj.get("phoneNumber"),
+                "position": obj.get("position"),
+                "inviteUuid": obj.get("inviteUuid"),
+                "expiredAt": obj.get("expiredAt"),
+                "isActive": obj.get("isActive"),
+            }
+        )
         return _obj
-
-

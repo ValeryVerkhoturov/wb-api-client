@@ -23,22 +23,37 @@ from wb_api_client.analytics.models.table_common_metrics import TableCommonMetri
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class TableOfficeItem(BaseModel):
     """
     Данные по складу
-    """ # noqa: E501
-    region_name: StrictStr = Field(description="Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`", alias="regionName")
-    office_id: StrictInt = Field(description="ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `-999999`", alias="officeID")
-    office_name: StrictStr = Field(description="Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `\"\"`", alias="officeName")
+    """  # noqa: E501
+
+    region_name: StrictStr = Field(
+        description="Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`",
+        alias="regionName",
+    )
+    office_id: StrictInt = Field(
+        description="ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `-999999`",
+        alias="officeID",
+    )
+    office_name: StrictStr = Field(
+        description='Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `""`',
+        alias="officeName",
+    )
     metrics: TableCommonMetrics = Field(description="Метрики склада")
-    __properties: ClassVar[List[str]] = ["regionName", "officeID", "officeName", "metrics"]
+    __properties: ClassVar[List[str]] = [
+        "regionName",
+        "officeID",
+        "officeName",
+        "metrics",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +79,7 @@ class TableOfficeItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -74,7 +88,7 @@ class TableOfficeItem(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of metrics
         if self.metrics:
-            _dict['metrics'] = self.metrics.to_dict()
+            _dict["metrics"] = self.metrics.to_dict()
         return _dict
 
     @classmethod
@@ -86,12 +100,16 @@ class TableOfficeItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "regionName": obj.get("regionName"),
-            "officeID": obj.get("officeID"),
-            "officeName": obj.get("officeName"),
-            "metrics": TableCommonMetrics.from_dict(obj["metrics"]) if obj.get("metrics") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "regionName": obj.get("regionName"),
+                "officeID": obj.get("officeID"),
+                "officeName": obj.get("officeName"),
+                "metrics": (
+                    TableCommonMetrics.from_dict(obj["metrics"])
+                    if obj.get("metrics") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

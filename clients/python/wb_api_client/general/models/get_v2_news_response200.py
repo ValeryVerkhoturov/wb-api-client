@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.general.models.get_v2_news_response200_data_inner import GetV2NewsResponse200DataInner
+from wb_api_client.general.models.get_v2_news_response200_data_inner import (
+    GetV2NewsResponse200DataInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV2NewsResponse200(BaseModel):
     """
     GetV2NewsResponse200
-    """ # noqa: E501
-    data: Optional[List[GetV2NewsResponse200DataInner]] = Field(default=None, description="Новости")
+    """  # noqa: E501
+
+    data: Optional[List[GetV2NewsResponse200DataInner]] = Field(
+        default=None, description="Новости"
+    )
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class GetV2NewsResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class GetV2NewsResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +79,7 @@ class GetV2NewsResponse200(BaseModel):
             for _item_data in self.data:
                 if _item_data:
                     _items.append(_item_data.to_dict())
-            _dict['data'] = _items
+            _dict["data"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +91,16 @@ class GetV2NewsResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "data": [GetV2NewsResponse200DataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "data": (
+                    [
+                        GetV2NewsResponse200DataInner.from_dict(_item)
+                        for _item in obj["data"]
+                    ]
+                    if obj.get("data") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

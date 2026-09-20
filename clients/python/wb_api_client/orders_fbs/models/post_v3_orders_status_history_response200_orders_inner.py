@@ -20,17 +20,29 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.orders_fbs.models.post_v3_orders_status_history_response200_orders_inner_statuses_inner import PostV3OrdersStatusHistoryResponse200OrdersInnerStatusesInner
+from wb_api_client.orders_fbs.models.post_v3_orders_status_history_response200_orders_inner_statuses_inner import (
+    PostV3OrdersStatusHistoryResponse200OrdersInnerStatusesInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV3OrdersStatusHistoryResponse200OrdersInner(BaseModel):
     """
     PostV3OrdersStatusHistoryResponse200OrdersInner
-    """ # noqa: E501
-    delivery_date: Optional[datetime] = Field(default=None, description="Планируемая дата доставки, [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)", alias="deliveryDate")
-    statuses: Optional[List[PostV3OrdersStatusHistoryResponse200OrdersInnerStatusesInner]] = Field(default=None, description="Статусы")
-    order_id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", alias="orderID")
+    """  # noqa: E501
+
+    delivery_date: Optional[datetime] = Field(
+        default=None,
+        description="Планируемая дата доставки, [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)",
+        alias="deliveryDate",
+    )
+    statuses: Optional[
+        List[PostV3OrdersStatusHistoryResponse200OrdersInnerStatusesInner]
+    ] = Field(default=None, description="Статусы")
+    order_id: Optional[StrictInt] = Field(
+        default=None, description="ID сборочного задания", alias="orderID"
+    )
     __properties: ClassVar[List[str]] = ["deliveryDate", "statuses", "orderID"]
 
     model_config = ConfigDict(
@@ -38,7 +50,6 @@ class PostV3OrdersStatusHistoryResponse200OrdersInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +75,7 @@ class PostV3OrdersStatusHistoryResponse200OrdersInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -78,7 +88,7 @@ class PostV3OrdersStatusHistoryResponse200OrdersInner(BaseModel):
             for _item_statuses in self.statuses:
                 if _item_statuses:
                     _items.append(_item_statuses.to_dict())
-            _dict['statuses'] = _items
+            _dict["statuses"] = _items
         return _dict
 
     @classmethod
@@ -90,11 +100,20 @@ class PostV3OrdersStatusHistoryResponse200OrdersInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "deliveryDate": obj.get("deliveryDate"),
-            "statuses": [PostV3OrdersStatusHistoryResponse200OrdersInnerStatusesInner.from_dict(_item) for _item in obj["statuses"]] if obj.get("statuses") is not None else None,
-            "orderID": obj.get("orderID")
-        })
+        _obj = cls.model_validate(
+            {
+                "deliveryDate": obj.get("deliveryDate"),
+                "statuses": (
+                    [
+                        PostV3OrdersStatusHistoryResponse200OrdersInnerStatusesInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["statuses"]
+                    ]
+                    if obj.get("statuses") is not None
+                    else None
+                ),
+                "orderID": obj.get("orderID"),
+            }
+        )
         return _obj
-
-

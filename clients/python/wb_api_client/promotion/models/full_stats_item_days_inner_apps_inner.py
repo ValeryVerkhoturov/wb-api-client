@@ -17,32 +17,72 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictFloat,
+    StrictInt,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Union
-from wb_api_client.promotion.models.full_stats_item_days_inner_apps_inner_nms_inner import FullStatsItemDaysInnerAppsInnerNmsInner
+from wb_api_client.promotion.models.full_stats_item_days_inner_apps_inner_nms_inner import (
+    FullStatsItemDaysInnerAppsInnerNmsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class FullStatsItemDaysInnerAppsInner(BaseModel):
     """
     FullStatsItemDaysInnerAppsInner
-    """ # noqa: E501
-    app_type: StrictInt = Field(description="Тип платформы:   - `1` — сайт   - `32` — Android   - `64` — IOS ", alias="appType")
+    """  # noqa: E501
+
+    app_type: StrictInt = Field(
+        description="Тип платформы:   - `1` — сайт   - `32` — Android   - `64` — IOS ",
+        alias="appType",
+    )
     atbs: StrictInt = Field(description="Количество добавлений товаров в корзину")
     canceled: StrictInt = Field(description="Отмены, шт.")
     clicks: StrictInt = Field(description="Количество кликов")
-    cpc: Union[StrictFloat, StrictInt] = Field(description="Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    cr: Union[StrictFloat, StrictInt] = Field(description="CR (conversion rate) — отношение количества заказов к общему количеству кликов")
-    ctr: Union[StrictFloat, StrictInt] = Field(description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах")
-    nms: List[FullStatsItemDaysInnerAppsInnerNmsInner] = Field(description="Блок статистики по артикулам WB")
+    cpc: Union[StrictFloat, StrictInt] = Field(
+        description="Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
+    cr: Union[StrictFloat, StrictInt] = Field(
+        description="CR (conversion rate) — отношение количества заказов к общему количеству кликов"
+    )
+    ctr: Union[StrictFloat, StrictInt] = Field(
+        description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах"
+    )
+    nms: List[FullStatsItemDaysInnerAppsInnerNmsInner] = Field(
+        description="Блок статистики по артикулам WB"
+    )
     orders: StrictInt = Field(description="Количество заказов")
     shks: StrictInt = Field(description="Количество заказанных товаров, шт.")
-    sum: Union[StrictFloat, StrictInt] = Field(description="Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    sum_price: Union[StrictFloat, StrictInt] = Field(description="Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    sum: Union[StrictFloat, StrictInt] = Field(
+        description="Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
+    sum_price: Union[StrictFloat, StrictInt] = Field(
+        description="Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
     views: StrictInt = Field(description="Количество просмотров")
-    __properties: ClassVar[List[str]] = ["appType", "atbs", "canceled", "clicks", "cpc", "cr", "ctr", "nms", "orders", "shks", "sum", "sum_price", "views"]
+    __properties: ClassVar[List[str]] = [
+        "appType",
+        "atbs",
+        "canceled",
+        "clicks",
+        "cpc",
+        "cr",
+        "ctr",
+        "nms",
+        "orders",
+        "shks",
+        "sum",
+        "sum_price",
+        "views",
+    ]
 
-    @field_validator('app_type')
+    @field_validator("app_type")
     def app_type_validate_enum(cls, value):
         """Validates the enum"""
         if value not in set([1, 32, 64]):
@@ -54,7 +94,6 @@ class FullStatsItemDaysInnerAppsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -80,8 +119,7 @@ class FullStatsItemDaysInnerAppsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -94,7 +132,7 @@ class FullStatsItemDaysInnerAppsInner(BaseModel):
             for _item_nms in self.nms:
                 if _item_nms:
                     _items.append(_item_nms.to_dict())
-            _dict['nms'] = _items
+            _dict["nms"] = _items
         return _dict
 
     @classmethod
@@ -106,21 +144,28 @@ class FullStatsItemDaysInnerAppsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "appType": obj.get("appType"),
-            "atbs": obj.get("atbs"),
-            "canceled": obj.get("canceled"),
-            "clicks": obj.get("clicks"),
-            "cpc": obj.get("cpc"),
-            "cr": obj.get("cr"),
-            "ctr": obj.get("ctr"),
-            "nms": [FullStatsItemDaysInnerAppsInnerNmsInner.from_dict(_item) for _item in obj["nms"]] if obj.get("nms") is not None else None,
-            "orders": obj.get("orders"),
-            "shks": obj.get("shks"),
-            "sum": obj.get("sum"),
-            "sum_price": obj.get("sum_price"),
-            "views": obj.get("views")
-        })
+        _obj = cls.model_validate(
+            {
+                "appType": obj.get("appType"),
+                "atbs": obj.get("atbs"),
+                "canceled": obj.get("canceled"),
+                "clicks": obj.get("clicks"),
+                "cpc": obj.get("cpc"),
+                "cr": obj.get("cr"),
+                "ctr": obj.get("ctr"),
+                "nms": (
+                    [
+                        FullStatsItemDaysInnerAppsInnerNmsInner.from_dict(_item)
+                        for _item in obj["nms"]
+                    ]
+                    if obj.get("nms") is not None
+                    else None
+                ),
+                "orders": obj.get("orders"),
+                "shks": obj.get("shks"),
+                "sum": obj.get("sum"),
+                "sum_price": obj.get("sum_price"),
+                "views": obj.get("views"),
+            }
+        )
         return _obj
-
-

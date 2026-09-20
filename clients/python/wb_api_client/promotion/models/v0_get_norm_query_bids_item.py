@@ -22,24 +22,38 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V0GetNormQueryBidsItem(BaseModel):
     """
     V0GetNormQueryBidsItem
-    """ # noqa: E501
+    """  # noqa: E501
+
     advert_id: StrictInt = Field(description="ID кампании")
     nm_id: StrictInt = Field(description="Артикул WB")
     norm_query: StrictStr = Field(description="Поисковый кластер")
-    bid: StrictInt = Field(description="Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов")
-    bid_kopecks: StrictInt = Field(description="Текущая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов")
-    currency: StrictStr = Field(description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    __properties: ClassVar[List[str]] = ["advert_id", "nm_id", "norm_query", "bid", "bid_kopecks", "currency"]
+    bid: StrictInt = Field(
+        description="Текущая ставка в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов"
+    )
+    bid_kopecks: StrictInt = Field(
+        description="Текущая ставка в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) за тысячу показов"
+    )
+    currency: StrictStr = Field(
+        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
+    __properties: ClassVar[List[str]] = [
+        "advert_id",
+        "nm_id",
+        "norm_query",
+        "bid",
+        "bid_kopecks",
+        "currency",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +79,7 @@ class V0GetNormQueryBidsItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -84,14 +97,14 @@ class V0GetNormQueryBidsItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advert_id": obj.get("advert_id"),
-            "nm_id": obj.get("nm_id"),
-            "norm_query": obj.get("norm_query"),
-            "bid": obj.get("bid"),
-            "bid_kopecks": obj.get("bid_kopecks"),
-            "currency": obj.get("currency")
-        })
+        _obj = cls.model_validate(
+            {
+                "advert_id": obj.get("advert_id"),
+                "nm_id": obj.get("nm_id"),
+                "norm_query": obj.get("norm_query"),
+                "bid": obj.get("bid"),
+                "bid_kopecks": obj.get("bid_kopecks"),
+                "currency": obj.get("currency"),
+            }
+        )
         return _obj
-
-

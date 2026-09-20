@@ -22,11 +22,15 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class RequestMoveNmsImtDisconn(BaseModel):
     """
     RequestMoveNmsImtDisconn
-    """ # noqa: E501
-    nm_ids: List[StrictInt] = Field(description="`nmID`, которые необходимо разъединить ", alias="nmIDs")
+    """  # noqa: E501
+
+    nm_ids: List[StrictInt] = Field(
+        description="`nmID`, которые необходимо разъединить ", alias="nmIDs"
+    )
     __properties: ClassVar[List[str]] = ["nmIDs"]
 
     model_config = ConfigDict(
@@ -34,7 +38,6 @@ class RequestMoveNmsImtDisconn(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,8 +63,7 @@ class RequestMoveNmsImtDisconn(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,9 +81,5 @@ class RequestMoveNmsImtDisconn(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmIDs": obj.get("nmIDs")
-        })
+        _obj = cls.model_validate({"nmIDs": obj.get("nmIDs")})
         return _obj
-
-

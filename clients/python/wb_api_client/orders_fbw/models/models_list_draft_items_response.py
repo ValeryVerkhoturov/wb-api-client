@@ -23,12 +23,18 @@ from wb_api_client.orders_fbw.models.models_draft_item_item import ModelsDraftIt
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsListDraftItemsResponse(BaseModel):
     """
     ModelsListDraftItemsResponse
-    """ # noqa: E501
-    sku_quantity: StrictInt = Field(description="Количество баркодов", alias="skuQuantity")
-    item_quantity: StrictInt = Field(description="Количество единиц товара", alias="itemQuantity")
+    """  # noqa: E501
+
+    sku_quantity: StrictInt = Field(
+        description="Количество баркодов", alias="skuQuantity"
+    )
+    item_quantity: StrictInt = Field(
+        description="Количество единиц товара", alias="itemQuantity"
+    )
     items: List[ModelsDraftItemItem] = Field(description="Список товаров")
     __properties: ClassVar[List[str]] = ["skuQuantity", "itemQuantity", "items"]
 
@@ -37,7 +43,6 @@ class ModelsListDraftItemsResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +68,7 @@ class ModelsListDraftItemsResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +81,7 @@ class ModelsListDraftItemsResponse(BaseModel):
             for _item_items in self.items:
                 if _item_items:
                     _items.append(_item_items.to_dict())
-            _dict['items'] = _items
+            _dict["items"] = _items
         return _dict
 
     @classmethod
@@ -89,11 +93,15 @@ class ModelsListDraftItemsResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "skuQuantity": obj.get("skuQuantity"),
-            "itemQuantity": obj.get("itemQuantity"),
-            "items": [ModelsDraftItemItem.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "skuQuantity": obj.get("skuQuantity"),
+                "itemQuantity": obj.get("itemQuantity"),
+                "items": (
+                    [ModelsDraftItemItem.from_dict(_item) for _item in obj["items"]]
+                    if obj.get("items") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

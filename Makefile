@@ -29,7 +29,7 @@ MVN_DOCKER  = docker run --rm -u $$(id -u):$$(id -g) \
 .DEFAULT_GOAL := help
 .PHONY: help venv download post-process generate regen \
         verify verify-python verify-ts verify-go verify-java \
-        gofmt clean
+        gofmt black prettier spotless clean
 
 # ── help ──────────────────────────────────────────────────────────────────
 
@@ -61,7 +61,7 @@ regen: download post-process generate ## Full pipeline: download → process →
 
 # ── verification ──────────────────────────────────────────────────────────
 
-verify: verify-python verify-ts verify-go verify-java gofmt ## Build every language + gofmt check
+verify: verify-python verify-ts verify-go verify-java gofmt black prettier spotless ## Build every language + fmt checks
 
 verify-python: ## Build the Python wheel and import every sub-module
 	@echo "── Python ─────────────────────────────────────"
@@ -90,6 +90,16 @@ gofmt: ## Fail if any Go file needs `gofmt -w`
 	@out=$$(docker run --rm -v $(CURDIR)/clients/go:/app -w /app golang:1.22-alpine gofmt -l . 2>&1); \
 	 if [ -n "$$out" ]; then echo "gofmt needed:"; echo "$$out"; exit 1; \
 	 else echo "  ✓ gofmt clean"; fi
+
+black: ## Fail if any Python file needs `black`
+	@$(PY) -m black --check --quiet clients/python && echo "  ✓ black clean"
+
+prettier: ## Fail if any TypeScript file needs `prettier`
+	@$(NODE_DOCKER) sh -c "npm install --silent --no-audit --no-fund && npx --no-install prettier --check --log-level=error 'src/**/*.ts'" \
+	  && echo "  ✓ prettier clean"
+
+spotless: ## Fail if any Java file needs `spotless:check` (google-java-format)
+	@$(MVN_DOCKER) mvn -q -Duser.home=/tmp spotless:check && echo "  ✓ spotless clean"
 
 # ── housekeeping ──────────────────────────────────────────────────────────
 

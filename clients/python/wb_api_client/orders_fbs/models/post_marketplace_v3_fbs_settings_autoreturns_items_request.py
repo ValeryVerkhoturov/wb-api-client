@@ -23,11 +23,15 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest(BaseModel):
     """
     PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
-    """ # noqa: E501
-    chrt_ids: Annotated[List[StrictInt], Field(min_length=1, max_length=1000)] = Field(description="Список ID размеров товаров в системе WB", alias="chrtIds")
+    """  # noqa: E501
+
+    chrt_ids: Annotated[List[StrictInt], Field(min_length=1, max_length=1000)] = Field(
+        description="Список ID размеров товаров в системе WB", alias="chrtIds"
+    )
     __properties: ClassVar[List[str]] = ["chrtIds"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,9 +82,5 @@ class PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "chrtIds": obj.get("chrtIds")
-        })
+        _obj = cls.model_validate({"chrtIds": obj.get("chrtIds")})
         return _obj
-
-

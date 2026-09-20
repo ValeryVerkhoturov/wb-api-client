@@ -23,19 +23,27 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest(BaseModel):
     """
     PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
-    """ # noqa: E501
-    chrt_ids: Annotated[List[StrictInt], Field(max_length=1000)] = Field(description="Список ID размеров товаров в системе WB ", alias="chrtIds")
-    type: StrictStr = Field(description="Тип автовозврата малогабаритных товаров:   - `byWarehouse` — все товары отправляются на склад WB   - `byPickupPoint` — все товары отправляются на пункт выдачи заказов ")
+    """  # noqa: E501
+
+    chrt_ids: Annotated[List[StrictInt], Field(max_length=1000)] = Field(
+        description="Список ID размеров товаров в системе WB ", alias="chrtIds"
+    )
+    type: StrictStr = Field(
+        description="Тип автовозврата малогабаритных товаров:   - `byWarehouse` — все товары отправляются на склад WB   - `byPickupPoint` — все товары отправляются на пункт выдачи заказов "
+    )
     __properties: ClassVar[List[str]] = ["chrtIds", "type"]
 
-    @field_validator('type')
+    @field_validator("type")
     def type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['byWarehouse', 'byPickupPoint']):
-            raise ValueError("must be one of enum values ('byWarehouse', 'byPickupPoint')")
+        if value not in set(["byWarehouse", "byPickupPoint"]):
+            raise ValueError(
+                "must be one of enum values ('byWarehouse', 'byPickupPoint')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -43,7 +51,6 @@ class PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -69,8 +76,7 @@ class PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -88,10 +94,7 @@ class PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "chrtIds": obj.get("chrtIds"),
-            "type": obj.get("type")
-        })
+        _obj = cls.model_validate(
+            {"chrtIds": obj.get("chrtIds"), "type": obj.get("type")}
+        )
         return _obj
-
-

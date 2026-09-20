@@ -23,11 +23,15 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PutV3DbwOrdersOrderIdMetaUinRequest(BaseModel):
     """
     PutV3DbwOrdersOrderIdMetaUinRequest
-    """ # noqa: E501
-    uin: Annotated[str, Field(min_length=16, strict=True, max_length=16)] = Field(description="УИН")
+    """  # noqa: E501
+
+    uin: Annotated[str, Field(min_length=16, strict=True, max_length=16)] = Field(
+        description="УИН"
+    )
     __properties: ClassVar[List[str]] = ["uin"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class PutV3DbwOrdersOrderIdMetaUinRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class PutV3DbwOrdersOrderIdMetaUinRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,9 +82,5 @@ class PutV3DbwOrdersOrderIdMetaUinRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "uin": obj.get("uin")
-        })
+        _obj = cls.model_validate({"uin": obj.get("uin")})
         return _obj
-
-

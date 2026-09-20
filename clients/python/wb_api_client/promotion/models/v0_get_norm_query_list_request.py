@@ -20,14 +20,18 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
-from wb_api_client.promotion.models.v0_get_norm_query_list_request_item import V0GetNormQueryListRequestItem
+from wb_api_client.promotion.models.v0_get_norm_query_list_request_item import (
+    V0GetNormQueryListRequestItem,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class V0GetNormQueryListRequest(BaseModel):
     """
     V0GetNormQueryListRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     items: Annotated[List[V0GetNormQueryListRequestItem], Field(max_length=100)]
     __properties: ClassVar[List[str]] = ["items"]
 
@@ -36,7 +40,6 @@ class V0GetNormQueryListRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class V0GetNormQueryListRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +78,7 @@ class V0GetNormQueryListRequest(BaseModel):
             for _item_items in self.items:
                 if _item_items:
                     _items.append(_item_items.to_dict())
-            _dict['items'] = _items
+            _dict["items"] = _items
         return _dict
 
     @classmethod
@@ -88,9 +90,16 @@ class V0GetNormQueryListRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "items": [V0GetNormQueryListRequestItem.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "items": (
+                    [
+                        V0GetNormQueryListRequestItem.from_dict(_item)
+                        for _item in obj["items"]
+                    ]
+                    if obj.get("items") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.promotion.models.v0_get_norm_query_bids_item import V0GetNormQueryBidsItem
+from wb_api_client.promotion.models.v0_get_norm_query_bids_item import (
+    V0GetNormQueryBidsItem,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class V0GetNormQueryBidsResponse(BaseModel):
     """
     V0GetNormQueryBidsResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     bids: List[V0GetNormQueryBidsItem]
     __properties: ClassVar[List[str]] = ["bids"]
 
@@ -35,7 +39,6 @@ class V0GetNormQueryBidsResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class V0GetNormQueryBidsResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +77,7 @@ class V0GetNormQueryBidsResponse(BaseModel):
             for _item_bids in self.bids:
                 if _item_bids:
                     _items.append(_item_bids.to_dict())
-            _dict['bids'] = _items
+            _dict["bids"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +89,13 @@ class V0GetNormQueryBidsResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "bids": [V0GetNormQueryBidsItem.from_dict(_item) for _item in obj["bids"]] if obj.get("bids") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "bids": (
+                    [V0GetNormQueryBidsItem.from_dict(_item) for _item in obj["bids"]]
+                    if obj.get("bids") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

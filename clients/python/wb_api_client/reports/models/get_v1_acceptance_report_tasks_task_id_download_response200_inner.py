@@ -23,25 +23,48 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner(BaseModel):
     """
     GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner
-    """ # noqa: E501
-    count: Optional[StrictInt] = Field(default=None, description="Количество товаров, шт.")
-    gi_create_date: Optional[date] = Field(default=None, description="Дата создания поставки", alias="giCreateDate")
-    income_id: Optional[StrictInt] = Field(default=None, description="Номер поставки", alias="incomeId")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmID")
-    shk_create_date: Optional[date] = Field(default=None, description="Дата приёмки", alias="shkCreateDate")
-    subject_name: Optional[StrictStr] = Field(default=None, description="Предмет", alias="subjectName")
-    total: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Суммарная стоимость приёмки, ₽ с копейками")
-    __properties: ClassVar[List[str]] = ["count", "giCreateDate", "incomeId", "nmID", "shkCreateDate", "subjectName", "total"]
+    """  # noqa: E501
+
+    count: Optional[StrictInt] = Field(
+        default=None, description="Количество товаров, шт."
+    )
+    gi_create_date: Optional[date] = Field(
+        default=None, description="Дата создания поставки", alias="giCreateDate"
+    )
+    income_id: Optional[StrictInt] = Field(
+        default=None, description="Номер поставки", alias="incomeId"
+    )
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmID"
+    )
+    shk_create_date: Optional[date] = Field(
+        default=None, description="Дата приёмки", alias="shkCreateDate"
+    )
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Предмет", alias="subjectName"
+    )
+    total: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Суммарная стоимость приёмки, ₽ с копейками"
+    )
+    __properties: ClassVar[List[str]] = [
+        "count",
+        "giCreateDate",
+        "incomeId",
+        "nmID",
+        "shkCreateDate",
+        "subjectName",
+        "total",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -67,8 +90,7 @@ class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -86,15 +108,15 @@ class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "count": obj.get("count"),
-            "giCreateDate": obj.get("giCreateDate"),
-            "incomeId": obj.get("incomeId"),
-            "nmID": obj.get("nmID"),
-            "shkCreateDate": obj.get("shkCreateDate"),
-            "subjectName": obj.get("subjectName"),
-            "total": obj.get("total")
-        })
+        _obj = cls.model_validate(
+            {
+                "count": obj.get("count"),
+                "giCreateDate": obj.get("giCreateDate"),
+                "incomeId": obj.get("incomeId"),
+                "nmID": obj.get("nmID"),
+                "shkCreateDate": obj.get("shkCreateDate"),
+                "subjectName": obj.get("subjectName"),
+                "total": obj.get("total"),
+            }
+        )
         return _obj
-
-

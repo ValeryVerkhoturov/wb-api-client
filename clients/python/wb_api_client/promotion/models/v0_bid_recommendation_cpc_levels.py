@@ -19,17 +19,27 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.promotion.models.v0_bid_recommendation_base_bid import V0BidRecommendationBaseBid
+from wb_api_client.promotion.models.v0_bid_recommendation_base_bid import (
+    V0BidRecommendationBaseBid,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class V0BidRecommendationCPCLevels(BaseModel):
     """
     V0BidRecommendationCPCLevels
-    """ # noqa: E501
-    range1_to2: V0BidRecommendationBaseBid = Field(description="Ставка для попадания в позиции 1-2", alias="range1To2")
-    range3_to10: V0BidRecommendationBaseBid = Field(description="Ставка для попадания в позиции 3-10", alias="range3To10")
-    range11_to34: V0BidRecommendationBaseBid = Field(description="Ставка для попадания в позиции 11-34", alias="range11To34")
+    """  # noqa: E501
+
+    range1_to2: V0BidRecommendationBaseBid = Field(
+        description="Ставка для попадания в позиции 1-2", alias="range1To2"
+    )
+    range3_to10: V0BidRecommendationBaseBid = Field(
+        description="Ставка для попадания в позиции 3-10", alias="range3To10"
+    )
+    range11_to34: V0BidRecommendationBaseBid = Field(
+        description="Ставка для попадания в позиции 11-34", alias="range11To34"
+    )
     __properties: ClassVar[List[str]] = ["range1To2", "range3To10", "range11To34"]
 
     model_config = ConfigDict(
@@ -37,7 +47,6 @@ class V0BidRecommendationCPCLevels(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +72,7 @@ class V0BidRecommendationCPCLevels(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,13 +81,13 @@ class V0BidRecommendationCPCLevels(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of range1_to2
         if self.range1_to2:
-            _dict['range1To2'] = self.range1_to2.to_dict()
+            _dict["range1To2"] = self.range1_to2.to_dict()
         # override the default output from pydantic by calling `to_dict()` of range3_to10
         if self.range3_to10:
-            _dict['range3To10'] = self.range3_to10.to_dict()
+            _dict["range3To10"] = self.range3_to10.to_dict()
         # override the default output from pydantic by calling `to_dict()` of range11_to34
         if self.range11_to34:
-            _dict['range11To34'] = self.range11_to34.to_dict()
+            _dict["range11To34"] = self.range11_to34.to_dict()
         return _dict
 
     @classmethod
@@ -91,11 +99,23 @@ class V0BidRecommendationCPCLevels(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "range1To2": V0BidRecommendationBaseBid.from_dict(obj["range1To2"]) if obj.get("range1To2") is not None else None,
-            "range3To10": V0BidRecommendationBaseBid.from_dict(obj["range3To10"]) if obj.get("range3To10") is not None else None,
-            "range11To34": V0BidRecommendationBaseBid.from_dict(obj["range11To34"]) if obj.get("range11To34") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "range1To2": (
+                    V0BidRecommendationBaseBid.from_dict(obj["range1To2"])
+                    if obj.get("range1To2") is not None
+                    else None
+                ),
+                "range3To10": (
+                    V0BidRecommendationBaseBid.from_dict(obj["range3To10"])
+                    if obj.get("range3To10") is not None
+                    else None
+                ),
+                "range11To34": (
+                    V0BidRecommendationBaseBid.from_dict(obj["range11To34"])
+                    if obj.get("range11To34") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

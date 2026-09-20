@@ -19,16 +19,24 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.general.models.create_invite_request_invite import CreateInviteRequestInvite
-from wb_api_client.general.models.get_users_response_users_inner_access_inner import GetUsersResponseUsersInnerAccessInner
+from wb_api_client.general.models.create_invite_request_invite import (
+    CreateInviteRequestInvite,
+)
+from wb_api_client.general.models.get_users_response_users_inner_access_inner import (
+    GetUsersResponseUsersInnerAccessInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class CreateInviteRequest(BaseModel):
     """
     CreateInviteRequest
-    """ # noqa: E501
-    access: Optional[List[GetUsersResponseUsersInnerAccessInner]] = Field(default=None, description="Настройки доступа к разделам профиля продавца")
+    """  # noqa: E501
+
+    access: Optional[List[GetUsersResponseUsersInnerAccessInner]] = Field(
+        default=None, description="Настройки доступа к разделам профиля продавца"
+    )
     invite: CreateInviteRequestInvite
     __properties: ClassVar[List[str]] = ["access", "invite"]
 
@@ -37,7 +45,6 @@ class CreateInviteRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +70,7 @@ class CreateInviteRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,10 +83,10 @@ class CreateInviteRequest(BaseModel):
             for _item_access in self.access:
                 if _item_access:
                     _items.append(_item_access.to_dict())
-            _dict['access'] = _items
+            _dict["access"] = _items
         # override the default output from pydantic by calling `to_dict()` of invite
         if self.invite:
-            _dict['invite'] = self.invite.to_dict()
+            _dict["invite"] = self.invite.to_dict()
         return _dict
 
     @classmethod
@@ -92,10 +98,21 @@ class CreateInviteRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "access": [GetUsersResponseUsersInnerAccessInner.from_dict(_item) for _item in obj["access"]] if obj.get("access") is not None else None,
-            "invite": CreateInviteRequestInvite.from_dict(obj["invite"]) if obj.get("invite") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "access": (
+                    [
+                        GetUsersResponseUsersInnerAccessInner.from_dict(_item)
+                        for _item in obj["access"]
+                    ]
+                    if obj.get("access") is not None
+                    else None
+                ),
+                "invite": (
+                    CreateInviteRequestInvite.from_dict(obj["invite"])
+                    if obj.get("invite") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

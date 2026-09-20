@@ -23,10 +23,12 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PatchV1FeedbacksAnswerRequest(BaseModel):
     """
     PatchV1FeedbacksAnswerRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: StrictStr = Field(description="ID отзыва")
     text: Annotated[str, Field(strict=True)] = Field(description="Текст ответа")
     __properties: ClassVar[List[str]] = ["id", "text"]
@@ -36,7 +38,6 @@ class PatchV1FeedbacksAnswerRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +63,7 @@ class PatchV1FeedbacksAnswerRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,10 +81,5 @@ class PatchV1FeedbacksAnswerRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "text": obj.get("text")
-        })
+        _obj = cls.model_validate({"id": obj.get("id"), "text": obj.get("text")})
         return _obj
-
-

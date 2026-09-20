@@ -23,11 +23,15 @@ from wb_api_client.orders_fbs.models.v3_archive_order import V3ArchiveOrder
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V3ArchiveOrders(BaseModel):
     """
     Список архивных сборочных заданий
-    """ # noqa: E501
-    next: Optional[StrictInt] = Field(description="Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных")
+    """  # noqa: E501
+
+    next: Optional[StrictInt] = Field(
+        description="Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных"
+    )
     orders: List[V3ArchiveOrder] = Field(description="Архивные сборочные задания")
     __properties: ClassVar[List[str]] = ["next", "orders"]
 
@@ -36,7 +40,6 @@ class V3ArchiveOrders(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class V3ArchiveOrders(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,11 +78,11 @@ class V3ArchiveOrders(BaseModel):
             for _item_orders in self.orders:
                 if _item_orders:
                     _items.append(_item_orders.to_dict())
-            _dict['orders'] = _items
+            _dict["orders"] = _items
         # set to None if next (nullable) is None
         # and model_fields_set contains the field
         if self.next is None and "next" in self.model_fields_set:
-            _dict['next'] = None
+            _dict["next"] = None
 
         return _dict
 
@@ -93,10 +95,14 @@ class V3ArchiveOrders(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "next": obj.get("next"),
-            "orders": [V3ArchiveOrder.from_dict(_item) for _item in obj["orders"]] if obj.get("orders") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "next": obj.get("next"),
+                "orders": (
+                    [V3ArchiveOrder.from_dict(_item) for _item in obj["orders"]]
+                    if obj.get("orders") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

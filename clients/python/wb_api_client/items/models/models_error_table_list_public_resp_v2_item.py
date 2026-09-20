@@ -25,24 +25,42 @@ from wb_api_client.items.models.models_error_subcategory import ModelsErrorSubca
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsErrorTableListPublicRespV2Item(BaseModel):
     """
     ModelsErrorTableListPublicRespV2Item
-    """ # noqa: E501
+    """  # noqa: E501
+
     batch_uuid: StrictStr = Field(description="ID пакета", alias="batchUUID")
-    subjects: Dict[str, ModelsErrorSubcategory] = Field(description="Предметы. Разбивка по `vendorCodes`")
-    brands: Dict[str, ModelsErrorBrand] = Field(description="Бренды. Разбивка по `vendorCodes`")
-    vendor_codes: List[StrictStr] = Field(description="Артикулы продавца", alias="vendorCodes")
-    errors: Dict[str, List[StrictStr]] = Field(description="Ошибки. Разбивка по `vendorCodes`")
-    updated_at: datetime = Field(description="Дата и время создания или редактирования пакета", alias="updatedAt")
-    __properties: ClassVar[List[str]] = ["batchUUID", "subjects", "brands", "vendorCodes", "errors", "updatedAt"]
+    subjects: Dict[str, ModelsErrorSubcategory] = Field(
+        description="Предметы. Разбивка по `vendorCodes`"
+    )
+    brands: Dict[str, ModelsErrorBrand] = Field(
+        description="Бренды. Разбивка по `vendorCodes`"
+    )
+    vendor_codes: List[StrictStr] = Field(
+        description="Артикулы продавца", alias="vendorCodes"
+    )
+    errors: Dict[str, List[StrictStr]] = Field(
+        description="Ошибки. Разбивка по `vendorCodes`"
+    )
+    updated_at: datetime = Field(
+        description="Дата и время создания или редактирования пакета", alias="updatedAt"
+    )
+    __properties: ClassVar[List[str]] = [
+        "batchUUID",
+        "subjects",
+        "brands",
+        "vendorCodes",
+        "errors",
+        "updatedAt",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -68,8 +86,7 @@ class ModelsErrorTableListPublicRespV2Item(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,14 +99,14 @@ class ModelsErrorTableListPublicRespV2Item(BaseModel):
             for _key_subjects in self.subjects:
                 if self.subjects[_key_subjects]:
                     _field_dict[_key_subjects] = self.subjects[_key_subjects].to_dict()
-            _dict['subjects'] = _field_dict
+            _dict["subjects"] = _field_dict
         # override the default output from pydantic by calling `to_dict()` of each value in brands (dict)
         _field_dict = {}
         if self.brands:
             for _key_brands in self.brands:
                 if self.brands[_key_brands]:
                     _field_dict[_key_brands] = self.brands[_key_brands].to_dict()
-            _dict['brands'] = _field_dict
+            _dict["brands"] = _field_dict
         return _dict
 
     @classmethod
@@ -101,24 +118,28 @@ class ModelsErrorTableListPublicRespV2Item(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "batchUUID": obj.get("batchUUID"),
-            "subjects": dict(
-                (_k, ModelsErrorSubcategory.from_dict(_v))
-                for _k, _v in obj["subjects"].items()
-            )
-            if obj.get("subjects") is not None
-            else None,
-            "brands": dict(
-                (_k, ModelsErrorBrand.from_dict(_v))
-                for _k, _v in obj["brands"].items()
-            )
-            if obj.get("brands") is not None
-            else None,
-            "vendorCodes": obj.get("vendorCodes"),
-            "errors": obj.get("errors"),
-            "updatedAt": obj.get("updatedAt")
-        })
+        _obj = cls.model_validate(
+            {
+                "batchUUID": obj.get("batchUUID"),
+                "subjects": (
+                    dict(
+                        (_k, ModelsErrorSubcategory.from_dict(_v))
+                        for _k, _v in obj["subjects"].items()
+                    )
+                    if obj.get("subjects") is not None
+                    else None
+                ),
+                "brands": (
+                    dict(
+                        (_k, ModelsErrorBrand.from_dict(_v))
+                        for _k, _v in obj["brands"].items()
+                    )
+                    if obj.get("brands") is not None
+                    else None
+                ),
+                "vendorCodes": obj.get("vendorCodes"),
+                "errors": obj.get("errors"),
+                "updatedAt": obj.get("updatedAt"),
+            }
+        )
         return _obj
-
-

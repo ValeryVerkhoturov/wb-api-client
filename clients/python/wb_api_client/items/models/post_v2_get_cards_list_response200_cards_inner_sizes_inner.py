@@ -22,13 +22,23 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2GetCardsListResponse200CardsInnerSizesInner(BaseModel):
     """
     PostV2GetCardsListResponse200CardsInnerSizesInner
-    """ # noqa: E501
-    chrt_id: Optional[StrictInt] = Field(default=None, description="Числовой ID размера для данного артикула WB", alias="chrtID")
-    tech_size: Optional[StrictStr] = Field(default=None, description="Размер товара (А, XXL, 57 и др.)", alias="techSize")
-    wb_size: Optional[StrictStr] = Field(default=None, description="Российский размер товара", alias="wbSize")
+    """  # noqa: E501
+
+    chrt_id: Optional[StrictInt] = Field(
+        default=None,
+        description="Числовой ID размера для данного артикула WB",
+        alias="chrtID",
+    )
+    tech_size: Optional[StrictStr] = Field(
+        default=None, description="Размер товара (А, XXL, 57 и др.)", alias="techSize"
+    )
+    wb_size: Optional[StrictStr] = Field(
+        default=None, description="Российский размер товара", alias="wbSize"
+    )
     skus: Optional[List[StrictStr]] = Field(default=None, description="Баркод товара")
     __properties: ClassVar[List[str]] = ["chrtID", "techSize", "wbSize", "skus"]
 
@@ -37,7 +47,6 @@ class PostV2GetCardsListResponse200CardsInnerSizesInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +72,7 @@ class PostV2GetCardsListResponse200CardsInnerSizesInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,12 +90,12 @@ class PostV2GetCardsListResponse200CardsInnerSizesInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "chrtID": obj.get("chrtID"),
-            "techSize": obj.get("techSize"),
-            "wbSize": obj.get("wbSize"),
-            "skus": obj.get("skus")
-        })
+        _obj = cls.model_validate(
+            {
+                "chrtID": obj.get("chrtID"),
+                "techSize": obj.get("techSize"),
+                "wbSize": obj.get("wbSize"),
+                "skus": obj.get("skus"),
+            }
+        )
         return _obj
-
-

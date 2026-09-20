@@ -20,47 +20,126 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.get_v1_advert_response200_items_inner_show_hours_inner import GetV1AdvertResponse200ItemsInnerShowHoursInner
+from wb_api_client.promotion.models.get_v1_advert_response200_items_inner_show_hours_inner import (
+    GetV1AdvertResponse200ItemsInnerShowHoursInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV1AdvertResponse200ItemsInner(BaseModel):
     """
     GetV1AdvertResponse200ItemsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictInt] = Field(default=None, description="ID баннера")
     name: Optional[StrictStr] = Field(default=None, description="Бренд")
-    status: Optional[StrictInt] = Field(default=None, description="Статус (такой же как у медиакампании)")
-    place: Optional[StrictInt] = Field(default=None, description="Позиция на странице размещения")
+    status: Optional[StrictInt] = Field(
+        default=None, description="Статус (такой же как у медиакампании)"
+    )
+    place: Optional[StrictInt] = Field(
+        default=None, description="Позиция на странице размещения"
+    )
     budget: Optional[StrictInt] = Field(default=None, description="Бюджет")
-    daily_limit: Optional[StrictInt] = Field(default=None, description="Дневной лимит (для баннеров по показам)")
-    category_name: Optional[StrictStr] = Field(default=None, description="Название категории размещения")
+    daily_limit: Optional[StrictInt] = Field(
+        default=None, description="Дневной лимит (для баннеров по показам)"
+    )
+    category_name: Optional[StrictStr] = Field(
+        default=None, description="Название категории размещения"
+    )
     cpm: Optional[StrictInt] = Field(default=None, description="Ставка")
-    url: Optional[StrictStr] = Field(default=None, description="URL страницы, на которую попадает пользователь при клике по баннеру")
-    advert_type: Optional[StrictInt] = Field(default=None, description="Тип продвижения: - `1` — баннер - `2` — всплывающее меню - `3` — почтовая рассылка - `4` — социальные сети - `5` — push-уведомления в мобильном приложении ")
-    created_at: Optional[datetime] = Field(default=None, description="Дата создания баннера")
-    updated_at: Optional[datetime] = Field(default=None, description="Дата и время обновления баннера")
-    date_from: Optional[datetime] = Field(default=None, description="Дата начала работы баннера")
-    date_to: Optional[datetime] = Field(default=None, description="Дата завершения работы баннера")
-    nms: Optional[List[StrictInt]] = Field(default=None, description="Подборка артикулов WB")
-    bottom_text1: Optional[StrictStr] = Field(default=None, description="Текст под плашкой баннера", alias="bottomText1")
-    bottom_text2: Optional[StrictStr] = Field(default=None, description="2-я строка с текстом под плашкой баннера", alias="bottomText2")
-    message: Optional[StrictStr] = Field(default=None, description="Текст push-уведомления или рассылки")
-    additional_settings: Optional[StrictInt] = Field(default=None, description="Дополнительные настройки.  Формат почтовой рассылки: - `1` — общий - `2` — частичный - `3` — уникальный   Социальная сеть: - `1` — VK - `2` — OK (Одноклассники) ", alias="additionalSettings")
-    receivers_count: Optional[StrictInt] = Field(default=None, description="Кол-во получателей push-уведомлений", alias="receiversCount")
-    subject_id: Optional[StrictInt] = Field(default=None, description="ID родительской категории товара")
-    subject_name: Optional[StrictStr] = Field(default=None, description="Название родительской категории товара")
+    url: Optional[StrictStr] = Field(
+        default=None,
+        description="URL страницы, на которую попадает пользователь при клике по баннеру",
+    )
+    advert_type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип продвижения: - `1` — баннер - `2` — всплывающее меню - `3` — почтовая рассылка - `4` — социальные сети - `5` — push-уведомления в мобильном приложении ",
+    )
+    created_at: Optional[datetime] = Field(
+        default=None, description="Дата создания баннера"
+    )
+    updated_at: Optional[datetime] = Field(
+        default=None, description="Дата и время обновления баннера"
+    )
+    date_from: Optional[datetime] = Field(
+        default=None, description="Дата начала работы баннера"
+    )
+    date_to: Optional[datetime] = Field(
+        default=None, description="Дата завершения работы баннера"
+    )
+    nms: Optional[List[StrictInt]] = Field(
+        default=None, description="Подборка артикулов WB"
+    )
+    bottom_text1: Optional[StrictStr] = Field(
+        default=None, description="Текст под плашкой баннера", alias="bottomText1"
+    )
+    bottom_text2: Optional[StrictStr] = Field(
+        default=None,
+        description="2-я строка с текстом под плашкой баннера",
+        alias="bottomText2",
+    )
+    message: Optional[StrictStr] = Field(
+        default=None, description="Текст push-уведомления или рассылки"
+    )
+    additional_settings: Optional[StrictInt] = Field(
+        default=None,
+        description="Дополнительные настройки.  Формат почтовой рассылки: - `1` — общий - `2` — частичный - `3` — уникальный   Социальная сеть: - `1` — VK - `2` — OK (Одноклассники) ",
+        alias="additionalSettings",
+    )
+    receivers_count: Optional[StrictInt] = Field(
+        default=None,
+        description="Кол-во получателей push-уведомлений",
+        alias="receiversCount",
+    )
+    subject_id: Optional[StrictInt] = Field(
+        default=None, description="ID родительской категории товара"
+    )
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Название родительской категории товара"
+    )
     action_name: Optional[StrictStr] = Field(default=None, description="Название акции")
-    show_hours: Optional[List[GetV1AdvertResponse200ItemsInnerShowHoursInner]] = Field(default=None, description="Часы показа")
-    erid: Optional[StrictStr] = Field(default=None, description="Уникальный ID медиакампании для работы с ОРД", alias="Erid")
-    __properties: ClassVar[List[str]] = ["id", "name", "status", "place", "budget", "daily_limit", "category_name", "cpm", "url", "advert_type", "created_at", "updated_at", "date_from", "date_to", "nms", "bottomText1", "bottomText2", "message", "additionalSettings", "receiversCount", "subject_id", "subject_name", "action_name", "show_hours", "Erid"]
+    show_hours: Optional[List[GetV1AdvertResponse200ItemsInnerShowHoursInner]] = Field(
+        default=None, description="Часы показа"
+    )
+    erid: Optional[StrictStr] = Field(
+        default=None,
+        description="Уникальный ID медиакампании для работы с ОРД",
+        alias="Erid",
+    )
+    __properties: ClassVar[List[str]] = [
+        "id",
+        "name",
+        "status",
+        "place",
+        "budget",
+        "daily_limit",
+        "category_name",
+        "cpm",
+        "url",
+        "advert_type",
+        "created_at",
+        "updated_at",
+        "date_from",
+        "date_to",
+        "nms",
+        "bottomText1",
+        "bottomText2",
+        "message",
+        "additionalSettings",
+        "receiversCount",
+        "subject_id",
+        "subject_name",
+        "action_name",
+        "show_hours",
+        "Erid",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -86,8 +165,7 @@ class GetV1AdvertResponse200ItemsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -100,7 +178,7 @@ class GetV1AdvertResponse200ItemsInner(BaseModel):
             for _item_show_hours in self.show_hours:
                 if _item_show_hours:
                     _items.append(_item_show_hours.to_dict())
-            _dict['show_hours'] = _items
+            _dict["show_hours"] = _items
         return _dict
 
     @classmethod
@@ -112,33 +190,40 @@ class GetV1AdvertResponse200ItemsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "name": obj.get("name"),
-            "status": obj.get("status"),
-            "place": obj.get("place"),
-            "budget": obj.get("budget"),
-            "daily_limit": obj.get("daily_limit"),
-            "category_name": obj.get("category_name"),
-            "cpm": obj.get("cpm"),
-            "url": obj.get("url"),
-            "advert_type": obj.get("advert_type"),
-            "created_at": obj.get("created_at"),
-            "updated_at": obj.get("updated_at"),
-            "date_from": obj.get("date_from"),
-            "date_to": obj.get("date_to"),
-            "nms": obj.get("nms"),
-            "bottomText1": obj.get("bottomText1"),
-            "bottomText2": obj.get("bottomText2"),
-            "message": obj.get("message"),
-            "additionalSettings": obj.get("additionalSettings"),
-            "receiversCount": obj.get("receiversCount"),
-            "subject_id": obj.get("subject_id"),
-            "subject_name": obj.get("subject_name"),
-            "action_name": obj.get("action_name"),
-            "show_hours": [GetV1AdvertResponse200ItemsInnerShowHoursInner.from_dict(_item) for _item in obj["show_hours"]] if obj.get("show_hours") is not None else None,
-            "Erid": obj.get("Erid")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "name": obj.get("name"),
+                "status": obj.get("status"),
+                "place": obj.get("place"),
+                "budget": obj.get("budget"),
+                "daily_limit": obj.get("daily_limit"),
+                "category_name": obj.get("category_name"),
+                "cpm": obj.get("cpm"),
+                "url": obj.get("url"),
+                "advert_type": obj.get("advert_type"),
+                "created_at": obj.get("created_at"),
+                "updated_at": obj.get("updated_at"),
+                "date_from": obj.get("date_from"),
+                "date_to": obj.get("date_to"),
+                "nms": obj.get("nms"),
+                "bottomText1": obj.get("bottomText1"),
+                "bottomText2": obj.get("bottomText2"),
+                "message": obj.get("message"),
+                "additionalSettings": obj.get("additionalSettings"),
+                "receiversCount": obj.get("receiversCount"),
+                "subject_id": obj.get("subject_id"),
+                "subject_name": obj.get("subject_name"),
+                "action_name": obj.get("action_name"),
+                "show_hours": (
+                    [
+                        GetV1AdvertResponse200ItemsInnerShowHoursInner.from_dict(_item)
+                        for _item in obj["show_hours"]
+                    ]
+                    if obj.get("show_hours") is not None
+                    else None
+                ),
+                "Erid": obj.get("Erid"),
+            }
+        )
         return _obj
-
-

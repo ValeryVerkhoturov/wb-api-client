@@ -23,12 +23,18 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PastPeriod(BaseModel):
     """
     Прошлый период для сравнения. Количество дней — меньше или равно `currentPeriod`
-    """ # noqa: E501
-    start: date = Field(description="Дата начала периода. Не позднее `end`. Не ранее 365 суток от сегодня")
-    end: date = Field(description="Дата окончания периода. Не позднее даты перед датой начала `currentPeriod`. Не ранее 365 суток от сегодня")
+    """  # noqa: E501
+
+    start: date = Field(
+        description="Дата начала периода. Не позднее `end`. Не ранее 365 суток от сегодня"
+    )
+    end: date = Field(
+        description="Дата окончания периода. Не позднее даты перед датой начала `currentPeriod`. Не ранее 365 суток от сегодня"
+    )
     __properties: ClassVar[List[str]] = ["start", "end"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class PastPeriod(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class PastPeriod(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,10 +85,5 @@ class PastPeriod(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "start": obj.get("start"),
-            "end": obj.get("end")
-        })
+        _obj = cls.model_validate({"start": obj.get("start"), "end": obj.get("end")})
         return _obj
-
-

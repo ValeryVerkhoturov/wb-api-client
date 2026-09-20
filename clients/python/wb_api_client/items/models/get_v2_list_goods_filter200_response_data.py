@@ -23,11 +23,15 @@ from wb_api_client.items.models.items_list import ItemsList
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV2ListGoodsFilter200ResponseData(BaseModel):
     """
     Данные ответа
-    """ # noqa: E501
-    list_goods: List[ItemsList] = Field(description="Информация о товарах", alias="listGoods")
+    """  # noqa: E501
+
+    list_goods: List[ItemsList] = Field(
+        description="Информация о товарах", alias="listGoods"
+    )
     __properties: ClassVar[List[str]] = ["listGoods"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class GetV2ListGoodsFilter200ResponseData(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class GetV2ListGoodsFilter200ResponseData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +77,7 @@ class GetV2ListGoodsFilter200ResponseData(BaseModel):
             for _item_list_goods in self.list_goods:
                 if _item_list_goods:
                     _items.append(_item_list_goods.to_dict())
-            _dict['listGoods'] = _items
+            _dict["listGoods"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +89,13 @@ class GetV2ListGoodsFilter200ResponseData(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "listGoods": [ItemsList.from_dict(_item) for _item in obj["listGoods"]] if obj.get("listGoods") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "listGoods": (
+                    [ItemsList.from_dict(_item) for _item in obj["listGoods"]]
+                    if obj.get("listGoods") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

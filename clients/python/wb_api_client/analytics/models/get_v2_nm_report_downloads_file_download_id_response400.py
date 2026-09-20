@@ -22,13 +22,17 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV2NmReportDownloadsFileDownloadIdResponse400(BaseModel):
     """
     GetV2NmReportDownloadsFileDownloadIdResponse400
-    """ # noqa: E501
+    """  # noqa: E501
+
     title: StrictStr = Field(description="Заголовок ошибки")
     detail: StrictStr = Field(description="Детали ошибки")
-    request_id: StrictStr = Field(description="Уникальный ID запроса", alias="requestId")
+    request_id: StrictStr = Field(
+        description="Уникальный ID запроса", alias="requestId"
+    )
     origin: StrictStr = Field(description="ID внутреннего сервиса WB")
     __properties: ClassVar[List[str]] = ["title", "detail", "requestId", "origin"]
 
@@ -37,7 +41,6 @@ class GetV2NmReportDownloadsFileDownloadIdResponse400(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +66,7 @@ class GetV2NmReportDownloadsFileDownloadIdResponse400(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,12 +84,12 @@ class GetV2NmReportDownloadsFileDownloadIdResponse400(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "title": obj.get("title"),
-            "detail": obj.get("detail"),
-            "requestId": obj.get("requestId"),
-            "origin": obj.get("origin")
-        })
+        _obj = cls.model_validate(
+            {
+                "title": obj.get("title"),
+                "detail": obj.get("detail"),
+                "requestId": obj.get("requestId"),
+                "origin": obj.get("origin"),
+            }
+        )
         return _obj
-
-

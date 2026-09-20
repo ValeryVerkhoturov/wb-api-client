@@ -19,16 +19,23 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.brands_response_brands_inner import BrandsResponseBrandsInner
+from wb_api_client.items.models.brands_response_brands_inner import (
+    BrandsResponseBrandsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class BrandsResponse(BaseModel):
     """
     BrandsResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     brands: List[BrandsResponseBrandsInner]
-    next: Optional[StrictInt] = Field(default=None, description="Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные")
+    next: Optional[StrictInt] = Field(
+        default=None,
+        description="Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные",
+    )
     total: StrictInt = Field(description="Общее количество брендов предмета")
     __properties: ClassVar[List[str]] = ["brands", "next", "total"]
 
@@ -37,7 +44,6 @@ class BrandsResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +69,7 @@ class BrandsResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +82,7 @@ class BrandsResponse(BaseModel):
             for _item_brands in self.brands:
                 if _item_brands:
                     _items.append(_item_brands.to_dict())
-            _dict['brands'] = _items
+            _dict["brands"] = _items
         return _dict
 
     @classmethod
@@ -89,11 +94,18 @@ class BrandsResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "brands": [BrandsResponseBrandsInner.from_dict(_item) for _item in obj["brands"]] if obj.get("brands") is not None else None,
-            "next": obj.get("next"),
-            "total": obj.get("total")
-        })
+        _obj = cls.model_validate(
+            {
+                "brands": (
+                    [
+                        BrandsResponseBrandsInner.from_dict(_item)
+                        for _item in obj["brands"]
+                    ]
+                    if obj.get("brands") is not None
+                    else None
+                ),
+                "next": obj.get("next"),
+                "total": obj.get("total"),
+            }
+        )
         return _obj
-
-

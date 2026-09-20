@@ -19,16 +19,23 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.communications.models.openapi_pinned_review_item_result import OpenapiPinnedReviewItemResult
+from wb_api_client.communications.models.openapi_pinned_review_item_result import (
+    OpenapiPinnedReviewItemResult,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetFeedbacksV1PinsResponse200(BaseModel):
     """
     GetFeedbacksV1PinsResponse200
-    """ # noqa: E501
+    """  # noqa: E501
+
     data: List[OpenapiPinnedReviewItemResult]
-    next: Optional[StrictInt] = Field(default=None, description="Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные")
+    next: Optional[StrictInt] = Field(
+        default=None,
+        description="Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные",
+    )
     __properties: ClassVar[List[str]] = ["data", "next"]
 
     model_config = ConfigDict(
@@ -36,7 +43,6 @@ class GetFeedbacksV1PinsResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +68,7 @@ class GetFeedbacksV1PinsResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +81,7 @@ class GetFeedbacksV1PinsResponse200(BaseModel):
             for _item_data in self.data:
                 if _item_data:
                     _items.append(_item_data.to_dict())
-            _dict['data'] = _items
+            _dict["data"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +93,17 @@ class GetFeedbacksV1PinsResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "data": [OpenapiPinnedReviewItemResult.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
-            "next": obj.get("next")
-        })
+        _obj = cls.model_validate(
+            {
+                "data": (
+                    [
+                        OpenapiPinnedReviewItemResult.from_dict(_item)
+                        for _item in obj["data"]
+                    ]
+                    if obj.get("data") is not None
+                    else None
+                ),
+                "next": obj.get("next"),
+            }
+        )
         return _obj
-
-

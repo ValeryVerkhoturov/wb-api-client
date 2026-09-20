@@ -19,37 +19,91 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.get_v1_calendar_promotions_details200_response_data_promotions_inner_ranging_inner import GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner
+from wb_api_client.promotion.models.get_v1_calendar_promotions_details200_response_data_promotions_inner_ranging_inner import (
+    GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner(BaseModel):
     """
     GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictInt] = Field(default=None, description="ID акции")
     name: Optional[StrictStr] = Field(default=None, description="Название акции")
     description: Optional[StrictStr] = Field(default=None, description="Описание акции")
-    advantages: Optional[List[StrictStr]] = Field(default=None, description="Преимущества акции")
-    start_date_time: Optional[StrictStr] = Field(default=None, description="Начало акции", alias="startDateTime")
-    end_date_time: Optional[StrictStr] = Field(default=None, description="Конец акции", alias="endDateTime")
-    in_promo_action_leftovers: Optional[StrictInt] = Field(default=None, description="Количество товаров с остатками, участвующих в акции", alias="inPromoActionLeftovers")
-    in_promo_action_total: Optional[StrictInt] = Field(default=None, description="Общее количество товаров, участвующих в акции", alias="inPromoActionTotal")
-    not_in_promo_action_leftovers: Optional[StrictInt] = Field(default=None, description="Количество товаров с остатками, не участвующих в акции", alias="notInPromoActionLeftovers")
-    not_in_promo_action_total: Optional[StrictInt] = Field(default=None, description="Общее количество товаров, не участвующих в акции", alias="notInPromoActionTotal")
-    participation_percentage: Optional[StrictInt] = Field(default=None, description="Уже участвующие в акции товары, %. Рассчитывается по товарам в акции и с остатком", alias="participationPercentage")
-    type: Optional[StrictStr] = Field(default=None, description="Тип акции:   - `regular` — акция   - `auto` — автоакция ")
-    exception_products_count: Optional[StrictInt] = Field(default=None, description="Количество товаров, исключенных из автоакции до её старта. Только при `\"type\": \"auto\"`.  В момент старта акции эти товары автоматически будут без скидки", alias="exceptionProductsCount")
-    ranging: Optional[List[GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner]] = Field(default=None, description="Ранжирование (если подключено)")
-    __properties: ClassVar[List[str]] = ["id", "name", "description", "advantages", "startDateTime", "endDateTime", "inPromoActionLeftovers", "inPromoActionTotal", "notInPromoActionLeftovers", "notInPromoActionTotal", "participationPercentage", "type", "exceptionProductsCount", "ranging"]
+    advantages: Optional[List[StrictStr]] = Field(
+        default=None, description="Преимущества акции"
+    )
+    start_date_time: Optional[StrictStr] = Field(
+        default=None, description="Начало акции", alias="startDateTime"
+    )
+    end_date_time: Optional[StrictStr] = Field(
+        default=None, description="Конец акции", alias="endDateTime"
+    )
+    in_promo_action_leftovers: Optional[StrictInt] = Field(
+        default=None,
+        description="Количество товаров с остатками, участвующих в акции",
+        alias="inPromoActionLeftovers",
+    )
+    in_promo_action_total: Optional[StrictInt] = Field(
+        default=None,
+        description="Общее количество товаров, участвующих в акции",
+        alias="inPromoActionTotal",
+    )
+    not_in_promo_action_leftovers: Optional[StrictInt] = Field(
+        default=None,
+        description="Количество товаров с остатками, не участвующих в акции",
+        alias="notInPromoActionLeftovers",
+    )
+    not_in_promo_action_total: Optional[StrictInt] = Field(
+        default=None,
+        description="Общее количество товаров, не участвующих в акции",
+        alias="notInPromoActionTotal",
+    )
+    participation_percentage: Optional[StrictInt] = Field(
+        default=None,
+        description="Уже участвующие в акции товары, %. Рассчитывается по товарам в акции и с остатком",
+        alias="participationPercentage",
+    )
+    type: Optional[StrictStr] = Field(
+        default=None,
+        description="Тип акции:   - `regular` — акция   - `auto` — автоакция ",
+    )
+    exception_products_count: Optional[StrictInt] = Field(
+        default=None,
+        description='Количество товаров, исключенных из автоакции до её старта. Только при `"type": "auto"`.  В момент старта акции эти товары автоматически будут без скидки',
+        alias="exceptionProductsCount",
+    )
+    ranging: Optional[
+        List[GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner]
+    ] = Field(default=None, description="Ранжирование (если подключено)")
+    __properties: ClassVar[List[str]] = [
+        "id",
+        "name",
+        "description",
+        "advantages",
+        "startDateTime",
+        "endDateTime",
+        "inPromoActionLeftovers",
+        "inPromoActionTotal",
+        "notInPromoActionLeftovers",
+        "notInPromoActionTotal",
+        "participationPercentage",
+        "type",
+        "exceptionProductsCount",
+        "ranging",
+    ]
 
-    @field_validator('type')
+    @field_validator("type")
     def type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['regular', 'auto']):
+        if value not in set(["regular", "auto"]):
             raise ValueError("must be one of enum values ('regular', 'auto')")
         return value
 
@@ -58,7 +112,6 @@ class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -84,8 +137,7 @@ class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -98,7 +150,7 @@ class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner(BaseModel):
             for _item_ranging in self.ranging:
                 if _item_ranging:
                     _items.append(_item_ranging.to_dict())
-            _dict['ranging'] = _items
+            _dict["ranging"] = _items
         return _dict
 
     @classmethod
@@ -110,22 +162,31 @@ class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "name": obj.get("name"),
-            "description": obj.get("description"),
-            "advantages": obj.get("advantages"),
-            "startDateTime": obj.get("startDateTime"),
-            "endDateTime": obj.get("endDateTime"),
-            "inPromoActionLeftovers": obj.get("inPromoActionLeftovers"),
-            "inPromoActionTotal": obj.get("inPromoActionTotal"),
-            "notInPromoActionLeftovers": obj.get("notInPromoActionLeftovers"),
-            "notInPromoActionTotal": obj.get("notInPromoActionTotal"),
-            "participationPercentage": obj.get("participationPercentage"),
-            "type": obj.get("type"),
-            "exceptionProductsCount": obj.get("exceptionProductsCount"),
-            "ranging": [GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner.from_dict(_item) for _item in obj["ranging"]] if obj.get("ranging") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "name": obj.get("name"),
+                "description": obj.get("description"),
+                "advantages": obj.get("advantages"),
+                "startDateTime": obj.get("startDateTime"),
+                "endDateTime": obj.get("endDateTime"),
+                "inPromoActionLeftovers": obj.get("inPromoActionLeftovers"),
+                "inPromoActionTotal": obj.get("inPromoActionTotal"),
+                "notInPromoActionLeftovers": obj.get("notInPromoActionLeftovers"),
+                "notInPromoActionTotal": obj.get("notInPromoActionTotal"),
+                "participationPercentage": obj.get("participationPercentage"),
+                "type": obj.get("type"),
+                "exceptionProductsCount": obj.get("exceptionProductsCount"),
+                "ranging": (
+                    [
+                        GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["ranging"]
+                    ]
+                    if obj.get("ranging") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

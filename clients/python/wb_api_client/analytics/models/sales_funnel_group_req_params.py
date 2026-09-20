@@ -23,26 +23,53 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class SalesFunnelGroupReqParams(BaseModel):
     """
     Параметры отчёта
-    """ # noqa: E501
-    subject_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID предметов для фильтрации", alias="subjectIds")
-    brand_names: Optional[List[StrictStr]] = Field(default=None, description="Список брендов для фильтрации", alias="brandNames")
-    tag_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID ярлыков для фильтрации", alias="tagIds")
+    """  # noqa: E501
+
+    subject_ids: Optional[List[StrictInt]] = Field(
+        default=None,
+        description="Список ID предметов для фильтрации",
+        alias="subjectIds",
+    )
+    brand_names: Optional[List[StrictStr]] = Field(
+        default=None, description="Список брендов для фильтрации", alias="brandNames"
+    )
+    tag_ids: Optional[List[StrictInt]] = Field(
+        default=None, description="Список ID ярлыков для фильтрации", alias="tagIds"
+    )
     start_date: date = Field(description="Начало периода", alias="startDate")
     end_date: date = Field(description="Конец периода", alias="endDate")
-    timezone: Optional[StrictStr] = Field(default='Europe/Moscow', description="Временная зона по формату [IANA](https://nodatime.org/TimeZones)")
-    aggregation_level: Optional[StrictStr] = Field(default=None, description="Как сгруппировать данные (по умолчанию по дням):    * `day` — по дням   * `week` — по неделям   * `month` — по месяцам ", alias="aggregationLevel")
-    skip_deleted_nm: Optional[StrictBool] = Field(default=None, description="Скрыть удалённые товары", alias="skipDeletedNm")
-    __properties: ClassVar[List[str]] = ["subjectIds", "brandNames", "tagIds", "startDate", "endDate", "timezone", "aggregationLevel", "skipDeletedNm"]
+    timezone: Optional[StrictStr] = Field(
+        default="Europe/Moscow",
+        description="Временная зона по формату [IANA](https://nodatime.org/TimeZones)",
+    )
+    aggregation_level: Optional[StrictStr] = Field(
+        default=None,
+        description="Как сгруппировать данные (по умолчанию по дням):    * `day` — по дням   * `week` — по неделям   * `month` — по месяцам ",
+        alias="aggregationLevel",
+    )
+    skip_deleted_nm: Optional[StrictBool] = Field(
+        default=None, description="Скрыть удалённые товары", alias="skipDeletedNm"
+    )
+    __properties: ClassVar[List[str]] = [
+        "subjectIds",
+        "brandNames",
+        "tagIds",
+        "startDate",
+        "endDate",
+        "timezone",
+        "aggregationLevel",
+        "skipDeletedNm",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -68,8 +95,7 @@ class SalesFunnelGroupReqParams(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -87,16 +113,20 @@ class SalesFunnelGroupReqParams(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "subjectIds": obj.get("subjectIds"),
-            "brandNames": obj.get("brandNames"),
-            "tagIds": obj.get("tagIds"),
-            "startDate": obj.get("startDate"),
-            "endDate": obj.get("endDate"),
-            "timezone": obj.get("timezone") if obj.get("timezone") is not None else 'Europe/Moscow',
-            "aggregationLevel": obj.get("aggregationLevel"),
-            "skipDeletedNm": obj.get("skipDeletedNm")
-        })
+        _obj = cls.model_validate(
+            {
+                "subjectIds": obj.get("subjectIds"),
+                "brandNames": obj.get("brandNames"),
+                "tagIds": obj.get("tagIds"),
+                "startDate": obj.get("startDate"),
+                "endDate": obj.get("endDate"),
+                "timezone": (
+                    obj.get("timezone")
+                    if obj.get("timezone") is not None
+                    else "Europe/Moscow"
+                ),
+                "aggregationLevel": obj.get("aggregationLevel"),
+                "skipDeletedNm": obj.get("skipDeletedNm"),
+            }
+        )
         return _obj
-
-

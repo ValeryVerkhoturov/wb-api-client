@@ -20,14 +20,18 @@ import json
 from datetime import date
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.v1_get_norm_query_stats_response_item_stat import V1GetNormQueryStatsResponseItemStat
+from wb_api_client.promotion.models.v1_get_norm_query_stats_response_item_stat import (
+    V1GetNormQueryStatsResponseItemStat,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class V1GetNormQueryStatsResponseItemDailyStat(BaseModel):
     """
     V1GetNormQueryStatsResponseItemDailyStat
-    """ # noqa: E501
+    """  # noqa: E501
+
     var_date: date = Field(description="Дата", alias="date")
     stat: Optional[V1GetNormQueryStatsResponseItemStat] = None
     __properties: ClassVar[List[str]] = ["date", "stat"]
@@ -37,7 +41,6 @@ class V1GetNormQueryStatsResponseItemDailyStat(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +66,7 @@ class V1GetNormQueryStatsResponseItemDailyStat(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,7 +75,7 @@ class V1GetNormQueryStatsResponseItemDailyStat(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of stat
         if self.stat:
-            _dict['stat'] = self.stat.to_dict()
+            _dict["stat"] = self.stat.to_dict()
         return _dict
 
     @classmethod
@@ -85,10 +87,14 @@ class V1GetNormQueryStatsResponseItemDailyStat(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "date": obj.get("date"),
-            "stat": V1GetNormQueryStatsResponseItemStat.from_dict(obj["stat"]) if obj.get("stat") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "date": obj.get("date"),
+                "stat": (
+                    V1GetNormQueryStatsResponseItemStat.from_dict(obj["stat"])
+                    if obj.get("stat") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

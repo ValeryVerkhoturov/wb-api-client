@@ -19,29 +19,54 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.analytics.models.visibility_info_by_day_inner import VisibilityInfoByDayInner
-from wb_api_client.analytics.models.visibility_info_open_card import VisibilityInfoOpenCard
-from wb_api_client.analytics.models.visibility_info_visibility import VisibilityInfoVisibility
+from wb_api_client.analytics.models.visibility_info_by_day_inner import (
+    VisibilityInfoByDayInner,
+)
+from wb_api_client.analytics.models.visibility_info_open_card import (
+    VisibilityInfoOpenCard,
+)
+from wb_api_client.analytics.models.visibility_info_visibility import (
+    VisibilityInfoVisibility,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class VisibilityInfo(BaseModel):
     """
     Видимость карточек и переходы в карточки. По дням, неделям, месяцам
-    """ # noqa: E501
+    """  # noqa: E501
+
     visibility: VisibilityInfoVisibility
     open_card: VisibilityInfoOpenCard = Field(alias="openCard")
-    by_day: Optional[List[VisibilityInfoByDayInner]] = Field(default=None, description="Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням", alias="byDay")
-    by_week: Optional[List[VisibilityInfoByDayInner]] = Field(default=None, description="Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по неделям", alias="byWeek")
-    by_month: Optional[List[VisibilityInfoByDayInner]] = Field(default=None, description="Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по месяцам", alias="byMonth")
-    __properties: ClassVar[List[str]] = ["visibility", "openCard", "byDay", "byWeek", "byMonth"]
+    by_day: Optional[List[VisibilityInfoByDayInner]] = Field(
+        default=None,
+        description="Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по дням",
+        alias="byDay",
+    )
+    by_week: Optional[List[VisibilityInfoByDayInner]] = Field(
+        default=None,
+        description="Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по неделям",
+        alias="byWeek",
+    )
+    by_month: Optional[List[VisibilityInfoByDayInner]] = Field(
+        default=None,
+        description="Данные для отрисовки графика в личном кабинете по видимости и переходам в карточки по месяцам",
+        alias="byMonth",
+    )
+    __properties: ClassVar[List[str]] = [
+        "visibility",
+        "openCard",
+        "byDay",
+        "byWeek",
+        "byMonth",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -67,8 +92,7 @@ class VisibilityInfo(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,31 +101,31 @@ class VisibilityInfo(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of visibility
         if self.visibility:
-            _dict['visibility'] = self.visibility.to_dict()
+            _dict["visibility"] = self.visibility.to_dict()
         # override the default output from pydantic by calling `to_dict()` of open_card
         if self.open_card:
-            _dict['openCard'] = self.open_card.to_dict()
+            _dict["openCard"] = self.open_card.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in by_day (list)
         _items = []
         if self.by_day:
             for _item_by_day in self.by_day:
                 if _item_by_day:
                     _items.append(_item_by_day.to_dict())
-            _dict['byDay'] = _items
+            _dict["byDay"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in by_week (list)
         _items = []
         if self.by_week:
             for _item_by_week in self.by_week:
                 if _item_by_week:
                     _items.append(_item_by_week.to_dict())
-            _dict['byWeek'] = _items
+            _dict["byWeek"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in by_month (list)
         _items = []
         if self.by_month:
             for _item_by_month in self.by_month:
                 if _item_by_month:
                     _items.append(_item_by_month.to_dict())
-            _dict['byMonth'] = _items
+            _dict["byMonth"] = _items
         return _dict
 
     @classmethod
@@ -113,13 +137,42 @@ class VisibilityInfo(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "visibility": VisibilityInfoVisibility.from_dict(obj["visibility"]) if obj.get("visibility") is not None else None,
-            "openCard": VisibilityInfoOpenCard.from_dict(obj["openCard"]) if obj.get("openCard") is not None else None,
-            "byDay": [VisibilityInfoByDayInner.from_dict(_item) for _item in obj["byDay"]] if obj.get("byDay") is not None else None,
-            "byWeek": [VisibilityInfoByDayInner.from_dict(_item) for _item in obj["byWeek"]] if obj.get("byWeek") is not None else None,
-            "byMonth": [VisibilityInfoByDayInner.from_dict(_item) for _item in obj["byMonth"]] if obj.get("byMonth") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "visibility": (
+                    VisibilityInfoVisibility.from_dict(obj["visibility"])
+                    if obj.get("visibility") is not None
+                    else None
+                ),
+                "openCard": (
+                    VisibilityInfoOpenCard.from_dict(obj["openCard"])
+                    if obj.get("openCard") is not None
+                    else None
+                ),
+                "byDay": (
+                    [
+                        VisibilityInfoByDayInner.from_dict(_item)
+                        for _item in obj["byDay"]
+                    ]
+                    if obj.get("byDay") is not None
+                    else None
+                ),
+                "byWeek": (
+                    [
+                        VisibilityInfoByDayInner.from_dict(_item)
+                        for _item in obj["byWeek"]
+                    ]
+                    if obj.get("byWeek") is not None
+                    else None
+                ),
+                "byMonth": (
+                    [
+                        VisibilityInfoByDayInner.from_dict(_item)
+                        for _item in obj["byMonth"]
+                    ]
+                    if obj.get("byMonth") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

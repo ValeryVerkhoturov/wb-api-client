@@ -22,12 +22,18 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiBatchErrorFinalPriceResponse(BaseModel):
     """
     ApiBatchErrorFinalPriceResponse
-    """ # noqa: E501
-    code: StrictInt = Field(description="Код ошибки:   - `404` — `NotFound`   - `400` — `StatusMismatch`   - `422` — `PriceNotCalculated` ")
-    detail: StrictStr = Field(description="- `NotFound` — сборочное задание не найдено (`404`) - `StatusMismatch` — операция невозможна для этого статуса сборочного задания (`400`) - `PriceNotCalculated` — операция невозможна для сборочных заданий, созданных ранее 23.07.2026 (`422`) ")
+    """  # noqa: E501
+
+    code: StrictInt = Field(
+        description="Код ошибки:   - `404` — `NotFound`   - `400` — `StatusMismatch`   - `422` — `PriceNotCalculated` "
+    )
+    detail: StrictStr = Field(
+        description="- `NotFound` — сборочное задание не найдено (`404`) - `StatusMismatch` — операция невозможна для этого статуса сборочного задания (`400`) - `PriceNotCalculated` — операция невозможна для сборочных заданий, созданных ранее 23.07.2026 (`422`) "
+    )
     __properties: ClassVar[List[str]] = ["code", "detail"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class ApiBatchErrorFinalPriceResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class ApiBatchErrorFinalPriceResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +84,7 @@ class ApiBatchErrorFinalPriceResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "code": obj.get("code"),
-            "detail": obj.get("detail")
-        })
+        _obj = cls.model_validate(
+            {"code": obj.get("code"), "detail": obj.get("detail")}
+        )
         return _obj
-
-

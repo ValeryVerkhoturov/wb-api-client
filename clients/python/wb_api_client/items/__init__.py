@@ -35,52 +35,126 @@ from wb_api_client.items.exceptions import ApiException
 
 # import models into sdk package
 from wb_api_client.items.models.brands_response import BrandsResponse
-from wb_api_client.items.models.brands_response_brands_inner import BrandsResponseBrandsInner
+from wb_api_client.items.models.brands_response_brands_inner import (
+    BrandsResponseBrandsInner,
+)
 from wb_api_client.items.models.brands_response_error import BrandsResponseError
-from wb_api_client.items.models.brands_response_error_errors_inner import BrandsResponseErrorErrorsInner
+from wb_api_client.items.models.brands_response_error_errors_inner import (
+    BrandsResponseErrorErrorsInner,
+)
 from wb_api_client.items.models.club_disc_req import ClubDiscReq
-from wb_api_client.items.models.delete_v3_stocks_warehouse_id_request import DeleteV3StocksWarehouseIdRequest
+from wb_api_client.items.models.delete_v3_stocks_warehouse_id_request import (
+    DeleteV3StocksWarehouseIdRequest,
+)
 from wb_api_client.items.models.documents_request import DocumentsRequest
 from wb_api_client.items.models.error import Error
 from wb_api_client.items.models.get_recom_req import GetRecomReq
 from wb_api_client.items.models.get_recom_res import GetRecomRes
 from wb_api_client.items.models.get_recom_res_data_inner import GetRecomResDataInner
-from wb_api_client.items.models.get_v2_buffer_goods_task200_response import GetV2BufferGoodsTask200Response
-from wb_api_client.items.models.get_v2_buffer_goods_task200_response_data import GetV2BufferGoodsTask200ResponseData
-from wb_api_client.items.models.get_v2_buffer_tasks200_response import GetV2BufferTasks200Response
-from wb_api_client.items.models.get_v2_cards_limits_response200 import GetV2CardsLimitsResponse200
-from wb_api_client.items.models.get_v2_cards_limits_response200_data import GetV2CardsLimitsResponse200Data
-from wb_api_client.items.models.get_v2_directory_colors_response200 import GetV2DirectoryColorsResponse200
-from wb_api_client.items.models.get_v2_directory_colors_response200_data_inner import GetV2DirectoryColorsResponse200DataInner
-from wb_api_client.items.models.get_v2_directory_countries_response200 import GetV2DirectoryCountriesResponse200
-from wb_api_client.items.models.get_v2_directory_countries_response200_data_inner import GetV2DirectoryCountriesResponse200DataInner
-from wb_api_client.items.models.get_v2_directory_kinds_response200 import GetV2DirectoryKindsResponse200
-from wb_api_client.items.models.get_v2_directory_seasons_response200 import GetV2DirectorySeasonsResponse200
-from wb_api_client.items.models.get_v2_directory_tnved_response200 import GetV2DirectoryTnvedResponse200
-from wb_api_client.items.models.get_v2_directory_tnved_response200_data_inner import GetV2DirectoryTnvedResponse200DataInner
-from wb_api_client.items.models.get_v2_directory_vat_response200 import GetV2DirectoryVatResponse200
-from wb_api_client.items.models.get_v2_history_goods_task200_response import GetV2HistoryGoodsTask200Response
-from wb_api_client.items.models.get_v2_history_goods_task200_response_data import GetV2HistoryGoodsTask200ResponseData
-from wb_api_client.items.models.get_v2_history_tasks200_response import GetV2HistoryTasks200Response
-from wb_api_client.items.models.get_v2_list_goods_filter200_response import GetV2ListGoodsFilter200Response
-from wb_api_client.items.models.get_v2_list_goods_filter200_response_data import GetV2ListGoodsFilter200ResponseData
-from wb_api_client.items.models.get_v2_list_goods_size_nm200_response import GetV2ListGoodsSizeNm200Response
-from wb_api_client.items.models.get_v2_list_goods_size_nm200_response_data import GetV2ListGoodsSizeNm200ResponseData
-from wb_api_client.items.models.get_v2_object_all403_response import GetV2ObjectAll403Response
-from wb_api_client.items.models.get_v2_object_all_response200 import GetV2ObjectAllResponse200
-from wb_api_client.items.models.get_v2_object_all_response200_data_inner import GetV2ObjectAllResponse200DataInner
-from wb_api_client.items.models.get_v2_object_charcs_subject_id_response200 import GetV2ObjectCharcsSubjectIdResponse200
-from wb_api_client.items.models.get_v2_object_charcs_subject_id_response200_data_inner import GetV2ObjectCharcsSubjectIdResponse200DataInner
-from wb_api_client.items.models.get_v2_object_parent_all401_response import GetV2ObjectParentAll401Response
-from wb_api_client.items.models.get_v2_object_parent_all_response200 import GetV2ObjectParentAllResponse200
-from wb_api_client.items.models.get_v2_object_parent_all_response200_data_inner import GetV2ObjectParentAllResponse200DataInner
-from wb_api_client.items.models.get_v2_quarantine_goods200_response import GetV2QuarantineGoods200Response
-from wb_api_client.items.models.get_v2_quarantine_goods200_response_data import GetV2QuarantineGoods200ResponseData
+from wb_api_client.items.models.get_v2_buffer_goods_task200_response import (
+    GetV2BufferGoodsTask200Response,
+)
+from wb_api_client.items.models.get_v2_buffer_goods_task200_response_data import (
+    GetV2BufferGoodsTask200ResponseData,
+)
+from wb_api_client.items.models.get_v2_buffer_tasks200_response import (
+    GetV2BufferTasks200Response,
+)
+from wb_api_client.items.models.get_v2_cards_limits_response200 import (
+    GetV2CardsLimitsResponse200,
+)
+from wb_api_client.items.models.get_v2_cards_limits_response200_data import (
+    GetV2CardsLimitsResponse200Data,
+)
+from wb_api_client.items.models.get_v2_directory_colors_response200 import (
+    GetV2DirectoryColorsResponse200,
+)
+from wb_api_client.items.models.get_v2_directory_colors_response200_data_inner import (
+    GetV2DirectoryColorsResponse200DataInner,
+)
+from wb_api_client.items.models.get_v2_directory_countries_response200 import (
+    GetV2DirectoryCountriesResponse200,
+)
+from wb_api_client.items.models.get_v2_directory_countries_response200_data_inner import (
+    GetV2DirectoryCountriesResponse200DataInner,
+)
+from wb_api_client.items.models.get_v2_directory_kinds_response200 import (
+    GetV2DirectoryKindsResponse200,
+)
+from wb_api_client.items.models.get_v2_directory_seasons_response200 import (
+    GetV2DirectorySeasonsResponse200,
+)
+from wb_api_client.items.models.get_v2_directory_tnved_response200 import (
+    GetV2DirectoryTnvedResponse200,
+)
+from wb_api_client.items.models.get_v2_directory_tnved_response200_data_inner import (
+    GetV2DirectoryTnvedResponse200DataInner,
+)
+from wb_api_client.items.models.get_v2_directory_vat_response200 import (
+    GetV2DirectoryVatResponse200,
+)
+from wb_api_client.items.models.get_v2_history_goods_task200_response import (
+    GetV2HistoryGoodsTask200Response,
+)
+from wb_api_client.items.models.get_v2_history_goods_task200_response_data import (
+    GetV2HistoryGoodsTask200ResponseData,
+)
+from wb_api_client.items.models.get_v2_history_tasks200_response import (
+    GetV2HistoryTasks200Response,
+)
+from wb_api_client.items.models.get_v2_list_goods_filter200_response import (
+    GetV2ListGoodsFilter200Response,
+)
+from wb_api_client.items.models.get_v2_list_goods_filter200_response_data import (
+    GetV2ListGoodsFilter200ResponseData,
+)
+from wb_api_client.items.models.get_v2_list_goods_size_nm200_response import (
+    GetV2ListGoodsSizeNm200Response,
+)
+from wb_api_client.items.models.get_v2_list_goods_size_nm200_response_data import (
+    GetV2ListGoodsSizeNm200ResponseData,
+)
+from wb_api_client.items.models.get_v2_object_all403_response import (
+    GetV2ObjectAll403Response,
+)
+from wb_api_client.items.models.get_v2_object_all_response200 import (
+    GetV2ObjectAllResponse200,
+)
+from wb_api_client.items.models.get_v2_object_all_response200_data_inner import (
+    GetV2ObjectAllResponse200DataInner,
+)
+from wb_api_client.items.models.get_v2_object_charcs_subject_id_response200 import (
+    GetV2ObjectCharcsSubjectIdResponse200,
+)
+from wb_api_client.items.models.get_v2_object_charcs_subject_id_response200_data_inner import (
+    GetV2ObjectCharcsSubjectIdResponse200DataInner,
+)
+from wb_api_client.items.models.get_v2_object_parent_all401_response import (
+    GetV2ObjectParentAll401Response,
+)
+from wb_api_client.items.models.get_v2_object_parent_all_response200 import (
+    GetV2ObjectParentAllResponse200,
+)
+from wb_api_client.items.models.get_v2_object_parent_all_response200_data_inner import (
+    GetV2ObjectParentAllResponse200DataInner,
+)
+from wb_api_client.items.models.get_v2_quarantine_goods200_response import (
+    GetV2QuarantineGoods200Response,
+)
+from wb_api_client.items.models.get_v2_quarantine_goods200_response_data import (
+    GetV2QuarantineGoods200ResponseData,
+)
 from wb_api_client.items.models.get_v2_tags402_response import GetV2Tags402Response
 from wb_api_client.items.models.get_v2_tags_response200 import GetV2TagsResponse200
-from wb_api_client.items.models.get_v2_tags_response200_data import GetV2TagsResponse200Data
-from wb_api_client.items.models.get_v3_dbw_warehouses_warehouse_id_contacts_response200 import GetV3DbwWarehousesWarehouseIdContactsResponse200
-from wb_api_client.items.models.get_v3_dbw_warehouses_warehouse_id_contacts_response200_contacts_inner import GetV3DbwWarehousesWarehouseIdContactsResponse200ContactsInner
+from wb_api_client.items.models.get_v2_tags_response200_data import (
+    GetV2TagsResponse200Data,
+)
+from wb_api_client.items.models.get_v3_dbw_warehouses_warehouse_id_contacts_response200 import (
+    GetV3DbwWarehousesWarehouseIdContactsResponse200,
+)
+from wb_api_client.items.models.get_v3_dbw_warehouses_warehouse_id_contacts_response200_contacts_inner import (
+    GetV3DbwWarehousesWarehouseIdContactsResponse200ContactsInner,
+)
 from wb_api_client.items.models.good_buffer_history import GoodBufferHistory
 from wb_api_client.items.models.good_history import GoodHistory
 from wb_api_client.items.models.item import Item
@@ -89,127 +163,321 @@ from wb_api_client.items.models.items_list_sizes_inner import ItemsListSizesInne
 from wb_api_client.items.models.media_errors import MediaErrors
 from wb_api_client.items.models.models_error_brand import ModelsErrorBrand
 from wb_api_client.items.models.models_error_subcategory import ModelsErrorSubcategory
-from wb_api_client.items.models.models_error_table_list_public_resp_v2 import ModelsErrorTableListPublicRespV2
-from wb_api_client.items.models.models_error_table_list_public_resp_v2_item import ModelsErrorTableListPublicRespV2Item
+from wb_api_client.items.models.models_error_table_list_public_resp_v2 import (
+    ModelsErrorTableListPublicRespV2,
+)
+from wb_api_client.items.models.models_error_table_list_public_resp_v2_item import (
+    ModelsErrorTableListPublicRespV2Item,
+)
 from wb_api_client.items.models.office import Office
 from wb_api_client.items.models.patch_v2_tag_id_request import PatchV2TagIdRequest
-from wb_api_client.items.models.post_v1_upload_task_b2b_wholesale200_response import PostV1UploadTaskB2bWholesale200Response
-from wb_api_client.items.models.post_v1_upload_task_b2b_wholesale200_response_results_inner import PostV1UploadTaskB2bWholesale200ResponseResultsInner
-from wb_api_client.items.models.post_v1_upload_task_b2b_wholesale200_response_results_inner_error import PostV1UploadTaskB2bWholesale200ResponseResultsInnerError
-from wb_api_client.items.models.post_v1_upload_task_b2b_wholesale208_response import PostV1UploadTaskB2bWholesale208Response
-from wb_api_client.items.models.post_v1_upload_task_b2b_wholesale_request import PostV1UploadTaskB2bWholesaleRequest
-from wb_api_client.items.models.post_v1_upload_task_b2b_wholesale_request_data_inner import PostV1UploadTaskB2bWholesaleRequestDataInner
+from wb_api_client.items.models.post_v1_upload_task_b2b_wholesale200_response import (
+    PostV1UploadTaskB2bWholesale200Response,
+)
+from wb_api_client.items.models.post_v1_upload_task_b2b_wholesale200_response_results_inner import (
+    PostV1UploadTaskB2bWholesale200ResponseResultsInner,
+)
+from wb_api_client.items.models.post_v1_upload_task_b2b_wholesale200_response_results_inner_error import (
+    PostV1UploadTaskB2bWholesale200ResponseResultsInnerError,
+)
+from wb_api_client.items.models.post_v1_upload_task_b2b_wholesale208_response import (
+    PostV1UploadTaskB2bWholesale208Response,
+)
+from wb_api_client.items.models.post_v1_upload_task_b2b_wholesale_request import (
+    PostV1UploadTaskB2bWholesaleRequest,
+)
+from wb_api_client.items.models.post_v1_upload_task_b2b_wholesale_request_data_inner import (
+    PostV1UploadTaskB2bWholesaleRequestDataInner,
+)
 from wb_api_client.items.models.post_v2_barcodes_request import PostV2BarcodesRequest
-from wb_api_client.items.models.post_v2_barcodes_response200 import PostV2BarcodesResponse200
-from wb_api_client.items.models.post_v2_cards_delete_trash_request import PostV2CardsDeleteTrashRequest
-from wb_api_client.items.models.post_v2_cards_delete_trash_response200 import PostV2CardsDeleteTrashResponse200
-from wb_api_client.items.models.post_v2_cards_move_nm400_response import PostV2CardsMoveNm400Response
-from wb_api_client.items.models.post_v2_cards_move_nm_request import PostV2CardsMoveNmRequest
-from wb_api_client.items.models.post_v2_cards_recover_response200 import PostV2CardsRecoverResponse200
-from wb_api_client.items.models.post_v2_cards_update_request_inner import PostV2CardsUpdateRequestInner
-from wb_api_client.items.models.post_v2_cards_update_request_inner_characteristics_inner import PostV2CardsUpdateRequestInnerCharacteristicsInner
-from wb_api_client.items.models.post_v2_cards_update_request_inner_dimensions import PostV2CardsUpdateRequestInnerDimensions
-from wb_api_client.items.models.post_v2_cards_update_request_inner_documents import PostV2CardsUpdateRequestInnerDocuments
-from wb_api_client.items.models.post_v2_cards_update_request_inner_documents_items_inner import PostV2CardsUpdateRequestInnerDocumentsItemsInner
-from wb_api_client.items.models.post_v2_cards_update_request_inner_sizes_inner import PostV2CardsUpdateRequestInnerSizesInner
-from wb_api_client.items.models.post_v2_cards_update_response413 import PostV2CardsUpdateResponse413
-from wb_api_client.items.models.post_v2_cards_upload_add_request import PostV2CardsUploadAddRequest
-from wb_api_client.items.models.post_v2_cards_upload_add_request_cards_to_add_inner import PostV2CardsUploadAddRequestCardsToAddInner
-from wb_api_client.items.models.post_v2_cards_upload_add_request_cards_to_add_inner_dimensions import PostV2CardsUploadAddRequestCardsToAddInnerDimensions
-from wb_api_client.items.models.post_v2_cards_upload_add_request_cards_to_add_inner_sizes_inner import PostV2CardsUploadAddRequestCardsToAddInnerSizesInner
-from wb_api_client.items.models.post_v2_cards_upload_add_response413 import PostV2CardsUploadAddResponse413
-from wb_api_client.items.models.post_v2_cards_upload_request_inner import PostV2CardsUploadRequestInner
-from wb_api_client.items.models.post_v2_cards_upload_request_inner_variants_inner import PostV2CardsUploadRequestInnerVariantsInner
-from wb_api_client.items.models.post_v2_cards_upload_request_inner_variants_inner_dimensions import PostV2CardsUploadRequestInnerVariantsInnerDimensions
-from wb_api_client.items.models.post_v2_cards_upload_request_inner_variants_inner_documents import PostV2CardsUploadRequestInnerVariantsInnerDocuments
-from wb_api_client.items.models.post_v2_cards_upload_request_inner_variants_inner_sizes_inner import PostV2CardsUploadRequestInnerVariantsInnerSizesInner
-from wb_api_client.items.models.post_v2_cards_upload_request_inner_variants_inner_wholesale import PostV2CardsUploadRequestInnerVariantsInnerWholesale
-from wb_api_client.items.models.post_v2_cards_upload_response413 import PostV2CardsUploadResponse413
-from wb_api_client.items.models.post_v2_get_cards_list_request import PostV2GetCardsListRequest
-from wb_api_client.items.models.post_v2_get_cards_list_request_settings import PostV2GetCardsListRequestSettings
-from wb_api_client.items.models.post_v2_get_cards_list_request_settings_cursor import PostV2GetCardsListRequestSettingsCursor
-from wb_api_client.items.models.post_v2_get_cards_list_request_settings_filter import PostV2GetCardsListRequestSettingsFilter
-from wb_api_client.items.models.post_v2_get_cards_list_request_settings_sort import PostV2GetCardsListRequestSettingsSort
-from wb_api_client.items.models.post_v2_get_cards_list_response200 import PostV2GetCardsListResponse200
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner import PostV2GetCardsListResponse200CardsInner
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_characteristics_inner import PostV2GetCardsListResponse200CardsInnerCharacteristicsInner
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_dimensions import PostV2GetCardsListResponse200CardsInnerDimensions
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_documents import PostV2GetCardsListResponse200CardsInnerDocuments
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_documents_items_inner import PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_documents_items_inner_verdict import PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_documents_overall_verdict import PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_photos_inner import PostV2GetCardsListResponse200CardsInnerPhotosInner
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_sizes_inner import PostV2GetCardsListResponse200CardsInnerSizesInner
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_tags_inner import PostV2GetCardsListResponse200CardsInnerTagsInner
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_wholesale import PostV2GetCardsListResponse200CardsInnerWholesale
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cursor import PostV2GetCardsListResponse200Cursor
-from wb_api_client.items.models.post_v2_get_cards_trash_request import PostV2GetCardsTrashRequest
-from wb_api_client.items.models.post_v2_get_cards_trash_request_settings import PostV2GetCardsTrashRequestSettings
-from wb_api_client.items.models.post_v2_get_cards_trash_request_settings_cursor import PostV2GetCardsTrashRequestSettingsCursor
-from wb_api_client.items.models.post_v2_get_cards_trash_request_settings_filter import PostV2GetCardsTrashRequestSettingsFilter
-from wb_api_client.items.models.post_v2_get_cards_trash_request_settings_sort import PostV2GetCardsTrashRequestSettingsSort
-from wb_api_client.items.models.post_v2_get_cards_trash_response200 import PostV2GetCardsTrashResponse200
-from wb_api_client.items.models.post_v2_get_cards_trash_response200_cards_inner import PostV2GetCardsTrashResponse200CardsInner
-from wb_api_client.items.models.post_v2_get_cards_trash_response200_cards_inner_sizes_inner import PostV2GetCardsTrashResponse200CardsInnerSizesInner
-from wb_api_client.items.models.post_v2_get_cards_trash_response200_cursor import PostV2GetCardsTrashResponse200Cursor
-from wb_api_client.items.models.post_v2_list_goods_filter_request import PostV2ListGoodsFilterRequest
-from wb_api_client.items.models.post_v2_tag_nomenclature_link_request import PostV2TagNomenclatureLinkRequest
+from wb_api_client.items.models.post_v2_barcodes_response200 import (
+    PostV2BarcodesResponse200,
+)
+from wb_api_client.items.models.post_v2_cards_delete_trash_request import (
+    PostV2CardsDeleteTrashRequest,
+)
+from wb_api_client.items.models.post_v2_cards_delete_trash_response200 import (
+    PostV2CardsDeleteTrashResponse200,
+)
+from wb_api_client.items.models.post_v2_cards_move_nm400_response import (
+    PostV2CardsMoveNm400Response,
+)
+from wb_api_client.items.models.post_v2_cards_move_nm_request import (
+    PostV2CardsMoveNmRequest,
+)
+from wb_api_client.items.models.post_v2_cards_recover_response200 import (
+    PostV2CardsRecoverResponse200,
+)
+from wb_api_client.items.models.post_v2_cards_update_request_inner import (
+    PostV2CardsUpdateRequestInner,
+)
+from wb_api_client.items.models.post_v2_cards_update_request_inner_characteristics_inner import (
+    PostV2CardsUpdateRequestInnerCharacteristicsInner,
+)
+from wb_api_client.items.models.post_v2_cards_update_request_inner_dimensions import (
+    PostV2CardsUpdateRequestInnerDimensions,
+)
+from wb_api_client.items.models.post_v2_cards_update_request_inner_documents import (
+    PostV2CardsUpdateRequestInnerDocuments,
+)
+from wb_api_client.items.models.post_v2_cards_update_request_inner_documents_items_inner import (
+    PostV2CardsUpdateRequestInnerDocumentsItemsInner,
+)
+from wb_api_client.items.models.post_v2_cards_update_request_inner_sizes_inner import (
+    PostV2CardsUpdateRequestInnerSizesInner,
+)
+from wb_api_client.items.models.post_v2_cards_update_response413 import (
+    PostV2CardsUpdateResponse413,
+)
+from wb_api_client.items.models.post_v2_cards_upload_add_request import (
+    PostV2CardsUploadAddRequest,
+)
+from wb_api_client.items.models.post_v2_cards_upload_add_request_cards_to_add_inner import (
+    PostV2CardsUploadAddRequestCardsToAddInner,
+)
+from wb_api_client.items.models.post_v2_cards_upload_add_request_cards_to_add_inner_dimensions import (
+    PostV2CardsUploadAddRequestCardsToAddInnerDimensions,
+)
+from wb_api_client.items.models.post_v2_cards_upload_add_request_cards_to_add_inner_sizes_inner import (
+    PostV2CardsUploadAddRequestCardsToAddInnerSizesInner,
+)
+from wb_api_client.items.models.post_v2_cards_upload_add_response413 import (
+    PostV2CardsUploadAddResponse413,
+)
+from wb_api_client.items.models.post_v2_cards_upload_request_inner import (
+    PostV2CardsUploadRequestInner,
+)
+from wb_api_client.items.models.post_v2_cards_upload_request_inner_variants_inner import (
+    PostV2CardsUploadRequestInnerVariantsInner,
+)
+from wb_api_client.items.models.post_v2_cards_upload_request_inner_variants_inner_dimensions import (
+    PostV2CardsUploadRequestInnerVariantsInnerDimensions,
+)
+from wb_api_client.items.models.post_v2_cards_upload_request_inner_variants_inner_documents import (
+    PostV2CardsUploadRequestInnerVariantsInnerDocuments,
+)
+from wb_api_client.items.models.post_v2_cards_upload_request_inner_variants_inner_sizes_inner import (
+    PostV2CardsUploadRequestInnerVariantsInnerSizesInner,
+)
+from wb_api_client.items.models.post_v2_cards_upload_request_inner_variants_inner_wholesale import (
+    PostV2CardsUploadRequestInnerVariantsInnerWholesale,
+)
+from wb_api_client.items.models.post_v2_cards_upload_response413 import (
+    PostV2CardsUploadResponse413,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_request import (
+    PostV2GetCardsListRequest,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_request_settings import (
+    PostV2GetCardsListRequestSettings,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_request_settings_cursor import (
+    PostV2GetCardsListRequestSettingsCursor,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_request_settings_filter import (
+    PostV2GetCardsListRequestSettingsFilter,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_request_settings_sort import (
+    PostV2GetCardsListRequestSettingsSort,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200 import (
+    PostV2GetCardsListResponse200,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner import (
+    PostV2GetCardsListResponse200CardsInner,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_characteristics_inner import (
+    PostV2GetCardsListResponse200CardsInnerCharacteristicsInner,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_dimensions import (
+    PostV2GetCardsListResponse200CardsInnerDimensions,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_documents import (
+    PostV2GetCardsListResponse200CardsInnerDocuments,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_documents_items_inner import (
+    PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_documents_items_inner_verdict import (
+    PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_documents_overall_verdict import (
+    PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_photos_inner import (
+    PostV2GetCardsListResponse200CardsInnerPhotosInner,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_sizes_inner import (
+    PostV2GetCardsListResponse200CardsInnerSizesInner,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_tags_inner import (
+    PostV2GetCardsListResponse200CardsInnerTagsInner,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_wholesale import (
+    PostV2GetCardsListResponse200CardsInnerWholesale,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cursor import (
+    PostV2GetCardsListResponse200Cursor,
+)
+from wb_api_client.items.models.post_v2_get_cards_trash_request import (
+    PostV2GetCardsTrashRequest,
+)
+from wb_api_client.items.models.post_v2_get_cards_trash_request_settings import (
+    PostV2GetCardsTrashRequestSettings,
+)
+from wb_api_client.items.models.post_v2_get_cards_trash_request_settings_cursor import (
+    PostV2GetCardsTrashRequestSettingsCursor,
+)
+from wb_api_client.items.models.post_v2_get_cards_trash_request_settings_filter import (
+    PostV2GetCardsTrashRequestSettingsFilter,
+)
+from wb_api_client.items.models.post_v2_get_cards_trash_request_settings_sort import (
+    PostV2GetCardsTrashRequestSettingsSort,
+)
+from wb_api_client.items.models.post_v2_get_cards_trash_response200 import (
+    PostV2GetCardsTrashResponse200,
+)
+from wb_api_client.items.models.post_v2_get_cards_trash_response200_cards_inner import (
+    PostV2GetCardsTrashResponse200CardsInner,
+)
+from wb_api_client.items.models.post_v2_get_cards_trash_response200_cards_inner_sizes_inner import (
+    PostV2GetCardsTrashResponse200CardsInnerSizesInner,
+)
+from wb_api_client.items.models.post_v2_get_cards_trash_response200_cursor import (
+    PostV2GetCardsTrashResponse200Cursor,
+)
+from wb_api_client.items.models.post_v2_list_goods_filter_request import (
+    PostV2ListGoodsFilterRequest,
+)
+from wb_api_client.items.models.post_v2_tag_nomenclature_link_request import (
+    PostV2TagNomenclatureLinkRequest,
+)
 from wb_api_client.items.models.post_v2_tag_request import PostV2TagRequest
-from wb_api_client.items.models.post_v2_upload_task_club_discount_request import PostV2UploadTaskClubDiscountRequest
-from wb_api_client.items.models.post_v2_upload_task_request import PostV2UploadTaskRequest
-from wb_api_client.items.models.post_v2_upload_task_size_request import PostV2UploadTaskSizeRequest
+from wb_api_client.items.models.post_v2_upload_task_club_discount_request import (
+    PostV2UploadTaskClubDiscountRequest,
+)
+from wb_api_client.items.models.post_v2_upload_task_request import (
+    PostV2UploadTaskRequest,
+)
+from wb_api_client.items.models.post_v2_upload_task_size_request import (
+    PostV2UploadTaskSizeRequest,
+)
 from wb_api_client.items.models.post_v3_media_file_request import PostV3MediaFileRequest
-from wb_api_client.items.models.post_v3_media_file_response200 import PostV3MediaFileResponse200
+from wb_api_client.items.models.post_v3_media_file_response200 import (
+    PostV3MediaFileResponse200,
+)
 from wb_api_client.items.models.post_v3_media_save_request import PostV3MediaSaveRequest
-from wb_api_client.items.models.post_v3_media_save_response200 import PostV3MediaSaveResponse200
-from wb_api_client.items.models.post_v3_stocks_warehouse_id_request import PostV3StocksWarehouseIdRequest
-from wb_api_client.items.models.post_v3_stocks_warehouse_id_response200 import PostV3StocksWarehouseIdResponse200
-from wb_api_client.items.models.post_v3_stocks_warehouse_id_response200_stocks_inner import PostV3StocksWarehouseIdResponse200StocksInner
-from wb_api_client.items.models.post_v3_warehouses_request import PostV3WarehousesRequest
-from wb_api_client.items.models.post_v3_warehouses_response201 import PostV3WarehousesResponse201
-from wb_api_client.items.models.put_v3_stocks_warehouse_id_request import PutV3StocksWarehouseIdRequest
-from wb_api_client.items.models.put_v3_stocks_warehouse_id_request_stocks_inner import PutV3StocksWarehouseIdRequestStocksInner
-from wb_api_client.items.models.put_v3_stocks_warehouse_id_response409_inner import PutV3StocksWarehouseIdResponse409Inner
-from wb_api_client.items.models.put_v3_stocks_warehouse_id_response409_inner_data_inner import PutV3StocksWarehouseIdResponse409InnerDataInner
-from wb_api_client.items.models.put_v3_warehouses_warehouse_id_request import PutV3WarehousesWarehouseIdRequest
+from wb_api_client.items.models.post_v3_media_save_response200 import (
+    PostV3MediaSaveResponse200,
+)
+from wb_api_client.items.models.post_v3_stocks_warehouse_id_request import (
+    PostV3StocksWarehouseIdRequest,
+)
+from wb_api_client.items.models.post_v3_stocks_warehouse_id_response200 import (
+    PostV3StocksWarehouseIdResponse200,
+)
+from wb_api_client.items.models.post_v3_stocks_warehouse_id_response200_stocks_inner import (
+    PostV3StocksWarehouseIdResponse200StocksInner,
+)
+from wb_api_client.items.models.post_v3_warehouses_request import (
+    PostV3WarehousesRequest,
+)
+from wb_api_client.items.models.post_v3_warehouses_response201 import (
+    PostV3WarehousesResponse201,
+)
+from wb_api_client.items.models.put_v3_stocks_warehouse_id_request import (
+    PutV3StocksWarehouseIdRequest,
+)
+from wb_api_client.items.models.put_v3_stocks_warehouse_id_request_stocks_inner import (
+    PutV3StocksWarehouseIdRequestStocksInner,
+)
+from wb_api_client.items.models.put_v3_stocks_warehouse_id_response409_inner import (
+    PutV3StocksWarehouseIdResponse409Inner,
+)
+from wb_api_client.items.models.put_v3_stocks_warehouse_id_response409_inner_data_inner import (
+    PutV3StocksWarehouseIdResponse409InnerDataInner,
+)
+from wb_api_client.items.models.put_v3_warehouses_warehouse_id_request import (
+    PutV3WarehousesWarehouseIdRequest,
+)
 from wb_api_client.items.models.quarantine_items import QuarantineItems
-from wb_api_client.items.models.request_already_exists_error import RequestAlreadyExistsError
-from wb_api_client.items.models.request_already_exists_error_data import RequestAlreadyExistsErrorData
+from wb_api_client.items.models.request_already_exists_error import (
+    RequestAlreadyExistsError,
+)
+from wb_api_client.items.models.request_already_exists_error_data import (
+    RequestAlreadyExistsErrorData,
+)
 from wb_api_client.items.models.request_move_nms_imt_conn import RequestMoveNmsImtConn
-from wb_api_client.items.models.request_move_nms_imt_disconn import RequestMoveNmsImtDisconn
-from wb_api_client.items.models.request_public_viewer_public_errors_table_list_v2 import RequestPublicViewerPublicErrorsTableListV2
+from wb_api_client.items.models.request_move_nms_imt_disconn import (
+    RequestMoveNmsImtDisconn,
+)
+from wb_api_client.items.models.request_public_viewer_public_errors_table_list_v2 import (
+    RequestPublicViewerPublicErrorsTableListV2,
+)
 from wb_api_client.items.models.response208_set_recom import Response208SetRecom
 from wb_api_client.items.models.response400_get_recom import Response400GetRecom
 from wb_api_client.items.models.response400_set_recom import Response400SetRecom
 from wb_api_client.items.models.response4_xx import Response4XX
-from wb_api_client.items.models.response_body_content_error400 import ResponseBodyContentError400
-from wb_api_client.items.models.response_body_content_error403 import ResponseBodyContentError403
+from wb_api_client.items.models.response_body_content_error400 import (
+    ResponseBodyContentError400,
+)
+from wb_api_client.items.models.response_body_content_error403 import (
+    ResponseBodyContentError403,
+)
 from wb_api_client.items.models.response_content_error import ResponseContentError
 from wb_api_client.items.models.response_error import ResponseError
 from wb_api_client.items.models.response_error_v3 import ResponseErrorV3
 from wb_api_client.items.models.response_incorrect_date import ResponseIncorrectDate
 from wb_api_client.items.models.response_item_list import ResponseItemList
-from wb_api_client.items.models.response_item_list_additional_errors import ResponseItemListAdditionalErrors
-from wb_api_client.items.models.response_item_list_additional_errors_one_of import ResponseItemListAdditionalErrorsOneOf
-from wb_api_client.items.models.response_item_list_additional_errors_one_of1 import ResponseItemListAdditionalErrorsOneOf1
-from wb_api_client.items.models.response_public_viewer_public_errors_table_list_v2 import ResponsePublicViewerPublicErrorsTableListV2
+from wb_api_client.items.models.response_item_list_additional_errors import (
+    ResponseItemListAdditionalErrors,
+)
+from wb_api_client.items.models.response_item_list_additional_errors_one_of import (
+    ResponseItemListAdditionalErrorsOneOf,
+)
+from wb_api_client.items.models.response_item_list_additional_errors_one_of1 import (
+    ResponseItemListAdditionalErrorsOneOf1,
+)
+from wb_api_client.items.models.response_public_viewer_public_errors_table_list_v2 import (
+    ResponsePublicViewerPublicErrorsTableListV2,
+)
 from wb_api_client.items.models.seller_task_metadata import SellerTaskMetadata
-from wb_api_client.items.models.seller_task_metadata_buffer import SellerTaskMetadataBuffer
+from wb_api_client.items.models.seller_task_metadata_buffer import (
+    SellerTaskMetadataBuffer,
+)
 from wb_api_client.items.models.set_recom_req import SetRecomReq
-from wb_api_client.items.models.set_recom_req_rec_list_inner import SetRecomReqRecListInner
-from wb_api_client.items.models.set_recom_req_rec_list_inner_recommendations_inner import SetRecomReqRecListInnerRecommendationsInner
+from wb_api_client.items.models.set_recom_req_rec_list_inner import (
+    SetRecomReqRecListInner,
+)
+from wb_api_client.items.models.set_recom_req_rec_list_inner_recommendations_inner import (
+    SetRecomReqRecListInnerRecommendationsInner,
+)
 from wb_api_client.items.models.set_recom_res import SetRecomRes
 from wb_api_client.items.models.set_recom_res_errors_inner import SetRecomResErrorsInner
 from wb_api_client.items.models.size_good import SizeGood
 from wb_api_client.items.models.size_good_req import SizeGoodReq
-from wb_api_client.items.models.store_contact_request_body import StoreContactRequestBody
-from wb_api_client.items.models.store_contact_request_body_contacts_inner import StoreContactRequestBodyContactsInner
-from wb_api_client.items.models.swagger_public_errors_cursor_input import SwaggerPublicErrorsCursorInput
-from wb_api_client.items.models.swagger_public_errors_order_v2 import SwaggerPublicErrorsOrderV2
+from wb_api_client.items.models.store_contact_request_body import (
+    StoreContactRequestBody,
+)
+from wb_api_client.items.models.store_contact_request_body_contacts_inner import (
+    StoreContactRequestBodyContactsInner,
+)
+from wb_api_client.items.models.swagger_public_errors_cursor_input import (
+    SwaggerPublicErrorsCursorInput,
+)
+from wb_api_client.items.models.swagger_public_errors_order_v2 import (
+    SwaggerPublicErrorsOrderV2,
+)
 from wb_api_client.items.models.task_created import TaskCreated
 from wb_api_client.items.models.task_created_data import TaskCreatedData
 from wb_api_client.items.models.update_blocked import UpdateBlocked
-from wb_api_client.items.models.viewer_contract_public_errors_cursor_output import ViewerContractPublicErrorsCursorOutput
+from wb_api_client.items.models.viewer_contract_public_errors_cursor_output import (
+    ViewerContractPublicErrorsCursorOutput,
+)
 from wb_api_client.items.models.warehouse import Warehouse
-from wb_api_client.items.models.wholesale_discount_threshold_req import WholesaleDiscountThresholdReq
-from wb_api_client.items.models.wholesale_discount_threshold_res import WholesaleDiscountThresholdRes
+from wb_api_client.items.models.wholesale_discount_threshold_req import (
+    WholesaleDiscountThresholdReq,
+)
+from wb_api_client.items.models.wholesale_discount_threshold_res import (
+    WholesaleDiscountThresholdRes,
+)

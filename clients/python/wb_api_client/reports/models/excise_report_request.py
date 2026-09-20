@@ -22,22 +22,29 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ExciseReportRequest(BaseModel):
     """
     ExciseReportRequest
-    """ # noqa: E501
-    countries: Optional[List[StrictStr]] = Field(default=None, description="Код стран по стандарту ISO 3166-2. Чтобы получить данные по всем странам, оставьте параметр пустым ")
+    """  # noqa: E501
+
+    countries: Optional[List[StrictStr]] = Field(
+        default=None,
+        description="Код стран по стандарту ISO 3166-2. Чтобы получить данные по всем странам, оставьте параметр пустым ",
+    )
     __properties: ClassVar[List[str]] = ["countries"]
 
-    @field_validator('countries')
+    @field_validator("countries")
     def countries_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
         for i in value:
-            if i not in set(['AM', 'BY', 'KG', 'KZ', 'RU', 'UZ']):
-                raise ValueError("each list item must be one of ('AM', 'BY', 'KG', 'KZ', 'RU', 'UZ')")
+            if i not in set(["AM", "BY", "KG", "KZ", "RU", "UZ"]):
+                raise ValueError(
+                    "each list item must be one of ('AM', 'BY', 'KG', 'KZ', 'RU', 'UZ')"
+                )
         return value
 
     model_config = ConfigDict(
@@ -45,7 +52,6 @@ class ExciseReportRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -71,8 +77,7 @@ class ExciseReportRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -90,9 +95,5 @@ class ExciseReportRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "countries": obj.get("countries")
-        })
+        _obj = cls.model_validate({"countries": obj.get("countries")})
         return _obj
-
-

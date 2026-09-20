@@ -23,11 +23,15 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV3SuppliesRequest(BaseModel):
     """
     PostV3SuppliesRequest
-    """ # noqa: E501
-    name: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=128)]] = Field(default=None, description="Наименование поставки")
+    """  # noqa: E501
+
+    name: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=128)]] = (
+        Field(default=None, description="Наименование поставки")
+    )
     __properties: ClassVar[List[str]] = ["name"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class PostV3SuppliesRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class PostV3SuppliesRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,9 +82,5 @@ class PostV3SuppliesRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "name": obj.get("name")
-        })
+        _obj = cls.model_validate({"name": obj.get("name")})
         return _obj
-
-

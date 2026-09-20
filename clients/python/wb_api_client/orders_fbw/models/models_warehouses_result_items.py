@@ -22,24 +22,42 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsWarehousesResultItems(BaseModel):
     """
     ModelsWarehousesResultItems
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictInt] = Field(default=None, description="ID склада", alias="ID")
     name: Optional[StrictStr] = Field(default=None, description="Название склада")
     address: Optional[StrictStr] = Field(default=None, description="Адрес склада")
-    work_time: Optional[StrictStr] = Field(default=None, description="Режим работы склада", alias="workTime")
-    is_active: Optional[StrictBool] = Field(default=None, description="Доступен ли в качестве склада назначения: - `true` — да - `false` — нет ", alias="isActive")
-    is_transit_active: Optional[StrictBool] = Field(default=None, description="Доступен ли в качестве транзитного склада: - `true` — да - `false` — нет ", alias="isTransitActive")
-    __properties: ClassVar[List[str]] = ["ID", "name", "address", "workTime", "isActive", "isTransitActive"]
+    work_time: Optional[StrictStr] = Field(
+        default=None, description="Режим работы склада", alias="workTime"
+    )
+    is_active: Optional[StrictBool] = Field(
+        default=None,
+        description="Доступен ли в качестве склада назначения: - `true` — да - `false` — нет ",
+        alias="isActive",
+    )
+    is_transit_active: Optional[StrictBool] = Field(
+        default=None,
+        description="Доступен ли в качестве транзитного склада: - `true` — да - `false` — нет ",
+        alias="isTransitActive",
+    )
+    __properties: ClassVar[List[str]] = [
+        "ID",
+        "name",
+        "address",
+        "workTime",
+        "isActive",
+        "isTransitActive",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +83,7 @@ class ModelsWarehousesResultItems(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -84,14 +101,14 @@ class ModelsWarehousesResultItems(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "ID": obj.get("ID"),
-            "name": obj.get("name"),
-            "address": obj.get("address"),
-            "workTime": obj.get("workTime"),
-            "isActive": obj.get("isActive"),
-            "isTransitActive": obj.get("isTransitActive")
-        })
+        _obj = cls.model_validate(
+            {
+                "ID": obj.get("ID"),
+                "name": obj.get("name"),
+                "address": obj.get("address"),
+                "workTime": obj.get("workTime"),
+                "isActive": obj.get("isActive"),
+                "isTransitActive": obj.get("isTransitActive"),
+            }
+        )
         return _obj
-
-

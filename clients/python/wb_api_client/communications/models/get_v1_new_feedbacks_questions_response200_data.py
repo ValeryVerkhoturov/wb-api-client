@@ -22,12 +22,22 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1NewFeedbacksQuestionsResponse200Data(BaseModel):
     """
     GetV1NewFeedbacksQuestionsResponse200Data
-    """ # noqa: E501
-    has_new_questions: Optional[StrictBool] = Field(default=None, description="Есть ли непросмотренные вопросы:    - `true` — да    - `false` — нет ", alias="hasNewQuestions")
-    has_new_feedbacks: Optional[StrictBool] = Field(default=None, description="Есть ли непросмотренные отзывы:  - `true` — да  - `false` — нет ", alias="hasNewFeedbacks")
+    """  # noqa: E501
+
+    has_new_questions: Optional[StrictBool] = Field(
+        default=None,
+        description="Есть ли непросмотренные вопросы:    - `true` — да    - `false` — нет ",
+        alias="hasNewQuestions",
+    )
+    has_new_feedbacks: Optional[StrictBool] = Field(
+        default=None,
+        description="Есть ли непросмотренные отзывы:  - `true` — да  - `false` — нет ",
+        alias="hasNewFeedbacks",
+    )
     __properties: ClassVar[List[str]] = ["hasNewQuestions", "hasNewFeedbacks"]
 
     model_config = ConfigDict(
@@ -35,7 +45,6 @@ class GetV1NewFeedbacksQuestionsResponse200Data(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +70,7 @@ class GetV1NewFeedbacksQuestionsResponse200Data(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +88,10 @@ class GetV1NewFeedbacksQuestionsResponse200Data(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "hasNewQuestions": obj.get("hasNewQuestions"),
-            "hasNewFeedbacks": obj.get("hasNewFeedbacks")
-        })
+        _obj = cls.model_validate(
+            {
+                "hasNewQuestions": obj.get("hasNewQuestions"),
+                "hasNewFeedbacks": obj.get("hasNewFeedbacks"),
+            }
+        )
         return _obj
-
-

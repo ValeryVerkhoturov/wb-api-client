@@ -22,12 +22,20 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV1CalendarPromotionsUpload200ResponseData(BaseModel):
     """
     Данные ответа
-    """ # noqa: E501
-    already_exists: Optional[StrictBool] = Field(default=None, description="Загрузка с такими данными уже существует", alias="alreadyExists")
-    upload_id: Optional[StrictInt] = Field(default=None, description="ID загрузки", alias="uploadID")
+    """  # noqa: E501
+
+    already_exists: Optional[StrictBool] = Field(
+        default=None,
+        description="Загрузка с такими данными уже существует",
+        alias="alreadyExists",
+    )
+    upload_id: Optional[StrictInt] = Field(
+        default=None, description="ID загрузки", alias="uploadID"
+    )
     __properties: ClassVar[List[str]] = ["alreadyExists", "uploadID"]
 
     model_config = ConfigDict(
@@ -35,7 +43,6 @@ class PostV1CalendarPromotionsUpload200ResponseData(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +68,7 @@ class PostV1CalendarPromotionsUpload200ResponseData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +86,7 @@ class PostV1CalendarPromotionsUpload200ResponseData(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "alreadyExists": obj.get("alreadyExists"),
-            "uploadID": obj.get("uploadID")
-        })
+        _obj = cls.model_validate(
+            {"alreadyExists": obj.get("alreadyExists"), "uploadID": obj.get("uploadID")}
+        )
         return _obj
-
-

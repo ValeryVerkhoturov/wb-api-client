@@ -22,10 +22,12 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsDraftCreateResponse(BaseModel):
     """
     ModelsDraftCreateResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     draft_id: StrictStr = Field(description="ID черновика", alias="draftId")
     __properties: ClassVar[List[str]] = ["draftId"]
 
@@ -34,7 +36,6 @@ class ModelsDraftCreateResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,8 +61,7 @@ class ModelsDraftCreateResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,9 +79,5 @@ class ModelsDraftCreateResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "draftId": obj.get("draftId")
-        })
+        _obj = cls.model_validate({"draftId": obj.get("draftId")})
         return _obj
-
-

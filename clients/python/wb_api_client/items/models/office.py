@@ -17,28 +17,68 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class Office(BaseModel):
     """
     Данные о складе WB
-    """ # noqa: E501
+    """  # noqa: E501
+
     address: Optional[StrictStr] = Field(default=None, description="Адрес")
     name: Optional[StrictStr] = Field(default=None, description="Название")
     city: Optional[StrictStr] = Field(default=None, description="Город")
     id: Optional[StrictInt] = Field(default=None, description="ID")
-    longitude: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Долгота")
-    latitude: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Широта")
-    cargo_type: Optional[StrictInt] = Field(default=None, description="Тип товара, который принимает склад:   - `1` — малогабаритный товар (МГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoType")
-    delivery_type: Optional[StrictInt] = Field(default=None, description="Тип доставки, который принимает склад:   - `1` — доставка на склад WB (FBS)   - `2` — доставка силами продавца (DBS)   - `3` — Деливери WB (DBW)   - `5` — самовывоз (C&C)   - `6` — экспресс-доставка силами продавца (ЕDBS) ", alias="deliveryType")
-    federal_district: Optional[StrictStr] = Field(default=None, description="Федеральный округ склада WB. Если `null`, склад находится за пределами РФ или федеральный округ не указан", alias="federalDistrict")
-    selected: Optional[StrictBool] = Field(default=None, description="Признак того, что склад уже выбран продавцом")
-    __properties: ClassVar[List[str]] = ["address", "name", "city", "id", "longitude", "latitude", "cargoType", "deliveryType", "federalDistrict", "selected"]
+    longitude: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Долгота"
+    )
+    latitude: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Широта"
+    )
+    cargo_type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип товара, который принимает склад:   - `1` — малогабаритный товар (МГТ)   - `3` — крупногабаритный товар (КГТ+) ",
+        alias="cargoType",
+    )
+    delivery_type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип доставки, который принимает склад:   - `1` — доставка на склад WB (FBS)   - `2` — доставка силами продавца (DBS)   - `3` — Деливери WB (DBW)   - `5` — самовывоз (C&C)   - `6` — экспресс-доставка силами продавца (ЕDBS) ",
+        alias="deliveryType",
+    )
+    federal_district: Optional[StrictStr] = Field(
+        default=None,
+        description="Федеральный округ склада WB. Если `null`, склад находится за пределами РФ или федеральный округ не указан",
+        alias="federalDistrict",
+    )
+    selected: Optional[StrictBool] = Field(
+        default=None, description="Признак того, что склад уже выбран продавцом"
+    )
+    __properties: ClassVar[List[str]] = [
+        "address",
+        "name",
+        "city",
+        "id",
+        "longitude",
+        "latitude",
+        "cargoType",
+        "deliveryType",
+        "federalDistrict",
+        "selected",
+    ]
 
-    @field_validator('cargo_type')
+    @field_validator("cargo_type")
     def cargo_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -48,7 +88,7 @@ class Office(BaseModel):
             raise ValueError("must be one of enum values (1, 3)")
         return value
 
-    @field_validator('delivery_type')
+    @field_validator("delivery_type")
     def delivery_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -63,7 +103,6 @@ class Office(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -89,8 +128,7 @@ class Office(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -99,8 +137,11 @@ class Office(BaseModel):
         )
         # set to None if federal_district (nullable) is None
         # and model_fields_set contains the field
-        if self.federal_district is None and "federal_district" in self.model_fields_set:
-            _dict['federalDistrict'] = None
+        if (
+            self.federal_district is None
+            and "federal_district" in self.model_fields_set
+        ):
+            _dict["federalDistrict"] = None
 
         return _dict
 
@@ -113,18 +154,18 @@ class Office(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "address": obj.get("address"),
-            "name": obj.get("name"),
-            "city": obj.get("city"),
-            "id": obj.get("id"),
-            "longitude": obj.get("longitude"),
-            "latitude": obj.get("latitude"),
-            "cargoType": obj.get("cargoType"),
-            "deliveryType": obj.get("deliveryType"),
-            "federalDistrict": obj.get("federalDistrict"),
-            "selected": obj.get("selected")
-        })
+        _obj = cls.model_validate(
+            {
+                "address": obj.get("address"),
+                "name": obj.get("name"),
+                "city": obj.get("city"),
+                "id": obj.get("id"),
+                "longitude": obj.get("longitude"),
+                "latitude": obj.get("latitude"),
+                "cargoType": obj.get("cargoType"),
+                "deliveryType": obj.get("deliveryType"),
+                "federalDistrict": obj.get("federalDistrict"),
+                "selected": obj.get("selected"),
+            }
+        )
         return _obj
-
-

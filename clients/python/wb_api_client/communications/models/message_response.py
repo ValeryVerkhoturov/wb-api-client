@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.communications.models.message_response_result import MessageResponseResult
+from wb_api_client.communications.models.message_response_result import (
+    MessageResponseResult,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class MessageResponse(BaseModel):
     """
     MessageResponse
-    """ # noqa: E501
-    errors: Optional[List[StrictStr]] = Field(default=None, description="Ошибки загрузки файлов, если есть")
+    """  # noqa: E501
+
+    errors: Optional[List[StrictStr]] = Field(
+        default=None, description="Ошибки загрузки файлов, если есть"
+    )
     result: Optional[MessageResponseResult] = None
     __properties: ClassVar[List[str]] = ["errors", "result"]
 
@@ -36,7 +42,6 @@ class MessageResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class MessageResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -72,7 +76,7 @@ class MessageResponse(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of result
         if self.result:
-            _dict['result'] = self.result.to_dict()
+            _dict["result"] = self.result.to_dict()
         return _dict
 
     @classmethod
@@ -84,10 +88,14 @@ class MessageResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "errors": obj.get("errors"),
-            "result": MessageResponseResult.from_dict(obj["result"]) if obj.get("result") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "errors": obj.get("errors"),
+                "result": (
+                    MessageResponseResult.from_dict(obj["result"])
+                    if obj.get("result") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

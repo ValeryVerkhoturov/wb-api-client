@@ -22,14 +22,20 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2CardsUpdateRequestInnerDimensions(BaseModel):
     """
     Габариты и вес товара \\*\\*c упаковкой\\*\\*. Укажите в `сантиметрах` и `килограммах` для любого товара. Синхронизация новых данных с сервисом может занимать до 30 минут
-    """ # noqa: E501
+    """  # noqa: E501
+
     length: Optional[StrictInt] = Field(default=None, description="Длина, см")
     width: Optional[StrictInt] = Field(default=None, description="Ширина, см")
     height: Optional[StrictInt] = Field(default=None, description="Высота, см")
-    weight_brutto: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Вес, кг Количество знаков после запятой <=3", alias="weightBrutto")
+    weight_brutto: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Вес, кг Количество знаков после запятой <=3",
+        alias="weightBrutto",
+    )
     __properties: ClassVar[List[str]] = ["length", "width", "height", "weightBrutto"]
 
     model_config = ConfigDict(
@@ -37,7 +43,6 @@ class PostV2CardsUpdateRequestInnerDimensions(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +68,7 @@ class PostV2CardsUpdateRequestInnerDimensions(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,12 +86,12 @@ class PostV2CardsUpdateRequestInnerDimensions(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "length": obj.get("length"),
-            "width": obj.get("width"),
-            "height": obj.get("height"),
-            "weightBrutto": obj.get("weightBrutto")
-        })
+        _obj = cls.model_validate(
+            {
+                "length": obj.get("length"),
+                "width": obj.get("width"),
+                "height": obj.get("height"),
+                "weightBrutto": obj.get("weightBrutto"),
+            }
+        )
         return _obj
-
-

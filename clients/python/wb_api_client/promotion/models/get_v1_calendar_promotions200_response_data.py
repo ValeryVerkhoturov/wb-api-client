@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.get_v1_calendar_promotions200_response_data_promotions_inner import GetV1CalendarPromotions200ResponseDataPromotionsInner
+from wb_api_client.promotion.models.get_v1_calendar_promotions200_response_data_promotions_inner import (
+    GetV1CalendarPromotions200ResponseDataPromotionsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV1CalendarPromotions200ResponseData(BaseModel):
     """
     Данные ответа
-    """ # noqa: E501
-    promotions: Optional[List[GetV1CalendarPromotions200ResponseDataPromotionsInner]] = Field(default=None, description="Список акций")
+    """  # noqa: E501
+
+    promotions: Optional[
+        List[GetV1CalendarPromotions200ResponseDataPromotionsInner]
+    ] = Field(default=None, description="Список акций")
     __properties: ClassVar[List[str]] = ["promotions"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class GetV1CalendarPromotions200ResponseData(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class GetV1CalendarPromotions200ResponseData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +79,7 @@ class GetV1CalendarPromotions200ResponseData(BaseModel):
             for _item_promotions in self.promotions:
                 if _item_promotions:
                     _items.append(_item_promotions.to_dict())
-            _dict['promotions'] = _items
+            _dict["promotions"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +91,18 @@ class GetV1CalendarPromotions200ResponseData(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "promotions": [GetV1CalendarPromotions200ResponseDataPromotionsInner.from_dict(_item) for _item in obj["promotions"]] if obj.get("promotions") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "promotions": (
+                    [
+                        GetV1CalendarPromotions200ResponseDataPromotionsInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["promotions"]
+                    ]
+                    if obj.get("promotions") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

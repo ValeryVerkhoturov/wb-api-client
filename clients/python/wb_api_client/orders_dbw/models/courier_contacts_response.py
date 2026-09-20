@@ -23,23 +23,42 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class CourierContactsResponse(BaseModel):
     """
     CourierContactsResponse
-    """ # noqa: E501
-    car_number: Optional[StrictStr] = Field(default=None, description="Номер автомобиля", alias="carNumber")
-    full_name: Optional[StrictStr] = Field(default=None, description="ФИО курьера", alias="fullName")
+    """  # noqa: E501
+
+    car_number: Optional[StrictStr] = Field(
+        default=None, description="Номер автомобиля", alias="carNumber"
+    )
+    full_name: Optional[StrictStr] = Field(
+        default=None, description="ФИО курьера", alias="fullName"
+    )
     phone: Optional[StrictStr] = Field(default=None, description="Номер телефона")
-    p_time_from: Optional[datetime] = Field(default=None, description="Дата и время, с которого прибудет курьер", alias="pTimeFrom")
-    p_time_to: Optional[datetime] = Field(default=None, description="Дата и время, до которого прибудет курьер", alias="pTimeTo")
-    __properties: ClassVar[List[str]] = ["carNumber", "fullName", "phone", "pTimeFrom", "pTimeTo"]
+    p_time_from: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время, с которого прибудет курьер",
+        alias="pTimeFrom",
+    )
+    p_time_to: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время, до которого прибудет курьер",
+        alias="pTimeTo",
+    )
+    __properties: ClassVar[List[str]] = [
+        "carNumber",
+        "fullName",
+        "phone",
+        "pTimeFrom",
+        "pTimeTo",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +84,7 @@ class CourierContactsResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,12 +94,12 @@ class CourierContactsResponse(BaseModel):
         # set to None if p_time_from (nullable) is None
         # and model_fields_set contains the field
         if self.p_time_from is None and "p_time_from" in self.model_fields_set:
-            _dict['pTimeFrom'] = None
+            _dict["pTimeFrom"] = None
 
         # set to None if p_time_to (nullable) is None
         # and model_fields_set contains the field
         if self.p_time_to is None and "p_time_to" in self.model_fields_set:
-            _dict['pTimeTo'] = None
+            _dict["pTimeTo"] = None
 
         return _dict
 
@@ -94,13 +112,13 @@ class CourierContactsResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "carNumber": obj.get("carNumber"),
-            "fullName": obj.get("fullName"),
-            "phone": obj.get("phone"),
-            "pTimeFrom": obj.get("pTimeFrom"),
-            "pTimeTo": obj.get("pTimeTo")
-        })
+        _obj = cls.model_validate(
+            {
+                "carNumber": obj.get("carNumber"),
+                "fullName": obj.get("fullName"),
+                "phone": obj.get("phone"),
+                "pTimeFrom": obj.get("pTimeFrom"),
+                "pTimeTo": obj.get("pTimeTo"),
+            }
+        )
         return _obj
-
-

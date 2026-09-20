@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.items.models.get_v2_list_goods_filter200_response_data import GetV2ListGoodsFilter200ResponseData
+from wb_api_client.items.models.get_v2_list_goods_filter200_response_data import (
+    GetV2ListGoodsFilter200ResponseData,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV2ListGoodsFilter200Response(BaseModel):
     """
     GetV2ListGoodsFilter200Response
-    """ # noqa: E501
+    """  # noqa: E501
+
     data: GetV2ListGoodsFilter200ResponseData
     error: StrictBool = Field(description="Флаг ошибки")
     error_text: StrictStr = Field(description="Текст ошибки", alias="errorText")
@@ -37,7 +41,6 @@ class GetV2ListGoodsFilter200Response(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +66,7 @@ class GetV2ListGoodsFilter200Response(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,7 +75,7 @@ class GetV2ListGoodsFilter200Response(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of data
         if self.data:
-            _dict['data'] = self.data.to_dict()
+            _dict["data"] = self.data.to_dict()
         return _dict
 
     @classmethod
@@ -85,11 +87,15 @@ class GetV2ListGoodsFilter200Response(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "data": GetV2ListGoodsFilter200ResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None,
-            "error": obj.get("error"),
-            "errorText": obj.get("errorText")
-        })
+        _obj = cls.model_validate(
+            {
+                "data": (
+                    GetV2ListGoodsFilter200ResponseData.from_dict(obj["data"])
+                    if obj.get("data") is not None
+                    else None
+                ),
+                "error": obj.get("error"),
+                "errorText": obj.get("errorText"),
+            }
+        )
         return _obj
-
-

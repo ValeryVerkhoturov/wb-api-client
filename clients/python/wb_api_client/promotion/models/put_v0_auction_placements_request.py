@@ -20,15 +20,21 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
-from wb_api_client.promotion.models.put_v0_auction_placements_request_placements_inner import PutV0AuctionPlacementsRequestPlacementsInner
+from wb_api_client.promotion.models.put_v0_auction_placements_request_placements_inner import (
+    PutV0AuctionPlacementsRequestPlacementsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PutV0AuctionPlacementsRequest(BaseModel):
     """
     PutV0AuctionPlacementsRequest
-    """ # noqa: E501
-    placements: Annotated[List[PutV0AuctionPlacementsRequestPlacementsInner], Field(max_length=50)] = Field(description="Места размещения в кампаниях")
+    """  # noqa: E501
+
+    placements: Annotated[
+        List[PutV0AuctionPlacementsRequestPlacementsInner], Field(max_length=50)
+    ] = Field(description="Места размещения в кампаниях")
     __properties: ClassVar[List[str]] = ["placements"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class PutV0AuctionPlacementsRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class PutV0AuctionPlacementsRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +80,7 @@ class PutV0AuctionPlacementsRequest(BaseModel):
             for _item_placements in self.placements:
                 if _item_placements:
                     _items.append(_item_placements.to_dict())
-            _dict['placements'] = _items
+            _dict["placements"] = _items
         return _dict
 
     @classmethod
@@ -88,9 +92,16 @@ class PutV0AuctionPlacementsRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "placements": [PutV0AuctionPlacementsRequestPlacementsInner.from_dict(_item) for _item in obj["placements"]] if obj.get("placements") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "placements": (
+                    [
+                        PutV0AuctionPlacementsRequestPlacementsInner.from_dict(_item)
+                        for _item in obj["placements"]
+                    ]
+                    if obj.get("placements") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

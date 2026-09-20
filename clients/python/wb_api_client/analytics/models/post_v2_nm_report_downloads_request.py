@@ -15,10 +15,21 @@
 from __future__ import annotations
 import json
 import pprint
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictStr,
+    ValidationError,
+    field_validator,
+)
 from typing import Any, List, Optional
-from wb_api_client.analytics.models.inventory_history_report_req import InventoryHistoryReportReq
-from wb_api_client.analytics.models.inventory_metrics_report_req import InventoryMetricsReportReq
+from wb_api_client.analytics.models.inventory_history_report_req import (
+    InventoryHistoryReportReq,
+)
+from wb_api_client.analytics.models.inventory_metrics_report_req import (
+    InventoryMetricsReportReq,
+)
 from wb_api_client.analytics.models.sales_funnel_group_req import SalesFunnelGroupReq
 from wb_api_client.analytics.models.sales_funnel_item_req import SalesFunnelItemReq
 from wb_api_client.analytics.models.search_report_group_req import SearchReportGroupReq
@@ -28,12 +39,22 @@ from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-POSTV2NMREPORTDOWNLOADSREQUEST_ONE_OF_SCHEMAS = ["InventoryHistoryReportReq", "InventoryMetricsReportReq", "SalesFunnelGroupReq", "SalesFunnelItemReq", "SearchReportGroupReq", "SearchReportItemReq", "SearchReportTextReq"]
+POSTV2NMREPORTDOWNLOADSREQUEST_ONE_OF_SCHEMAS = [
+    "InventoryHistoryReportReq",
+    "InventoryMetricsReportReq",
+    "SalesFunnelGroupReq",
+    "SalesFunnelItemReq",
+    "SearchReportGroupReq",
+    "SearchReportItemReq",
+    "SearchReportTextReq",
+]
+
 
 class PostV2NmReportDownloadsRequest(BaseModel):
     """
     PostV2NmReportDownloadsRequest
     """
+
     # data type: SalesFunnelItemReq
     oneof_schema_1_validator: Optional[SalesFunnelItemReq] = None
     # data type: SalesFunnelGroupReq
@@ -48,74 +69,114 @@ class PostV2NmReportDownloadsRequest(BaseModel):
     oneof_schema_6_validator: Optional[InventoryMetricsReportReq] = None
     # data type: InventoryHistoryReportReq
     oneof_schema_7_validator: Optional[InventoryHistoryReportReq] = None
-    actual_instance: Optional[Union[InventoryHistoryReportReq, InventoryMetricsReportReq, SalesFunnelGroupReq, SalesFunnelItemReq, SearchReportGroupReq, SearchReportItemReq, SearchReportTextReq]] = None
-    one_of_schemas: Set[str] = { "InventoryHistoryReportReq", "InventoryMetricsReportReq", "SalesFunnelGroupReq", "SalesFunnelItemReq", "SearchReportGroupReq", "SearchReportItemReq", "SearchReportTextReq" }
+    actual_instance: Optional[
+        Union[
+            InventoryHistoryReportReq,
+            InventoryMetricsReportReq,
+            SalesFunnelGroupReq,
+            SalesFunnelItemReq,
+            SearchReportGroupReq,
+            SearchReportItemReq,
+            SearchReportTextReq,
+        ]
+    ] = None
+    one_of_schemas: Set[str] = {
+        "InventoryHistoryReportReq",
+        "InventoryMetricsReportReq",
+        "SalesFunnelGroupReq",
+        "SalesFunnelItemReq",
+        "SearchReportGroupReq",
+        "SearchReportItemReq",
+        "SearchReportTextReq",
+    }
 
     model_config = ConfigDict(
         validate_assignment=True,
         protected_namespaces=(),
     )
 
-
-    discriminator_value_class_map: Dict[str, str] = {
-    }
+    discriminator_value_class_map: Dict[str, str] = {}
 
     def __init__(self, *args, **kwargs) -> None:
         if args:
             if len(args) > 1:
-                raise ValueError("If a position argument is used, only 1 is allowed to set `actual_instance`")
+                raise ValueError(
+                    "If a position argument is used, only 1 is allowed to set `actual_instance`"
+                )
             if kwargs:
-                raise ValueError("If a position argument is used, keyword arguments cannot be used.")
+                raise ValueError(
+                    "If a position argument is used, keyword arguments cannot be used."
+                )
             super().__init__(actual_instance=args[0])
         else:
             super().__init__(**kwargs)
 
-    @field_validator('actual_instance')
+    @field_validator("actual_instance")
     def actual_instance_must_validate_oneof(cls, v):
         instance = PostV2NmReportDownloadsRequest.model_construct()
         error_messages = []
         match = 0
         # validate data type: SalesFunnelItemReq
         if not isinstance(v, SalesFunnelItemReq):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `SalesFunnelItemReq`")
+            error_messages.append(
+                f"Error! Input type `{type(v)}` is not `SalesFunnelItemReq`"
+            )
         else:
             match += 1
         # validate data type: SalesFunnelGroupReq
         if not isinstance(v, SalesFunnelGroupReq):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `SalesFunnelGroupReq`")
+            error_messages.append(
+                f"Error! Input type `{type(v)}` is not `SalesFunnelGroupReq`"
+            )
         else:
             match += 1
         # validate data type: SearchReportGroupReq
         if not isinstance(v, SearchReportGroupReq):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `SearchReportGroupReq`")
+            error_messages.append(
+                f"Error! Input type `{type(v)}` is not `SearchReportGroupReq`"
+            )
         else:
             match += 1
         # validate data type: SearchReportItemReq
         if not isinstance(v, SearchReportItemReq):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `SearchReportItemReq`")
+            error_messages.append(
+                f"Error! Input type `{type(v)}` is not `SearchReportItemReq`"
+            )
         else:
             match += 1
         # validate data type: SearchReportTextReq
         if not isinstance(v, SearchReportTextReq):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `SearchReportTextReq`")
+            error_messages.append(
+                f"Error! Input type `{type(v)}` is not `SearchReportTextReq`"
+            )
         else:
             match += 1
         # validate data type: InventoryMetricsReportReq
         if not isinstance(v, InventoryMetricsReportReq):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `InventoryMetricsReportReq`")
+            error_messages.append(
+                f"Error! Input type `{type(v)}` is not `InventoryMetricsReportReq`"
+            )
         else:
             match += 1
         # validate data type: InventoryHistoryReportReq
         if not isinstance(v, InventoryHistoryReportReq):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `InventoryHistoryReportReq`")
+            error_messages.append(
+                f"Error! Input type `{type(v)}` is not `InventoryHistoryReportReq`"
+            )
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in PostV2NmReportDownloadsRequest with oneOf schemas: InventoryHistoryReportReq, InventoryMetricsReportReq, SalesFunnelGroupReq, SalesFunnelItemReq, SearchReportGroupReq, SearchReportItemReq, SearchReportTextReq. Details: " + ", ".join(error_messages))
+            raise ValueError(
+                "Multiple matches found when setting `actual_instance` in PostV2NmReportDownloadsRequest with oneOf schemas: InventoryHistoryReportReq, InventoryMetricsReportReq, SalesFunnelGroupReq, SalesFunnelItemReq, SearchReportGroupReq, SearchReportItemReq, SearchReportTextReq. Details: "
+                + ", ".join(error_messages)
+            )
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in PostV2NmReportDownloadsRequest with oneOf schemas: InventoryHistoryReportReq, InventoryMetricsReportReq, SalesFunnelGroupReq, SalesFunnelItemReq, SearchReportGroupReq, SearchReportItemReq, SearchReportTextReq. Details: " + ", ".join(error_messages))
+            raise ValueError(
+                "No match found when setting `actual_instance` in PostV2NmReportDownloadsRequest with oneOf schemas: InventoryHistoryReportReq, InventoryMetricsReportReq, SalesFunnelGroupReq, SalesFunnelItemReq, SearchReportGroupReq, SearchReportItemReq, SearchReportTextReq. Details: "
+                + ", ".join(error_messages)
+            )
         else:
             return v
 
@@ -175,10 +236,16 @@ class PostV2NmReportDownloadsRequest(BaseModel):
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into PostV2NmReportDownloadsRequest with oneOf schemas: InventoryHistoryReportReq, InventoryMetricsReportReq, SalesFunnelGroupReq, SalesFunnelItemReq, SearchReportGroupReq, SearchReportItemReq, SearchReportTextReq. Details: " + ", ".join(error_messages))
+            raise ValueError(
+                "Multiple matches found when deserializing the JSON string into PostV2NmReportDownloadsRequest with oneOf schemas: InventoryHistoryReportReq, InventoryMetricsReportReq, SalesFunnelGroupReq, SalesFunnelItemReq, SearchReportGroupReq, SearchReportItemReq, SearchReportTextReq. Details: "
+                + ", ".join(error_messages)
+            )
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into PostV2NmReportDownloadsRequest with oneOf schemas: InventoryHistoryReportReq, InventoryMetricsReportReq, SalesFunnelGroupReq, SalesFunnelItemReq, SearchReportGroupReq, SearchReportItemReq, SearchReportTextReq. Details: " + ", ".join(error_messages))
+            raise ValueError(
+                "No match found when deserializing the JSON string into PostV2NmReportDownloadsRequest with oneOf schemas: InventoryHistoryReportReq, InventoryMetricsReportReq, SalesFunnelGroupReq, SalesFunnelItemReq, SearchReportGroupReq, SearchReportItemReq, SearchReportTextReq. Details: "
+                + ", ".join(error_messages)
+            )
         else:
             return instance
 
@@ -187,17 +254,34 @@ class PostV2NmReportDownloadsRequest(BaseModel):
         if self.actual_instance is None:
             return "null"
 
-        if hasattr(self.actual_instance, "to_json") and callable(self.actual_instance.to_json):
+        if hasattr(self.actual_instance, "to_json") and callable(
+            self.actual_instance.to_json
+        ):
             return self.actual_instance.to_json()
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], InventoryHistoryReportReq, InventoryMetricsReportReq, SalesFunnelGroupReq, SalesFunnelItemReq, SearchReportGroupReq, SearchReportItemReq, SearchReportTextReq]]:
+    def to_dict(
+        self,
+    ) -> Optional[
+        Union[
+            Dict[str, Any],
+            InventoryHistoryReportReq,
+            InventoryMetricsReportReq,
+            SalesFunnelGroupReq,
+            SalesFunnelItemReq,
+            SearchReportGroupReq,
+            SearchReportItemReq,
+            SearchReportTextReq,
+        ]
+    ]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None
 
-        if hasattr(self.actual_instance, "to_dict") and callable(self.actual_instance.to_dict):
+        if hasattr(self.actual_instance, "to_dict") and callable(
+            self.actual_instance.to_dict
+        ):
             return self.actual_instance.to_dict()
         else:
             # primitive type
@@ -206,5 +290,3 @@ class PostV2NmReportDownloadsRequest(BaseModel):
     def to_str(self) -> str:
         """Returns the string representation of the actual instance"""
         return pprint.pformat(self.model_dump())
-
-

@@ -17,25 +17,63 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class Warehouse(BaseModel):
     """
     Данные о складе продавца
-    """ # noqa: E501
-    name: Optional[StrictStr] = Field(default=None, description="Название склада продавца")
-    office_id: Optional[StrictInt] = Field(default=None, description="ID склада WB", alias="officeId")
-    id: Optional[StrictInt] = Field(default=None, description="ID склада продавца")
-    cargo_type: Optional[StrictInt] = Field(default=None, description="Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoType")
-    delivery_type: Optional[StrictInt] = Field(default=None, description="Тип доставки, который принимает склад:   - `1` — доставка на склад WB (FBS)   - `2` — доставка силами продавца (DBS)   - `3` — Деливери WB (DBW)   - `5` — самовывоз (C&C)   - `6` — экспресс-доставка силами продавца (ЕDBS) ", alias="deliveryType")
-    is_deleting: Optional[StrictBool] = Field(default=None, description="Склад удаляется:   - `false` — нет   - `true` — да  После удаления склад пропадёт из списка ", alias="isDeleting")
-    is_processing: Optional[StrictBool] = Field(default=None, description="Данные склада обновляются:   - `false` — нет   - `true` — да, обновление и удаление остатков недоступно  Обновление данных может занимать несколько минут ", alias="isProcessing")
-    __properties: ClassVar[List[str]] = ["name", "officeId", "id", "cargoType", "deliveryType", "isDeleting", "isProcessing"]
+    """  # noqa: E501
 
-    @field_validator('cargo_type')
+    name: Optional[StrictStr] = Field(
+        default=None, description="Название склада продавца"
+    )
+    office_id: Optional[StrictInt] = Field(
+        default=None, description="ID склада WB", alias="officeId"
+    )
+    id: Optional[StrictInt] = Field(default=None, description="ID склада продавца")
+    cargo_type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ",
+        alias="cargoType",
+    )
+    delivery_type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип доставки, который принимает склад:   - `1` — доставка на склад WB (FBS)   - `2` — доставка силами продавца (DBS)   - `3` — Деливери WB (DBW)   - `5` — самовывоз (C&C)   - `6` — экспресс-доставка силами продавца (ЕDBS) ",
+        alias="deliveryType",
+    )
+    is_deleting: Optional[StrictBool] = Field(
+        default=None,
+        description="Склад удаляется:   - `false` — нет   - `true` — да  После удаления склад пропадёт из списка ",
+        alias="isDeleting",
+    )
+    is_processing: Optional[StrictBool] = Field(
+        default=None,
+        description="Данные склада обновляются:   - `false` — нет   - `true` — да, обновление и удаление остатков недоступно  Обновление данных может занимать несколько минут ",
+        alias="isProcessing",
+    )
+    __properties: ClassVar[List[str]] = [
+        "name",
+        "officeId",
+        "id",
+        "cargoType",
+        "deliveryType",
+        "isDeleting",
+        "isProcessing",
+    ]
+
+    @field_validator("cargo_type")
     def cargo_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -45,7 +83,7 @@ class Warehouse(BaseModel):
             raise ValueError("must be one of enum values (1, 2, 3)")
         return value
 
-    @field_validator('delivery_type')
+    @field_validator("delivery_type")
     def delivery_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -60,7 +98,6 @@ class Warehouse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -86,8 +123,7 @@ class Warehouse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -105,15 +141,15 @@ class Warehouse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "officeId": obj.get("officeId"),
-            "id": obj.get("id"),
-            "cargoType": obj.get("cargoType"),
-            "deliveryType": obj.get("deliveryType"),
-            "isDeleting": obj.get("isDeleting"),
-            "isProcessing": obj.get("isProcessing")
-        })
+        _obj = cls.model_validate(
+            {
+                "name": obj.get("name"),
+                "officeId": obj.get("officeId"),
+                "id": obj.get("id"),
+                "cargoType": obj.get("cargoType"),
+                "deliveryType": obj.get("deliveryType"),
+                "isDeleting": obj.get("isDeleting"),
+                "isProcessing": obj.get("isProcessing"),
+            }
+        )
         return _obj
-
-

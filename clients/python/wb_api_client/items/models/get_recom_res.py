@@ -23,11 +23,15 @@ from wb_api_client.items.models.get_recom_res_data_inner import GetRecomResDataI
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetRecomRes(BaseModel):
     """
     Товары с рекомендациями
-    """ # noqa: E501
-    data: List[GetRecomResDataInner] = Field(description="Данные о товарах и их рекомендациях")
+    """  # noqa: E501
+
+    data: List[GetRecomResDataInner] = Field(
+        description="Данные о товарах и их рекомендациях"
+    )
     next: StrictInt = Field(description="Курсор. Последний `nmId` в ответе")
     __properties: ClassVar[List[str]] = ["data", "next"]
 
@@ -36,7 +40,6 @@ class GetRecomRes(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class GetRecomRes(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +78,7 @@ class GetRecomRes(BaseModel):
             for _item_data in self.data:
                 if _item_data:
                     _items.append(_item_data.to_dict())
-            _dict['data'] = _items
+            _dict["data"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +90,14 @@ class GetRecomRes(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "data": [GetRecomResDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
-            "next": obj.get("next")
-        })
+        _obj = cls.model_validate(
+            {
+                "data": (
+                    [GetRecomResDataInner.from_dict(_item) for _item in obj["data"]]
+                    if obj.get("data") is not None
+                    else None
+                ),
+                "next": obj.get("next"),
+            }
+        )
         return _obj
-
-

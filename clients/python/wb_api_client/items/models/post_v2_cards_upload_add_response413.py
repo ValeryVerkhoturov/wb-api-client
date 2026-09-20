@@ -22,25 +22,42 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2CardsUploadAddResponse413(BaseModel):
     """
     PostV2CardsUploadAddResponse413
-    """ # noqa: E501
+    """  # noqa: E501
+
     title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки")
     detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
     code: Optional[StrictStr] = Field(default=None, description="Внутренний код ошибки")
-    request_id: Optional[StrictStr] = Field(default=None, description="Уникальный ID запроса", alias="requestId")
-    origin: Optional[StrictStr] = Field(default=None, description="ID внутреннего сервиса WB")
-    status: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="HTTP статус-код")
-    status_text: Optional[StrictStr] = Field(default=None, description="Расшифровка HTTP статус-кода", alias="statusText")
-    __properties: ClassVar[List[str]] = ["title", "detail", "code", "requestId", "origin", "status", "statusText"]
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="Уникальный ID запроса", alias="requestId"
+    )
+    origin: Optional[StrictStr] = Field(
+        default=None, description="ID внутреннего сервиса WB"
+    )
+    status: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="HTTP статус-код"
+    )
+    status_text: Optional[StrictStr] = Field(
+        default=None, description="Расшифровка HTTP статус-кода", alias="statusText"
+    )
+    __properties: ClassVar[List[str]] = [
+        "title",
+        "detail",
+        "code",
+        "requestId",
+        "origin",
+        "status",
+        "statusText",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -66,8 +83,7 @@ class PostV2CardsUploadAddResponse413(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -85,15 +101,15 @@ class PostV2CardsUploadAddResponse413(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "title": obj.get("title"),
-            "detail": obj.get("detail"),
-            "code": obj.get("code"),
-            "requestId": obj.get("requestId"),
-            "origin": obj.get("origin"),
-            "status": obj.get("status"),
-            "statusText": obj.get("statusText")
-        })
+        _obj = cls.model_validate(
+            {
+                "title": obj.get("title"),
+                "detail": obj.get("detail"),
+                "code": obj.get("code"),
+                "requestId": obj.get("requestId"),
+                "origin": obj.get("origin"),
+                "status": obj.get("status"),
+                "statusText": obj.get("statusText"),
+            }
+        )
         return _obj
-
-

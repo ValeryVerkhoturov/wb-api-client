@@ -15,64 +15,98 @@
 from __future__ import annotations
 import json
 import pprint
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictStr,
+    ValidationError,
+    field_validator,
+)
 from typing import Any, List, Optional
-from wb_api_client.promotion.models.v0_bids_recommendations_cpc_response2 import V0BidsRecommendationsCpcResponse2
-from wb_api_client.promotion.models.v0_bids_recommendations_cpm_response1 import V0BidsRecommendationsCpmResponse1
+from wb_api_client.promotion.models.v0_bids_recommendations_cpc_response2 import (
+    V0BidsRecommendationsCpcResponse2,
+)
+from wb_api_client.promotion.models.v0_bids_recommendations_cpm_response1 import (
+    V0BidsRecommendationsCpmResponse1,
+)
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-GETV0BIDSRECOMMENDATIONS200RESPONSE_ONE_OF_SCHEMAS = ["V0BidsRecommendationsCpcResponse2", "V0BidsRecommendationsCpmResponse1"]
+GETV0BIDSRECOMMENDATIONS200RESPONSE_ONE_OF_SCHEMAS = [
+    "V0BidsRecommendationsCpcResponse2",
+    "V0BidsRecommendationsCpmResponse1",
+]
+
 
 class GetV0BidsRecommendations200Response(BaseModel):
     """
     GetV0BidsRecommendations200Response
     """
+
     # data type: V0BidsRecommendationsCpmResponse1
     oneof_schema_1_validator: Optional[V0BidsRecommendationsCpmResponse1] = None
     # data type: V0BidsRecommendationsCpcResponse2
     oneof_schema_2_validator: Optional[V0BidsRecommendationsCpcResponse2] = None
-    actual_instance: Optional[Union[V0BidsRecommendationsCpcResponse2, V0BidsRecommendationsCpmResponse1]] = None
-    one_of_schemas: Set[str] = { "V0BidsRecommendationsCpcResponse2", "V0BidsRecommendationsCpmResponse1" }
+    actual_instance: Optional[
+        Union[V0BidsRecommendationsCpcResponse2, V0BidsRecommendationsCpmResponse1]
+    ] = None
+    one_of_schemas: Set[str] = {
+        "V0BidsRecommendationsCpcResponse2",
+        "V0BidsRecommendationsCpmResponse1",
+    }
 
     model_config = ConfigDict(
         validate_assignment=True,
         protected_namespaces=(),
     )
 
-
     def __init__(self, *args, **kwargs) -> None:
         if args:
             if len(args) > 1:
-                raise ValueError("If a position argument is used, only 1 is allowed to set `actual_instance`")
+                raise ValueError(
+                    "If a position argument is used, only 1 is allowed to set `actual_instance`"
+                )
             if kwargs:
-                raise ValueError("If a position argument is used, keyword arguments cannot be used.")
+                raise ValueError(
+                    "If a position argument is used, keyword arguments cannot be used."
+                )
             super().__init__(actual_instance=args[0])
         else:
             super().__init__(**kwargs)
 
-    @field_validator('actual_instance')
+    @field_validator("actual_instance")
     def actual_instance_must_validate_oneof(cls, v):
         instance = GetV0BidsRecommendations200Response.model_construct()
         error_messages = []
         match = 0
         # validate data type: V0BidsRecommendationsCpmResponse1
         if not isinstance(v, V0BidsRecommendationsCpmResponse1):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `V0BidsRecommendationsCpmResponse1`")
+            error_messages.append(
+                f"Error! Input type `{type(v)}` is not `V0BidsRecommendationsCpmResponse1`"
+            )
         else:
             match += 1
         # validate data type: V0BidsRecommendationsCpcResponse2
         if not isinstance(v, V0BidsRecommendationsCpcResponse2):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `V0BidsRecommendationsCpcResponse2`")
+            error_messages.append(
+                f"Error! Input type `{type(v)}` is not `V0BidsRecommendationsCpcResponse2`"
+            )
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in GetV0BidsRecommendations200Response with oneOf schemas: V0BidsRecommendationsCpcResponse2, V0BidsRecommendationsCpmResponse1. Details: " + ", ".join(error_messages))
+            raise ValueError(
+                "Multiple matches found when setting `actual_instance` in GetV0BidsRecommendations200Response with oneOf schemas: V0BidsRecommendationsCpcResponse2, V0BidsRecommendationsCpmResponse1. Details: "
+                + ", ".join(error_messages)
+            )
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in GetV0BidsRecommendations200Response with oneOf schemas: V0BidsRecommendationsCpcResponse2, V0BidsRecommendationsCpmResponse1. Details: " + ", ".join(error_messages))
+            raise ValueError(
+                "No match found when setting `actual_instance` in GetV0BidsRecommendations200Response with oneOf schemas: V0BidsRecommendationsCpcResponse2, V0BidsRecommendationsCpmResponse1. Details: "
+                + ", ".join(error_messages)
+            )
         else:
             return v
 
@@ -89,23 +123,33 @@ class GetV0BidsRecommendations200Response(BaseModel):
 
         # deserialize data into V0BidsRecommendationsCpmResponse1
         try:
-            instance.actual_instance = V0BidsRecommendationsCpmResponse1.from_json(json_str)
+            instance.actual_instance = V0BidsRecommendationsCpmResponse1.from_json(
+                json_str
+            )
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
         # deserialize data into V0BidsRecommendationsCpcResponse2
         try:
-            instance.actual_instance = V0BidsRecommendationsCpcResponse2.from_json(json_str)
+            instance.actual_instance = V0BidsRecommendationsCpcResponse2.from_json(
+                json_str
+            )
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into GetV0BidsRecommendations200Response with oneOf schemas: V0BidsRecommendationsCpcResponse2, V0BidsRecommendationsCpmResponse1. Details: " + ", ".join(error_messages))
+            raise ValueError(
+                "Multiple matches found when deserializing the JSON string into GetV0BidsRecommendations200Response with oneOf schemas: V0BidsRecommendationsCpcResponse2, V0BidsRecommendationsCpmResponse1. Details: "
+                + ", ".join(error_messages)
+            )
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into GetV0BidsRecommendations200Response with oneOf schemas: V0BidsRecommendationsCpcResponse2, V0BidsRecommendationsCpmResponse1. Details: " + ", ".join(error_messages))
+            raise ValueError(
+                "No match found when deserializing the JSON string into GetV0BidsRecommendations200Response with oneOf schemas: V0BidsRecommendationsCpcResponse2, V0BidsRecommendationsCpmResponse1. Details: "
+                + ", ".join(error_messages)
+            )
         else:
             return instance
 
@@ -114,17 +158,29 @@ class GetV0BidsRecommendations200Response(BaseModel):
         if self.actual_instance is None:
             return "null"
 
-        if hasattr(self.actual_instance, "to_json") and callable(self.actual_instance.to_json):
+        if hasattr(self.actual_instance, "to_json") and callable(
+            self.actual_instance.to_json
+        ):
             return self.actual_instance.to_json()
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], V0BidsRecommendationsCpcResponse2, V0BidsRecommendationsCpmResponse1]]:
+    def to_dict(
+        self,
+    ) -> Optional[
+        Union[
+            Dict[str, Any],
+            V0BidsRecommendationsCpcResponse2,
+            V0BidsRecommendationsCpmResponse1,
+        ]
+    ]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None
 
-        if hasattr(self.actual_instance, "to_dict") and callable(self.actual_instance.to_dict):
+        if hasattr(self.actual_instance, "to_dict") and callable(
+            self.actual_instance.to_dict
+        ):
             return self.actual_instance.to_dict()
         else:
             # primitive type
@@ -133,5 +189,3 @@ class GetV0BidsRecommendations200Response(BaseModel):
     def to_str(self) -> str:
         """Returns the string representation of the actual instance"""
         return pprint.pformat(self.model_dump())
-
-

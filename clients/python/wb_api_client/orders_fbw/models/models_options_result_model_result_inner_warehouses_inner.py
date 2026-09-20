@@ -22,23 +22,50 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsOptionsResultModelResultInnerWarehousesInner(BaseModel):
     """
     ModelsOptionsResultModelResultInnerWarehousesInner
-    """ # noqa: E501
-    warehouse_id: Optional[StrictInt] = Field(default=None, description="ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/informationForFormingSupplies/operation/getV1Warehouses)", alias="warehouseID")
-    can_box: Optional[StrictBool] = Field(default=None, description="Тип упаковки **Короб**:   - `true` — доступен   - `false` — недоступен ", alias="canBox")
-    can_monopallet: Optional[StrictBool] = Field(default=None, description="Тип упаковки **Монопаллета**:   - `true` — доступен   - `false` — недоступен ", alias="canMonopallet")
-    can_supersafe: Optional[StrictBool] = Field(default=None, description="Тип упаковки **Суперсейф**:   - `true` — доступен   - `false` — недоступен ", alias="canSupersafe")
-    is_box_on_pallet: Optional[StrictBool] = Field(default=None, description="Тип поставки **Поштучная палета**:   - `true` — доступен   - `false` — недоступен ", alias="isBoxOnPallet")
-    __properties: ClassVar[List[str]] = ["warehouseID", "canBox", "canMonopallet", "canSupersafe", "isBoxOnPallet"]
+    """  # noqa: E501
+
+    warehouse_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID склада. По нему можно получить [информацию о складе](./orders-fbw#tag/informationForFormingSupplies/operation/getV1Warehouses)",
+        alias="warehouseID",
+    )
+    can_box: Optional[StrictBool] = Field(
+        default=None,
+        description="Тип упаковки **Короб**:   - `true` — доступен   - `false` — недоступен ",
+        alias="canBox",
+    )
+    can_monopallet: Optional[StrictBool] = Field(
+        default=None,
+        description="Тип упаковки **Монопаллета**:   - `true` — доступен   - `false` — недоступен ",
+        alias="canMonopallet",
+    )
+    can_supersafe: Optional[StrictBool] = Field(
+        default=None,
+        description="Тип упаковки **Суперсейф**:   - `true` — доступен   - `false` — недоступен ",
+        alias="canSupersafe",
+    )
+    is_box_on_pallet: Optional[StrictBool] = Field(
+        default=None,
+        description="Тип поставки **Поштучная палета**:   - `true` — доступен   - `false` — недоступен ",
+        alias="isBoxOnPallet",
+    )
+    __properties: ClassVar[List[str]] = [
+        "warehouseID",
+        "canBox",
+        "canMonopallet",
+        "canSupersafe",
+        "isBoxOnPallet",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +91,7 @@ class ModelsOptionsResultModelResultInnerWarehousesInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,13 +109,13 @@ class ModelsOptionsResultModelResultInnerWarehousesInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "warehouseID": obj.get("warehouseID"),
-            "canBox": obj.get("canBox"),
-            "canMonopallet": obj.get("canMonopallet"),
-            "canSupersafe": obj.get("canSupersafe"),
-            "isBoxOnPallet": obj.get("isBoxOnPallet")
-        })
+        _obj = cls.model_validate(
+            {
+                "warehouseID": obj.get("warehouseID"),
+                "canBox": obj.get("canBox"),
+                "canMonopallet": obj.get("canMonopallet"),
+                "canSupersafe": obj.get("canSupersafe"),
+                "isBoxOnPallet": obj.get("isBoxOnPallet"),
+            }
+        )
         return _obj
-
-

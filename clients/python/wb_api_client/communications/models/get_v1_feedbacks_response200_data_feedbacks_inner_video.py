@@ -22,13 +22,22 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1FeedbacksResponse200DataFeedbacksInnerVideo(BaseModel):
     """
     Структура видео
-    """ # noqa: E501
-    preview_image: Optional[StrictStr] = Field(default=None, description="Ссылка на обложку видео", alias="previewImage")
-    link: Optional[StrictStr] = Field(default=None, description="Ссылка на файл плейлиста видео (доступно по протоколу HLS)")
-    duration_sec: Optional[StrictInt] = Field(default=None, description="Общая продолжительность видео", alias="durationSec")
+    """  # noqa: E501
+
+    preview_image: Optional[StrictStr] = Field(
+        default=None, description="Ссылка на обложку видео", alias="previewImage"
+    )
+    link: Optional[StrictStr] = Field(
+        default=None,
+        description="Ссылка на файл плейлиста видео (доступно по протоколу HLS)",
+    )
+    duration_sec: Optional[StrictInt] = Field(
+        default=None, description="Общая продолжительность видео", alias="durationSec"
+    )
     __properties: ClassVar[List[str]] = ["previewImage", "link", "durationSec"]
 
     model_config = ConfigDict(
@@ -36,7 +45,6 @@ class GetV1FeedbacksResponse200DataFeedbacksInnerVideo(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +70,7 @@ class GetV1FeedbacksResponse200DataFeedbacksInnerVideo(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +88,11 @@ class GetV1FeedbacksResponse200DataFeedbacksInnerVideo(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "previewImage": obj.get("previewImage"),
-            "link": obj.get("link"),
-            "durationSec": obj.get("durationSec")
-        })
+        _obj = cls.model_validate(
+            {
+                "previewImage": obj.get("previewImage"),
+                "link": obj.get("link"),
+                "durationSec": obj.get("durationSec"),
+            }
+        )
         return _obj
-
-

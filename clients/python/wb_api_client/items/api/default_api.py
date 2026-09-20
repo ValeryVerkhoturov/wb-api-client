@@ -23,11 +23,17 @@ from wb_api_client.items.models.get_recom_req import GetRecomReq
 from wb_api_client.items.models.get_recom_res import GetRecomRes
 from wb_api_client.items.models.get_v2_tags_response200 import GetV2TagsResponse200
 from wb_api_client.items.models.patch_v2_tag_id_request import PatchV2TagIdRequest
-from wb_api_client.items.models.post_v2_tag_nomenclature_link_request import PostV2TagNomenclatureLinkRequest
+from wb_api_client.items.models.post_v2_tag_nomenclature_link_request import (
+    PostV2TagNomenclatureLinkRequest,
+)
 from wb_api_client.items.models.post_v2_tag_request import PostV2TagRequest
-from wb_api_client.items.models.post_v3_media_file_response200 import PostV3MediaFileResponse200
+from wb_api_client.items.models.post_v3_media_file_response200 import (
+    PostV3MediaFileResponse200,
+)
 from wb_api_client.items.models.post_v3_media_save_request import PostV3MediaSaveRequest
-from wb_api_client.items.models.post_v3_media_save_response200 import PostV3MediaSaveResponse200
+from wb_api_client.items.models.post_v3_media_save_response200 import (
+    PostV3MediaSaveResponse200,
+)
 from wb_api_client.items.models.response_content_error import ResponseContentError
 from wb_api_client.items.models.set_recom_req import SetRecomReq
 from wb_api_client.items.models.set_recom_res import SetRecomRes
@@ -49,7 +55,6 @@ class DefaultApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def delete_v2_tag_id(
         self,
@@ -58,9 +63,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -93,34 +97,32 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._delete_v2_tag_id_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseContentError",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "ResponseContentError",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def delete_v2_tag_id_with_http_info(
@@ -130,9 +132,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -165,34 +166,32 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._delete_v2_tag_id_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseContentError",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "ResponseContentError",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def delete_v2_tag_id_without_preload_content(
@@ -202,9 +201,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -237,30 +235,28 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._delete_v2_tag_id_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseContentError",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "ResponseContentError",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _delete_v2_tag_id_serialize(
         self,
@@ -272,13 +268,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://content-api.wildberries.ru',
-            'https://content-api-sandbox.wildberries.ru'
+            "https://content-api.wildberries.ru",
+            "https://content-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -291,31 +286,24 @@ class DefaultApi:
 
         # process the path parameters
         if id is not None:
-            _path_params['id'] = id
+            _path_params["id"] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='DELETE',
-            resource_path='/content/v2/tag/{id}',
+            method="DELETE",
+            resource_path="/content/v2/tag/{id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -325,11 +313,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v2_tags(
@@ -338,9 +323,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -371,32 +355,30 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_tags_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2TagsResponse200",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2TagsResponse200",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v2_tags_with_http_info(
@@ -405,9 +387,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -438,32 +419,30 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_tags_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2TagsResponse200",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2TagsResponse200",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v2_tags_without_preload_content(
@@ -472,9 +451,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -505,28 +483,26 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_tags_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2TagsResponse200",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2TagsResponse200",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v2_tags_serialize(
         self,
@@ -537,13 +513,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://content-api.wildberries.ru',
-            'https://content-api-sandbox.wildberries.ru'
+            "https://content-api.wildberries.ru",
+            "https://content-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -560,25 +535,18 @@ class DefaultApi:
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/content/v2/tags',
+            method="GET",
+            resource_path="/content/v2/tags",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -588,11 +556,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def patch_v2_tag_id(
@@ -603,9 +568,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -640,7 +604,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_v2_tag_id_serialize(
             id=id,
@@ -648,27 +612,25 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseContentError",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "ResponseContentError",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def patch_v2_tag_id_with_http_info(
@@ -679,9 +641,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -716,7 +677,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_v2_tag_id_serialize(
             id=id,
@@ -724,27 +685,25 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseContentError",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "ResponseContentError",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def patch_v2_tag_id_without_preload_content(
@@ -755,9 +714,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -792,7 +750,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_v2_tag_id_serialize(
             id=id,
@@ -800,23 +758,21 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseContentError",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "ResponseContentError",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _patch_v2_tag_id_serialize(
         self,
@@ -829,13 +785,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://content-api.wildberries.ru',
-            'https://content-api-sandbox.wildberries.ru'
+            "https://content-api.wildberries.ru",
+            "https://content-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -848,7 +803,7 @@ class DefaultApi:
 
         # process the path parameters
         if id is not None:
-            _path_params['id'] = id
+            _path_params["id"] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -856,38 +811,28 @@ class DefaultApi:
         if patch_v2_tag_id_request is not None:
             _body_params = patch_v2_tag_id_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PATCH',
-            resource_path='/content/v2/tag/{id}',
+            method="PATCH",
+            resource_path="/content/v2/tag/{id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -897,11 +842,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v1_recommendations_list(
@@ -911,9 +853,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -946,33 +887,31 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_recommendations_list_serialize(
             get_recom_req=get_recom_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetRecomRes",
-            '400': "Response400GetRecom",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "Response4XX",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetRecomRes",
+            "400": "Response400GetRecom",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "Response4XX",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v1_recommendations_list_with_http_info(
@@ -982,9 +921,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1017,33 +955,31 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_recommendations_list_serialize(
             get_recom_req=get_recom_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetRecomRes",
-            '400': "Response400GetRecom",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "Response4XX",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetRecomRes",
+            "400": "Response400GetRecom",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "Response4XX",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v1_recommendations_list_without_preload_content(
@@ -1053,9 +989,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1088,29 +1023,27 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_recommendations_list_serialize(
             get_recom_req=get_recom_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetRecomRes",
-            '400': "Response400GetRecom",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "Response4XX",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetRecomRes",
+            "400": "Response400GetRecom",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "Response4XX",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v1_recommendations_list_serialize(
         self,
@@ -1121,13 +1054,10 @@ class DefaultApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://content-api.wildberries.ru'
-        ]
+        _hosts = ["https://content-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1146,38 +1076,28 @@ class DefaultApi:
         if get_recom_req is not None:
             _body_params = get_recom_req
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/content/v1/recommendations/list',
+            method="POST",
+            resource_path="/api/content/v1/recommendations/list",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1187,11 +1107,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v1_recommendations_set(
@@ -1201,9 +1118,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1236,34 +1152,32 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_recommendations_set_serialize(
             set_recom_req=set_recom_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SetRecomRes",
-            '208': "Response208SetRecom",
-            '400': "Response400SetRecom",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "Response4XX",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "SetRecomRes",
+            "208": "Response208SetRecom",
+            "400": "Response400SetRecom",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "Response4XX",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v1_recommendations_set_with_http_info(
@@ -1273,9 +1187,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1308,34 +1221,32 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_recommendations_set_serialize(
             set_recom_req=set_recom_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SetRecomRes",
-            '208': "Response208SetRecom",
-            '400': "Response400SetRecom",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "Response4XX",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "SetRecomRes",
+            "208": "Response208SetRecom",
+            "400": "Response400SetRecom",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "Response4XX",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v1_recommendations_set_without_preload_content(
@@ -1345,9 +1256,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1380,30 +1290,28 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_recommendations_set_serialize(
             set_recom_req=set_recom_req,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SetRecomRes",
-            '208': "Response208SetRecom",
-            '400': "Response400SetRecom",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "Response4XX",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "SetRecomRes",
+            "208": "Response208SetRecom",
+            "400": "Response400SetRecom",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "Response4XX",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v1_recommendations_set_serialize(
         self,
@@ -1414,13 +1322,10 @@ class DefaultApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://content-api.wildberries.ru'
-        ]
+        _hosts = ["https://content-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1439,38 +1344,28 @@ class DefaultApi:
         if set_recom_req is not None:
             _body_params = set_recom_req
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/content/v1/recommendations/set',
+            method="POST",
+            resource_path="/api/content/v1/recommendations/set",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1480,11 +1375,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v2_tag(
@@ -1494,9 +1386,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1529,34 +1420,32 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v2_tag_serialize(
             post_v2_tag_request=post_v2_tag_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseContentError",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "ResponseContentError",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v2_tag_with_http_info(
@@ -1566,9 +1455,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1601,34 +1489,32 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v2_tag_serialize(
             post_v2_tag_request=post_v2_tag_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseContentError",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "ResponseContentError",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v2_tag_without_preload_content(
@@ -1638,9 +1524,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1673,30 +1558,28 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v2_tag_serialize(
             post_v2_tag_request=post_v2_tag_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseContentError",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "ResponseContentError",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v2_tag_serialize(
         self,
@@ -1708,13 +1591,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://content-api.wildberries.ru',
-            'https://content-api-sandbox.wildberries.ru'
+            "https://content-api.wildberries.ru",
+            "https://content-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1733,38 +1615,28 @@ class DefaultApi:
         if post_v2_tag_request is not None:
             _body_params = post_v2_tag_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/content/v2/tag',
+            method="POST",
+            resource_path="/content/v2/tag",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1774,11 +1646,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v2_tag_nomenclature_link(
@@ -1788,9 +1657,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1823,34 +1691,32 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v2_tag_nomenclature_link_serialize(
             post_v2_tag_nomenclature_link_request=post_v2_tag_nomenclature_link_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseContentError",
-            '400': "ResponseContentError",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "ResponseContentError",
+            "400": "ResponseContentError",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v2_tag_nomenclature_link_with_http_info(
@@ -1860,9 +1726,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1895,34 +1760,32 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v2_tag_nomenclature_link_serialize(
             post_v2_tag_nomenclature_link_request=post_v2_tag_nomenclature_link_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseContentError",
-            '400': "ResponseContentError",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "ResponseContentError",
+            "400": "ResponseContentError",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v2_tag_nomenclature_link_without_preload_content(
@@ -1932,9 +1795,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1967,30 +1829,28 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v2_tag_nomenclature_link_serialize(
             post_v2_tag_nomenclature_link_request=post_v2_tag_nomenclature_link_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseContentError",
-            '400': "ResponseContentError",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "ResponseContentError",
+            "400": "ResponseContentError",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v2_tag_nomenclature_link_serialize(
         self,
@@ -2002,13 +1862,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://content-api.wildberries.ru',
-            'https://content-api-sandbox.wildberries.ru'
+            "https://content-api.wildberries.ru",
+            "https://content-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2027,38 +1886,28 @@ class DefaultApi:
         if post_v2_tag_nomenclature_link_request is not None:
             _body_params = post_v2_tag_nomenclature_link_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/content/v2/tag/nomenclature/link',
+            method="POST",
+            resource_path="/content/v2/tag/nomenclature/link",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2068,25 +1917,28 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_media_file(
         self,
         x_nm_id: Annotated[StrictStr, Field(description="Артикул WB")],
-        x_photo_number: Annotated[StrictInt, Field(description="Номер медиафайла на загрузку, начинается с `1`. При загрузке видео всегда указывайте `1`.  Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов. ")],
-        uploadfile: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None,
+        x_photo_number: Annotated[
+            StrictInt,
+            Field(
+                description="Номер медиафайла на загрузку, начинается с `1`. При загрузке видео всегда указывайте `1`.  Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов. "
+            ),
+        ],
+        uploadfile: Optional[
+            Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2123,7 +1975,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_media_file_serialize(
             x_nm_id=x_nm_id,
@@ -2132,20 +1984,19 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3MediaFileResponse200",
-            '400': "MediaErrors",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "MediaErrors",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "PostV3MediaFileResponse200",
+            "400": "MediaErrors",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "MediaErrors",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2153,20 +2004,25 @@ class DefaultApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def post_v3_media_file_with_http_info(
         self,
         x_nm_id: Annotated[StrictStr, Field(description="Артикул WB")],
-        x_photo_number: Annotated[StrictInt, Field(description="Номер медиафайла на загрузку, начинается с `1`. При загрузке видео всегда указывайте `1`.  Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов. ")],
-        uploadfile: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None,
+        x_photo_number: Annotated[
+            StrictInt,
+            Field(
+                description="Номер медиафайла на загрузку, начинается с `1`. При загрузке видео всегда указывайте `1`.  Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов. "
+            ),
+        ],
+        uploadfile: Optional[
+            Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2203,7 +2059,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_media_file_serialize(
             x_nm_id=x_nm_id,
@@ -2212,20 +2068,19 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3MediaFileResponse200",
-            '400': "MediaErrors",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "MediaErrors",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "PostV3MediaFileResponse200",
+            "400": "MediaErrors",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "MediaErrors",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2233,20 +2088,25 @@ class DefaultApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def post_v3_media_file_without_preload_content(
         self,
         x_nm_id: Annotated[StrictStr, Field(description="Артикул WB")],
-        x_photo_number: Annotated[StrictInt, Field(description="Номер медиафайла на загрузку, начинается с `1`. При загрузке видео всегда указывайте `1`.  Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов. ")],
-        uploadfile: Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]] = None,
+        x_photo_number: Annotated[
+            StrictInt,
+            Field(
+                description="Номер медиафайла на загрузку, начинается с `1`. При загрузке видео всегда указывайте `1`.  Чтобы добавить изображение к уже загруженным, номер медиафайла должен быть больше количества уже загруженных медиафайлов. "
+            ),
+        ],
+        uploadfile: Optional[
+            Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2283,7 +2143,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_media_file_serialize(
             x_nm_id=x_nm_id,
@@ -2292,23 +2152,21 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3MediaFileResponse200",
-            '400': "MediaErrors",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "MediaErrors",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "PostV3MediaFileResponse200",
+            "400": "MediaErrors",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "MediaErrors",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_media_file_serialize(
         self,
@@ -2322,13 +2180,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://content-api.wildberries.ru',
-            'https://content-api-sandbox.wildberries.ru'
+            "https://content-api.wildberries.ru",
+            "https://content-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2343,47 +2200,36 @@ class DefaultApi:
         # process the query parameters
         # process the header parameters
         if x_nm_id is not None:
-            _header_params['X-Nm-Id'] = x_nm_id
+            _header_params["X-Nm-Id"] = x_nm_id
         if x_photo_number is not None:
-            _header_params['X-Photo-Number'] = x_photo_number
+            _header_params["X-Photo-Number"] = x_photo_number
         # process the form parameters
         if uploadfile is not None:
-            _files['uploadfile'] = uploadfile
+            _files["uploadfile"] = uploadfile
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'plain/text', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "plain/text", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["multipart/form-data"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/content/v3/media/file',
+            method="POST",
+            resource_path="/content/v3/media/file",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2393,11 +2239,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_media_save(
@@ -2407,9 +2250,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2442,36 +2284,34 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_media_save_serialize(
             post_v3_media_save_request=post_v3_media_save_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3MediaSaveResponse200",
-            '400': "MediaErrors",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "MediaErrors",
-            '409': "MediaErrors",
-            '422': "MediaErrors",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "PostV3MediaSaveResponse200",
+            "400": "MediaErrors",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "MediaErrors",
+            "409": "MediaErrors",
+            "422": "MediaErrors",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_media_save_with_http_info(
@@ -2481,9 +2321,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2516,36 +2355,34 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_media_save_serialize(
             post_v3_media_save_request=post_v3_media_save_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3MediaSaveResponse200",
-            '400': "MediaErrors",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "MediaErrors",
-            '409': "MediaErrors",
-            '422': "MediaErrors",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "PostV3MediaSaveResponse200",
+            "400": "MediaErrors",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "MediaErrors",
+            "409": "MediaErrors",
+            "422": "MediaErrors",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_media_save_without_preload_content(
@@ -2555,9 +2392,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2590,32 +2426,30 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_media_save_serialize(
             post_v3_media_save_request=post_v3_media_save_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3MediaSaveResponse200",
-            '400': "MediaErrors",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "MediaErrors",
-            '409': "MediaErrors",
-            '422': "MediaErrors",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "PostV3MediaSaveResponse200",
+            "400": "MediaErrors",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "MediaErrors",
+            "409": "MediaErrors",
+            "422": "MediaErrors",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_media_save_serialize(
         self,
@@ -2627,13 +2461,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://content-api.wildberries.ru',
-            'https://content-api-sandbox.wildberries.ru'
+            "https://content-api.wildberries.ru",
+            "https://content-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2652,38 +2485,28 @@ class DefaultApi:
         if post_v3_media_save_request is not None:
             _body_params = post_v3_media_save_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/content/v3/media/save',
+            method="POST",
+            resource_path="/content/v3/media/save",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2693,7 +2516,5 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

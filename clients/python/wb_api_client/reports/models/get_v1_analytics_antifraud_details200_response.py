@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.reports.models.get_v1_analytics_antifraud_details200_response_details_inner import GetV1AnalyticsAntifraudDetails200ResponseDetailsInner
+from wb_api_client.reports.models.get_v1_analytics_antifraud_details200_response_details_inner import (
+    GetV1AnalyticsAntifraudDetails200ResponseDetailsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV1AnalyticsAntifraudDetails200Response(BaseModel):
     """
     GetV1AnalyticsAntifraudDetails200Response
-    """ # noqa: E501
-    details: Optional[List[GetV1AnalyticsAntifraudDetails200ResponseDetailsInner]] = None
+    """  # noqa: E501
+
+    details: Optional[List[GetV1AnalyticsAntifraudDetails200ResponseDetailsInner]] = (
+        None
+    )
     __properties: ClassVar[List[str]] = ["details"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class GetV1AnalyticsAntifraudDetails200Response(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class GetV1AnalyticsAntifraudDetails200Response(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +79,7 @@ class GetV1AnalyticsAntifraudDetails200Response(BaseModel):
             for _item_details in self.details:
                 if _item_details:
                     _items.append(_item_details.to_dict())
-            _dict['details'] = _items
+            _dict["details"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +91,18 @@ class GetV1AnalyticsAntifraudDetails200Response(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "details": [GetV1AnalyticsAntifraudDetails200ResponseDetailsInner.from_dict(_item) for _item in obj["details"]] if obj.get("details") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "details": (
+                    [
+                        GetV1AnalyticsAntifraudDetails200ResponseDetailsInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["details"]
+                    ]
+                    if obj.get("details") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

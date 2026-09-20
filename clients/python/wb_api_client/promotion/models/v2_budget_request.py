@@ -23,11 +23,15 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V2BudgetRequest(BaseModel):
     """
     V2BudgetRequest
-    """ # noqa: E501
-    advert_ids: Annotated[List[StrictInt], Field(min_length=1, max_length=50)] = Field(description="Список ID кампаний", alias="advertIds")
+    """  # noqa: E501
+
+    advert_ids: Annotated[List[StrictInt], Field(min_length=1, max_length=50)] = Field(
+        description="Список ID кампаний", alias="advertIds"
+    )
     __properties: ClassVar[List[str]] = ["advertIds"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class V2BudgetRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class V2BudgetRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,9 +82,5 @@ class V2BudgetRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advertIds": obj.get("advertIds")
-        })
+        _obj = cls.model_validate({"advertIds": obj.get("advertIds")})
         return _obj
-
-

@@ -19,17 +19,29 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.in_store_pickup.models.api_meta_details_response_results_inner_errors_inner_meta_details_inner import ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner
+from wb_api_client.in_store_pickup.models.api_meta_details_response_results_inner_errors_inner_meta_details_inner import (
+    ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ApiMetaDetailsResponseResultsInnerErrorsInner(BaseModel):
     """
     ApiMetaDetailsResponseResultsInnerErrorsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     code: StrictInt = Field(description="Код ошибки")
-    detail: StrictStr = Field(description="- `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `MetaValidationFail` — идентификаторы маркировки не прошли проверку ")
-    meta_details: Optional[List[ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner]] = Field(default=None, description="Ошибки проверки идентификаторов маркировки", alias="metaDetails")
+    detail: StrictStr = Field(
+        description="- `NotFound` — сборочное задание не найдено - `StatusMismatch` — операция невозможна для этого статуса сборочного задания - `MetaValidationFail` — идентификаторы маркировки не прошли проверку "
+    )
+    meta_details: Optional[
+        List[ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner]
+    ] = Field(
+        default=None,
+        description="Ошибки проверки идентификаторов маркировки",
+        alias="metaDetails",
+    )
     __properties: ClassVar[List[str]] = ["code", "detail", "metaDetails"]
 
     model_config = ConfigDict(
@@ -37,7 +49,6 @@ class ApiMetaDetailsResponseResultsInnerErrorsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +74,7 @@ class ApiMetaDetailsResponseResultsInnerErrorsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +87,7 @@ class ApiMetaDetailsResponseResultsInnerErrorsInner(BaseModel):
             for _item_meta_details in self.meta_details:
                 if _item_meta_details:
                     _items.append(_item_meta_details.to_dict())
-            _dict['metaDetails'] = _items
+            _dict["metaDetails"] = _items
         return _dict
 
     @classmethod
@@ -89,11 +99,20 @@ class ApiMetaDetailsResponseResultsInnerErrorsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "code": obj.get("code"),
-            "detail": obj.get("detail"),
-            "metaDetails": [ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner.from_dict(_item) for _item in obj["metaDetails"]] if obj.get("metaDetails") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "code": obj.get("code"),
+                "detail": obj.get("detail"),
+                "metaDetails": (
+                    [
+                        ApiMetaDetailsResponseResultsInnerErrorsInnerMetaDetailsInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["metaDetails"]
+                    ]
+                    if obj.get("metaDetails") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

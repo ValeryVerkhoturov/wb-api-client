@@ -22,13 +22,21 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1FeedbackResponse200DataAnswer(BaseModel):
     """
     Структура ответа
-    """ # noqa: E501
+    """  # noqa: E501
+
     text: Optional[StrictStr] = Field(default=None, description="Текст ответа")
-    state: Optional[StrictStr] = Field(default=None, description="Статус:   - `none` — новый   - `wbRu`— отображается на сайте   - `reviewRequired` — ответ проходит проверку   - `rejected` — ответ отклонён ")
-    editable: Optional[StrictBool] = Field(default=None, description="Можно ли отредактировать ответ:   - `false` — нет   - `true` — да ")
+    state: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус:   - `none` — новый   - `wbRu`— отображается на сайте   - `reviewRequired` — ответ проходит проверку   - `rejected` — ответ отклонён ",
+    )
+    editable: Optional[StrictBool] = Field(
+        default=None,
+        description="Можно ли отредактировать ответ:   - `false` — нет   - `true` — да ",
+    )
     __properties: ClassVar[List[str]] = ["text", "state", "editable"]
 
     model_config = ConfigDict(
@@ -36,7 +44,6 @@ class GetV1FeedbackResponse200DataAnswer(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +69,7 @@ class GetV1FeedbackResponse200DataAnswer(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +87,11 @@ class GetV1FeedbackResponse200DataAnswer(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "text": obj.get("text"),
-            "state": obj.get("state"),
-            "editable": obj.get("editable")
-        })
+        _obj = cls.model_validate(
+            {
+                "text": obj.get("text"),
+                "state": obj.get("state"),
+                "editable": obj.get("editable"),
+            }
+        )
         return _obj
-
-

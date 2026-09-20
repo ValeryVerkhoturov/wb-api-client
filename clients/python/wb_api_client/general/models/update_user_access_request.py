@@ -23,11 +23,15 @@ from wb_api_client.general.models.user_access import UserAccess
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class UpdateUserAccessRequest(BaseModel):
     """
     UpdateUserAccessRequest
-    """ # noqa: E501
-    users_accesses: List[UserAccess] = Field(description="Настройки доступа для пользователя", alias="usersAccesses")
+    """  # noqa: E501
+
+    users_accesses: List[UserAccess] = Field(
+        description="Настройки доступа для пользователя", alias="usersAccesses"
+    )
     __properties: ClassVar[List[str]] = ["usersAccesses"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class UpdateUserAccessRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class UpdateUserAccessRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +77,7 @@ class UpdateUserAccessRequest(BaseModel):
             for _item_users_accesses in self.users_accesses:
                 if _item_users_accesses:
                     _items.append(_item_users_accesses.to_dict())
-            _dict['usersAccesses'] = _items
+            _dict["usersAccesses"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +89,13 @@ class UpdateUserAccessRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "usersAccesses": [UserAccess.from_dict(_item) for _item in obj["usersAccesses"]] if obj.get("usersAccesses") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "usersAccesses": (
+                    [UserAccess.from_dict(_item) for _item in obj["usersAccesses"]]
+                    if obj.get("usersAccesses") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

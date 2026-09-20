@@ -22,12 +22,17 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetTasksResponseData(BaseModel):
     """
     GetTasksResponseData
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictStr] = Field(default=None, description="ID задания")
-    status: Optional[StrictStr] = Field(default=None, description="Статус задания:   * `new` — новое   * `processing` —  обрабатывается   * `done` — отчёт готов   * `purged` — отчёт удалён   * `canceled` — отклонено ")
+    status: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус задания:   * `new` — новое   * `processing` —  обрабатывается   * `done` — отчёт готов   * `purged` — отчёт удалён   * `canceled` — отклонено ",
+    )
     __properties: ClassVar[List[str]] = ["id", "status"]
 
     model_config = ConfigDict(
@@ -35,7 +40,6 @@ class GetTasksResponseData(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +65,7 @@ class GetTasksResponseData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +83,5 @@ class GetTasksResponseData(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "status": obj.get("status")
-        })
+        _obj = cls.model_validate({"id": obj.get("id"), "status": obj.get("status")})
         return _obj
-
-

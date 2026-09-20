@@ -24,21 +24,47 @@ from wb_api_client.rates.models.fee_turkey_report_inner import FeeTurkeyReportIn
 from wb_api_client.rates.models.fee_uae import FeeUAE
 from wb_api_client.rates.models.fee_uae_report_inner import FeeUAEReportInner
 from wb_api_client.rates.models.fee_uzbekistan import FeeUzbekistan
-from wb_api_client.rates.models.fee_uzbekistan_report_inner import FeeUzbekistanReportInner
-from wb_api_client.rates.models.get_v1_tariffs_commission200_response import GetV1TariffsCommission200Response
-from wb_api_client.rates.models.get_v1_tariffs_commission401_response import GetV1TariffsCommission401Response
-from wb_api_client.rates.models.get_v1_tariffs_commission402_response import GetV1TariffsCommission402Response
-from wb_api_client.rates.models.models_acceptance_coefficient import ModelsAcceptanceCoefficient
+from wb_api_client.rates.models.fee_uzbekistan_report_inner import (
+    FeeUzbekistanReportInner,
+)
+from wb_api_client.rates.models.get_v1_tariffs_commission200_response import (
+    GetV1TariffsCommission200Response,
+)
+from wb_api_client.rates.models.get_v1_tariffs_commission401_response import (
+    GetV1TariffsCommission401Response,
+)
+from wb_api_client.rates.models.get_v1_tariffs_commission402_response import (
+    GetV1TariffsCommission402Response,
+)
+from wb_api_client.rates.models.models_acceptance_coefficient import (
+    ModelsAcceptanceCoefficient,
+)
 from wb_api_client.rates.models.models_error_model import ModelsErrorModel
 from wb_api_client.rates.models.models_rates_box_response import ModelsRatesBoxResponse
-from wb_api_client.rates.models.models_rates_pallet_response import ModelsRatesPalletResponse
-from wb_api_client.rates.models.models_return_rates_response import ModelsReturnRatesResponse
-from wb_api_client.rates.models.models_warehouse_box_rates import ModelsWarehouseBoxRates
-from wb_api_client.rates.models.models_warehouse_pallet_rates import ModelsWarehousePalletRates
-from wb_api_client.rates.models.models_warehouse_return_rates import ModelsWarehouseReturnRates
-from wb_api_client.rates.models.models_warehouses_box_rates import ModelsWarehousesBoxRates
-from wb_api_client.rates.models.models_warehouses_pallet_rates import ModelsWarehousesPalletRates
-from wb_api_client.rates.models.models_warehouses_return_rates import ModelsWarehousesReturnRates
+from wb_api_client.rates.models.models_rates_pallet_response import (
+    ModelsRatesPalletResponse,
+)
+from wb_api_client.rates.models.models_return_rates_response import (
+    ModelsReturnRatesResponse,
+)
+from wb_api_client.rates.models.models_warehouse_box_rates import (
+    ModelsWarehouseBoxRates,
+)
+from wb_api_client.rates.models.models_warehouse_pallet_rates import (
+    ModelsWarehousePalletRates,
+)
+from wb_api_client.rates.models.models_warehouse_return_rates import (
+    ModelsWarehouseReturnRates,
+)
+from wb_api_client.rates.models.models_warehouses_box_rates import (
+    ModelsWarehousesBoxRates,
+)
+from wb_api_client.rates.models.models_warehouses_pallet_rates import (
+    ModelsWarehousesPalletRates,
+)
+from wb_api_client.rates.models.models_warehouses_return_rates import (
+    ModelsWarehousesReturnRates,
+)
 from wb_api_client.rates.models.rates_box_response import RatesBoxResponse
 from wb_api_client.rates.models.rates_pallet_response import RatesPalletResponse
 from wb_api_client.rates.models.return_rates_response import ReturnRatesResponse

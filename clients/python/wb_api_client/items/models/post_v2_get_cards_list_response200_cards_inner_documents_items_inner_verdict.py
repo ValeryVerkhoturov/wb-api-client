@@ -23,23 +23,43 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict(BaseModel):
     """
     Результат проверки документа. Возвращается, когда проверка завершена
-    """ # noqa: E501
-    verified: Optional[StrictBool] = Field(default=None, description="- `true` — документ проверен - `false` — документ не проверен ")
-    status: Optional[StrictInt] = Field(default=None, description="Результат проверки документа:   - `1` — проверка пройдена   - `2` — проверка не пройдена ")
-    reason: Optional[StrictStr] = Field(default=None, description="Ошибка при проверке, возвращается для `status: 2`. Возможные значения: - `document\\_missing` — Документ не загружен - `document\\_not\\_found` — Документ не найден в реестре - `document\\_inactive` — У документа нет юридической силы - `document\\_expired` — Истёк срок действия документа - `applicant\\_mismatch` — Данные заявителя в документе и карточке различаются - `trade\\_name\\_mismatch` — Торговое наименование в карточке отличается от документа - `unknown` — Проверка не пройдена - `document\\_type\\_mismatch` — Номер документа не соответствует указанному типу документа - `document\\_dates\\_mismatch` — Неверная дата регистрации или окончания действия документа")
-    additional_data: Optional[Dict[str, Any]] = Field(default=None, description="Дополнительная информация", alias="additionalData")
-    created_at: Optional[datetime] = Field(default=None, description="Дата проверки документа", alias="createdAt")
-    __properties: ClassVar[List[str]] = ["verified", "status", "reason", "additionalData", "createdAt"]
+    """  # noqa: E501
+
+    verified: Optional[StrictBool] = Field(
+        default=None,
+        description="- `true` — документ проверен - `false` — документ не проверен ",
+    )
+    status: Optional[StrictInt] = Field(
+        default=None,
+        description="Результат проверки документа:   - `1` — проверка пройдена   - `2` — проверка не пройдена ",
+    )
+    reason: Optional[StrictStr] = Field(
+        default=None,
+        description="Ошибка при проверке, возвращается для `status: 2`. Возможные значения: - `document\\_missing` — Документ не загружен - `document\\_not\\_found` — Документ не найден в реестре - `document\\_inactive` — У документа нет юридической силы - `document\\_expired` — Истёк срок действия документа - `applicant\\_mismatch` — Данные заявителя в документе и карточке различаются - `trade\\_name\\_mismatch` — Торговое наименование в карточке отличается от документа - `unknown` — Проверка не пройдена - `document\\_type\\_mismatch` — Номер документа не соответствует указанному типу документа - `document\\_dates\\_mismatch` — Неверная дата регистрации или окончания действия документа",
+    )
+    additional_data: Optional[Dict[str, Any]] = Field(
+        default=None, description="Дополнительная информация", alias="additionalData"
+    )
+    created_at: Optional[datetime] = Field(
+        default=None, description="Дата проверки документа", alias="createdAt"
+    )
+    __properties: ClassVar[List[str]] = [
+        "verified",
+        "status",
+        "reason",
+        "additionalData",
+        "createdAt",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +85,7 @@ class PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict(BaseMode
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,12 +95,12 @@ class PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict(BaseMode
         # set to None if reason (nullable) is None
         # and model_fields_set contains the field
         if self.reason is None and "reason" in self.model_fields_set:
-            _dict['reason'] = None
+            _dict["reason"] = None
 
         # set to None if additional_data (nullable) is None
         # and model_fields_set contains the field
         if self.additional_data is None and "additional_data" in self.model_fields_set:
-            _dict['additionalData'] = None
+            _dict["additionalData"] = None
 
         return _dict
 
@@ -94,13 +113,13 @@ class PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict(BaseMode
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "verified": obj.get("verified"),
-            "status": obj.get("status"),
-            "reason": obj.get("reason"),
-            "additionalData": obj.get("additionalData"),
-            "createdAt": obj.get("createdAt")
-        })
+        _obj = cls.model_validate(
+            {
+                "verified": obj.get("verified"),
+                "status": obj.get("status"),
+                "reason": obj.get("reason"),
+                "additionalData": obj.get("additionalData"),
+                "createdAt": obj.get("createdAt"),
+            }
+        )
         return _obj
-
-

@@ -23,12 +23,24 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class TrbxStickers(BaseModel):
     """
     TrbxStickers
-    """ # noqa: E501
-    barcode: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Закодированное значение стикера")
-    file: Optional[Union[Annotated[bytes, Field(min_length=1, strict=True)], Annotated[str, Field(min_length=1, strict=True)]]] = Field(default=None, description="Полное представление стикера в заданном формате (кодировка base64)")
+    """  # noqa: E501
+
+    barcode: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(
+        default=None, description="Закодированное значение стикера"
+    )
+    file: Optional[
+        Union[
+            Annotated[bytes, Field(min_length=1, strict=True)],
+            Annotated[str, Field(min_length=1, strict=True)],
+        ]
+    ] = Field(
+        default=None,
+        description="Полное представление стикера в заданном формате (кодировка base64)",
+    )
     __properties: ClassVar[List[str]] = ["barcode", "file"]
 
     model_config = ConfigDict(
@@ -36,7 +48,6 @@ class TrbxStickers(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +73,7 @@ class TrbxStickers(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,10 +91,7 @@ class TrbxStickers(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "barcode": obj.get("barcode"),
-            "file": obj.get("file")
-        })
+        _obj = cls.model_validate(
+            {"barcode": obj.get("barcode"), "file": obj.get("file")}
+        )
         return _obj
-
-

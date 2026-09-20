@@ -24,10 +24,12 @@ from wb_api_client.orders_fbs.models.trbx_stickers import TrbxStickers
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV3SuppliesSupplyIdTrbxStickersResponse200(BaseModel):
     """
     PostV3SuppliesSupplyIdTrbxStickersResponse200
-    """ # noqa: E501
+    """  # noqa: E501
+
     stickers: Optional[Annotated[List[TrbxStickers], Field(min_length=1)]] = None
     __properties: ClassVar[List[str]] = ["stickers"]
 
@@ -36,7 +38,6 @@ class PostV3SuppliesSupplyIdTrbxStickersResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +63,7 @@ class PostV3SuppliesSupplyIdTrbxStickersResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +76,7 @@ class PostV3SuppliesSupplyIdTrbxStickersResponse200(BaseModel):
             for _item_stickers in self.stickers:
                 if _item_stickers:
                     _items.append(_item_stickers.to_dict())
-            _dict['stickers'] = _items
+            _dict["stickers"] = _items
         return _dict
 
     @classmethod
@@ -88,9 +88,13 @@ class PostV3SuppliesSupplyIdTrbxStickersResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "stickers": [TrbxStickers.from_dict(_item) for _item in obj["stickers"]] if obj.get("stickers") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "stickers": (
+                    [TrbxStickers.from_dict(_item) for _item in obj["stickers"]]
+                    if obj.get("stickers") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

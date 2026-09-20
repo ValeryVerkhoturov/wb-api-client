@@ -22,27 +22,60 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class QuarantineItems(BaseModel):
     """
     QuarantineItems
-    """ # noqa: E501
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmID")
-    size_id: Optional[StrictInt] = Field(default=None, description="Не используется", alias="sizeID")
-    tech_size_name: Optional[StrictStr] = Field(default=None, description="Не используется", alias="techSizeName")
-    currency_iso_code4217: Optional[StrictStr] = Field(default=None, description="Валюта по стандарту ISO 4217", alias="currencyIsoCode4217")
-    new_price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Новая цена продавца до скидки", alias="newPrice")
-    old_price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Текущая цена продавца до скидки", alias="oldPrice")
-    new_discount: Optional[StrictInt] = Field(default=None, description="Новая скидка продавца, %", alias="newDiscount")
-    old_discount: Optional[StrictInt] = Field(default=None, description="Текущая скидка продавца, %", alias="oldDiscount")
-    price_diff: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Разница: `newPrice` * (1 - `newDiscount` / 100) - `oldPrice` * (1 - `oldDiscount` / 100)", alias="priceDiff")
-    __properties: ClassVar[List[str]] = ["nmID", "sizeID", "techSizeName", "currencyIsoCode4217", "newPrice", "oldPrice", "newDiscount", "oldDiscount", "priceDiff"]
+    """  # noqa: E501
+
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmID"
+    )
+    size_id: Optional[StrictInt] = Field(
+        default=None, description="Не используется", alias="sizeID"
+    )
+    tech_size_name: Optional[StrictStr] = Field(
+        default=None, description="Не используется", alias="techSizeName"
+    )
+    currency_iso_code4217: Optional[StrictStr] = Field(
+        default=None,
+        description="Валюта по стандарту ISO 4217",
+        alias="currencyIsoCode4217",
+    )
+    new_price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Новая цена продавца до скидки", alias="newPrice"
+    )
+    old_price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Текущая цена продавца до скидки", alias="oldPrice"
+    )
+    new_discount: Optional[StrictInt] = Field(
+        default=None, description="Новая скидка продавца, %", alias="newDiscount"
+    )
+    old_discount: Optional[StrictInt] = Field(
+        default=None, description="Текущая скидка продавца, %", alias="oldDiscount"
+    )
+    price_diff: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Разница: `newPrice` * (1 - `newDiscount` / 100) - `oldPrice` * (1 - `oldDiscount` / 100)",
+        alias="priceDiff",
+    )
+    __properties: ClassVar[List[str]] = [
+        "nmID",
+        "sizeID",
+        "techSizeName",
+        "currencyIsoCode4217",
+        "newPrice",
+        "oldPrice",
+        "newDiscount",
+        "oldDiscount",
+        "priceDiff",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -68,8 +101,7 @@ class QuarantineItems(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,17 +111,17 @@ class QuarantineItems(BaseModel):
         # set to None if size_id (nullable) is None
         # and model_fields_set contains the field
         if self.size_id is None and "size_id" in self.model_fields_set:
-            _dict['sizeID'] = None
+            _dict["sizeID"] = None
 
         # set to None if new_price (nullable) is None
         # and model_fields_set contains the field
         if self.new_price is None and "new_price" in self.model_fields_set:
-            _dict['newPrice'] = None
+            _dict["newPrice"] = None
 
         # set to None if new_discount (nullable) is None
         # and model_fields_set contains the field
         if self.new_discount is None and "new_discount" in self.model_fields_set:
-            _dict['newDiscount'] = None
+            _dict["newDiscount"] = None
 
         return _dict
 
@@ -102,17 +134,17 @@ class QuarantineItems(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmID": obj.get("nmID"),
-            "sizeID": obj.get("sizeID"),
-            "techSizeName": obj.get("techSizeName"),
-            "currencyIsoCode4217": obj.get("currencyIsoCode4217"),
-            "newPrice": obj.get("newPrice"),
-            "oldPrice": obj.get("oldPrice"),
-            "newDiscount": obj.get("newDiscount"),
-            "oldDiscount": obj.get("oldDiscount"),
-            "priceDiff": obj.get("priceDiff")
-        })
+        _obj = cls.model_validate(
+            {
+                "nmID": obj.get("nmID"),
+                "sizeID": obj.get("sizeID"),
+                "techSizeName": obj.get("techSizeName"),
+                "currencyIsoCode4217": obj.get("currencyIsoCode4217"),
+                "newPrice": obj.get("newPrice"),
+                "oldPrice": obj.get("oldPrice"),
+                "newDiscount": obj.get("newDiscount"),
+                "oldDiscount": obj.get("oldDiscount"),
+                "priceDiff": obj.get("priceDiff"),
+            }
+        )
         return _obj
-
-

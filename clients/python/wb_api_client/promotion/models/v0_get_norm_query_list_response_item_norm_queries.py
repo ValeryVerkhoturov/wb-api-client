@@ -22,13 +22,21 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V0GetNormQueryListResponseItemNormQueries(BaseModel):
     """
     Поисковые кластеры
-    """ # noqa: E501
-    active: Optional[List[StrictStr]] = Field(default=None, description="Активные поисковые кластеры")
-    excluded: Optional[List[StrictStr]] = Field(default=None, description="Неактивные поисковые кластеры")
-    archived: Optional[List[StrictStr]] = Field(default=None, description="Архивные поисковые кластеры")
+    """  # noqa: E501
+
+    active: Optional[List[StrictStr]] = Field(
+        default=None, description="Активные поисковые кластеры"
+    )
+    excluded: Optional[List[StrictStr]] = Field(
+        default=None, description="Неактивные поисковые кластеры"
+    )
+    archived: Optional[List[StrictStr]] = Field(
+        default=None, description="Архивные поисковые кластеры"
+    )
     __properties: ClassVar[List[str]] = ["active", "excluded", "archived"]
 
     model_config = ConfigDict(
@@ -36,7 +44,6 @@ class V0GetNormQueryListResponseItemNormQueries(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +69,7 @@ class V0GetNormQueryListResponseItemNormQueries(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,17 +79,17 @@ class V0GetNormQueryListResponseItemNormQueries(BaseModel):
         # set to None if active (nullable) is None
         # and model_fields_set contains the field
         if self.active is None and "active" in self.model_fields_set:
-            _dict['active'] = None
+            _dict["active"] = None
 
         # set to None if excluded (nullable) is None
         # and model_fields_set contains the field
         if self.excluded is None and "excluded" in self.model_fields_set:
-            _dict['excluded'] = None
+            _dict["excluded"] = None
 
         # set to None if archived (nullable) is None
         # and model_fields_set contains the field
         if self.archived is None and "archived" in self.model_fields_set:
-            _dict['archived'] = None
+            _dict["archived"] = None
 
         return _dict
 
@@ -96,11 +102,11 @@ class V0GetNormQueryListResponseItemNormQueries(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "active": obj.get("active"),
-            "excluded": obj.get("excluded"),
-            "archived": obj.get("archived")
-        })
+        _obj = cls.model_validate(
+            {
+                "active": obj.get("active"),
+                "excluded": obj.get("excluded"),
+                "archived": obj.get("archived"),
+            }
+        )
         return _obj
-
-

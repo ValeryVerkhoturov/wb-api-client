@@ -22,22 +22,52 @@ from typing import List, Optional
 from typing_extensions import Annotated
 from wb_api_client.promotion.models.full_stats_item import FullStatsItem
 from wb_api_client.promotion.models.get_adverts import GetAdverts
-from wb_api_client.promotion.models.get_v1_advert_response200 import GetV1AdvertResponse200
-from wb_api_client.promotion.models.get_v1_adverts_response200_inner import GetV1AdvertsResponse200Inner
-from wb_api_client.promotion.models.get_v1_balance_response200 import GetV1BalanceResponse200
-from wb_api_client.promotion.models.get_v1_budget_response200 import GetV1BudgetResponse200
-from wb_api_client.promotion.models.get_v1_count_response200 import GetV1CountResponse200
-from wb_api_client.promotion.models.get_v1_payments_response200_inner import GetV1PaymentsResponse200Inner
-from wb_api_client.promotion.models.get_v1_promotion_count_response200 import GetV1PromotionCountResponse200
-from wb_api_client.promotion.models.get_v1_upd_response200_inner import GetV1UpdResponse200Inner
-from wb_api_client.promotion.models.post_v1_budget_deposit_request import PostV1BudgetDepositRequest
-from wb_api_client.promotion.models.post_v1_stats_request_inner import PostV1StatsRequestInner
-from wb_api_client.promotion.models.post_v1_stats_response200_inner import PostV1StatsResponse200Inner
+from wb_api_client.promotion.models.get_v1_advert_response200 import (
+    GetV1AdvertResponse200,
+)
+from wb_api_client.promotion.models.get_v1_adverts_response200_inner import (
+    GetV1AdvertsResponse200Inner,
+)
+from wb_api_client.promotion.models.get_v1_balance_response200 import (
+    GetV1BalanceResponse200,
+)
+from wb_api_client.promotion.models.get_v1_budget_response200 import (
+    GetV1BudgetResponse200,
+)
+from wb_api_client.promotion.models.get_v1_count_response200 import (
+    GetV1CountResponse200,
+)
+from wb_api_client.promotion.models.get_v1_payments_response200_inner import (
+    GetV1PaymentsResponse200Inner,
+)
+from wb_api_client.promotion.models.get_v1_promotion_count_response200 import (
+    GetV1PromotionCountResponse200,
+)
+from wb_api_client.promotion.models.get_v1_upd_response200_inner import (
+    GetV1UpdResponse200Inner,
+)
+from wb_api_client.promotion.models.post_v1_budget_deposit_request import (
+    PostV1BudgetDepositRequest,
+)
+from wb_api_client.promotion.models.post_v1_stats_request_inner import (
+    PostV1StatsRequestInner,
+)
+from wb_api_client.promotion.models.post_v1_stats_response200_inner import (
+    PostV1StatsResponse200Inner,
+)
 from wb_api_client.promotion.models.response_with_return import ResponseWithReturn
-from wb_api_client.promotion.models.v0_get_norm_query_stats_request import V0GetNormQueryStatsRequest
-from wb_api_client.promotion.models.v0_get_norm_query_stats_response import V0GetNormQueryStatsResponse
-from wb_api_client.promotion.models.v1_get_norm_query_stats_request import V1GetNormQueryStatsRequest
-from wb_api_client.promotion.models.v1_get_norm_query_stats_response import V1GetNormQueryStatsResponse
+from wb_api_client.promotion.models.v0_get_norm_query_stats_request import (
+    V0GetNormQueryStatsRequest,
+)
+from wb_api_client.promotion.models.v0_get_norm_query_stats_response import (
+    V0GetNormQueryStatsResponse,
+)
+from wb_api_client.promotion.models.v1_get_norm_query_stats_request import (
+    V1GetNormQueryStatsRequest,
+)
+from wb_api_client.promotion.models.v1_get_norm_query_stats_response import (
+    V1GetNormQueryStatsResponse,
+)
 from wb_api_client.promotion.models.v2_budget_request import V2BudgetRequest
 from wb_api_client.promotion.models.v2_budget_response import V2BudgetResponse
 
@@ -58,7 +88,6 @@ class DefaultApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def get_v1_advert(
         self,
@@ -67,9 +96,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -102,34 +130,32 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_advert_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1AdvertResponse200",
-            '204': None,
-            '400': "str",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "GetV1AdvertResponse200",
+            "204": None,
+            "400": "str",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_advert_with_http_info(
@@ -139,9 +165,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -174,34 +199,32 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_advert_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1AdvertResponse200",
-            '204': None,
-            '400': "str",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "GetV1AdvertResponse200",
+            "204": None,
+            "400": "str",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_advert_without_preload_content(
@@ -211,9 +234,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -246,30 +268,28 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_advert_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1AdvertResponse200",
-            '204': None,
-            '400': "str",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "GetV1AdvertResponse200",
+            "204": None,
+            "400": "str",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_advert_serialize(
         self,
@@ -280,13 +300,10 @@ class DefaultApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://advert-media-api.wildberries.ru'
-        ]
+        _hosts = ["https://advert-media-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -300,33 +317,25 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if id is not None:
-            
-            _query_params.append(('id', id))
-            
+
+            _query_params.append(("id", id))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'text/plain', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "text/plain", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/adv/v1/advert',
+            method="GET",
+            resource_path="/adv/v1/advert",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -336,28 +345,49 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_adverts(
         self,
-        status: Annotated[Optional[StrictStr], Field(description="Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза ")] = None,
-        type: Annotated[Optional[StrictInt], Field(description="Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам ")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="Количество кампаний в ответе")] = None,
-        offset: Annotated[Optional[StrictInt], Field(description="Смещение относительно первой медиакампании")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Порядок вывода ответа: - `create` — по времени создания медиакампании - `id` — по ID медиакампании ")] = None,
-        direction: Annotated[Optional[StrictStr], Field(description="Порядок сортировки: - `desc` — от большего к меньшему - `asc` — от меньшего к большему ")] = None,
+        status: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза "
+            ),
+        ] = None,
+        type: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам "
+            ),
+        ] = None,
+        limit: Annotated[
+            Optional[StrictInt], Field(description="Количество кампаний в ответе")
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt],
+            Field(description="Смещение относительно первой медиакампании"),
+        ] = None,
+        order: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Порядок вывода ответа: - `create` — по времени создания медиакампании - `id` — по ID медиакампании "
+            ),
+        ] = None,
+        direction: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Порядок сортировки: - `desc` — от большего к меньшему - `asc` — от меньшего к большему "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -368,17 +398,17 @@ class DefaultApi:
 
         Метод возвращает список всех [медиакампаний](https://dev.wildberries.ru/openapi/promotion#tag/media/operation/getV1Advert) продавца по их типам и статусам.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-        :param status: Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза 
+        :param status: Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза
         :type status: str
-        :param type: Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам 
+        :param type: Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам
         :type type: int
         :param limit: Количество кампаний в ответе
         :type limit: int
         :param offset: Смещение относительно первой медиакампании
         :type offset: int
-        :param order: Порядок вывода ответа: - `create` — по времени создания медиакампании - `id` — по ID медиакампании 
+        :param order: Порядок вывода ответа: - `create` — по времени создания медиакампании - `id` — по ID медиакампании
         :type order: str
-        :param direction: Порядок сортировки: - `desc` — от большего к меньшему - `asc` — от меньшего к большему 
+        :param direction: Порядок сортировки: - `desc` — от большего к меньшему - `asc` — от меньшего к большему
         :type direction: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -400,7 +430,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_adverts_serialize(
             status=status,
@@ -412,19 +442,18 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetV1AdvertsResponse200Inner]",
-            '204': None,
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "List[GetV1AdvertsResponse200Inner]",
+            "204": None,
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -432,23 +461,46 @@ class DefaultApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v1_adverts_with_http_info(
         self,
-        status: Annotated[Optional[StrictStr], Field(description="Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза ")] = None,
-        type: Annotated[Optional[StrictInt], Field(description="Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам ")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="Количество кампаний в ответе")] = None,
-        offset: Annotated[Optional[StrictInt], Field(description="Смещение относительно первой медиакампании")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Порядок вывода ответа: - `create` — по времени создания медиакампании - `id` — по ID медиакампании ")] = None,
-        direction: Annotated[Optional[StrictStr], Field(description="Порядок сортировки: - `desc` — от большего к меньшему - `asc` — от меньшего к большему ")] = None,
+        status: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза "
+            ),
+        ] = None,
+        type: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам "
+            ),
+        ] = None,
+        limit: Annotated[
+            Optional[StrictInt], Field(description="Количество кампаний в ответе")
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt],
+            Field(description="Смещение относительно первой медиакампании"),
+        ] = None,
+        order: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Порядок вывода ответа: - `create` — по времени создания медиакампании - `id` — по ID медиакампании "
+            ),
+        ] = None,
+        direction: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Порядок сортировки: - `desc` — от большего к меньшему - `asc` — от меньшего к большему "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -459,17 +511,17 @@ class DefaultApi:
 
         Метод возвращает список всех [медиакампаний](https://dev.wildberries.ru/openapi/promotion#tag/media/operation/getV1Advert) продавца по их типам и статусам.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-        :param status: Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза 
+        :param status: Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза
         :type status: str
-        :param type: Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам 
+        :param type: Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам
         :type type: int
         :param limit: Количество кампаний в ответе
         :type limit: int
         :param offset: Смещение относительно первой медиакампании
         :type offset: int
-        :param order: Порядок вывода ответа: - `create` — по времени создания медиакампании - `id` — по ID медиакампании 
+        :param order: Порядок вывода ответа: - `create` — по времени создания медиакампании - `id` — по ID медиакампании
         :type order: str
-        :param direction: Порядок сортировки: - `desc` — от большего к меньшему - `asc` — от меньшего к большему 
+        :param direction: Порядок сортировки: - `desc` — от большего к меньшему - `asc` — от меньшего к большему
         :type direction: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -491,7 +543,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_adverts_serialize(
             status=status,
@@ -503,19 +555,18 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetV1AdvertsResponse200Inner]",
-            '204': None,
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "List[GetV1AdvertsResponse200Inner]",
+            "204": None,
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -523,23 +574,46 @@ class DefaultApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v1_adverts_without_preload_content(
         self,
-        status: Annotated[Optional[StrictStr], Field(description="Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза ")] = None,
-        type: Annotated[Optional[StrictInt], Field(description="Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам ")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="Количество кампаний в ответе")] = None,
-        offset: Annotated[Optional[StrictInt], Field(description="Смещение относительно первой медиакампании")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Порядок вывода ответа: - `create` — по времени создания медиакампании - `id` — по ID медиакампании ")] = None,
-        direction: Annotated[Optional[StrictStr], Field(description="Порядок сортировки: - `desc` — от большего к меньшему - `asc` — от меньшего к большему ")] = None,
+        status: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза "
+            ),
+        ] = None,
+        type: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам "
+            ),
+        ] = None,
+        limit: Annotated[
+            Optional[StrictInt], Field(description="Количество кампаний в ответе")
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt],
+            Field(description="Смещение относительно первой медиакампании"),
+        ] = None,
+        order: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Порядок вывода ответа: - `create` — по времени создания медиакампании - `id` — по ID медиакампании "
+            ),
+        ] = None,
+        direction: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Порядок сортировки: - `desc` — от большего к меньшему - `asc` — от меньшего к большему "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -550,17 +624,17 @@ class DefaultApi:
 
         Метод возвращает список всех [медиакампаний](https://dev.wildberries.ru/openapi/promotion#tag/media/operation/getV1Advert) продавца по их типам и статусам.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Сервисный | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый с секретом | 1 сек | 10 запросов | 100 мс | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
-        :param status: Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза 
+        :param status: Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза
         :type status: str
-        :param type: Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам 
+        :param type: Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам
         :type type: int
         :param limit: Количество кампаний в ответе
         :type limit: int
         :param offset: Смещение относительно первой медиакампании
         :type offset: int
-        :param order: Порядок вывода ответа: - `create` — по времени создания медиакампании - `id` — по ID медиакампании 
+        :param order: Порядок вывода ответа: - `create` — по времени создания медиакампании - `id` — по ID медиакампании
         :type order: str
-        :param direction: Порядок сортировки: - `desc` — от большего к меньшему - `asc` — от меньшего к большему 
+        :param direction: Порядок сортировки: - `desc` — от большего к меньшему - `asc` — от меньшего к большему
         :type direction: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -582,7 +656,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_adverts_serialize(
             status=status,
@@ -594,22 +668,20 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetV1AdvertsResponse200Inner]",
-            '204': None,
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "List[GetV1AdvertsResponse200Inner]",
+            "204": None,
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_adverts_serialize(
         self,
@@ -625,13 +697,10 @@ class DefaultApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://advert-media-api.wildberries.ru'
-        ]
+        _hosts = ["https://advert-media-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -645,52 +714,45 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if status is not None:
-            
-            _query_params.append(('status', status))
-            
+
+            _query_params.append(("status", status))
+
         if type is not None:
-            
-            _query_params.append(('type', type))
-            
+
+            _query_params.append(("type", type))
+
         if limit is not None:
-            
-            _query_params.append(('limit', limit))
-            
+
+            _query_params.append(("limit", limit))
+
         if offset is not None:
-            
-            _query_params.append(('offset', offset))
-            
+
+            _query_params.append(("offset", offset))
+
         if order is not None:
-            
-            _query_params.append(('order', order))
-            
+
+            _query_params.append(("order", order))
+
         if direction is not None:
-            
-            _query_params.append(('direction', direction))
-            
+
+            _query_params.append(("direction", direction))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/adv/v1/adverts',
+            method="GET",
+            resource_path="/adv/v1/adverts",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -700,11 +762,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_balance(
@@ -713,9 +772,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -746,32 +804,30 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_balance_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1BalanceResponse200",
-            '400': "str",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "GetV1BalanceResponse200",
+            "400": "str",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_balance_with_http_info(
@@ -780,9 +836,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -813,32 +868,30 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_balance_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1BalanceResponse200",
-            '400': "str",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "GetV1BalanceResponse200",
+            "400": "str",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_balance_without_preload_content(
@@ -847,9 +900,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -880,28 +932,26 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_balance_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1BalanceResponse200",
-            '400': "str",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "GetV1BalanceResponse200",
+            "400": "str",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_balance_serialize(
         self,
@@ -912,13 +962,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru',
-            'https://advert-api-sandbox.wildberries.ru'
+            "https://advert-api.wildberries.ru",
+            "https://advert-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -935,25 +984,18 @@ class DefaultApi:
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/adv/v1/balance',
+            method="GET",
+            resource_path="/adv/v1/balance",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -963,11 +1005,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_budget(
@@ -977,9 +1016,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1012,7 +1050,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
         warnings.warn("GET /adv/v1/budget is deprecated.", DeprecationWarning)
 
         _param = self._get_v1_budget_serialize(
@@ -1020,26 +1058,24 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1BudgetResponse200",
-            '400': "str",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "GetV1BudgetResponse200",
+            "400": "str",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_budget_with_http_info(
@@ -1049,9 +1085,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1084,7 +1119,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
         warnings.warn("GET /adv/v1/budget is deprecated.", DeprecationWarning)
 
         _param = self._get_v1_budget_serialize(
@@ -1092,26 +1127,24 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1BudgetResponse200",
-            '400': "str",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "GetV1BudgetResponse200",
+            "400": "str",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_budget_without_preload_content(
@@ -1121,9 +1154,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1156,7 +1188,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
         warnings.warn("GET /adv/v1/budget is deprecated.", DeprecationWarning)
 
         _param = self._get_v1_budget_serialize(
@@ -1164,22 +1196,20 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1BudgetResponse200",
-            '400': "str",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "GetV1BudgetResponse200",
+            "400": "str",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_budget_serialize(
         self,
@@ -1191,13 +1221,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru',
-            'https://advert-api-sandbox.wildberries.ru'
+            "https://advert-api.wildberries.ru",
+            "https://advert-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1211,33 +1240,25 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if id is not None:
-            
-            _query_params.append(('id', id))
-            
+
+            _query_params.append(("id", id))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'text/plain', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "text/plain", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/adv/v1/budget',
+            method="GET",
+            resource_path="/adv/v1/budget",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1247,11 +1268,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_count(
@@ -1260,9 +1278,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1293,31 +1310,29 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_count_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1CountResponse200",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "GetV1CountResponse200",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_count_with_http_info(
@@ -1326,9 +1341,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1359,31 +1373,29 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_count_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1CountResponse200",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "GetV1CountResponse200",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_count_without_preload_content(
@@ -1392,9 +1404,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1425,27 +1436,25 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_count_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1CountResponse200",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "GetV1CountResponse200",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_count_serialize(
         self,
@@ -1455,13 +1464,10 @@ class DefaultApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://advert-media-api.wildberries.ru'
-        ]
+        _hosts = ["https://advert-media-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1478,25 +1484,18 @@ class DefaultApi:
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/adv/v1/count',
+            method="GET",
+            resource_path="/adv/v1/count",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1506,24 +1505,27 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_payments(
         self,
-        var_from: Annotated[Optional[date], Field(description="Начало интервала")] = None,
-        to: Annotated[Optional[date], Field(description="Конец интервала. (Минимальный интервал 1 день, максимальный 31)")] = None,
+        var_from: Annotated[
+            Optional[date], Field(description="Начало интервала")
+        ] = None,
+        to: Annotated[
+            Optional[date],
+            Field(
+                description="Конец интервала. (Минимальный интервал 1 день, максимальный 31)"
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1558,7 +1560,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_payments_serialize(
             var_from=var_from,
@@ -1566,20 +1568,19 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetV1PaymentsResponse200Inner]",
-            '204': None,
-            '400': "str",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "List[GetV1PaymentsResponse200Inner]",
+            "204": None,
+            "400": "str",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1587,19 +1588,24 @@ class DefaultApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v1_payments_with_http_info(
         self,
-        var_from: Annotated[Optional[date], Field(description="Начало интервала")] = None,
-        to: Annotated[Optional[date], Field(description="Конец интервала. (Минимальный интервал 1 день, максимальный 31)")] = None,
+        var_from: Annotated[
+            Optional[date], Field(description="Начало интервала")
+        ] = None,
+        to: Annotated[
+            Optional[date],
+            Field(
+                description="Конец интервала. (Минимальный интервал 1 день, максимальный 31)"
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1634,7 +1640,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_payments_serialize(
             var_from=var_from,
@@ -1642,20 +1648,19 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetV1PaymentsResponse200Inner]",
-            '204': None,
-            '400': "str",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "List[GetV1PaymentsResponse200Inner]",
+            "204": None,
+            "400": "str",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1663,19 +1668,24 @@ class DefaultApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v1_payments_without_preload_content(
         self,
-        var_from: Annotated[Optional[date], Field(description="Начало интервала")] = None,
-        to: Annotated[Optional[date], Field(description="Конец интервала. (Минимальный интервал 1 день, максимальный 31)")] = None,
+        var_from: Annotated[
+            Optional[date], Field(description="Начало интервала")
+        ] = None,
+        to: Annotated[
+            Optional[date],
+            Field(
+                description="Конец интервала. (Минимальный интервал 1 день, максимальный 31)"
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1710,7 +1720,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_payments_serialize(
             var_from=var_from,
@@ -1718,23 +1728,21 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetV1PaymentsResponse200Inner]",
-            '204': None,
-            '400': "str",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "List[GetV1PaymentsResponse200Inner]",
+            "204": None,
+            "400": "str",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_payments_serialize(
         self,
@@ -1747,13 +1755,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru',
-            'https://advert-api-sandbox.wildberries.ru'
+            "https://advert-api.wildberries.ru",
+            "https://advert-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1770,51 +1777,37 @@ class DefaultApi:
             if isinstance(var_from, date):
                 _query_params.append(
                     (
-                        'from',
-                        var_from.strftime(
-                            self.api_client.configuration.date_format
-                        )
+                        "from",
+                        var_from.strftime(self.api_client.configuration.date_format),
                     )
                 )
             else:
-                _query_params.append(('from', var_from))
-            
+                _query_params.append(("from", var_from))
+
         if to is not None:
             if isinstance(to, date):
                 _query_params.append(
-                    (
-                        'to',
-                        to.strftime(
-                            self.api_client.configuration.date_format
-                        )
-                    )
+                    ("to", to.strftime(self.api_client.configuration.date_format))
                 )
             else:
-                _query_params.append(('to', to))
-            
+                _query_params.append(("to", to))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/adv/v1/payments',
+            method="GET",
+            resource_path="/adv/v1/payments",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1824,11 +1817,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_promotion_count(
@@ -1837,9 +1827,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1870,31 +1859,29 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_promotion_count_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1PromotionCountResponse200",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "GetV1PromotionCountResponse200",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v1_promotion_count_with_http_info(
@@ -1903,9 +1890,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1936,31 +1922,29 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_promotion_count_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1PromotionCountResponse200",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "GetV1PromotionCountResponse200",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v1_promotion_count_without_preload_content(
@@ -1969,9 +1953,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2002,27 +1985,25 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_promotion_count_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1PromotionCountResponse200",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "GetV1PromotionCountResponse200",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_promotion_count_serialize(
         self,
@@ -2033,13 +2014,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru',
-            'https://advert-api-sandbox.wildberries.ru'
+            "https://advert-api.wildberries.ru",
+            "https://advert-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2056,25 +2036,18 @@ class DefaultApi:
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/adv/v1/promotion/count',
+            method="GET",
+            resource_path="/adv/v1/promotion/count",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2084,24 +2057,25 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_upd(
         self,
         var_from: Annotated[date, Field(description="Начало интервала")],
-        to: Annotated[date, Field(description="Конец интервала. (Минимальный интервал 1 день, максимальный 31)")],
+        to: Annotated[
+            date,
+            Field(
+                description="Конец интервала. (Минимальный интервал 1 день, максимальный 31)"
+            ),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2136,7 +2110,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_upd_serialize(
             var_from=var_from,
@@ -2144,19 +2118,18 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetV1UpdResponse200Inner]",
-            '400': "str",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "List[GetV1UpdResponse200Inner]",
+            "400": "str",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2164,19 +2137,22 @@ class DefaultApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v1_upd_with_http_info(
         self,
         var_from: Annotated[date, Field(description="Начало интервала")],
-        to: Annotated[date, Field(description="Конец интервала. (Минимальный интервал 1 день, максимальный 31)")],
+        to: Annotated[
+            date,
+            Field(
+                description="Конец интервала. (Минимальный интервал 1 день, максимальный 31)"
+            ),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2211,7 +2187,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_upd_serialize(
             var_from=var_from,
@@ -2219,19 +2195,18 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetV1UpdResponse200Inner]",
-            '400': "str",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "List[GetV1UpdResponse200Inner]",
+            "400": "str",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2239,19 +2214,22 @@ class DefaultApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v1_upd_without_preload_content(
         self,
         var_from: Annotated[date, Field(description="Начало интервала")],
-        to: Annotated[date, Field(description="Конец интервала. (Минимальный интервал 1 день, максимальный 31)")],
+        to: Annotated[
+            date,
+            Field(
+                description="Конец интервала. (Минимальный интервал 1 день, максимальный 31)"
+            ),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2286,7 +2264,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_upd_serialize(
             var_from=var_from,
@@ -2294,22 +2272,20 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetV1UpdResponse200Inner]",
-            '400': "str",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "List[GetV1UpdResponse200Inner]",
+            "400": "str",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_upd_serialize(
         self,
@@ -2322,13 +2298,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru',
-            'https://advert-api-sandbox.wildberries.ru'
+            "https://advert-api.wildberries.ru",
+            "https://advert-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2345,52 +2320,37 @@ class DefaultApi:
             if isinstance(var_from, date):
                 _query_params.append(
                     (
-                        'from',
-                        var_from.strftime(
-                            self.api_client.configuration.date_format
-                        )
+                        "from",
+                        var_from.strftime(self.api_client.configuration.date_format),
                     )
                 )
             else:
-                _query_params.append(('from', var_from))
-            
+                _query_params.append(("from", var_from))
+
         if to is not None:
             if isinstance(to, date):
                 _query_params.append(
-                    (
-                        'to',
-                        to.strftime(
-                            self.api_client.configuration.date_format
-                        )
-                    )
+                    ("to", to.strftime(self.api_client.configuration.date_format))
                 )
             else:
-                _query_params.append(('to', to))
-            
+                _query_params.append(("to", to))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'text/plain', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "text/plain", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/adv/v1/upd',
+            method="GET",
+            resource_path="/adv/v1/upd",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2400,25 +2360,31 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v2_adverts(
         self,
-        ids: Annotated[Optional[StrictStr], Field(description="ID кампаний, максимум 50")] = None,
-        statuses: Annotated[Optional[StrictStr], Field(description="Статусы кампаний: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе ")] = None,
-        payment_type: Annotated[Optional[StrictStr], Field(description="Тип оплаты: - `cpm` — за показы - `cpc` — за клик ")] = None,
+        ids: Annotated[
+            Optional[StrictStr], Field(description="ID кампаний, максимум 50")
+        ] = None,
+        statuses: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Статусы кампаний: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе "
+            ),
+        ] = None,
+        payment_type: Annotated[
+            Optional[StrictStr],
+            Field(description="Тип оплаты: - `cpm` — за показы - `cpc` — за клик "),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2431,9 +2397,9 @@ class DefaultApi:
 
         :param ids: ID кампаний, максимум 50
         :type ids: str
-        :param statuses: Статусы кампаний: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе 
+        :param statuses: Статусы кампаний: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе
         :type statuses: str
-        :param payment_type: Тип оплаты: - `cpm` — за показы - `cpc` — за клик 
+        :param payment_type: Тип оплаты: - `cpm` — за показы - `cpc` — за клик
         :type payment_type: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2455,7 +2421,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_adverts_serialize(
             ids=ids,
@@ -2464,19 +2430,18 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetAdverts",
-            '400': "Response400",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "GetAdverts",
+            "400": "Response400",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2484,20 +2449,28 @@ class DefaultApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v2_adverts_with_http_info(
         self,
-        ids: Annotated[Optional[StrictStr], Field(description="ID кампаний, максимум 50")] = None,
-        statuses: Annotated[Optional[StrictStr], Field(description="Статусы кампаний: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе ")] = None,
-        payment_type: Annotated[Optional[StrictStr], Field(description="Тип оплаты: - `cpm` — за показы - `cpc` — за клик ")] = None,
+        ids: Annotated[
+            Optional[StrictStr], Field(description="ID кампаний, максимум 50")
+        ] = None,
+        statuses: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Статусы кампаний: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе "
+            ),
+        ] = None,
+        payment_type: Annotated[
+            Optional[StrictStr],
+            Field(description="Тип оплаты: - `cpm` — за показы - `cpc` — за клик "),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2510,9 +2483,9 @@ class DefaultApi:
 
         :param ids: ID кампаний, максимум 50
         :type ids: str
-        :param statuses: Статусы кампаний: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе 
+        :param statuses: Статусы кампаний: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе
         :type statuses: str
-        :param payment_type: Тип оплаты: - `cpm` — за показы - `cpc` — за клик 
+        :param payment_type: Тип оплаты: - `cpm` — за показы - `cpc` — за клик
         :type payment_type: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2534,7 +2507,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_adverts_serialize(
             ids=ids,
@@ -2543,19 +2516,18 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetAdverts",
-            '400': "Response400",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "GetAdverts",
+            "400": "Response400",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2563,20 +2535,28 @@ class DefaultApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v2_adverts_without_preload_content(
         self,
-        ids: Annotated[Optional[StrictStr], Field(description="ID кампаний, максимум 50")] = None,
-        statuses: Annotated[Optional[StrictStr], Field(description="Статусы кампаний: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе ")] = None,
-        payment_type: Annotated[Optional[StrictStr], Field(description="Тип оплаты: - `cpm` — за показы - `cpc` — за клик ")] = None,
+        ids: Annotated[
+            Optional[StrictStr], Field(description="ID кампаний, максимум 50")
+        ] = None,
+        statuses: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Статусы кампаний: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе "
+            ),
+        ] = None,
+        payment_type: Annotated[
+            Optional[StrictStr],
+            Field(description="Тип оплаты: - `cpm` — за показы - `cpc` — за клик "),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2589,9 +2569,9 @@ class DefaultApi:
 
         :param ids: ID кампаний, максимум 50
         :type ids: str
-        :param statuses: Статусы кампаний: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе 
+        :param statuses: Статусы кампаний: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе
         :type statuses: str
-        :param payment_type: Тип оплаты: - `cpm` — за показы - `cpc` — за клик 
+        :param payment_type: Тип оплаты: - `cpm` — за показы - `cpc` — за клик
         :type payment_type: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2613,7 +2593,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_adverts_serialize(
             ids=ids,
@@ -2622,22 +2602,20 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetAdverts",
-            '400': "Response400",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "GetAdverts",
+            "400": "Response400",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v2_adverts_serialize(
         self,
@@ -2650,13 +2628,10 @@ class DefaultApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://advert-api.wildberries.ru'
-        ]
+        _hosts = ["https://advert-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2670,40 +2645,33 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if ids is not None:
-            
-            _query_params.append(('ids', ids))
-            
+
+            _query_params.append(("ids", ids))
+
         if statuses is not None:
-            
-            _query_params.append(('statuses', statuses))
-            
+
+            _query_params.append(("statuses", statuses))
+
         if payment_type is not None:
-            
-            _query_params.append(('payment_type', payment_type))
-            
+
+            _query_params.append(("payment_type", payment_type))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/advert/v2/adverts',
+            method="GET",
+            resource_path="/api/advert/v2/adverts",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2713,25 +2681,23 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v3_fullstats(
         self,
-        ids: Annotated[StrictStr, Field(description="ID кампаний, максимум 50 значений")],
+        ids: Annotated[
+            StrictStr, Field(description="ID кампаний, максимум 50 значений")
+        ],
         begin_date: Annotated[date, Field(description="Дата начала интервала")],
         end_date: Annotated[date, Field(description="Дата окончания интервала")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2768,7 +2734,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_fullstats_serialize(
             ids=ids,
@@ -2777,19 +2743,18 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[FullStatsItem]",
-            '400': "FullStatsError",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "List[FullStatsItem]",
+            "400": "FullStatsError",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2797,20 +2762,20 @@ class DefaultApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v3_fullstats_with_http_info(
         self,
-        ids: Annotated[StrictStr, Field(description="ID кампаний, максимум 50 значений")],
+        ids: Annotated[
+            StrictStr, Field(description="ID кампаний, максимум 50 значений")
+        ],
         begin_date: Annotated[date, Field(description="Дата начала интервала")],
         end_date: Annotated[date, Field(description="Дата окончания интервала")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2847,7 +2812,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_fullstats_serialize(
             ids=ids,
@@ -2856,19 +2821,18 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[FullStatsItem]",
-            '400': "FullStatsError",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "List[FullStatsItem]",
+            "400": "FullStatsError",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2876,20 +2840,20 @@ class DefaultApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v3_fullstats_without_preload_content(
         self,
-        ids: Annotated[StrictStr, Field(description="ID кампаний, максимум 50 значений")],
+        ids: Annotated[
+            StrictStr, Field(description="ID кампаний, максимум 50 значений")
+        ],
         begin_date: Annotated[date, Field(description="Дата начала интервала")],
         end_date: Annotated[date, Field(description="Дата окончания интервала")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2926,7 +2890,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_fullstats_serialize(
             ids=ids,
@@ -2935,22 +2899,20 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[FullStatsItem]",
-            '400': "FullStatsError",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "List[FullStatsItem]",
+            "400": "FullStatsError",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v3_fullstats_serialize(
         self,
@@ -2963,13 +2925,10 @@ class DefaultApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://advert-api.wildberries.ru'
-        ]
+        _hosts = ["https://advert-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2983,58 +2942,47 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if ids is not None:
-            
-            _query_params.append(('ids', ids))
-            
+
+            _query_params.append(("ids", ids))
+
         if begin_date is not None:
             if isinstance(begin_date, date):
                 _query_params.append(
                     (
-                        'beginDate',
-                        begin_date.strftime(
-                            self.api_client.configuration.date_format
-                        )
+                        "beginDate",
+                        begin_date.strftime(self.api_client.configuration.date_format),
                     )
                 )
             else:
-                _query_params.append(('beginDate', begin_date))
-            
+                _query_params.append(("beginDate", begin_date))
+
         if end_date is not None:
             if isinstance(end_date, date):
                 _query_params.append(
                     (
-                        'endDate',
-                        end_date.strftime(
-                            self.api_client.configuration.date_format
-                        )
+                        "endDate",
+                        end_date.strftime(self.api_client.configuration.date_format),
                     )
                 )
             else:
-                _query_params.append(('endDate', end_date))
-            
+                _query_params.append(("endDate", end_date))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/adv/v3/fullstats',
+            method="GET",
+            resource_path="/adv/v3/fullstats",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3044,11 +2992,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v0_normquery_stats(
@@ -3058,9 +3003,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3093,33 +3037,31 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v0_normquery_stats_serialize(
             v0_get_norm_query_stats_request=v0_get_norm_query_stats_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V0GetNormQueryStatsResponse",
-            '400': "Response400",
-            '401': "GetV1PromotionCount401Response",
-            '403': "StandardizedBatchError",
-            '429': "GetV1PromotionCount401Response",
+            "200": "V0GetNormQueryStatsResponse",
+            "400": "Response400",
+            "401": "GetV1PromotionCount401Response",
+            "403": "StandardizedBatchError",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v0_normquery_stats_with_http_info(
@@ -3129,9 +3071,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3164,33 +3105,31 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v0_normquery_stats_serialize(
             v0_get_norm_query_stats_request=v0_get_norm_query_stats_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V0GetNormQueryStatsResponse",
-            '400': "Response400",
-            '401': "GetV1PromotionCount401Response",
-            '403': "StandardizedBatchError",
-            '429': "GetV1PromotionCount401Response",
+            "200": "V0GetNormQueryStatsResponse",
+            "400": "Response400",
+            "401": "GetV1PromotionCount401Response",
+            "403": "StandardizedBatchError",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v0_normquery_stats_without_preload_content(
@@ -3200,9 +3139,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3235,29 +3173,27 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v0_normquery_stats_serialize(
             v0_get_norm_query_stats_request=v0_get_norm_query_stats_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V0GetNormQueryStatsResponse",
-            '400': "Response400",
-            '401': "GetV1PromotionCount401Response",
-            '403': "StandardizedBatchError",
-            '429': "GetV1PromotionCount401Response",
+            "200": "V0GetNormQueryStatsResponse",
+            "400": "Response400",
+            "401": "GetV1PromotionCount401Response",
+            "403": "StandardizedBatchError",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v0_normquery_stats_serialize(
         self,
@@ -3268,13 +3204,10 @@ class DefaultApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://advert-api.wildberries.ru'
-        ]
+        _hosts = ["https://advert-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3293,38 +3226,28 @@ class DefaultApi:
         if v0_get_norm_query_stats_request is not None:
             _body_params = v0_get_norm_query_stats_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/adv/v0/normquery/stats',
+            method="POST",
+            resource_path="/adv/v0/normquery/stats",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3334,11 +3257,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v1_budget_deposit(
@@ -3349,9 +3269,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3386,7 +3305,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_budget_deposit_serialize(
             id=id,
@@ -3394,26 +3313,24 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseWithReturn",
-            '400': "PostV1BudgetDepositResponse400",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "ResponseWithReturn",
+            "400": "PostV1BudgetDepositResponse400",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v1_budget_deposit_with_http_info(
@@ -3424,9 +3341,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3461,7 +3377,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_budget_deposit_serialize(
             id=id,
@@ -3469,26 +3385,24 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseWithReturn",
-            '400': "PostV1BudgetDepositResponse400",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "ResponseWithReturn",
+            "400": "PostV1BudgetDepositResponse400",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v1_budget_deposit_without_preload_content(
@@ -3499,9 +3413,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3536,7 +3449,7 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_budget_deposit_serialize(
             id=id,
@@ -3544,22 +3457,20 @@ class DefaultApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseWithReturn",
-            '400': "PostV1BudgetDepositResponse400",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "ResponseWithReturn",
+            "400": "PostV1BudgetDepositResponse400",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v1_budget_deposit_serialize(
         self,
@@ -3572,13 +3483,12 @@ class DefaultApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://advert-api.wildberries.ru',
-            'https://advert-api-sandbox.wildberries.ru'
+            "https://advert-api.wildberries.ru",
+            "https://advert-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3592,47 +3502,37 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if id is not None:
-            
-            _query_params.append(('id', id))
-            
+
+            _query_params.append(("id", id))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
         if post_v1_budget_deposit_request is not None:
             _body_params = post_v1_budget_deposit_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/adv/v1/budget/deposit',
+            method="POST",
+            resource_path="/adv/v1/budget/deposit",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3642,11 +3542,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v1_normquery_stats(
@@ -3656,9 +3553,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3691,33 +3587,31 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_normquery_stats_serialize(
             v1_get_norm_query_stats_request=v1_get_norm_query_stats_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V1GetNormQueryStatsResponse",
-            '400': "Response400",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "V1GetNormQueryStatsResponse",
+            "400": "Response400",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v1_normquery_stats_with_http_info(
@@ -3727,9 +3621,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3762,33 +3655,31 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_normquery_stats_serialize(
             v1_get_norm_query_stats_request=v1_get_norm_query_stats_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V1GetNormQueryStatsResponse",
-            '400': "Response400",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "V1GetNormQueryStatsResponse",
+            "400": "Response400",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v1_normquery_stats_without_preload_content(
@@ -3798,9 +3689,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3833,29 +3723,27 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_normquery_stats_serialize(
             v1_get_norm_query_stats_request=v1_get_norm_query_stats_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V1GetNormQueryStatsResponse",
-            '400': "Response400",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "V1GetNormQueryStatsResponse",
+            "400": "Response400",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v1_normquery_stats_serialize(
         self,
@@ -3866,13 +3754,10 @@ class DefaultApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://advert-api.wildberries.ru'
-        ]
+        _hosts = ["https://advert-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3891,38 +3776,28 @@ class DefaultApi:
         if v1_get_norm_query_stats_request is not None:
             _body_params = v1_get_norm_query_stats_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/adv/v1/normquery/stats',
+            method="POST",
+            resource_path="/adv/v1/normquery/stats",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3932,23 +3807,21 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v1_stats(
         self,
-        post_v1_stats_request_inner: Annotated[List[PostV1StatsRequestInner], Field(min_length=1, max_length=100)],
+        post_v1_stats_request_inner: Annotated[
+            List[PostV1StatsRequestInner], Field(min_length=1, max_length=100)
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3981,26 +3854,25 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_stats_serialize(
             post_v1_stats_request_inner=post_v1_stats_request_inner,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[PostV1StatsResponse200Inner]",
-            '400': "ResponseAdvError1",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "List[PostV1StatsResponse200Inner]",
+            "400": "ResponseAdvError1",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -4008,18 +3880,18 @@ class DefaultApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def post_v1_stats_with_http_info(
         self,
-        post_v1_stats_request_inner: Annotated[List[PostV1StatsRequestInner], Field(min_length=1, max_length=100)],
+        post_v1_stats_request_inner: Annotated[
+            List[PostV1StatsRequestInner], Field(min_length=1, max_length=100)
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4052,26 +3924,25 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_stats_serialize(
             post_v1_stats_request_inner=post_v1_stats_request_inner,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[PostV1StatsResponse200Inner]",
-            '400': "ResponseAdvError1",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "List[PostV1StatsResponse200Inner]",
+            "400": "ResponseAdvError1",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -4079,18 +3950,18 @@ class DefaultApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def post_v1_stats_without_preload_content(
         self,
-        post_v1_stats_request_inner: Annotated[List[PostV1StatsRequestInner], Field(min_length=1, max_length=100)],
+        post_v1_stats_request_inner: Annotated[
+            List[PostV1StatsRequestInner], Field(min_length=1, max_length=100)
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4123,29 +3994,27 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_stats_serialize(
             post_v1_stats_request_inner=post_v1_stats_request_inner,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[PostV1StatsResponse200Inner]",
-            '400': "ResponseAdvError1",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "List[PostV1StatsResponse200Inner]",
+            "400": "ResponseAdvError1",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v1_stats_serialize(
         self,
@@ -4156,13 +4025,11 @@ class DefaultApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://advert-media-api.wildberries.ru'
-        ]
+        _hosts = ["https://advert-media-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
         _collection_formats: Dict[str, str] = {
-            'PostV1StatsRequestInner': '',
+            "PostV1StatsRequestInner": "",
         }
 
         _path_params: Dict[str, str] = {}
@@ -4182,38 +4049,28 @@ class DefaultApi:
         if post_v1_stats_request_inner is not None:
             _body_params = post_v1_stats_request_inner
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/adv/v1/stats',
+            method="POST",
+            resource_path="/adv/v1/stats",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4223,11 +4080,8 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v2_budget(
@@ -4237,9 +4091,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4272,33 +4125,31 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v2_budget_serialize(
             v2_budget_request=v2_budget_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V2BudgetResponse",
-            '400': "str",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "V2BudgetResponse",
+            "400": "str",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v2_budget_with_http_info(
@@ -4308,9 +4159,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4343,33 +4193,31 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v2_budget_serialize(
             v2_budget_request=v2_budget_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V2BudgetResponse",
-            '400': "str",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "V2BudgetResponse",
+            "400": "str",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v2_budget_without_preload_content(
@@ -4379,9 +4227,8 @@ class DefaultApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4414,29 +4261,27 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v2_budget_serialize(
             v2_budget_request=v2_budget_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V2BudgetResponse",
-            '400': "str",
-            '401': "GetV1PromotionCount401Response",
-            '403': "GetV1PromotionCount403Response",
-            '429': "GetV1PromotionCount401Response",
+            "200": "V2BudgetResponse",
+            "400": "str",
+            "401": "GetV1PromotionCount401Response",
+            "403": "GetV1PromotionCount403Response",
+            "429": "GetV1PromotionCount401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v2_budget_serialize(
         self,
@@ -4447,13 +4292,10 @@ class DefaultApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://advert-api.wildberries.ru'
-        ]
+        _hosts = ["https://advert-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -4472,39 +4314,28 @@ class DefaultApi:
         if v2_budget_request is not None:
             _body_params = v2_budget_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'text/plain', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "text/plain", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/advert/v2/budget',
+            method="POST",
+            resource_path="/api/advert/v2/budget",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4514,7 +4345,5 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

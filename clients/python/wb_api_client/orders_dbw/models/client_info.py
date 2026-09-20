@@ -22,26 +22,63 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ClientInfo(BaseModel):
     """
     ClientInfo
-    """ # noqa: E501
-    replacement_phone: Optional[StrictStr] = Field(default=None, description="Подменный номер для связи с покупателем. Пустое значение `\"\"` указывает, что номер ещё не назначен", alias="replacementPhone")
-    phone: Optional[StrictStr] = Field(default=None, description="Номер телефона для связи с покупателем:   - если в поле `phoneCode` не указан добавочный код, вы можете позвонить покупателю по указанному номеру. Дополнительные номера телефонов для связи без кодов указаны в поле `additionalPhones`   - если в поле `phoneCode` указан добавочный код, используйте его, чтобы связаться с покупателем по указанному номеру и добавочному коду ")
-    first_name: Optional[StrictStr] = Field(default=None, description="Имя покупателя", alias="firstName")
-    full_name: Optional[StrictStr] = Field(default=None, description="Полное имя покупателя, используется для оформления документов", alias="fullName")
-    additional_phones: Optional[List[StrictStr]] = Field(default=None, description="Дополнительные номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. Пустое значение означает, что номер не указан", alias="additionalPhones")
-    additional_phone_codes: Optional[List[StrictInt]] = Field(default=None, description="Дополнительные добавочные коды. Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`. Пустое значение указывает, коды ещё не назначены", alias="additionalPhoneCodes")
-    order_id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", alias="orderId")
-    phone_code: Optional[StrictInt] = Field(default=None, description="Добавочный код. Используйте, чтобы связаться с покупателем по номеру из `phone`. Если код не указан, вы можете связаться с покупателем без кода", alias="phoneCode")
-    __properties: ClassVar[List[str]] = ["replacementPhone", "phone", "firstName", "fullName", "additionalPhones", "additionalPhoneCodes", "orderId", "phoneCode"]
+    """  # noqa: E501
+
+    replacement_phone: Optional[StrictStr] = Field(
+        default=None,
+        description='Подменный номер для связи с покупателем. Пустое значение `""` указывает, что номер ещё не назначен',
+        alias="replacementPhone",
+    )
+    phone: Optional[StrictStr] = Field(
+        default=None,
+        description="Номер телефона для связи с покупателем:   - если в поле `phoneCode` не указан добавочный код, вы можете позвонить покупателю по указанному номеру. Дополнительные номера телефонов для связи без кодов указаны в поле `additionalPhones`   - если в поле `phoneCode` указан добавочный код, используйте его, чтобы связаться с покупателем по указанному номеру и добавочному коду ",
+    )
+    first_name: Optional[StrictStr] = Field(
+        default=None, description="Имя покупателя", alias="firstName"
+    )
+    full_name: Optional[StrictStr] = Field(
+        default=None,
+        description="Полное имя покупателя, используется для оформления документов",
+        alias="fullName",
+    )
+    additional_phones: Optional[List[StrictStr]] = Field(
+        default=None,
+        description="Дополнительные номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. Пустое значение означает, что номер не указан",
+        alias="additionalPhones",
+    )
+    additional_phone_codes: Optional[List[StrictInt]] = Field(
+        default=None,
+        description="Дополнительные добавочные коды. Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`. Пустое значение указывает, коды ещё не назначены",
+        alias="additionalPhoneCodes",
+    )
+    order_id: Optional[StrictInt] = Field(
+        default=None, description="ID сборочного задания", alias="orderId"
+    )
+    phone_code: Optional[StrictInt] = Field(
+        default=None,
+        description="Добавочный код. Используйте, чтобы связаться с покупателем по номеру из `phone`. Если код не указан, вы можете связаться с покупателем без кода",
+        alias="phoneCode",
+    )
+    __properties: ClassVar[List[str]] = [
+        "replacementPhone",
+        "phone",
+        "firstName",
+        "fullName",
+        "additionalPhones",
+        "additionalPhoneCodes",
+        "orderId",
+        "phoneCode",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -67,8 +104,7 @@ class ClientInfo(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -86,16 +122,16 @@ class ClientInfo(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "replacementPhone": obj.get("replacementPhone"),
-            "phone": obj.get("phone"),
-            "firstName": obj.get("firstName"),
-            "fullName": obj.get("fullName"),
-            "additionalPhones": obj.get("additionalPhones"),
-            "additionalPhoneCodes": obj.get("additionalPhoneCodes"),
-            "orderId": obj.get("orderId"),
-            "phoneCode": obj.get("phoneCode")
-        })
+        _obj = cls.model_validate(
+            {
+                "replacementPhone": obj.get("replacementPhone"),
+                "phone": obj.get("phone"),
+                "firstName": obj.get("firstName"),
+                "fullName": obj.get("fullName"),
+                "additionalPhones": obj.get("additionalPhones"),
+                "additionalPhoneCodes": obj.get("additionalPhoneCodes"),
+                "orderId": obj.get("orderId"),
+                "phoneCode": obj.get("phoneCode"),
+            }
+        )
         return _obj
-
-

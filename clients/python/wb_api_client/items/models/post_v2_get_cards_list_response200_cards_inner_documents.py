@@ -19,18 +19,32 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_documents_items_inner import PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner
-from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_documents_overall_verdict import PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_documents_items_inner import (
+    PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner,
+)
+from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_documents_overall_verdict import (
+    PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV2GetCardsListResponse200CardsInnerDocuments(BaseModel):
     """
     Документы
-    """ # noqa: E501
-    items: Optional[List[PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner]] = Field(default=None, description="Список документов")
-    overall_verdict: Optional[PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict] = Field(default=None, alias="overallVerdict")
-    exclude_documents: Optional[StrictBool] = Field(default=None, description="Исключены ли документы из проверки карточки товара:   - `true` — да, документы не проверяются при проверке карточки   - `false` — нет, документы проверяются при проверке карточки ", alias="excludeDocuments")
+    """  # noqa: E501
+
+    items: Optional[
+        List[PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner]
+    ] = Field(default=None, description="Список документов")
+    overall_verdict: Optional[
+        PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict
+    ] = Field(default=None, alias="overallVerdict")
+    exclude_documents: Optional[StrictBool] = Field(
+        default=None,
+        description="Исключены ли документы из проверки карточки товара:   - `true` — да, документы не проверяются при проверке карточки   - `false` — нет, документы проверяются при проверке карточки ",
+        alias="excludeDocuments",
+    )
     __properties: ClassVar[List[str]] = ["items", "overallVerdict", "excludeDocuments"]
 
     model_config = ConfigDict(
@@ -38,7 +52,6 @@ class PostV2GetCardsListResponse200CardsInnerDocuments(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +77,7 @@ class PostV2GetCardsListResponse200CardsInnerDocuments(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -78,10 +90,10 @@ class PostV2GetCardsListResponse200CardsInnerDocuments(BaseModel):
             for _item_items in self.items:
                 if _item_items:
                     _items.append(_item_items.to_dict())
-            _dict['items'] = _items
+            _dict["items"] = _items
         # override the default output from pydantic by calling `to_dict()` of overall_verdict
         if self.overall_verdict:
-            _dict['overallVerdict'] = self.overall_verdict.to_dict()
+            _dict["overallVerdict"] = self.overall_verdict.to_dict()
         return _dict
 
     @classmethod
@@ -93,11 +105,26 @@ class PostV2GetCardsListResponse200CardsInnerDocuments(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "items": [PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None,
-            "overallVerdict": PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict.from_dict(obj["overallVerdict"]) if obj.get("overallVerdict") is not None else None,
-            "excludeDocuments": obj.get("excludeDocuments")
-        })
+        _obj = cls.model_validate(
+            {
+                "items": (
+                    [
+                        PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["items"]
+                    ]
+                    if obj.get("items") is not None
+                    else None
+                ),
+                "overallVerdict": (
+                    PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict.from_dict(
+                        obj["overallVerdict"]
+                    )
+                    if obj.get("overallVerdict") is not None
+                    else None
+                ),
+                "excludeDocuments": obj.get("excludeDocuments"),
+            }
+        )
         return _obj
-
-

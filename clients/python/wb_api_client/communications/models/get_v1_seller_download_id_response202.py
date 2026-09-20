@@ -22,12 +22,18 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1SellerDownloadIdResponse202(BaseModel):
     """
     GetV1SellerDownloadIdResponse202
-    """ # noqa: E501
-    moderation_state: StrictStr = Field(description="Статус модерации", alias="moderationState")
-    retry_seconds: StrictInt = Field(description="Секунд до следующей попытки запроса файла", alias="retrySeconds")
+    """  # noqa: E501
+
+    moderation_state: StrictStr = Field(
+        description="Статус модерации", alias="moderationState"
+    )
+    retry_seconds: StrictInt = Field(
+        description="Секунд до следующей попытки запроса файла", alias="retrySeconds"
+    )
     __properties: ClassVar[List[str]] = ["moderationState", "retrySeconds"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class GetV1SellerDownloadIdResponse202(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class GetV1SellerDownloadIdResponse202(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +84,10 @@ class GetV1SellerDownloadIdResponse202(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "moderationState": obj.get("moderationState"),
-            "retrySeconds": obj.get("retrySeconds")
-        })
+        _obj = cls.model_validate(
+            {
+                "moderationState": obj.get("moderationState"),
+                "retrySeconds": obj.get("retrySeconds"),
+            }
+        )
         return _obj
-
-

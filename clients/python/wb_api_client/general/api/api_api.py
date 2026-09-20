@@ -39,19 +39,25 @@ class APIApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def get_v2_news(
         self,
-        var_from: Annotated[Optional[date], Field(description="Дата, от которой необходимо выдать новости")] = None,
-        from_id: Annotated[Optional[StrictInt], Field(description="ID новости, начиная с которой — включая её — нужно получить список новостей")] = None,
+        var_from: Annotated[
+            Optional[date],
+            Field(description="Дата, от которой необходимо выдать новости"),
+        ] = None,
+        from_id: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="ID новости, начиная с которой — включая её — нужно получить список новостей"
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -86,7 +92,7 @@ class APIApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_news_serialize(
             var_from=var_from,
@@ -94,18 +100,17 @@ class APIApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2NewsResponse200",
-            '400': None,
-            '401': "GetPing401Response",
-            '429': "GetPing401Response",
+            "200": "GetV2NewsResponse200",
+            "400": None,
+            "401": "GetPing401Response",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -113,19 +118,25 @@ class APIApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v2_news_with_http_info(
         self,
-        var_from: Annotated[Optional[date], Field(description="Дата, от которой необходимо выдать новости")] = None,
-        from_id: Annotated[Optional[StrictInt], Field(description="ID новости, начиная с которой — включая её — нужно получить список новостей")] = None,
+        var_from: Annotated[
+            Optional[date],
+            Field(description="Дата, от которой необходимо выдать новости"),
+        ] = None,
+        from_id: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="ID новости, начиная с которой — включая её — нужно получить список новостей"
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -160,7 +171,7 @@ class APIApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_news_serialize(
             var_from=var_from,
@@ -168,18 +179,17 @@ class APIApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2NewsResponse200",
-            '400': None,
-            '401': "GetPing401Response",
-            '429': "GetPing401Response",
+            "200": "GetV2NewsResponse200",
+            "400": None,
+            "401": "GetPing401Response",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -187,19 +197,25 @@ class APIApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v2_news_without_preload_content(
         self,
-        var_from: Annotated[Optional[date], Field(description="Дата, от которой необходимо выдать новости")] = None,
-        from_id: Annotated[Optional[StrictInt], Field(description="ID новости, начиная с которой — включая её — нужно получить список новостей")] = None,
+        var_from: Annotated[
+            Optional[date],
+            Field(description="Дата, от которой необходимо выдать новости"),
+        ] = None,
+        from_id: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="ID новости, начиная с которой — включая её — нужно получить список новостей"
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -234,7 +250,7 @@ class APIApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_news_serialize(
             var_from=var_from,
@@ -242,21 +258,19 @@ class APIApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2NewsResponse200",
-            '400': None,
-            '401': "GetPing401Response",
-            '429': "GetPing401Response",
+            "200": "GetV2NewsResponse200",
+            "400": None,
+            "401": "GetPing401Response",
+            "429": "GetPing401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v2_news_serialize(
         self,
@@ -268,13 +282,10 @@ class APIApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://common-api.wildberries.ru'
-        ]
+        _hosts = ["https://common-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -291,42 +302,33 @@ class APIApi:
             if isinstance(var_from, date):
                 _query_params.append(
                     (
-                        'from',
-                        var_from.strftime(
-                            self.api_client.configuration.date_format
-                        )
+                        "from",
+                        var_from.strftime(self.api_client.configuration.date_format),
                     )
                 )
             else:
-                _query_params.append(('from', var_from))
-            
+                _query_params.append(("from", var_from))
+
         if from_id is not None:
-            
-            _query_params.append(('fromID', from_id))
-            
+
+            _query_params.append(("fromID", from_id))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/communications/v2/news',
+            method="GET",
+            resource_path="/api/communications/v2/news",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -336,7 +338,5 @@ class APIApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

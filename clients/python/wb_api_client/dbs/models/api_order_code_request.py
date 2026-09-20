@@ -22,12 +22,19 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiOrderCodeRequest(BaseModel):
     """
     ApiOrderCodeRequest
-    """ # noqa: E501
-    code: Optional[StrictStr] = Field(default=None, description="Код подтверждения.  Отображается у покупателя на сайте и в приложении Wildberries")
-    order_id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", alias="orderId")
+    """  # noqa: E501
+
+    code: Optional[StrictStr] = Field(
+        default=None,
+        description="Код подтверждения.  Отображается у покупателя на сайте и в приложении Wildberries",
+    )
+    order_id: Optional[StrictInt] = Field(
+        default=None, description="ID сборочного задания", alias="orderId"
+    )
     __properties: ClassVar[List[str]] = ["code", "orderId"]
 
     model_config = ConfigDict(
@@ -35,7 +42,6 @@ class ApiOrderCodeRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +67,7 @@ class ApiOrderCodeRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +85,7 @@ class ApiOrderCodeRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "code": obj.get("code"),
-            "orderId": obj.get("orderId")
-        })
+        _obj = cls.model_validate(
+            {"code": obj.get("code"), "orderId": obj.get("orderId")}
+        )
         return _obj
-
-

@@ -18,7 +18,16 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from wb_api_client.orders_fbs.models.order_address import OrderAddress
@@ -26,48 +35,144 @@ from wb_api_client.orders_fbs.models.order_options import OrderOptions
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class Order(BaseModel):
     """
     Order
-    """ # noqa: E501
+    """  # noqa: E501
+
     address: Optional[OrderAddress] = None
-    scan_price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Цена приёмки в копейках. Отображается после фактической приёмки заказа", alias="scanPrice")
-    delivery_type: Optional[StrictStr] = Field(default=None, description="Тип доставки: - `fbs` — доставка на склад Wildberries (FBS) ", alias="deliveryType")
-    supply_id: Optional[StrictStr] = Field(default=None, description="ID поставки. Возвращается, если заказ закреплён за поставкой", alias="supplyId")
-    order_uid: Optional[StrictStr] = Field(default=None, description="ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUid`", alias="orderUid")
+    scan_price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Цена приёмки в копейках. Отображается после фактической приёмки заказа",
+        alias="scanPrice",
+    )
+    delivery_type: Optional[StrictStr] = Field(
+        default=None,
+        description="Тип доставки: - `fbs` — доставка на склад Wildberries (FBS) ",
+        alias="deliveryType",
+    )
+    supply_id: Optional[StrictStr] = Field(
+        default=None,
+        description="ID поставки. Возвращается, если заказ закреплён за поставкой",
+        alias="supplyId",
+    )
+    order_uid: Optional[StrictStr] = Field(
+        default=None,
+        description="ID транзакции для группировки сборочных заданий. Сборочные задания в одной корзине покупателя будут иметь одинаковый `orderUid`",
+        alias="orderUid",
+    )
     article: Optional[StrictStr] = Field(default=None, description="Артикул продавца")
-    color_code: Optional[StrictStr] = Field(default=None, description="Код цвета (только для колеруемых товаров)", alias="colorCode")
-    rid: Optional[StrictStr] = Field(default=None, description="Уникальный ID заказа. Примечание: `rid` — это `srid` в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчет о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)")
-    created_at: Optional[datetime] = Field(default=None, description="Дата создания сборочного задания (RFC3339). Часовой пояс — UTC", alias="createdAt")
-    offices: Optional[List[StrictStr]] = Field(default=None, description="Список офисов, куда следует привезти товар")
+    color_code: Optional[StrictStr] = Field(
+        default=None,
+        description="Код цвета (только для колеруемых товаров)",
+        alias="colorCode",
+    )
+    rid: Optional[StrictStr] = Field(
+        default=None,
+        description="Уникальный ID заказа. Примечание: `rid` — это `srid` в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчет о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)",
+    )
+    created_at: Optional[datetime] = Field(
+        default=None,
+        description="Дата создания сборочного задания (RFC3339). Часовой пояс — UTC",
+        alias="createdAt",
+    )
+    offices: Optional[List[StrictStr]] = Field(
+        default=None, description="Список офисов, куда следует привезти товар"
+    )
     skus: Optional[List[StrictStr]] = Field(default=None, description="Список баркодов")
     id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания")
-    warehouse_id: Optional[StrictInt] = Field(default=None, description="ID склада продавца, на который поступило сборочное задание", alias="warehouseId")
-    office_id: Optional[StrictInt] = Field(default=None, description="ID склада WB, к которому привязан склад продавца", alias="officeId")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmId")
-    chrt_id: Optional[StrictInt] = Field(default=None, description="ID размера товара в системе WB", alias="chrtId")
-    price: Optional[StrictInt] = Field(default=None, description="Цена в валюте продажи с учётом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи — в поле `currencyCode`. Предоставляется в информационных целях ")
-    converted_price: Optional[StrictInt] = Field(default=None, description="Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях", alias="convertedPrice")
-    currency_code: Optional[StrictInt] = Field(default=None, description="Код валюты продажи", alias="currencyCode")
-    converted_currency_code: Optional[StrictInt] = Field(default=None, description="Код валюты страны продавца", alias="convertedCurrencyCode")
-    cargo_type: Optional[StrictInt] = Field(default=None, description="Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoType")
-    cross_border_type: Optional[StrictInt] = Field(default=None, description="Тип сборочного задания:   - `0` — внутренняя поставка   - `1` — трансграничная поставка ", alias="crossBorderType")
-    comment: Optional[Annotated[str, Field(strict=True, max_length=300)]] = Field(default=None, description="Комментарий покупателя")
-    is_zero_order: Optional[StrictBool] = Field(default=None, description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену ", alias="isZeroOrder")
+    warehouse_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID склада продавца, на который поступило сборочное задание",
+        alias="warehouseId",
+    )
+    office_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID склада WB, к которому привязан склад продавца",
+        alias="officeId",
+    )
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmId"
+    )
+    chrt_id: Optional[StrictInt] = Field(
+        default=None, description="ID размера товара в системе WB", alias="chrtId"
+    )
+    price: Optional[StrictInt] = Field(
+        default=None,
+        description="Цена в валюте продажи с учётом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи — в поле `currencyCode`. Предоставляется в информационных целях ",
+    )
+    converted_price: Optional[StrictInt] = Field(
+        default=None,
+        description="Цена в валюте страны продавца с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Предоставляется в информационных целях",
+        alias="convertedPrice",
+    )
+    currency_code: Optional[StrictInt] = Field(
+        default=None, description="Код валюты продажи", alias="currencyCode"
+    )
+    converted_currency_code: Optional[StrictInt] = Field(
+        default=None,
+        description="Код валюты страны продавца",
+        alias="convertedCurrencyCode",
+    )
+    cargo_type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ",
+        alias="cargoType",
+    )
+    cross_border_type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип сборочного задания:   - `0` — внутренняя поставка   - `1` — трансграничная поставка ",
+        alias="crossBorderType",
+    )
+    comment: Optional[Annotated[str, Field(strict=True, max_length=300)]] = Field(
+        default=None, description="Комментарий покупателя"
+    )
+    is_zero_order: Optional[StrictBool] = Field(
+        default=None,
+        description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену ",
+        alias="isZeroOrder",
+    )
     options: Optional[OrderOptions] = None
-    __properties: ClassVar[List[str]] = ["address", "scanPrice", "deliveryType", "supplyId", "orderUid", "article", "colorCode", "rid", "createdAt", "offices", "skus", "id", "warehouseId", "officeId", "nmId", "chrtId", "price", "convertedPrice", "currencyCode", "convertedCurrencyCode", "cargoType", "crossBorderType", "comment", "isZeroOrder", "options"]
+    __properties: ClassVar[List[str]] = [
+        "address",
+        "scanPrice",
+        "deliveryType",
+        "supplyId",
+        "orderUid",
+        "article",
+        "colorCode",
+        "rid",
+        "createdAt",
+        "offices",
+        "skus",
+        "id",
+        "warehouseId",
+        "officeId",
+        "nmId",
+        "chrtId",
+        "price",
+        "convertedPrice",
+        "currencyCode",
+        "convertedCurrencyCode",
+        "cargoType",
+        "crossBorderType",
+        "comment",
+        "isZeroOrder",
+        "options",
+    ]
 
-    @field_validator('delivery_type')
+    @field_validator("delivery_type")
     def delivery_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['fbs']):
+        if value not in set(["fbs"]):
             raise ValueError("must be one of enum values ('fbs')")
         return value
 
-    @field_validator('cargo_type')
+    @field_validator("cargo_type")
     def cargo_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -77,7 +182,7 @@ class Order(BaseModel):
             raise ValueError("must be one of enum values (1, 2, 3)")
         return value
 
-    @field_validator('cross_border_type')
+    @field_validator("cross_border_type")
     def cross_border_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -92,7 +197,6 @@ class Order(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -118,8 +222,7 @@ class Order(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -128,24 +231,24 @@ class Order(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of address
         if self.address:
-            _dict['address'] = self.address.to_dict()
+            _dict["address"] = self.address.to_dict()
         # override the default output from pydantic by calling `to_dict()` of options
         if self.options:
-            _dict['options'] = self.options.to_dict()
+            _dict["options"] = self.options.to_dict()
         # set to None if address (nullable) is None
         # and model_fields_set contains the field
         if self.address is None and "address" in self.model_fields_set:
-            _dict['address'] = None
+            _dict["address"] = None
 
         # set to None if scan_price (nullable) is None
         # and model_fields_set contains the field
         if self.scan_price is None and "scan_price" in self.model_fields_set:
-            _dict['scanPrice'] = None
+            _dict["scanPrice"] = None
 
         # set to None if offices (nullable) is None
         # and model_fields_set contains the field
         if self.offices is None and "offices" in self.model_fields_set:
-            _dict['offices'] = None
+            _dict["offices"] = None
 
         return _dict
 
@@ -158,33 +261,41 @@ class Order(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "address": OrderAddress.from_dict(obj["address"]) if obj.get("address") is not None else None,
-            "scanPrice": obj.get("scanPrice"),
-            "deliveryType": obj.get("deliveryType"),
-            "supplyId": obj.get("supplyId"),
-            "orderUid": obj.get("orderUid"),
-            "article": obj.get("article"),
-            "colorCode": obj.get("colorCode"),
-            "rid": obj.get("rid"),
-            "createdAt": obj.get("createdAt"),
-            "offices": obj.get("offices"),
-            "skus": obj.get("skus"),
-            "id": obj.get("id"),
-            "warehouseId": obj.get("warehouseId"),
-            "officeId": obj.get("officeId"),
-            "nmId": obj.get("nmId"),
-            "chrtId": obj.get("chrtId"),
-            "price": obj.get("price"),
-            "convertedPrice": obj.get("convertedPrice"),
-            "currencyCode": obj.get("currencyCode"),
-            "convertedCurrencyCode": obj.get("convertedCurrencyCode"),
-            "cargoType": obj.get("cargoType"),
-            "crossBorderType": obj.get("crossBorderType"),
-            "comment": obj.get("comment"),
-            "isZeroOrder": obj.get("isZeroOrder"),
-            "options": OrderOptions.from_dict(obj["options"]) if obj.get("options") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "address": (
+                    OrderAddress.from_dict(obj["address"])
+                    if obj.get("address") is not None
+                    else None
+                ),
+                "scanPrice": obj.get("scanPrice"),
+                "deliveryType": obj.get("deliveryType"),
+                "supplyId": obj.get("supplyId"),
+                "orderUid": obj.get("orderUid"),
+                "article": obj.get("article"),
+                "colorCode": obj.get("colorCode"),
+                "rid": obj.get("rid"),
+                "createdAt": obj.get("createdAt"),
+                "offices": obj.get("offices"),
+                "skus": obj.get("skus"),
+                "id": obj.get("id"),
+                "warehouseId": obj.get("warehouseId"),
+                "officeId": obj.get("officeId"),
+                "nmId": obj.get("nmId"),
+                "chrtId": obj.get("chrtId"),
+                "price": obj.get("price"),
+                "convertedPrice": obj.get("convertedPrice"),
+                "currencyCode": obj.get("currencyCode"),
+                "convertedCurrencyCode": obj.get("convertedCurrencyCode"),
+                "cargoType": obj.get("cargoType"),
+                "crossBorderType": obj.get("crossBorderType"),
+                "comment": obj.get("comment"),
+                "isZeroOrder": obj.get("isZeroOrder"),
+                "options": (
+                    OrderOptions.from_dict(obj["options"])
+                    if obj.get("options") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

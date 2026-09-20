@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.rates.models.models_return_rates_response import ModelsReturnRatesResponse
+from wb_api_client.rates.models.models_return_rates_response import (
+    ModelsReturnRatesResponse,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ReturnRatesResponse(BaseModel):
     """
     ReturnRatesResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     response: Optional[ModelsReturnRatesResponse] = None
     __properties: ClassVar[List[str]] = ["response"]
 
@@ -35,7 +39,6 @@ class ReturnRatesResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class ReturnRatesResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -71,7 +73,7 @@ class ReturnRatesResponse(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of response
         if self.response:
-            _dict['response'] = self.response.to_dict()
+            _dict["response"] = self.response.to_dict()
         return _dict
 
     @classmethod
@@ -83,9 +85,13 @@ class ReturnRatesResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "response": ModelsReturnRatesResponse.from_dict(obj["response"]) if obj.get("response") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "response": (
+                    ModelsReturnRatesResponse.from_dict(obj["response"])
+                    if obj.get("response") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

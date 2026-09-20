@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.get_v3_dbw_warehouses_warehouse_id_contacts_response200_contacts_inner import GetV3DbwWarehousesWarehouseIdContactsResponse200ContactsInner
+from wb_api_client.items.models.get_v3_dbw_warehouses_warehouse_id_contacts_response200_contacts_inner import (
+    GetV3DbwWarehousesWarehouseIdContactsResponse200ContactsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV3DbwWarehousesWarehouseIdContactsResponse200(BaseModel):
     """
     Список контактов склада продавца
-    """ # noqa: E501
-    contacts: Optional[List[GetV3DbwWarehousesWarehouseIdContactsResponse200ContactsInner]] = None
+    """  # noqa: E501
+
+    contacts: Optional[
+        List[GetV3DbwWarehousesWarehouseIdContactsResponse200ContactsInner]
+    ] = None
     __properties: ClassVar[List[str]] = ["contacts"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class GetV3DbwWarehousesWarehouseIdContactsResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class GetV3DbwWarehousesWarehouseIdContactsResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +79,7 @@ class GetV3DbwWarehousesWarehouseIdContactsResponse200(BaseModel):
             for _item_contacts in self.contacts:
                 if _item_contacts:
                     _items.append(_item_contacts.to_dict())
-            _dict['contacts'] = _items
+            _dict["contacts"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +91,18 @@ class GetV3DbwWarehousesWarehouseIdContactsResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "contacts": [GetV3DbwWarehousesWarehouseIdContactsResponse200ContactsInner.from_dict(_item) for _item in obj["contacts"]] if obj.get("contacts") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "contacts": (
+                    [
+                        GetV3DbwWarehousesWarehouseIdContactsResponse200ContactsInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["contacts"]
+                    ]
+                    if obj.get("contacts") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

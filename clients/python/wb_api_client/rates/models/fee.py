@@ -23,11 +23,15 @@ from wb_api_client.rates.models.fee_report_inner import FeeReportInner
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class Fee(BaseModel):
     """
     Fee
-    """ # noqa: E501
-    report: Optional[List[FeeReportInner]] = Field(default=None, description="Список комиссий")
+    """  # noqa: E501
+
+    report: Optional[List[FeeReportInner]] = Field(
+        default=None, description="Список комиссий"
+    )
     __properties: ClassVar[List[str]] = ["report"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class Fee(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class Fee(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +77,7 @@ class Fee(BaseModel):
             for _item_report in self.report:
                 if _item_report:
                     _items.append(_item_report.to_dict())
-            _dict['report'] = _items
+            _dict["report"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +89,13 @@ class Fee(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "report": [FeeReportInner.from_dict(_item) for _item in obj["report"]] if obj.get("report") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "report": (
+                    [FeeReportInner.from_dict(_item) for _item in obj["report"]]
+                    if obj.get("report") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

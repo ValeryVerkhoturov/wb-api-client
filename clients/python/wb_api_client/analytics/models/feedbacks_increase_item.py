@@ -19,34 +19,56 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.analytics.models.feedbacks_increase_item_five_star import FeedbacksIncreaseItemFiveStar
-from wb_api_client.analytics.models.feedbacks_increase_item_four_star import FeedbacksIncreaseItemFourStar
-from wb_api_client.analytics.models.feedbacks_increase_item_one_star import FeedbacksIncreaseItemOneStar
-from wb_api_client.analytics.models.feedbacks_increase_item_three_star import FeedbacksIncreaseItemThreeStar
-from wb_api_client.analytics.models.feedbacks_increase_item_two_star import FeedbacksIncreaseItemTwoStar
+from wb_api_client.analytics.models.feedbacks_increase_item_five_star import (
+    FeedbacksIncreaseItemFiveStar,
+)
+from wb_api_client.analytics.models.feedbacks_increase_item_four_star import (
+    FeedbacksIncreaseItemFourStar,
+)
+from wb_api_client.analytics.models.feedbacks_increase_item_one_star import (
+    FeedbacksIncreaseItemOneStar,
+)
+from wb_api_client.analytics.models.feedbacks_increase_item_three_star import (
+    FeedbacksIncreaseItemThreeStar,
+)
+from wb_api_client.analytics.models.feedbacks_increase_item_two_star import (
+    FeedbacksIncreaseItemTwoStar,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class FeedbacksIncreaseItem(BaseModel):
     """
     Прирост оценок
-    """ # noqa: E501
+    """  # noqa: E501
+
     current: StrictInt = Field(description="Прирост оценок за период")
     total: StrictInt = Field(description="Всего оценок")
-    dynamics: StrictInt = Field(description="Динамика по сравнению с предыдущим периодом, %")
+    dynamics: StrictInt = Field(
+        description="Динамика по сравнению с предыдущим периодом, %"
+    )
     five_star: FeedbacksIncreaseItemFiveStar = Field(alias="fiveStar")
     four_star: FeedbacksIncreaseItemFourStar = Field(alias="fourStar")
     three_star: FeedbacksIncreaseItemThreeStar = Field(alias="threeStar")
     two_star: FeedbacksIncreaseItemTwoStar = Field(alias="twoStar")
     one_star: FeedbacksIncreaseItemOneStar = Field(alias="oneStar")
-    __properties: ClassVar[List[str]] = ["current", "total", "dynamics", "fiveStar", "fourStar", "threeStar", "twoStar", "oneStar"]
+    __properties: ClassVar[List[str]] = [
+        "current",
+        "total",
+        "dynamics",
+        "fiveStar",
+        "fourStar",
+        "threeStar",
+        "twoStar",
+        "oneStar",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -72,8 +94,7 @@ class FeedbacksIncreaseItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,19 +103,19 @@ class FeedbacksIncreaseItem(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of five_star
         if self.five_star:
-            _dict['fiveStar'] = self.five_star.to_dict()
+            _dict["fiveStar"] = self.five_star.to_dict()
         # override the default output from pydantic by calling `to_dict()` of four_star
         if self.four_star:
-            _dict['fourStar'] = self.four_star.to_dict()
+            _dict["fourStar"] = self.four_star.to_dict()
         # override the default output from pydantic by calling `to_dict()` of three_star
         if self.three_star:
-            _dict['threeStar'] = self.three_star.to_dict()
+            _dict["threeStar"] = self.three_star.to_dict()
         # override the default output from pydantic by calling `to_dict()` of two_star
         if self.two_star:
-            _dict['twoStar'] = self.two_star.to_dict()
+            _dict["twoStar"] = self.two_star.to_dict()
         # override the default output from pydantic by calling `to_dict()` of one_star
         if self.one_star:
-            _dict['oneStar'] = self.one_star.to_dict()
+            _dict["oneStar"] = self.one_star.to_dict()
         return _dict
 
     @classmethod
@@ -106,16 +127,36 @@ class FeedbacksIncreaseItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "current": obj.get("current"),
-            "total": obj.get("total"),
-            "dynamics": obj.get("dynamics"),
-            "fiveStar": FeedbacksIncreaseItemFiveStar.from_dict(obj["fiveStar"]) if obj.get("fiveStar") is not None else None,
-            "fourStar": FeedbacksIncreaseItemFourStar.from_dict(obj["fourStar"]) if obj.get("fourStar") is not None else None,
-            "threeStar": FeedbacksIncreaseItemThreeStar.from_dict(obj["threeStar"]) if obj.get("threeStar") is not None else None,
-            "twoStar": FeedbacksIncreaseItemTwoStar.from_dict(obj["twoStar"]) if obj.get("twoStar") is not None else None,
-            "oneStar": FeedbacksIncreaseItemOneStar.from_dict(obj["oneStar"]) if obj.get("oneStar") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "current": obj.get("current"),
+                "total": obj.get("total"),
+                "dynamics": obj.get("dynamics"),
+                "fiveStar": (
+                    FeedbacksIncreaseItemFiveStar.from_dict(obj["fiveStar"])
+                    if obj.get("fiveStar") is not None
+                    else None
+                ),
+                "fourStar": (
+                    FeedbacksIncreaseItemFourStar.from_dict(obj["fourStar"])
+                    if obj.get("fourStar") is not None
+                    else None
+                ),
+                "threeStar": (
+                    FeedbacksIncreaseItemThreeStar.from_dict(obj["threeStar"])
+                    if obj.get("threeStar") is not None
+                    else None
+                ),
+                "twoStar": (
+                    FeedbacksIncreaseItemTwoStar.from_dict(obj["twoStar"])
+                    if obj.get("twoStar") is not None
+                    else None
+                ),
+                "oneStar": (
+                    FeedbacksIncreaseItemOneStar.from_dict(obj["oneStar"])
+                    if obj.get("oneStar") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

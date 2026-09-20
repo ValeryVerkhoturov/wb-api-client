@@ -17,25 +17,65 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2GetCardsListRequestSettingsFilter(BaseModel):
     """
     Параметры фильтрации
-    """ # noqa: E501
-    with_photo: Optional[StrictInt] = Field(default=0, description="Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) ", alias="withPhoto")
-    text_search: Optional[StrictStr] = Field(default=None, description="Поиск по артикулу продавца, артикулу WB, баркоду", alias="textSearch")
-    tag_ids: Optional[List[StrictInt]] = Field(default=None, description="Поиск по ID ярлыков", alias="tagIDs")
-    allowed_categories_only: Optional[StrictBool] = Field(default=None, description="Фильтр по категории:   - `true` — только разрешённые   - `false` — все    Не используется в песочнице ", alias="allowedCategoriesOnly")
-    object_ids: Optional[List[StrictInt]] = Field(default=None, description="Поиск по ID предметов", alias="objectIDs")
-    brands: Optional[List[StrictStr]] = Field(default=None, description="Поиск по брендам")
-    imt_id: Optional[StrictInt] = Field(default=None, description="Поиск по [ID для объединённых карточек товаров](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)", alias="imtID")
-    __properties: ClassVar[List[str]] = ["withPhoto", "textSearch", "tagIDs", "allowedCategoriesOnly", "objectIDs", "brands", "imtID"]
+    """  # noqa: E501
 
-    @field_validator('with_photo')
+    with_photo: Optional[StrictInt] = Field(
+        default=0,
+        description="Фильтр по фото:   * `-1` — любые карточки товаров   * `0` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) — любые карточки товаров   * `1` — только карточки с фото   * `2` — только карточки без фото. С [16 июня](https://dev.wildberries.ru/release-notes?id=531) ",
+        alias="withPhoto",
+    )
+    text_search: Optional[StrictStr] = Field(
+        default=None,
+        description="Поиск по артикулу продавца, артикулу WB, баркоду",
+        alias="textSearch",
+    )
+    tag_ids: Optional[List[StrictInt]] = Field(
+        default=None, description="Поиск по ID ярлыков", alias="tagIDs"
+    )
+    allowed_categories_only: Optional[StrictBool] = Field(
+        default=None,
+        description="Фильтр по категории:   - `true` — только разрешённые   - `false` — все    Не используется в песочнице ",
+        alias="allowedCategoriesOnly",
+    )
+    object_ids: Optional[List[StrictInt]] = Field(
+        default=None, description="Поиск по ID предметов", alias="objectIDs"
+    )
+    brands: Optional[List[StrictStr]] = Field(
+        default=None, description="Поиск по брендам"
+    )
+    imt_id: Optional[StrictInt] = Field(
+        default=None,
+        description="Поиск по [ID для объединённых карточек товаров](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)",
+        alias="imtID",
+    )
+    __properties: ClassVar[List[str]] = [
+        "withPhoto",
+        "textSearch",
+        "tagIDs",
+        "allowedCategoriesOnly",
+        "objectIDs",
+        "brands",
+        "imtID",
+    ]
+
+    @field_validator("with_photo")
     def with_photo_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -50,7 +90,6 @@ class PostV2GetCardsListRequestSettingsFilter(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -76,8 +115,7 @@ class PostV2GetCardsListRequestSettingsFilter(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -95,15 +133,17 @@ class PostV2GetCardsListRequestSettingsFilter(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "withPhoto": obj.get("withPhoto") if obj.get("withPhoto") is not None else 0,
-            "textSearch": obj.get("textSearch"),
-            "tagIDs": obj.get("tagIDs"),
-            "allowedCategoriesOnly": obj.get("allowedCategoriesOnly"),
-            "objectIDs": obj.get("objectIDs"),
-            "brands": obj.get("brands"),
-            "imtID": obj.get("imtID")
-        })
+        _obj = cls.model_validate(
+            {
+                "withPhoto": (
+                    obj.get("withPhoto") if obj.get("withPhoto") is not None else 0
+                ),
+                "textSearch": obj.get("textSearch"),
+                "tagIDs": obj.get("tagIDs"),
+                "allowedCategoriesOnly": obj.get("allowedCategoriesOnly"),
+                "objectIDs": obj.get("objectIDs"),
+                "brands": obj.get("brands"),
+                "imtID": obj.get("imtID"),
+            }
+        )
         return _obj
-
-

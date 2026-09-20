@@ -23,14 +23,18 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class Timestamps(BaseModel):
     """
     Временные отметки
-    """ # noqa: E501
+    """  # noqa: E501
+
     created: datetime = Field(description="Время создания кампании")
     updated: datetime = Field(description="Время последнего изменения кампании")
     started: Optional[datetime] = Field(description="Время последнего запуска кампании")
-    deleted: datetime = Field(description="Время удаления кампании. Если кампания не удалена, время указывается в будущем")
+    deleted: datetime = Field(
+        description="Время удаления кампании. Если кампания не удалена, время указывается в будущем"
+    )
     __properties: ClassVar[List[str]] = ["created", "updated", "started", "deleted"]
 
     model_config = ConfigDict(
@@ -38,7 +42,6 @@ class Timestamps(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +67,7 @@ class Timestamps(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +77,7 @@ class Timestamps(BaseModel):
         # set to None if started (nullable) is None
         # and model_fields_set contains the field
         if self.started is None and "started" in self.model_fields_set:
-            _dict['started'] = None
+            _dict["started"] = None
 
         return _dict
 
@@ -88,12 +90,12 @@ class Timestamps(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "created": obj.get("created"),
-            "updated": obj.get("updated"),
-            "started": obj.get("started"),
-            "deleted": obj.get("deleted")
-        })
+        _obj = cls.model_validate(
+            {
+                "created": obj.get("created"),
+                "updated": obj.get("updated"),
+                "started": obj.get("started"),
+                "deleted": obj.get("deleted"),
+            }
+        )
         return _obj
-
-

@@ -22,23 +22,38 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2GetCardsListResponse200CardsInnerDimensions(BaseModel):
     """
     Габариты и вес товара c упаковкой, см и кг
-    """ # noqa: E501
+    """  # noqa: E501
+
     length: Optional[StrictInt] = Field(default=None, description="Длина, см")
     width: Optional[StrictInt] = Field(default=None, description="Ширина, см")
     height: Optional[StrictInt] = Field(default=None, description="Высота, см")
-    weight_brutto: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Вес, кг Количество знаков после запятой <=3", alias="weightBrutto")
-    is_valid: Optional[StrictBool] = Field(default=None, description="Потенциальная некорректность габаритов товара:  - `true` — не выявлена. `\"isValid\":true` не гарантирует, что размеры указаны корректно. В отдельных случаях (например, при создании новой категории товаров) `\"isValid\":true` будет возвращаться при любых значениях, кроме нулевых.  - `false` — указанные габариты значительно отличаются от средних по категории (предмету). Рекомендуется перепроверить, правильно ли указаны размеры товара в упаковке в `сантиметрах`. Функциональность карточки товара, в том числе начисление логистики и хранения, при этом ограничена не будет. Логистика и хранение продолжают начисляться — по текущим габаритам. Также `\"isValid\":false` возвращается при отсутствии значений или нулевом значении любой стороны. ", alias="isValid")
-    __properties: ClassVar[List[str]] = ["length", "width", "height", "weightBrutto", "isValid"]
+    weight_brutto: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Вес, кг Количество знаков после запятой <=3",
+        alias="weightBrutto",
+    )
+    is_valid: Optional[StrictBool] = Field(
+        default=None,
+        description='Потенциальная некорректность габаритов товара:  - `true` — не выявлена. `"isValid":true` не гарантирует, что размеры указаны корректно. В отдельных случаях (например, при создании новой категории товаров) `"isValid":true` будет возвращаться при любых значениях, кроме нулевых.  - `false` — указанные габариты значительно отличаются от средних по категории (предмету). Рекомендуется перепроверить, правильно ли указаны размеры товара в упаковке в `сантиметрах`. Функциональность карточки товара, в том числе начисление логистики и хранения, при этом ограничена не будет. Логистика и хранение продолжают начисляться — по текущим габаритам. Также `"isValid":false` возвращается при отсутствии значений или нулевом значении любой стороны. ',
+        alias="isValid",
+    )
+    __properties: ClassVar[List[str]] = [
+        "length",
+        "width",
+        "height",
+        "weightBrutto",
+        "isValid",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +79,7 @@ class PostV2GetCardsListResponse200CardsInnerDimensions(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,13 +97,13 @@ class PostV2GetCardsListResponse200CardsInnerDimensions(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "length": obj.get("length"),
-            "width": obj.get("width"),
-            "height": obj.get("height"),
-            "weightBrutto": obj.get("weightBrutto"),
-            "isValid": obj.get("isValid")
-        })
+        _obj = cls.model_validate(
+            {
+                "length": obj.get("length"),
+                "width": obj.get("width"),
+                "height": obj.get("height"),
+                "weightBrutto": obj.get("weightBrutto"),
+                "isValid": obj.get("isValid"),
+            }
+        )
         return _obj
-
-

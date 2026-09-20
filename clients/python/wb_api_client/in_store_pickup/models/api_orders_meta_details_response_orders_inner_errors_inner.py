@@ -22,10 +22,12 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner(BaseModel):
     """
     ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     code: StrictInt = Field(description="Код ошибки")
     detail: StrictStr = Field(description="Дополнительная информация об ошибке")
     __properties: ClassVar[List[str]] = ["code", "detail"]
@@ -35,7 +37,6 @@ class ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +62,7 @@ class ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +80,7 @@ class ApiOrdersMetaDetailsResponseOrdersInnerErrorsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "code": obj.get("code"),
-            "detail": obj.get("detail")
-        })
+        _obj = cls.model_validate(
+            {"code": obj.get("code"), "detail": obj.get("detail")}
+        )
         return _obj
-
-

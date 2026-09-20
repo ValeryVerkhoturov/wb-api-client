@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.reports.models.get_v1_analytics_region_sale200_response_report_inner import GetV1AnalyticsRegionSale200ResponseReportInner
+from wb_api_client.reports.models.get_v1_analytics_region_sale200_response_report_inner import (
+    GetV1AnalyticsRegionSale200ResponseReportInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetV1AnalyticsRegionSale200Response(BaseModel):
     """
     GetV1AnalyticsRegionSale200Response
-    """ # noqa: E501
+    """  # noqa: E501
+
     report: Optional[List[GetV1AnalyticsRegionSale200ResponseReportInner]] = None
     __properties: ClassVar[List[str]] = ["report"]
 
@@ -35,7 +39,6 @@ class GetV1AnalyticsRegionSale200Response(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class GetV1AnalyticsRegionSale200Response(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +77,7 @@ class GetV1AnalyticsRegionSale200Response(BaseModel):
             for _item_report in self.report:
                 if _item_report:
                     _items.append(_item_report.to_dict())
-            _dict['report'] = _items
+            _dict["report"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +89,16 @@ class GetV1AnalyticsRegionSale200Response(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "report": [GetV1AnalyticsRegionSale200ResponseReportInner.from_dict(_item) for _item in obj["report"]] if obj.get("report") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "report": (
+                    [
+                        GetV1AnalyticsRegionSale200ResponseReportInner.from_dict(_item)
+                        for _item in obj["report"]
+                    ]
+                    if obj.get("report") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

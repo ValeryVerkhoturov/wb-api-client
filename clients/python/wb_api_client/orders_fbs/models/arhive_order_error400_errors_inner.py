@@ -22,13 +22,19 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ArhiveOrderError400ErrorsInner(BaseModel):
     """
     ArhiveOrderError400ErrorsInner
-    """ # noqa: E501
-    location: Optional[StrictStr] = Field(default=None, description="Параметр, где произошла ошибка")
+    """  # noqa: E501
+
+    location: Optional[StrictStr] = Field(
+        default=None, description="Параметр, где произошла ошибка"
+    )
     message: Optional[StrictStr] = Field(default=None, description="Текст ошибки")
-    value: Optional[Any] = Field(default=None, description="Значение параметра, где произошла ошибка")
+    value: Optional[Any] = Field(
+        default=None, description="Значение параметра, где произошла ошибка"
+    )
     __properties: ClassVar[List[str]] = ["location", "message", "value"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class ArhiveOrderError400ErrorsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class ArhiveOrderError400ErrorsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,7 +77,7 @@ class ArhiveOrderError400ErrorsInner(BaseModel):
         # set to None if value (nullable) is None
         # and model_fields_set contains the field
         if self.value is None and "value" in self.model_fields_set:
-            _dict['value'] = None
+            _dict["value"] = None
 
         return _dict
 
@@ -86,11 +90,11 @@ class ArhiveOrderError400ErrorsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "location": obj.get("location"),
-            "message": obj.get("message"),
-            "value": obj.get("value")
-        })
+        _obj = cls.model_validate(
+            {
+                "location": obj.get("location"),
+                "message": obj.get("message"),
+                "value": obj.get("value"),
+            }
+        )
         return _obj
-
-

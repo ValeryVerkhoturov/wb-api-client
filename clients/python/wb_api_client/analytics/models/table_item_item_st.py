@@ -19,31 +19,53 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.analytics.models.table_item_item_st_metrics import TableItemItemStMetrics
+from wb_api_client.analytics.models.table_item_item_st_metrics import (
+    TableItemItemStMetrics,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class TableItemItemSt(BaseModel):
     """
     Данные по товару
-    """ # noqa: E501
+    """  # noqa: E501
+
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmID")
-    is_deleted: StrictBool = Field(description="Является ли товар удалённым", alias="isDeleted")
-    subject_name: StrictStr = Field(description="Название предмета", alias="subjectName")
+    is_deleted: StrictBool = Field(
+        description="Является ли товар удалённым", alias="isDeleted"
+    )
+    subject_name: StrictStr = Field(
+        description="Название предмета", alias="subjectName"
+    )
     name: StrictStr = Field(description="Название товара")
     vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode")
     brand_name: StrictStr = Field(description="Бренд", alias="brandName")
-    main_photo: StrictStr = Field(description="Ссылка на главное фото", alias="mainPhoto")
-    has_sizes: StrictBool = Field(description="Является ли товар размерным. Неразмерный товар имеет единственный размер, с `\"techSize\":\"0\"`", alias="hasSizes")
+    main_photo: StrictStr = Field(
+        description="Ссылка на главное фото", alias="mainPhoto"
+    )
+    has_sizes: StrictBool = Field(
+        description='Является ли товар размерным. Неразмерный товар имеет единственный размер, с `"techSize":"0"`',
+        alias="hasSizes",
+    )
     metrics: TableItemItemStMetrics
-    __properties: ClassVar[List[str]] = ["nmID", "isDeleted", "subjectName", "name", "vendorCode", "brandName", "mainPhoto", "hasSizes", "metrics"]
+    __properties: ClassVar[List[str]] = [
+        "nmID",
+        "isDeleted",
+        "subjectName",
+        "name",
+        "vendorCode",
+        "brandName",
+        "mainPhoto",
+        "hasSizes",
+        "metrics",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -69,8 +91,7 @@ class TableItemItemSt(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,7 +100,7 @@ class TableItemItemSt(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of metrics
         if self.metrics:
-            _dict['metrics'] = self.metrics.to_dict()
+            _dict["metrics"] = self.metrics.to_dict()
         return _dict
 
     @classmethod
@@ -91,17 +112,21 @@ class TableItemItemSt(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmID": obj.get("nmID"),
-            "isDeleted": obj.get("isDeleted"),
-            "subjectName": obj.get("subjectName"),
-            "name": obj.get("name"),
-            "vendorCode": obj.get("vendorCode"),
-            "brandName": obj.get("brandName"),
-            "mainPhoto": obj.get("mainPhoto"),
-            "hasSizes": obj.get("hasSizes"),
-            "metrics": TableItemItemStMetrics.from_dict(obj["metrics"]) if obj.get("metrics") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "nmID": obj.get("nmID"),
+                "isDeleted": obj.get("isDeleted"),
+                "subjectName": obj.get("subjectName"),
+                "name": obj.get("name"),
+                "vendorCode": obj.get("vendorCode"),
+                "brandName": obj.get("brandName"),
+                "mainPhoto": obj.get("mainPhoto"),
+                "hasSizes": obj.get("hasSizes"),
+                "metrics": (
+                    TableItemItemStMetrics.from_dict(obj["metrics"])
+                    if obj.get("metrics") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

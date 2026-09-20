@@ -24,10 +24,12 @@ from wb_api_client.analytics.models.item_orders_text_item import ItemOrdersTextI
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ItemOrdersResponse(BaseModel):
     """
     ItemOrdersResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     total: List[ItemOrdersMetrics] = Field(description="Итог по товарам")
     items: List[ItemOrdersTextItem] = Field(description="Элементы таблицы")
     __properties: ClassVar[List[str]] = ["total", "items"]
@@ -37,7 +39,6 @@ class ItemOrdersResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +64,7 @@ class ItemOrdersResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,14 +77,14 @@ class ItemOrdersResponse(BaseModel):
             for _item_total in self.total:
                 if _item_total:
                     _items.append(_item_total.to_dict())
-            _dict['total'] = _items
+            _dict["total"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in items (list)
         _items = []
         if self.items:
             for _item_items in self.items:
                 if _item_items:
                     _items.append(_item_items.to_dict())
-            _dict['items'] = _items
+            _dict["items"] = _items
         return _dict
 
     @classmethod
@@ -96,10 +96,18 @@ class ItemOrdersResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "total": [ItemOrdersMetrics.from_dict(_item) for _item in obj["total"]] if obj.get("total") is not None else None,
-            "items": [ItemOrdersTextItem.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "total": (
+                    [ItemOrdersMetrics.from_dict(_item) for _item in obj["total"]]
+                    if obj.get("total") is not None
+                    else None
+                ),
+                "items": (
+                    [ItemOrdersTextItem.from_dict(_item) for _item in obj["items"]]
+                    if obj.get("items") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

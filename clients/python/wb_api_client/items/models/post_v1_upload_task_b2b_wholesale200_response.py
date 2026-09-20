@@ -19,17 +19,26 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.items.models.post_v1_upload_task_b2b_wholesale200_response_results_inner import PostV1UploadTaskB2bWholesale200ResponseResultsInner
+from wb_api_client.items.models.post_v1_upload_task_b2b_wholesale200_response_results_inner import (
+    PostV1UploadTaskB2bWholesale200ResponseResultsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV1UploadTaskB2bWholesale200Response(BaseModel):
     """
     PostV1UploadTaskB2bWholesale200Response
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: StrictInt = Field(description="ID загрузки")
-    already_exists: StrictBool = Field(description="Дублирование загрузки: `true` — такая загрузка уже есть ", alias="alreadyExists")
-    results: List[PostV1UploadTaskB2bWholesale200ResponseResultsInner] = Field(description="Результаты обработки запроса")
+    already_exists: StrictBool = Field(
+        description="Дублирование загрузки: `true` — такая загрузка уже есть ",
+        alias="alreadyExists",
+    )
+    results: List[PostV1UploadTaskB2bWholesale200ResponseResultsInner] = Field(
+        description="Результаты обработки запроса"
+    )
     __properties: ClassVar[List[str]] = ["id", "alreadyExists", "results"]
 
     model_config = ConfigDict(
@@ -37,7 +46,6 @@ class PostV1UploadTaskB2bWholesale200Response(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +71,7 @@ class PostV1UploadTaskB2bWholesale200Response(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +84,7 @@ class PostV1UploadTaskB2bWholesale200Response(BaseModel):
             for _item_results in self.results:
                 if _item_results:
                     _items.append(_item_results.to_dict())
-            _dict['results'] = _items
+            _dict["results"] = _items
         return _dict
 
     @classmethod
@@ -89,11 +96,20 @@ class PostV1UploadTaskB2bWholesale200Response(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "alreadyExists": obj.get("alreadyExists"),
-            "results": [PostV1UploadTaskB2bWholesale200ResponseResultsInner.from_dict(_item) for _item in obj["results"]] if obj.get("results") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "alreadyExists": obj.get("alreadyExists"),
+                "results": (
+                    [
+                        PostV1UploadTaskB2bWholesale200ResponseResultsInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["results"]
+                    ]
+                    if obj.get("results") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

@@ -24,13 +24,24 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class OrderFeedRequestPagination(BaseModel):
     """
     Пагинация
-    """ # noqa: E501
-    snapshot_time: Optional[datetime] = Field(default=None, description="Метка снимка данных, в рамках которого выполняется пагинация. Данные отчёта обновляются асинхронно. Чтобы не пропускать и не дублировать заказы, запросы одной выборки должны быть с одним и тем же `snapshotTime`. В первом запросе выборки (`\"offset\":0`) параметр не указывается, в каждом последующем запросе (`offset`>`0`) указывайте значение поля `snapshotTime` из ответа на **первый** запрос. При изменении значений периода и фильтров начинайте выборку заново с `\"offset\":0` и без `snapshotTime`", alias="snapshotTime")
-    offset: Optional[StrictInt] = Field(default=0, description="Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента")
-    limit: Optional[Annotated[int, Field(le=10000, strict=True)]] = Field(default=50, description="Количество заказов в ответе")
+    """  # noqa: E501
+
+    snapshot_time: Optional[datetime] = Field(
+        default=None,
+        description='Метка снимка данных, в рамках которого выполняется пагинация. Данные отчёта обновляются асинхронно. Чтобы не пропускать и не дублировать заказы, запросы одной выборки должны быть с одним и тем же `snapshotTime`. В первом запросе выборки (`"offset":0`) параметр не указывается, в каждом последующем запросе (`offset`>`0`) указывайте значение поля `snapshotTime` из ответа на **первый** запрос. При изменении значений периода и фильтров начинайте выборку заново с `"offset":0` и без `snapshotTime`',
+        alias="snapshotTime",
+    )
+    offset: Optional[StrictInt] = Field(
+        default=0,
+        description="Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента",
+    )
+    limit: Optional[Annotated[int, Field(le=10000, strict=True)]] = Field(
+        default=50, description="Количество заказов в ответе"
+    )
     __properties: ClassVar[List[str]] = ["snapshotTime", "offset", "limit"]
 
     model_config = ConfigDict(
@@ -38,7 +49,6 @@ class OrderFeedRequestPagination(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +74,7 @@ class OrderFeedRequestPagination(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,11 +92,11 @@ class OrderFeedRequestPagination(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "snapshotTime": obj.get("snapshotTime"),
-            "offset": obj.get("offset") if obj.get("offset") is not None else 0,
-            "limit": obj.get("limit") if obj.get("limit") is not None else 50
-        })
+        _obj = cls.model_validate(
+            {
+                "snapshotTime": obj.get("snapshotTime"),
+                "offset": obj.get("offset") if obj.get("offset") is not None else 0,
+                "limit": obj.get("limit") if obj.get("limit") is not None else 50,
+            }
+        )
         return _obj
-
-

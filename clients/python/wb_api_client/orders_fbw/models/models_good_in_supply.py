@@ -22,30 +22,71 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsGoodInSupply(BaseModel):
     """
     ModelsGoodInSupply
-    """ # noqa: E501
+    """  # noqa: E501
+
     barcode: Optional[StrictStr] = Field(default=None, description="Баркод товара")
-    vendor_code: Optional[StrictStr] = Field(default=None, description="Артикул продавца", alias="vendorCode")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmID")
-    need_kiz: Optional[StrictBool] = Field(default=None, description="Нужен ли [код маркировки Честного знака](https://честныйзнак.рф/) для этого товара:   - `false` — не нужен   - `true` — нужен ", alias="needKiz")
-    tnved: Optional[StrictStr] = Field(default=None, description="Код ТНВЭД.  Если `\"needKiz\":true`, а `\"tnved\":null`, нужно заполнить характеристику товара \\*\\*ТН ВЭД\\*\\* в [личном кабинете](https://seller.wildberries.ru/new-goods) или по [API](./item-management#tag/listings/operation/postV2CardsUpdate)")
-    tech_size: Optional[StrictStr] = Field(default=None, description="Размер товара, указанный продавцом", alias="techSize")
+    vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Артикул продавца", alias="vendorCode"
+    )
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmID"
+    )
+    need_kiz: Optional[StrictBool] = Field(
+        default=None,
+        description="Нужен ли [код маркировки Честного знака](https://честныйзнак.рф/) для этого товара:   - `false` — не нужен   - `true` — нужен ",
+        alias="needKiz",
+    )
+    tnved: Optional[StrictStr] = Field(
+        default=None,
+        description='Код ТНВЭД.  Если `"needKiz":true`, а `"tnved":null`, нужно заполнить характеристику товара \\*\\*ТН ВЭД\\*\\* в [личном кабинете](https://seller.wildberries.ru/new-goods) или по [API](./item-management#tag/listings/operation/postV2CardsUpdate)',
+    )
+    tech_size: Optional[StrictStr] = Field(
+        default=None, description="Размер товара, указанный продавцом", alias="techSize"
+    )
     color: Optional[StrictStr] = Field(default=None, description="Цвет товара")
-    supplier_box_amount: Optional[StrictInt] = Field(default=None, description="Указано в упаковке, шт", alias="supplierBoxAmount")
-    quantity: Optional[StrictInt] = Field(default=None, description="Указано в поставке/заказе, шт")
-    ready_for_sale_quantity: Optional[StrictInt] = Field(default=None, description="Поступило в продажу, шт", alias="readyForSaleQuantity")
-    accepted_quantity: Optional[StrictInt] = Field(default=None, description="Принято, шт", alias="acceptedQuantity")
-    unloading_quantity: Optional[StrictInt] = Field(default=None, description="Количество товара на раскладке, шт", alias="unloadingQuantity")
-    __properties: ClassVar[List[str]] = ["barcode", "vendorCode", "nmID", "needKiz", "tnved", "techSize", "color", "supplierBoxAmount", "quantity", "readyForSaleQuantity", "acceptedQuantity", "unloadingQuantity"]
+    supplier_box_amount: Optional[StrictInt] = Field(
+        default=None, description="Указано в упаковке, шт", alias="supplierBoxAmount"
+    )
+    quantity: Optional[StrictInt] = Field(
+        default=None, description="Указано в поставке/заказе, шт"
+    )
+    ready_for_sale_quantity: Optional[StrictInt] = Field(
+        default=None,
+        description="Поступило в продажу, шт",
+        alias="readyForSaleQuantity",
+    )
+    accepted_quantity: Optional[StrictInt] = Field(
+        default=None, description="Принято, шт", alias="acceptedQuantity"
+    )
+    unloading_quantity: Optional[StrictInt] = Field(
+        default=None,
+        description="Количество товара на раскладке, шт",
+        alias="unloadingQuantity",
+    )
+    __properties: ClassVar[List[str]] = [
+        "barcode",
+        "vendorCode",
+        "nmID",
+        "needKiz",
+        "tnved",
+        "techSize",
+        "color",
+        "supplierBoxAmount",
+        "quantity",
+        "readyForSaleQuantity",
+        "acceptedQuantity",
+        "unloadingQuantity",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -71,8 +112,7 @@ class ModelsGoodInSupply(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,32 +122,44 @@ class ModelsGoodInSupply(BaseModel):
         # set to None if tnved (nullable) is None
         # and model_fields_set contains the field
         if self.tnved is None and "tnved" in self.model_fields_set:
-            _dict['tnved'] = None
+            _dict["tnved"] = None
 
         # set to None if color (nullable) is None
         # and model_fields_set contains the field
         if self.color is None and "color" in self.model_fields_set:
-            _dict['color'] = None
+            _dict["color"] = None
 
         # set to None if supplier_box_amount (nullable) is None
         # and model_fields_set contains the field
-        if self.supplier_box_amount is None and "supplier_box_amount" in self.model_fields_set:
-            _dict['supplierBoxAmount'] = None
+        if (
+            self.supplier_box_amount is None
+            and "supplier_box_amount" in self.model_fields_set
+        ):
+            _dict["supplierBoxAmount"] = None
 
         # set to None if ready_for_sale_quantity (nullable) is None
         # and model_fields_set contains the field
-        if self.ready_for_sale_quantity is None and "ready_for_sale_quantity" in self.model_fields_set:
-            _dict['readyForSaleQuantity'] = None
+        if (
+            self.ready_for_sale_quantity is None
+            and "ready_for_sale_quantity" in self.model_fields_set
+        ):
+            _dict["readyForSaleQuantity"] = None
 
         # set to None if accepted_quantity (nullable) is None
         # and model_fields_set contains the field
-        if self.accepted_quantity is None and "accepted_quantity" in self.model_fields_set:
-            _dict['acceptedQuantity'] = None
+        if (
+            self.accepted_quantity is None
+            and "accepted_quantity" in self.model_fields_set
+        ):
+            _dict["acceptedQuantity"] = None
 
         # set to None if unloading_quantity (nullable) is None
         # and model_fields_set contains the field
-        if self.unloading_quantity is None and "unloading_quantity" in self.model_fields_set:
-            _dict['unloadingQuantity'] = None
+        if (
+            self.unloading_quantity is None
+            and "unloading_quantity" in self.model_fields_set
+        ):
+            _dict["unloadingQuantity"] = None
 
         return _dict
 
@@ -120,20 +172,20 @@ class ModelsGoodInSupply(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "barcode": obj.get("barcode"),
-            "vendorCode": obj.get("vendorCode"),
-            "nmID": obj.get("nmID"),
-            "needKiz": obj.get("needKiz"),
-            "tnved": obj.get("tnved"),
-            "techSize": obj.get("techSize"),
-            "color": obj.get("color"),
-            "supplierBoxAmount": obj.get("supplierBoxAmount"),
-            "quantity": obj.get("quantity"),
-            "readyForSaleQuantity": obj.get("readyForSaleQuantity"),
-            "acceptedQuantity": obj.get("acceptedQuantity"),
-            "unloadingQuantity": obj.get("unloadingQuantity")
-        })
+        _obj = cls.model_validate(
+            {
+                "barcode": obj.get("barcode"),
+                "vendorCode": obj.get("vendorCode"),
+                "nmID": obj.get("nmID"),
+                "needKiz": obj.get("needKiz"),
+                "tnved": obj.get("tnved"),
+                "techSize": obj.get("techSize"),
+                "color": obj.get("color"),
+                "supplierBoxAmount": obj.get("supplierBoxAmount"),
+                "quantity": obj.get("quantity"),
+                "readyForSaleQuantity": obj.get("readyForSaleQuantity"),
+                "acceptedQuantity": obj.get("acceptedQuantity"),
+                "unloadingQuantity": obj.get("unloadingQuantity"),
+            }
+        )
         return _obj
-
-

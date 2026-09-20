@@ -19,16 +19,24 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.general.models.get_users_response_users_inner_access_inner import GetUsersResponseUsersInnerAccessInner
+from wb_api_client.general.models.get_users_response_users_inner_access_inner import (
+    GetUsersResponseUsersInnerAccessInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class UserAccess(BaseModel):
     """
     UserAccess
-    """ # noqa: E501
-    user_id: Optional[StrictInt] = Field(default=None, description="ID пользователя", alias="userId")
-    access: Optional[List[GetUsersResponseUsersInnerAccessInner]] = Field(default=None, description="Настройки доступа к разделам профиля продавца")
+    """  # noqa: E501
+
+    user_id: Optional[StrictInt] = Field(
+        default=None, description="ID пользователя", alias="userId"
+    )
+    access: Optional[List[GetUsersResponseUsersInnerAccessInner]] = Field(
+        default=None, description="Настройки доступа к разделам профиля продавца"
+    )
     __properties: ClassVar[List[str]] = ["userId", "access"]
 
     model_config = ConfigDict(
@@ -36,7 +44,6 @@ class UserAccess(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +69,7 @@ class UserAccess(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +82,7 @@ class UserAccess(BaseModel):
             for _item_access in self.access:
                 if _item_access:
                     _items.append(_item_access.to_dict())
-            _dict['access'] = _items
+            _dict["access"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +94,17 @@ class UserAccess(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "userId": obj.get("userId"),
-            "access": [GetUsersResponseUsersInnerAccessInner.from_dict(_item) for _item in obj["access"]] if obj.get("access") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "userId": obj.get("userId"),
+                "access": (
+                    [
+                        GetUsersResponseUsersInnerAccessInner.from_dict(_item)
+                        for _item in obj["access"]
+                    ]
+                    if obj.get("access") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

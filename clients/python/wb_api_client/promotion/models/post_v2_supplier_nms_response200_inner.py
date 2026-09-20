@@ -22,13 +22,17 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2SupplierNmsResponse200Inner(BaseModel):
     """
     PostV2SupplierNmsResponse200Inner
-    """ # noqa: E501
+    """  # noqa: E501
+
     title: Optional[StrictStr] = Field(default=None, description="Название товара")
     nm: Optional[StrictInt] = Field(default=None, description="Артикул WB")
-    subject_id: Optional[StrictInt] = Field(default=None, description="ID предмета", alias="subjectId")
+    subject_id: Optional[StrictInt] = Field(
+        default=None, description="ID предмета", alias="subjectId"
+    )
     __properties: ClassVar[List[str]] = ["title", "nm", "subjectId"]
 
     model_config = ConfigDict(
@@ -36,7 +40,6 @@ class PostV2SupplierNmsResponse200Inner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class PostV2SupplierNmsResponse200Inner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +83,11 @@ class PostV2SupplierNmsResponse200Inner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "title": obj.get("title"),
-            "nm": obj.get("nm"),
-            "subjectId": obj.get("subjectId")
-        })
+        _obj = cls.model_validate(
+            {
+                "title": obj.get("title"),
+                "nm": obj.get("nm"),
+                "subjectId": obj.get("subjectId"),
+            }
+        )
         return _obj
-
-

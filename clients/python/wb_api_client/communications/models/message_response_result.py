@@ -22,12 +22,18 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class MessageResponseResult(BaseModel):
     """
     MessageResponseResult
-    """ # noqa: E501
-    add_time: Optional[StrictInt] = Field(default=None, description="Дата и время создания чата", alias="addTime")
-    chat_id: Optional[StrictStr] = Field(default=None, description="ID чата", alias="chatID")
+    """  # noqa: E501
+
+    add_time: Optional[StrictInt] = Field(
+        default=None, description="Дата и время создания чата", alias="addTime"
+    )
+    chat_id: Optional[StrictStr] = Field(
+        default=None, description="ID чата", alias="chatID"
+    )
     sign: Optional[StrictStr] = Field(default=None, description="Подпись чата")
     __properties: ClassVar[List[str]] = ["addTime", "chatID", "sign"]
 
@@ -36,7 +42,6 @@ class MessageResponseResult(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class MessageResponseResult(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +85,11 @@ class MessageResponseResult(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "addTime": obj.get("addTime"),
-            "chatID": obj.get("chatID"),
-            "sign": obj.get("sign")
-        })
+        _obj = cls.model_validate(
+            {
+                "addTime": obj.get("addTime"),
+                "chatID": obj.get("chatID"),
+                "sign": obj.get("sign"),
+            }
+        )
         return _obj
-
-

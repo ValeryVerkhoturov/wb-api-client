@@ -22,13 +22,19 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1AccountBalanceResponse200(BaseModel):
     """
     GetV1AccountBalanceResponse200
-    """ # noqa: E501
+    """  # noqa: E501
+
     currency: Optional[StrictStr] = Field(default=None, description="Валюта")
-    current: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Текущий баланс продавца")
-    for_withdraw: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Сумма, доступная к выводу")
+    current: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Текущий баланс продавца"
+    )
+    for_withdraw: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Сумма, доступная к выводу"
+    )
     __properties: ClassVar[List[str]] = ["currency", "current", "for_withdraw"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class GetV1AccountBalanceResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class GetV1AccountBalanceResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +85,11 @@ class GetV1AccountBalanceResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "currency": obj.get("currency"),
-            "current": obj.get("current"),
-            "for_withdraw": obj.get("for_withdraw")
-        })
+        _obj = cls.model_validate(
+            {
+                "currency": obj.get("currency"),
+                "current": obj.get("current"),
+                "for_withdraw": obj.get("for_withdraw"),
+            }
+        )
         return _obj
-
-

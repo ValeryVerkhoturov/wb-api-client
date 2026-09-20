@@ -17,7 +17,15 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from wb_api_client.analytics.models.period_inv import PeriodInv
@@ -26,29 +34,71 @@ from wb_api_client.analytics.models.table_order_by import TableOrderBy
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class TableGroupRequestSt(BaseModel):
     """
     TableGroupRequestSt
-    """ # noqa: E501
-    nm_ids: Optional[List[StrictInt]] = Field(default=None, description="Список артикулов WB для фильтрации", alias="nmIDs")
-    subject_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID предметов для фильтрации", alias="subjectIDs")
-    brand_names: Optional[List[StrictStr]] = Field(default=None, description="Список брендов для фильтрации", alias="brandNames")
-    tag_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID ярлыков для фильтрации", alias="tagIDs")
+    """  # noqa: E501
+
+    nm_ids: Optional[List[StrictInt]] = Field(
+        default=None, description="Список артикулов WB для фильтрации", alias="nmIDs"
+    )
+    subject_ids: Optional[List[StrictInt]] = Field(
+        default=None,
+        description="Список ID предметов для фильтрации",
+        alias="subjectIDs",
+    )
+    brand_names: Optional[List[StrictStr]] = Field(
+        default=None, description="Список брендов для фильтрации", alias="brandNames"
+    )
+    tag_ids: Optional[List[StrictInt]] = Field(
+        default=None, description="Список ID ярлыков для фильтрации", alias="tagIDs"
+    )
     current_period: PeriodInv = Field(alias="currentPeriod")
     stock_type: StockType = Field(alias="stockType")
-    skip_deleted_nm: StrictBool = Field(description="Скрыть удалённые товары", alias="skipDeletedNm")
-    availability_filters: List[StrictStr] = Field(description="Доступность товара:   - `deficient` — Дефицит   - `actual` — Актуальный   - `balanced` — Баланс   - `nonActual` — Неактуальный   - `nonLiquid` — Неликвид   - `invalidData` — Не рассчитано ", alias="availabilityFilters")
+    skip_deleted_nm: StrictBool = Field(
+        description="Скрыть удалённые товары", alias="skipDeletedNm"
+    )
+    availability_filters: List[StrictStr] = Field(
+        description="Доступность товара:   - `deficient` — Дефицит   - `actual` — Актуальный   - `balanced` — Баланс   - `nonActual` — Неактуальный   - `nonLiquid` — Неликвид   - `invalidData` — Не рассчитано ",
+        alias="availabilityFilters",
+    )
     order_by: TableOrderBy = Field(alias="orderBy")
-    limit: Optional[Annotated[int, Field(le=1000, strict=True)]] = Field(default=100, description="Количество групп в ответе")
+    limit: Optional[Annotated[int, Field(le=1000, strict=True)]] = Field(
+        default=100, description="Количество групп в ответе"
+    )
     offset: StrictInt = Field(description="После какого элемента выдавать данные")
-    __properties: ClassVar[List[str]] = ["nmIDs", "subjectIDs", "brandNames", "tagIDs", "currentPeriod", "stockType", "skipDeletedNm", "availabilityFilters", "orderBy", "limit", "offset"]
+    __properties: ClassVar[List[str]] = [
+        "nmIDs",
+        "subjectIDs",
+        "brandNames",
+        "tagIDs",
+        "currentPeriod",
+        "stockType",
+        "skipDeletedNm",
+        "availabilityFilters",
+        "orderBy",
+        "limit",
+        "offset",
+    ]
 
-    @field_validator('availability_filters')
+    @field_validator("availability_filters")
     def availability_filters_validate_enum(cls, value):
         """Validates the enum"""
         for i in value:
-            if i not in set(['deficient', 'actual', 'balanced', 'nonActual', 'nonLiquid', 'invalidData']):
-                raise ValueError("each list item must be one of ('deficient', 'actual', 'balanced', 'nonActual', 'nonLiquid', 'invalidData')")
+            if i not in set(
+                [
+                    "deficient",
+                    "actual",
+                    "balanced",
+                    "nonActual",
+                    "nonLiquid",
+                    "invalidData",
+                ]
+            ):
+                raise ValueError(
+                    "each list item must be one of ('deficient', 'actual', 'balanced', 'nonActual', 'nonLiquid', 'invalidData')"
+                )
         return value
 
     model_config = ConfigDict(
@@ -56,7 +106,6 @@ class TableGroupRequestSt(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -82,8 +131,7 @@ class TableGroupRequestSt(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -92,10 +140,10 @@ class TableGroupRequestSt(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of current_period
         if self.current_period:
-            _dict['currentPeriod'] = self.current_period.to_dict()
+            _dict["currentPeriod"] = self.current_period.to_dict()
         # override the default output from pydantic by calling `to_dict()` of order_by
         if self.order_by:
-            _dict['orderBy'] = self.order_by.to_dict()
+            _dict["orderBy"] = self.order_by.to_dict()
         return _dict
 
     @classmethod
@@ -107,19 +155,27 @@ class TableGroupRequestSt(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmIDs": obj.get("nmIDs"),
-            "subjectIDs": obj.get("subjectIDs"),
-            "brandNames": obj.get("brandNames"),
-            "tagIDs": obj.get("tagIDs"),
-            "currentPeriod": PeriodInv.from_dict(obj["currentPeriod"]) if obj.get("currentPeriod") is not None else None,
-            "stockType": obj.get("stockType"),
-            "skipDeletedNm": obj.get("skipDeletedNm"),
-            "availabilityFilters": obj.get("availabilityFilters"),
-            "orderBy": TableOrderBy.from_dict(obj["orderBy"]) if obj.get("orderBy") is not None else None,
-            "limit": obj.get("limit") if obj.get("limit") is not None else 100,
-            "offset": obj.get("offset")
-        })
+        _obj = cls.model_validate(
+            {
+                "nmIDs": obj.get("nmIDs"),
+                "subjectIDs": obj.get("subjectIDs"),
+                "brandNames": obj.get("brandNames"),
+                "tagIDs": obj.get("tagIDs"),
+                "currentPeriod": (
+                    PeriodInv.from_dict(obj["currentPeriod"])
+                    if obj.get("currentPeriod") is not None
+                    else None
+                ),
+                "stockType": obj.get("stockType"),
+                "skipDeletedNm": obj.get("skipDeletedNm"),
+                "availabilityFilters": obj.get("availabilityFilters"),
+                "orderBy": (
+                    TableOrderBy.from_dict(obj["orderBy"])
+                    if obj.get("orderBy") is not None
+                    else None
+                ),
+                "limit": obj.get("limit") if obj.get("limit") is not None else 100,
+                "offset": obj.get("offset"),
+            }
+        )
         return _obj
-
-

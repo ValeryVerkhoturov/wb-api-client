@@ -19,28 +19,48 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.v0_bid_recommendation_reach_max import V0BidRecommendationReachMax
-from wb_api_client.promotion.models.v0_bid_recommendation_reach_medium import V0BidRecommendationReachMedium
-from wb_api_client.promotion.models.v0_bid_recommendation_reach_min import V0BidRecommendationReachMin
+from wb_api_client.promotion.models.v0_bid_recommendation_reach_max import (
+    V0BidRecommendationReachMax,
+)
+from wb_api_client.promotion.models.v0_bid_recommendation_reach_medium import (
+    V0BidRecommendationReachMedium,
+)
+from wb_api_client.promotion.models.v0_bid_recommendation_reach_min import (
+    V0BidRecommendationReachMin,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class V0BidRecommendationNormQuery(BaseModel):
     """
     V0BidRecommendationNormQuery
-    """ # noqa: E501
-    norm_query: Optional[StrictStr] = Field(default=None, description="Поисковый кластер", alias="normQuery")
-    reach_max: Optional[V0BidRecommendationReachMax] = Field(default=None, alias="reachMax")
-    reach_medium: Optional[V0BidRecommendationReachMedium] = Field(default=None, alias="reachMedium")
-    reach_min: Optional[V0BidRecommendationReachMin] = Field(default=None, alias="reachMin")
-    __properties: ClassVar[List[str]] = ["normQuery", "reachMax", "reachMedium", "reachMin"]
+    """  # noqa: E501
+
+    norm_query: Optional[StrictStr] = Field(
+        default=None, description="Поисковый кластер", alias="normQuery"
+    )
+    reach_max: Optional[V0BidRecommendationReachMax] = Field(
+        default=None, alias="reachMax"
+    )
+    reach_medium: Optional[V0BidRecommendationReachMedium] = Field(
+        default=None, alias="reachMedium"
+    )
+    reach_min: Optional[V0BidRecommendationReachMin] = Field(
+        default=None, alias="reachMin"
+    )
+    __properties: ClassVar[List[str]] = [
+        "normQuery",
+        "reachMax",
+        "reachMedium",
+        "reachMin",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -66,8 +86,7 @@ class V0BidRecommendationNormQuery(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,13 +95,13 @@ class V0BidRecommendationNormQuery(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of reach_max
         if self.reach_max:
-            _dict['reachMax'] = self.reach_max.to_dict()
+            _dict["reachMax"] = self.reach_max.to_dict()
         # override the default output from pydantic by calling `to_dict()` of reach_medium
         if self.reach_medium:
-            _dict['reachMedium'] = self.reach_medium.to_dict()
+            _dict["reachMedium"] = self.reach_medium.to_dict()
         # override the default output from pydantic by calling `to_dict()` of reach_min
         if self.reach_min:
-            _dict['reachMin'] = self.reach_min.to_dict()
+            _dict["reachMin"] = self.reach_min.to_dict()
         return _dict
 
     @classmethod
@@ -94,12 +113,24 @@ class V0BidRecommendationNormQuery(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "normQuery": obj.get("normQuery"),
-            "reachMax": V0BidRecommendationReachMax.from_dict(obj["reachMax"]) if obj.get("reachMax") is not None else None,
-            "reachMedium": V0BidRecommendationReachMedium.from_dict(obj["reachMedium"]) if obj.get("reachMedium") is not None else None,
-            "reachMin": V0BidRecommendationReachMin.from_dict(obj["reachMin"]) if obj.get("reachMin") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "normQuery": obj.get("normQuery"),
+                "reachMax": (
+                    V0BidRecommendationReachMax.from_dict(obj["reachMax"])
+                    if obj.get("reachMax") is not None
+                    else None
+                ),
+                "reachMedium": (
+                    V0BidRecommendationReachMedium.from_dict(obj["reachMedium"])
+                    if obj.get("reachMedium") is not None
+                    else None
+                ),
+                "reachMin": (
+                    V0BidRecommendationReachMin.from_dict(obj["reachMin"])
+                    if obj.get("reachMin") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.finances.models.get_list_data_documents_inner import GetListDataDocumentsInner
+from wb_api_client.finances.models.get_list_data_documents_inner import (
+    GetListDataDocumentsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetListData(BaseModel):
     """
     GetListData
-    """ # noqa: E501
-    documents: Optional[List[GetListDataDocumentsInner]] = Field(default=None, description="Категории документов")
+    """  # noqa: E501
+
+    documents: Optional[List[GetListDataDocumentsInner]] = Field(
+        default=None, description="Категории документов"
+    )
     __properties: ClassVar[List[str]] = ["documents"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class GetListData(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class GetListData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +79,7 @@ class GetListData(BaseModel):
             for _item_documents in self.documents:
                 if _item_documents:
                     _items.append(_item_documents.to_dict())
-            _dict['documents'] = _items
+            _dict["documents"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +91,16 @@ class GetListData(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "documents": [GetListDataDocumentsInner.from_dict(_item) for _item in obj["documents"]] if obj.get("documents") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "documents": (
+                    [
+                        GetListDataDocumentsInner.from_dict(_item)
+                        for _item in obj["documents"]
+                    ]
+                    if obj.get("documents") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

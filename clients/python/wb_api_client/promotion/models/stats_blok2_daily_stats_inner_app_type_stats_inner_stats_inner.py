@@ -22,24 +22,42 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner(BaseModel):
     """
     StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner
-    """ # noqa: E501
-    views: Optional[StrictInt] = Field(default=None, description="Количество просмотров")
+    """  # noqa: E501
+
+    views: Optional[StrictInt] = Field(
+        default=None, description="Количество просмотров"
+    )
     clicks: Optional[StrictInt] = Field(default=None, description="Количество кликов")
-    atbs: Optional[StrictInt] = Field(default=None, description="Количество добавлений товаров в корзину")
+    atbs: Optional[StrictInt] = Field(
+        default=None, description="Количество добавлений товаров в корзину"
+    )
     orders: Optional[StrictInt] = Field(default=None, description="Количество заказов")
-    cr: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="CR(conversion rate) — отношение количества заказов к общему количеству посещений медиакампании ")
-    ctr: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании ")
-    __properties: ClassVar[List[str]] = ["views", "clicks", "atbs", "orders", "cr", "ctr"]
+    cr: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="CR(conversion rate) — отношение количества заказов к общему количеству посещений медиакампании ",
+    )
+    ctr: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании ",
+    )
+    __properties: ClassVar[List[str]] = [
+        "views",
+        "clicks",
+        "atbs",
+        "orders",
+        "cr",
+        "ctr",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +83,7 @@ class StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -84,14 +101,14 @@ class StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "views": obj.get("views"),
-            "clicks": obj.get("clicks"),
-            "atbs": obj.get("atbs"),
-            "orders": obj.get("orders"),
-            "cr": obj.get("cr"),
-            "ctr": obj.get("ctr")
-        })
+        _obj = cls.model_validate(
+            {
+                "views": obj.get("views"),
+                "clicks": obj.get("clicks"),
+                "atbs": obj.get("atbs"),
+                "orders": obj.get("orders"),
+                "cr": obj.get("cr"),
+                "ctr": obj.get("ctr"),
+            }
+        )
         return _obj
-
-

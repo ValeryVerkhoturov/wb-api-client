@@ -22,11 +22,15 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PutV3OrdersOrderIdMetaExpirationRequest(BaseModel):
     """
     PutV3OrdersOrderIdMetaExpirationRequest
-    """ # noqa: E501
-    expiration: StrictStr = Field(description="Дата, до которой годен товар. Не менее 30 дней с текущей даты")
+    """  # noqa: E501
+
+    expiration: StrictStr = Field(
+        description="Дата, до которой годен товар. Не менее 30 дней с текущей даты"
+    )
     __properties: ClassVar[List[str]] = ["expiration"]
 
     model_config = ConfigDict(
@@ -34,7 +38,6 @@ class PutV3OrdersOrderIdMetaExpirationRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,8 +63,7 @@ class PutV3OrdersOrderIdMetaExpirationRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,9 +81,5 @@ class PutV3OrdersOrderIdMetaExpirationRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "expiration": obj.get("expiration")
-        })
+        _obj = cls.model_validate({"expiration": obj.get("expiration")})
         return _obj
-
-

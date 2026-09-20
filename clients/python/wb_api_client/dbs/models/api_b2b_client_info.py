@@ -22,13 +22,21 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiB2bClientInfo(BaseModel):
     """
     Данные покупателя B2B
-    """ # noqa: E501
-    inn: Optional[StrictStr] = Field(default=None, description="Индивидуальный номер налогоплательщика (ИНН)")
-    kpp: Optional[StrictStr] = Field(default=None, description="Код причины постановки на учёт (КПП)")
-    org_name: Optional[StrictStr] = Field(default=None, description="Наименование организации", alias="orgName")
+    """  # noqa: E501
+
+    inn: Optional[StrictStr] = Field(
+        default=None, description="Индивидуальный номер налогоплательщика (ИНН)"
+    )
+    kpp: Optional[StrictStr] = Field(
+        default=None, description="Код причины постановки на учёт (КПП)"
+    )
+    org_name: Optional[StrictStr] = Field(
+        default=None, description="Наименование организации", alias="orgName"
+    )
     __properties: ClassVar[List[str]] = ["inn", "kpp", "orgName"]
 
     model_config = ConfigDict(
@@ -36,7 +44,6 @@ class ApiB2bClientInfo(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +69,7 @@ class ApiB2bClientInfo(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +87,11 @@ class ApiB2bClientInfo(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "inn": obj.get("inn"),
-            "kpp": obj.get("kpp"),
-            "orgName": obj.get("orgName")
-        })
+        _obj = cls.model_validate(
+            {
+                "inn": obj.get("inn"),
+                "kpp": obj.get("kpp"),
+                "orgName": obj.get("orgName"),
+            }
+        )
         return _obj
-
-

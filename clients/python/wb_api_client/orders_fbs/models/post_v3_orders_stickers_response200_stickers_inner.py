@@ -22,15 +22,31 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV3OrdersStickersResponse200StickersInner(BaseModel):
     """
     PostV3OrdersStickersResponse200StickersInner
-    """ # noqa: E501
-    order_id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания", alias="orderId")
-    part_a: Optional[StrictStr] = Field(default=None, description="Первая часть ID стикера для печати подписи", alias="partA")
-    part_b: Optional[StrictStr] = Field(default=None, description="Вторая часть ID стикера для печати подписи", alias="partB")
-    barcode: Optional[StrictStr] = Field(default=None, description="Закодированное значение стикера")
-    file: Optional[StrictStr] = Field(default=None, description="Полное представление стикера в заданном формате")
+    """  # noqa: E501
+
+    order_id: Optional[StrictInt] = Field(
+        default=None, description="ID сборочного задания", alias="orderId"
+    )
+    part_a: Optional[StrictStr] = Field(
+        default=None,
+        description="Первая часть ID стикера для печати подписи",
+        alias="partA",
+    )
+    part_b: Optional[StrictStr] = Field(
+        default=None,
+        description="Вторая часть ID стикера для печати подписи",
+        alias="partB",
+    )
+    barcode: Optional[StrictStr] = Field(
+        default=None, description="Закодированное значение стикера"
+    )
+    file: Optional[StrictStr] = Field(
+        default=None, description="Полное представление стикера в заданном формате"
+    )
     __properties: ClassVar[List[str]] = ["orderId", "partA", "partB", "barcode", "file"]
 
     model_config = ConfigDict(
@@ -38,7 +54,6 @@ class PostV3OrdersStickersResponse200StickersInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +79,7 @@ class PostV3OrdersStickersResponse200StickersInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,13 +97,13 @@ class PostV3OrdersStickersResponse200StickersInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "orderId": obj.get("orderId"),
-            "partA": obj.get("partA"),
-            "partB": obj.get("partB"),
-            "barcode": obj.get("barcode"),
-            "file": obj.get("file")
-        })
+        _obj = cls.model_validate(
+            {
+                "orderId": obj.get("orderId"),
+                "partA": obj.get("partA"),
+                "partB": obj.get("partB"),
+                "barcode": obj.get("barcode"),
+                "file": obj.get("file"),
+            }
+        )
         return _obj
-
-

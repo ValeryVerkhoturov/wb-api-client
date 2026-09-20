@@ -17,36 +17,80 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.general.models.get_users_response_users_inner_access_inner import GetUsersResponseUsersInnerAccessInner
-from wb_api_client.general.models.get_users_response_users_inner_invitee_info import GetUsersResponseUsersInnerInviteeInfo
+from wb_api_client.general.models.get_users_response_users_inner_access_inner import (
+    GetUsersResponseUsersInnerAccessInner,
+)
+from wb_api_client.general.models.get_users_response_users_inner_invitee_info import (
+    GetUsersResponseUsersInnerInviteeInfo,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetUsersResponseUsersInner(BaseModel):
     """
     GetUsersResponseUsersInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: StrictInt = Field(description="ID пользователя")
-    role: StrictStr = Field(description="Роль пользователя:   * `user` — пользователь, который активировал доступ   * ` ` (пустая строка) — пользователь, который не активировал доступ ")
+    role: StrictStr = Field(
+        description="Роль пользователя:   * `user` — пользователь, который активировал доступ   * ` ` (пустая строка) — пользователь, который не активировал доступ "
+    )
     position: StrictStr = Field(description="Должность пользователя")
     phone: StrictStr = Field(description="Номер телефона пользователя")
     email: StrictStr = Field(description="Email пользователя")
-    is_owner: StrictBool = Field(description="Является ли пользователь владельцем профиля продавца", alias="isOwner")
+    is_owner: StrictBool = Field(
+        description="Является ли пользователь владельцем профиля продавца",
+        alias="isOwner",
+    )
     first_name: StrictStr = Field(description="Имя пользователя", alias="firstName")
-    second_name: StrictStr = Field(description="Фамилия пользователя", alias="secondName")
+    second_name: StrictStr = Field(
+        description="Фамилия пользователя", alias="secondName"
+    )
     patronymic: StrictStr = Field(description="Отчество пользователя")
-    goods_return: StrictBool = Field(description="Может ли пользователь одобрять возвраты товаров", alias="goodsReturn")
-    is_invitee: StrictBool = Field(description="Приглашён ли пользователь", alias="isInvitee")
-    invitee_info: Optional[GetUsersResponseUsersInnerInviteeInfo] = Field(alias="inviteeInfo")
-    access: List[GetUsersResponseUsersInnerAccessInner] = Field(description="Настройки доступа к разделам профиля продавца")
-    __properties: ClassVar[List[str]] = ["id", "role", "position", "phone", "email", "isOwner", "firstName", "secondName", "patronymic", "goodsReturn", "isInvitee", "inviteeInfo", "access"]
+    goods_return: StrictBool = Field(
+        description="Может ли пользователь одобрять возвраты товаров",
+        alias="goodsReturn",
+    )
+    is_invitee: StrictBool = Field(
+        description="Приглашён ли пользователь", alias="isInvitee"
+    )
+    invitee_info: Optional[GetUsersResponseUsersInnerInviteeInfo] = Field(
+        alias="inviteeInfo"
+    )
+    access: List[GetUsersResponseUsersInnerAccessInner] = Field(
+        description="Настройки доступа к разделам профиля продавца"
+    )
+    __properties: ClassVar[List[str]] = [
+        "id",
+        "role",
+        "position",
+        "phone",
+        "email",
+        "isOwner",
+        "firstName",
+        "secondName",
+        "patronymic",
+        "goodsReturn",
+        "isInvitee",
+        "inviteeInfo",
+        "access",
+    ]
 
-    @field_validator('role')
+    @field_validator("role")
     def role_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['user', '']):
+        if value not in set(["user", ""]):
             raise ValueError("must be one of enum values ('user', '')")
         return value
 
@@ -55,7 +99,6 @@ class GetUsersResponseUsersInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -81,8 +124,7 @@ class GetUsersResponseUsersInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -91,18 +133,18 @@ class GetUsersResponseUsersInner(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of invitee_info
         if self.invitee_info:
-            _dict['inviteeInfo'] = self.invitee_info.to_dict()
+            _dict["inviteeInfo"] = self.invitee_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in access (list)
         _items = []
         if self.access:
             for _item_access in self.access:
                 if _item_access:
                     _items.append(_item_access.to_dict())
-            _dict['access'] = _items
+            _dict["access"] = _items
         # set to None if invitee_info (nullable) is None
         # and model_fields_set contains the field
         if self.invitee_info is None and "invitee_info" in self.model_fields_set:
-            _dict['inviteeInfo'] = None
+            _dict["inviteeInfo"] = None
 
         return _dict
 
@@ -115,21 +157,32 @@ class GetUsersResponseUsersInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "role": obj.get("role"),
-            "position": obj.get("position"),
-            "phone": obj.get("phone"),
-            "email": obj.get("email"),
-            "isOwner": obj.get("isOwner"),
-            "firstName": obj.get("firstName"),
-            "secondName": obj.get("secondName"),
-            "patronymic": obj.get("patronymic"),
-            "goodsReturn": obj.get("goodsReturn"),
-            "isInvitee": obj.get("isInvitee"),
-            "inviteeInfo": GetUsersResponseUsersInnerInviteeInfo.from_dict(obj["inviteeInfo"]) if obj.get("inviteeInfo") is not None else None,
-            "access": [GetUsersResponseUsersInnerAccessInner.from_dict(_item) for _item in obj["access"]] if obj.get("access") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "role": obj.get("role"),
+                "position": obj.get("position"),
+                "phone": obj.get("phone"),
+                "email": obj.get("email"),
+                "isOwner": obj.get("isOwner"),
+                "firstName": obj.get("firstName"),
+                "secondName": obj.get("secondName"),
+                "patronymic": obj.get("patronymic"),
+                "goodsReturn": obj.get("goodsReturn"),
+                "isInvitee": obj.get("isInvitee"),
+                "inviteeInfo": (
+                    GetUsersResponseUsersInnerInviteeInfo.from_dict(obj["inviteeInfo"])
+                    if obj.get("inviteeInfo") is not None
+                    else None
+                ),
+                "access": (
+                    [
+                        GetUsersResponseUsersInnerAccessInner.from_dict(_item)
+                        for _item in obj["access"]
+                    ]
+                    if obj.get("access") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

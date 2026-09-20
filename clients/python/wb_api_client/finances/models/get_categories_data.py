@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.finances.models.get_categories_data_categories_inner import GetCategoriesDataCategoriesInner
+from wb_api_client.finances.models.get_categories_data_categories_inner import (
+    GetCategoriesDataCategoriesInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetCategoriesData(BaseModel):
     """
     GetCategoriesData
-    """ # noqa: E501
-    categories: Optional[List[GetCategoriesDataCategoriesInner]] = Field(default=None, description="Категории документов")
+    """  # noqa: E501
+
+    categories: Optional[List[GetCategoriesDataCategoriesInner]] = Field(
+        default=None, description="Категории документов"
+    )
     __properties: ClassVar[List[str]] = ["categories"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class GetCategoriesData(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class GetCategoriesData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +79,7 @@ class GetCategoriesData(BaseModel):
             for _item_categories in self.categories:
                 if _item_categories:
                     _items.append(_item_categories.to_dict())
-            _dict['categories'] = _items
+            _dict["categories"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +91,16 @@ class GetCategoriesData(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "categories": [GetCategoriesDataCategoriesInner.from_dict(_item) for _item in obj["categories"]] if obj.get("categories") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "categories": (
+                    [
+                        GetCategoriesDataCategoriesInner.from_dict(_item)
+                        for _item in obj["categories"]
+                    ]
+                    if obj.get("categories") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

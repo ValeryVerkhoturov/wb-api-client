@@ -23,23 +23,40 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PutV3PassesPassIdRequest(BaseModel):
     """
     PutV3PassesPassIdRequest
-    """ # noqa: E501
-    first_name: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Имя водителя", alias="firstName")
-    last_name: Annotated[str, Field(min_length=6, strict=True)] = Field(description="Фамилия водителя", alias="lastName")
-    car_model: Annotated[str, Field(min_length=1, strict=True, max_length=100)] = Field(description="Марка машины", alias="carModel")
-    car_number: Annotated[str, Field(min_length=6, strict=True, max_length=9)] = Field(description="Номер машины", alias="carNumber")
-    office_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="ID склада", alias="officeId")
-    __properties: ClassVar[List[str]] = ["firstName", "lastName", "carModel", "carNumber", "officeId"]
+    """  # noqa: E501
+
+    first_name: Annotated[str, Field(min_length=1, strict=True)] = Field(
+        description="Имя водителя", alias="firstName"
+    )
+    last_name: Annotated[str, Field(min_length=6, strict=True)] = Field(
+        description="Фамилия водителя", alias="lastName"
+    )
+    car_model: Annotated[str, Field(min_length=1, strict=True, max_length=100)] = Field(
+        description="Марка машины", alias="carModel"
+    )
+    car_number: Annotated[str, Field(min_length=6, strict=True, max_length=9)] = Field(
+        description="Номер машины", alias="carNumber"
+    )
+    office_id: Annotated[int, Field(strict=True, ge=1)] = Field(
+        description="ID склада", alias="officeId"
+    )
+    __properties: ClassVar[List[str]] = [
+        "firstName",
+        "lastName",
+        "carModel",
+        "carNumber",
+        "officeId",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +82,7 @@ class PutV3PassesPassIdRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -84,13 +100,13 @@ class PutV3PassesPassIdRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "firstName": obj.get("firstName"),
-            "lastName": obj.get("lastName"),
-            "carModel": obj.get("carModel"),
-            "carNumber": obj.get("carNumber"),
-            "officeId": obj.get("officeId")
-        })
+        _obj = cls.model_validate(
+            {
+                "firstName": obj.get("firstName"),
+                "lastName": obj.get("lastName"),
+                "carModel": obj.get("carModel"),
+                "carNumber": obj.get("carNumber"),
+                "officeId": obj.get("officeId"),
+            }
+        )
         return _obj
-
-

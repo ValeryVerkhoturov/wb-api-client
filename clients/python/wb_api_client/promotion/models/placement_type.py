@@ -20,19 +20,17 @@ from typing_extensions import Self
 
 class PlacementType(str, Enum):
     """
-    Места размещения:   - `search` — поиск   - `recommendation` — рекомендации   - `combined` — поиск и рекомендации 
+    Места размещения:   - `search` — поиск   - `recommendation` — рекомендации   - `combined` — поиск и рекомендации
     """
 
     """
     allowed enum values
     """
-    COMBINED = 'combined'
-    SEARCH = 'search'
-    RECOMMENDATION = 'recommendation'
+    COMBINED = "combined"
+    SEARCH = "search"
+    RECOMMENDATION = "recommendation"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of PlacementType from a JSON string"""
         return cls(json.loads(json_str))
-
-

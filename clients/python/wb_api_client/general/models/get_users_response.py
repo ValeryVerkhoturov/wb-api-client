@@ -19,17 +19,28 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.general.models.get_users_response_users_inner import GetUsersResponseUsersInner
+from wb_api_client.general.models.get_users_response_users_inner import (
+    GetUsersResponseUsersInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class GetUsersResponse(BaseModel):
     """
     GetUsersResponse
-    """ # noqa: E501
-    total: StrictInt = Field(description="Общее количество активных или приглашённых пользователей")
-    count_in_response: StrictInt = Field(description="Количество активных или приглашённых пользователей на текущей странице", alias="countInResponse")
-    users: List[GetUsersResponseUsersInner] = Field(description="Информация о пользователях")
+    """  # noqa: E501
+
+    total: StrictInt = Field(
+        description="Общее количество активных или приглашённых пользователей"
+    )
+    count_in_response: StrictInt = Field(
+        description="Количество активных или приглашённых пользователей на текущей странице",
+        alias="countInResponse",
+    )
+    users: List[GetUsersResponseUsersInner] = Field(
+        description="Информация о пользователях"
+    )
     __properties: ClassVar[List[str]] = ["total", "countInResponse", "users"]
 
     model_config = ConfigDict(
@@ -37,7 +48,6 @@ class GetUsersResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +73,7 @@ class GetUsersResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +86,7 @@ class GetUsersResponse(BaseModel):
             for _item_users in self.users:
                 if _item_users:
                     _items.append(_item_users.to_dict())
-            _dict['users'] = _items
+            _dict["users"] = _items
         return _dict
 
     @classmethod
@@ -89,11 +98,18 @@ class GetUsersResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "total": obj.get("total"),
-            "countInResponse": obj.get("countInResponse"),
-            "users": [GetUsersResponseUsersInner.from_dict(_item) for _item in obj["users"]] if obj.get("users") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "total": obj.get("total"),
+                "countInResponse": obj.get("countInResponse"),
+                "users": (
+                    [
+                        GetUsersResponseUsersInner.from_dict(_item)
+                        for _item in obj["users"]
+                    ]
+                    if obj.get("users") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

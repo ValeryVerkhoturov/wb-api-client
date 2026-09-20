@@ -202,5 +202,43 @@ fi
 sed "s/__VERSION__/${VERSION}/g" "${TEMPLATE_DIR}/java/pom.xml" \
     > "${CLIENTS_DIR}/java/pom.xml"
 
+# ── canonicalize per-language formatting ──────────────────────────────
+# Each language uses its own community-standard formatter, pinned so
+# local and CI produce byte-identical output. The pr-check workflow's
+# per-language format check would flap otherwise.
+
+# Python — black (pinned in scripts/requirements.txt).
+if [[ -x "${REPO_ROOT}/.venv/bin/black" ]]; then
+  "${REPO_ROOT}/.venv/bin/black" --quiet "${CLIENTS_DIR}/python"
+elif command -v black >/dev/null 2>&1; then
+  black --quiet "${CLIENTS_DIR}/python"
+elif python3 -c "import black" 2>/dev/null; then
+  python3 -m black --quiet "${CLIENTS_DIR}/python"
+else
+  echo "  ! black not installed — skipping Python format (pip install -r scripts/requirements.txt)"
+fi
+
+# TypeScript — prettier via the same node image used for tsc. Pinned via
+# devDependencies in templates/typescript/package.json.
+if command -v docker >/dev/null 2>&1; then
+  docker run --rm -u "$(id -u):$(id -g)" \
+    -v "${REPO_ROOT}:/work" -w "/work/clients/typescript" \
+    -e HOME=/tmp -e npm_config_cache=/tmp/.npm \
+    node:20-alpine sh -c "npm install --silent --no-audit --no-fund && npx --no-install prettier --write --log-level=error 'src/**/*.ts'" \
+    >/dev/null 2>&1 || \
+    echo "  ! prettier failed — run manually in clients/typescript before publish"
+fi
+
+# Java — spotless (google-java-format). The plugin is declared in
+# templates/java/pom.xml and pins both spotless and google-java-format
+# versions. `spotless:apply` rewrites in place.
+if command -v docker >/dev/null 2>&1; then
+  docker run --rm -u "$(id -u):$(id -g)" \
+    -v "${REPO_ROOT}:/work" -w "/work/clients/java" \
+    -e HOME=/tmp maven:3.9-eclipse-temurin-17 \
+    mvn -q -Duser.home=/tmp spotless:apply >/dev/null 2>&1 || \
+    echo "  ! mvn spotless:apply failed — run manually in clients/java before publish"
+fi
+
 rm -rf "${SCRATCH}"
 echo "Generated 4 unified client libraries at version ${VERSION}"

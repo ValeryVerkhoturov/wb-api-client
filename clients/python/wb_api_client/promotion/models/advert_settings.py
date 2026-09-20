@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.promotion.models.put_v0_auction_placements_request_placements_inner_placements import PutV0AuctionPlacementsRequestPlacementsInnerPlacements
+from wb_api_client.promotion.models.put_v0_auction_placements_request_placements_inner_placements import (
+    PutV0AuctionPlacementsRequestPlacementsInnerPlacements,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class AdvertSettings(BaseModel):
     """
     Настройки кампании
-    """ # noqa: E501
-    payment_type: StrictStr = Field(description="Тип оплаты: - `cpm` — за показы - `cpc` — за клик ")
+    """  # noqa: E501
+
+    payment_type: StrictStr = Field(
+        description="Тип оплаты: - `cpm` — за показы - `cpc` — за клик "
+    )
     name: StrictStr = Field(description="Название кампании")
     placements: PutV0AuctionPlacementsRequestPlacementsInnerPlacements
     __properties: ClassVar[List[str]] = ["payment_type", "name", "placements"]
@@ -37,7 +43,6 @@ class AdvertSettings(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +68,7 @@ class AdvertSettings(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,7 +77,7 @@ class AdvertSettings(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of placements
         if self.placements:
-            _dict['placements'] = self.placements.to_dict()
+            _dict["placements"] = self.placements.to_dict()
         return _dict
 
     @classmethod
@@ -85,11 +89,17 @@ class AdvertSettings(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "payment_type": obj.get("payment_type"),
-            "name": obj.get("name"),
-            "placements": PutV0AuctionPlacementsRequestPlacementsInnerPlacements.from_dict(obj["placements"]) if obj.get("placements") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "payment_type": obj.get("payment_type"),
+                "name": obj.get("name"),
+                "placements": (
+                    PutV0AuctionPlacementsRequestPlacementsInnerPlacements.from_dict(
+                        obj["placements"]
+                    )
+                    if obj.get("placements") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

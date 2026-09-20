@@ -39,20 +39,22 @@ class CApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def post_v1_analytics_excise_report(
         self,
-        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[
+            StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")
+        ],
+        date_to: Annotated[
+            StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")
+        ],
         excise_report_request: Optional[ExciseReportRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -89,7 +91,7 @@ class CApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_analytics_excise_report_serialize(
             date_from=date_from,
@@ -98,20 +100,19 @@ class CApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ExciseReportResponse",
-            '400': "Http4XxResponse",
-            '401': "GetV1SupplierOrders401Response",
-            '402': "GetV1SupplierOrders402Response",
-            '403': "GetV1SupplierOrders403Response",
-            '429': "GetV1SupplierOrders401Response",
+            "200": "ExciseReportResponse",
+            "400": "Http4XxResponse",
+            "401": "GetV1SupplierOrders401Response",
+            "402": "GetV1SupplierOrders402Response",
+            "403": "GetV1SupplierOrders403Response",
+            "429": "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -119,20 +120,22 @@ class CApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def post_v1_analytics_excise_report_with_http_info(
         self,
-        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[
+            StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")
+        ],
+        date_to: Annotated[
+            StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")
+        ],
         excise_report_request: Optional[ExciseReportRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -169,7 +172,7 @@ class CApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_analytics_excise_report_serialize(
             date_from=date_from,
@@ -178,20 +181,19 @@ class CApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ExciseReportResponse",
-            '400': "Http4XxResponse",
-            '401': "GetV1SupplierOrders401Response",
-            '402': "GetV1SupplierOrders402Response",
-            '403': "GetV1SupplierOrders403Response",
-            '429': "GetV1SupplierOrders401Response",
+            "200": "ExciseReportResponse",
+            "400": "Http4XxResponse",
+            "401": "GetV1SupplierOrders401Response",
+            "402": "GetV1SupplierOrders402Response",
+            "403": "GetV1SupplierOrders403Response",
+            "429": "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -199,20 +201,22 @@ class CApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def post_v1_analytics_excise_report_without_preload_content(
         self,
-        date_from: Annotated[StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")],
-        date_to: Annotated[StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")],
+        date_from: Annotated[
+            StrictStr, Field(description="Начало отчётного периода, `ГГГГ-ММ-ДД` ")
+        ],
+        date_to: Annotated[
+            StrictStr, Field(description="Конец отчётного периода, `ГГГГ-ММ-ДД` ")
+        ],
         excise_report_request: Optional[ExciseReportRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -249,7 +253,7 @@ class CApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v1_analytics_excise_report_serialize(
             date_from=date_from,
@@ -258,23 +262,21 @@ class CApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ExciseReportResponse",
-            '400': "Http4XxResponse",
-            '401': "GetV1SupplierOrders401Response",
-            '402': "GetV1SupplierOrders402Response",
-            '403': "GetV1SupplierOrders403Response",
-            '429': "GetV1SupplierOrders401Response",
+            "200": "ExciseReportResponse",
+            "400": "Http4XxResponse",
+            "401": "GetV1SupplierOrders401Response",
+            "402": "GetV1SupplierOrders402Response",
+            "403": "GetV1SupplierOrders403Response",
+            "429": "GetV1SupplierOrders401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v1_analytics_excise_report_serialize(
         self,
@@ -287,13 +289,10 @@ class CApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://seller-analytics-api.wildberries.ru'
-        ]
+        _hosts = ["https://seller-analytics-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -307,51 +306,41 @@ class CApi:
         # process the path parameters
         # process the query parameters
         if date_from is not None:
-            
-            _query_params.append(('dateFrom', date_from))
-            
+
+            _query_params.append(("dateFrom", date_from))
+
         if date_to is not None:
-            
-            _query_params.append(('dateTo', date_to))
-            
+
+            _query_params.append(("dateTo", date_to))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
         if excise_report_request is not None:
             _body_params = excise_report_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v1/analytics/excise-report',
+            method="POST",
+            resource_path="/api/v1/analytics/excise-report",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -361,7 +350,5 @@ class CApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

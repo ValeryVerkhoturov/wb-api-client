@@ -23,12 +23,17 @@ from wb_api_client.orders_fbs.models.reply_batch_error import ReplyBatchError
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class UpdatedSupplies(BaseModel):
     """
     Результат обработки запроса для одной поставки
-    """ # noqa: E501
+    """  # noqa: E501
+
     error: Optional[ReplyBatchError] = None
-    success: Optional[StrictBool] = Field(default=None, description="Успешна ли обработка запроса для данной поставки. Может быть только `true`")
+    success: Optional[StrictBool] = Field(
+        default=None,
+        description="Успешна ли обработка запроса для данной поставки. Может быть только `true`",
+    )
     supply_id: StrictStr = Field(description="ID поставки", alias="supplyId")
     __properties: ClassVar[List[str]] = ["error", "success", "supplyId"]
 
@@ -37,7 +42,6 @@ class UpdatedSupplies(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +67,7 @@ class UpdatedSupplies(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,7 +76,7 @@ class UpdatedSupplies(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of error
         if self.error:
-            _dict['error'] = self.error.to_dict()
+            _dict["error"] = self.error.to_dict()
         return _dict
 
     @classmethod
@@ -85,11 +88,15 @@ class UpdatedSupplies(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "error": ReplyBatchError.from_dict(obj["error"]) if obj.get("error") is not None else None,
-            "success": obj.get("success"),
-            "supplyId": obj.get("supplyId")
-        })
+        _obj = cls.model_validate(
+            {
+                "error": (
+                    ReplyBatchError.from_dict(obj["error"])
+                    if obj.get("error") is not None
+                    else None
+                ),
+                "success": obj.get("success"),
+                "supplyId": obj.get("supplyId"),
+            }
+        )
         return _obj
-
-

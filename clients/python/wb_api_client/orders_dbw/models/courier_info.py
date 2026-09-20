@@ -20,17 +20,31 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.orders_dbw.models.courier_contacts_response import CourierContactsResponse
+from wb_api_client.orders_dbw.models.courier_contacts_response import (
+    CourierContactsResponse,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class CourierInfo(BaseModel):
     """
     CourierInfo
-    """ # noqa: E501
-    contacts: Optional[CourierContactsResponse] = Field(default=None, description="Контактные данные курьера")
-    must_be_assigned: Optional[StrictBool] = Field(default=None, description="Должен ли быть назначен курьер к текущему моменту:   - `false` — нет   - `true` — да    Если `\"mustBeAssigned\":true`, а `\"contacts\":null`, необходимо запросить контакты в [поддержке](https://seller.wildberries.ru/service-desk-v2) ", alias="mustBeAssigned")
-    updated_at: Optional[datetime] = Field(default=None, description="Дата и время обновления информации о курьере.  Если `null`, информация не обновлялась", alias="updatedAt")
+    """  # noqa: E501
+
+    contacts: Optional[CourierContactsResponse] = Field(
+        default=None, description="Контактные данные курьера"
+    )
+    must_be_assigned: Optional[StrictBool] = Field(
+        default=None,
+        description='Должен ли быть назначен курьер к текущему моменту:   - `false` — нет   - `true` — да    Если `"mustBeAssigned":true`, а `"contacts":null`, необходимо запросить контакты в [поддержке](https://seller.wildberries.ru/service-desk-v2) ',
+        alias="mustBeAssigned",
+    )
+    updated_at: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время обновления информации о курьере.  Если `null`, информация не обновлялась",
+        alias="updatedAt",
+    )
     __properties: ClassVar[List[str]] = ["contacts", "mustBeAssigned", "updatedAt"]
 
     model_config = ConfigDict(
@@ -38,7 +52,6 @@ class CourierInfo(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +77,7 @@ class CourierInfo(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -74,16 +86,16 @@ class CourierInfo(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of contacts
         if self.contacts:
-            _dict['contacts'] = self.contacts.to_dict()
+            _dict["contacts"] = self.contacts.to_dict()
         # set to None if contacts (nullable) is None
         # and model_fields_set contains the field
         if self.contacts is None and "contacts" in self.model_fields_set:
-            _dict['contacts'] = None
+            _dict["contacts"] = None
 
         # set to None if updated_at (nullable) is None
         # and model_fields_set contains the field
         if self.updated_at is None and "updated_at" in self.model_fields_set:
-            _dict['updatedAt'] = None
+            _dict["updatedAt"] = None
 
         return _dict
 
@@ -96,11 +108,15 @@ class CourierInfo(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "contacts": CourierContactsResponse.from_dict(obj["contacts"]) if obj.get("contacts") is not None else None,
-            "mustBeAssigned": obj.get("mustBeAssigned"),
-            "updatedAt": obj.get("updatedAt")
-        })
+        _obj = cls.model_validate(
+            {
+                "contacts": (
+                    CourierContactsResponse.from_dict(obj["contacts"])
+                    if obj.get("contacts") is not None
+                    else None
+                ),
+                "mustBeAssigned": obj.get("mustBeAssigned"),
+                "updatedAt": obj.get("updatedAt"),
+            }
+        )
         return _obj
-
-

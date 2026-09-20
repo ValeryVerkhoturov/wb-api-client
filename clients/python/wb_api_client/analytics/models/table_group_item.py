@@ -19,29 +19,50 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.analytics.models.table_group_item_metrics import TableGroupItemMetrics
+from wb_api_client.analytics.models.table_group_item_metrics import (
+    TableGroupItemMetrics,
+)
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class TableGroupItem(BaseModel):
     """
-    К группе товаров относятся все карточки, подходящие хотя бы по одному из параметров:   - `subjectName` — название предмета   - `brandName` — бренд   - `tagName` — название ярлыка 
-    """ # noqa: E501
-    subject_name: Optional[StrictStr] = Field(default=None, description="Название предмета", alias="subjectName")
-    subject_id: Optional[StrictInt] = Field(default=None, description="ID предмета", alias="subjectId")
-    brand_name: Optional[StrictStr] = Field(default=None, description="Бренд", alias="brandName")
-    tag_name: Optional[StrictStr] = Field(default=None, description="Название ярлыка", alias="tagName")
-    tag_id: Optional[StrictInt] = Field(default=None, description="ID ярлыка", alias="tagId")
+    К группе товаров относятся все карточки, подходящие хотя бы по одному из параметров:   - `subjectName` — название предмета   - `brandName` — бренд   - `tagName` — название ярлыка
+    """  # noqa: E501
+
+    subject_name: Optional[StrictStr] = Field(
+        default=None, description="Название предмета", alias="subjectName"
+    )
+    subject_id: Optional[StrictInt] = Field(
+        default=None, description="ID предмета", alias="subjectId"
+    )
+    brand_name: Optional[StrictStr] = Field(
+        default=None, description="Бренд", alias="brandName"
+    )
+    tag_name: Optional[StrictStr] = Field(
+        default=None, description="Название ярлыка", alias="tagName"
+    )
+    tag_id: Optional[StrictInt] = Field(
+        default=None, description="ID ярлыка", alias="tagId"
+    )
     metrics: TableGroupItemMetrics
     items: List[object] = Field(description="Массив товаров группы")
-    __properties: ClassVar[List[str]] = ["subjectName", "subjectId", "brandName", "tagName", "tagId", "metrics", "items"]
+    __properties: ClassVar[List[str]] = [
+        "subjectName",
+        "subjectId",
+        "brandName",
+        "tagName",
+        "tagId",
+        "metrics",
+        "items",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -67,8 +88,7 @@ class TableGroupItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +97,7 @@ class TableGroupItem(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of metrics
         if self.metrics:
-            _dict['metrics'] = self.metrics.to_dict()
+            _dict["metrics"] = self.metrics.to_dict()
         return _dict
 
     @classmethod
@@ -89,15 +109,19 @@ class TableGroupItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "subjectName": obj.get("subjectName"),
-            "subjectId": obj.get("subjectId"),
-            "brandName": obj.get("brandName"),
-            "tagName": obj.get("tagName"),
-            "tagId": obj.get("tagId"),
-            "metrics": TableGroupItemMetrics.from_dict(obj["metrics"]) if obj.get("metrics") is not None else None,
-            "items": obj.get("items")
-        })
+        _obj = cls.model_validate(
+            {
+                "subjectName": obj.get("subjectName"),
+                "subjectId": obj.get("subjectId"),
+                "brandName": obj.get("brandName"),
+                "tagName": obj.get("tagName"),
+                "tagId": obj.get("tagId"),
+                "metrics": (
+                    TableGroupItemMetrics.from_dict(obj["metrics"])
+                    if obj.get("metrics") is not None
+                    else None
+                ),
+                "items": obj.get("items"),
+            }
+        )
         return _obj
-
-

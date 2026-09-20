@@ -23,11 +23,15 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV3DbwWarehousesWarehouseIdContactsResponse200ContactsInner(BaseModel):
     """
     GetV3DbwWarehousesWarehouseIdContactsResponse200ContactsInner
-    """ # noqa: E501
-    comment: Optional[Annotated[str, Field(strict=True, max_length=1000)]] = Field(default=None, description="Комментарий")
+    """  # noqa: E501
+
+    comment: Optional[Annotated[str, Field(strict=True, max_length=1000)]] = Field(
+        default=None, description="Комментарий"
+    )
     phone: Optional[StrictStr] = Field(default=None, description="Номер телефона")
     __properties: ClassVar[List[str]] = ["comment", "phone"]
 
@@ -36,7 +40,6 @@ class GetV3DbwWarehousesWarehouseIdContactsResponse200ContactsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class GetV3DbwWarehousesWarehouseIdContactsResponse200ContactsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,10 +83,7 @@ class GetV3DbwWarehousesWarehouseIdContactsResponse200ContactsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "comment": obj.get("comment"),
-            "phone": obj.get("phone")
-        })
+        _obj = cls.model_validate(
+            {"comment": obj.get("comment"), "phone": obj.get("phone")}
+        )
         return _obj
-
-

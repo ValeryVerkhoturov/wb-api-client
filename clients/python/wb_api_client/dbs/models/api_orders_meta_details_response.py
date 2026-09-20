@@ -19,16 +19,25 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.dbs.models.api_orders_meta_details_response_orders_inner import ApiOrdersMetaDetailsResponseOrdersInner
+from wb_api_client.dbs.models.api_orders_meta_details_response_orders_inner import (
+    ApiOrdersMetaDetailsResponseOrdersInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ApiOrdersMetaDetailsResponse(BaseModel):
     """
     ApiOrdersMetaDetailsResponse
-    """ # noqa: E501
-    request_id: StrictStr = Field(description="Уникальный ID запроса", alias="requestId")
-    orders: Optional[List[ApiOrdersMetaDetailsResponseOrdersInner]] = Field(default=None, description="Идентификаторы маркировки сборочных заданий и статусы их валидации")
+    """  # noqa: E501
+
+    request_id: StrictStr = Field(
+        description="Уникальный ID запроса", alias="requestId"
+    )
+    orders: Optional[List[ApiOrdersMetaDetailsResponseOrdersInner]] = Field(
+        default=None,
+        description="Идентификаторы маркировки сборочных заданий и статусы их валидации",
+    )
     __properties: ClassVar[List[str]] = ["requestId", "orders"]
 
     model_config = ConfigDict(
@@ -36,7 +45,6 @@ class ApiOrdersMetaDetailsResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +70,7 @@ class ApiOrdersMetaDetailsResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +83,7 @@ class ApiOrdersMetaDetailsResponse(BaseModel):
             for _item_orders in self.orders:
                 if _item_orders:
                     _items.append(_item_orders.to_dict())
-            _dict['orders'] = _items
+            _dict["orders"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +95,17 @@ class ApiOrdersMetaDetailsResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "requestId": obj.get("requestId"),
-            "orders": [ApiOrdersMetaDetailsResponseOrdersInner.from_dict(_item) for _item in obj["orders"]] if obj.get("orders") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "requestId": obj.get("requestId"),
+                "orders": (
+                    [
+                        ApiOrdersMetaDetailsResponseOrdersInner.from_dict(_item)
+                        for _item in obj["orders"]
+                    ]
+                    if obj.get("orders") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

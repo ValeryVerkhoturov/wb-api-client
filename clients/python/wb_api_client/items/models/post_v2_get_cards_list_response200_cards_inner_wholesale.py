@@ -22,12 +22,20 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2GetCardsListResponse200CardsInnerWholesale(BaseModel):
     """
     B2B-продажа
-    """ # noqa: E501
-    enabled: Optional[StrictBool] = Field(default=None, description="Предназначен ли товар для продажи только B2B-покупателям:   - `true` — товар предназначен для продажи только B2B-покупателям   - `false` — товар предназначен для продажи B2B и B2C-покупателям ")
-    quantum: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Минимальное количество единиц товара в одной корзине B2B-покупателя. Только при `\"enable\":true`")
+    """  # noqa: E501
+
+    enabled: Optional[StrictBool] = Field(
+        default=None,
+        description="Предназначен ли товар для продажи только B2B-покупателям:   - `true` — товар предназначен для продажи только B2B-покупателям   - `false` — товар предназначен для продажи B2B и B2C-покупателям ",
+    )
+    quantum: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description='Минимальное количество единиц товара в одной корзине B2B-покупателя. Только при `"enable":true`',
+    )
     __properties: ClassVar[List[str]] = ["enabled", "quantum"]
 
     model_config = ConfigDict(
@@ -35,7 +43,6 @@ class PostV2GetCardsListResponse200CardsInnerWholesale(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +68,7 @@ class PostV2GetCardsListResponse200CardsInnerWholesale(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +86,7 @@ class PostV2GetCardsListResponse200CardsInnerWholesale(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "enabled": obj.get("enabled"),
-            "quantum": obj.get("quantum")
-        })
+        _obj = cls.model_validate(
+            {"enabled": obj.get("enabled"), "quantum": obj.get("quantum")}
+        )
         return _obj
-
-

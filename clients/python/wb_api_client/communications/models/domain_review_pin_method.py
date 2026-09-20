@@ -26,12 +26,10 @@ class DomainReviewPinMethod(str, Enum):
     """
     allowed enum values
     """
-    SUBSCRIPTION = 'subscription'
-    TARIFF = 'tariff'
+    SUBSCRIPTION = "subscription"
+    TARIFF = "tariff"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of DomainReviewPinMethod from a JSON string"""
         return cls(json.loads(json_str))
-
-

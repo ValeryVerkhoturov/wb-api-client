@@ -22,13 +22,17 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1Claims400Response(BaseModel):
     """
     GetV1Claims400Response
-    """ # noqa: E501
+    """  # noqa: E501
+
     title: Optional[StrictStr] = Field(default=None, description="ID ошибки")
     detail: Optional[StrictStr] = Field(default=None, description="Описание ошибки")
-    request_id: Optional[StrictStr] = Field(default=None, description="ID запроса", alias="requestId")
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="ID запроса", alias="requestId"
+    )
     __properties: ClassVar[List[str]] = ["title", "detail", "requestId"]
 
     model_config = ConfigDict(
@@ -36,7 +40,6 @@ class GetV1Claims400Response(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class GetV1Claims400Response(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +83,11 @@ class GetV1Claims400Response(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "title": obj.get("title"),
-            "detail": obj.get("detail"),
-            "requestId": obj.get("requestId")
-        })
+        _obj = cls.model_validate(
+            {
+                "title": obj.get("title"),
+                "detail": obj.get("detail"),
+                "requestId": obj.get("requestId"),
+            }
+        )
         return _obj
-
-

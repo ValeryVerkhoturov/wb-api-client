@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.analytics.models.post_v3_sales_funnel_products_history_response200_inner import PostV3SalesFunnelProductsHistoryResponse200Inner
+from wb_api_client.analytics.models.post_v3_sales_funnel_products_history_response200_inner import (
+    PostV3SalesFunnelProductsHistoryResponse200Inner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV3SalesFunnelGroupedHistoryResponse200(BaseModel):
     """
     PostV3SalesFunnelGroupedHistoryResponse200
-    """ # noqa: E501
-    data: List[PostV3SalesFunnelProductsHistoryResponse200Inner] = Field(description="Статистика")
+    """  # noqa: E501
+
+    data: List[PostV3SalesFunnelProductsHistoryResponse200Inner] = Field(
+        description="Статистика"
+    )
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class PostV3SalesFunnelGroupedHistoryResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class PostV3SalesFunnelGroupedHistoryResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +79,7 @@ class PostV3SalesFunnelGroupedHistoryResponse200(BaseModel):
             for _item_data in self.data:
                 if _item_data:
                     _items.append(_item_data.to_dict())
-            _dict['data'] = _items
+            _dict["data"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +91,18 @@ class PostV3SalesFunnelGroupedHistoryResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "data": [PostV3SalesFunnelProductsHistoryResponse200Inner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "data": (
+                    [
+                        PostV3SalesFunnelProductsHistoryResponse200Inner.from_dict(
+                            _item
+                        )
+                        for _item in obj["data"]
+                    ]
+                    if obj.get("data") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

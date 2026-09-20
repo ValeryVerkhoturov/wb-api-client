@@ -23,12 +23,16 @@ from wb_api_client.communications.models.events_result import EventsResult
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class EventsResponse(BaseModel):
     """
     EventsResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     result: Optional[EventsResult] = None
-    errors: Optional[List[StrictStr]] = Field(default=None, description="Ошибки, если есть")
+    errors: Optional[List[StrictStr]] = Field(
+        default=None, description="Ошибки, если есть"
+    )
     __properties: ClassVar[List[str]] = ["result", "errors"]
 
     model_config = ConfigDict(
@@ -36,7 +40,6 @@ class EventsResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class EventsResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -72,11 +74,11 @@ class EventsResponse(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of result
         if self.result:
-            _dict['result'] = self.result.to_dict()
+            _dict["result"] = self.result.to_dict()
         # set to None if errors (nullable) is None
         # and model_fields_set contains the field
         if self.errors is None and "errors" in self.model_fields_set:
-            _dict['errors'] = None
+            _dict["errors"] = None
 
         return _dict
 
@@ -89,10 +91,14 @@ class EventsResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "result": EventsResult.from_dict(obj["result"]) if obj.get("result") is not None else None,
-            "errors": obj.get("errors")
-        })
+        _obj = cls.model_validate(
+            {
+                "result": (
+                    EventsResult.from_dict(obj["result"])
+                    if obj.get("result") is not None
+                    else None
+                ),
+                "errors": obj.get("errors"),
+            }
+        )
         return _obj
-
-

@@ -24,13 +24,20 @@ from wb_api_client.analytics.models.period_orders_request import PeriodOrdersReq
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ItemOrdersRequest(BaseModel):
     """
     ItemOrdersRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     period: PeriodOrdersRequest
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    search_texts: Annotated[List[StrictStr], Field(min_length=1, max_length=30)] = Field(description="Поисковые запросы. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) **Продвинутый** и **Премиальный** максимум — 100 ", alias="searchTexts")
+    search_texts: Annotated[List[StrictStr], Field(min_length=1, max_length=30)] = (
+        Field(
+            description="Поисковые запросы. Для тарифов [Джема](https://seller.wildberries.ru/monetization/tariffs) **Продвинутый** и **Премиальный** максимум — 100 ",
+            alias="searchTexts",
+        )
+    )
     __properties: ClassVar[List[str]] = ["period", "nmId", "searchTexts"]
 
     model_config = ConfigDict(
@@ -38,7 +45,6 @@ class ItemOrdersRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +70,7 @@ class ItemOrdersRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -74,7 +79,7 @@ class ItemOrdersRequest(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of period
         if self.period:
-            _dict['period'] = self.period.to_dict()
+            _dict["period"] = self.period.to_dict()
         return _dict
 
     @classmethod
@@ -86,11 +91,15 @@ class ItemOrdersRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "period": PeriodOrdersRequest.from_dict(obj["period"]) if obj.get("period") is not None else None,
-            "nmId": obj.get("nmId"),
-            "searchTexts": obj.get("searchTexts")
-        })
+        _obj = cls.model_validate(
+            {
+                "period": (
+                    PeriodOrdersRequest.from_dict(obj["period"])
+                    if obj.get("period") is not None
+                    else None
+                ),
+                "nmId": obj.get("nmId"),
+                "searchTexts": obj.get("searchTexts"),
+            }
+        )
         return _obj
-
-

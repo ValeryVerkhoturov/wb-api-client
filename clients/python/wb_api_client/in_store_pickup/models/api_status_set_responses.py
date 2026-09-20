@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.in_store_pickup.models.api_status_set_response import ApiStatusSetResponse
+from wb_api_client.in_store_pickup.models.api_status_set_response import (
+    ApiStatusSetResponse,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ApiStatusSetResponses(BaseModel):
     """
     ApiStatusSetResponses
-    """ # noqa: E501
-    request_id: Optional[Any] = Field(description="Уникальный ID запроса", alias="requestId")
+    """  # noqa: E501
+
+    request_id: Optional[Any] = Field(
+        description="Уникальный ID запроса", alias="requestId"
+    )
     results: List[ApiStatusSetResponse]
     __properties: ClassVar[List[str]] = ["requestId", "results"]
 
@@ -36,7 +42,6 @@ class ApiStatusSetResponses(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class ApiStatusSetResponses(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,11 +80,11 @@ class ApiStatusSetResponses(BaseModel):
             for _item_results in self.results:
                 if _item_results:
                     _items.append(_item_results.to_dict())
-            _dict['results'] = _items
+            _dict["results"] = _items
         # set to None if request_id (nullable) is None
         # and model_fields_set contains the field
         if self.request_id is None and "request_id" in self.model_fields_set:
-            _dict['requestId'] = None
+            _dict["requestId"] = None
 
         return _dict
 
@@ -93,10 +97,14 @@ class ApiStatusSetResponses(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "requestId": obj.get("requestId"),
-            "results": [ApiStatusSetResponse.from_dict(_item) for _item in obj["results"]] if obj.get("results") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "requestId": obj.get("requestId"),
+                "results": (
+                    [ApiStatusSetResponse.from_dict(_item) for _item in obj["results"]]
+                    if obj.get("results") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

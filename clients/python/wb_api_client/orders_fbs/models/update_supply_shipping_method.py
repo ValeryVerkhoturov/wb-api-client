@@ -22,21 +22,39 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class UpdateSupplyShippingMethod(BaseModel):
     """
     UpdateSupplyShippingMethod
-    """ # noqa: E501
-    shipping_dt: StrictStr = Field(description="Планируемая дата отгрузки поставки, формат `YYYY-MM-DD`", alias="shippingDt")
-    shipping_point_id: StrictInt = Field(description="ID пункта отгрузки. Можно получить с помощью [отдельного метода](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints)", alias="shippingPointId")
-    shipping_type: StrictStr = Field(description="Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно [укажите ID ЭТрН](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) — электронной транспортной накладной — в поле `waybillUuid` ", alias="shippingType")
-    supply_id: StrictStr = Field(description="ID поставки", alias="supplyId")
-    __properties: ClassVar[List[str]] = ["shippingDt", "shippingPointId", "shippingType", "supplyId"]
+    """  # noqa: E501
 
-    @field_validator('shipping_type')
+    shipping_dt: StrictStr = Field(
+        description="Планируемая дата отгрузки поставки, формат `YYYY-MM-DD`",
+        alias="shippingDt",
+    )
+    shipping_point_id: StrictInt = Field(
+        description="ID пункта отгрузки. Можно получить с помощью [отдельного метода](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints)",
+        alias="shippingPointId",
+    )
+    shipping_type: StrictStr = Field(
+        description="Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно [укажите ID ЭТрН](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) — электронной транспортной накладной — в поле `waybillUuid` ",
+        alias="shippingType",
+    )
+    supply_id: StrictStr = Field(description="ID поставки", alias="supplyId")
+    __properties: ClassVar[List[str]] = [
+        "shippingDt",
+        "shippingPointId",
+        "shippingType",
+        "supplyId",
+    ]
+
+    @field_validator("shipping_type")
     def shipping_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['selfShipping', 'transportCompany']):
-            raise ValueError("must be one of enum values ('selfShipping', 'transportCompany')")
+        if value not in set(["selfShipping", "transportCompany"]):
+            raise ValueError(
+                "must be one of enum values ('selfShipping', 'transportCompany')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -44,7 +62,6 @@ class UpdateSupplyShippingMethod(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -70,8 +87,7 @@ class UpdateSupplyShippingMethod(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -89,12 +105,12 @@ class UpdateSupplyShippingMethod(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "shippingDt": obj.get("shippingDt"),
-            "shippingPointId": obj.get("shippingPointId"),
-            "shippingType": obj.get("shippingType"),
-            "supplyId": obj.get("supplyId")
-        })
+        _obj = cls.model_validate(
+            {
+                "shippingDt": obj.get("shippingDt"),
+                "shippingPointId": obj.get("shippingPointId"),
+                "shippingType": obj.get("shippingType"),
+                "supplyId": obj.get("supplyId"),
+            }
+        )
         return _obj
-
-

@@ -18,35 +18,80 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from wb_api_client.general.models.plan_builder_option_short import PlanBuilderOptionShort
+from wb_api_client.general.models.plan_builder_option_short import (
+    PlanBuilderOptionShort,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PlanBuilderPackage(BaseModel):
     """
     PlanBuilderPackage
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictStr] = Field(default=None, description="ID пакета")
     slug: Optional[StrictStr] = Field(default=None, description="Код пакета")
-    name: Optional[StrictStr] = Field(default=None, description="Название пакета на языке из параметра `locale`")
-    status: Optional[StrictStr] = Field(default=None, description="Статус пакета:   - `active` — активен   - `pendingActivation` — подключён, начнёт работать с 00:00 следующего дня   - `pendingDeactivation` — отключён, перестанет работать с 00:00 следующего дня ")
-    activated_at: Optional[datetime] = Field(default=None, description="Дата активации пакета", alias="activatedAt")
-    expires_at: Optional[datetime] = Field(default=None, description="Дата окончания минимального срока действия пакета. До этого дня пакет опций нельзя отключить", alias="expiresAt")
-    commission_rate: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Комиссия за пакет, % от оборота", alias="commissionRate")
-    period_duration: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Минимальный срок действия пакета в днях", alias="periodDuration")
-    options: Optional[List[PlanBuilderOptionShort]] = Field(default=None, description="Опции, которые входят в пакет")
-    __properties: ClassVar[List[str]] = ["id", "slug", "name", "status", "activatedAt", "expiresAt", "commissionRate", "periodDuration", "options"]
+    name: Optional[StrictStr] = Field(
+        default=None, description="Название пакета на языке из параметра `locale`"
+    )
+    status: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус пакета:   - `active` — активен   - `pendingActivation` — подключён, начнёт работать с 00:00 следующего дня   - `pendingDeactivation` — отключён, перестанет работать с 00:00 следующего дня ",
+    )
+    activated_at: Optional[datetime] = Field(
+        default=None, description="Дата активации пакета", alias="activatedAt"
+    )
+    expires_at: Optional[datetime] = Field(
+        default=None,
+        description="Дата окончания минимального срока действия пакета. До этого дня пакет опций нельзя отключить",
+        alias="expiresAt",
+    )
+    commission_rate: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Комиссия за пакет, % от оборота",
+        alias="commissionRate",
+    )
+    period_duration: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Минимальный срок действия пакета в днях",
+        alias="periodDuration",
+    )
+    options: Optional[List[PlanBuilderOptionShort]] = Field(
+        default=None, description="Опции, которые входят в пакет"
+    )
+    __properties: ClassVar[List[str]] = [
+        "id",
+        "slug",
+        "name",
+        "status",
+        "activatedAt",
+        "expiresAt",
+        "commissionRate",
+        "periodDuration",
+        "options",
+    ]
 
-    @field_validator('status')
+    @field_validator("status")
     def status_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['active', 'pendingActivation', 'pendingDeactivation']):
-            raise ValueError("must be one of enum values ('active', 'pendingActivation', 'pendingDeactivation')")
+        if value not in set(["active", "pendingActivation", "pendingDeactivation"]):
+            raise ValueError(
+                "must be one of enum values ('active', 'pendingActivation', 'pendingDeactivation')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -54,7 +99,6 @@ class PlanBuilderPackage(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -80,8 +124,7 @@ class PlanBuilderPackage(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -94,7 +137,7 @@ class PlanBuilderPackage(BaseModel):
             for _item_options in self.options:
                 if _item_options:
                     _items.append(_item_options.to_dict())
-            _dict['options'] = _items
+            _dict["options"] = _items
         return _dict
 
     @classmethod
@@ -106,17 +149,24 @@ class PlanBuilderPackage(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "slug": obj.get("slug"),
-            "name": obj.get("name"),
-            "status": obj.get("status"),
-            "activatedAt": obj.get("activatedAt"),
-            "expiresAt": obj.get("expiresAt"),
-            "commissionRate": obj.get("commissionRate"),
-            "periodDuration": obj.get("periodDuration"),
-            "options": [PlanBuilderOptionShort.from_dict(_item) for _item in obj["options"]] if obj.get("options") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "slug": obj.get("slug"),
+                "name": obj.get("name"),
+                "status": obj.get("status"),
+                "activatedAt": obj.get("activatedAt"),
+                "expiresAt": obj.get("expiresAt"),
+                "commissionRate": obj.get("commissionRate"),
+                "periodDuration": obj.get("periodDuration"),
+                "options": (
+                    [
+                        PlanBuilderOptionShort.from_dict(_item)
+                        for _item in obj["options"]
+                    ]
+                    if obj.get("options") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

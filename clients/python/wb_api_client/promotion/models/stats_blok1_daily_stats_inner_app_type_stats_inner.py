@@ -19,15 +19,22 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.stats_blok1_daily_stats_inner_app_type_stats_inner_stats_inner import StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner
+from wb_api_client.promotion.models.stats_blok1_daily_stats_inner_app_type_stats_inner_stats_inner import (
+    StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class StatsBlok1DailyStatsInnerAppTypeStatsInner(BaseModel):
     """
     StatsBlok1DailyStatsInnerAppTypeStatsInner
-    """ # noqa: E501
-    app_type: Optional[StrictInt] = Field(default=None, description="Тип платформы: - `1` — сайт - `32` — Android - `64` — IOS ")
+    """  # noqa: E501
+
+    app_type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип платформы: - `1` — сайт - `32` — Android - `64` — IOS ",
+    )
     stats: Optional[List[StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner]] = None
     __properties: ClassVar[List[str]] = ["app_type", "stats"]
 
@@ -36,7 +43,6 @@ class StatsBlok1DailyStatsInnerAppTypeStatsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +68,7 @@ class StatsBlok1DailyStatsInnerAppTypeStatsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +81,7 @@ class StatsBlok1DailyStatsInnerAppTypeStatsInner(BaseModel):
             for _item_stats in self.stats:
                 if _item_stats:
                     _items.append(_item_stats.to_dict())
-            _dict['stats'] = _items
+            _dict["stats"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +93,19 @@ class StatsBlok1DailyStatsInnerAppTypeStatsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "app_type": obj.get("app_type"),
-            "stats": [StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner.from_dict(_item) for _item in obj["stats"]] if obj.get("stats") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "app_type": obj.get("app_type"),
+                "stats": (
+                    [
+                        StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["stats"]
+                    ]
+                    if obj.get("stats") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

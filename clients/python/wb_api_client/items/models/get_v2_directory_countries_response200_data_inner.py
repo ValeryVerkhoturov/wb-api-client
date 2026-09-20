@@ -22,13 +22,19 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV2DirectoryCountriesResponse200DataInner(BaseModel):
     """
     GetV2DirectoryCountriesResponse200DataInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictInt] = Field(default=None, description="ID страны")
-    name: Optional[StrictStr] = Field(default=None, description="Значение характеристики Страны")
-    full_name: Optional[StrictStr] = Field(default=None, description="Полное название страны", alias="fullName")
+    name: Optional[StrictStr] = Field(
+        default=None, description="Значение характеристики Страны"
+    )
+    full_name: Optional[StrictStr] = Field(
+        default=None, description="Полное название страны", alias="fullName"
+    )
     __properties: ClassVar[List[str]] = ["id", "name", "fullName"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class GetV2DirectoryCountriesResponse200DataInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class GetV2DirectoryCountriesResponse200DataInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +85,11 @@ class GetV2DirectoryCountriesResponse200DataInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "name": obj.get("name"),
-            "fullName": obj.get("fullName")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "name": obj.get("name"),
+                "fullName": obj.get("fullName"),
+            }
+        )
         return _obj
-
-

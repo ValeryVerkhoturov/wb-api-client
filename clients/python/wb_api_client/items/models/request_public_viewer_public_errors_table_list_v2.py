@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.swagger_public_errors_cursor_input import SwaggerPublicErrorsCursorInput
-from wb_api_client.items.models.swagger_public_errors_order_v2 import SwaggerPublicErrorsOrderV2
+from wb_api_client.items.models.swagger_public_errors_cursor_input import (
+    SwaggerPublicErrorsCursorInput,
+)
+from wb_api_client.items.models.swagger_public_errors_order_v2 import (
+    SwaggerPublicErrorsOrderV2,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class RequestPublicViewerPublicErrorsTableListV2(BaseModel):
     """
     RequestPublicViewerPublicErrorsTableListV2
-    """ # noqa: E501
+    """  # noqa: E501
+
     cursor: Optional[SwaggerPublicErrorsCursorInput] = None
     order: Optional[SwaggerPublicErrorsOrderV2] = None
     __properties: ClassVar[List[str]] = ["cursor", "order"]
@@ -37,7 +43,6 @@ class RequestPublicViewerPublicErrorsTableListV2(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +68,7 @@ class RequestPublicViewerPublicErrorsTableListV2(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,10 +77,10 @@ class RequestPublicViewerPublicErrorsTableListV2(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of cursor
         if self.cursor:
-            _dict['cursor'] = self.cursor.to_dict()
+            _dict["cursor"] = self.cursor.to_dict()
         # override the default output from pydantic by calling `to_dict()` of order
         if self.order:
-            _dict['order'] = self.order.to_dict()
+            _dict["order"] = self.order.to_dict()
         return _dict
 
     @classmethod
@@ -88,10 +92,18 @@ class RequestPublicViewerPublicErrorsTableListV2(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "cursor": SwaggerPublicErrorsCursorInput.from_dict(obj["cursor"]) if obj.get("cursor") is not None else None,
-            "order": SwaggerPublicErrorsOrderV2.from_dict(obj["order"]) if obj.get("order") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "cursor": (
+                    SwaggerPublicErrorsCursorInput.from_dict(obj["cursor"])
+                    if obj.get("cursor") is not None
+                    else None
+                ),
+                "order": (
+                    SwaggerPublicErrorsOrderV2.from_dict(obj["order"])
+                    if obj.get("order") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

@@ -20,35 +20,66 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Union
-from wb_api_client.promotion.models.full_stats_item_days_inner_apps_inner import FullStatsItemDaysInnerAppsInner
+from wb_api_client.promotion.models.full_stats_item_days_inner_apps_inner import (
+    FullStatsItemDaysInnerAppsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class FullStatsItemDaysInner(BaseModel):
     """
     FullStatsItemDaysInner
-    """ # noqa: E501
-    apps: List[FullStatsItemDaysInnerAppsInner] = Field(description="Блок информации о платформе")
+    """  # noqa: E501
+
+    apps: List[FullStatsItemDaysInnerAppsInner] = Field(
+        description="Блок информации о платформе"
+    )
     atbs: StrictInt = Field(description="Количество добавлений товаров в корзину")
     canceled: StrictInt = Field(description="Отмены, шт.")
-    var_date: datetime = Field(description="Дата, за которую представлены данные", alias="date")
+    var_date: datetime = Field(
+        description="Дата, за которую представлены данные", alias="date"
+    )
     clicks: StrictInt = Field(description="Количество кликов")
-    cpc: Union[StrictFloat, StrictInt] = Field(description="Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    cr: Union[StrictFloat, StrictInt] = Field(description="CR (conversion rate) — отношение количества заказов к общему количеству посещений кампании")
-    ctr: Union[StrictFloat, StrictInt] = Field(description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах")
+    cpc: Union[StrictFloat, StrictInt] = Field(
+        description="Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
+    cr: Union[StrictFloat, StrictInt] = Field(
+        description="CR (conversion rate) — отношение количества заказов к общему количеству посещений кампании"
+    )
+    ctr: Union[StrictFloat, StrictInt] = Field(
+        description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах"
+    )
     orders: StrictInt = Field(description="Количество заказов")
     shks: StrictInt = Field(description="Количество заказанных товаров, шт.")
-    sum: Union[StrictFloat, StrictInt] = Field(description="Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    sum_price: Union[StrictFloat, StrictInt] = Field(description="Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    sum: Union[StrictFloat, StrictInt] = Field(
+        description="Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
+    sum_price: Union[StrictFloat, StrictInt] = Field(
+        description="Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
     views: StrictInt = Field(description="Количество просмотров")
-    __properties: ClassVar[List[str]] = ["apps", "atbs", "canceled", "date", "clicks", "cpc", "cr", "ctr", "orders", "shks", "sum", "sum_price", "views"]
+    __properties: ClassVar[List[str]] = [
+        "apps",
+        "atbs",
+        "canceled",
+        "date",
+        "clicks",
+        "cpc",
+        "cr",
+        "ctr",
+        "orders",
+        "shks",
+        "sum",
+        "sum_price",
+        "views",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -74,8 +105,7 @@ class FullStatsItemDaysInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -88,7 +118,7 @@ class FullStatsItemDaysInner(BaseModel):
             for _item_apps in self.apps:
                 if _item_apps:
                     _items.append(_item_apps.to_dict())
-            _dict['apps'] = _items
+            _dict["apps"] = _items
         return _dict
 
     @classmethod
@@ -100,21 +130,28 @@ class FullStatsItemDaysInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "apps": [FullStatsItemDaysInnerAppsInner.from_dict(_item) for _item in obj["apps"]] if obj.get("apps") is not None else None,
-            "atbs": obj.get("atbs"),
-            "canceled": obj.get("canceled"),
-            "date": obj.get("date"),
-            "clicks": obj.get("clicks"),
-            "cpc": obj.get("cpc"),
-            "cr": obj.get("cr"),
-            "ctr": obj.get("ctr"),
-            "orders": obj.get("orders"),
-            "shks": obj.get("shks"),
-            "sum": obj.get("sum"),
-            "sum_price": obj.get("sum_price"),
-            "views": obj.get("views")
-        })
+        _obj = cls.model_validate(
+            {
+                "apps": (
+                    [
+                        FullStatsItemDaysInnerAppsInner.from_dict(_item)
+                        for _item in obj["apps"]
+                    ]
+                    if obj.get("apps") is not None
+                    else None
+                ),
+                "atbs": obj.get("atbs"),
+                "canceled": obj.get("canceled"),
+                "date": obj.get("date"),
+                "clicks": obj.get("clicks"),
+                "cpc": obj.get("cpc"),
+                "cr": obj.get("cr"),
+                "ctr": obj.get("ctr"),
+                "orders": obj.get("orders"),
+                "shks": obj.get("shks"),
+                "sum": obj.get("sum"),
+                "sum_price": obj.get("sum_price"),
+                "views": obj.get("views"),
+            }
+        )
         return _obj
-
-

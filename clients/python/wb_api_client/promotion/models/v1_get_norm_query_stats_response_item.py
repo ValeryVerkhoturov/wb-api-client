@@ -19,17 +19,25 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.v1_get_norm_query_stats_response_item_daily_stat import V1GetNormQueryStatsResponseItemDailyStat
+from wb_api_client.promotion.models.v1_get_norm_query_stats_response_item_daily_stat import (
+    V1GetNormQueryStatsResponseItemDailyStat,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class V1GetNormQueryStatsResponseItem(BaseModel):
     """
     V1GetNormQueryStatsResponseItem
-    """ # noqa: E501
+    """  # noqa: E501
+
     advert_id: StrictInt = Field(description="ID кампании", alias="advertId")
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    daily_stats: Optional[List[V1GetNormQueryStatsResponseItemDailyStat]] = Field(default=None, description="Статистика с детализацией по дням", alias="dailyStats")
+    daily_stats: Optional[List[V1GetNormQueryStatsResponseItemDailyStat]] = Field(
+        default=None,
+        description="Статистика с детализацией по дням",
+        alias="dailyStats",
+    )
     __properties: ClassVar[List[str]] = ["advertId", "nmId", "dailyStats"]
 
     model_config = ConfigDict(
@@ -37,7 +45,6 @@ class V1GetNormQueryStatsResponseItem(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +70,7 @@ class V1GetNormQueryStatsResponseItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +83,7 @@ class V1GetNormQueryStatsResponseItem(BaseModel):
             for _item_daily_stats in self.daily_stats:
                 if _item_daily_stats:
                     _items.append(_item_daily_stats.to_dict())
-            _dict['dailyStats'] = _items
+            _dict["dailyStats"] = _items
         return _dict
 
     @classmethod
@@ -89,11 +95,18 @@ class V1GetNormQueryStatsResponseItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advertId": obj.get("advertId"),
-            "nmId": obj.get("nmId"),
-            "dailyStats": [V1GetNormQueryStatsResponseItemDailyStat.from_dict(_item) for _item in obj["dailyStats"]] if obj.get("dailyStats") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "advertId": obj.get("advertId"),
+                "nmId": obj.get("nmId"),
+                "dailyStats": (
+                    [
+                        V1GetNormQueryStatsResponseItemDailyStat.from_dict(_item)
+                        for _item in obj["dailyStats"]
+                    ]
+                    if obj.get("dailyStats") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

@@ -20,34 +20,73 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from wb_api_client.analytics.models.items_request_past_period import ItemsRequestPastPeriod
-from wb_api_client.analytics.models.items_request_selected_period import ItemsRequestSelectedPeriod
+from wb_api_client.analytics.models.items_request_past_period import (
+    ItemsRequestPastPeriod,
+)
+from wb_api_client.analytics.models.items_request_selected_period import (
+    ItemsRequestSelectedPeriod,
+)
 from wb_api_client.analytics.models.order_by import OrderBy
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ItemsRequest(BaseModel):
     """
     ItemsRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     selected_period: ItemsRequestSelectedPeriod = Field(alias="selectedPeriod")
-    past_period: Optional[ItemsRequestPastPeriod] = Field(default=None, alias="pastPeriod")
-    nm_ids: Optional[Annotated[List[StrictInt], Field(min_length=0, max_length=1000)]] = Field(default=None, description="Артикулы WB, по которым нужно составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах ", alias="nmIds")
-    brand_names: Optional[List[StrictStr]] = Field(default=None, description="Список брендов для фильтрации", alias="brandNames")
-    subject_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID предметов для фильтрации", alias="subjectIds")
-    tag_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID ярлыков для фильтрации", alias="tagIds")
-    skip_deleted_nm: Optional[StrictBool] = Field(default=None, description="Скрыть удалённые товары", alias="skipDeletedNm")
+    past_period: Optional[ItemsRequestPastPeriod] = Field(
+        default=None, alias="pastPeriod"
+    )
+    nm_ids: Optional[
+        Annotated[List[StrictInt], Field(min_length=0, max_length=1000)]
+    ] = Field(
+        default=None,
+        description="Артикулы WB, по которым нужно составить отчёт. Оставьте пустым, чтобы получить отчёт обо всех товарах ",
+        alias="nmIds",
+    )
+    brand_names: Optional[List[StrictStr]] = Field(
+        default=None, description="Список брендов для фильтрации", alias="brandNames"
+    )
+    subject_ids: Optional[List[StrictInt]] = Field(
+        default=None,
+        description="Список ID предметов для фильтрации",
+        alias="subjectIds",
+    )
+    tag_ids: Optional[List[StrictInt]] = Field(
+        default=None, description="Список ID ярлыков для фильтрации", alias="tagIds"
+    )
+    skip_deleted_nm: Optional[StrictBool] = Field(
+        default=None, description="Скрыть удалённые товары", alias="skipDeletedNm"
+    )
     order_by: Optional[OrderBy] = Field(default=None, alias="orderBy")
-    limit: Optional[Annotated[int, Field(le=1000, strict=True)]] = Field(default=50, description="Количество карточек товара в ответе")
-    offset: Optional[StrictInt] = Field(default=0, description="Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента")
-    __properties: ClassVar[List[str]] = ["selectedPeriod", "pastPeriod", "nmIds", "brandNames", "subjectIds", "tagIds", "skipDeletedNm", "orderBy", "limit", "offset"]
+    limit: Optional[Annotated[int, Field(le=1000, strict=True)]] = Field(
+        default=50, description="Количество карточек товара в ответе"
+    )
+    offset: Optional[StrictInt] = Field(
+        default=0,
+        description="Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента",
+    )
+    __properties: ClassVar[List[str]] = [
+        "selectedPeriod",
+        "pastPeriod",
+        "nmIds",
+        "brandNames",
+        "subjectIds",
+        "tagIds",
+        "skipDeletedNm",
+        "orderBy",
+        "limit",
+        "offset",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -73,8 +112,7 @@ class ItemsRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,13 +121,13 @@ class ItemsRequest(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of selected_period
         if self.selected_period:
-            _dict['selectedPeriod'] = self.selected_period.to_dict()
+            _dict["selectedPeriod"] = self.selected_period.to_dict()
         # override the default output from pydantic by calling `to_dict()` of past_period
         if self.past_period:
-            _dict['pastPeriod'] = self.past_period.to_dict()
+            _dict["pastPeriod"] = self.past_period.to_dict()
         # override the default output from pydantic by calling `to_dict()` of order_by
         if self.order_by:
-            _dict['orderBy'] = self.order_by.to_dict()
+            _dict["orderBy"] = self.order_by.to_dict()
         return _dict
 
     @classmethod
@@ -101,18 +139,30 @@ class ItemsRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "selectedPeriod": ItemsRequestSelectedPeriod.from_dict(obj["selectedPeriod"]) if obj.get("selectedPeriod") is not None else None,
-            "pastPeriod": ItemsRequestPastPeriod.from_dict(obj["pastPeriod"]) if obj.get("pastPeriod") is not None else None,
-            "nmIds": obj.get("nmIds"),
-            "brandNames": obj.get("brandNames"),
-            "subjectIds": obj.get("subjectIds"),
-            "tagIds": obj.get("tagIds"),
-            "skipDeletedNm": obj.get("skipDeletedNm"),
-            "orderBy": OrderBy.from_dict(obj["orderBy"]) if obj.get("orderBy") is not None else None,
-            "limit": obj.get("limit") if obj.get("limit") is not None else 50,
-            "offset": obj.get("offset") if obj.get("offset") is not None else 0
-        })
+        _obj = cls.model_validate(
+            {
+                "selectedPeriod": (
+                    ItemsRequestSelectedPeriod.from_dict(obj["selectedPeriod"])
+                    if obj.get("selectedPeriod") is not None
+                    else None
+                ),
+                "pastPeriod": (
+                    ItemsRequestPastPeriod.from_dict(obj["pastPeriod"])
+                    if obj.get("pastPeriod") is not None
+                    else None
+                ),
+                "nmIds": obj.get("nmIds"),
+                "brandNames": obj.get("brandNames"),
+                "subjectIds": obj.get("subjectIds"),
+                "tagIds": obj.get("tagIds"),
+                "skipDeletedNm": obj.get("skipDeletedNm"),
+                "orderBy": (
+                    OrderBy.from_dict(obj["orderBy"])
+                    if obj.get("orderBy") is not None
+                    else None
+                ),
+                "limit": obj.get("limit") if obj.get("limit") is not None else 50,
+                "offset": obj.get("offset") if obj.get("offset") is not None else 0,
+            }
+        )
         return _obj
-
-

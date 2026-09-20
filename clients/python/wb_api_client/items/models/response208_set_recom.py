@@ -22,10 +22,12 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class Response208SetRecom(BaseModel):
     """
     Response208SetRecom
-    """ # noqa: E501
+    """  # noqa: E501
+
     request_id: StrictStr = Field(description="ID запроса", alias="requestId")
     origin: StrictStr = Field(description="ID внутреннего сервиса WB")
     title: StrictStr = Field(description="Заголовок ответа")
@@ -37,7 +39,6 @@ class Response208SetRecom(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +64,7 @@ class Response208SetRecom(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,12 +82,12 @@ class Response208SetRecom(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "requestId": obj.get("requestId"),
-            "origin": obj.get("origin"),
-            "title": obj.get("title"),
-            "detail": obj.get("detail")
-        })
+        _obj = cls.model_validate(
+            {
+                "requestId": obj.get("requestId"),
+                "origin": obj.get("origin"),
+                "title": obj.get("title"),
+                "detail": obj.get("detail"),
+            }
+        )
         return _obj
-
-

@@ -22,13 +22,17 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V3APIError(BaseModel):
     """
     V3APIError
-    """ # noqa: E501
+    """  # noqa: E501
+
     code: Optional[StrictStr] = Field(default=None, description="Код ошибки")
     message: Optional[StrictStr] = Field(default=None, description="Описание ошибки")
-    data: Optional[Dict[str, Any]] = Field(default=None, description="Дополнительные данные ошибки")
+    data: Optional[Dict[str, Any]] = Field(
+        default=None, description="Дополнительные данные ошибки"
+    )
     __properties: ClassVar[List[str]] = ["code", "message", "data"]
 
     model_config = ConfigDict(
@@ -36,7 +40,6 @@ class V3APIError(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class V3APIError(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +83,11 @@ class V3APIError(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "code": obj.get("code"),
-            "message": obj.get("message"),
-            "data": obj.get("data")
-        })
+        _obj = cls.model_validate(
+            {
+                "code": obj.get("code"),
+                "message": obj.get("message"),
+                "data": obj.get("data"),
+            }
+        )
         return _obj
-
-

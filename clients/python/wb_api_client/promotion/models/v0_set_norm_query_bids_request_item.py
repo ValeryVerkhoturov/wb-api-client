@@ -22,14 +22,18 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class V0SetNormQueryBidsRequestItem(BaseModel):
     """
     V0SetNormQueryBidsRequestItem
-    """ # noqa: E501
+    """  # noqa: E501
+
     advert_id: StrictInt = Field(description="ID кампании")
     nm_id: StrictInt = Field(description="Артикул WB")
     norm_query: StrictStr = Field(description="Поисковый кластер")
-    bid: StrictInt = Field(description="Ставка за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
+    bid: StrictInt = Field(
+        description="Ставка за тысячу показов в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)"
+    )
     __properties: ClassVar[List[str]] = ["advert_id", "nm_id", "norm_query", "bid"]
 
     model_config = ConfigDict(
@@ -37,7 +41,6 @@ class V0SetNormQueryBidsRequestItem(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +66,7 @@ class V0SetNormQueryBidsRequestItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,12 +84,12 @@ class V0SetNormQueryBidsRequestItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advert_id": obj.get("advert_id"),
-            "nm_id": obj.get("nm_id"),
-            "norm_query": obj.get("norm_query"),
-            "bid": obj.get("bid")
-        })
+        _obj = cls.model_validate(
+            {
+                "advert_id": obj.get("advert_id"),
+                "nm_id": obj.get("nm_id"),
+                "norm_query": obj.get("norm_query"),
+                "bid": obj.get("bid"),
+            }
+        )
         return _obj
-
-

@@ -19,16 +19,26 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.post_v2_cards_upload_add_request_cards_to_add_inner import PostV2CardsUploadAddRequestCardsToAddInner
+from wb_api_client.items.models.post_v2_cards_upload_add_request_cards_to_add_inner import (
+    PostV2CardsUploadAddRequestCardsToAddInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV2CardsUploadAddRequest(BaseModel):
     """
     PostV2CardsUploadAddRequest
-    """ # noqa: E501
-    imt_id: Optional[StrictInt] = Field(default=None, description="`imtID` отдельной карточки товара или группы [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров, к которой присоединяются создаваемые карточки ", alias="imtID")
-    cards_to_add: Optional[List[PostV2CardsUploadAddRequestCardsToAddInner]] = Field(default=None, description="Добавляемые карточки товаров", alias="cardsToAdd")
+    """  # noqa: E501
+
+    imt_id: Optional[StrictInt] = Field(
+        default=None,
+        description="`imtID` отдельной карточки товара или группы [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров, к которой присоединяются создаваемые карточки ",
+        alias="imtID",
+    )
+    cards_to_add: Optional[List[PostV2CardsUploadAddRequestCardsToAddInner]] = Field(
+        default=None, description="Добавляемые карточки товаров", alias="cardsToAdd"
+    )
     __properties: ClassVar[List[str]] = ["imtID", "cardsToAdd"]
 
     model_config = ConfigDict(
@@ -36,7 +46,6 @@ class PostV2CardsUploadAddRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +71,7 @@ class PostV2CardsUploadAddRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +84,7 @@ class PostV2CardsUploadAddRequest(BaseModel):
             for _item_cards_to_add in self.cards_to_add:
                 if _item_cards_to_add:
                     _items.append(_item_cards_to_add.to_dict())
-            _dict['cardsToAdd'] = _items
+            _dict["cardsToAdd"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +96,17 @@ class PostV2CardsUploadAddRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "imtID": obj.get("imtID"),
-            "cardsToAdd": [PostV2CardsUploadAddRequestCardsToAddInner.from_dict(_item) for _item in obj["cardsToAdd"]] if obj.get("cardsToAdd") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "imtID": obj.get("imtID"),
+                "cardsToAdd": (
+                    [
+                        PostV2CardsUploadAddRequestCardsToAddInner.from_dict(_item)
+                        for _item in obj["cardsToAdd"]
+                    ]
+                    if obj.get("cardsToAdd") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

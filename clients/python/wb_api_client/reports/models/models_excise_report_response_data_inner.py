@@ -22,30 +22,59 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsExciseReportResponseDataInner(BaseModel):
     """
     ModelsExciseReportResponseDataInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     name: Optional[StrictStr] = Field(default=None, description="Страна покупателя")
-    price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Цена товара, с НДС")
+    price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Цена товара, с НДС"
+    )
     currency_name_short: Optional[StrictStr] = Field(default=None, description="Валюта")
-    excise_short: Optional[StrictStr] = Field(default=None, description="Код маркировки")
+    excise_short: Optional[StrictStr] = Field(
+        default=None, description="Код маркировки"
+    )
     barcode: Optional[StrictStr] = Field(default=None, description="Баркод")
     nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB")
-    operation_type_id: Optional[StrictInt] = Field(default=None, description="Тип операции, если есть:    * `1` — вывод из оборота   * `2` — возврат в оборот ")
-    fiscal_doc_number: Optional[StrictInt] = Field(default=None, description="Номер фискального документа (чека полного расчёта), если есть")
-    fiscal_dt: Optional[StrictStr] = Field(default=None, description="Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`")
-    fiscal_drive_number: Optional[StrictStr] = Field(default=None, description="Номер фискального накопителя, если есть")
+    operation_type_id: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип операции, если есть:    * `1` — вывод из оборота   * `2` — возврат в оборот ",
+    )
+    fiscal_doc_number: Optional[StrictInt] = Field(
+        default=None,
+        description="Номер фискального документа (чека полного расчёта), если есть",
+    )
+    fiscal_dt: Optional[StrictStr] = Field(
+        default=None,
+        description="Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`",
+    )
+    fiscal_drive_number: Optional[StrictStr] = Field(
+        default=None, description="Номер фискального накопителя, если есть"
+    )
     rid: Optional[StrictInt] = Field(default=None, description="`Rid` ")
     srid: Optional[StrictStr] = Field(default=None, description="`Srid` ")
-    __properties: ClassVar[List[str]] = ["name", "price", "currency_name_short", "excise_short", "barcode", "nm_id", "operation_type_id", "fiscal_doc_number", "fiscal_dt", "fiscal_drive_number", "rid", "srid"]
+    __properties: ClassVar[List[str]] = [
+        "name",
+        "price",
+        "currency_name_short",
+        "excise_short",
+        "barcode",
+        "nm_id",
+        "operation_type_id",
+        "fiscal_doc_number",
+        "fiscal_dt",
+        "fiscal_drive_number",
+        "rid",
+        "srid",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -71,8 +100,7 @@ class ModelsExciseReportResponseDataInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -90,20 +118,20 @@ class ModelsExciseReportResponseDataInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "price": obj.get("price"),
-            "currency_name_short": obj.get("currency_name_short"),
-            "excise_short": obj.get("excise_short"),
-            "barcode": obj.get("barcode"),
-            "nm_id": obj.get("nm_id"),
-            "operation_type_id": obj.get("operation_type_id"),
-            "fiscal_doc_number": obj.get("fiscal_doc_number"),
-            "fiscal_dt": obj.get("fiscal_dt"),
-            "fiscal_drive_number": obj.get("fiscal_drive_number"),
-            "rid": obj.get("rid"),
-            "srid": obj.get("srid")
-        })
+        _obj = cls.model_validate(
+            {
+                "name": obj.get("name"),
+                "price": obj.get("price"),
+                "currency_name_short": obj.get("currency_name_short"),
+                "excise_short": obj.get("excise_short"),
+                "barcode": obj.get("barcode"),
+                "nm_id": obj.get("nm_id"),
+                "operation_type_id": obj.get("operation_type_id"),
+                "fiscal_doc_number": obj.get("fiscal_doc_number"),
+                "fiscal_dt": obj.get("fiscal_dt"),
+                "fiscal_drive_number": obj.get("fiscal_drive_number"),
+                "rid": obj.get("rid"),
+                "srid": obj.get("srid"),
+            }
+        )
         return _obj
-
-

@@ -19,19 +19,35 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.orders_fbw.models.models_options_result_model_result_inner_error import ModelsOptionsResultModelResultInnerError
-from wb_api_client.orders_fbw.models.models_options_result_model_result_inner_warehouses_inner import ModelsOptionsResultModelResultInnerWarehousesInner
+from wb_api_client.orders_fbw.models.models_options_result_model_result_inner_error import (
+    ModelsOptionsResultModelResultInnerError,
+)
+from wb_api_client.orders_fbw.models.models_options_result_model_result_inner_warehouses_inner import (
+    ModelsOptionsResultModelResultInnerWarehousesInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ModelsOptionsResultModelResultInner(BaseModel):
     """
     ModelsOptionsResultModelResultInner
-    """ # noqa: E501
-    barcode: Optional[StrictStr] = Field(default=None, description="Баркод из карточки товара")
+    """  # noqa: E501
+
+    barcode: Optional[StrictStr] = Field(
+        default=None, description="Баркод из карточки товара"
+    )
     error: Optional[ModelsOptionsResultModelResultInnerError] = None
-    is_error: Optional[StrictBool] = Field(default=None, description="Наличие ошибки:   - `true` — ошибка есть   - Поля нет — ошибка отсутствует ", alias="isError")
-    warehouses: Optional[List[ModelsOptionsResultModelResultInnerWarehousesInner]] = Field(default=None, description="Список складов. При наличии ошибки будет `null`")
+    is_error: Optional[StrictBool] = Field(
+        default=None,
+        description="Наличие ошибки:   - `true` — ошибка есть   - Поля нет — ошибка отсутствует ",
+        alias="isError",
+    )
+    warehouses: Optional[List[ModelsOptionsResultModelResultInnerWarehousesInner]] = (
+        Field(
+            default=None, description="Список складов. При наличии ошибки будет `null`"
+        )
+    )
     __properties: ClassVar[List[str]] = ["barcode", "error", "isError", "warehouses"]
 
     model_config = ConfigDict(
@@ -39,7 +55,6 @@ class ModelsOptionsResultModelResultInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +80,7 @@ class ModelsOptionsResultModelResultInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,18 +89,18 @@ class ModelsOptionsResultModelResultInner(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of error
         if self.error:
-            _dict['error'] = self.error.to_dict()
+            _dict["error"] = self.error.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in warehouses (list)
         _items = []
         if self.warehouses:
             for _item_warehouses in self.warehouses:
                 if _item_warehouses:
                     _items.append(_item_warehouses.to_dict())
-            _dict['warehouses'] = _items
+            _dict["warehouses"] = _items
         # set to None if warehouses (nullable) is None
         # and model_fields_set contains the field
         if self.warehouses is None and "warehouses" in self.model_fields_set:
-            _dict['warehouses'] = None
+            _dict["warehouses"] = None
 
         return _dict
 
@@ -99,12 +113,25 @@ class ModelsOptionsResultModelResultInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "barcode": obj.get("barcode"),
-            "error": ModelsOptionsResultModelResultInnerError.from_dict(obj["error"]) if obj.get("error") is not None else None,
-            "isError": obj.get("isError"),
-            "warehouses": [ModelsOptionsResultModelResultInnerWarehousesInner.from_dict(_item) for _item in obj["warehouses"]] if obj.get("warehouses") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "barcode": obj.get("barcode"),
+                "error": (
+                    ModelsOptionsResultModelResultInnerError.from_dict(obj["error"])
+                    if obj.get("error") is not None
+                    else None
+                ),
+                "isError": obj.get("isError"),
+                "warehouses": (
+                    [
+                        ModelsOptionsResultModelResultInnerWarehousesInner.from_dict(
+                            _item
+                        )
+                        for _item in obj["warehouses"]
+                    ]
+                    if obj.get("warehouses") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

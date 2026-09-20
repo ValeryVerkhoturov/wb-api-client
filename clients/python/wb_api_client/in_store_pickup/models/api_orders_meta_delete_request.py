@@ -23,19 +23,27 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ApiOrdersMetaDeleteRequest(BaseModel):
     """
     ApiOrdersMetaDeleteRequest
-    """ # noqa: E501
-    key: StrictStr = Field(description="Тип идентификаторов маркировки для удаления. Передаётся только одно значение")
-    orders_ids: Annotated[List[StrictInt], Field(max_length=1000)] = Field(description="Список ID сборочных заданий", alias="ordersIds")
+    """  # noqa: E501
+
+    key: StrictStr = Field(
+        description="Тип идентификаторов маркировки для удаления. Передаётся только одно значение"
+    )
+    orders_ids: Annotated[List[StrictInt], Field(max_length=1000)] = Field(
+        description="Список ID сборочных заданий", alias="ordersIds"
+    )
     __properties: ClassVar[List[str]] = ["key", "ordersIds"]
 
-    @field_validator('key')
+    @field_validator("key")
     def key_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['imei', 'uin', 'gtin', 'sgtin', 'customsDeclaration']):
-            raise ValueError("must be one of enum values ('imei', 'uin', 'gtin', 'sgtin', 'customsDeclaration')")
+        if value not in set(["imei", "uin", "gtin", "sgtin", "customsDeclaration"]):
+            raise ValueError(
+                "must be one of enum values ('imei', 'uin', 'gtin', 'sgtin', 'customsDeclaration')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -43,7 +51,6 @@ class ApiOrdersMetaDeleteRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -69,8 +76,7 @@ class ApiOrdersMetaDeleteRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -88,10 +94,7 @@ class ApiOrdersMetaDeleteRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "key": obj.get("key"),
-            "ordersIds": obj.get("ordersIds")
-        })
+        _obj = cls.model_validate(
+            {"key": obj.get("key"), "ordersIds": obj.get("ordersIds")}
+        )
         return _obj
-
-

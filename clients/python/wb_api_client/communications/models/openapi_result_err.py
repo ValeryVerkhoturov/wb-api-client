@@ -22,22 +22,47 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class OpenapiResultErr(BaseModel):
     """
     OpenapiResultErr
-    """ # noqa: E501
+    """  # noqa: E501
+
     origin: StrictStr = Field(description="ID внутреннего сервиса WB")
     detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
     request_id: StrictStr = Field(description="ID запроса", alias="requestId")
     status: StrictStr = Field(description="Статус")
     title: StrictStr = Field(description="Заголовок ошибки")
-    __properties: ClassVar[List[str]] = ["origin", "detail", "requestId", "status", "title"]
+    __properties: ClassVar[List[str]] = [
+        "origin",
+        "detail",
+        "requestId",
+        "status",
+        "title",
+    ]
 
-    @field_validator('status')
+    @field_validator("status")
     def status_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['feedbackNotFound', 'itemNotFound', 'feedbackMismatch', 'itemNoImages', 'feedbackExcluded', 'imtNotDisplayed', 'globalLimitReached', 'unitLimitReached', 'tariffRestriction', 'subscriptionRestriction', 'alreadyPinned', 'bodyNotValid']):
-            raise ValueError("must be one of enum values ('feedbackNotFound', 'itemNotFound', 'feedbackMismatch', 'itemNoImages', 'feedbackExcluded', 'imtNotDisplayed', 'globalLimitReached', 'unitLimitReached', 'tariffRestriction', 'subscriptionRestriction', 'alreadyPinned', 'bodyNotValid')")
+        if value not in set(
+            [
+                "feedbackNotFound",
+                "itemNotFound",
+                "feedbackMismatch",
+                "itemNoImages",
+                "feedbackExcluded",
+                "imtNotDisplayed",
+                "globalLimitReached",
+                "unitLimitReached",
+                "tariffRestriction",
+                "subscriptionRestriction",
+                "alreadyPinned",
+                "bodyNotValid",
+            ]
+        ):
+            raise ValueError(
+                "must be one of enum values ('feedbackNotFound', 'itemNotFound', 'feedbackMismatch', 'itemNoImages', 'feedbackExcluded', 'imtNotDisplayed', 'globalLimitReached', 'unitLimitReached', 'tariffRestriction', 'subscriptionRestriction', 'alreadyPinned', 'bodyNotValid')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -45,7 +70,6 @@ class OpenapiResultErr(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -71,8 +95,7 @@ class OpenapiResultErr(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -90,13 +113,13 @@ class OpenapiResultErr(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "origin": obj.get("origin"),
-            "detail": obj.get("detail"),
-            "requestId": obj.get("requestId"),
-            "status": obj.get("status"),
-            "title": obj.get("title")
-        })
+        _obj = cls.model_validate(
+            {
+                "origin": obj.get("origin"),
+                "detail": obj.get("detail"),
+                "requestId": obj.get("requestId"),
+                "status": obj.get("status"),
+                "title": obj.get("title"),
+            }
+        )
         return _obj
-
-

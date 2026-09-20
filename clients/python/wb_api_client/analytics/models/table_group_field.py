@@ -20,35 +20,33 @@ from typing_extensions import Self
 
 class TableGroupField(str, Enum):
     """
-    Сортировка по полю:   - `ordersCount` — Заказы, шт.   - `ordersSum` — Заказы, сумма   - `avgOrders` — Среднее количество заказов в день   - `buyoutCount` — Выкупы, шт.   - `buyoutSum` — Выкупы, сумма   - `buyoutPercent` — Процент выкупа   - `stockCount` — Остатки на текущий день, шт.   - `stockSum` — Стоимость остатков на текущий день   - `saleRate` — Оборачиваемость текущих остатков   - `avgStockTurnover` — Оборачиваемость средних остатков   - `toClientCount` — В пути к клиенту, шт.   - `fromClientCount` — В пути от клиента, шт.   - `minPrice` — Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)   - `maxPrice` — Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)   - `officeMissingTime` — Время отсутствия товара на складе   - `lostOrdersCount` — Упущенные заказы, шт.   - `lostOrdersSum` — Упущенные заказы, сумма   - `lostBuyoutsCount` — Упущенные выкупы, шт.   - `lostBuyoutsSum` — Упущенные выкупы, сумма 
+    Сортировка по полю:   - `ordersCount` — Заказы, шт.   - `ordersSum` — Заказы, сумма   - `avgOrders` — Среднее количество заказов в день   - `buyoutCount` — Выкупы, шт.   - `buyoutSum` — Выкупы, сумма   - `buyoutPercent` — Процент выкупа   - `stockCount` — Остатки на текущий день, шт.   - `stockSum` — Стоимость остатков на текущий день   - `saleRate` — Оборачиваемость текущих остатков   - `avgStockTurnover` — Оборачиваемость средних остатков   - `toClientCount` — В пути к клиенту, шт.   - `fromClientCount` — В пути от клиента, шт.   - `minPrice` — Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)   - `maxPrice` — Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)   - `officeMissingTime` — Время отсутствия товара на складе   - `lostOrdersCount` — Упущенные заказы, шт.   - `lostOrdersSum` — Упущенные заказы, сумма   - `lostBuyoutsCount` — Упущенные выкупы, шт.   - `lostBuyoutsSum` — Упущенные выкупы, сумма
     """
 
     """
     allowed enum values
     """
-    ORDERSCOUNT = 'ordersCount'
-    ORDERSSUM = 'ordersSum'
-    AVGORDERS = 'avgOrders'
-    BUYOUTCOUNT = 'buyoutCount'
-    BUYOUTSUM = 'buyoutSum'
-    BUYOUTPERCENT = 'buyoutPercent'
-    STOCKCOUNT = 'stockCount'
-    STOCKSUM = 'stockSum'
-    SALERATE = 'saleRate'
-    AVGSTOCKTURNOVER = 'avgStockTurnover'
-    TOCLIENTCOUNT = 'toClientCount'
-    FROMCLIENTCOUNT = 'fromClientCount'
-    MINPRICE = 'minPrice'
-    MAXPRICE = 'maxPrice'
-    OFFICEMISSINGTIME = 'officeMissingTime'
-    LOSTORDERSCOUNT = 'lostOrdersCount'
-    LOSTORDERSSUM = 'lostOrdersSum'
-    LOSTBUYOUTSCOUNT = 'lostBuyoutsCount'
-    LOSTBUYOUTSSUM = 'lostBuyoutsSum'
+    ORDERSCOUNT = "ordersCount"
+    ORDERSSUM = "ordersSum"
+    AVGORDERS = "avgOrders"
+    BUYOUTCOUNT = "buyoutCount"
+    BUYOUTSUM = "buyoutSum"
+    BUYOUTPERCENT = "buyoutPercent"
+    STOCKCOUNT = "stockCount"
+    STOCKSUM = "stockSum"
+    SALERATE = "saleRate"
+    AVGSTOCKTURNOVER = "avgStockTurnover"
+    TOCLIENTCOUNT = "toClientCount"
+    FROMCLIENTCOUNT = "fromClientCount"
+    MINPRICE = "minPrice"
+    MAXPRICE = "maxPrice"
+    OFFICEMISSINGTIME = "officeMissingTime"
+    LOSTORDERSCOUNT = "lostOrdersCount"
+    LOSTORDERSSUM = "lostOrdersSum"
+    LOSTBUYOUTSCOUNT = "lostBuyoutsCount"
+    LOSTBUYOUTSSUM = "lostBuyoutsSum"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of TableGroupField from a JSON string"""
         return cls(json.loads(json_str))
-
-

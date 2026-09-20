@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.analytics.models.table_shipping_office_item import TableShippingOfficeItem
+from wb_api_client.analytics.models.table_shipping_office_item import (
+    TableShippingOfficeItem,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class TableShippingOfficeResponse(BaseModel):
     """
     TableShippingOfficeResponse
-    """ # noqa: E501
-    regions: Optional[List[TableShippingOfficeItem]] = Field(default=None, description="Множество данных по регионам отгрузки")
+    """  # noqa: E501
+
+    regions: Optional[List[TableShippingOfficeItem]] = Field(
+        default=None, description="Множество данных по регионам отгрузки"
+    )
     currency: StrictStr = Field(description="Валюта отчёта")
     __properties: ClassVar[List[str]] = ["regions", "currency"]
 
@@ -36,7 +42,6 @@ class TableShippingOfficeResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class TableShippingOfficeResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +80,7 @@ class TableShippingOfficeResponse(BaseModel):
             for _item_regions in self.regions:
                 if _item_regions:
                     _items.append(_item_regions.to_dict())
-            _dict['regions'] = _items
+            _dict["regions"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +92,17 @@ class TableShippingOfficeResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "regions": [TableShippingOfficeItem.from_dict(_item) for _item in obj["regions"]] if obj.get("regions") is not None else None,
-            "currency": obj.get("currency")
-        })
+        _obj = cls.model_validate(
+            {
+                "regions": (
+                    [
+                        TableShippingOfficeItem.from_dict(_item)
+                        for _item in obj["regions"]
+                    ]
+                    if obj.get("regions") is not None
+                    else None
+                ),
+                "currency": obj.get("currency"),
+            }
+        )
         return _obj
-
-

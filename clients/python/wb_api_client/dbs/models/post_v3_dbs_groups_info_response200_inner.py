@@ -22,23 +22,46 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV3DbsGroupsInfoResponse200Inner(BaseModel):
     """
     PostV3DbsGroupsInfoResponse200Inner
-    """ # noqa: E501
-    group_id: Optional[StrictStr] = Field(default=None, description="ID группы сборочных заданий", alias="groupID")
-    delivery_cost: Optional[StrictInt] = Field(default=None, description="Стоимость платной доставки в валюте продажи, умноженная на 100", alias="deliveryCost")
-    converted_delivery_cost: Optional[StrictInt] = Field(default=None, description="Стоимость платной доставки в валюте страны продавца, умноженная на 100. Предоставляется в информационных целях.", alias="convertedDeliveryCost")
-    currency_code: Optional[StrictInt] = Field(default=None, description="Код валюты продажи", alias="currencyCode")
-    converted_currency_code: Optional[StrictInt] = Field(default=None, description="Код валюты страны продавца", alias="convertedCurrencyCode")
-    __properties: ClassVar[List[str]] = ["groupID", "deliveryCost", "convertedDeliveryCost", "currencyCode", "convertedCurrencyCode"]
+    """  # noqa: E501
+
+    group_id: Optional[StrictStr] = Field(
+        default=None, description="ID группы сборочных заданий", alias="groupID"
+    )
+    delivery_cost: Optional[StrictInt] = Field(
+        default=None,
+        description="Стоимость платной доставки в валюте продажи, умноженная на 100",
+        alias="deliveryCost",
+    )
+    converted_delivery_cost: Optional[StrictInt] = Field(
+        default=None,
+        description="Стоимость платной доставки в валюте страны продавца, умноженная на 100. Предоставляется в информационных целях.",
+        alias="convertedDeliveryCost",
+    )
+    currency_code: Optional[StrictInt] = Field(
+        default=None, description="Код валюты продажи", alias="currencyCode"
+    )
+    converted_currency_code: Optional[StrictInt] = Field(
+        default=None,
+        description="Код валюты страны продавца",
+        alias="convertedCurrencyCode",
+    )
+    __properties: ClassVar[List[str]] = [
+        "groupID",
+        "deliveryCost",
+        "convertedDeliveryCost",
+        "currencyCode",
+        "convertedCurrencyCode",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +87,7 @@ class PostV3DbsGroupsInfoResponse200Inner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,13 +105,13 @@ class PostV3DbsGroupsInfoResponse200Inner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "groupID": obj.get("groupID"),
-            "deliveryCost": obj.get("deliveryCost"),
-            "convertedDeliveryCost": obj.get("convertedDeliveryCost"),
-            "currencyCode": obj.get("currencyCode"),
-            "convertedCurrencyCode": obj.get("convertedCurrencyCode")
-        })
+        _obj = cls.model_validate(
+            {
+                "groupID": obj.get("groupID"),
+                "deliveryCost": obj.get("deliveryCost"),
+                "convertedDeliveryCost": obj.get("convertedDeliveryCost"),
+                "currencyCode": obj.get("currencyCode"),
+                "convertedCurrencyCode": obj.get("convertedCurrencyCode"),
+            }
+        )
         return _obj
-
-

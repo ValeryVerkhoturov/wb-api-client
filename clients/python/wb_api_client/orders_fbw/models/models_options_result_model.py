@@ -19,16 +19,22 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.orders_fbw.models.models_options_result_model_result_inner import ModelsOptionsResultModelResultInner
+from wb_api_client.orders_fbw.models.models_options_result_model_result_inner import (
+    ModelsOptionsResultModelResultInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ModelsOptionsResultModel(BaseModel):
     """
     ModelsOptionsResultModel
-    """ # noqa: E501
+    """  # noqa: E501
+
     result: Optional[List[ModelsOptionsResultModelResultInner]] = None
-    request_id: Optional[StrictStr] = Field(default=None, description="ID запроса при наличии ошибок", alias="requestId")
+    request_id: Optional[StrictStr] = Field(
+        default=None, description="ID запроса при наличии ошибок", alias="requestId"
+    )
     __properties: ClassVar[List[str]] = ["result", "requestId"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class ModelsOptionsResultModel(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class ModelsOptionsResultModel(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +80,7 @@ class ModelsOptionsResultModel(BaseModel):
             for _item_result in self.result:
                 if _item_result:
                     _items.append(_item_result.to_dict())
-            _dict['result'] = _items
+            _dict["result"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +92,17 @@ class ModelsOptionsResultModel(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "result": [ModelsOptionsResultModelResultInner.from_dict(_item) for _item in obj["result"]] if obj.get("result") is not None else None,
-            "requestId": obj.get("requestId")
-        })
+        _obj = cls.model_validate(
+            {
+                "result": (
+                    [
+                        ModelsOptionsResultModelResultInner.from_dict(_item)
+                        for _item in obj["result"]
+                    ]
+                    if obj.get("result") is not None
+                    else None
+                ),
+                "requestId": obj.get("requestId"),
+            }
+        )
         return _obj
-
-

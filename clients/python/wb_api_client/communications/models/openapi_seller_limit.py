@@ -22,23 +22,37 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class OpenapiSellerLimit(BaseModel):
     """
     OpenapiSellerLimit
-    """ # noqa: E501
-    per_unit_limit: StrictInt = Field(description="Максимальное количество закреплённых отзывов в одной карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек", alias="perUnitLimit")
+    """  # noqa: E501
+
+    per_unit_limit: StrictInt = Field(
+        description="Максимальное количество закреплённых отзывов в одной карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек",
+        alias="perUnitLimit",
+    )
     remaining: StrictInt = Field(description="Сколько ещё отзывов можно закрепить")
-    total_limit: StrictInt = Field(description="Общий лимит закреплений", alias="totalLimit")
-    unlimited: StrictBool = Field(description="Количество закреплённых отзывов не ограничено:   - `true` — да   - `false` — нет ")
+    total_limit: StrictInt = Field(
+        description="Общий лимит закреплений", alias="totalLimit"
+    )
+    unlimited: StrictBool = Field(
+        description="Количество закреплённых отзывов не ограничено:   - `true` — да   - `false` — нет "
+    )
     used: StrictInt = Field(description="Текущее количество закреплённых отзывов")
-    __properties: ClassVar[List[str]] = ["perUnitLimit", "remaining", "totalLimit", "unlimited", "used"]
+    __properties: ClassVar[List[str]] = [
+        "perUnitLimit",
+        "remaining",
+        "totalLimit",
+        "unlimited",
+        "used",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +78,7 @@ class OpenapiSellerLimit(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,13 +96,13 @@ class OpenapiSellerLimit(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "perUnitLimit": obj.get("perUnitLimit"),
-            "remaining": obj.get("remaining"),
-            "totalLimit": obj.get("totalLimit"),
-            "unlimited": obj.get("unlimited"),
-            "used": obj.get("used")
-        })
+        _obj = cls.model_validate(
+            {
+                "perUnitLimit": obj.get("perUnitLimit"),
+                "remaining": obj.get("remaining"),
+                "totalLimit": obj.get("totalLimit"),
+                "unlimited": obj.get("unlimited"),
+                "used": obj.get("used"),
+            }
+        )
         return _obj
-
-

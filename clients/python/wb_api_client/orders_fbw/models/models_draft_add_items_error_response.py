@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.orders_fbw.models.models_draft_add_items_result_item import ModelsDraftAddItemsResultItem
+from wb_api_client.orders_fbw.models.models_draft_add_items_result_item import (
+    ModelsDraftAddItemsResultItem,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ModelsDraftAddItemsErrorResponse(BaseModel):
     """
     ModelsDraftAddItemsErrorResponse
-    """ # noqa: E501
-    results: List[ModelsDraftAddItemsResultItem] = Field(description="Список невалидных баркодов с ошибками")
+    """  # noqa: E501
+
+    results: List[ModelsDraftAddItemsResultItem] = Field(
+        description="Список невалидных баркодов с ошибками"
+    )
     __properties: ClassVar[List[str]] = ["results"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class ModelsDraftAddItemsErrorResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class ModelsDraftAddItemsErrorResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +79,7 @@ class ModelsDraftAddItemsErrorResponse(BaseModel):
             for _item_results in self.results:
                 if _item_results:
                     _items.append(_item_results.to_dict())
-            _dict['results'] = _items
+            _dict["results"] = _items
         return _dict
 
     @classmethod
@@ -87,9 +91,16 @@ class ModelsDraftAddItemsErrorResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "results": [ModelsDraftAddItemsResultItem.from_dict(_item) for _item in obj["results"]] if obj.get("results") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "results": (
+                    [
+                        ModelsDraftAddItemsResultItem.from_dict(_item)
+                        for _item in obj["results"]
+                    ]
+                    if obj.get("results") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

@@ -22,10 +22,12 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class TableDetailsResponse(BaseModel):
     """
     TableDetailsResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     products: List[object] = Field(description="Список товаров в группе по фильтру ")
     currency: StrictStr = Field(description="Валюта отчёта")
     __properties: ClassVar[List[str]] = ["products", "currency"]
@@ -35,7 +37,6 @@ class TableDetailsResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +62,7 @@ class TableDetailsResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +80,7 @@ class TableDetailsResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "products": obj.get("products"),
-            "currency": obj.get("currency")
-        })
+        _obj = cls.model_validate(
+            {"products": obj.get("products"), "currency": obj.get("currency")}
+        )
         return _obj
-
-

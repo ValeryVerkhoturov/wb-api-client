@@ -26,23 +26,32 @@ from wb_api_client.analytics.models.visibility_info import VisibilityInfo
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class MainResponse(BaseModel):
     """
     MainResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     common_info: CommonInfo = Field(alias="commonInfo")
     position_info: PositionInfo = Field(alias="positionInfo")
     visibility_info: VisibilityInfo = Field(alias="visibilityInfo")
-    groups: Optional[List[TableGroupItem]] = Field(default=None, description="Список элементов таблицы ")
+    groups: Optional[List[TableGroupItem]] = Field(
+        default=None, description="Список элементов таблицы "
+    )
     currency: StrictStr = Field(description="Валюта отчёта")
-    __properties: ClassVar[List[str]] = ["commonInfo", "positionInfo", "visibilityInfo", "groups", "currency"]
+    __properties: ClassVar[List[str]] = [
+        "commonInfo",
+        "positionInfo",
+        "visibilityInfo",
+        "groups",
+        "currency",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -68,8 +77,7 @@ class MainResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -78,20 +86,20 @@ class MainResponse(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of common_info
         if self.common_info:
-            _dict['commonInfo'] = self.common_info.to_dict()
+            _dict["commonInfo"] = self.common_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of position_info
         if self.position_info:
-            _dict['positionInfo'] = self.position_info.to_dict()
+            _dict["positionInfo"] = self.position_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of visibility_info
         if self.visibility_info:
-            _dict['visibilityInfo'] = self.visibility_info.to_dict()
+            _dict["visibilityInfo"] = self.visibility_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in groups (list)
         _items = []
         if self.groups:
             for _item_groups in self.groups:
                 if _item_groups:
                     _items.append(_item_groups.to_dict())
-            _dict['groups'] = _items
+            _dict["groups"] = _items
         return _dict
 
     @classmethod
@@ -103,13 +111,29 @@ class MainResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "commonInfo": CommonInfo.from_dict(obj["commonInfo"]) if obj.get("commonInfo") is not None else None,
-            "positionInfo": PositionInfo.from_dict(obj["positionInfo"]) if obj.get("positionInfo") is not None else None,
-            "visibilityInfo": VisibilityInfo.from_dict(obj["visibilityInfo"]) if obj.get("visibilityInfo") is not None else None,
-            "groups": [TableGroupItem.from_dict(_item) for _item in obj["groups"]] if obj.get("groups") is not None else None,
-            "currency": obj.get("currency")
-        })
+        _obj = cls.model_validate(
+            {
+                "commonInfo": (
+                    CommonInfo.from_dict(obj["commonInfo"])
+                    if obj.get("commonInfo") is not None
+                    else None
+                ),
+                "positionInfo": (
+                    PositionInfo.from_dict(obj["positionInfo"])
+                    if obj.get("positionInfo") is not None
+                    else None
+                ),
+                "visibilityInfo": (
+                    VisibilityInfo.from_dict(obj["visibilityInfo"])
+                    if obj.get("visibilityInfo") is not None
+                    else None
+                ),
+                "groups": (
+                    [TableGroupItem.from_dict(_item) for _item in obj["groups"]]
+                    if obj.get("groups") is not None
+                    else None
+                ),
+                "currency": obj.get("currency"),
+            }
+        )
         return _obj
-
-

@@ -22,35 +22,71 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class AcquiringReportsDetailedRes(BaseModel):
     """
     Детализации к отчётам об издержках на приём платежей
-    """ # noqa: E501
+    """  # noqa: E501
+
     rrd_id: StrictInt = Field(description="ID строки", alias="rrdId")
     report_id: StrictInt = Field(description="ID отчёта", alias="reportId")
     acq_date: StrictStr = Field(description="Дата операции", alias="acqDate")
-    acquiring_bank: StrictStr = Field(description="Наименование банка-эквайера", alias="acquiringBank")
+    acquiring_bank: StrictStr = Field(
+        description="Наименование банка-эквайера", alias="acquiringBank"
+    )
     tin: StrictStr = Field(description="ИНН")
-    tax_registration_reason_code: StrictStr = Field(description="КПП", alias="taxRegistrationReasonCode")
+    tax_registration_reason_code: StrictStr = Field(
+        description="КПП", alias="taxRegistrationReasonCode"
+    )
     sale_date: StrictStr = Field(description="Дата продажи", alias="saleDate")
-    srid: StrictStr = Field(description="ID заказа. В ответах методов сборочных заданий [FBS](./orders-fbs#tag/fbsAssemblyOrders), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`")
+    srid: StrictStr = Field(
+        description="ID заказа. В ответах методов сборочных заданий [FBS](./orders-fbs#tag/fbsAssemblyOrders), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) `srid` равен `rid`"
+    )
     document_type: StrictStr = Field(description="Тип документа", alias="documentType")
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    retail_amount: StrictStr = Field(description="Wildberries реализовал Товар (Пр)", alias="retailAmount")
-    acquiring_fee: StrictStr = Field(description="Размер комиссии за эквайринг, в том числе НДС", alias="acquiringFee")
-    acquiring_fee_vat: StrictStr = Field(description="Сумма НДС", alias="acquiringFeeVat")
-    invoice_number: StrictStr = Field(description="Номер счёта-фактуры", alias="invoiceNumber")
-    invoice_date: StrictStr = Field(description="Дата счёта-фактуры", alias="invoiceDate")
+    retail_amount: StrictStr = Field(
+        description="Wildberries реализовал Товар (Пр)", alias="retailAmount"
+    )
+    acquiring_fee: StrictStr = Field(
+        description="Размер комиссии за эквайринг, в том числе НДС",
+        alias="acquiringFee",
+    )
+    acquiring_fee_vat: StrictStr = Field(
+        description="Сумма НДС", alias="acquiringFeeVat"
+    )
+    invoice_number: StrictStr = Field(
+        description="Номер счёта-фактуры", alias="invoiceNumber"
+    )
+    invoice_date: StrictStr = Field(
+        description="Дата счёта-фактуры", alias="invoiceDate"
+    )
     shk_id: StrictInt = Field(description="Штрихкод", alias="shkId")
     currency: StrictStr = Field(description="Валюта отчёта")
-    __properties: ClassVar[List[str]] = ["rrdId", "reportId", "acqDate", "acquiringBank", "tin", "taxRegistrationReasonCode", "saleDate", "srid", "documentType", "nmId", "retailAmount", "acquiringFee", "acquiringFeeVat", "invoiceNumber", "invoiceDate", "shkId", "currency"]
+    __properties: ClassVar[List[str]] = [
+        "rrdId",
+        "reportId",
+        "acqDate",
+        "acquiringBank",
+        "tin",
+        "taxRegistrationReasonCode",
+        "saleDate",
+        "srid",
+        "documentType",
+        "nmId",
+        "retailAmount",
+        "acquiringFee",
+        "acquiringFeeVat",
+        "invoiceNumber",
+        "invoiceDate",
+        "shkId",
+        "currency",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -76,8 +112,7 @@ class AcquiringReportsDetailedRes(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -95,25 +130,25 @@ class AcquiringReportsDetailedRes(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "rrdId": obj.get("rrdId"),
-            "reportId": obj.get("reportId"),
-            "acqDate": obj.get("acqDate"),
-            "acquiringBank": obj.get("acquiringBank"),
-            "tin": obj.get("tin"),
-            "taxRegistrationReasonCode": obj.get("taxRegistrationReasonCode"),
-            "saleDate": obj.get("saleDate"),
-            "srid": obj.get("srid"),
-            "documentType": obj.get("documentType"),
-            "nmId": obj.get("nmId"),
-            "retailAmount": obj.get("retailAmount"),
-            "acquiringFee": obj.get("acquiringFee"),
-            "acquiringFeeVat": obj.get("acquiringFeeVat"),
-            "invoiceNumber": obj.get("invoiceNumber"),
-            "invoiceDate": obj.get("invoiceDate"),
-            "shkId": obj.get("shkId"),
-            "currency": obj.get("currency")
-        })
+        _obj = cls.model_validate(
+            {
+                "rrdId": obj.get("rrdId"),
+                "reportId": obj.get("reportId"),
+                "acqDate": obj.get("acqDate"),
+                "acquiringBank": obj.get("acquiringBank"),
+                "tin": obj.get("tin"),
+                "taxRegistrationReasonCode": obj.get("taxRegistrationReasonCode"),
+                "saleDate": obj.get("saleDate"),
+                "srid": obj.get("srid"),
+                "documentType": obj.get("documentType"),
+                "nmId": obj.get("nmId"),
+                "retailAmount": obj.get("retailAmount"),
+                "acquiringFee": obj.get("acquiringFee"),
+                "acquiringFeeVat": obj.get("acquiringFeeVat"),
+                "invoiceNumber": obj.get("invoiceNumber"),
+                "invoiceDate": obj.get("invoiceDate"),
+                "shkId": obj.get("shkId"),
+                "currency": obj.get("currency"),
+            }
+        )
         return _obj
-
-

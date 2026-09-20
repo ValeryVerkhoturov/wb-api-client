@@ -17,39 +17,84 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV3OrdersStatusResponse200OrdersInner(BaseModel):
     """
     PostV3OrdersStatusResponse200OrdersInner
-    """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания")
-    is_cancellable: Optional[StrictBool] = Field(default=None, description="Доступна ли [отмена](./orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel) сборочного задания: - `false` — недоступна - `true` — доступна ", alias="isCancellable")
-    supplier_status: Optional[StrictStr] = Field(default=None, description="Статус сборочного задания, установленный продавцом", alias="supplierStatus")
-    wb_status: Optional[StrictStr] = Field(default=None, description="Статус сборочного задания в системе Wildberries", alias="wbStatus")
-    __properties: ClassVar[List[str]] = ["id", "isCancellable", "supplierStatus", "wbStatus"]
+    """  # noqa: E501
 
-    @field_validator('supplier_status')
+    id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания")
+    is_cancellable: Optional[StrictBool] = Field(
+        default=None,
+        description="Доступна ли [отмена](./orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel) сборочного задания: - `false` — недоступна - `true` — доступна ",
+        alias="isCancellable",
+    )
+    supplier_status: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус сборочного задания, установленный продавцом",
+        alias="supplierStatus",
+    )
+    wb_status: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус сборочного задания в системе Wildberries",
+        alias="wbStatus",
+    )
+    __properties: ClassVar[List[str]] = [
+        "id",
+        "isCancellable",
+        "supplierStatus",
+        "wbStatus",
+    ]
+
+    @field_validator("supplier_status")
     def supplier_status_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['new', 'confirm', 'complete', 'cancel']):
-            raise ValueError("must be one of enum values ('new', 'confirm', 'complete', 'cancel')")
+        if value not in set(["new", "confirm", "complete", "cancel"]):
+            raise ValueError(
+                "must be one of enum values ('new', 'confirm', 'complete', 'cancel')"
+            )
         return value
 
-    @field_validator('wb_status')
+    @field_validator("wb_status")
     def wb_status_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['waiting', 'sorted', 'sold', 'canceled', 'canceled_by_client', 'declined_by_client', 'defect', 'ready_for_pickup', 'postponed_delivery', 'accepted_by_carrier', 'sent_to_carrier']):
-            raise ValueError("must be one of enum values ('waiting', 'sorted', 'sold', 'canceled', 'canceled_by_client', 'declined_by_client', 'defect', 'ready_for_pickup', 'postponed_delivery', 'accepted_by_carrier', 'sent_to_carrier')")
+        if value not in set(
+            [
+                "waiting",
+                "sorted",
+                "sold",
+                "canceled",
+                "canceled_by_client",
+                "declined_by_client",
+                "defect",
+                "ready_for_pickup",
+                "postponed_delivery",
+                "accepted_by_carrier",
+                "sent_to_carrier",
+            ]
+        ):
+            raise ValueError(
+                "must be one of enum values ('waiting', 'sorted', 'sold', 'canceled', 'canceled_by_client', 'declined_by_client', 'defect', 'ready_for_pickup', 'postponed_delivery', 'accepted_by_carrier', 'sent_to_carrier')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -57,7 +102,6 @@ class PostV3OrdersStatusResponse200OrdersInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -83,8 +127,7 @@ class PostV3OrdersStatusResponse200OrdersInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -102,12 +145,12 @@ class PostV3OrdersStatusResponse200OrdersInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "isCancellable": obj.get("isCancellable"),
-            "supplierStatus": obj.get("supplierStatus"),
-            "wbStatus": obj.get("wbStatus")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "isCancellable": obj.get("isCancellable"),
+                "supplierStatus": obj.get("supplierStatus"),
+                "wbStatus": obj.get("wbStatus"),
+            }
+        )
         return _obj
-
-

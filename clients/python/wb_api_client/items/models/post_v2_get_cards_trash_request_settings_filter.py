@@ -22,11 +22,17 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2GetCardsTrashRequestSettingsFilter(BaseModel):
     """
     Параметры фильтрации
-    """ # noqa: E501
-    text_search: Optional[StrictStr] = Field(default=None, description="Поиск по артикулу продавца, артикулу WB, баркоду", alias="textSearch")
+    """  # noqa: E501
+
+    text_search: Optional[StrictStr] = Field(
+        default=None,
+        description="Поиск по артикулу продавца, артикулу WB, баркоду",
+        alias="textSearch",
+    )
     __properties: ClassVar[List[str]] = ["textSearch"]
 
     model_config = ConfigDict(
@@ -34,7 +40,6 @@ class PostV2GetCardsTrashRequestSettingsFilter(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,8 +65,7 @@ class PostV2GetCardsTrashRequestSettingsFilter(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,9 +83,5 @@ class PostV2GetCardsTrashRequestSettingsFilter(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "textSearch": obj.get("textSearch")
-        })
+        _obj = cls.model_validate({"textSearch": obj.get("textSearch")})
         return _obj
-
-

@@ -19,18 +19,29 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.analytics.models.table_shipping_office_item_offices_inner import TableShippingOfficeItemOfficesInner
-from wb_api_client.analytics.models.table_shipping_office_metrics import TableShippingOfficeMetrics
+from wb_api_client.analytics.models.table_shipping_office_item_offices_inner import (
+    TableShippingOfficeItemOfficesInner,
+)
+from wb_api_client.analytics.models.table_shipping_office_metrics import (
+    TableShippingOfficeMetrics,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class TableShippingOfficeItem(BaseModel):
     """
     Данные по региону отгрузки
-    """ # noqa: E501
-    region_name: StrictStr = Field(description="Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`", alias="regionName")
+    """  # noqa: E501
+
+    region_name: StrictStr = Field(
+        description="Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`",
+        alias="regionName",
+    )
     metrics: TableShippingOfficeMetrics = Field(description="Метрики по региону")
-    offices: List[TableShippingOfficeItemOfficesInner] = Field(description="Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `[]`")
+    offices: List[TableShippingOfficeItemOfficesInner] = Field(
+        description="Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `[]`"
+    )
     __properties: ClassVar[List[str]] = ["regionName", "metrics", "offices"]
 
     model_config = ConfigDict(
@@ -38,7 +49,6 @@ class TableShippingOfficeItem(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +74,7 @@ class TableShippingOfficeItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -74,14 +83,14 @@ class TableShippingOfficeItem(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of metrics
         if self.metrics:
-            _dict['metrics'] = self.metrics.to_dict()
+            _dict["metrics"] = self.metrics.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in offices (list)
         _items = []
         if self.offices:
             for _item_offices in self.offices:
                 if _item_offices:
                     _items.append(_item_offices.to_dict())
-            _dict['offices'] = _items
+            _dict["offices"] = _items
         return _dict
 
     @classmethod
@@ -93,11 +102,22 @@ class TableShippingOfficeItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "regionName": obj.get("regionName"),
-            "metrics": TableShippingOfficeMetrics.from_dict(obj["metrics"]) if obj.get("metrics") is not None else None,
-            "offices": [TableShippingOfficeItemOfficesInner.from_dict(_item) for _item in obj["offices"]] if obj.get("offices") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "regionName": obj.get("regionName"),
+                "metrics": (
+                    TableShippingOfficeMetrics.from_dict(obj["metrics"])
+                    if obj.get("metrics") is not None
+                    else None
+                ),
+                "offices": (
+                    [
+                        TableShippingOfficeItemOfficesInner.from_dict(_item)
+                        for _item in obj["offices"]
+                    ]
+                    if obj.get("offices") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

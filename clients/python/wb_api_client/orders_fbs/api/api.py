@@ -19,13 +19,27 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt
 from typing import Optional
 from typing_extensions import Annotated
-from wb_api_client.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns_response200 import GetMarketplaceV3FbsSettingsAutoreturnsResponse200
-from wb_api_client.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_response200 import GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
-from wb_api_client.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_items_request import PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
-from wb_api_client.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_items_response200 import PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
-from wb_api_client.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_request import PatchMarketplaceV3FbsSettingsAutoreturnsRequest
-from wb_api_client.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items_request import PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
-from wb_api_client.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items_response200 import PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
+from wb_api_client.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns_response200 import (
+    GetMarketplaceV3FbsSettingsAutoreturnsResponse200,
+)
+from wb_api_client.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_response200 import (
+    GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200,
+)
+from wb_api_client.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_items_request import (
+    PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+)
+from wb_api_client.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_items_response200 import (
+    PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200,
+)
+from wb_api_client.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_request import (
+    PatchMarketplaceV3FbsSettingsAutoreturnsRequest,
+)
+from wb_api_client.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items_request import (
+    PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+)
+from wb_api_client.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items_response200 import (
+    PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200,
+)
 
 from wb_api_client.orders_fbs.api_client import ApiClient, RequestSerialized
 from wb_api_client.orders_fbs.api_response import ApiResponse
@@ -44,7 +58,6 @@ class Api:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def get_marketplace_v3_fbs_settings_autoreturns(
         self,
@@ -52,9 +65,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -85,31 +97,29 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_marketplace_v3_fbs_settings_autoreturns_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMarketplaceV3FbsSettingsAutoreturnsResponse200",
-            '401': "GetV3PassesOffices401Response",
-            '403': "Response4XX",
-            '429': "GetV3PassesOffices401Response",
+            "200": "GetMarketplaceV3FbsSettingsAutoreturnsResponse200",
+            "401": "GetV3PassesOffices401Response",
+            "403": "Response4XX",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_marketplace_v3_fbs_settings_autoreturns_with_http_info(
@@ -118,9 +128,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -151,31 +160,29 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_marketplace_v3_fbs_settings_autoreturns_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMarketplaceV3FbsSettingsAutoreturnsResponse200",
-            '401': "GetV3PassesOffices401Response",
-            '403': "Response4XX",
-            '429': "GetV3PassesOffices401Response",
+            "200": "GetMarketplaceV3FbsSettingsAutoreturnsResponse200",
+            "401": "GetV3PassesOffices401Response",
+            "403": "Response4XX",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_marketplace_v3_fbs_settings_autoreturns_without_preload_content(
@@ -184,9 +191,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -217,27 +223,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_marketplace_v3_fbs_settings_autoreturns_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMarketplaceV3FbsSettingsAutoreturnsResponse200",
-            '401': "GetV3PassesOffices401Response",
-            '403': "Response4XX",
-            '429': "GetV3PassesOffices401Response",
+            "200": "GetMarketplaceV3FbsSettingsAutoreturnsResponse200",
+            "401": "GetV3PassesOffices401Response",
+            "403": "Response4XX",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_marketplace_v3_fbs_settings_autoreturns_serialize(
         self,
@@ -247,13 +251,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -270,25 +271,18 @@ class Api:
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/marketplace/v3/fbs/settings/autoreturns',
+            method="GET",
+            resource_path="/api/marketplace/v3/fbs/settings/autoreturns",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -298,24 +292,33 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted(
         self,
-        next: Annotated[StrictInt, Field(description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.")],
-        limit: Annotated[int, Field(le=1000, strict=True, ge=100, description="Количество предметов в ответе")],
+        next: Annotated[
+            StrictInt,
+            Field(
+                description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе."
+            ),
+        ],
+        limit: Annotated[
+            int,
+            Field(
+                le=1000,
+                strict=True,
+                ge=100,
+                description="Количество предметов в ответе",
+            ),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -350,7 +353,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_serialize(
             next=next,
@@ -358,19 +361,18 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200",
-            '400': "ApiErrorV3",
-            '401': "GetV3PassesOffices401Response",
-            '403': "Response4XX",
-            '429': "GetV3PassesOffices401Response",
+            "200": "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200",
+            "400": "ApiErrorV3",
+            "401": "GetV3PassesOffices401Response",
+            "403": "Response4XX",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -378,25 +380,38 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_with_http_info(
         self,
-        next: Annotated[StrictInt, Field(description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.")],
-        limit: Annotated[int, Field(le=1000, strict=True, ge=100, description="Количество предметов в ответе")],
+        next: Annotated[
+            StrictInt,
+            Field(
+                description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе."
+            ),
+        ],
+        limit: Annotated[
+            int,
+            Field(
+                le=1000,
+                strict=True,
+                ge=100,
+                description="Количество предметов в ответе",
+            ),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200]:
+    ) -> ApiResponse[
+        GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
+    ]:
         """Получить предметы, которые не хранятся на складах WB
 
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
@@ -425,7 +440,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_serialize(
             next=next,
@@ -433,19 +448,18 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200",
-            '400': "ApiErrorV3",
-            '401': "GetV3PassesOffices401Response",
-            '403': "Response4XX",
-            '429': "GetV3PassesOffices401Response",
+            "200": "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200",
+            "400": "ApiErrorV3",
+            "401": "GetV3PassesOffices401Response",
+            "403": "Response4XX",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -453,19 +467,30 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_without_preload_content(
         self,
-        next: Annotated[StrictInt, Field(description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.")],
-        limit: Annotated[int, Field(le=1000, strict=True, ge=100, description="Количество предметов в ответе")],
+        next: Annotated[
+            StrictInt,
+            Field(
+                description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе."
+            ),
+        ],
+        limit: Annotated[
+            int,
+            Field(
+                le=1000,
+                strict=True,
+                ge=100,
+                description="Количество предметов в ответе",
+            ),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -500,7 +525,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_serialize(
             next=next,
@@ -508,22 +533,20 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200",
-            '400': "ApiErrorV3",
-            '401': "GetV3PassesOffices401Response",
-            '403': "Response4XX",
-            '429': "GetV3PassesOffices401Response",
+            "200": "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200",
+            "400": "ApiErrorV3",
+            "401": "GetV3PassesOffices401Response",
+            "403": "Response4XX",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_serialize(
         self,
@@ -535,13 +558,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -555,36 +575,29 @@ class Api:
         # process the path parameters
         # process the query parameters
         if next is not None:
-            
-            _query_params.append(('next', next))
-            
+
+            _query_params.append(("next", next))
+
         if limit is not None:
-            
-            _query_params.append(('limit', limit))
-            
+
+            _query_params.append(("limit", limit))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted',
+            method="GET",
+            resource_path="/api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -594,23 +607,21 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def patch_marketplace_v3_fbs_settings_autoreturns(
         self,
-        patch_marketplace_v3_fbs_settings_autoreturns_request: Optional[PatchMarketplaceV3FbsSettingsAutoreturnsRequest] = None,
+        patch_marketplace_v3_fbs_settings_autoreturns_request: Optional[
+            PatchMarketplaceV3FbsSettingsAutoreturnsRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -643,26 +654,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_marketplace_v3_fbs_settings_autoreturns_serialize(
             patch_marketplace_v3_fbs_settings_autoreturns_request=patch_marketplace_v3_fbs_settings_autoreturns_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "ApiErrorV3",
-            '401': "GetV3PassesOffices401Response",
-            '403': "Response4XX",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "ApiErrorV3",
+            "401": "GetV3PassesOffices401Response",
+            "403": "Response4XX",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -670,18 +680,18 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def patch_marketplace_v3_fbs_settings_autoreturns_with_http_info(
         self,
-        patch_marketplace_v3_fbs_settings_autoreturns_request: Optional[PatchMarketplaceV3FbsSettingsAutoreturnsRequest] = None,
+        patch_marketplace_v3_fbs_settings_autoreturns_request: Optional[
+            PatchMarketplaceV3FbsSettingsAutoreturnsRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -714,26 +724,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_marketplace_v3_fbs_settings_autoreturns_serialize(
             patch_marketplace_v3_fbs_settings_autoreturns_request=patch_marketplace_v3_fbs_settings_autoreturns_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "ApiErrorV3",
-            '401': "GetV3PassesOffices401Response",
-            '403': "Response4XX",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "ApiErrorV3",
+            "401": "GetV3PassesOffices401Response",
+            "403": "Response4XX",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -741,18 +750,18 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def patch_marketplace_v3_fbs_settings_autoreturns_without_preload_content(
         self,
-        patch_marketplace_v3_fbs_settings_autoreturns_request: Optional[PatchMarketplaceV3FbsSettingsAutoreturnsRequest] = None,
+        patch_marketplace_v3_fbs_settings_autoreturns_request: Optional[
+            PatchMarketplaceV3FbsSettingsAutoreturnsRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -785,29 +794,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_marketplace_v3_fbs_settings_autoreturns_serialize(
             patch_marketplace_v3_fbs_settings_autoreturns_request=patch_marketplace_v3_fbs_settings_autoreturns_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "ApiErrorV3",
-            '401': "GetV3PassesOffices401Response",
-            '403': "Response4XX",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "ApiErrorV3",
+            "401": "GetV3PassesOffices401Response",
+            "403": "Response4XX",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _patch_marketplace_v3_fbs_settings_autoreturns_serialize(
         self,
@@ -818,13 +825,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -843,38 +847,28 @@ class Api:
         if patch_marketplace_v3_fbs_settings_autoreturns_request is not None:
             _body_params = patch_marketplace_v3_fbs_settings_autoreturns_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/problem+json', 
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/problem+json", "application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PATCH',
-            resource_path='/api/marketplace/v3/fbs/settings/autoreturns',
+            method="PATCH",
+            resource_path="/api/marketplace/v3/fbs/settings/autoreturns",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -884,23 +878,21 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def patch_marketplace_v3_fbs_settings_autoreturns_items(
         self,
-        patch_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest] = None,
+        patch_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[
+            PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -933,26 +925,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_marketplace_v3_fbs_settings_autoreturns_items_serialize(
             patch_marketplace_v3_fbs_settings_autoreturns_items_request=patch_marketplace_v3_fbs_settings_autoreturns_items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200",
-            '400': "ApiErrorV3",
-            '401': "GetV3PassesOffices401Response",
-            '403': "Response4XX",
-            '429': "GetV3PassesOffices401Response",
+            "200": "PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200",
+            "400": "ApiErrorV3",
+            "401": "GetV3PassesOffices401Response",
+            "403": "Response4XX",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -960,18 +951,18 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def patch_marketplace_v3_fbs_settings_autoreturns_items_with_http_info(
         self,
-        patch_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest] = None,
+        patch_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[
+            PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1004,26 +995,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_marketplace_v3_fbs_settings_autoreturns_items_serialize(
             patch_marketplace_v3_fbs_settings_autoreturns_items_request=patch_marketplace_v3_fbs_settings_autoreturns_items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200",
-            '400': "ApiErrorV3",
-            '401': "GetV3PassesOffices401Response",
-            '403': "Response4XX",
-            '429': "GetV3PassesOffices401Response",
+            "200": "PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200",
+            "400": "ApiErrorV3",
+            "401": "GetV3PassesOffices401Response",
+            "403": "Response4XX",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1031,18 +1021,18 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def patch_marketplace_v3_fbs_settings_autoreturns_items_without_preload_content(
         self,
-        patch_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest] = None,
+        patch_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[
+            PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1075,29 +1065,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_marketplace_v3_fbs_settings_autoreturns_items_serialize(
             patch_marketplace_v3_fbs_settings_autoreturns_items_request=patch_marketplace_v3_fbs_settings_autoreturns_items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200",
-            '400': "ApiErrorV3",
-            '401': "GetV3PassesOffices401Response",
-            '403': "Response4XX",
-            '429': "GetV3PassesOffices401Response",
+            "200": "PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200",
+            "400": "ApiErrorV3",
+            "401": "GetV3PassesOffices401Response",
+            "403": "Response4XX",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _patch_marketplace_v3_fbs_settings_autoreturns_items_serialize(
         self,
@@ -1108,13 +1096,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1133,38 +1118,28 @@ class Api:
         if patch_marketplace_v3_fbs_settings_autoreturns_items_request is not None:
             _body_params = patch_marketplace_v3_fbs_settings_autoreturns_items_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PATCH',
-            resource_path='/api/marketplace/v3/fbs/settings/autoreturns/items',
+            method="PATCH",
+            resource_path="/api/marketplace/v3/fbs/settings/autoreturns/items",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1174,23 +1149,21 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_marketplace_v3_fbs_settings_autoreturns_items(
         self,
-        post_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest] = None,
+        post_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[
+            PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1223,26 +1196,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_marketplace_v3_fbs_settings_autoreturns_items_serialize(
             post_marketplace_v3_fbs_settings_autoreturns_items_request=post_marketplace_v3_fbs_settings_autoreturns_items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200",
-            '400': "ApiErrorV3",
-            '401': "GetV3PassesOffices401Response",
-            '403': "Response4XX",
-            '429': "GetV3PassesOffices401Response",
+            "200": "PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200",
+            "400": "ApiErrorV3",
+            "401": "GetV3PassesOffices401Response",
+            "403": "Response4XX",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1250,18 +1222,18 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def post_marketplace_v3_fbs_settings_autoreturns_items_with_http_info(
         self,
-        post_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest] = None,
+        post_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[
+            PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1294,26 +1266,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_marketplace_v3_fbs_settings_autoreturns_items_serialize(
             post_marketplace_v3_fbs_settings_autoreturns_items_request=post_marketplace_v3_fbs_settings_autoreturns_items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200",
-            '400': "ApiErrorV3",
-            '401': "GetV3PassesOffices401Response",
-            '403': "Response4XX",
-            '429': "GetV3PassesOffices401Response",
+            "200": "PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200",
+            "400": "ApiErrorV3",
+            "401": "GetV3PassesOffices401Response",
+            "403": "Response4XX",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1321,18 +1292,18 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def post_marketplace_v3_fbs_settings_autoreturns_items_without_preload_content(
         self,
-        post_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest] = None,
+        post_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[
+            PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1365,29 +1336,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_marketplace_v3_fbs_settings_autoreturns_items_serialize(
             post_marketplace_v3_fbs_settings_autoreturns_items_request=post_marketplace_v3_fbs_settings_autoreturns_items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200",
-            '400': "ApiErrorV3",
-            '401': "GetV3PassesOffices401Response",
-            '403': "Response4XX",
-            '429': "GetV3PassesOffices401Response",
+            "200": "PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200",
+            "400": "ApiErrorV3",
+            "401": "GetV3PassesOffices401Response",
+            "403": "Response4XX",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_marketplace_v3_fbs_settings_autoreturns_items_serialize(
         self,
@@ -1398,13 +1367,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1423,38 +1389,28 @@ class Api:
         if post_marketplace_v3_fbs_settings_autoreturns_items_request is not None:
             _body_params = post_marketplace_v3_fbs_settings_autoreturns_items_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/fbs/settings/autoreturns/items',
+            method="POST",
+            resource_path="/api/marketplace/v3/fbs/settings/autoreturns/items",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1464,7 +1420,5 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

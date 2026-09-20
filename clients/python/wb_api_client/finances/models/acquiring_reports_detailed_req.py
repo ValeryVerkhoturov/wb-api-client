@@ -23,23 +23,45 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class AcquiringReportsDetailedReq(BaseModel):
     """
     Параметры запроса
-    """ # noqa: E501
-    date_from: StrictStr = Field(description="Начальная дата отчёта. Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд. Дата передаётся в формате [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339), время — в часовом поясе Москва `UTC+3`. Примеры: - `2025-06-20` - `2025-06-20T23:59:59` - `2025-06-20T00:00:00.12345` - `2025-06-20T00:00:00`", alias="dateFrom")
-    date_to: StrictStr = Field(description="Конечная дата отчёта. Дата в формате [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339). Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд. Время передаётся в часовом поясе Москва `UTC+3`. Примеры: - `2025-06-20` - `2025-06-20T23:59:59` - `2025-06-20T00:00:00.12345` - `2025-06-20T00:00:00`", alias="dateTo")
-    limit: Optional[Annotated[int, Field(le=100000, strict=True)]] = Field(default=100000, description="Количество строк в ответе")
-    rrd_id: Optional[StrictInt] = Field(default=0, description="ID строки ответа. Необходим для получения отчёта частями. Начинайте загрузку отчёта с `\"rrdid\":0`. В последующих запросах передавайте значение `rrdId` из последней строки предыдущего ответа. Повторяйте запрос, пока не получите ответ `204`", alias="rrdId")
-    fields: Optional[List[StrictStr]] = Field(default=None, description="Список полей, которые вернутся в ответе. Если параметр не указан, возвращаются все поля")
-    __properties: ClassVar[List[str]] = ["dateFrom", "dateTo", "limit", "rrdId", "fields"]
+    """  # noqa: E501
+
+    date_from: StrictStr = Field(
+        description="Начальная дата отчёта. Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд. Дата передаётся в формате [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339), время — в часовом поясе Москва `UTC+3`. Примеры: - `2025-06-20` - `2025-06-20T23:59:59` - `2025-06-20T00:00:00.12345` - `2025-06-20T00:00:00`",
+        alias="dateFrom",
+    )
+    date_to: StrictStr = Field(
+        description="Конечная дата отчёта. Дата в формате [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339). Можно передать дату или дату со временем. Время можно указывать с точностью до секунд или миллисекунд. Время передаётся в часовом поясе Москва `UTC+3`. Примеры: - `2025-06-20` - `2025-06-20T23:59:59` - `2025-06-20T00:00:00.12345` - `2025-06-20T00:00:00`",
+        alias="dateTo",
+    )
+    limit: Optional[Annotated[int, Field(le=100000, strict=True)]] = Field(
+        default=100000, description="Количество строк в ответе"
+    )
+    rrd_id: Optional[StrictInt] = Field(
+        default=0,
+        description='ID строки ответа. Необходим для получения отчёта частями. Начинайте загрузку отчёта с `"rrdid":0`. В последующих запросах передавайте значение `rrdId` из последней строки предыдущего ответа. Повторяйте запрос, пока не получите ответ `204`',
+        alias="rrdId",
+    )
+    fields: Optional[List[StrictStr]] = Field(
+        default=None,
+        description="Список полей, которые вернутся в ответе. Если параметр не указан, возвращаются все поля",
+    )
+    __properties: ClassVar[List[str]] = [
+        "dateFrom",
+        "dateTo",
+        "limit",
+        "rrdId",
+        "fields",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +87,7 @@ class AcquiringReportsDetailedReq(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -84,13 +105,13 @@ class AcquiringReportsDetailedReq(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "dateFrom": obj.get("dateFrom"),
-            "dateTo": obj.get("dateTo"),
-            "limit": obj.get("limit") if obj.get("limit") is not None else 100000,
-            "rrdId": obj.get("rrdId") if obj.get("rrdId") is not None else 0,
-            "fields": obj.get("fields")
-        })
+        _obj = cls.model_validate(
+            {
+                "dateFrom": obj.get("dateFrom"),
+                "dateTo": obj.get("dateTo"),
+                "limit": obj.get("limit") if obj.get("limit") is not None else 100000,
+                "rrdId": obj.get("rrdId") if obj.get("rrdId") is not None else 0,
+                "fields": obj.get("fields"),
+            }
+        )
         return _obj
-
-

@@ -26,12 +26,10 @@ class DomainReviewPinOn(str, Enum):
     """
     allowed enum values
     """
-    IMT = 'imt'
-    NM = 'nm'
+    IMT = "imt"
+    NM = "nm"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of DomainReviewPinOn from a JSON string"""
         return cls(json.loads(json_str))
-
-

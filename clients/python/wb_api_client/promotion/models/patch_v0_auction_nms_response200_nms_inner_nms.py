@@ -22,10 +22,12 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PatchV0AuctionNmsResponse200NmsInnerNms(BaseModel):
     """
     Карточки товаров
-    """ # noqa: E501
+    """  # noqa: E501
+
     added: List[StrictInt] = Field(description="Добавленные карточки товаров")
     deleted: List[StrictInt] = Field(description="Удалённые карточки товаров")
     __properties: ClassVar[List[str]] = ["added", "deleted"]
@@ -35,7 +37,6 @@ class PatchV0AuctionNmsResponse200NmsInnerNms(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +62,7 @@ class PatchV0AuctionNmsResponse200NmsInnerNms(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +80,7 @@ class PatchV0AuctionNmsResponse200NmsInnerNms(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "added": obj.get("added"),
-            "deleted": obj.get("deleted")
-        })
+        _obj = cls.model_validate(
+            {"added": obj.get("added"), "deleted": obj.get("deleted")}
+        )
         return _obj
-
-

@@ -22,23 +22,37 @@ from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ItemsListSizesInner(BaseModel):
     """
     ItemsListSizesInner
-    """ # noqa: E501
-    size_id: StrictInt = Field(description="ID размера. В методах Контента это поле `chrtID`", alias="sizeID")
+    """  # noqa: E501
+
+    size_id: StrictInt = Field(
+        description="ID размера. В методах Контента это поле `chrtID`", alias="sizeID"
+    )
     price: StrictInt = Field(description="Цена")
-    discounted_price: Union[StrictFloat, StrictInt] = Field(description="Цена со скидкой", alias="discountedPrice")
-    club_discounted_price: Union[StrictFloat, StrictInt] = Field(description="Цена со скидкой, включая скидку WB Клуба", alias="clubDiscountedPrice")
+    discounted_price: Union[StrictFloat, StrictInt] = Field(
+        description="Цена со скидкой", alias="discountedPrice"
+    )
+    club_discounted_price: Union[StrictFloat, StrictInt] = Field(
+        description="Цена со скидкой, включая скидку WB Клуба",
+        alias="clubDiscountedPrice",
+    )
     tech_size_name: StrictStr = Field(description="Размер товара", alias="techSizeName")
-    __properties: ClassVar[List[str]] = ["sizeID", "price", "discountedPrice", "clubDiscountedPrice", "techSizeName"]
+    __properties: ClassVar[List[str]] = [
+        "sizeID",
+        "price",
+        "discountedPrice",
+        "clubDiscountedPrice",
+        "techSizeName",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +78,7 @@ class ItemsListSizesInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,13 +96,13 @@ class ItemsListSizesInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "sizeID": obj.get("sizeID"),
-            "price": obj.get("price"),
-            "discountedPrice": obj.get("discountedPrice"),
-            "clubDiscountedPrice": obj.get("clubDiscountedPrice"),
-            "techSizeName": obj.get("techSizeName")
-        })
+        _obj = cls.model_validate(
+            {
+                "sizeID": obj.get("sizeID"),
+                "price": obj.get("price"),
+                "discountedPrice": obj.get("discountedPrice"),
+                "clubDiscountedPrice": obj.get("clubDiscountedPrice"),
+                "techSizeName": obj.get("techSizeName"),
+            }
+        )
         return _obj
-
-

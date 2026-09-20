@@ -19,7 +19,9 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
-from wb_api_client.rates.models.get_v1_tariffs_commission200_response import GetV1TariffsCommission200Response
+from wb_api_client.rates.models.get_v1_tariffs_commission200_response import (
+    GetV1TariffsCommission200Response,
+)
 
 from wb_api_client.rates.api_client import ApiClient, RequestSerialized
 from wb_api_client.rates.api_response import ApiResponse
@@ -38,18 +40,21 @@ class DefaultApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def get_v1_tariffs_commission(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `parentName` и `subjectName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `parentName` и `subjectName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -60,7 +65,7 @@ class DefaultApi:
 
         Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) согласно модели продаж.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-        :param locale: Язык полей ответа `parentName` и `subjectName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
+        :param locale: Язык полей ответа `parentName` и `subjectName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -82,26 +87,25 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_tariffs_commission_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1TariffsCommission200Response",
-            '400': "BadRequest",
-            '401': "GetV1TariffsCommission401Response",
-            '402': "GetV1TariffsCommission402Response",
-            '429': "GetV1TariffsCommission401Response",
+            "200": "GetV1TariffsCommission200Response",
+            "400": "BadRequest",
+            "401": "GetV1TariffsCommission401Response",
+            "402": "GetV1TariffsCommission402Response",
+            "429": "GetV1TariffsCommission401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -109,18 +113,21 @@ class DefaultApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v1_tariffs_commission_with_http_info(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `parentName` и `subjectName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `parentName` и `subjectName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -131,7 +138,7 @@ class DefaultApi:
 
         Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) согласно модели продаж.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-        :param locale: Язык полей ответа `parentName` и `subjectName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
+        :param locale: Язык полей ответа `parentName` и `subjectName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -153,26 +160,25 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_tariffs_commission_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1TariffsCommission200Response",
-            '400': "BadRequest",
-            '401': "GetV1TariffsCommission401Response",
-            '402': "GetV1TariffsCommission402Response",
-            '429': "GetV1TariffsCommission401Response",
+            "200": "GetV1TariffsCommission200Response",
+            "400": "BadRequest",
+            "401": "GetV1TariffsCommission401Response",
+            "402": "GetV1TariffsCommission402Response",
+            "429": "GetV1TariffsCommission401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -180,18 +186,21 @@ class DefaultApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v1_tariffs_commission_without_preload_content(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `parentName` и `subjectName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `parentName` и `subjectName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -202,7 +211,7 @@ class DefaultApi:
 
         Метод возвращает данные о [комиссии](https://seller.wildberries.ru/dynamic-product-categories/commission) WB по [родительским категориям товаров](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) согласно модели продаж.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Сервисный | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 2 запроса | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
-        :param locale: Язык полей ответа `parentName` и `subjectName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский 
+        :param locale: Язык полей ответа `parentName` и `subjectName`:   - `ru` — русский   - `en` — английский   - `zh` — китайский
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -224,29 +233,27 @@ class DefaultApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_tariffs_commission_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV1TariffsCommission200Response",
-            '400': "BadRequest",
-            '401': "GetV1TariffsCommission401Response",
-            '402': "GetV1TariffsCommission402Response",
-            '429': "GetV1TariffsCommission401Response",
+            "200": "GetV1TariffsCommission200Response",
+            "400": "BadRequest",
+            "401": "GetV1TariffsCommission401Response",
+            "402": "GetV1TariffsCommission402Response",
+            "429": "GetV1TariffsCommission401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_tariffs_commission_serialize(
         self,
@@ -257,13 +264,10 @@ class DefaultApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://common-api.wildberries.ru'
-        ]
+        _hosts = ["https://common-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -277,32 +281,25 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if locale is not None:
-            
-            _query_params.append(('locale', locale))
-            
+
+            _query_params.append(("locale", locale))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v1/tariffs/commission',
+            method="GET",
+            resource_path="/api/v1/tariffs/commission",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -312,7 +309,5 @@ class DefaultApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

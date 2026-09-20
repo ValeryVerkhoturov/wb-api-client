@@ -23,12 +23,19 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV3WarehousesRequest(BaseModel):
     """
     PostV3WarehousesRequest
-    """ # noqa: E501
-    name: Annotated[str, Field(min_length=1, strict=True, max_length=200)] = Field(description="Имя склада продавца")
-    office_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="ID [склада WB](./item-management#tag/sellerWarehouses/operation/getV3Offices). Нельзя привязывать склад WB, который уже используется", alias="officeId")
+    """  # noqa: E501
+
+    name: Annotated[str, Field(min_length=1, strict=True, max_length=200)] = Field(
+        description="Имя склада продавца"
+    )
+    office_id: Annotated[int, Field(strict=True, ge=1)] = Field(
+        description="ID [склада WB](./item-management#tag/sellerWarehouses/operation/getV3Offices). Нельзя привязывать склад WB, который уже используется",
+        alias="officeId",
+    )
     __properties: ClassVar[List[str]] = ["name", "officeId"]
 
     model_config = ConfigDict(
@@ -36,7 +43,6 @@ class PostV3WarehousesRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +68,7 @@ class PostV3WarehousesRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,10 +86,7 @@ class PostV3WarehousesRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "officeId": obj.get("officeId")
-        })
+        _obj = cls.model_validate(
+            {"name": obj.get("name"), "officeId": obj.get("officeId")}
+        )
         return _obj
-
-

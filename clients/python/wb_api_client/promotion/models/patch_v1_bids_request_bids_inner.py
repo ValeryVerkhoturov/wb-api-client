@@ -20,16 +20,22 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
-from wb_api_client.promotion.models.patch_v1_bids_request_bids_inner_nm_bids_inner import PatchV1BidsRequestBidsInnerNmBidsInner
+from wb_api_client.promotion.models.patch_v1_bids_request_bids_inner_nm_bids_inner import (
+    PatchV1BidsRequestBidsInnerNmBidsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PatchV1BidsRequestBidsInner(BaseModel):
     """
     PatchV1BidsRequestBidsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     advert_id: StrictInt = Field(description="ID кампании")
-    nm_bids: Annotated[List[PatchV1BidsRequestBidsInnerNmBidsInner], Field(max_length=50)] = Field(description="Ставки")
+    nm_bids: Annotated[
+        List[PatchV1BidsRequestBidsInnerNmBidsInner], Field(max_length=50)
+    ] = Field(description="Ставки")
     __properties: ClassVar[List[str]] = ["advert_id", "nm_bids"]
 
     model_config = ConfigDict(
@@ -37,7 +43,6 @@ class PatchV1BidsRequestBidsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +68,7 @@ class PatchV1BidsRequestBidsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +81,7 @@ class PatchV1BidsRequestBidsInner(BaseModel):
             for _item_nm_bids in self.nm_bids:
                 if _item_nm_bids:
                     _items.append(_item_nm_bids.to_dict())
-            _dict['nm_bids'] = _items
+            _dict["nm_bids"] = _items
         return _dict
 
     @classmethod
@@ -89,10 +93,17 @@ class PatchV1BidsRequestBidsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advert_id": obj.get("advert_id"),
-            "nm_bids": [PatchV1BidsRequestBidsInnerNmBidsInner.from_dict(_item) for _item in obj["nm_bids"]] if obj.get("nm_bids") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "advert_id": obj.get("advert_id"),
+                "nm_bids": (
+                    [
+                        PatchV1BidsRequestBidsInnerNmBidsInner.from_dict(_item)
+                        for _item in obj["nm_bids"]
+                    ]
+                    if obj.get("nm_bids") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

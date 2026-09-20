@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.post_v2_get_cards_list_request_settings import PostV2GetCardsListRequestSettings
+from wb_api_client.items.models.post_v2_get_cards_list_request_settings import (
+    PostV2GetCardsListRequestSettings,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV2GetCardsListRequest(BaseModel):
     """
     PostV2GetCardsListRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     settings: Optional[PostV2GetCardsListRequestSettings] = None
     __properties: ClassVar[List[str]] = ["settings"]
 
@@ -35,7 +39,6 @@ class PostV2GetCardsListRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class PostV2GetCardsListRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -71,7 +73,7 @@ class PostV2GetCardsListRequest(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of settings
         if self.settings:
-            _dict['settings'] = self.settings.to_dict()
+            _dict["settings"] = self.settings.to_dict()
         return _dict
 
     @classmethod
@@ -83,9 +85,13 @@ class PostV2GetCardsListRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "settings": PostV2GetCardsListRequestSettings.from_dict(obj["settings"]) if obj.get("settings") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "settings": (
+                    PostV2GetCardsListRequestSettings.from_dict(obj["settings"])
+                    if obj.get("settings") is not None
+                    else None
+                )
+            }
+        )
         return _obj
-
-

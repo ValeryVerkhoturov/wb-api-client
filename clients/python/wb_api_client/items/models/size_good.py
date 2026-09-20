@@ -17,34 +17,81 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+)
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class SizeGood(BaseModel):
     """
     Информация о размере
-    """ # noqa: E501
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB", alias="nmID")
-    size_id: Optional[StrictInt] = Field(default=None, description="ID размера. Можно получить с помощью метода [Получение списка товаров по артикулам](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter), поле `sizeID`. В методах Контента это поле `chrtID`", alias="sizeID")
-    vendor_code: Optional[StrictStr] = Field(default=None, description="Артикул продавца", alias="vendorCode")
+    """  # noqa: E501
+
+    nm_id: Optional[StrictInt] = Field(
+        default=None, description="Артикул WB", alias="nmID"
+    )
+    size_id: Optional[StrictInt] = Field(
+        default=None,
+        description="ID размера. Можно получить с помощью метода [Получение списка товаров по артикулам](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter), поле `sizeID`. В методах Контента это поле `chrtID`",
+        alias="sizeID",
+    )
+    vendor_code: Optional[StrictStr] = Field(
+        default=None, description="Артикул продавца", alias="vendorCode"
+    )
     price: Optional[StrictInt] = Field(default=None, description="Цена")
-    currency_iso_code4217: Optional[StrictStr] = Field(default=None, description="Валюта, по стандарту ISO 4217", alias="currencyIsoCode4217")
-    discounted_price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Цена со скидкой", alias="discountedPrice")
-    club_discounted_price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Цена со скидкой, включая скидку WB Клуба", alias="clubDiscountedPrice")
+    currency_iso_code4217: Optional[StrictStr] = Field(
+        default=None,
+        description="Валюта, по стандарту ISO 4217",
+        alias="currencyIsoCode4217",
+    )
+    discounted_price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Цена со скидкой", alias="discountedPrice"
+    )
+    club_discounted_price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None,
+        description="Цена со скидкой, включая скидку WB Клуба",
+        alias="clubDiscountedPrice",
+    )
     discount: Optional[StrictInt] = Field(default=None, description="Скидка, %")
-    club_discount: Optional[StrictInt] = Field(default=None, description="Скидка WB Клуба, %", alias="clubDiscount")
-    tech_size_name: Optional[StrictStr] = Field(default=None, description="Размер товара", alias="techSizeName")
-    editable_size_price: Optional[StrictBool] = Field(default=None, description="Можно ли устанавливать цены отдельно для разных размеров (зависит от категории товара):   - `true` — можно   - `false` — нельзя ", alias="editableSizePrice")
-    __properties: ClassVar[List[str]] = ["nmID", "sizeID", "vendorCode", "price", "currencyIsoCode4217", "discountedPrice", "clubDiscountedPrice", "discount", "clubDiscount", "techSizeName", "editableSizePrice"]
+    club_discount: Optional[StrictInt] = Field(
+        default=None, description="Скидка WB Клуба, %", alias="clubDiscount"
+    )
+    tech_size_name: Optional[StrictStr] = Field(
+        default=None, description="Размер товара", alias="techSizeName"
+    )
+    editable_size_price: Optional[StrictBool] = Field(
+        default=None,
+        description="Можно ли устанавливать цены отдельно для разных размеров (зависит от категории товара):   - `true` — можно   - `false` — нельзя ",
+        alias="editableSizePrice",
+    )
+    __properties: ClassVar[List[str]] = [
+        "nmID",
+        "sizeID",
+        "vendorCode",
+        "price",
+        "currencyIsoCode4217",
+        "discountedPrice",
+        "clubDiscountedPrice",
+        "discount",
+        "clubDiscount",
+        "techSizeName",
+        "editableSizePrice",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -70,8 +117,7 @@ class SizeGood(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -89,19 +135,19 @@ class SizeGood(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmID": obj.get("nmID"),
-            "sizeID": obj.get("sizeID"),
-            "vendorCode": obj.get("vendorCode"),
-            "price": obj.get("price"),
-            "currencyIsoCode4217": obj.get("currencyIsoCode4217"),
-            "discountedPrice": obj.get("discountedPrice"),
-            "clubDiscountedPrice": obj.get("clubDiscountedPrice"),
-            "discount": obj.get("discount"),
-            "clubDiscount": obj.get("clubDiscount"),
-            "techSizeName": obj.get("techSizeName"),
-            "editableSizePrice": obj.get("editableSizePrice")
-        })
+        _obj = cls.model_validate(
+            {
+                "nmID": obj.get("nmID"),
+                "sizeID": obj.get("sizeID"),
+                "vendorCode": obj.get("vendorCode"),
+                "price": obj.get("price"),
+                "currencyIsoCode4217": obj.get("currencyIsoCode4217"),
+                "discountedPrice": obj.get("discountedPrice"),
+                "clubDiscountedPrice": obj.get("clubDiscountedPrice"),
+                "discount": obj.get("discount"),
+                "clubDiscount": obj.get("clubDiscount"),
+                "techSizeName": obj.get("techSizeName"),
+                "editableSizePrice": obj.get("editableSizePrice"),
+            }
+        )
         return _obj
-
-

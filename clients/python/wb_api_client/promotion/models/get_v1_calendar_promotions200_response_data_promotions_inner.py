@@ -23,24 +23,39 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1CalendarPromotions200ResponseDataPromotionsInner(BaseModel):
     """
     GetV1CalendarPromotions200ResponseDataPromotionsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictInt] = Field(default=None, description="ID акции")
     name: Optional[StrictStr] = Field(default=None, description="Название акции")
-    start_date_time: Optional[datetime] = Field(default=None, description="Начало акции", alias="startDateTime")
-    end_date_time: Optional[datetime] = Field(default=None, description="Конец акции", alias="endDateTime")
-    type: Optional[StrictStr] = Field(default=None, description="Тип акции:   - `regular` — акция   - `auto` — автоакция ")
-    __properties: ClassVar[List[str]] = ["id", "name", "startDateTime", "endDateTime", "type"]
+    start_date_time: Optional[datetime] = Field(
+        default=None, description="Начало акции", alias="startDateTime"
+    )
+    end_date_time: Optional[datetime] = Field(
+        default=None, description="Конец акции", alias="endDateTime"
+    )
+    type: Optional[StrictStr] = Field(
+        default=None,
+        description="Тип акции:   - `regular` — акция   - `auto` — автоакция ",
+    )
+    __properties: ClassVar[List[str]] = [
+        "id",
+        "name",
+        "startDateTime",
+        "endDateTime",
+        "type",
+    ]
 
-    @field_validator('type')
+    @field_validator("type")
     def type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['regular', 'auto']):
+        if value not in set(["regular", "auto"]):
             raise ValueError("must be one of enum values ('regular', 'auto')")
         return value
 
@@ -49,7 +64,6 @@ class GetV1CalendarPromotions200ResponseDataPromotionsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -75,8 +89,7 @@ class GetV1CalendarPromotions200ResponseDataPromotionsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -94,13 +107,13 @@ class GetV1CalendarPromotions200ResponseDataPromotionsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "name": obj.get("name"),
-            "startDateTime": obj.get("startDateTime"),
-            "endDateTime": obj.get("endDateTime"),
-            "type": obj.get("type")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "name": obj.get("name"),
+                "startDateTime": obj.get("startDateTime"),
+                "endDateTime": obj.get("endDateTime"),
+                "type": obj.get("type"),
+            }
+        )
         return _obj
-
-

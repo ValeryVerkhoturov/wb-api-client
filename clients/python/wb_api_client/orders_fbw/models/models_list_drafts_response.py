@@ -23,10 +23,12 @@ from wb_api_client.orders_fbw.models.models_draft_item import ModelsDraftItem
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsListDraftsResponse(BaseModel):
     """
     ModelsListDraftsResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     total: StrictInt = Field(description="Общее количество черновиков")
     drafts: List[ModelsDraftItem] = Field(description="Список черновиков")
     __properties: ClassVar[List[str]] = ["total", "drafts"]
@@ -36,7 +38,6 @@ class ModelsListDraftsResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +63,7 @@ class ModelsListDraftsResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +76,7 @@ class ModelsListDraftsResponse(BaseModel):
             for _item_drafts in self.drafts:
                 if _item_drafts:
                     _items.append(_item_drafts.to_dict())
-            _dict['drafts'] = _items
+            _dict["drafts"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +88,14 @@ class ModelsListDraftsResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "total": obj.get("total"),
-            "drafts": [ModelsDraftItem.from_dict(_item) for _item in obj["drafts"]] if obj.get("drafts") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "total": obj.get("total"),
+                "drafts": (
+                    [ModelsDraftItem.from_dict(_item) for _item in obj["drafts"]]
+                    if obj.get("drafts") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

@@ -23,13 +23,28 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner(BaseModel):
+
+class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner(
+    BaseModel
+):
     """
     GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner
-    """ # noqa: E501
-    condition: Optional[StrictStr] = Field(default=None, description="Тип [ранжирования](https://seller.wildberries.ru/help-center/article/A-385):   - `productsInPromotion` — продвижение получат товары продавца, участвующие в акции   - `calculateProducts` — продвижение получат любые товара продавца, предложенные к участию в акции   - `allProducts` — продвижение получат все товары продавца ")
-    participation_rate: Optional[Annotated[int, Field(le=100, strict=True, ge=0)]] = Field(default=None, description="Количество товаров продавца для перехода на следующий уровень ранжирования, %", alias="participationRate")
-    boost: Optional[StrictInt] = Field(default=None, description="Текущий уровень поднятия в поиске, %")
+    """  # noqa: E501
+
+    condition: Optional[StrictStr] = Field(
+        default=None,
+        description="Тип [ранжирования](https://seller.wildberries.ru/help-center/article/A-385):   - `productsInPromotion` — продвижение получат товары продавца, участвующие в акции   - `calculateProducts` — продвижение получат любые товара продавца, предложенные к участию в акции   - `allProducts` — продвижение получат все товары продавца ",
+    )
+    participation_rate: Optional[Annotated[int, Field(le=100, strict=True, ge=0)]] = (
+        Field(
+            default=None,
+            description="Количество товаров продавца для перехода на следующий уровень ранжирования, %",
+            alias="participationRate",
+        )
+    )
+    boost: Optional[StrictInt] = Field(
+        default=None, description="Текущий уровень поднятия в поиске, %"
+    )
     __properties: ClassVar[List[str]] = ["condition", "participationRate", "boost"]
 
     model_config = ConfigDict(
@@ -37,7 +52,6 @@ class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner(B
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +77,7 @@ class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner(B
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,11 +95,11 @@ class GetV1CalendarPromotionsDetails200ResponseDataPromotionsInnerRangingInner(B
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "condition": obj.get("condition"),
-            "participationRate": obj.get("participationRate"),
-            "boost": obj.get("boost")
-        })
+        _obj = cls.model_validate(
+            {
+                "condition": obj.get("condition"),
+                "participationRate": obj.get("participationRate"),
+                "boost": obj.get("boost"),
+            }
+        )
         return _obj
-
-

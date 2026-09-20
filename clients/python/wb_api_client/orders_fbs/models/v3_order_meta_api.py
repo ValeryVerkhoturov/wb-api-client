@@ -19,16 +19,22 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.orders_fbs.models.v3_archive_order_meta_details_inner import V3ArchiveOrderMetaDetailsInner
+from wb_api_client.orders_fbs.models.v3_archive_order_meta_details_inner import (
+    V3ArchiveOrderMetaDetailsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class V3OrderMetaAPI(BaseModel):
     """
     V3OrderMetaAPI
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictInt] = Field(default=None, description="ID сборочного задания")
-    meta_details: Optional[List[V3ArchiveOrderMetaDetailsInner]] = Field(default=None, description="Детали маркировки", alias="metaDetails")
+    meta_details: Optional[List[V3ArchiveOrderMetaDetailsInner]] = Field(
+        default=None, description="Детали маркировки", alias="metaDetails"
+    )
     __properties: ClassVar[List[str]] = ["id", "metaDetails"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class V3OrderMetaAPI(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class V3OrderMetaAPI(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +80,7 @@ class V3OrderMetaAPI(BaseModel):
             for _item_meta_details in self.meta_details:
                 if _item_meta_details:
                     _items.append(_item_meta_details.to_dict())
-            _dict['metaDetails'] = _items
+            _dict["metaDetails"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +92,17 @@ class V3OrderMetaAPI(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "metaDetails": [V3ArchiveOrderMetaDetailsInner.from_dict(_item) for _item in obj["metaDetails"]] if obj.get("metaDetails") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "metaDetails": (
+                    [
+                        V3ArchiveOrderMetaDetailsInner.from_dict(_item)
+                        for _item in obj["metaDetails"]
+                    ]
+                    if obj.get("metaDetails") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

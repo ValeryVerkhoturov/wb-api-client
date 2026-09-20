@@ -20,19 +20,45 @@ from pydantic import Field, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
 from wb_api_client.items.models.brands_response import BrandsResponse
-from wb_api_client.items.models.delete_v3_stocks_warehouse_id_request import DeleteV3StocksWarehouseIdRequest
-from wb_api_client.items.models.get_v2_directory_colors_response200 import GetV2DirectoryColorsResponse200
-from wb_api_client.items.models.get_v2_directory_countries_response200 import GetV2DirectoryCountriesResponse200
-from wb_api_client.items.models.get_v2_directory_kinds_response200 import GetV2DirectoryKindsResponse200
-from wb_api_client.items.models.get_v2_directory_seasons_response200 import GetV2DirectorySeasonsResponse200
-from wb_api_client.items.models.get_v2_directory_tnved_response200 import GetV2DirectoryTnvedResponse200
-from wb_api_client.items.models.get_v2_directory_vat_response200 import GetV2DirectoryVatResponse200
-from wb_api_client.items.models.get_v2_object_all_response200 import GetV2ObjectAllResponse200
-from wb_api_client.items.models.get_v2_object_charcs_subject_id_response200 import GetV2ObjectCharcsSubjectIdResponse200
-from wb_api_client.items.models.get_v2_object_parent_all_response200 import GetV2ObjectParentAllResponse200
-from wb_api_client.items.models.post_v3_stocks_warehouse_id_request import PostV3StocksWarehouseIdRequest
-from wb_api_client.items.models.post_v3_stocks_warehouse_id_response200 import PostV3StocksWarehouseIdResponse200
-from wb_api_client.items.models.put_v3_stocks_warehouse_id_request import PutV3StocksWarehouseIdRequest
+from wb_api_client.items.models.delete_v3_stocks_warehouse_id_request import (
+    DeleteV3StocksWarehouseIdRequest,
+)
+from wb_api_client.items.models.get_v2_directory_colors_response200 import (
+    GetV2DirectoryColorsResponse200,
+)
+from wb_api_client.items.models.get_v2_directory_countries_response200 import (
+    GetV2DirectoryCountriesResponse200,
+)
+from wb_api_client.items.models.get_v2_directory_kinds_response200 import (
+    GetV2DirectoryKindsResponse200,
+)
+from wb_api_client.items.models.get_v2_directory_seasons_response200 import (
+    GetV2DirectorySeasonsResponse200,
+)
+from wb_api_client.items.models.get_v2_directory_tnved_response200 import (
+    GetV2DirectoryTnvedResponse200,
+)
+from wb_api_client.items.models.get_v2_directory_vat_response200 import (
+    GetV2DirectoryVatResponse200,
+)
+from wb_api_client.items.models.get_v2_object_all_response200 import (
+    GetV2ObjectAllResponse200,
+)
+from wb_api_client.items.models.get_v2_object_charcs_subject_id_response200 import (
+    GetV2ObjectCharcsSubjectIdResponse200,
+)
+from wb_api_client.items.models.get_v2_object_parent_all_response200 import (
+    GetV2ObjectParentAllResponse200,
+)
+from wb_api_client.items.models.post_v3_stocks_warehouse_id_request import (
+    PostV3StocksWarehouseIdRequest,
+)
+from wb_api_client.items.models.post_v3_stocks_warehouse_id_response200 import (
+    PostV3StocksWarehouseIdResponse200,
+)
+from wb_api_client.items.models.put_v3_stocks_warehouse_id_request import (
+    PutV3StocksWarehouseIdRequest,
+)
 
 from wb_api_client.items.api_client import ApiClient, RequestSerialized
 from wb_api_client.items.api_response import ApiResponse
@@ -51,7 +77,6 @@ class Api:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def delete_v3_stocks_warehouse_id(
         self,
@@ -61,9 +86,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -98,7 +122,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._delete_v3_stocks_warehouse_id_serialize(
             warehouse_id=warehouse_id,
@@ -106,29 +130,27 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV2ObjectParentAll401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def delete_v3_stocks_warehouse_id_with_http_info(
@@ -139,9 +161,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -176,7 +197,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._delete_v3_stocks_warehouse_id_serialize(
             warehouse_id=warehouse_id,
@@ -184,29 +205,27 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV2ObjectParentAll401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def delete_v3_stocks_warehouse_id_without_preload_content(
@@ -217,9 +236,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -254,7 +272,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._delete_v3_stocks_warehouse_id_serialize(
             warehouse_id=warehouse_id,
@@ -262,25 +280,23 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV2ObjectParentAll401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _delete_v3_stocks_warehouse_id_serialize(
         self,
@@ -293,13 +309,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -312,7 +327,7 @@ class Api:
 
         # process the path parameters
         if warehouse_id is not None:
-            _path_params['warehouseId'] = warehouse_id
+            _path_params["warehouseId"] = warehouse_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -320,38 +335,28 @@ class Api:
         if delete_v3_stocks_warehouse_id_request is not None:
             _body_params = delete_v3_stocks_warehouse_id_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='DELETE',
-            resource_path='/api/v3/stocks/{warehouseId}',
+            method="DELETE",
+            resource_path="/api/v3/stocks/{warehouseId}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -361,24 +366,25 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v1_brands(
         self,
         subject_id: Annotated[StrictInt, Field(description="ID предмета")],
-        next: Annotated[Optional[StrictInt], Field(description="Параметр пагинации. Используйте значение `next` из ответа, чтобы получить следующий пакет данных")] = None,
+        next: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Параметр пагинации. Используйте значение `next` из ответа, чтобы получить следующий пакет данных"
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -413,7 +419,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_brands_serialize(
             subject_id=subject_id,
@@ -421,20 +427,19 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BrandsResponse",
-            '400': "BrandsResponseError",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "GetV2ObjectAll403Response",
-            '404': "BrandsResponseError",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "BrandsResponse",
+            "400": "BrandsResponseError",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "GetV2ObjectAll403Response",
+            "404": "BrandsResponseError",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -442,19 +447,22 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v1_brands_with_http_info(
         self,
         subject_id: Annotated[StrictInt, Field(description="ID предмета")],
-        next: Annotated[Optional[StrictInt], Field(description="Параметр пагинации. Используйте значение `next` из ответа, чтобы получить следующий пакет данных")] = None,
+        next: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Параметр пагинации. Используйте значение `next` из ответа, чтобы получить следующий пакет данных"
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -489,7 +497,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_brands_serialize(
             subject_id=subject_id,
@@ -497,20 +505,19 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BrandsResponse",
-            '400': "BrandsResponseError",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "GetV2ObjectAll403Response",
-            '404': "BrandsResponseError",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "BrandsResponse",
+            "400": "BrandsResponseError",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "GetV2ObjectAll403Response",
+            "404": "BrandsResponseError",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -518,19 +525,22 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v1_brands_without_preload_content(
         self,
         subject_id: Annotated[StrictInt, Field(description="ID предмета")],
-        next: Annotated[Optional[StrictInt], Field(description="Параметр пагинации. Используйте значение `next` из ответа, чтобы получить следующий пакет данных")] = None,
+        next: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Параметр пагинации. Используйте значение `next` из ответа, чтобы получить следующий пакет данных"
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -565,7 +575,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v1_brands_serialize(
             subject_id=subject_id,
@@ -573,23 +583,21 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BrandsResponse",
-            '400': "BrandsResponseError",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "GetV2ObjectAll403Response",
-            '404': "BrandsResponseError",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "BrandsResponse",
+            "400": "BrandsResponseError",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "GetV2ObjectAll403Response",
+            "404": "BrandsResponseError",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v1_brands_serialize(
         self,
@@ -601,13 +609,10 @@ class Api:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://content-api.wildberries.ru'
-        ]
+        _hosts = ["https://content-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -621,36 +626,29 @@ class Api:
         # process the path parameters
         # process the query parameters
         if subject_id is not None:
-            
-            _query_params.append(('subjectId', subject_id))
-            
+
+            _query_params.append(("subjectId", subject_id))
+
         if next is not None:
-            
-            _query_params.append(('next', next))
-            
+
+            _query_params.append(("next", next))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/content/v1/brands',
+            method="GET",
+            resource_path="/api/content/v1/brands",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -660,23 +658,24 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v2_directory_colors(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -687,7 +686,7 @@ class Api:
 
         Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Цвет`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -709,26 +708,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_directory_colors_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2DirectoryColorsResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2DirectoryColorsResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -736,18 +734,21 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v2_directory_colors_with_http_info(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -758,7 +759,7 @@ class Api:
 
         Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Цвет`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -780,26 +781,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_directory_colors_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2DirectoryColorsResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2DirectoryColorsResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -807,18 +807,21 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v2_directory_colors_without_preload_content(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -829,7 +832,7 @@ class Api:
 
         Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Цвет`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -851,29 +854,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_directory_colors_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2DirectoryColorsResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2DirectoryColorsResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v2_directory_colors_serialize(
         self,
@@ -885,13 +886,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://content-api.wildberries.ru',
-            'https://content-api-sandbox.wildberries.ru'
+            "https://content-api.wildberries.ru",
+            "https://content-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -905,32 +905,25 @@ class Api:
         # process the path parameters
         # process the query parameters
         if locale is not None:
-            
-            _query_params.append(('locale', locale))
-            
+
+            _query_params.append(("locale", locale))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/content/v2/directory/colors',
+            method="GET",
+            resource_path="/content/v2/directory/colors",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -940,23 +933,24 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v2_directory_countries(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -967,7 +961,7 @@ class Api:
 
         Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Страна производства`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -989,26 +983,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_directory_countries_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2DirectoryCountriesResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2DirectoryCountriesResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1016,18 +1009,21 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v2_directory_countries_with_http_info(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1038,7 +1034,7 @@ class Api:
 
         Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Страна производства`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1060,26 +1056,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_directory_countries_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2DirectoryCountriesResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2DirectoryCountriesResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1087,18 +1082,21 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v2_directory_countries_without_preload_content(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1109,7 +1107,7 @@ class Api:
 
         Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Страна производства`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1131,29 +1129,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_directory_countries_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2DirectoryCountriesResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2DirectoryCountriesResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v2_directory_countries_serialize(
         self,
@@ -1165,13 +1161,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://content-api.wildberries.ru',
-            'https://content-api-sandbox.wildberries.ru'
+            "https://content-api.wildberries.ru",
+            "https://content-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1185,32 +1180,25 @@ class Api:
         # process the path parameters
         # process the query parameters
         if locale is not None:
-            
-            _query_params.append(('locale', locale))
-            
+
+            _query_params.append(("locale", locale))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/content/v2/directory/countries',
+            method="GET",
+            resource_path="/content/v2/directory/countries",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1220,23 +1208,24 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v2_directory_kinds(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1247,7 +1236,7 @@ class Api:
 
         Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Пол`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1269,26 +1258,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_directory_kinds_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2DirectoryKindsResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2DirectoryKindsResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1296,18 +1284,21 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v2_directory_kinds_with_http_info(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1318,7 +1309,7 @@ class Api:
 
         Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Пол`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1340,26 +1331,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_directory_kinds_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2DirectoryKindsResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2DirectoryKindsResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1367,18 +1357,21 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v2_directory_kinds_without_preload_content(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1389,7 +1382,7 @@ class Api:
 
         Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Пол`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1411,29 +1404,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_directory_kinds_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2DirectoryKindsResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2DirectoryKindsResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v2_directory_kinds_serialize(
         self,
@@ -1445,13 +1436,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://content-api.wildberries.ru',
-            'https://content-api-sandbox.wildberries.ru'
+            "https://content-api.wildberries.ru",
+            "https://content-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1465,32 +1455,25 @@ class Api:
         # process the path parameters
         # process the query parameters
         if locale is not None:
-            
-            _query_params.append(('locale', locale))
-            
+
+            _query_params.append(("locale", locale))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/content/v2/directory/kinds',
+            method="GET",
+            resource_path="/content/v2/directory/kinds",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1500,23 +1483,24 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v2_directory_seasons(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1527,7 +1511,7 @@ class Api:
 
         Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Сезон`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1549,26 +1533,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_directory_seasons_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2DirectorySeasonsResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2DirectorySeasonsResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1576,18 +1559,21 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v2_directory_seasons_with_http_info(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1598,7 +1584,7 @@ class Api:
 
         Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Сезон`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1620,26 +1606,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_directory_seasons_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2DirectorySeasonsResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2DirectorySeasonsResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1647,18 +1632,21 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v2_directory_seasons_without_preload_content(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1669,7 +1657,7 @@ class Api:
 
         Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Сезон`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1691,29 +1679,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_directory_seasons_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2DirectorySeasonsResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2DirectorySeasonsResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v2_directory_seasons_serialize(
         self,
@@ -1725,13 +1711,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://content-api.wildberries.ru',
-            'https://content-api-sandbox.wildberries.ru'
+            "https://content-api.wildberries.ru",
+            "https://content-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1745,32 +1730,25 @@ class Api:
         # process the path parameters
         # process the query parameters
         if locale is not None:
-            
-            _query_params.append(('locale', locale))
-            
+
+            _query_params.append(("locale", locale))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/content/v2/directory/seasons',
+            method="GET",
+            resource_path="/content/v2/directory/seasons",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1780,25 +1758,31 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v2_directory_tnved(
         self,
         subject_id: Annotated[StrictInt, Field(description="ID предмета")],
-        search: Annotated[Optional[StrictInt], Field(description="Поиск по ТНВЭД-коду. Работает только в паре с `subjectID`")] = None,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        search: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Поиск по ТНВЭД-коду. Работает только в паре с `subjectID`"
+            ),
+        ] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1813,7 +1797,7 @@ class Api:
         :type subject_id: int
         :param search: Поиск по ТНВЭД-коду. Работает только в паре с `subjectID`
         :type search: int
-        :param locale: Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1835,7 +1819,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_directory_tnved_serialize(
             subject_id=subject_id,
@@ -1844,19 +1828,18 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2DirectoryTnvedResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2DirectoryTnvedResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1864,20 +1847,28 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v2_directory_tnved_with_http_info(
         self,
         subject_id: Annotated[StrictInt, Field(description="ID предмета")],
-        search: Annotated[Optional[StrictInt], Field(description="Поиск по ТНВЭД-коду. Работает только в паре с `subjectID`")] = None,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        search: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Поиск по ТНВЭД-коду. Работает только в паре с `subjectID`"
+            ),
+        ] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1892,7 +1883,7 @@ class Api:
         :type subject_id: int
         :param search: Поиск по ТНВЭД-коду. Работает только в паре с `subjectID`
         :type search: int
-        :param locale: Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1914,7 +1905,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_directory_tnved_serialize(
             subject_id=subject_id,
@@ -1923,19 +1914,18 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2DirectoryTnvedResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2DirectoryTnvedResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1943,20 +1933,28 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v2_directory_tnved_without_preload_content(
         self,
         subject_id: Annotated[StrictInt, Field(description="ID предмета")],
-        search: Annotated[Optional[StrictInt], Field(description="Поиск по ТНВЭД-коду. Работает только в паре с `subjectID`")] = None,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        search: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Поиск по ТНВЭД-коду. Работает только в паре с `subjectID`"
+            ),
+        ] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1971,7 +1969,7 @@ class Api:
         :type subject_id: int
         :param search: Поиск по ТНВЭД-коду. Работает только в паре с `subjectID`
         :type search: int
-        :param locale: Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1993,7 +1991,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_directory_tnved_serialize(
             subject_id=subject_id,
@@ -2002,22 +2000,20 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2DirectoryTnvedResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2DirectoryTnvedResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v2_directory_tnved_serialize(
         self,
@@ -2031,13 +2027,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://content-api.wildberries.ru',
-            'https://content-api-sandbox.wildberries.ru'
+            "https://content-api.wildberries.ru",
+            "https://content-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2051,40 +2046,33 @@ class Api:
         # process the path parameters
         # process the query parameters
         if subject_id is not None:
-            
-            _query_params.append(('subjectID', subject_id))
-            
+
+            _query_params.append(("subjectID", subject_id))
+
         if search is not None:
-            
-            _query_params.append(('search', search))
-            
+
+            _query_params.append(("search", search))
+
         if locale is not None:
-            
-            _query_params.append(('locale', locale))
-            
+
+            _query_params.append(("locale", locale))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/content/v2/directory/tnved',
+            method="GET",
+            resource_path="/content/v2/directory/tnved",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2094,23 +2082,24 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v2_directory_vat(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2121,7 +2110,7 @@ class Api:
 
         Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Ставка НДС`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2143,26 +2132,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_directory_vat_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2DirectoryVatResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2DirectoryVatResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2170,18 +2158,21 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v2_directory_vat_with_http_info(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2192,7 +2183,7 @@ class Api:
 
         Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Ставка НДС`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2214,26 +2205,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_directory_vat_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2DirectoryVatResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2DirectoryVatResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2241,18 +2231,21 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v2_directory_vat_without_preload_content(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2263,7 +2256,7 @@ class Api:
 
         Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета `Ставка НДС`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2285,29 +2278,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_directory_vat_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2DirectoryVatResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2DirectoryVatResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v2_directory_vat_serialize(
         self,
@@ -2319,13 +2310,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://content-api.wildberries.ru',
-            'https://content-api-sandbox.wildberries.ru'
+            "https://content-api.wildberries.ru",
+            "https://content-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2339,32 +2329,25 @@ class Api:
         # process the path parameters
         # process the query parameters
         if locale is not None:
-            
-            _query_params.append(('locale', locale))
-            
+
+            _query_params.append(("locale", locale))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/content/v2/directory/vat',
+            method="GET",
+            resource_path="/content/v2/directory/vat",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2374,27 +2357,43 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v2_object_all(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
-        name: Annotated[Optional[StrictStr], Field(description="Поиск по названию предмета (Носки), поиск работает по подстроке, искать можно на любом из поддерживаемых языков")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="Количество предметов, максимум 1000")] = None,
-        offset: Annotated[Optional[StrictInt], Field(description="Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента")] = None,
-        parent_id: Annotated[Optional[StrictInt], Field(description="ID родительской категории предмета")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
+        name: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Поиск по названию предмета (Носки), поиск работает по подстроке, искать можно на любом из поддерживаемых языков"
+            ),
+        ] = None,
+        limit: Annotated[
+            Optional[StrictInt],
+            Field(description="Количество предметов, максимум 1000"),
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента"
+            ),
+        ] = None,
+        parent_id: Annotated[
+            Optional[StrictInt], Field(description="ID родительской категории предмета")
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2405,7 +2404,7 @@ class Api:
 
         Метод возвращает список названий [родительских категорий предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) и их предметов с ID. Например, у категории `Игрушки` будут предметы `Калейдоскопы`, `Куклы`, `Мячики`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param name: Поиск по названию предмета (Носки), поиск работает по подстроке, искать можно на любом из поддерживаемых языков
         :type name: str
@@ -2435,7 +2434,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_object_all_serialize(
             locale=locale,
@@ -2446,18 +2445,17 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2ObjectAllResponse200",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "GetV2ObjectAll403Response",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2ObjectAllResponse200",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "GetV2ObjectAll403Response",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2465,22 +2463,40 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v2_object_all_with_http_info(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
-        name: Annotated[Optional[StrictStr], Field(description="Поиск по названию предмета (Носки), поиск работает по подстроке, искать можно на любом из поддерживаемых языков")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="Количество предметов, максимум 1000")] = None,
-        offset: Annotated[Optional[StrictInt], Field(description="Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента")] = None,
-        parent_id: Annotated[Optional[StrictInt], Field(description="ID родительской категории предмета")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
+        name: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Поиск по названию предмета (Носки), поиск работает по подстроке, искать можно на любом из поддерживаемых языков"
+            ),
+        ] = None,
+        limit: Annotated[
+            Optional[StrictInt],
+            Field(description="Количество предметов, максимум 1000"),
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента"
+            ),
+        ] = None,
+        parent_id: Annotated[
+            Optional[StrictInt], Field(description="ID родительской категории предмета")
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2491,7 +2507,7 @@ class Api:
 
         Метод возвращает список названий [родительских категорий предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) и их предметов с ID. Например, у категории `Игрушки` будут предметы `Калейдоскопы`, `Куклы`, `Мячики`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param name: Поиск по названию предмета (Носки), поиск работает по подстроке, искать можно на любом из поддерживаемых языков
         :type name: str
@@ -2521,7 +2537,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_object_all_serialize(
             locale=locale,
@@ -2532,18 +2548,17 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2ObjectAllResponse200",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "GetV2ObjectAll403Response",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2ObjectAllResponse200",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "GetV2ObjectAll403Response",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2551,22 +2566,40 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v2_object_all_without_preload_content(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
-        name: Annotated[Optional[StrictStr], Field(description="Поиск по названию предмета (Носки), поиск работает по подстроке, искать можно на любом из поддерживаемых языков")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="Количество предметов, максимум 1000")] = None,
-        offset: Annotated[Optional[StrictInt], Field(description="Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента")] = None,
-        parent_id: Annotated[Optional[StrictInt], Field(description="ID родительской категории предмета")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
+        name: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Поиск по названию предмета (Носки), поиск работает по подстроке, искать можно на любом из поддерживаемых языков"
+            ),
+        ] = None,
+        limit: Annotated[
+            Optional[StrictInt],
+            Field(description="Количество предметов, максимум 1000"),
+        ] = None,
+        offset: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Сколько элементов пропустить. Например, для значения `10` ответ начнется с 11 элемента"
+            ),
+        ] = None,
+        parent_id: Annotated[
+            Optional[StrictInt], Field(description="ID родительской категории предмета")
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2577,7 +2610,7 @@ class Api:
 
         Метод возвращает список названий [родительских категорий предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll) и их предметов с ID. Например, у категории `Игрушки` будут предметы `Калейдоскопы`, `Куклы`, `Мячики`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param name: Поиск по названию предмета (Носки), поиск работает по подстроке, искать можно на любом из поддерживаемых языков
         :type name: str
@@ -2607,7 +2640,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_object_all_serialize(
             locale=locale,
@@ -2618,21 +2651,19 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2ObjectAllResponse200",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "GetV2ObjectAll403Response",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2ObjectAllResponse200",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "GetV2ObjectAll403Response",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v2_object_all_serialize(
         self,
@@ -2648,13 +2679,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://content-api.wildberries.ru',
-            'https://content-api-sandbox.wildberries.ru'
+            "https://content-api.wildberries.ru",
+            "https://content-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2668,48 +2698,41 @@ class Api:
         # process the path parameters
         # process the query parameters
         if locale is not None:
-            
-            _query_params.append(('locale', locale))
-            
+
+            _query_params.append(("locale", locale))
+
         if name is not None:
-            
-            _query_params.append(('name', name))
-            
+
+            _query_params.append(("name", name))
+
         if limit is not None:
-            
-            _query_params.append(('limit', limit))
-            
+
+            _query_params.append(("limit", limit))
+
         if offset is not None:
-            
-            _query_params.append(('offset', offset))
-            
+
+            _query_params.append(("offset", offset))
+
         if parent_id is not None:
-            
-            _query_params.append(('parentID', parent_id))
-            
+
+            _query_params.append(("parentID", parent_id))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/content/v2/object/all',
+            method="GET",
+            resource_path="/content/v2/object/all",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2719,24 +2742,25 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v2_object_charcs_subject_id(
         self,
         subject_id: Annotated[StrictInt, Field(description="ID предмета")],
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2749,7 +2773,7 @@ class Api:
 
         :param subject_id: ID предмета (required)
         :type subject_id: int
-        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2771,7 +2795,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_object_charcs_subject_id_serialize(
             subject_id=subject_id,
@@ -2779,19 +2803,18 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2ObjectCharcsSubjectIdResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2ObjectCharcsSubjectIdResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2799,19 +2822,22 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v2_object_charcs_subject_id_with_http_info(
         self,
         subject_id: Annotated[StrictInt, Field(description="ID предмета")],
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2824,7 +2850,7 @@ class Api:
 
         :param subject_id: ID предмета (required)
         :type subject_id: int
-        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2846,7 +2872,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_object_charcs_subject_id_serialize(
             subject_id=subject_id,
@@ -2854,19 +2880,18 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2ObjectCharcsSubjectIdResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2ObjectCharcsSubjectIdResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2874,19 +2899,22 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v2_object_charcs_subject_id_without_preload_content(
         self,
         subject_id: Annotated[StrictInt, Field(description="ID предмета")],
-        locale: Annotated[Optional[StrictStr], Field(description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2899,7 +2927,7 @@ class Api:
 
         :param subject_id: ID предмета (required)
         :type subject_id: int
-        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык полей ответа `subjectName` и `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2921,7 +2949,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_object_charcs_subject_id_serialize(
             subject_id=subject_id,
@@ -2929,22 +2957,20 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2ObjectCharcsSubjectIdResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2ObjectCharcsSubjectIdResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v2_object_charcs_subject_id_serialize(
         self,
@@ -2957,13 +2983,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://content-api.wildberries.ru',
-            'https://content-api-sandbox.wildberries.ru'
+            "https://content-api.wildberries.ru",
+            "https://content-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2976,35 +3001,28 @@ class Api:
 
         # process the path parameters
         if subject_id is not None:
-            _path_params['subjectId'] = subject_id
+            _path_params["subjectId"] = subject_id
         # process the query parameters
         if locale is not None:
-            
-            _query_params.append(('locale', locale))
-            
+
+            _query_params.append(("locale", locale))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/content/v2/object/charcs/{subjectId}',
+            method="GET",
+            resource_path="/content/v2/object/charcs/{subjectId}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3014,23 +3032,24 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v2_object_parent_all(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык поля ответа `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык поля ответа `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3041,7 +3060,7 @@ class Api:
 
         Метод возвращает названия и ID всех родительских категорий для [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems): например, `Электроника`, `Бытовая химия`, `Рукоделие`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык поля ответа `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык поля ответа `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3063,26 +3082,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_object_parent_all_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2ObjectParentAllResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2ObjectParentAllResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3090,18 +3108,21 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v2_object_parent_all_with_http_info(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык поля ответа `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык поля ответа `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3112,7 +3133,7 @@ class Api:
 
         Метод возвращает названия и ID всех родительских категорий для [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems): например, `Электроника`, `Бытовая химия`, `Рукоделие`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык поля ответа `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык поля ответа `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3134,26 +3155,25 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_object_parent_all_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2ObjectParentAllResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2ObjectParentAllResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3161,18 +3181,21 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v2_object_parent_all_without_preload_content(
         self,
-        locale: Annotated[Optional[StrictStr], Field(description="Язык поля ответа `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке ")] = None,
+        locale: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Язык поля ответа `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке "
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3183,7 +3206,7 @@ class Api:
 
         Метод возвращает названия и ID всех родительских категорий для [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems): например, `Электроника`, `Бытовая химия`, `Рукоделие`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
-        :param locale: Язык поля ответа `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке 
+        :param locale: Язык поля ответа `name`:   - `ru` — русский   - `en` — английский   - `zh` — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке
         :type locale: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3205,29 +3228,27 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v2_object_parent_all_serialize(
             locale=locale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV2ObjectParentAllResponse200",
-            '400': "ResponseBodyContentError400",
-            '401': "GetV2ObjectParentAll401Response",
-            '403': "ResponseBodyContentError403",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "GetV2ObjectParentAllResponse200",
+            "400": "ResponseBodyContentError400",
+            "401": "GetV2ObjectParentAll401Response",
+            "403": "ResponseBodyContentError403",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v2_object_parent_all_serialize(
         self,
@@ -3239,13 +3260,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://content-api.wildberries.ru',
-            'https://content-api-sandbox.wildberries.ru'
+            "https://content-api.wildberries.ru",
+            "https://content-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3259,32 +3279,25 @@ class Api:
         # process the path parameters
         # process the query parameters
         if locale is not None:
-            
-            _query_params.append(('locale', locale))
-            
+
+            _query_params.append(("locale", locale))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/content/v2/object/parent/all',
+            method="GET",
+            resource_path="/content/v2/object/parent/all",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3294,11 +3307,8 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_stocks_warehouse_id(
@@ -3309,9 +3319,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3346,7 +3355,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_stocks_warehouse_id_serialize(
             warehouse_id=warehouse_id,
@@ -3354,28 +3363,26 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3StocksWarehouseIdResponse200",
-            '400': "Error",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "Error",
-            '404': "Error",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "PostV3StocksWarehouseIdResponse200",
+            "400": "Error",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "Error",
+            "404": "Error",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_stocks_warehouse_id_with_http_info(
@@ -3386,9 +3393,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3423,7 +3429,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_stocks_warehouse_id_serialize(
             warehouse_id=warehouse_id,
@@ -3431,28 +3437,26 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3StocksWarehouseIdResponse200",
-            '400': "Error",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "Error",
-            '404': "Error",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "PostV3StocksWarehouseIdResponse200",
+            "400": "Error",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "Error",
+            "404": "Error",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_stocks_warehouse_id_without_preload_content(
@@ -3463,9 +3467,8 @@ class Api:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3500,7 +3503,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_stocks_warehouse_id_serialize(
             warehouse_id=warehouse_id,
@@ -3508,24 +3511,22 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3StocksWarehouseIdResponse200",
-            '400': "Error",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "Error",
-            '404': "Error",
-            '429': "GetV2ObjectParentAll401Response",
+            "200": "PostV3StocksWarehouseIdResponse200",
+            "400": "Error",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "Error",
+            "404": "Error",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_stocks_warehouse_id_serialize(
         self,
@@ -3538,13 +3539,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3557,7 +3557,7 @@ class Api:
 
         # process the path parameters
         if warehouse_id is not None:
-            _path_params['warehouseId'] = warehouse_id
+            _path_params["warehouseId"] = warehouse_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -3565,38 +3565,28 @@ class Api:
         if post_v3_stocks_warehouse_id_request is not None:
             _body_params = post_v3_stocks_warehouse_id_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v3/stocks/{warehouseId}',
+            method="POST",
+            resource_path="/api/v3/stocks/{warehouseId}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3606,24 +3596,22 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def put_v3_stocks_warehouse_id(
         self,
         warehouse_id: Annotated[StrictInt, Field(description="ID склада продавца")],
-        put_v3_stocks_warehouse_id_request: Optional[PutV3StocksWarehouseIdRequest] = None,
+        put_v3_stocks_warehouse_id_request: Optional[
+            PutV3StocksWarehouseIdRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3658,7 +3646,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_stocks_warehouse_id_serialize(
             warehouse_id=warehouse_id,
@@ -3666,23 +3654,22 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "Error",
-            '404': "Error",
-            '406': "UpdateBlocked",
-            '409': "List[PutV3StocksWarehouseIdResponse409Inner]",
-            '429': "GetV2ObjectParentAll401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "Error",
+            "404": "Error",
+            "406": "UpdateBlocked",
+            "409": "List[PutV3StocksWarehouseIdResponse409Inner]",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3690,19 +3677,19 @@ class Api:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def put_v3_stocks_warehouse_id_with_http_info(
         self,
         warehouse_id: Annotated[StrictInt, Field(description="ID склада продавца")],
-        put_v3_stocks_warehouse_id_request: Optional[PutV3StocksWarehouseIdRequest] = None,
+        put_v3_stocks_warehouse_id_request: Optional[
+            PutV3StocksWarehouseIdRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3737,7 +3724,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_stocks_warehouse_id_serialize(
             warehouse_id=warehouse_id,
@@ -3745,23 +3732,22 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "Error",
-            '404': "Error",
-            '406': "UpdateBlocked",
-            '409': "List[PutV3StocksWarehouseIdResponse409Inner]",
-            '429': "GetV2ObjectParentAll401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "Error",
+            "404": "Error",
+            "406": "UpdateBlocked",
+            "409": "List[PutV3StocksWarehouseIdResponse409Inner]",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3769,19 +3755,19 @@ class Api:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def put_v3_stocks_warehouse_id_without_preload_content(
         self,
         warehouse_id: Annotated[StrictInt, Field(description="ID склада продавца")],
-        put_v3_stocks_warehouse_id_request: Optional[PutV3StocksWarehouseIdRequest] = None,
+        put_v3_stocks_warehouse_id_request: Optional[
+            PutV3StocksWarehouseIdRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3816,7 +3802,7 @@ class Api:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_stocks_warehouse_id_serialize(
             warehouse_id=warehouse_id,
@@ -3824,26 +3810,24 @@ class Api:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV2ObjectParentAll401Response",
-            '402': "GetV2Tags402Response",
-            '403': "Error",
-            '404': "Error",
-            '406': "UpdateBlocked",
-            '409': "List[PutV3StocksWarehouseIdResponse409Inner]",
-            '429': "GetV2ObjectParentAll401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV2ObjectParentAll401Response",
+            "402": "GetV2Tags402Response",
+            "403": "Error",
+            "404": "Error",
+            "406": "UpdateBlocked",
+            "409": "List[PutV3StocksWarehouseIdResponse409Inner]",
+            "429": "GetV2ObjectParentAll401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _put_v3_stocks_warehouse_id_serialize(
         self,
@@ -3856,13 +3840,12 @@ class Api:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3875,7 +3858,7 @@ class Api:
 
         # process the path parameters
         if warehouse_id is not None:
-            _path_params['warehouseId'] = warehouse_id
+            _path_params["warehouseId"] = warehouse_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -3883,38 +3866,28 @@ class Api:
         if put_v3_stocks_warehouse_id_request is not None:
             _body_params = put_v3_stocks_warehouse_id_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/v3/stocks/{warehouseId}',
+            method="PUT",
+            resource_path="/api/v3/stocks/{warehouseId}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3924,7 +3897,5 @@ class Api:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

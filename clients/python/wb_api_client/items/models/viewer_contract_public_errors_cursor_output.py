@@ -23,13 +23,22 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ViewerContractPublicErrorsCursorOutput(BaseModel):
     """
     Пагинатор
-    """ # noqa: E501
-    next: StrictBool = Field(description="Есть ли ещё черновики:   - `false` — нет   - `true` — да ")
-    updated_at: datetime = Field(description="Дата и время формирования последнего пакета в ответе", alias="updatedAt")
-    batch_uuid: StrictStr = Field(description="ID последнего пакета в ответе", alias="batchUUID")
+    """  # noqa: E501
+
+    next: StrictBool = Field(
+        description="Есть ли ещё черновики:   - `false` — нет   - `true` — да "
+    )
+    updated_at: datetime = Field(
+        description="Дата и время формирования последнего пакета в ответе",
+        alias="updatedAt",
+    )
+    batch_uuid: StrictStr = Field(
+        description="ID последнего пакета в ответе", alias="batchUUID"
+    )
     __properties: ClassVar[List[str]] = ["next", "updatedAt", "batchUUID"]
 
     model_config = ConfigDict(
@@ -37,7 +46,6 @@ class ViewerContractPublicErrorsCursorOutput(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +71,7 @@ class ViewerContractPublicErrorsCursorOutput(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,11 +89,11 @@ class ViewerContractPublicErrorsCursorOutput(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "next": obj.get("next"),
-            "updatedAt": obj.get("updatedAt"),
-            "batchUUID": obj.get("batchUUID")
-        })
+        _obj = cls.model_validate(
+            {
+                "next": obj.get("next"),
+                "updatedAt": obj.get("updatedAt"),
+                "batchUUID": obj.get("batchUUID"),
+            }
+        )
         return _obj
-
-

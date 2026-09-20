@@ -22,23 +22,30 @@ from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ErrorResponse(BaseModel):
     """
     ErrorResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     title: StrictStr = Field(description="Заголовок ошибки")
     detail: StrictStr = Field(description="Детали ошибки")
     request_id: StrictStr = Field(description="ID запроса", alias="requestId")
     origin: StrictStr = Field(description="Название внутреннего сервиса")
     status: Union[StrictFloat, StrictInt] = Field(description="HTTP статус-код")
-    __properties: ClassVar[List[str]] = ["title", "detail", "requestId", "origin", "status"]
+    __properties: ClassVar[List[str]] = [
+        "title",
+        "detail",
+        "requestId",
+        "origin",
+        "status",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +71,7 @@ class ErrorResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -83,13 +89,13 @@ class ErrorResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "title": obj.get("title"),
-            "detail": obj.get("detail"),
-            "requestId": obj.get("requestId"),
-            "origin": obj.get("origin"),
-            "status": obj.get("status")
-        })
+        _obj = cls.model_validate(
+            {
+                "title": obj.get("title"),
+                "detail": obj.get("detail"),
+                "requestId": obj.get("requestId"),
+                "origin": obj.get("origin"),
+                "status": obj.get("status"),
+            }
+        )
         return _obj
-
-

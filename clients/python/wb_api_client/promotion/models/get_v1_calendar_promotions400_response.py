@@ -22,11 +22,15 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1CalendarPromotions400Response(BaseModel):
     """
     GetV1CalendarPromotions400Response
-    """ # noqa: E501
-    error_text: Optional[StrictStr] = Field(default=None, description="Текст ошибки", alias="errorText")
+    """  # noqa: E501
+
+    error_text: Optional[StrictStr] = Field(
+        default=None, description="Текст ошибки", alias="errorText"
+    )
     __properties: ClassVar[List[str]] = ["errorText"]
 
     model_config = ConfigDict(
@@ -34,7 +38,6 @@ class GetV1CalendarPromotions400Response(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,8 +63,7 @@ class GetV1CalendarPromotions400Response(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,9 +81,5 @@ class GetV1CalendarPromotions400Response(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "errorText": obj.get("errorText")
-        })
+        _obj = cls.model_validate({"errorText": obj.get("errorText")})
         return _obj
-
-

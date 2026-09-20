@@ -22,10 +22,12 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ModelsDraftDeleteItemsErrorResponse(BaseModel):
     """
     ModelsDraftDeleteItemsErrorResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     results: List[StrictStr]
     __properties: ClassVar[List[str]] = ["results"]
 
@@ -34,7 +36,6 @@ class ModelsDraftDeleteItemsErrorResponse(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,8 +61,7 @@ class ModelsDraftDeleteItemsErrorResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,9 +79,5 @@ class ModelsDraftDeleteItemsErrorResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "results": obj.get("results")
-        })
+        _obj = cls.model_validate({"results": obj.get("results")})
         return _obj
-
-

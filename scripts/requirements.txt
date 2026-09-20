@@ -1,2 +1,6 @@
 ruamel.yaml>=0.18,<1
 markdownify>=0.11,<2
+# Pinned so local and CI produce byte-identical formatting; without a
+# pin the PR-check workflow would flap whenever a new black release
+# tweaks formatting rules.
+black==24.10.0

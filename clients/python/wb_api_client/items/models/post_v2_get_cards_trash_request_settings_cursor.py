@@ -23,13 +23,23 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2GetCardsTrashRequestSettingsCursor(BaseModel):
     """
     Пагинатор
-    """ # noqa: E501
-    limit: Optional[Annotated[int, Field(le=100, strict=True)]] = Field(default=10, description="Сколько карточек товаров выдать в ответе")
-    trashed_at: Optional[StrictStr] = Field(default=None, description="Дата и время помещения в корзину", alias="trashedAt")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB, с которого надо запрашивать следующий список карточек товаров", alias="nmID")
+    """  # noqa: E501
+
+    limit: Optional[Annotated[int, Field(le=100, strict=True)]] = Field(
+        default=10, description="Сколько карточек товаров выдать в ответе"
+    )
+    trashed_at: Optional[StrictStr] = Field(
+        default=None, description="Дата и время помещения в корзину", alias="trashedAt"
+    )
+    nm_id: Optional[StrictInt] = Field(
+        default=None,
+        description="Артикул WB, с которого надо запрашивать следующий список карточек товаров",
+        alias="nmID",
+    )
     __properties: ClassVar[List[str]] = ["limit", "trashedAt", "nmID"]
 
     model_config = ConfigDict(
@@ -37,7 +47,6 @@ class PostV2GetCardsTrashRequestSettingsCursor(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +72,7 @@ class PostV2GetCardsTrashRequestSettingsCursor(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,11 +90,11 @@ class PostV2GetCardsTrashRequestSettingsCursor(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "limit": obj.get("limit") if obj.get("limit") is not None else 10,
-            "trashedAt": obj.get("trashedAt"),
-            "nmID": obj.get("nmID")
-        })
+        _obj = cls.model_validate(
+            {
+                "limit": obj.get("limit") if obj.get("limit") is not None else 10,
+                "trashedAt": obj.get("trashedAt"),
+                "nmID": obj.get("nmID"),
+            }
+        )
         return _obj
-
-

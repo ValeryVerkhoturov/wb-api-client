@@ -24,25 +24,46 @@ from wb_api_client.analytics.models.stock_type import StockType
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class TableShippingOfficeRequest(BaseModel):
     """
     TableShippingOfficeRequest
-    """ # noqa: E501
-    nm_ids: Optional[List[StrictInt]] = Field(default=None, description="Список артикулов WB для фильтрации", alias="nmIDs")
-    subject_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID предметов для фильтрации", alias="subjectIDs")
-    brand_names: Optional[List[StrictStr]] = Field(default=None, description="Список брендов для фильтрации", alias="brandNames")
-    tag_ids: Optional[List[StrictInt]] = Field(default=None, description="Список ID ярлыков для фильтрации", alias="tagIDs")
+    """  # noqa: E501
+
+    nm_ids: Optional[List[StrictInt]] = Field(
+        default=None, description="Список артикулов WB для фильтрации", alias="nmIDs"
+    )
+    subject_ids: Optional[List[StrictInt]] = Field(
+        default=None,
+        description="Список ID предметов для фильтрации",
+        alias="subjectIDs",
+    )
+    brand_names: Optional[List[StrictStr]] = Field(
+        default=None, description="Список брендов для фильтрации", alias="brandNames"
+    )
+    tag_ids: Optional[List[StrictInt]] = Field(
+        default=None, description="Список ID ярлыков для фильтрации", alias="tagIDs"
+    )
     current_period: PeriodInv = Field(alias="currentPeriod")
     stock_type: StockType = Field(alias="stockType")
-    skip_deleted_nm: StrictBool = Field(description="Скрыть удалённые товары", alias="skipDeletedNm")
-    __properties: ClassVar[List[str]] = ["nmIDs", "subjectIDs", "brandNames", "tagIDs", "currentPeriod", "stockType", "skipDeletedNm"]
+    skip_deleted_nm: StrictBool = Field(
+        description="Скрыть удалённые товары", alias="skipDeletedNm"
+    )
+    __properties: ClassVar[List[str]] = [
+        "nmIDs",
+        "subjectIDs",
+        "brandNames",
+        "tagIDs",
+        "currentPeriod",
+        "stockType",
+        "skipDeletedNm",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -68,8 +89,7 @@ class TableShippingOfficeRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -78,7 +98,7 @@ class TableShippingOfficeRequest(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of current_period
         if self.current_period:
-            _dict['currentPeriod'] = self.current_period.to_dict()
+            _dict["currentPeriod"] = self.current_period.to_dict()
         return _dict
 
     @classmethod
@@ -90,15 +110,19 @@ class TableShippingOfficeRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmIDs": obj.get("nmIDs"),
-            "subjectIDs": obj.get("subjectIDs"),
-            "brandNames": obj.get("brandNames"),
-            "tagIDs": obj.get("tagIDs"),
-            "currentPeriod": PeriodInv.from_dict(obj["currentPeriod"]) if obj.get("currentPeriod") is not None else None,
-            "stockType": obj.get("stockType"),
-            "skipDeletedNm": obj.get("skipDeletedNm")
-        })
+        _obj = cls.model_validate(
+            {
+                "nmIDs": obj.get("nmIDs"),
+                "subjectIDs": obj.get("subjectIDs"),
+                "brandNames": obj.get("brandNames"),
+                "tagIDs": obj.get("tagIDs"),
+                "currentPeriod": (
+                    PeriodInv.from_dict(obj["currentPeriod"])
+                    if obj.get("currentPeriod") is not None
+                    else None
+                ),
+                "stockType": obj.get("stockType"),
+                "skipDeletedNm": obj.get("skipDeletedNm"),
+            }
+        )
         return _obj
-
-

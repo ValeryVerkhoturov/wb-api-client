@@ -22,12 +22,20 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetCategoriesDataCategoriesInner(BaseModel):
     """
     GetCategoriesDataCategoriesInner
-    """ # noqa: E501
-    name: Optional[StrictStr] = Field(default=None, description="ID категории документа из параметра [запроса](./documents-and-accounting#tag/documents/operation/getV1DocumentsList) `category`")
-    title: Optional[StrictStr] = Field(default=None, description="Название категории документа из поля [ответа](./documents-and-accounting#tag/documents/operation/getV1DocumentsList) `category`")
+    """  # noqa: E501
+
+    name: Optional[StrictStr] = Field(
+        default=None,
+        description="ID категории документа из параметра [запроса](./documents-and-accounting#tag/documents/operation/getV1DocumentsList) `category`",
+    )
+    title: Optional[StrictStr] = Field(
+        default=None,
+        description="Название категории документа из поля [ответа](./documents-and-accounting#tag/documents/operation/getV1DocumentsList) `category`",
+    )
     __properties: ClassVar[List[str]] = ["name", "title"]
 
     model_config = ConfigDict(
@@ -35,7 +43,6 @@ class GetCategoriesDataCategoriesInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +68,7 @@ class GetCategoriesDataCategoriesInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +86,5 @@ class GetCategoriesDataCategoriesInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "title": obj.get("title")
-        })
+        _obj = cls.model_validate({"name": obj.get("name"), "title": obj.get("title")})
         return _obj
-
-

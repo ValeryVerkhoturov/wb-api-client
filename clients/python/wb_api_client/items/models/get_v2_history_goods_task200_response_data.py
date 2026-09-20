@@ -23,12 +23,20 @@ from wb_api_client.items.models.good_history import GoodHistory
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV2HistoryGoodsTask200ResponseData(BaseModel):
     """
     Данные ответа
-    """ # noqa: E501
-    upload_id: Optional[StrictInt] = Field(default=None, description="ID загрузки", alias="uploadID")
-    history_goods: Optional[List[GoodHistory]] = Field(default=None, description="Информация о товарах в загрузке", alias="historyGoods")
+    """  # noqa: E501
+
+    upload_id: Optional[StrictInt] = Field(
+        default=None, description="ID загрузки", alias="uploadID"
+    )
+    history_goods: Optional[List[GoodHistory]] = Field(
+        default=None,
+        description="Информация о товарах в загрузке",
+        alias="historyGoods",
+    )
     __properties: ClassVar[List[str]] = ["uploadID", "historyGoods"]
 
     model_config = ConfigDict(
@@ -36,7 +44,6 @@ class GetV2HistoryGoodsTask200ResponseData(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +69,7 @@ class GetV2HistoryGoodsTask200ResponseData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,16 +82,16 @@ class GetV2HistoryGoodsTask200ResponseData(BaseModel):
             for _item_history_goods in self.history_goods:
                 if _item_history_goods:
                     _items.append(_item_history_goods.to_dict())
-            _dict['historyGoods'] = _items
+            _dict["historyGoods"] = _items
         # set to None if upload_id (nullable) is None
         # and model_fields_set contains the field
         if self.upload_id is None and "upload_id" in self.model_fields_set:
-            _dict['uploadID'] = None
+            _dict["uploadID"] = None
 
         # set to None if history_goods (nullable) is None
         # and model_fields_set contains the field
         if self.history_goods is None and "history_goods" in self.model_fields_set:
-            _dict['historyGoods'] = None
+            _dict["historyGoods"] = None
 
         return _dict
 
@@ -98,10 +104,14 @@ class GetV2HistoryGoodsTask200ResponseData(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "uploadID": obj.get("uploadID"),
-            "historyGoods": [GoodHistory.from_dict(_item) for _item in obj["historyGoods"]] if obj.get("historyGoods") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "uploadID": obj.get("uploadID"),
+                "historyGoods": (
+                    [GoodHistory.from_dict(_item) for _item in obj["historyGoods"]]
+                    if obj.get("historyGoods") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

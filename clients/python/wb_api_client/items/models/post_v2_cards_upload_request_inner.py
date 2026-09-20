@@ -19,16 +19,22 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.items.models.post_v2_cards_upload_request_inner_variants_inner import PostV2CardsUploadRequestInnerVariantsInner
+from wb_api_client.items.models.post_v2_cards_upload_request_inner_variants_inner import (
+    PostV2CardsUploadRequestInnerVariantsInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class PostV2CardsUploadRequestInner(BaseModel):
     """
     PostV2CardsUploadRequestInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     subject_id: StrictInt = Field(description="ID предмета", alias="subjectID")
-    variants: List[PostV2CardsUploadRequestInnerVariantsInner] = Field(description="[Объединённые](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Чтобы создать отдельную карточку, передайте только один объект")
+    variants: List[PostV2CardsUploadRequestInnerVariantsInner] = Field(
+        description="[Объединённые](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточки товаров. Чтобы создать отдельную карточку, передайте только один объект"
+    )
     __properties: ClassVar[List[str]] = ["subjectID", "variants"]
 
     model_config = ConfigDict(
@@ -36,7 +42,6 @@ class PostV2CardsUploadRequestInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +67,7 @@ class PostV2CardsUploadRequestInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +80,7 @@ class PostV2CardsUploadRequestInner(BaseModel):
             for _item_variants in self.variants:
                 if _item_variants:
                     _items.append(_item_variants.to_dict())
-            _dict['variants'] = _items
+            _dict["variants"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +92,17 @@ class PostV2CardsUploadRequestInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "subjectID": obj.get("subjectID"),
-            "variants": [PostV2CardsUploadRequestInnerVariantsInner.from_dict(_item) for _item in obj["variants"]] if obj.get("variants") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "subjectID": obj.get("subjectID"),
+                "variants": (
+                    [
+                        PostV2CardsUploadRequestInnerVariantsInner.from_dict(_item)
+                        for _item in obj["variants"]
+                    ]
+                    if obj.get("variants") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

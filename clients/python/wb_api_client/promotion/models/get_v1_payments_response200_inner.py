@@ -22,25 +22,50 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1PaymentsResponse200Inner(BaseModel):
     """
     GetV1PaymentsResponse200Inner
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: Optional[StrictInt] = Field(default=None, description="ID платежа")
-    var_date: Optional[StrictStr] = Field(default=None, description="Дата платежа", alias="date")
+    var_date: Optional[StrictStr] = Field(
+        default=None, description="Дата платежа", alias="date"
+    )
     sum: Optional[StrictInt] = Field(default=None, description="Сумма платежа")
-    type: Optional[StrictInt] = Field(default=None, description="Тип источника списания: - `0` — Счёт - `1` — Баланс - `3` — Картой ")
-    status_id: Optional[StrictInt] = Field(default=None, description="Статус: - `0` — ошибка - `1` — обработано ", alias="statusId")
-    card_status: Optional[StrictStr] = Field(default=None, description="Статус операции при оплате картой: - `success` — успех - `fail` — неуспех - `pending` — в ожидании ответа - `unknown` — неизвестно ", alias="cardStatus")
-    currency: Optional[StrictStr] = Field(default=None, description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)")
-    __properties: ClassVar[List[str]] = ["id", "date", "sum", "type", "statusId", "cardStatus", "currency"]
+    type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип источника списания: - `0` — Счёт - `1` — Баланс - `3` — Картой ",
+    )
+    status_id: Optional[StrictInt] = Field(
+        default=None,
+        description="Статус: - `0` — ошибка - `1` — обработано ",
+        alias="statusId",
+    )
+    card_status: Optional[StrictStr] = Field(
+        default=None,
+        description="Статус операции при оплате картой: - `success` — успех - `fail` — неуспех - `pending` — в ожидании ответа - `unknown` — неизвестно ",
+        alias="cardStatus",
+    )
+    currency: Optional[StrictStr] = Field(
+        default=None,
+        description="Валюта [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)",
+    )
+    __properties: ClassVar[List[str]] = [
+        "id",
+        "date",
+        "sum",
+        "type",
+        "statusId",
+        "cardStatus",
+        "currency",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -66,8 +91,7 @@ class GetV1PaymentsResponse200Inner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -85,15 +109,15 @@ class GetV1PaymentsResponse200Inner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "date": obj.get("date"),
-            "sum": obj.get("sum"),
-            "type": obj.get("type"),
-            "statusId": obj.get("statusId"),
-            "cardStatus": obj.get("cardStatus"),
-            "currency": obj.get("currency")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "date": obj.get("date"),
+                "sum": obj.get("sum"),
+                "type": obj.get("type"),
+                "statusId": obj.get("statusId"),
+                "cardStatus": obj.get("cardStatus"),
+                "currency": obj.get("currency"),
+            }
+        )
         return _obj
-
-

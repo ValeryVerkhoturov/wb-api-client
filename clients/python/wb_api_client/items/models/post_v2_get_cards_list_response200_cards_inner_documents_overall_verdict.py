@@ -23,22 +23,42 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict(BaseModel):
     """
     Результат проверки карточки товара. Возвращается, когда проверка завершена
-    """ # noqa: E501
-    is_fully_checked: Optional[StrictBool] = Field(default=None, description="- `true` — карточка товара проверена - `false` — карточка товара не проверена ", alias="isFullyChecked")
-    status: Optional[StrictInt] = Field(default=None, description="Результат проверки карточки товара:   - `1` — проверка пройдена   - `2` — проверка не пройдена ")
-    reason: Optional[StrictStr] = Field(default=None, description="Ошибка при проверке, возвращается для `status: 2`. Возможные значения: - `tnved\\_missing` — Не указан код ТН ВЭД - `supplier\\_inn\\_missing` — Не указан ИНН - `supplier\\_not\\_registered` — Поставщик не найден в реестре - `supplier\\_inactive` — Ошибка в статусе поставщика, проверьте его в реестре - `product\\_group\\_not\\_registered` — Добавлена неверная товарная группа в системе маркировки - `kiz\\_required` — Этот товар нельзя продавать в России без кода маркировки Честного Знака - `kiz\\_certificate\\_missing` — Нет подтверждения, что на товар нанесена необходимая маркировка")
-    created_at: Optional[datetime] = Field(default=None, description="Дата и время проверки карточки товара", alias="createdAt")
-    __properties: ClassVar[List[str]] = ["isFullyChecked", "status", "reason", "createdAt"]
+    """  # noqa: E501
+
+    is_fully_checked: Optional[StrictBool] = Field(
+        default=None,
+        description="- `true` — карточка товара проверена - `false` — карточка товара не проверена ",
+        alias="isFullyChecked",
+    )
+    status: Optional[StrictInt] = Field(
+        default=None,
+        description="Результат проверки карточки товара:   - `1` — проверка пройдена   - `2` — проверка не пройдена ",
+    )
+    reason: Optional[StrictStr] = Field(
+        default=None,
+        description="Ошибка при проверке, возвращается для `status: 2`. Возможные значения: - `tnved\\_missing` — Не указан код ТН ВЭД - `supplier\\_inn\\_missing` — Не указан ИНН - `supplier\\_not\\_registered` — Поставщик не найден в реестре - `supplier\\_inactive` — Ошибка в статусе поставщика, проверьте его в реестре - `product\\_group\\_not\\_registered` — Добавлена неверная товарная группа в системе маркировки - `kiz\\_required` — Этот товар нельзя продавать в России без кода маркировки Честного Знака - `kiz\\_certificate\\_missing` — Нет подтверждения, что на товар нанесена необходимая маркировка",
+    )
+    created_at: Optional[datetime] = Field(
+        default=None,
+        description="Дата и время проверки карточки товара",
+        alias="createdAt",
+    )
+    __properties: ClassVar[List[str]] = [
+        "isFullyChecked",
+        "status",
+        "reason",
+        "createdAt",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,8 +84,7 @@ class PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,7 +94,7 @@ class PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict(BaseModel):
         # set to None if reason (nullable) is None
         # and model_fields_set contains the field
         if self.reason is None and "reason" in self.model_fields_set:
-            _dict['reason'] = None
+            _dict["reason"] = None
 
         return _dict
 
@@ -88,12 +107,12 @@ class PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "isFullyChecked": obj.get("isFullyChecked"),
-            "status": obj.get("status"),
-            "reason": obj.get("reason"),
-            "createdAt": obj.get("createdAt")
-        })
+        _obj = cls.model_validate(
+            {
+                "isFullyChecked": obj.get("isFullyChecked"),
+                "status": obj.get("status"),
+                "reason": obj.get("reason"),
+                "createdAt": obj.get("createdAt"),
+            }
+        )
         return _obj
-
-

@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.promotion.models.request_with_interval_interval import RequestWithIntervalInterval
+from wb_api_client.promotion.models.request_with_interval_interval import (
+    RequestWithIntervalInterval,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class RequestWithInterval(BaseModel):
     """
     RequestWithInterval
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: StrictInt = Field(description="ID кампании")
     interval: RequestWithIntervalInterval
     __properties: ClassVar[List[str]] = ["id", "interval"]
@@ -36,7 +40,6 @@ class RequestWithInterval(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +65,7 @@ class RequestWithInterval(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -72,7 +74,7 @@ class RequestWithInterval(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of interval
         if self.interval:
-            _dict['interval'] = self.interval.to_dict()
+            _dict["interval"] = self.interval.to_dict()
         return _dict
 
     @classmethod
@@ -84,10 +86,14 @@ class RequestWithInterval(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "interval": RequestWithIntervalInterval.from_dict(obj["interval"]) if obj.get("interval") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "interval": (
+                    RequestWithIntervalInterval.from_dict(obj["interval"])
+                    if obj.get("interval") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

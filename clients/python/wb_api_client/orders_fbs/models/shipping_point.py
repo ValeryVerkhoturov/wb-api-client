@@ -17,34 +17,63 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ShippingPoint(BaseModel):
     """
     Данные пункта отгрузки
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: StrictInt = Field(description="ID пункта отгрузки")
     name: StrictStr = Field(description="Название")
     address: StrictStr = Field(description="Адрес")
     city: StrictStr = Field(description="Населённый пункт")
-    office_type: StrictStr = Field(description="Тип пункта отгрузки:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — ПВЗ ", alias="officeType")
-    cargo_types: List[StrictInt] = Field(description="Типы товаров, которые принимает пункт отгрузки:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ", alias="cargoTypes")
+    office_type: StrictStr = Field(
+        description="Тип пункта отгрузки:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — ПВЗ ",
+        alias="officeType",
+    )
+    cargo_types: List[StrictInt] = Field(
+        description="Типы товаров, которые принимает пункт отгрузки:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+) ",
+        alias="cargoTypes",
+    )
     latitude: Union[StrictFloat, StrictInt] = Field(description="Широта")
     longitude: Union[StrictFloat, StrictInt] = Field(description="Долгота")
-    fulfillment: StrictBool = Field(description="Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна ")
-    __properties: ClassVar[List[str]] = ["id", "name", "address", "city", "officeType", "cargoTypes", "latitude", "longitude", "fulfillment"]
+    fulfillment: StrictBool = Field(
+        description="Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна "
+    )
+    __properties: ClassVar[List[str]] = [
+        "id",
+        "name",
+        "address",
+        "city",
+        "officeType",
+        "cargoTypes",
+        "latitude",
+        "longitude",
+        "fulfillment",
+    ]
 
-    @field_validator('office_type')
+    @field_validator("office_type")
     def office_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['sc', 'sw', 'pp']):
+        if value not in set(["sc", "sw", "pp"]):
             raise ValueError("must be one of enum values ('sc', 'sw', 'pp')")
         return value
 
-    @field_validator('cargo_types')
+    @field_validator("cargo_types")
     def cargo_types_validate_enum(cls, value):
         """Validates the enum"""
         for i in value:
@@ -57,7 +86,6 @@ class ShippingPoint(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -83,8 +111,7 @@ class ShippingPoint(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -102,17 +129,17 @@ class ShippingPoint(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "name": obj.get("name"),
-            "address": obj.get("address"),
-            "city": obj.get("city"),
-            "officeType": obj.get("officeType"),
-            "cargoTypes": obj.get("cargoTypes"),
-            "latitude": obj.get("latitude"),
-            "longitude": obj.get("longitude"),
-            "fulfillment": obj.get("fulfillment")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "name": obj.get("name"),
+                "address": obj.get("address"),
+                "city": obj.get("city"),
+                "officeType": obj.get("officeType"),
+                "cargoTypes": obj.get("cargoTypes"),
+                "latitude": obj.get("latitude"),
+                "longitude": obj.get("longitude"),
+                "fulfillment": obj.get("fulfillment"),
+            }
+        )
         return _obj
-
-

@@ -22,25 +22,61 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class OrderBy(BaseModel):
     """
     Параметры сортировки
-    """ # noqa: E501
-    var_field: StrictStr = Field(description="Поле для сортировки:   - `openCard` — Перешли в карточку   - `addToCart` — Положили в корзину   - `orderCount` — Заказали товаров, шт   - `orderSum` — Заказали на сумму   - `buyoutCount` — Выкупили товаров, шт   - `buyoutSum` — Выкупили на сумму   - `cancelCount` — Отменили и вернули товаров, шт   - `cancelSum` — Отменили и вернули на сумму   - `avgPrice` — Средняя цена   - `stockMpQty` — Остатки на складах продавца, шт   - `stockWbQty` — Остатки на складах WB, шт   - `shareOrderPercent` — Доля в выручке   - `addToWishlist` — Добавили в **Отложенные**   - `timeToReady` — Среднее время доставки   - `localizationPercent` — Локальные заказы в рамках одного региона   - `wbClub.orderCount` — Заказали товаров с WB Клубом, шт   - `wbClub.orderSum` — Заказали с WB Клубом на сумму   - `wbClub.buyoutSum` — Выкупили товаров с WB Клубом, шт   - `wbClub.buyoutCount` — Процент выкупа с WB Клубом   - `wbClub.cancelSum` — Отменили и вернули товаров с WB Клубом на сумму   - `wbClub.avgPrice` — Средняя цена с WB Клубом   - `wbClub.buyoutPercent` — Процент выкупа с WB Клубом   - `wbClub.avgOrderCountPerDay` — Среднее количество заказов в день с WB Клубом, шт   - `wbClub.cancelCount` — Отменили и вернули товаров с WB Клубом, шт ", alias="field")
-    mode: StrictStr = Field(description="Порядок сортировки:   - `asc` — по возрастанию   - `desc` — по убыванию ")
+    """  # noqa: E501
+
+    var_field: StrictStr = Field(
+        description="Поле для сортировки:   - `openCard` — Перешли в карточку   - `addToCart` — Положили в корзину   - `orderCount` — Заказали товаров, шт   - `orderSum` — Заказали на сумму   - `buyoutCount` — Выкупили товаров, шт   - `buyoutSum` — Выкупили на сумму   - `cancelCount` — Отменили и вернули товаров, шт   - `cancelSum` — Отменили и вернули на сумму   - `avgPrice` — Средняя цена   - `stockMpQty` — Остатки на складах продавца, шт   - `stockWbQty` — Остатки на складах WB, шт   - `shareOrderPercent` — Доля в выручке   - `addToWishlist` — Добавили в **Отложенные**   - `timeToReady` — Среднее время доставки   - `localizationPercent` — Локальные заказы в рамках одного региона   - `wbClub.orderCount` — Заказали товаров с WB Клубом, шт   - `wbClub.orderSum` — Заказали с WB Клубом на сумму   - `wbClub.buyoutSum` — Выкупили товаров с WB Клубом, шт   - `wbClub.buyoutCount` — Процент выкупа с WB Клубом   - `wbClub.cancelSum` — Отменили и вернули товаров с WB Клубом на сумму   - `wbClub.avgPrice` — Средняя цена с WB Клубом   - `wbClub.buyoutPercent` — Процент выкупа с WB Клубом   - `wbClub.avgOrderCountPerDay` — Среднее количество заказов в день с WB Клубом, шт   - `wbClub.cancelCount` — Отменили и вернули товаров с WB Клубом, шт ",
+        alias="field",
+    )
+    mode: StrictStr = Field(
+        description="Порядок сортировки:   - `asc` — по возрастанию   - `desc` — по убыванию "
+    )
     __properties: ClassVar[List[str]] = ["field", "mode"]
 
-    @field_validator('var_field')
+    @field_validator("var_field")
     def var_field_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['openCard', 'addToCart', 'orderCount', 'orderSum', 'buyoutCount', 'buyoutSum', 'cancelCount', 'cancelSum', 'avgPrice', 'stockMpQty', 'stockWbQty', 'shareOrderPercent', 'addToWishlist', 'timeToReady', 'localizationPercent', 'wbClub.orderCount', 'wbClub.orderSum', 'wbClub.buyoutSum', 'wbClub.cancelSum', 'wbClub.buyoutCount', 'wbClub.avgPrice', 'wbClub.buyoutPercent', 'wbClub.avgOrderCountPerDay', 'wbClub.cancelCount']):
-            raise ValueError("must be one of enum values ('openCard', 'addToCart', 'orderCount', 'orderSum', 'buyoutCount', 'buyoutSum', 'cancelCount', 'cancelSum', 'avgPrice', 'stockMpQty', 'stockWbQty', 'shareOrderPercent', 'addToWishlist', 'timeToReady', 'localizationPercent', 'wbClub.orderCount', 'wbClub.orderSum', 'wbClub.buyoutSum', 'wbClub.cancelSum', 'wbClub.buyoutCount', 'wbClub.avgPrice', 'wbClub.buyoutPercent', 'wbClub.avgOrderCountPerDay', 'wbClub.cancelCount')")
+        if value not in set(
+            [
+                "openCard",
+                "addToCart",
+                "orderCount",
+                "orderSum",
+                "buyoutCount",
+                "buyoutSum",
+                "cancelCount",
+                "cancelSum",
+                "avgPrice",
+                "stockMpQty",
+                "stockWbQty",
+                "shareOrderPercent",
+                "addToWishlist",
+                "timeToReady",
+                "localizationPercent",
+                "wbClub.orderCount",
+                "wbClub.orderSum",
+                "wbClub.buyoutSum",
+                "wbClub.cancelSum",
+                "wbClub.buyoutCount",
+                "wbClub.avgPrice",
+                "wbClub.buyoutPercent",
+                "wbClub.avgOrderCountPerDay",
+                "wbClub.cancelCount",
+            ]
+        ):
+            raise ValueError(
+                "must be one of enum values ('openCard', 'addToCart', 'orderCount', 'orderSum', 'buyoutCount', 'buyoutSum', 'cancelCount', 'cancelSum', 'avgPrice', 'stockMpQty', 'stockWbQty', 'shareOrderPercent', 'addToWishlist', 'timeToReady', 'localizationPercent', 'wbClub.orderCount', 'wbClub.orderSum', 'wbClub.buyoutSum', 'wbClub.cancelSum', 'wbClub.buyoutCount', 'wbClub.avgPrice', 'wbClub.buyoutPercent', 'wbClub.avgOrderCountPerDay', 'wbClub.cancelCount')"
+            )
         return value
 
-    @field_validator('mode')
+    @field_validator("mode")
     def mode_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['asc', 'desc']):
+        if value not in set(["asc", "desc"]):
             raise ValueError("must be one of enum values ('asc', 'desc')")
         return value
 
@@ -49,7 +85,6 @@ class OrderBy(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -75,8 +110,7 @@ class OrderBy(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -94,10 +128,12 @@ class OrderBy(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "field": obj.get("field") if obj.get("field") is not None else 'openCard',
-            "mode": obj.get("mode") if obj.get("mode") is not None else 'desc'
-        })
+        _obj = cls.model_validate(
+            {
+                "field": (
+                    obj.get("field") if obj.get("field") is not None else "openCard"
+                ),
+                "mode": obj.get("mode") if obj.get("mode") is not None else "desc",
+            }
+        )
         return _obj
-
-

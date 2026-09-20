@@ -23,13 +23,19 @@ from wb_api_client.analytics.models.item_orders_metrics import ItemOrdersMetrics
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ItemOrdersTextItem(BaseModel):
     """
     ItemOrdersTextItem
-    """ # noqa: E501
+    """  # noqa: E501
+
     text: StrictStr = Field(description="Текст поискового запроса")
-    frequency: StrictInt = Field(description="Количество обращений с поисковым запросом")
-    date_items: List[ItemOrdersMetrics] = Field(description="Статистика по датам", alias="dateItems")
+    frequency: StrictInt = Field(
+        description="Количество обращений с поисковым запросом"
+    )
+    date_items: List[ItemOrdersMetrics] = Field(
+        description="Статистика по датам", alias="dateItems"
+    )
     __properties: ClassVar[List[str]] = ["text", "frequency", "dateItems"]
 
     model_config = ConfigDict(
@@ -37,7 +43,6 @@ class ItemOrdersTextItem(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +68,7 @@ class ItemOrdersTextItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +81,7 @@ class ItemOrdersTextItem(BaseModel):
             for _item_date_items in self.date_items:
                 if _item_date_items:
                     _items.append(_item_date_items.to_dict())
-            _dict['dateItems'] = _items
+            _dict["dateItems"] = _items
         return _dict
 
     @classmethod
@@ -89,11 +93,15 @@ class ItemOrdersTextItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "text": obj.get("text"),
-            "frequency": obj.get("frequency"),
-            "dateItems": [ItemOrdersMetrics.from_dict(_item) for _item in obj["dateItems"]] if obj.get("dateItems") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "text": obj.get("text"),
+                "frequency": obj.get("frequency"),
+                "dateItems": (
+                    [ItemOrdersMetrics.from_dict(_item) for _item in obj["dateItems"]]
+                    if obj.get("dateItems") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

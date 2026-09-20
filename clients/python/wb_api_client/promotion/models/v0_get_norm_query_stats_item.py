@@ -19,14 +19,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.promotion.models.v0_get_norm_query_stats_item_stat import V0GetNormQueryStatsItemStat
+from wb_api_client.promotion.models.v0_get_norm_query_stats_item_stat import (
+    V0GetNormQueryStatsItemStat,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class V0GetNormQueryStatsItem(BaseModel):
     """
     V0GetNormQueryStatsItem
-    """ # noqa: E501
+    """  # noqa: E501
+
     advert_id: StrictInt = Field(description="ID кампании")
     nm_id: StrictInt = Field(description="Артикул WB")
     stats: Optional[List[V0GetNormQueryStatsItemStat]] = None
@@ -37,7 +41,6 @@ class V0GetNormQueryStatsItem(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +66,7 @@ class V0GetNormQueryStatsItem(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -77,7 +79,7 @@ class V0GetNormQueryStatsItem(BaseModel):
             for _item_stats in self.stats:
                 if _item_stats:
                     _items.append(_item_stats.to_dict())
-            _dict['stats'] = _items
+            _dict["stats"] = _items
         return _dict
 
     @classmethod
@@ -89,11 +91,18 @@ class V0GetNormQueryStatsItem(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "advert_id": obj.get("advert_id"),
-            "nm_id": obj.get("nm_id"),
-            "stats": [V0GetNormQueryStatsItemStat.from_dict(_item) for _item in obj["stats"]] if obj.get("stats") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "advert_id": obj.get("advert_id"),
+                "nm_id": obj.get("nm_id"),
+                "stats": (
+                    [
+                        V0GetNormQueryStatsItemStat.from_dict(_item)
+                        for _item in obj["stats"]
+                    ]
+                    if obj.get("stats") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

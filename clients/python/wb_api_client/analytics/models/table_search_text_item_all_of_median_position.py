@@ -22,12 +22,16 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class TableSearchTextItemAllOfMedianPosition(BaseModel):
     """
     Медианная позиция. Учитываются только те позиции, из которых пользователи добавляли товар в корзину или переходили в его карточку. Серединное значение позиции в поисковой выдаче, которое исключает сильные отклонения данных от среднего значения
-    """ # noqa: E501
+    """  # noqa: E501
+
     current: StrictInt = Field(description="Текущая медианная позиция")
-    dynamics: Optional[StrictInt] = Field(default=None, description="Динамика по сравнению с предыдущим периодом, %")
+    dynamics: Optional[StrictInt] = Field(
+        default=None, description="Динамика по сравнению с предыдущим периодом, %"
+    )
     __properties: ClassVar[List[str]] = ["current", "dynamics"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class TableSearchTextItemAllOfMedianPosition(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class TableSearchTextItemAllOfMedianPosition(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +82,7 @@ class TableSearchTextItemAllOfMedianPosition(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "current": obj.get("current"),
-            "dynamics": obj.get("dynamics")
-        })
+        _obj = cls.model_validate(
+            {"current": obj.get("current"), "dynamics": obj.get("dynamics")}
+        )
         return _obj
-
-

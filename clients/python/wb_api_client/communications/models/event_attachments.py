@@ -25,10 +25,12 @@ from wb_api_client.communications.models.listing import Listing
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class EventAttachments(BaseModel):
     """
     Вложения
-    """ # noqa: E501
+    """  # noqa: E501
+
     good_card: Optional[Listing] = Field(default=None, alias="goodCard")
     files: Optional[List[File]] = Field(default=None, description="Файлы")
     images: Optional[List[Image]] = Field(default=None, description="Изображения")
@@ -39,7 +41,6 @@ class EventAttachments(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -65,8 +66,7 @@ class EventAttachments(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -75,21 +75,21 @@ class EventAttachments(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of good_card
         if self.good_card:
-            _dict['goodCard'] = self.good_card.to_dict()
+            _dict["goodCard"] = self.good_card.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in files (list)
         _items = []
         if self.files:
             for _item_files in self.files:
                 if _item_files:
                     _items.append(_item_files.to_dict())
-            _dict['files'] = _items
+            _dict["files"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in images (list)
         _items = []
         if self.images:
             for _item_images in self.images:
                 if _item_images:
                     _items.append(_item_images.to_dict())
-            _dict['images'] = _items
+            _dict["images"] = _items
         return _dict
 
     @classmethod
@@ -101,11 +101,23 @@ class EventAttachments(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "goodCard": Listing.from_dict(obj["goodCard"]) if obj.get("goodCard") is not None else None,
-            "files": [File.from_dict(_item) for _item in obj["files"]] if obj.get("files") is not None else None,
-            "images": [Image.from_dict(_item) for _item in obj["images"]] if obj.get("images") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "goodCard": (
+                    Listing.from_dict(obj["goodCard"])
+                    if obj.get("goodCard") is not None
+                    else None
+                ),
+                "files": (
+                    [File.from_dict(_item) for _item in obj["files"]]
+                    if obj.get("files") is not None
+                    else None
+                ),
+                "images": (
+                    [Image.from_dict(_item) for _item in obj["images"]]
+                    if obj.get("images") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

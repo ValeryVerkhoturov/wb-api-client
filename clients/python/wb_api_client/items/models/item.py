@@ -22,12 +22,17 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class Item(BaseModel):
     """
     Item
-    """ # noqa: E501
+    """  # noqa: E501
+
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmID")
-    price: Optional[StrictInt] = Field(default=None, description="Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле `currencyIsoCode4217`")
+    price: Optional[StrictInt] = Field(
+        default=None,
+        description="Цена. Валюту можно получить с помощью методов [Получить товары с ценами](./item-management#tag/pricesAndDiscounts/operation/getV2ListGoodsFilter) и [Получить товары с ценами по артикулам](./item-management#tag/pricesAndDiscounts/operation/postV2ListGoodsFilter), поле `currencyIsoCode4217`",
+    )
     discount: Optional[StrictInt] = Field(default=None, description="Скидка, %")
     __properties: ClassVar[List[str]] = ["nmID", "price", "discount"]
 
@@ -36,7 +41,6 @@ class Item(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +66,7 @@ class Item(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,12 +76,12 @@ class Item(BaseModel):
         # set to None if price (nullable) is None
         # and model_fields_set contains the field
         if self.price is None and "price" in self.model_fields_set:
-            _dict['price'] = None
+            _dict["price"] = None
 
         # set to None if discount (nullable) is None
         # and model_fields_set contains the field
         if self.discount is None and "discount" in self.model_fields_set:
-            _dict['discount'] = None
+            _dict["discount"] = None
 
         return _dict
 
@@ -91,11 +94,11 @@ class Item(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmID": obj.get("nmID"),
-            "price": obj.get("price"),
-            "discount": obj.get("discount")
-        })
+        _obj = cls.model_validate(
+            {
+                "nmID": obj.get("nmID"),
+                "price": obj.get("price"),
+                "discount": obj.get("discount"),
+            }
+        )
         return _obj
-
-

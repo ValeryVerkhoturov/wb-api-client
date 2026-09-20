@@ -22,13 +22,23 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1CountResponse200Adverts(BaseModel):
     """
     GetV1CountResponse200Adverts
-    """ # noqa: E501
-    type: Optional[StrictInt] = Field(default=None, description="Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам ")
-    status: Optional[StrictInt] = Field(default=None, description="Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза ")
-    count: Optional[StrictInt] = Field(default=None, description="Количество медиакампаний")
+    """  # noqa: E501
+
+    type: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип медиакампании: - `1` — размещение по дням - `2` — размещение по просмотрам ",
+    )
+    status: Optional[StrictInt] = Field(
+        default=None,
+        description="Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза ",
+    )
+    count: Optional[StrictInt] = Field(
+        default=None, description="Количество медиакампаний"
+    )
     __properties: ClassVar[List[str]] = ["type", "status", "count"]
 
     model_config = ConfigDict(
@@ -36,7 +46,6 @@ class GetV1CountResponse200Adverts(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +71,7 @@ class GetV1CountResponse200Adverts(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -81,11 +89,11 @@ class GetV1CountResponse200Adverts(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "type": obj.get("type"),
-            "status": obj.get("status"),
-            "count": obj.get("count")
-        })
+        _obj = cls.model_validate(
+            {
+                "type": obj.get("type"),
+                "status": obj.get("status"),
+                "count": obj.get("count"),
+            }
+        )
         return _obj
-
-

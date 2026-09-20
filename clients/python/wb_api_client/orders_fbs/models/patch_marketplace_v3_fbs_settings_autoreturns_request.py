@@ -22,18 +22,24 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PatchMarketplaceV3FbsSettingsAutoreturnsRequest(BaseModel):
     """
     PatchMarketplaceV3FbsSettingsAutoreturnsRequest
-    """ # noqa: E501
-    type: StrictStr = Field(description="Тип автовозврата малогабаритных товаров:   - `allToWarehouse` — отправлять все товары на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - `allToPickupPoint` — отправлять все товары на пункт выдачи заказов   - `manual` — использовать ручные настройки ")
+    """  # noqa: E501
+
+    type: StrictStr = Field(
+        description="Тип автовозврата малогабаритных товаров:   - `allToWarehouse` — отправлять все товары на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - `allToPickupPoint` — отправлять все товары на пункт выдачи заказов   - `manual` — использовать ручные настройки "
+    )
     __properties: ClassVar[List[str]] = ["type"]
 
-    @field_validator('type')
+    @field_validator("type")
     def type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['allToWarehouse', 'allToPickupPoint', 'manual']):
-            raise ValueError("must be one of enum values ('allToWarehouse', 'allToPickupPoint', 'manual')")
+        if value not in set(["allToWarehouse", "allToPickupPoint", "manual"]):
+            raise ValueError(
+                "must be one of enum values ('allToWarehouse', 'allToPickupPoint', 'manual')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -41,7 +47,6 @@ class PatchMarketplaceV3FbsSettingsAutoreturnsRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -67,8 +72,7 @@ class PatchMarketplaceV3FbsSettingsAutoreturnsRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -86,9 +90,5 @@ class PatchMarketplaceV3FbsSettingsAutoreturnsRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "type": obj.get("type")
-        })
+        _obj = cls.model_validate({"type": obj.get("type")})
         return _obj
-
-

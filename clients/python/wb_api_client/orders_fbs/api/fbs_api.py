@@ -19,27 +19,65 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from wb_api_client.orders_fbs.models.crossborder_turkey_client_info_resp import CrossborderTurkeyClientInfoResp
-from wb_api_client.orders_fbs.models.get_v3_orders_new_response200 import GetV3OrdersNewResponse200
-from wb_api_client.orders_fbs.models.get_v3_orders_response200 import GetV3OrdersResponse200
-from wb_api_client.orders_fbs.models.get_v3_supplies_orders_reshipment_response200 import GetV3SuppliesOrdersReshipmentResponse200
+from wb_api_client.orders_fbs.models.crossborder_turkey_client_info_resp import (
+    CrossborderTurkeyClientInfoResp,
+)
+from wb_api_client.orders_fbs.models.get_v3_orders_new_response200 import (
+    GetV3OrdersNewResponse200,
+)
+from wb_api_client.orders_fbs.models.get_v3_orders_response200 import (
+    GetV3OrdersResponse200,
+)
+from wb_api_client.orders_fbs.models.get_v3_supplies_orders_reshipment_response200 import (
+    GetV3SuppliesOrdersReshipmentResponse200,
+)
 from wb_api_client.orders_fbs.models.orders_request_api import OrdersRequestAPI
-from wb_api_client.orders_fbs.models.post_v3_orders_status_history_request import PostV3OrdersStatusHistoryRequest
-from wb_api_client.orders_fbs.models.post_v3_orders_status_history_response200 import PostV3OrdersStatusHistoryResponse200
-from wb_api_client.orders_fbs.models.post_v3_orders_status_request import PostV3OrdersStatusRequest
-from wb_api_client.orders_fbs.models.post_v3_orders_status_response200 import PostV3OrdersStatusResponse200
-from wb_api_client.orders_fbs.models.post_v3_orders_stickers_cross_border_request import PostV3OrdersStickersCrossBorderRequest
-from wb_api_client.orders_fbs.models.post_v3_orders_stickers_cross_border_response200 import PostV3OrdersStickersCrossBorderResponse200
-from wb_api_client.orders_fbs.models.post_v3_orders_stickers_request import PostV3OrdersStickersRequest
-from wb_api_client.orders_fbs.models.post_v3_orders_stickers_response200 import PostV3OrdersStickersResponse200
-from wb_api_client.orders_fbs.models.put_v3_orders_order_id_meta_customs_declaration_request import PutV3OrdersOrderIdMetaCustomsDeclarationRequest
-from wb_api_client.orders_fbs.models.put_v3_orders_order_id_meta_expiration_request import PutV3OrdersOrderIdMetaExpirationRequest
-from wb_api_client.orders_fbs.models.put_v3_orders_order_id_meta_gtin_request import PutV3OrdersOrderIdMetaGtinRequest
-from wb_api_client.orders_fbs.models.put_v3_orders_order_id_meta_imei_request import PutV3OrdersOrderIdMetaImeiRequest
-from wb_api_client.orders_fbs.models.put_v3_orders_order_id_meta_sgtin_request import PutV3OrdersOrderIdMetaSgtinRequest
-from wb_api_client.orders_fbs.models.put_v3_orders_order_id_meta_uin_request import PutV3OrdersOrderIdMetaUinRequest
+from wb_api_client.orders_fbs.models.post_v3_orders_status_history_request import (
+    PostV3OrdersStatusHistoryRequest,
+)
+from wb_api_client.orders_fbs.models.post_v3_orders_status_history_response200 import (
+    PostV3OrdersStatusHistoryResponse200,
+)
+from wb_api_client.orders_fbs.models.post_v3_orders_status_request import (
+    PostV3OrdersStatusRequest,
+)
+from wb_api_client.orders_fbs.models.post_v3_orders_status_response200 import (
+    PostV3OrdersStatusResponse200,
+)
+from wb_api_client.orders_fbs.models.post_v3_orders_stickers_cross_border_request import (
+    PostV3OrdersStickersCrossBorderRequest,
+)
+from wb_api_client.orders_fbs.models.post_v3_orders_stickers_cross_border_response200 import (
+    PostV3OrdersStickersCrossBorderResponse200,
+)
+from wb_api_client.orders_fbs.models.post_v3_orders_stickers_request import (
+    PostV3OrdersStickersRequest,
+)
+from wb_api_client.orders_fbs.models.post_v3_orders_stickers_response200 import (
+    PostV3OrdersStickersResponse200,
+)
+from wb_api_client.orders_fbs.models.put_v3_orders_order_id_meta_customs_declaration_request import (
+    PutV3OrdersOrderIdMetaCustomsDeclarationRequest,
+)
+from wb_api_client.orders_fbs.models.put_v3_orders_order_id_meta_expiration_request import (
+    PutV3OrdersOrderIdMetaExpirationRequest,
+)
+from wb_api_client.orders_fbs.models.put_v3_orders_order_id_meta_gtin_request import (
+    PutV3OrdersOrderIdMetaGtinRequest,
+)
+from wb_api_client.orders_fbs.models.put_v3_orders_order_id_meta_imei_request import (
+    PutV3OrdersOrderIdMetaImeiRequest,
+)
+from wb_api_client.orders_fbs.models.put_v3_orders_order_id_meta_sgtin_request import (
+    PutV3OrdersOrderIdMetaSgtinRequest,
+)
+from wb_api_client.orders_fbs.models.put_v3_orders_order_id_meta_uin_request import (
+    PutV3OrdersOrderIdMetaUinRequest,
+)
 from wb_api_client.orders_fbs.models.v3_archive_orders import V3ArchiveOrders
-from wb_api_client.orders_fbs.models.v3_get_meta_multi_request import V3GetMetaMultiRequest
+from wb_api_client.orders_fbs.models.v3_get_meta_multi_request import (
+    V3GetMetaMultiRequest,
+)
 from wb_api_client.orders_fbs.models.v3_orders_meta_api import V3OrdersMetaAPI
 
 from wb_api_client.orders_fbs.api_client import ApiClient, RequestSerialized
@@ -59,19 +97,22 @@ class FBSApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def delete_v3_orders_order_id_meta(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        key: Annotated[StrictStr, Field(description="Название идентификаторов маркировки для удаления. Передаётся только одно значение.")],
+        key: Annotated[
+            StrictStr,
+            Field(
+                description="Название идентификаторов маркировки для удаления. Передаётся только одно значение."
+            ),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -106,7 +147,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._delete_v3_orders_order_id_meta_serialize(
             order_id=order_id,
@@ -114,21 +155,20 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -136,19 +176,22 @@ class FBSApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def delete_v3_orders_order_id_meta_with_http_info(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        key: Annotated[StrictStr, Field(description="Название идентификаторов маркировки для удаления. Передаётся только одно значение.")],
+        key: Annotated[
+            StrictStr,
+            Field(
+                description="Название идентификаторов маркировки для удаления. Передаётся только одно значение."
+            ),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -183,7 +226,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._delete_v3_orders_order_id_meta_serialize(
             order_id=order_id,
@@ -191,21 +234,20 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -213,19 +255,22 @@ class FBSApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def delete_v3_orders_order_id_meta_without_preload_content(
         self,
         order_id: Annotated[StrictInt, Field(description="ID сборочного задания")],
-        key: Annotated[StrictStr, Field(description="Название идентификаторов маркировки для удаления. Передаётся только одно значение.")],
+        key: Annotated[
+            StrictStr,
+            Field(
+                description="Название идентификаторов маркировки для удаления. Передаётся только одно значение."
+            ),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -260,7 +305,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._delete_v3_orders_order_id_meta_serialize(
             order_id=order_id,
@@ -268,24 +313,22 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _delete_v3_orders_order_id_meta_serialize(
         self,
@@ -298,13 +341,12 @@ class FBSApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -317,35 +359,28 @@ class FBSApi:
 
         # process the path parameters
         if order_id is not None:
-            _path_params['orderId'] = order_id
+            _path_params["orderId"] = order_id
         # process the query parameters
         if key is not None:
-            
-            _query_params.append(('key', key))
-            
+
+            _query_params.append(("key", key))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='DELETE',
-            resource_path='/api/v3/orders/{orderId}/meta',
+            method="DELETE",
+            resource_path="/api/v3/orders/{orderId}/meta",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -355,26 +390,37 @@ class FBSApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v3_fbs_orders_archive(
         self,
         year: Annotated[StrictInt, Field(description="Год создания заказа")],
-        month: Annotated[int, Field(le=12, strict=True, ge=1, description="Месяц создания заказа")],
-        next: Annotated[StrictInt, Field(description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.")],
-        limit: Annotated[int, Field(le=1000, strict=True, ge=100, description="Количество сборочных заданий в ответе")],
+        month: Annotated[
+            int, Field(le=12, strict=True, ge=1, description="Месяц создания заказа")
+        ],
+        next: Annotated[
+            StrictInt,
+            Field(
+                description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе."
+            ),
+        ],
+        limit: Annotated[
+            int,
+            Field(
+                le=1000,
+                strict=True,
+                ge=100,
+                description="Количество сборочных заданий в ответе",
+            ),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -413,7 +459,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_fbs_orders_archive_serialize(
             year=year,
@@ -423,20 +469,19 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V3ArchiveOrders",
-            '400': "ArhiveOrderError400",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "GetV3FbsOrdersArchive403Response",
-            '429': "GetV3PassesOffices401Response",
+            "200": "V3ArchiveOrders",
+            "400": "ArhiveOrderError400",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "GetV3FbsOrdersArchive403Response",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -444,21 +489,34 @@ class FBSApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v3_fbs_orders_archive_with_http_info(
         self,
         year: Annotated[StrictInt, Field(description="Год создания заказа")],
-        month: Annotated[int, Field(le=12, strict=True, ge=1, description="Месяц создания заказа")],
-        next: Annotated[StrictInt, Field(description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.")],
-        limit: Annotated[int, Field(le=1000, strict=True, ge=100, description="Количество сборочных заданий в ответе")],
+        month: Annotated[
+            int, Field(le=12, strict=True, ge=1, description="Месяц создания заказа")
+        ],
+        next: Annotated[
+            StrictInt,
+            Field(
+                description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе."
+            ),
+        ],
+        limit: Annotated[
+            int,
+            Field(
+                le=1000,
+                strict=True,
+                ge=100,
+                description="Количество сборочных заданий в ответе",
+            ),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -497,7 +555,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_fbs_orders_archive_serialize(
             year=year,
@@ -507,20 +565,19 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V3ArchiveOrders",
-            '400': "ArhiveOrderError400",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "GetV3FbsOrdersArchive403Response",
-            '429': "GetV3PassesOffices401Response",
+            "200": "V3ArchiveOrders",
+            "400": "ArhiveOrderError400",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "GetV3FbsOrdersArchive403Response",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -528,21 +585,34 @@ class FBSApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v3_fbs_orders_archive_without_preload_content(
         self,
         year: Annotated[StrictInt, Field(description="Год создания заказа")],
-        month: Annotated[int, Field(le=12, strict=True, ge=1, description="Месяц создания заказа")],
-        next: Annotated[StrictInt, Field(description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.")],
-        limit: Annotated[int, Field(le=1000, strict=True, ge=100, description="Количество сборочных заданий в ответе")],
+        month: Annotated[
+            int, Field(le=12, strict=True, ge=1, description="Месяц создания заказа")
+        ],
+        next: Annotated[
+            StrictInt,
+            Field(
+                description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе."
+            ),
+        ],
+        limit: Annotated[
+            int,
+            Field(
+                le=1000,
+                strict=True,
+                ge=100,
+                description="Количество сборочных заданий в ответе",
+            ),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -581,7 +651,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_fbs_orders_archive_serialize(
             year=year,
@@ -591,23 +661,21 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V3ArchiveOrders",
-            '400': "ArhiveOrderError400",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "GetV3FbsOrdersArchive403Response",
-            '429': "GetV3PassesOffices401Response",
+            "200": "V3ArchiveOrders",
+            "400": "ArhiveOrderError400",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "GetV3FbsOrdersArchive403Response",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v3_fbs_orders_archive_serialize(
         self,
@@ -621,13 +689,10 @@ class FBSApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -641,44 +706,37 @@ class FBSApi:
         # process the path parameters
         # process the query parameters
         if year is not None:
-            
-            _query_params.append(('year', year))
-            
+
+            _query_params.append(("year", year))
+
         if month is not None:
-            
-            _query_params.append(('month', month))
-            
+
+            _query_params.append(("month", month))
+
         if next is not None:
-            
-            _query_params.append(('next', next))
-            
+
+            _query_params.append(("next", next))
+
         if limit is not None:
-            
-            _query_params.append(('limit', limit))
-            
+
+            _query_params.append(("limit", limit))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/marketplace/v3/fbs/orders/archive',
+            method="GET",
+            resource_path="/api/marketplace/v3/fbs/orders/archive",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -688,26 +746,45 @@ class FBSApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v3_orders(
         self,
-        limit: Annotated[int, Field(le=1000, strict=True, ge=1, description="Параметр пагинации. Устанавливает предельное количество возвращаемых данных.")],
-        next: Annotated[StrictInt, Field(description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.")],
-        date_from: Annotated[Optional[StrictInt], Field(description="Дата начала периода в формате Unix timestamp. По умолчанию — дата за 30 дней до запроса. Часовой пояс — UTC ")] = None,
-        date_to: Annotated[Optional[StrictInt], Field(description="Дата конца периода в формате Unix timestamp. Часовой пояс — UTC")] = None,
+        limit: Annotated[
+            int,
+            Field(
+                le=1000,
+                strict=True,
+                ge=1,
+                description="Параметр пагинации. Устанавливает предельное количество возвращаемых данных.",
+            ),
+        ],
+        next: Annotated[
+            StrictInt,
+            Field(
+                description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе."
+            ),
+        ],
+        date_from: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Дата начала периода в формате Unix timestamp. По умолчанию — дата за 30 дней до запроса. Часовой пояс — UTC "
+            ),
+        ] = None,
+        date_to: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Дата конца периода в формате Unix timestamp. Часовой пояс — UTC"
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -722,7 +799,7 @@ class FBSApi:
         :type limit: int
         :param next: Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе. (required)
         :type next: int
-        :param date_from: Дата начала периода в формате Unix timestamp. По умолчанию — дата за 30 дней до запроса. Часовой пояс — UTC 
+        :param date_from: Дата начала периода в формате Unix timestamp. По умолчанию — дата за 30 дней до запроса. Часовой пояс — UTC
         :type date_from: int
         :param date_to: Дата конца периода в формате Unix timestamp. Часовой пояс — UTC
         :type date_to: int
@@ -746,7 +823,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_orders_serialize(
             limit=limit,
@@ -756,20 +833,19 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3OrdersResponse200",
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "GetV3OrdersResponse200",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -777,21 +853,42 @@ class FBSApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def get_v3_orders_with_http_info(
         self,
-        limit: Annotated[int, Field(le=1000, strict=True, ge=1, description="Параметр пагинации. Устанавливает предельное количество возвращаемых данных.")],
-        next: Annotated[StrictInt, Field(description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.")],
-        date_from: Annotated[Optional[StrictInt], Field(description="Дата начала периода в формате Unix timestamp. По умолчанию — дата за 30 дней до запроса. Часовой пояс — UTC ")] = None,
-        date_to: Annotated[Optional[StrictInt], Field(description="Дата конца периода в формате Unix timestamp. Часовой пояс — UTC")] = None,
+        limit: Annotated[
+            int,
+            Field(
+                le=1000,
+                strict=True,
+                ge=1,
+                description="Параметр пагинации. Устанавливает предельное количество возвращаемых данных.",
+            ),
+        ],
+        next: Annotated[
+            StrictInt,
+            Field(
+                description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе."
+            ),
+        ],
+        date_from: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Дата начала периода в формате Unix timestamp. По умолчанию — дата за 30 дней до запроса. Часовой пояс — UTC "
+            ),
+        ] = None,
+        date_to: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Дата конца периода в формате Unix timestamp. Часовой пояс — UTC"
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -806,7 +903,7 @@ class FBSApi:
         :type limit: int
         :param next: Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе. (required)
         :type next: int
-        :param date_from: Дата начала периода в формате Unix timestamp. По умолчанию — дата за 30 дней до запроса. Часовой пояс — UTC 
+        :param date_from: Дата начала периода в формате Unix timestamp. По умолчанию — дата за 30 дней до запроса. Часовой пояс — UTC
         :type date_from: int
         :param date_to: Дата конца периода в формате Unix timestamp. Часовой пояс — UTC
         :type date_to: int
@@ -830,7 +927,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_orders_serialize(
             limit=limit,
@@ -840,20 +937,19 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3OrdersResponse200",
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "GetV3OrdersResponse200",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -861,21 +957,42 @@ class FBSApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def get_v3_orders_without_preload_content(
         self,
-        limit: Annotated[int, Field(le=1000, strict=True, ge=1, description="Параметр пагинации. Устанавливает предельное количество возвращаемых данных.")],
-        next: Annotated[StrictInt, Field(description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.")],
-        date_from: Annotated[Optional[StrictInt], Field(description="Дата начала периода в формате Unix timestamp. По умолчанию — дата за 30 дней до запроса. Часовой пояс — UTC ")] = None,
-        date_to: Annotated[Optional[StrictInt], Field(description="Дата конца периода в формате Unix timestamp. Часовой пояс — UTC")] = None,
+        limit: Annotated[
+            int,
+            Field(
+                le=1000,
+                strict=True,
+                ge=1,
+                description="Параметр пагинации. Устанавливает предельное количество возвращаемых данных.",
+            ),
+        ],
+        next: Annotated[
+            StrictInt,
+            Field(
+                description="Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе."
+            ),
+        ],
+        date_from: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Дата начала периода в формате Unix timestamp. По умолчанию — дата за 30 дней до запроса. Часовой пояс — UTC "
+            ),
+        ] = None,
+        date_to: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Дата конца периода в формате Unix timestamp. Часовой пояс — UTC"
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -890,7 +1007,7 @@ class FBSApi:
         :type limit: int
         :param next: Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе. (required)
         :type next: int
-        :param date_from: Дата начала периода в формате Unix timestamp. По умолчанию — дата за 30 дней до запроса. Часовой пояс — UTC 
+        :param date_from: Дата начала периода в формате Unix timestamp. По умолчанию — дата за 30 дней до запроса. Часовой пояс — UTC
         :type date_from: int
         :param date_to: Дата конца периода в формате Unix timestamp. Часовой пояс — UTC
         :type date_to: int
@@ -914,7 +1031,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_orders_serialize(
             limit=limit,
@@ -924,23 +1041,21 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3OrdersResponse200",
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "GetV3OrdersResponse200",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v3_orders_serialize(
         self,
@@ -955,13 +1070,12 @@ class FBSApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -975,44 +1089,37 @@ class FBSApi:
         # process the path parameters
         # process the query parameters
         if limit is not None:
-            
-            _query_params.append(('limit', limit))
-            
+
+            _query_params.append(("limit", limit))
+
         if next is not None:
-            
-            _query_params.append(('next', next))
-            
+
+            _query_params.append(("next", next))
+
         if date_from is not None:
-            
-            _query_params.append(('dateFrom', date_from))
-            
+
+            _query_params.append(("dateFrom", date_from))
+
         if date_to is not None:
-            
-            _query_params.append(('dateTo', date_to))
-            
+
+            _query_params.append(("dateTo", date_to))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v3/orders',
+            method="GET",
+            resource_path="/api/v3/orders",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1022,11 +1129,8 @@ class FBSApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v3_orders_new(
@@ -1035,9 +1139,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1068,32 +1171,30 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_orders_new_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3OrdersNewResponse200",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "GetV3OrdersNewResponse200",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v3_orders_new_with_http_info(
@@ -1102,9 +1203,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1135,32 +1235,30 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_orders_new_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3OrdersNewResponse200",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "GetV3OrdersNewResponse200",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v3_orders_new_without_preload_content(
@@ -1169,9 +1267,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1202,28 +1299,26 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_orders_new_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3OrdersNewResponse200",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "GetV3OrdersNewResponse200",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v3_orders_new_serialize(
         self,
@@ -1234,13 +1329,12 @@ class FBSApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1257,25 +1351,18 @@ class FBSApi:
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v3/orders/new',
+            method="GET",
+            resource_path="/api/v3/orders/new",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1285,11 +1372,8 @@ class FBSApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def get_v3_supplies_orders_reshipment(
@@ -1298,9 +1382,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1331,33 +1414,31 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_supplies_orders_reshipment_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3SuppliesOrdersReshipmentResponse200",
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "GetV3SuppliesOrdersReshipmentResponse200",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def get_v3_supplies_orders_reshipment_with_http_info(
@@ -1366,9 +1447,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1399,33 +1479,31 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_supplies_orders_reshipment_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3SuppliesOrdersReshipmentResponse200",
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "GetV3SuppliesOrdersReshipmentResponse200",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def get_v3_supplies_orders_reshipment_without_preload_content(
@@ -1434,9 +1512,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1467,29 +1544,27 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._get_v3_supplies_orders_reshipment_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetV3SuppliesOrdersReshipmentResponse200",
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "GetV3SuppliesOrdersReshipmentResponse200",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _get_v3_supplies_orders_reshipment_serialize(
         self,
@@ -1500,13 +1575,12 @@ class FBSApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1523,25 +1597,18 @@ class FBSApi:
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v3/supplies/orders/reshipment',
+            method="GET",
+            resource_path="/api/v3/supplies/orders/reshipment",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1551,11 +1618,8 @@ class FBSApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def patch_v3_orders_order_id_cancel(
@@ -1565,9 +1629,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1600,36 +1663,34 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_v3_orders_order_id_cancel_serialize(
             order_id=order_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def patch_v3_orders_order_id_cancel_with_http_info(
@@ -1639,9 +1700,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1674,36 +1734,34 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_v3_orders_order_id_cancel_serialize(
             order_id=order_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def patch_v3_orders_order_id_cancel_without_preload_content(
@@ -1713,9 +1771,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1748,32 +1805,30 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._patch_v3_orders_order_id_cancel_serialize(
             order_id=order_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _patch_v3_orders_order_id_cancel_serialize(
         self,
@@ -1785,13 +1840,12 @@ class FBSApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1804,31 +1858,24 @@ class FBSApi:
 
         # process the path parameters
         if order_id is not None:
-            _path_params['orderId'] = order_id
+            _path_params["orderId"] = order_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PATCH',
-            resource_path='/api/v3/orders/{orderId}/cancel',
+            method="PATCH",
+            resource_path="/api/v3/orders/{orderId}/cancel",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1838,11 +1885,8 @@ class FBSApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_orders_client(
@@ -1852,9 +1896,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1887,35 +1930,33 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_orders_client_serialize(
             orders_request_api=orders_request_api,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CrossborderTurkeyClientInfoResp",
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '404': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "CrossborderTurkeyClientInfoResp",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "404": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_orders_client_with_http_info(
@@ -1925,9 +1966,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1960,35 +2000,33 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_orders_client_serialize(
             orders_request_api=orders_request_api,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CrossborderTurkeyClientInfoResp",
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '404': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "CrossborderTurkeyClientInfoResp",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "404": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_orders_client_without_preload_content(
@@ -1998,9 +2036,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2033,31 +2070,29 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_orders_client_serialize(
             orders_request_api=orders_request_api,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CrossborderTurkeyClientInfoResp",
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '404': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "CrossborderTurkeyClientInfoResp",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "404": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_orders_client_serialize(
         self,
@@ -2069,13 +2104,12 @@ class FBSApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2094,38 +2128,28 @@ class FBSApi:
         if orders_request_api is not None:
             _body_params = orders_request_api
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v3/orders/client',
+            method="POST",
+            resource_path="/api/v3/orders/client",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2135,11 +2159,8 @@ class FBSApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_orders_meta(
@@ -2149,9 +2170,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2184,35 +2204,33 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_orders_meta_serialize(
             v3_get_meta_multi_request=v3_get_meta_multi_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V3OrdersMetaAPI",
-            '400': "V3APIError",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "V3APIError",
-            '404': "V3APIError",
-            '429': "GetV3PassesOffices401Response",
+            "200": "V3OrdersMetaAPI",
+            "400": "V3APIError",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "V3APIError",
+            "404": "V3APIError",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_orders_meta_with_http_info(
@@ -2222,9 +2240,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2257,35 +2274,33 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_orders_meta_serialize(
             v3_get_meta_multi_request=v3_get_meta_multi_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V3OrdersMetaAPI",
-            '400': "V3APIError",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "V3APIError",
-            '404': "V3APIError",
-            '429': "GetV3PassesOffices401Response",
+            "200": "V3OrdersMetaAPI",
+            "400": "V3APIError",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "V3APIError",
+            "404": "V3APIError",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_orders_meta_without_preload_content(
@@ -2295,9 +2310,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2330,31 +2344,29 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_orders_meta_serialize(
             v3_get_meta_multi_request=v3_get_meta_multi_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "V3OrdersMetaAPI",
-            '400': "V3APIError",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "V3APIError",
-            '404': "V3APIError",
-            '429': "GetV3PassesOffices401Response",
+            "200": "V3OrdersMetaAPI",
+            "400": "V3APIError",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "V3APIError",
+            "404": "V3APIError",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_orders_meta_serialize(
         self,
@@ -2366,13 +2378,12 @@ class FBSApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2391,38 +2402,28 @@ class FBSApi:
         if v3_get_meta_multi_request is not None:
             _body_params = v3_get_meta_multi_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/marketplace/v3/orders/meta',
+            method="POST",
+            resource_path="/api/marketplace/v3/orders/meta",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2432,11 +2433,8 @@ class FBSApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_orders_status(
@@ -2446,9 +2444,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2481,34 +2478,32 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_orders_status_serialize(
             post_v3_orders_status_request=post_v3_orders_status_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3OrdersStatusResponse200",
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "PostV3OrdersStatusResponse200",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_orders_status_with_http_info(
@@ -2518,9 +2513,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2553,34 +2547,32 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_orders_status_serialize(
             post_v3_orders_status_request=post_v3_orders_status_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3OrdersStatusResponse200",
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "PostV3OrdersStatusResponse200",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_orders_status_without_preload_content(
@@ -2590,9 +2582,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2625,30 +2616,28 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_orders_status_serialize(
             post_v3_orders_status_request=post_v3_orders_status_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3OrdersStatusResponse200",
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "PostV3OrdersStatusResponse200",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_orders_status_serialize(
         self,
@@ -2660,13 +2649,12 @@ class FBSApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2685,38 +2673,28 @@ class FBSApi:
         if post_v3_orders_status_request is not None:
             _body_params = post_v3_orders_status_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v3/orders/status',
+            method="POST",
+            resource_path="/api/v3/orders/status",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2726,23 +2704,21 @@ class FBSApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_orders_status_history(
         self,
-        post_v3_orders_status_history_request: Optional[PostV3OrdersStatusHistoryRequest] = None,
+        post_v3_orders_status_history_request: Optional[
+            PostV3OrdersStatusHistoryRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2775,28 +2751,27 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_orders_status_history_serialize(
             post_v3_orders_status_history_request=post_v3_orders_status_history_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3OrdersStatusHistoryResponse200",
-            '400': None,
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '404': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "PostV3OrdersStatusHistoryResponse200",
+            "400": None,
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "404": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2804,18 +2779,18 @@ class FBSApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def post_v3_orders_status_history_with_http_info(
         self,
-        post_v3_orders_status_history_request: Optional[PostV3OrdersStatusHistoryRequest] = None,
+        post_v3_orders_status_history_request: Optional[
+            PostV3OrdersStatusHistoryRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2848,28 +2823,27 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_orders_status_history_serialize(
             post_v3_orders_status_history_request=post_v3_orders_status_history_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3OrdersStatusHistoryResponse200",
-            '400': None,
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '404': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "PostV3OrdersStatusHistoryResponse200",
+            "400": None,
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "404": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2877,18 +2851,18 @@ class FBSApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def post_v3_orders_status_history_without_preload_content(
         self,
-        post_v3_orders_status_history_request: Optional[PostV3OrdersStatusHistoryRequest] = None,
+        post_v3_orders_status_history_request: Optional[
+            PostV3OrdersStatusHistoryRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2921,31 +2895,29 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_orders_status_history_serialize(
             post_v3_orders_status_history_request=post_v3_orders_status_history_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3OrdersStatusHistoryResponse200",
-            '400': None,
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '404': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "PostV3OrdersStatusHistoryResponse200",
+            "400": None,
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "404": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_orders_status_history_serialize(
         self,
@@ -2957,13 +2929,12 @@ class FBSApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2982,38 +2953,28 @@ class FBSApi:
         if post_v3_orders_status_history_request is not None:
             _body_params = post_v3_orders_status_history_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v3/orders/status/history',
+            method="POST",
+            resource_path="/api/v3/orders/status/history",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3023,11 +2984,8 @@ class FBSApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_orders_stickers(
@@ -3040,9 +2998,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3081,7 +3038,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_orders_stickers_serialize(
             type=type,
@@ -3091,28 +3048,26 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3OrdersStickersResponse200",
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "PostV3OrdersStickersResponse200",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def post_v3_orders_stickers_with_http_info(
@@ -3125,9 +3080,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3166,7 +3120,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_orders_stickers_serialize(
             type=type,
@@ -3176,28 +3130,26 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3OrdersStickersResponse200",
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "PostV3OrdersStickersResponse200",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def post_v3_orders_stickers_without_preload_content(
@@ -3210,9 +3162,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3251,7 +3202,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_orders_stickers_serialize(
             type=type,
@@ -3261,24 +3212,22 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3OrdersStickersResponse200",
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "PostV3OrdersStickersResponse200",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_orders_stickers_serialize(
         self,
@@ -3293,13 +3242,12 @@ class FBSApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3313,55 +3261,45 @@ class FBSApi:
         # process the path parameters
         # process the query parameters
         if type is not None:
-            
-            _query_params.append(('type', type))
-            
+
+            _query_params.append(("type", type))
+
         if width is not None:
-            
-            _query_params.append(('width', width))
-            
+
+            _query_params.append(("width", width))
+
         if height is not None:
-            
-            _query_params.append(('height', height))
-            
+
+            _query_params.append(("height", height))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
         if post_v3_orders_stickers_request is not None:
             _body_params = post_v3_orders_stickers_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v3/orders/stickers',
+            method="POST",
+            resource_path="/api/v3/orders/stickers",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3371,23 +3309,21 @@ class FBSApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def post_v3_orders_stickers_cross_border(
         self,
-        post_v3_orders_stickers_cross_border_request: Optional[PostV3OrdersStickersCrossBorderRequest] = None,
+        post_v3_orders_stickers_cross_border_request: Optional[
+            PostV3OrdersStickersCrossBorderRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3420,27 +3356,26 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_orders_stickers_cross_border_serialize(
             post_v3_orders_stickers_cross_border_request=post_v3_orders_stickers_cross_border_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3OrdersStickersCrossBorderResponse200",
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "PostV3OrdersStickersCrossBorderResponse200",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3448,18 +3383,18 @@ class FBSApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def post_v3_orders_stickers_cross_border_with_http_info(
         self,
-        post_v3_orders_stickers_cross_border_request: Optional[PostV3OrdersStickersCrossBorderRequest] = None,
+        post_v3_orders_stickers_cross_border_request: Optional[
+            PostV3OrdersStickersCrossBorderRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3492,27 +3427,26 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_orders_stickers_cross_border_serialize(
             post_v3_orders_stickers_cross_border_request=post_v3_orders_stickers_cross_border_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3OrdersStickersCrossBorderResponse200",
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "PostV3OrdersStickersCrossBorderResponse200",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3520,18 +3454,18 @@ class FBSApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def post_v3_orders_stickers_cross_border_without_preload_content(
         self,
-        post_v3_orders_stickers_cross_border_request: Optional[PostV3OrdersStickersCrossBorderRequest] = None,
+        post_v3_orders_stickers_cross_border_request: Optional[
+            PostV3OrdersStickersCrossBorderRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3564,30 +3498,28 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._post_v3_orders_stickers_cross_border_serialize(
             post_v3_orders_stickers_cross_border_request=post_v3_orders_stickers_cross_border_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostV3OrdersStickersCrossBorderResponse200",
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "200": "PostV3OrdersStickersCrossBorderResponse200",
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _post_v3_orders_stickers_cross_border_serialize(
         self,
@@ -3598,13 +3530,10 @@ class FBSApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://marketplace-api.wildberries.ru'
-        ]
+        _hosts = ["https://marketplace-api.wildberries.ru"]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3623,38 +3552,28 @@ class FBSApi:
         if post_v3_orders_stickers_cross_border_request is not None:
             _body_params = post_v3_orders_stickers_cross_border_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v3/orders/stickers/cross-border',
+            method="POST",
+            resource_path="/api/v3/orders/stickers/cross-border",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3664,11 +3583,8 @@ class FBSApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def put_v3_orders_order_id_meta_customs_declaration(
@@ -3679,9 +3595,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3716,7 +3631,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_orders_order_id_meta_customs_declaration_serialize(
             order_id=order_id,
@@ -3724,29 +3639,27 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def put_v3_orders_order_id_meta_customs_declaration_with_http_info(
@@ -3757,9 +3670,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3794,7 +3706,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_orders_order_id_meta_customs_declaration_serialize(
             order_id=order_id,
@@ -3802,29 +3714,27 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def put_v3_orders_order_id_meta_customs_declaration_without_preload_content(
@@ -3835,9 +3745,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3872,7 +3781,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_orders_order_id_meta_customs_declaration_serialize(
             order_id=order_id,
@@ -3880,25 +3789,23 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _put_v3_orders_order_id_meta_customs_declaration_serialize(
         self,
@@ -3911,13 +3818,12 @@ class FBSApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3930,7 +3836,7 @@ class FBSApi:
 
         # process the path parameters
         if order_id is not None:
-            _path_params['orderId'] = order_id
+            _path_params["orderId"] = order_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -3938,38 +3844,28 @@ class FBSApi:
         if put_v3_orders_order_id_meta_customs_declaration_request is not None:
             _body_params = put_v3_orders_order_id_meta_customs_declaration_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/marketplace/v3/orders/{orderId}/meta/customs-declaration',
+            method="PUT",
+            resource_path="/api/marketplace/v3/orders/{orderId}/meta/customs-declaration",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3979,11 +3875,8 @@ class FBSApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def put_v3_orders_order_id_meta_expiration(
@@ -3994,9 +3887,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4031,7 +3923,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_orders_order_id_meta_expiration_serialize(
             order_id=order_id,
@@ -4039,29 +3931,27 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def put_v3_orders_order_id_meta_expiration_with_http_info(
@@ -4072,9 +3962,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4109,7 +3998,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_orders_order_id_meta_expiration_serialize(
             order_id=order_id,
@@ -4117,29 +4006,27 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def put_v3_orders_order_id_meta_expiration_without_preload_content(
@@ -4150,9 +4037,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4187,7 +4073,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_orders_order_id_meta_expiration_serialize(
             order_id=order_id,
@@ -4195,25 +4081,23 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _put_v3_orders_order_id_meta_expiration_serialize(
         self,
@@ -4226,13 +4110,12 @@ class FBSApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -4245,7 +4128,7 @@ class FBSApi:
 
         # process the path parameters
         if order_id is not None:
-            _path_params['orderId'] = order_id
+            _path_params["orderId"] = order_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -4253,38 +4136,28 @@ class FBSApi:
         if put_v3_orders_order_id_meta_expiration_request is not None:
             _body_params = put_v3_orders_order_id_meta_expiration_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/v3/orders/{orderId}/meta/expiration',
+            method="PUT",
+            resource_path="/api/v3/orders/{orderId}/meta/expiration",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4294,11 +4167,8 @@ class FBSApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def put_v3_orders_order_id_meta_gtin(
@@ -4309,9 +4179,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4346,7 +4215,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_orders_order_id_meta_gtin_serialize(
             order_id=order_id,
@@ -4354,28 +4223,26 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def put_v3_orders_order_id_meta_gtin_with_http_info(
@@ -4386,9 +4253,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4423,7 +4289,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_orders_order_id_meta_gtin_serialize(
             order_id=order_id,
@@ -4431,28 +4297,26 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def put_v3_orders_order_id_meta_gtin_without_preload_content(
@@ -4463,9 +4327,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4500,7 +4363,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_orders_order_id_meta_gtin_serialize(
             order_id=order_id,
@@ -4508,24 +4371,22 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _put_v3_orders_order_id_meta_gtin_serialize(
         self,
@@ -4538,13 +4399,12 @@ class FBSApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -4557,7 +4417,7 @@ class FBSApi:
 
         # process the path parameters
         if order_id is not None:
-            _path_params['orderId'] = order_id
+            _path_params["orderId"] = order_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -4565,38 +4425,28 @@ class FBSApi:
         if put_v3_orders_order_id_meta_gtin_request is not None:
             _body_params = put_v3_orders_order_id_meta_gtin_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/v3/orders/{orderId}/meta/gtin',
+            method="PUT",
+            resource_path="/api/v3/orders/{orderId}/meta/gtin",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4606,11 +4456,8 @@ class FBSApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def put_v3_orders_order_id_meta_imei(
@@ -4621,9 +4468,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4658,7 +4504,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_orders_order_id_meta_imei_serialize(
             order_id=order_id,
@@ -4666,28 +4512,26 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def put_v3_orders_order_id_meta_imei_with_http_info(
@@ -4698,9 +4542,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4735,7 +4578,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_orders_order_id_meta_imei_serialize(
             order_id=order_id,
@@ -4743,28 +4586,26 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def put_v3_orders_order_id_meta_imei_without_preload_content(
@@ -4775,9 +4616,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4812,7 +4652,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_orders_order_id_meta_imei_serialize(
             order_id=order_id,
@@ -4820,24 +4660,22 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _put_v3_orders_order_id_meta_imei_serialize(
         self,
@@ -4850,13 +4688,12 @@ class FBSApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -4869,7 +4706,7 @@ class FBSApi:
 
         # process the path parameters
         if order_id is not None:
-            _path_params['orderId'] = order_id
+            _path_params["orderId"] = order_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -4877,38 +4714,28 @@ class FBSApi:
         if put_v3_orders_order_id_meta_imei_request is not None:
             _body_params = put_v3_orders_order_id_meta_imei_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/v3/orders/{orderId}/meta/imei',
+            method="PUT",
+            resource_path="/api/v3/orders/{orderId}/meta/imei",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4918,11 +4745,8 @@ class FBSApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def put_v3_orders_order_id_meta_sgtin(
@@ -4933,9 +4757,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4970,7 +4793,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_orders_order_id_meta_sgtin_serialize(
             order_id=order_id,
@@ -4978,29 +4801,27 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def put_v3_orders_order_id_meta_sgtin_with_http_info(
@@ -5011,9 +4832,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -5048,7 +4868,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_orders_order_id_meta_sgtin_serialize(
             order_id=order_id,
@@ -5056,29 +4876,27 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def put_v3_orders_order_id_meta_sgtin_without_preload_content(
@@ -5089,9 +4907,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -5126,7 +4943,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_orders_order_id_meta_sgtin_serialize(
             order_id=order_id,
@@ -5134,25 +4951,23 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '404': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "404": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _put_v3_orders_order_id_meta_sgtin_serialize(
         self,
@@ -5165,13 +4980,12 @@ class FBSApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -5184,7 +4998,7 @@ class FBSApi:
 
         # process the path parameters
         if order_id is not None:
-            _path_params['orderId'] = order_id
+            _path_params["orderId"] = order_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -5192,38 +5006,28 @@ class FBSApi:
         if put_v3_orders_order_id_meta_sgtin_request is not None:
             _body_params = put_v3_orders_order_id_meta_sgtin_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/v3/orders/{orderId}/meta/sgtin',
+            method="PUT",
+            resource_path="/api/v3/orders/{orderId}/meta/sgtin",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5233,11 +5037,8 @@ class FBSApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def put_v3_orders_order_id_meta_uin(
@@ -5248,9 +5049,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -5285,7 +5085,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_orders_order_id_meta_uin_serialize(
             order_id=order_id,
@@ -5293,28 +5093,26 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def put_v3_orders_order_id_meta_uin_with_http_info(
@@ -5325,9 +5123,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -5362,7 +5159,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_orders_order_id_meta_uin_serialize(
             order_id=order_id,
@@ -5370,28 +5167,26 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def put_v3_orders_order_id_meta_uin_without_preload_content(
@@ -5402,9 +5197,8 @@ class FBSApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -5439,7 +5233,7 @@ class FBSApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._put_v3_orders_order_id_meta_uin_serialize(
             order_id=order_id,
@@ -5447,24 +5241,22 @@ class FBSApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '400': "Error",
-            '401': "GetV3PassesOffices401Response",
-            '402': "GetV3PassesOffices402Response",
-            '403': "Error",
-            '409': "Error",
-            '429': "GetV3PassesOffices401Response",
+            "204": None,
+            "400": "Error",
+            "401": "GetV3PassesOffices401Response",
+            "402": "GetV3PassesOffices402Response",
+            "403": "Error",
+            "409": "Error",
+            "429": "GetV3PassesOffices401Response",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _put_v3_orders_order_id_meta_uin_serialize(
         self,
@@ -5477,13 +5269,12 @@ class FBSApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://marketplace-api.wildberries.ru',
-            'https://marketplace-api-sandbox.wildberries.ru'
+            "https://marketplace-api.wildberries.ru",
+            "https://marketplace-api-sandbox.wildberries.ru",
         ]
         _host = _hosts[_host_index]
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -5496,7 +5287,7 @@ class FBSApi:
 
         # process the path parameters
         if order_id is not None:
-            _path_params['orderId'] = order_id
+            _path_params["orderId"] = order_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -5504,38 +5295,28 @@ class FBSApi:
         if put_v3_orders_order_id_meta_uin_request is not None:
             _body_params = put_v3_orders_order_id_meta_uin_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json', 
-                    'application/problem+json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json", "application/problem+json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'BearerAuth'
-        ]
+        _auth_settings: List[str] = ["BearerAuth"]
 
         return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/v3/orders/{orderId}/meta/uin',
+            method="PUT",
+            resource_path="/api/v3/orders/{orderId}/meta/uin",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5545,7 +5326,5 @@ class FBSApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

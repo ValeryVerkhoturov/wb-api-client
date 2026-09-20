@@ -22,12 +22,18 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV2CardsLimitsResponse200Data(BaseModel):
     """
     GetV2CardsLimitsResponse200Data
-    """ # noqa: E501
-    free_limits: Optional[StrictInt] = Field(default=None, description="Количество бесплатных лимитов", alias="freeLimits")
-    paid_limits: Optional[StrictInt] = Field(default=None, description="Количество оплаченных лимитов", alias="paidLimits")
+    """  # noqa: E501
+
+    free_limits: Optional[StrictInt] = Field(
+        default=None, description="Количество бесплатных лимитов", alias="freeLimits"
+    )
+    paid_limits: Optional[StrictInt] = Field(
+        default=None, description="Количество оплаченных лимитов", alias="paidLimits"
+    )
     __properties: ClassVar[List[str]] = ["freeLimits", "paidLimits"]
 
     model_config = ConfigDict(
@@ -35,7 +41,6 @@ class GetV2CardsLimitsResponse200Data(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +66,7 @@ class GetV2CardsLimitsResponse200Data(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,10 +84,7 @@ class GetV2CardsLimitsResponse200Data(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "freeLimits": obj.get("freeLimits"),
-            "paidLimits": obj.get("paidLimits")
-        })
+        _obj = cls.model_validate(
+            {"freeLimits": obj.get("freeLimits"), "paidLimits": obj.get("paidLimits")}
+        )
         return _obj
-
-

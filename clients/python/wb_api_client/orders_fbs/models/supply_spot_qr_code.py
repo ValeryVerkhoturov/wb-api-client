@@ -22,11 +22,15 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class SupplySpotQRCode(BaseModel):
     """
     SupplySpotQRCode
-    """ # noqa: E501
-    qr_code: StrictStr = Field(description="QR-код поставки в кодировке base64", alias="qrCode")
+    """  # noqa: E501
+
+    qr_code: StrictStr = Field(
+        description="QR-код поставки в кодировке base64", alias="qrCode"
+    )
     __properties: ClassVar[List[str]] = ["qrCode"]
 
     model_config = ConfigDict(
@@ -34,7 +38,6 @@ class SupplySpotQRCode(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,8 +63,7 @@ class SupplySpotQRCode(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -79,9 +81,5 @@ class SupplySpotQRCode(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "qrCode": obj.get("qrCode")
-        })
+        _obj = cls.model_validate({"qrCode": obj.get("qrCode")})
         return _obj
-
-

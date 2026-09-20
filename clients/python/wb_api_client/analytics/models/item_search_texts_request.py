@@ -17,7 +17,15 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from wb_api_client.analytics.models.order_by_gr_te import OrderByGrTe
@@ -27,25 +35,53 @@ from wb_api_client.analytics.models.text_limit import TextLimit
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ItemSearchTextsRequest(BaseModel):
     """
-    Параметры для запроса по рейтингу поисковых запросов:   - `currentPeriod` — текущий период   - `pastPeriod` — предыдущий период для сравнения 
-    """ # noqa: E501
+    Параметры для запроса по рейтингу поисковых запросов:   - `currentPeriod` — текущий период   - `pastPeriod` — предыдущий период для сравнения
+    """  # noqa: E501
+
     current_period: Period = Field(alias="currentPeriod")
     past_period: Optional[PastPeriod] = Field(default=None, alias="pastPeriod")
-    nm_ids: Annotated[List[StrictInt], Field(max_length=50)] = Field(description="Список артикулов WB", alias="nmIds")
-    top_order_by: StrictStr = Field(description="Фильтрация по поисковым запросам, по которым больше всего:   - `openCard` — перешли в карточку   - `addToCart` — добавили в корзину   - `openToCart` — конверсия в корзину   - `orders` — заказали товаров   - `cartToOrder` — конверсия в заказ ", alias="topOrderBy")
-    include_substituted_skus: Optional[StrictBool] = Field(default=True, description="Показать данные по прямым запросам с [подменным артикулом](https://seller.wildberries.ru/help-center/article/A-524)", alias="includeSubstitutedSKUs")
-    include_search_texts: Optional[StrictBool] = Field(default=True, description="Показать данные по поисковым запросам без учёта подменного артикула", alias="includeSearchTexts")
+    nm_ids: Annotated[List[StrictInt], Field(max_length=50)] = Field(
+        description="Список артикулов WB", alias="nmIds"
+    )
+    top_order_by: StrictStr = Field(
+        description="Фильтрация по поисковым запросам, по которым больше всего:   - `openCard` — перешли в карточку   - `addToCart` — добавили в корзину   - `openToCart` — конверсия в корзину   - `orders` — заказали товаров   - `cartToOrder` — конверсия в заказ ",
+        alias="topOrderBy",
+    )
+    include_substituted_skus: Optional[StrictBool] = Field(
+        default=True,
+        description="Показать данные по прямым запросам с [подменным артикулом](https://seller.wildberries.ru/help-center/article/A-524)",
+        alias="includeSubstitutedSKUs",
+    )
+    include_search_texts: Optional[StrictBool] = Field(
+        default=True,
+        description="Показать данные по поисковым запросам без учёта подменного артикула",
+        alias="includeSearchTexts",
+    )
     order_by: OrderByGrTe = Field(alias="orderBy")
     limit: TextLimit
-    __properties: ClassVar[List[str]] = ["currentPeriod", "pastPeriod", "nmIds", "topOrderBy", "includeSubstitutedSKUs", "includeSearchTexts", "orderBy", "limit"]
+    __properties: ClassVar[List[str]] = [
+        "currentPeriod",
+        "pastPeriod",
+        "nmIds",
+        "topOrderBy",
+        "includeSubstitutedSKUs",
+        "includeSearchTexts",
+        "orderBy",
+        "limit",
+    ]
 
-    @field_validator('top_order_by')
+    @field_validator("top_order_by")
     def top_order_by_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['openCard', 'addToCart', 'openToCart', 'orders', 'cartToOrder']):
-            raise ValueError("must be one of enum values ('openCard', 'addToCart', 'openToCart', 'orders', 'cartToOrder')")
+        if value not in set(
+            ["openCard", "addToCart", "openToCart", "orders", "cartToOrder"]
+        ):
+            raise ValueError(
+                "must be one of enum values ('openCard', 'addToCart', 'openToCart', 'orders', 'cartToOrder')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -53,7 +89,6 @@ class ItemSearchTextsRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -79,8 +114,7 @@ class ItemSearchTextsRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -89,16 +123,16 @@ class ItemSearchTextsRequest(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of current_period
         if self.current_period:
-            _dict['currentPeriod'] = self.current_period.to_dict()
+            _dict["currentPeriod"] = self.current_period.to_dict()
         # override the default output from pydantic by calling `to_dict()` of past_period
         if self.past_period:
-            _dict['pastPeriod'] = self.past_period.to_dict()
+            _dict["pastPeriod"] = self.past_period.to_dict()
         # override the default output from pydantic by calling `to_dict()` of order_by
         if self.order_by:
-            _dict['orderBy'] = self.order_by.to_dict()
+            _dict["orderBy"] = self.order_by.to_dict()
         # override the default output from pydantic by calling `to_dict()` of limit
         if self.limit:
-            _dict['limit'] = self.limit.to_dict()
+            _dict["limit"] = self.limit.to_dict()
         return _dict
 
     @classmethod
@@ -110,16 +144,40 @@ class ItemSearchTextsRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "currentPeriod": Period.from_dict(obj["currentPeriod"]) if obj.get("currentPeriod") is not None else None,
-            "pastPeriod": PastPeriod.from_dict(obj["pastPeriod"]) if obj.get("pastPeriod") is not None else None,
-            "nmIds": obj.get("nmIds"),
-            "topOrderBy": obj.get("topOrderBy"),
-            "includeSubstitutedSKUs": obj.get("includeSubstitutedSKUs") if obj.get("includeSubstitutedSKUs") is not None else True,
-            "includeSearchTexts": obj.get("includeSearchTexts") if obj.get("includeSearchTexts") is not None else True,
-            "orderBy": OrderByGrTe.from_dict(obj["orderBy"]) if obj.get("orderBy") is not None else None,
-            "limit": TextLimit.from_dict(obj["limit"]) if obj.get("limit") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "currentPeriod": (
+                    Period.from_dict(obj["currentPeriod"])
+                    if obj.get("currentPeriod") is not None
+                    else None
+                ),
+                "pastPeriod": (
+                    PastPeriod.from_dict(obj["pastPeriod"])
+                    if obj.get("pastPeriod") is not None
+                    else None
+                ),
+                "nmIds": obj.get("nmIds"),
+                "topOrderBy": obj.get("topOrderBy"),
+                "includeSubstitutedSKUs": (
+                    obj.get("includeSubstitutedSKUs")
+                    if obj.get("includeSubstitutedSKUs") is not None
+                    else True
+                ),
+                "includeSearchTexts": (
+                    obj.get("includeSearchTexts")
+                    if obj.get("includeSearchTexts") is not None
+                    else True
+                ),
+                "orderBy": (
+                    OrderByGrTe.from_dict(obj["orderBy"])
+                    if obj.get("orderBy") is not None
+                    else None
+                ),
+                "limit": (
+                    TextLimit.from_dict(obj["limit"])
+                    if obj.get("limit") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

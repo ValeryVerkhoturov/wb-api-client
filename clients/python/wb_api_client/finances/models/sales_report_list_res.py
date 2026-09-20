@@ -18,39 +18,111 @@ import re  # noqa: F401
 import json
 
 from datetime import date
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class SalesReportListRes(BaseModel):
     """
     Список отчётов реализации
-    """ # noqa: E501
-    report_id: StrictInt = Field(description="ID отчёта", alias="reportId")
-    seller_finance_name: StrictStr = Field(description="Наименование продавца", alias="sellerFinanceName")
-    date_from: date = Field(description="Дата начала отчётного периода", alias="dateFrom")
-    date_to: date = Field(description="Дата конца отчётного периода", alias="dateTo")
-    create_date: date = Field(description="Дата формирования отчёта", alias="createDate")
-    currency: StrictStr = Field(description="Валюта отчёта")
-    report_type: StrictInt = Field(description="Тип отчёта:   - `1` — основной   - `2` — по выкупам ", alias="reportType")
-    retail_amount_sum: StrictStr = Field(description="Продажа", alias="retailAmountSum")
-    for_pay_sum: StrictStr = Field(description="К перечислению за товар", alias="forPaySum")
-    avg_sale_percent: Union[StrictFloat, StrictInt] = Field(description="Согласованная скидка, %", alias="avgSalePercent")
-    delivery_service_sum: StrictStr = Field(description="Стоимость доставки", alias="deliveryServiceSum")
-    paid_storage_sum: StrictStr = Field(description="Стоимость хранения", alias="paidStorageSum")
-    paid_acceptance_sum: StrictStr = Field(description="Стоимость операций при приёмке", alias="paidAcceptanceSum")
-    deduction_sum: StrictStr = Field(description="Прочие удержания/выплаты", alias="deductionSum")
-    penalty_sum: StrictStr = Field(description="Общая сумма штрафов", alias="penaltySum")
-    additional_payment_sum: StrictStr = Field(description="Корректировка Вознаграждения Wildberries (ВВ)", alias="additionalPaymentSum")
-    cashback_amount_sum: StrictStr = Field(description="Сумма баллов, удержанных по программе лояльности", alias="cashbackAmountSum")
-    cashback_discount_sum: StrictStr = Field(description="Компенсация скидки по программе лояльности", alias="cashbackDiscountSum")
-    cashback_commission_change_sum: StrictStr = Field(description="Стоимость участия в программе лояльности", alias="cashbackCommissionChangeSum")
-    payment_schedule: StrictStr = Field(description="Разовое изменение срока перечисления денежных средств", alias="paymentSchedule")
-    bank_payment_sum: StrictStr = Field(description="Итого к оплате", alias="bankPaymentSum")
-    __properties: ClassVar[List[str]] = ["reportId", "sellerFinanceName", "dateFrom", "dateTo", "createDate", "currency", "reportType", "retailAmountSum", "forPaySum", "avgSalePercent", "deliveryServiceSum", "paidStorageSum", "paidAcceptanceSum", "deductionSum", "penaltySum", "additionalPaymentSum", "cashbackAmountSum", "cashbackDiscountSum", "cashbackCommissionChangeSum", "paymentSchedule", "bankPaymentSum"]
+    """  # noqa: E501
 
-    @field_validator('report_type')
+    report_id: StrictInt = Field(description="ID отчёта", alias="reportId")
+    seller_finance_name: StrictStr = Field(
+        description="Наименование продавца", alias="sellerFinanceName"
+    )
+    date_from: date = Field(
+        description="Дата начала отчётного периода", alias="dateFrom"
+    )
+    date_to: date = Field(description="Дата конца отчётного периода", alias="dateTo")
+    create_date: date = Field(
+        description="Дата формирования отчёта", alias="createDate"
+    )
+    currency: StrictStr = Field(description="Валюта отчёта")
+    report_type: StrictInt = Field(
+        description="Тип отчёта:   - `1` — основной   - `2` — по выкупам ",
+        alias="reportType",
+    )
+    retail_amount_sum: StrictStr = Field(description="Продажа", alias="retailAmountSum")
+    for_pay_sum: StrictStr = Field(
+        description="К перечислению за товар", alias="forPaySum"
+    )
+    avg_sale_percent: Union[StrictFloat, StrictInt] = Field(
+        description="Согласованная скидка, %", alias="avgSalePercent"
+    )
+    delivery_service_sum: StrictStr = Field(
+        description="Стоимость доставки", alias="deliveryServiceSum"
+    )
+    paid_storage_sum: StrictStr = Field(
+        description="Стоимость хранения", alias="paidStorageSum"
+    )
+    paid_acceptance_sum: StrictStr = Field(
+        description="Стоимость операций при приёмке", alias="paidAcceptanceSum"
+    )
+    deduction_sum: StrictStr = Field(
+        description="Прочие удержания/выплаты", alias="deductionSum"
+    )
+    penalty_sum: StrictStr = Field(
+        description="Общая сумма штрафов", alias="penaltySum"
+    )
+    additional_payment_sum: StrictStr = Field(
+        description="Корректировка Вознаграждения Wildberries (ВВ)",
+        alias="additionalPaymentSum",
+    )
+    cashback_amount_sum: StrictStr = Field(
+        description="Сумма баллов, удержанных по программе лояльности",
+        alias="cashbackAmountSum",
+    )
+    cashback_discount_sum: StrictStr = Field(
+        description="Компенсация скидки по программе лояльности",
+        alias="cashbackDiscountSum",
+    )
+    cashback_commission_change_sum: StrictStr = Field(
+        description="Стоимость участия в программе лояльности",
+        alias="cashbackCommissionChangeSum",
+    )
+    payment_schedule: StrictStr = Field(
+        description="Разовое изменение срока перечисления денежных средств",
+        alias="paymentSchedule",
+    )
+    bank_payment_sum: StrictStr = Field(
+        description="Итого к оплате", alias="bankPaymentSum"
+    )
+    __properties: ClassVar[List[str]] = [
+        "reportId",
+        "sellerFinanceName",
+        "dateFrom",
+        "dateTo",
+        "createDate",
+        "currency",
+        "reportType",
+        "retailAmountSum",
+        "forPaySum",
+        "avgSalePercent",
+        "deliveryServiceSum",
+        "paidStorageSum",
+        "paidAcceptanceSum",
+        "deductionSum",
+        "penaltySum",
+        "additionalPaymentSum",
+        "cashbackAmountSum",
+        "cashbackDiscountSum",
+        "cashbackCommissionChangeSum",
+        "paymentSchedule",
+        "bankPaymentSum",
+    ]
+
+    @field_validator("report_type")
     def report_type_validate_enum(cls, value):
         """Validates the enum"""
         if value not in set([1, 2]):
@@ -62,7 +134,6 @@ class SalesReportListRes(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -88,8 +159,7 @@ class SalesReportListRes(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -107,29 +177,29 @@ class SalesReportListRes(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "reportId": obj.get("reportId"),
-            "sellerFinanceName": obj.get("sellerFinanceName"),
-            "dateFrom": obj.get("dateFrom"),
-            "dateTo": obj.get("dateTo"),
-            "createDate": obj.get("createDate"),
-            "currency": obj.get("currency"),
-            "reportType": obj.get("reportType"),
-            "retailAmountSum": obj.get("retailAmountSum"),
-            "forPaySum": obj.get("forPaySum"),
-            "avgSalePercent": obj.get("avgSalePercent"),
-            "deliveryServiceSum": obj.get("deliveryServiceSum"),
-            "paidStorageSum": obj.get("paidStorageSum"),
-            "paidAcceptanceSum": obj.get("paidAcceptanceSum"),
-            "deductionSum": obj.get("deductionSum"),
-            "penaltySum": obj.get("penaltySum"),
-            "additionalPaymentSum": obj.get("additionalPaymentSum"),
-            "cashbackAmountSum": obj.get("cashbackAmountSum"),
-            "cashbackDiscountSum": obj.get("cashbackDiscountSum"),
-            "cashbackCommissionChangeSum": obj.get("cashbackCommissionChangeSum"),
-            "paymentSchedule": obj.get("paymentSchedule"),
-            "bankPaymentSum": obj.get("bankPaymentSum")
-        })
+        _obj = cls.model_validate(
+            {
+                "reportId": obj.get("reportId"),
+                "sellerFinanceName": obj.get("sellerFinanceName"),
+                "dateFrom": obj.get("dateFrom"),
+                "dateTo": obj.get("dateTo"),
+                "createDate": obj.get("createDate"),
+                "currency": obj.get("currency"),
+                "reportType": obj.get("reportType"),
+                "retailAmountSum": obj.get("retailAmountSum"),
+                "forPaySum": obj.get("forPaySum"),
+                "avgSalePercent": obj.get("avgSalePercent"),
+                "deliveryServiceSum": obj.get("deliveryServiceSum"),
+                "paidStorageSum": obj.get("paidStorageSum"),
+                "paidAcceptanceSum": obj.get("paidAcceptanceSum"),
+                "deductionSum": obj.get("deductionSum"),
+                "penaltySum": obj.get("penaltySum"),
+                "additionalPaymentSum": obj.get("additionalPaymentSum"),
+                "cashbackAmountSum": obj.get("cashbackAmountSum"),
+                "cashbackDiscountSum": obj.get("cashbackDiscountSum"),
+                "cashbackCommissionChangeSum": obj.get("cashbackCommissionChangeSum"),
+                "paymentSchedule": obj.get("paymentSchedule"),
+                "bankPaymentSum": obj.get("bankPaymentSum"),
+            }
+        )
         return _obj
-
-

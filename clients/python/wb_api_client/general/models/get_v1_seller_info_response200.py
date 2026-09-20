@@ -22,14 +22,21 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1SellerInfoResponse200(BaseModel):
     """
     GetV1SellerInfoResponse200
-    """ # noqa: E501
+    """  # noqa: E501
+
     name: Optional[StrictStr] = Field(default=None, description="Наименование продавца")
-    sid: Optional[StrictStr] = Field(default=None, description="Уникальный ID продавца на Wildberries, [находящийся в публичном поле токена](./api-information#tag/authorization/Kak-ustroen-token)")
+    sid: Optional[StrictStr] = Field(
+        default=None,
+        description="Уникальный ID продавца на Wildberries, [находящийся в публичном поле токена](./api-information#tag/authorization/Kak-ustroen-token)",
+    )
     tin: Optional[StrictStr] = Field(default=None, description="ИНН")
-    trade_mark: Optional[StrictStr] = Field(default=None, description="Торговое наименование продавца", alias="tradeMark")
+    trade_mark: Optional[StrictStr] = Field(
+        default=None, description="Торговое наименование продавца", alias="tradeMark"
+    )
     __properties: ClassVar[List[str]] = ["name", "sid", "tin", "tradeMark"]
 
     model_config = ConfigDict(
@@ -37,7 +44,6 @@ class GetV1SellerInfoResponse200(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +69,7 @@ class GetV1SellerInfoResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -82,12 +87,12 @@ class GetV1SellerInfoResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "sid": obj.get("sid"),
-            "tin": obj.get("tin"),
-            "tradeMark": obj.get("tradeMark")
-        })
+        _obj = cls.model_validate(
+            {
+                "name": obj.get("name"),
+                "sid": obj.get("sid"),
+                "tin": obj.get("tin"),
+                "tradeMark": obj.get("tradeMark"),
+            }
+        )
         return _obj
-
-

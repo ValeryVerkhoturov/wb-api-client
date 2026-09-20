@@ -22,22 +22,32 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class GetV1QuestionsCountResponse200(BaseModel):
     """
     GetV1QuestionsCountResponse200
-    """ # noqa: E501
+    """  # noqa: E501
+
     data: Optional[StrictInt] = Field(default=None, description="Количество вопросов")
     error: Optional[StrictBool] = Field(default=None, description="Есть ли ошибка")
-    error_text: Optional[StrictStr] = Field(default=None, description="Описание ошибки", alias="errorText")
-    additional_errors: Optional[List[StrictStr]] = Field(default=None, description="Дополнительные ошибки", alias="additionalErrors")
-    __properties: ClassVar[List[str]] = ["data", "error", "errorText", "additionalErrors"]
+    error_text: Optional[StrictStr] = Field(
+        default=None, description="Описание ошибки", alias="errorText"
+    )
+    additional_errors: Optional[List[StrictStr]] = Field(
+        default=None, description="Дополнительные ошибки", alias="additionalErrors"
+    )
+    __properties: ClassVar[List[str]] = [
+        "data",
+        "error",
+        "errorText",
+        "additionalErrors",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +73,7 @@ class GetV1QuestionsCountResponse200(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,8 +82,11 @@ class GetV1QuestionsCountResponse200(BaseModel):
         )
         # set to None if additional_errors (nullable) is None
         # and model_fields_set contains the field
-        if self.additional_errors is None and "additional_errors" in self.model_fields_set:
-            _dict['additionalErrors'] = None
+        if (
+            self.additional_errors is None
+            and "additional_errors" in self.model_fields_set
+        ):
+            _dict["additionalErrors"] = None
 
         return _dict
 
@@ -87,12 +99,12 @@ class GetV1QuestionsCountResponse200(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "data": obj.get("data"),
-            "error": obj.get("error"),
-            "errorText": obj.get("errorText"),
-            "additionalErrors": obj.get("additionalErrors")
-        })
+        _obj = cls.model_validate(
+            {
+                "data": obj.get("data"),
+                "error": obj.get("error"),
+                "errorText": obj.get("errorText"),
+                "additionalErrors": obj.get("additionalErrors"),
+            }
+        )
         return _obj
-
-

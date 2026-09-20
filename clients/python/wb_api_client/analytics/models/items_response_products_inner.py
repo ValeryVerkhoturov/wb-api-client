@@ -19,15 +19,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from wb_api_client.analytics.models.items_response_products_inner_product import ItemsResponseProductsInnerProduct
-from wb_api_client.analytics.models.items_response_products_inner_statistic import ItemsResponseProductsInnerStatistic
+from wb_api_client.analytics.models.items_response_products_inner_product import (
+    ItemsResponseProductsInnerProduct,
+)
+from wb_api_client.analytics.models.items_response_products_inner_statistic import (
+    ItemsResponseProductsInnerStatistic,
+)
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ItemsResponseProductsInner(BaseModel):
     """
     ItemsResponseProductsInner
-    """ # noqa: E501
+    """  # noqa: E501
+
     product: ItemsResponseProductsInnerProduct
     statistic: ItemsResponseProductsInnerStatistic
     __properties: ClassVar[List[str]] = ["product", "statistic"]
@@ -37,7 +43,6 @@ class ItemsResponseProductsInner(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,8 +68,7 @@ class ItemsResponseProductsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -73,10 +77,10 @@ class ItemsResponseProductsInner(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of product
         if self.product:
-            _dict['product'] = self.product.to_dict()
+            _dict["product"] = self.product.to_dict()
         # override the default output from pydantic by calling `to_dict()` of statistic
         if self.statistic:
-            _dict['statistic'] = self.statistic.to_dict()
+            _dict["statistic"] = self.statistic.to_dict()
         return _dict
 
     @classmethod
@@ -88,10 +92,18 @@ class ItemsResponseProductsInner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "product": ItemsResponseProductsInnerProduct.from_dict(obj["product"]) if obj.get("product") is not None else None,
-            "statistic": ItemsResponseProductsInnerStatistic.from_dict(obj["statistic"]) if obj.get("statistic") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "product": (
+                    ItemsResponseProductsInnerProduct.from_dict(obj["product"])
+                    if obj.get("product") is not None
+                    else None
+                ),
+                "statistic": (
+                    ItemsResponseProductsInnerStatistic.from_dict(obj["statistic"])
+                    if obj.get("statistic") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
-
-

@@ -23,12 +23,20 @@ from wb_api_client.items.models.documents_request import DocumentsRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2CardsUploadRequestInnerVariantsInnerDocuments(BaseModel):
     """
     Документы
-    """ # noqa: E501
-    items: Optional[List[DocumentsRequest]] = Field(default=None, description="Список документов")
-    exclude_documents: Optional[StrictBool] = Field(default=False, description="Исключить ли документы из проверки:   - `true` — да, не проверять документы при проверке карточки товара. При `true` все значения, переданные в `documents`, будут заменены на пустые значения   - `false` — нет, проверять документы при проверке карточки товара ", alias="excludeDocuments")
+    """  # noqa: E501
+
+    items: Optional[List[DocumentsRequest]] = Field(
+        default=None, description="Список документов"
+    )
+    exclude_documents: Optional[StrictBool] = Field(
+        default=False,
+        description="Исключить ли документы из проверки:   - `true` — да, не проверять документы при проверке карточки товара. При `true` все значения, переданные в `documents`, будут заменены на пустые значения   - `false` — нет, проверять документы при проверке карточки товара ",
+        alias="excludeDocuments",
+    )
     __properties: ClassVar[List[str]] = ["items", "excludeDocuments"]
 
     model_config = ConfigDict(
@@ -36,7 +44,6 @@ class PostV2CardsUploadRequestInnerVariantsInnerDocuments(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,8 +69,7 @@ class PostV2CardsUploadRequestInnerVariantsInnerDocuments(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -76,7 +82,7 @@ class PostV2CardsUploadRequestInnerVariantsInnerDocuments(BaseModel):
             for _item_items in self.items:
                 if _item_items:
                     _items.append(_item_items.to_dict())
-            _dict['items'] = _items
+            _dict["items"] = _items
         return _dict
 
     @classmethod
@@ -88,10 +94,18 @@ class PostV2CardsUploadRequestInnerVariantsInnerDocuments(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "items": [DocumentsRequest.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None,
-            "excludeDocuments": obj.get("excludeDocuments") if obj.get("excludeDocuments") is not None else False
-        })
+        _obj = cls.model_validate(
+            {
+                "items": (
+                    [DocumentsRequest.from_dict(_item) for _item in obj["items"]]
+                    if obj.get("items") is not None
+                    else None
+                ),
+                "excludeDocuments": (
+                    obj.get("excludeDocuments")
+                    if obj.get("excludeDocuments") is not None
+                    else False
+                ),
+            }
+        )
         return _obj
-
-

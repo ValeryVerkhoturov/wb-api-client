@@ -23,11 +23,15 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class PostV2ListGoodsFilterRequest(BaseModel):
     """
     PostV2ListGoodsFilterRequest
-    """ # noqa: E501
-    nm_list: Annotated[List[StrictInt], Field(min_length=1, max_length=1000)] = Field(description="Артикулы WB для поиска товара", alias="nmList")
+    """  # noqa: E501
+
+    nm_list: Annotated[List[StrictInt], Field(min_length=1, max_length=1000)] = Field(
+        description="Артикулы WB для поиска товара", alias="nmList"
+    )
     __properties: ClassVar[List[str]] = ["nmList"]
 
     model_config = ConfigDict(
@@ -35,7 +39,6 @@ class PostV2ListGoodsFilterRequest(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,8 +64,7 @@ class PostV2ListGoodsFilterRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
+        excluded_fields: Set[str] = set([])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -80,9 +82,5 @@ class PostV2ListGoodsFilterRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "nmList": obj.get("nmList")
-        })
+        _obj = cls.model_validate({"nmList": obj.get("nmList")})
         return _obj
-
-
