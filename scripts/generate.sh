@@ -240,5 +240,13 @@ if command -v docker >/dev/null 2>&1; then
     echo "  ! mvn spotless:apply failed — run manually in clients/java before publish"
 fi
 
+# Per-language READMEs. Runs last so it can introspect the final,
+# formatted trees (enumerating Api classes from *.py/*.ts/*.go/*.java).
+if [[ -x "${REPO_ROOT}/.venv/bin/python" ]]; then
+  "${REPO_ROOT}/.venv/bin/python" "${REPO_ROOT}/scripts/gen-readmes.py" "${REPO_ROOT}"
+else
+  python3 "${REPO_ROOT}/scripts/gen-readmes.py" "${REPO_ROOT}"
+fi
+
 rm -rf "${SCRATCH}"
 echo "Generated 4 unified client libraries at version ${VERSION}"

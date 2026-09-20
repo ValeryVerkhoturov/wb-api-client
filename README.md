@@ -77,6 +77,15 @@ In every language the bearer JWT is stored inside a "secret-string" wrapper so i
 
 Passing the token through the wrapper is the only supported path.
 
+### Per-language module reference
+
+Each generated client has its own README with an install snippet, the auth block, and a per-module import + instantiate example for all 13 API categories. The four READMEs are regenerated on every release, so they never drift from the code:
+
+- **Python** — [`clients/python/README.md`](clients/python/README.md)
+- **TypeScript** — [`clients/typescript/README.md`](clients/typescript/README.md)
+- **Go** — [`clients/go/README.md`](clients/go/README.md)
+- **Java** — [`clients/java/README.md`](clients/java/README.md)
+
 ## Local development
 
 ```bash
