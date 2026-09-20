@@ -124,7 +124,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        lang: [python, typescript, go, java]
+        lang: [python, typescript, go, java, php]
     uses: ./.github/workflows/publish.yml
     with:
       lang: ${{ matrix.lang }}

@@ -27,7 +27,7 @@ on:
     inputs:
       lang:
         type: choice
-        options: [python, typescript, go, java]
+        options: [python, typescript, go, java, php]
         required: true
       version:
         type: string
@@ -97,6 +97,31 @@ jobs:
         run: |
           echo "Go module release: github.com/ValeryVerkhoturov/wb-api-client/clients/go@${{ inputs.ref }}"
           echo "No registry publish needed — proxy.golang.org fetches from the tag."
+
+  publish-php:
+    if: inputs.lang == 'php'
+    runs-on: ubuntu-latest
+    environment: packagist
+    # Packagist is a Git-crawling registry: once the package is
+    # registered on packagist.org, it auto-picks up any new tag from
+    # this repo (either via the GitHub → Packagist webhook or on its
+    # own crawler cadence). No workflow-side build/publish is needed —
+    # this job's job is to POKE Packagist so the update is instant
+    # rather than "eventually".
+    steps:
+      - name: Ping Packagist to refresh the package
+        env:
+          PACKAGIST_USERNAME: ${{ secrets.PACKAGIST_USERNAME }}
+          PACKAGIST_API_TOKEN: ${{ secrets.PACKAGIST_API_TOKEN }}
+          # Full Packagist package name — must match `name` in
+          # clients/php/composer.json.
+          PACKAGE: "valeryverkhoturov/wb-api-client"
+        run: |
+          curl -fsSL -XPOST \
+            "https://packagist.org/api/update-package?username=${PACKAGIST_USERNAME}&apiToken=${PACKAGIST_API_TOKEN}" \
+            -H 'content-type: application/json' \
+            -d "{\"repository\":{\"url\":\"https://github.com/ValeryVerkhoturov/wb-api-client\"}}"
+          echo "  ✓ Packagist notified — new version live at https://packagist.org/packages/${PACKAGE}"
 
   publish-java:
     if: inputs.lang == 'java'

@@ -1,0 +1,9 @@
+# Per-slug invokerPackage / composerPackageName are injected by
+# generate.sh so each of the 13 sub-modules gets its own PSR-4 namespace
+# root and shares the Composer package name at repo level.
+# `guzzle` library is the openapi-generator default and the most common
+# HTTP client in the PHP ecosystem.
+generatorName: php
+library: guzzle
+srcBasePath: src
+hideGenerationTimestamp: true
