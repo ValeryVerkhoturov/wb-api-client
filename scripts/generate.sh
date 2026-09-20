@@ -10,9 +10,10 @@ set -euo pipefail
 #   clients/typescript/src/<slug>/…
 #   clients/go/<slug>/…
 #   clients/java/src/main/java/io/github/valeryverkhoturov/wbapi/<slug>/…
+#   clients/php/src/<Slug>/…                (PSR-4 ValeryVerkhoturov\WbApiClient\<Slug>)
 #
-# Top-level manifests (pyproject.toml, package.json, go.mod, pom.xml) come
-# from templates/ with __VERSION__ substituted in.
+# Top-level manifests (pyproject.toml, package.json, go.mod, pom.xml,
+# composer.json) come from templates/ with __VERSION__ substituted in.
 #
 # Usage: generate.sh <version>
 
@@ -69,7 +70,7 @@ gen() {
 }
 
 rm -rf "${CLIENTS_DIR}"
-mkdir -p "${CLIENTS_DIR}"/{python/wb_api_client,typescript/src,go,java/src/main/java/${JAVA_GROUP_PATH}}
+mkdir -p "${CLIENTS_DIR}"/{python/wb_api_client,typescript/src,go,java/src/main/java/${JAVA_GROUP_PATH},php/src}
 SCRATCH="${CLIENTS_DIR}/.tmp"
 mkdir -p "${SCRATCH}"
 
@@ -141,6 +142,25 @@ for spec in "${SPEC_DIR}"/*.yaml; do
   java_src="${java_tmp}/src/main/java/${JAVA_GROUP_PATH}/${slug_snake}"
   java_dest="${CLIENTS_DIR}/java/src/main/java/${JAVA_GROUP_PATH}/${slug_snake}"
   mv "${java_src}" "${java_dest}"
+
+  # -------- PHP --------
+  # Each slug becomes a PSR-4 namespace root
+  # (ValeryVerkhoturov\WbApiClient\<Slug>). openapi-generator's PHP
+  # template writes source to a flat `<scratch>/src/` (Api/, Model/,
+  # Configuration.php, ApiException.php, …) with namespaces declared
+  # inside each file. We move the whole `src/` contents into
+  # clients/php/src/<Slug>/ — PSR-4 autoload then resolves
+  # `\ValeryVerkhoturov\WbApiClient\<Slug>\Configuration` to
+  # `src/<Slug>/Configuration.php`.
+  php_tmp="${SCRATCH}/php-${slug_snake}"
+  slug_pascal="$(printf '%s' "${slug_snake}" | awk 'BEGIN{FS="_";OFS=""} {for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1')"
+  php_ns="ValeryVerkhoturov\\WbApiClient\\${slug_pascal}"
+  gen php "${spec}" "${php_tmp}" "${CONFIG_DIR}/php.yaml" \
+    "invokerPackage=${php_ns},packageName=WbApiClient${slug_pascal},composerPackageName=valeryverkhoturov/wb-api-client-${slug}"
+  php_dest="${CLIENTS_DIR}/php/src/${slug_pascal}"
+  mkdir -p "${php_dest}"
+  # Move Api/ Model/ dirs and top-level .php files into place.
+  mv "${php_tmp}/src"/* "${php_dest}/"
 done
 
 # -------- Drop in top-level manifests, substituting __VERSION__ --------
@@ -206,6 +226,11 @@ fi
 sed "s/__VERSION__/${VERSION}/g" "${TEMPLATE_DIR}/java/pom.xml" \
     > "${CLIENTS_DIR}/java/pom.xml"
 
+# PHP — one composer.json at the module root, PSR-4 autoload rooted at
+# ValeryVerkhoturov\WbApiClient\ → src/.
+sed "s/__VERSION__/${VERSION}/g" "${TEMPLATE_DIR}/php/composer.json" \
+    > "${CLIENTS_DIR}/php/composer.json"
+
 # ── canonicalize per-language formatting ──────────────────────────────
 # Each language uses its own community-standard formatter, pinned so
 # local and CI produce byte-identical output. The pr-check workflow's
@@ -244,6 +269,18 @@ if command -v docker >/dev/null 2>&1; then
     echo "  ! mvn spotless:apply failed — run manually in clients/java before publish"
 fi
 
+# PHP — PHP-CS-Fixer via the friendsofphp image. PSR-12 preset for the
+# widely-accepted community layout. Config is passed inline via
+# --rules=@PSR12 so we don't need a .php-cs-fixer.php file per client.
+if command -v docker >/dev/null 2>&1; then
+  docker run --rm -u "$(id -u):$(id -g)" \
+    -v "${REPO_ROOT}:/work" -w "/work/clients/php" \
+    -e HOME=/tmp -e PHP_CS_FIXER_IGNORE_ENV=1 \
+    ghcr.io/php-cs-fixer/php-cs-fixer:3-php8.3 fix src --rules=@PSR12 --using-cache=no \
+    >/dev/null 2>&1 || \
+    echo "  ! php-cs-fixer failed — run manually in clients/php before publish"
+fi
+
 # Per-language READMEs. Runs last so it can introspect the final,
 # formatted trees (enumerating Api classes from *.py/*.ts/*.go/*.java).
 if [[ -x "${REPO_ROOT}/.venv/bin/python" ]]; then
@@ -253,4 +290,4 @@ else
 fi
 
 rm -rf "${SCRATCH}"
-echo "Generated 4 unified client libraries at version ${VERSION}"
+echo "Generated 5 unified client libraries at version ${VERSION}"

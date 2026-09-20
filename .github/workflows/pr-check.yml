@@ -101,6 +101,16 @@ jobs:
         working-directory: clients/java
         run: mvn -q spotless:check
 
+      - name: php-cs-fixer is clean
+        # PSR-12 preset. --dry-run makes it fail if any file would be
+        # reformatted, mirroring the gofmt / black / prettier /
+        # spotless pattern above.
+        run: |
+          docker run --rm -u $(id -u):$(id -g) -v "$PWD/clients/php:/work" -w /work \
+            -e HOME=/tmp -e PHP_CS_FIXER_IGNORE_ENV=1 \
+            ghcr.io/php-cs-fixer/php-cs-fixer:3-php8.3 \
+            fix src --dry-run --rules=@PSR12 --using-cache=no
+
       - name: Diff against committed tree
         id: diff
         # `git diff --exit-code` exits non-zero when there is drift.

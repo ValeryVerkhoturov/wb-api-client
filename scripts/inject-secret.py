@@ -330,6 +330,112 @@ def patch_java(root: Path) -> int:
     return n
 
 
+# ────────── PHP ──────────
+
+_PHP_ROOT_NS = "ValeryVerkhoturov\\WbApiClient"
+
+
+def _php_secret_string(ns: str) -> str:
+    return (
+        "<?php\n"
+        "\n"
+        f"namespace {ns};\n"
+        "\n"
+        "/**\n"
+        " * Wrapper around a bearer JWT that redacts under __toString().\n"
+        " * Use exposeSecret() to get the raw value — deliberately awkward\n"
+        " * so accidental leaks (var_dump/print_r/log) become explicit.\n"
+        " */\n"
+        "final class SecretString\n"
+        "{\n"
+        "    private string $value;\n"
+        "\n"
+        "    public function __construct(string $value)\n"
+        "    {\n"
+        "        $this->value = $value;\n"
+        "    }\n"
+        "\n"
+        "    public function exposeSecret(): string\n"
+        "    {\n"
+        "        return $this->value;\n"
+        "    }\n"
+        "\n"
+        "    public function __toString(): string\n"
+        "    {\n"
+        "        return '<REDACTED>';\n"
+        "    }\n"
+        "\n"
+        "    public function __debugInfo(): array\n"
+        "    {\n"
+        "        return ['value' => '<REDACTED>'];\n"
+        "    }\n"
+        "}\n"
+    )
+
+
+_PHP_SETTER_METHOD = """
+    /**
+     * Store the WB bearer JWT wrapped in a {@link SecretString} so it
+     * redacts under __toString/var_dump. Internally forwards to
+     * setAccessToken() with the exposed value.
+     */
+    public function setAccessTokenSecret(SecretString $secret): self
+    {
+        $this->setAccessToken($secret->exposeSecret());
+        return $this;
+    }
+"""
+
+
+def patch_php_configuration(text: str) -> str:
+    """Inject a setAccessTokenSecret() method on the generated
+    Configuration class, and replace the User-Agent default with our
+    ValeryVerkhoturov/wb-api-client/php string (openapi-generator's PHP
+    template doesn't accept the `httpUserAgent` config option like the
+    other language generators do)."""
+
+    # 1. User-Agent default. Both the property default and the docstring
+    # get updated so the type inspection stays honest.
+    text = re.sub(
+        r"protected \$userAgent = 'OpenAPI-Generator/[^']*';",
+        "protected $userAgent = 'ValeryVerkhoturov/wb-api-client/php';",
+        text,
+        count=1,
+    )
+    text = re.sub(
+        r'User agent of the HTTP request, set to "OpenAPI-Generator/\{version\}/PHP" by default',
+        'User agent of the HTTP request, set to "ValeryVerkhoturov/wb-api-client/php" by default',
+        text,
+        count=1,
+    )
+
+    # 2. setAccessTokenSecret setter (idempotent).
+    if "setAccessTokenSecret" not in text:
+        text = re.sub(
+            r"(\n})\s*\Z",
+            _PHP_SETTER_METHOD + r"\1",
+            text,
+        )
+    return text
+
+
+def patch_php(root: Path) -> int:
+    """Drop SecretString.php into every sub-module and patch its
+    Configuration to add setAccessTokenSecret()."""
+    n = 0
+    src = root / "src"
+    if not src.is_dir():
+        return 0
+    for sub in sorted(p for p in src.iterdir() if p.is_dir()):
+        ns = f"{_PHP_ROOT_NS}\\{sub.name}"
+        (sub / "SecretString.php").write_text(_php_secret_string(ns))
+        cfg = sub / "Configuration.php"
+        if cfg.exists():
+            cfg.write_text(patch_php_configuration(cfg.read_text()))
+        n += 1
+    return n
+
+
 # ────────── entry point ──────────
 
 def main() -> int:
@@ -349,6 +455,8 @@ def main() -> int:
     print(f"  patched {go} Go sub-packages       (secrecy.SecretString)")
     ja = patch_java(clients / "java")
     print(f"  patched {ja} Java sub-modules      (SecretString class)")
+    ph = patch_php(clients / "php")
+    print(f"  patched {ph} PHP sub-modules       (SecretString class)")
     return 0
 
 

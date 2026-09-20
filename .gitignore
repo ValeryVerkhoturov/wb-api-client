@@ -9,6 +9,8 @@ clients/**/node_modules/
 clients/**/target/
 clients/**/build/
 clients/**/*.egg-info/
+clients/**/vendor/
+clients/**/.php-cs-fixer.cache
 
 # Local generator scratch
 clients/.tmp/

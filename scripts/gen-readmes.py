@@ -111,6 +111,13 @@ def java_apis(root: Path, snake: str) -> list[str]:
     return sorted(p.stem for p in api_dir.glob("*.java"))
 
 
+def php_apis(root: Path, pascal: str) -> list[str]:
+    api_dir = root / "src" / pascal / "Api"
+    if not api_dir.is_dir():
+        return []
+    return sorted(p.stem for p in api_dir.glob("*.php"))
+
+
 # ────────── per-language README rendering ──────────
 
 _HEADER = """# wb-api-client — {lang_display}
@@ -187,6 +194,20 @@ def _javasnippet(snake: str, apis: list[str]) -> str:
         f"ApiClient client = new ApiClient();\n"
         f"client.setBearerToken(new SecretString(\"<your WB JWT>\"));\n"
         f"{api} api = new {api}(client);"
+    )
+
+
+def _phpsnippet(pascal: str, apis: list[str]) -> str:
+    api = apis[0] if apis else "DefaultApi"
+    ns = f"ValeryVerkhoturov\\WbApiClient\\{pascal}"
+    return (
+        f"use {ns}\\Configuration;\n"
+        f"use {ns}\\SecretString;\n"
+        f"use {ns}\\Api\\{api};\n"
+        f"use GuzzleHttp\\Client;\n\n"
+        f"$config = (new Configuration())\n"
+        f"    ->setAccessTokenSecret(new SecretString('<your WB JWT>'));\n"
+        f"$api = new {api}(new Client(), $config);"
     )
 
 
@@ -351,7 +372,37 @@ def main() -> int:
         docs_url=docs_url_for,
     )
 
-    print(f"  wrote 4 per-language READMEs covering {len(specs)} modules each")
+    # ── PHP ──
+    ph_root = root / "clients" / "php"
+    def _pascal(snake: str) -> str:
+        return "".join(p[:1].upper() + p[1:] for p in snake.split("_"))
+    for spec in specs:
+        spec["_pascal"] = _pascal(spec["snake"])
+    write_readme(
+        ph_root / "README.md",
+        header_ctx={
+            "lang_display": "PHP",
+            "install": "composer require valeryverkhoturov/wb-api-client",
+            "wrapper_note": "a per-sub-module `SecretString` class",
+            "log_call": "var_dump",
+            "expose_call": "->exposeSecret()",
+            "lang_code": "php",
+            "auth_snippet": (
+                "use ValeryVerkhoturov\\WbApiClient\\Items\\Configuration;\n"
+                "use ValeryVerkhoturov\\WbApiClient\\Items\\SecretString;\n\n"
+                "$config = (new Configuration())\n"
+                "    ->setAccessTokenSecret(new SecretString('<your WB JWT>'));"
+            ),
+            "import_prefix": "ValeryVerkhoturov\\\\WbApiClient\\\\",
+        },
+        specs=specs,
+        apis_fn=lambda s: php_apis(ph_root, s["_pascal"]),
+        snippet_fn=lambda s, apis: _phpsnippet(s["_pascal"], apis),
+        code_fence="php",
+        docs_url=docs_url_for,
+    )
+
+    print(f"  wrote 5 per-language READMEs covering {len(specs)} modules each")
     return 0
 
 

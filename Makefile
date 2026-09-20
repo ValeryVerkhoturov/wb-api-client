@@ -25,11 +25,15 @@ NODE_DOCKER = docker run --rm -u $$(id -u):$$(id -g) \
 MVN_DOCKER  = docker run --rm -u $$(id -u):$$(id -g) \
                 -v $(CURDIR)/clients/java:/app -w /app \
                 -e HOME=/tmp maven:3.9-eclipse-temurin-17
+PHP_DOCKER  = docker run --rm -u $$(id -u):$$(id -g) \
+                -v $(CURDIR)/clients/php:/app -w /app \
+                -e HOME=/tmp -e COMPOSER_HOME=/tmp/.composer \
+                composer:2
 
 .DEFAULT_GOAL := help
 .PHONY: help venv download post-process generate regen \
-        verify verify-python verify-ts verify-go verify-java \
-        gofmt black prettier spotless clean
+        verify verify-python verify-ts verify-go verify-java verify-php \
+        gofmt black prettier spotless php-cs-fixer clean
 
 # ── help ──────────────────────────────────────────────────────────────────
 
@@ -61,7 +65,7 @@ regen: download post-process generate ## Full pipeline: download → process →
 
 # ── verification ──────────────────────────────────────────────────────────
 
-verify: verify-python verify-ts verify-go verify-java gofmt black prettier spotless ## Build every language + fmt checks
+verify: verify-python verify-ts verify-go verify-java verify-php gofmt black prettier spotless php-cs-fixer ## Build every language + fmt checks
 
 verify-python: ## Build the Python wheel and import every sub-module
 	@echo "── Python ─────────────────────────────────────"
@@ -86,6 +90,19 @@ verify-java: ## Compile the Java module (mvn clean compile)
 	$(MVN_DOCKER) mvn -q -Duser.home=/tmp -DskipTests clean compile
 	@echo "  ✓ mvn compile OK"
 
+verify-php: ## composer validate + PHP lint every generated file
+	@echo "── PHP ────────────────────────────────────────"
+	@# Not --strict: composer warns about `version` in composer.json
+	@# ("recommended to leave it out for Packagist"), which we accept
+	@# because the version field is how the generation pipeline stamps
+	@# a uniform version across every language manifest.
+	$(PHP_DOCKER) composer validate --no-check-publish
+	@# php -l lints every .php file; loop through them via find so a
+	@# syntax error in one surfaces its filename clearly.
+	@docker run --rm -u $$(id -u):$$(id -g) -v $(CURDIR)/clients/php:/app -w /app \
+	  -e HOME=/tmp php:8.3-cli-alpine sh -c \
+	  "find src -name '*.php' -print0 | xargs -0 -n1 php -l >/dev/null && echo '  ✓ php -l passes on every file'"
+
 gofmt: ## Fail if any Go file needs `gofmt -w`
 	@out=$$(docker run --rm -v $(CURDIR)/clients/go:/app -w /app golang:1.22-alpine gofmt -l . 2>&1); \
 	 if [ -n "$$out" ]; then echo "gofmt needed:"; echo "$$out"; exit 1; \
@@ -100,6 +117,12 @@ prettier: ## Fail if any TypeScript file needs `prettier`
 
 spotless: ## Fail if any Java file needs `spotless:check` (google-java-format)
 	@$(MVN_DOCKER) mvn -q -Duser.home=/tmp spotless:check && echo "  ✓ spotless clean"
+
+php-cs-fixer: ## Fail if any PHP file needs `php-cs-fixer` (PSR-12)
+	@docker run --rm -u $$(id -u):$$(id -g) -v $(CURDIR)/clients/php:/work -w /work \
+	  -e HOME=/tmp -e PHP_CS_FIXER_IGNORE_ENV=1 \
+	  ghcr.io/php-cs-fixer/php-cs-fixer:3-php8.3 fix src --dry-run --rules=@PSR12 --using-cache=no \
+	  >/dev/null 2>&1 && echo "  ✓ php-cs-fixer clean"
 
 # ── housekeeping ──────────────────────────────────────────────────────────
 
