@@ -22,6 +22,10 @@ if [[ $# -lt 1 ]]; then
 fi
 
 VERSION="$1"
+
+# Canonical version format `1.YYYYMMDD.N` is stable-semver + PEP 440 in
+# one — no per-language transform needed.
+
 REPO_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 SPEC_DIR="${REPO_ROOT}/swaggers/processed"
 CLIENTS_DIR="${REPO_ROOT}/clients"

@@ -65,15 +65,17 @@ jobs:
         id: version
         if: steps.diff.outputs.changed == 'true' || inputs.force
         run: |
-          # CalVer: YYYY.MM.DD[.N] — N distinguishes multiple releases on
-          # the same day, driven by the count of existing tags for today.
-          today="$(date -u +%Y.%m.%d)"
-          existing="$(git tag --list "v${today}*" | wc -l | tr -d ' ')"
-          if [[ "${existing}" == "0" ]]; then
-            version="${today}"
-          else
-            version="${today}.${existing}"
-          fi
+          # Canonical version: 1.YYYYMMDD.N — a stable-semver form used
+          # verbatim by every language (git tag, PyPI, npm, Maven, Go).
+          #   MAJOR = 1     (fixed; keeps Go module path free of the
+          #                  /vN suffix that MAJOR ≥ 2 would require)
+          #   MINOR = date  (YYYYMMDD as int — monotonic across days)
+          #   PATCH = N     (same-day counter, 0 for first release)
+          # `npm install <pkg>` sees stable-semver releases and picks the
+          # highest one; `pip`, `mvn`, `go get @latest` do the same.
+          today="$(date -u +%Y%m%d)"
+          n="$(git tag --list "v1.${today}.*" | wc -l | tr -d ' ')"
+          version="1.${today}.${n}"
           echo "version=${version}" >> "$GITHUB_OUTPUT"
           echo "tag=v${version}" >> "$GITHUB_OUTPUT"
 

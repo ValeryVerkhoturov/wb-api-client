@@ -39,15 +39,16 @@ jobs:
 
       - name: Extract committed version
         id: ver
-        # Pull the version straight from the committed Python manifest so
-        # regeneration produces the same version-stamped strings. If this
-        # runs before the first release commit lands, fall back to a fixed
-        # placeholder that at least keeps the check meaningful.
+        # Pull the version from the committed Python manifest. Under the
+        # canonical `1.YYYYMMDD.N` format every language stamps the same
+        # string, so any manifest would work; pyproject.toml is the
+        # simplest to grep. Falls back to a placeholder for the
+        # first-ever run.
         run: |
           if [[ -f clients/python/pyproject.toml ]]; then
             v="$(grep -m1 '^version' clients/python/pyproject.toml | sed -E 's/.*"([^"]+)".*/\1/')"
           else
-            v="0.0.0.dev0"
+            v="1.0.0"
           fi
           echo "version=${v}" >> "$GITHUB_OUTPUT"
           echo "Regenerating at version ${v}"

@@ -6,7 +6,7 @@
 
   <groupId>io.github.valeryverkhoturov</groupId>
   <artifactId>wb-api-client</artifactId>
-  <version>0.0.0.dev0</version>
+  <version>1.20260920.0</version>
   <packaging>jar</packaging>
 
   <name>wb-api-client</name>

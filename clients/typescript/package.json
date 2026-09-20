@@ -1,6 +1,6 @@
 {
   "name": "@valeryverkhoturov/wb-api-client",
-  "version": "0.0.0.dev0",
+  "version": "1.20260920.0",
   "description": "Auto-generated TypeScript client for the Wildberries Seller API",
   "license": "Apache-2.0",
   "author": "Valery Verkhoturov",

@@ -8,4 +8,4 @@ Each API category is a sub-module. Import the one you need directly:
 Auth: every category accepts a bearer JWT via `Configuration.access_token`.
 """
 
-__version__ = "0.0.0.dev0"
+__version__ = "1.20260920.0"
