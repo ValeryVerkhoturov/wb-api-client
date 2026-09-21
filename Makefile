@@ -33,7 +33,8 @@ PHP_DOCKER  = docker run --rm -u $$(id -u):$$(id -g) \
 .DEFAULT_GOAL := help
 .PHONY: help venv download post-process generate regen \
         verify verify-python verify-ts verify-go verify-java verify-php \
-        gofmt black prettier spotless php-cs-fixer clean
+        gofmt black prettier spotless php-cs-fixer clean \
+        git-status git-commit git-push git-pull
 
 # ── help ──────────────────────────────────────────────────────────────────
 
@@ -123,6 +124,45 @@ php-cs-fixer: ## Fail if any PHP file needs `php-cs-fixer` (PSR-12)
 	  -e HOME=/tmp -e PHP_CS_FIXER_IGNORE_ENV=1 \
 	  ghcr.io/php-cs-fixer/php-cs-fixer:3-php8.3 fix src --dry-run --rules=@PSR12 --using-cache=no \
 	  >/dev/null 2>&1 && echo "  ✓ php-cs-fixer clean"
+
+# ── main + submodule git ops ──────────────────────────────────────────────
+# `clients/php` is a submodule pointing at ValeryVerkhoturov/wb-api-client-php.
+# These targets act on BOTH the main repo and the submodule so you don't
+# have to remember to `cd clients/php && git …` after every regen.
+
+git-status: ## Show `git status` in main repo AND the PHP submodule
+	@echo "── main repo ──"
+	@git status --short
+	@echo ""
+	@echo "── clients/php submodule ──"
+	@cd clients/php && git status --short
+
+git-commit: ## Commit main + PHP submodule with the same message (MSG=…)
+	@if [ -z "$(MSG)" ]; then \
+	  echo "usage: make git-commit MSG=\"your message\""; exit 2; \
+	fi
+	@# Submodule first so the pointer we record in main is the new SHA.
+	@echo "── clients/php ──"
+	@cd clients/php && \
+	  if ! git diff --cached --quiet || ! git diff --quiet; then \
+	    git add -A && git commit -m "$(MSG)"; \
+	  else echo "  (no PHP changes)"; fi
+	@echo "── main ──"
+	@git add -A && \
+	  if ! git diff --cached --quiet; then git commit -m "$(MSG)"; \
+	  else echo "  (no main-repo changes)"; fi
+
+git-push: ## Push main AND the PHP submodule (needs push rights on both)
+	@echo "── clients/php ──"
+	@cd clients/php && git push origin HEAD:main
+	@echo "── main ──"
+	@git push
+
+git-pull: ## Pull main AND fast-forward the PHP submodule
+	@echo "── main ──"
+	@git pull --ff-only
+	@echo "── clients/php ──"
+	@git submodule update --remote --merge clients/php
 
 # ── housekeeping ──────────────────────────────────────────────────────────
 
