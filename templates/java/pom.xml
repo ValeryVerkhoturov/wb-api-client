@@ -119,6 +119,19 @@
             <id>sign-artifacts</id>
             <phase>verify</phase>
             <goals><goal>sign</goal></goals>
+            <configuration>
+              <!-- CI runners have no tty, so gpg's default pinentry can't
+                   prompt for the passphrase. `loopback` tells gpg to read
+                   the passphrase non-interactively; the actual value
+                   comes from the MAVEN_GPG_PASSPHRASE env var that
+                   actions/setup-java wires into the maven-gpg-plugin's
+                   settings.xml. Without this, sign fails with "Exit
+                   code: 2". -->
+              <gpgArguments>
+                <arg>--pinentry-mode</arg>
+                <arg>loopback</arg>
+              </gpgArguments>
+            </configuration>
           </execution>
         </executions>
       </plugin>
