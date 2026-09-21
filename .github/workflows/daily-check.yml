@@ -155,6 +155,9 @@ jobs:
   publish:
     needs: regenerate
     if: needs.regenerate.outputs.changed == 'true' || inputs.force
+    permissions:
+      id-token: write
+      contents: read
     strategy:
       fail-fast: false
       matrix:
