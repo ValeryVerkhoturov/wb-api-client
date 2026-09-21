@@ -16,7 +16,7 @@ package io.github.valeryverkhoturov.wbapi.promotion;
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
 public class Configuration {
-  public static final String VERSION = "1.20260920.0";
+  public static final String VERSION = "1.20260921.0";
 
   private static ApiClient defaultApiClient = new ApiClient();
 
