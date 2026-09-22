@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.20260921.0"
+__version__ = "1.20260922.0"
 
 # import apis into sdk package
 from wb_api_client.promotion.api.default_api import DefaultApi
@@ -326,11 +326,15 @@ from wb_api_client.promotion.models.v0_bids_recommendations_cpc_response2 import
 from wb_api_client.promotion.models.v0_bids_recommendations_cpm_response1 import (
     V0BidsRecommendationsCpmResponse1,
 )
+from wb_api_client.promotion.models.v0_daily_limit_advert import V0DailyLimitAdvert
 from wb_api_client.promotion.models.v0_delete_norm_query_bids_request import (
     V0DeleteNormQueryBidsRequest,
 )
 from wb_api_client.promotion.models.v0_delete_norm_query_bids_request_item import (
     V0DeleteNormQueryBidsRequestItem,
+)
+from wb_api_client.promotion.models.v0_get_daily_limits_response import (
+    V0GetDailyLimitsResponse,
 )
 from wb_api_client.promotion.models.v0_get_norm_query_bids_item import (
     V0GetNormQueryBidsItem,
@@ -385,6 +389,15 @@ from wb_api_client.promotion.models.v0_get_norm_query_stats_request_items_inner 
 )
 from wb_api_client.promotion.models.v0_get_norm_query_stats_response import (
     V0GetNormQueryStatsResponse,
+)
+from wb_api_client.promotion.models.v0_put_daily_limits_advert_result import (
+    V0PutDailyLimitsAdvertResult,
+)
+from wb_api_client.promotion.models.v0_put_daily_limits_request import (
+    V0PutDailyLimitsRequest,
+)
+from wb_api_client.promotion.models.v0_put_daily_limits_response import (
+    V0PutDailyLimitsResponse,
 )
 from wb_api_client.promotion.models.v0_set_minus_norm_query_request import (
     V0SetMinusNormQueryRequest,

@@ -437,10 +437,16 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.promotion.model.V0BidsRecommendationsCpmResponse1
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.promotion.model.V0DailyLimitAdvert
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.promotion.model.V0DeleteNormQueryBidsRequest
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.promotion.model.V0DeleteNormQueryBidsRequestItem
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.promotion.model.V0GetDailyLimitsResponse
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.promotion.model.V0GetNormQueryBidsItem
@@ -495,6 +501,15 @@ public class JSON {
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.promotion.model.V0GetNormQueryStatsResponse
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.promotion.model.V0PutDailyLimitsAdvertResult
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.promotion.model.V0PutDailyLimitsRequest
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.promotion.model.V0PutDailyLimitsResponse
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.promotion.model.V0SetMinusNormQueryRequest

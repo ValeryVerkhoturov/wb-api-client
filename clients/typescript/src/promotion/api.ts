@@ -3574,6 +3574,61 @@ export type V0BidsRecommendationsCpmResponse1PaymentTypeEnum =
 /**
  *
  * @export
+ * @interface V0DailyLimitAdvert
+ */
+export interface V0DailyLimitAdvert {
+  /**
+   * ID кампании
+   * @type {number}
+   * @memberof V0DailyLimitAdvert
+   */
+  advertId: number;
+  /**
+   * - `true` — дневной лимит включен - `false` — дневной лимит отключен
+   * @type {boolean}
+   * @memberof V0DailyLimitAdvert
+   */
+  enabled: boolean;
+  /**
+   * Размер дневного лимита в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+   * @type {number}
+   * @memberof V0DailyLimitAdvert
+   */
+  dailyLimit: number;
+  /**
+   * Потрачено сегодня в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+   * @type {number}
+   * @memberof V0DailyLimitAdvert
+   */
+  spentToday: number;
+  /**
+   * Код валюты
+   * @type {string}
+   * @memberof V0DailyLimitAdvert
+   */
+  currency: string;
+  /**
+   * Перенос остатка дневного лимита на следующий день. Если за 24 часа лимит потратится не полностью, добавим остаток суммы к лимиту следующего дня. Расходы на продвижение не увеличатся.   - `true` — перенос остатка включен   - `false` — перенос остатка отключен
+   * @type {boolean}
+   * @memberof V0DailyLimitAdvert
+   */
+  carryOverEnabled: boolean;
+  /**
+   * Хватает ли текущего размера лимита на установку ставок кампании:   - `true` — да   - `false` — нет, рекомендуем повысить лимит, иначе бюджет кампании может расходоваться неравномерно
+   * @type {boolean}
+   * @memberof V0DailyLimitAdvert
+   */
+  valid: boolean;
+  /**
+   * Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
+   * @type {number}
+   * @memberof V0DailyLimitAdvert
+   */
+  requiredLimit: number;
+}
+/**
+ *
+ * @export
  * @interface V0DeleteNormQueryBidsRequest
  */
 export interface V0DeleteNormQueryBidsRequest {
@@ -3608,6 +3663,19 @@ export interface V0DeleteNormQueryBidsRequestItem {
    * @memberof V0DeleteNormQueryBidsRequestItem
    */
   norm_query: string;
+}
+/**
+ *
+ * @export
+ * @interface V0GetDailyLimitsResponse
+ */
+export interface V0GetDailyLimitsResponse {
+  /**
+   *
+   * @type {Array<V0DailyLimitAdvert>}
+   * @memberof V0GetDailyLimitsResponse
+   */
+  adverts: Array<V0DailyLimitAdvert>;
 }
 /**
  *
@@ -4022,6 +4090,75 @@ export interface V0GetNormQueryStatsResponse {
    * @memberof V0GetNormQueryStatsResponse
    */
   stats: Array<V0GetNormQueryStatsItem>;
+}
+/**
+ *
+ * @export
+ * @interface V0PutDailyLimitsAdvertResult
+ */
+export interface V0PutDailyLimitsAdvertResult {
+  /**
+   * ID кампании
+   * @type {number}
+   * @memberof V0PutDailyLimitsAdvertResult
+   */
+  advertId: number;
+  /**
+   * Установленный размер дневного лимита ниже рекомендуемого минимума относительно текущих ставок `requiredLimit`:   - `true` — да   - `false` — нет
+   * @type {boolean}
+   * @memberof V0PutDailyLimitsAdvertResult
+   */
+  belowMinLimit: boolean;
+  /**
+   * Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances). С меньшим лимитом бюджет может расходоваться неравномерно и в кампании возникнут ошибки
+   * @type {number}
+   * @memberof V0PutDailyLimitsAdvertResult
+   */
+  requiredLimit: number;
+}
+/**
+ *
+ * @export
+ * @interface V0PutDailyLimitsRequest
+ */
+export interface V0PutDailyLimitsRequest {
+  /**
+   * ID кампаний
+   * @type {Array<number>}
+   * @memberof V0PutDailyLimitsRequest
+   */
+  advertIds: Array<number>;
+  /**
+   * Включить лимит:   - `true` — да   - `false` — нет
+   * @type {boolean}
+   * @memberof V0PutDailyLimitsRequest
+   */
+  enabled: boolean;
+  /**
+   * Сумма дневного лимита. Параметр обязателен при `\"enabled\": true`. Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config]().
+   * @type {number}
+   * @memberof V0PutDailyLimitsRequest
+   */
+  dailyLimit?: number;
+  /**
+   * Переносить неиспользованный остаток лимита на следующий день:   - `true` — да   - `false` — нет  Параметр обязателен при `\"enabled\": true`
+   * @type {boolean}
+   * @memberof V0PutDailyLimitsRequest
+   */
+  carryOverEnabled?: boolean;
+}
+/**
+ *
+ * @export
+ * @interface V0PutDailyLimitsResponse
+ */
+export interface V0PutDailyLimitsResponse {
+  /**
+   *
+   * @type {Array<V0PutDailyLimitsAdvertResult>}
+   * @memberof V0PutDailyLimitsResponse
+   */
+  adverts: Array<V0PutDailyLimitsAdvertResult>;
 }
 /**
  *
@@ -4558,6 +4695,57 @@ export const DefaultApiAxiosParamCreator = function (
 
       if (advertId !== undefined) {
         localVarQueryParameter["advertId"] = advertId;
+      }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие настройки [дневных лимитов кампаний CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1) — максимальных сумм, которые кампании могут потратить на продвижение в течение суток.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+     * @summary Получить настройки дневных лимитов кампаний
+     * @param {string} advertIds ID кампаний, максимум 100. Укажите значения через запятую
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV0DailyLimits: async (
+      advertIds: string,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'advertIds' is not null or undefined
+      assertParamExists("getV0DailyLimits", "advertIds", advertIds);
+      const localVarPath = `/api/advert/v0/daily-limits`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "GET",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      if (advertIds !== undefined) {
+        localVarQueryParameter["advertIds"] = advertIds;
       }
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -6752,6 +6940,64 @@ export const DefaultApiAxiosParamCreator = function (
         options: localVarRequestOptions,
       };
     },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод включает, выключает и обновляет дневной лимит кампаний.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+     * @summary Настройка дневных лимитов кампаний
+     * @param {V0PutDailyLimitsRequest} v0PutDailyLimitsRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    putV0DailyLimits: async (
+      v0PutDailyLimitsRequest: V0PutDailyLimitsRequest,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'v0PutDailyLimitsRequest' is not null or undefined
+      assertParamExists(
+        "putV0DailyLimits",
+        "v0PutDailyLimitsRequest",
+        v0PutDailyLimitsRequest,
+      );
+      const localVarPath = `/api/advert/v0/daily-limits`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "PUT",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      localVarHeaderParameter["Content-Type"] = "application/json";
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+      localVarRequestOptions.data = serializeDataIfNeeded(
+        v0PutDailyLimitsRequest,
+        localVarRequestOptions,
+        configuration,
+      );
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
   };
 };
 
@@ -6820,6 +7066,37 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
         operationServerMap["DefaultApi.getV0BidsRecommendations"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие настройки [дневных лимитов кампаний CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1) — максимальных сумм, которые кампании могут потратить на продвижение в течение суток.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+     * @summary Получить настройки дневных лимитов кампаний
+     * @param {string} advertIds ID кампаний, максимум 100. Укажите значения через запятую
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getV0DailyLimits(
+      advertIds: string,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<V0GetDailyLimitsResponse>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.getV0DailyLimits(advertIds, options);
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["DefaultApi.getV0DailyLimits"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8111,6 +8388,40 @@ export const DefaultApiFp = function (configuration?: Configuration) {
           configuration,
         )(axios, localVarOperationServerBasePath || basePath);
     },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод включает, выключает и обновляет дневной лимит кампаний.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+     * @summary Настройка дневных лимитов кампаний
+     * @param {V0PutDailyLimitsRequest} v0PutDailyLimitsRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async putV0DailyLimits(
+      v0PutDailyLimitsRequest: V0PutDailyLimitsRequest,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<V0PutDailyLimitsResponse>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.putV0DailyLimits(
+          v0PutDailyLimitsRequest,
+          options,
+        );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["DefaultApi.putV0DailyLimits"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
   };
 };
 
@@ -8155,6 +8466,21 @@ export const DefaultApiFactory = function (
     ): AxiosPromise<GetV0BidsRecommendations200Response> {
       return localVarFp
         .getV0BidsRecommendations(nmId, advertId, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие настройки [дневных лимитов кампаний CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1) — максимальных сумм, которые кампании могут потратить на продвижение в течение суток.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+     * @summary Получить настройки дневных лимитов кампаний
+     * @param {string} advertIds ID кампаний, максимум 100. Укажите значения через запятую
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV0DailyLimits(
+      advertIds: string,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<V0GetDailyLimitsResponse> {
+      return localVarFp
+        .getV0DailyLimits(advertIds, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -8771,6 +9097,21 @@ export const DefaultApiFactory = function (
         .putV0AuctionPlacements(putV0AuctionPlacementsRequest, options)
         .then((request) => request(axios, basePath));
     },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод включает, выключает и обновляет дневной лимит кампаний.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+     * @summary Настройка дневных лимитов кампаний
+     * @param {V0PutDailyLimitsRequest} v0PutDailyLimitsRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    putV0DailyLimits(
+      v0PutDailyLimitsRequest: V0PutDailyLimitsRequest,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<V0PutDailyLimitsResponse> {
+      return localVarFp
+        .putV0DailyLimits(v0PutDailyLimitsRequest, options)
+        .then((request) => request(axios, basePath));
+    },
   };
 };
 
@@ -8807,6 +9148,19 @@ export interface DefaultApiInterface {
     advertId: number,
     options?: RawAxiosRequestConfig,
   ): AxiosPromise<GetV0BidsRecommendations200Response>;
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие настройки [дневных лимитов кампаний CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1) — максимальных сумм, которые кампании могут потратить на продвижение в течение суток.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+   * @summary Получить настройки дневных лимитов кампаний
+   * @param {string} advertIds ID кампаний, максимум 100. Укажите значения через запятую
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DefaultApiInterface
+   */
+  getV0DailyLimits(
+    advertIds: string,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<V0GetDailyLimitsResponse>;
 
   /**
    * Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе `4` — готова к запуску.  После удаления кампания некоторое время будет находиться в статусе `-1` — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
@@ -9320,6 +9674,19 @@ export interface DefaultApiInterface {
     putV0AuctionPlacementsRequest: PutV0AuctionPlacementsRequest,
     options?: RawAxiosRequestConfig,
   ): AxiosPromise<void>;
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод включает, выключает и обновляет дневной лимит кампаний.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+   * @summary Настройка дневных лимитов кампаний
+   * @param {V0PutDailyLimitsRequest} v0PutDailyLimitsRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DefaultApiInterface
+   */
+  putV0DailyLimits(
+    v0PutDailyLimitsRequest: V0PutDailyLimitsRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<V0PutDailyLimitsResponse>;
 }
 
 /**
@@ -9362,6 +9729,20 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
   ) {
     return DefaultApiFp(this.configuration)
       .getV0BidsRecommendations(nmId, advertId, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие настройки [дневных лимитов кампаний CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1) — максимальных сумм, которые кампании могут потратить на продвижение в течение суток.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+   * @summary Получить настройки дневных лимитов кампаний
+   * @param {string} advertIds ID кампаний, максимум 100. Укажите значения через запятую
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DefaultApi
+   */
+  public getV0DailyLimits(advertIds: string, options?: RawAxiosRequestConfig) {
+    return DefaultApiFp(this.configuration)
+      .getV0DailyLimits(advertIds, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -10025,6 +10406,23 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
   ) {
     return DefaultApiFp(this.configuration)
       .putV0AuctionPlacements(putV0AuctionPlacementsRequest, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод включает, выключает и обновляет дневной лимит кампаний.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов |
+   * @summary Настройка дневных лимитов кампаний
+   * @param {V0PutDailyLimitsRequest} v0PutDailyLimitsRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DefaultApi
+   */
+  public putV0DailyLimits(
+    v0PutDailyLimitsRequest: V0PutDailyLimitsRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return DefaultApiFp(this.configuration)
+      .putV0DailyLimits(v0PutDailyLimitsRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
 }

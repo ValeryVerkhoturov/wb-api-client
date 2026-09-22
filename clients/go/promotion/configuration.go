@@ -111,6 +111,12 @@ func NewConfiguration() *Configuration {
 					Description: "No description provided",
 				},
 			},
+			"DefaultApiService.GetV0DailyLimits": {
+				{
+					URL:         "https://advert-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+			},
 			"DefaultApiService.GetV0Delete": {
 				{
 					URL:         "https://advert-api.wildberries.ru",
@@ -393,6 +399,12 @@ func NewConfiguration() *Configuration {
 				{
 					URL:         "https://advert-api.wildberries.ru",
 					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.PutV0DailyLimits": {
+				{
+					URL:         "https://advert-api.wildberries.ru",
+					Description: "**Prod** ",
 				},
 			},
 		},
