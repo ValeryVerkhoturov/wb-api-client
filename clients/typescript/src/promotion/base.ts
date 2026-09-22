@@ -101,6 +101,12 @@ export const operationServerMap: ServerMap = {
       description: "No description provided",
     },
   ],
+  "DefaultApi.getV0DailyLimits": [
+    {
+      url: "https://advert-api.wildberries.ru",
+      description: "**Prod** ",
+    },
+  ],
   "DefaultApi.getV0Delete": [
     {
       url: "https://advert-api.wildberries.ru",
@@ -383,6 +389,12 @@ export const operationServerMap: ServerMap = {
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",
+    },
+  ],
+  "DefaultApi.putV0DailyLimits": [
+    {
+      url: "https://advert-api.wildberries.ru",
+      description: "**Prod** ",
     },
   ],
 };

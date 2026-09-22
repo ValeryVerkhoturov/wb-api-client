@@ -3335,6 +3335,8 @@ paths:
                   $ref: '#/components/examples/SupplyHasZeroOrders'
                 MetaValidationFail:
                   $ref: '#/components/examples/MetaValidationFail'
+                FulfillmentSupplyBoxesRequired:
+                  $ref: '#/components/examples/FulfillmentSupplyBoxesRequired'
                 SupplyShippingRequired:
                   $ref: '#/components/examples/SupplyShippingRequired'
         '429':
@@ -4743,6 +4745,11 @@ components:
                 - key: uin
                   value: 'null'
                   decision: uinBadStatus
+    FulfillmentSupplyBoxesRequired:
+      description: Не добавлено обязательное грузоместо
+      value:
+        code: FulfillmentSupplyBoxesRequired
+        message: Unable to change status to "in delivery". Fulfillment shipments require at least one cargo space
     SupplyNotClosed:
       value:
         code: SupplyNotClosed

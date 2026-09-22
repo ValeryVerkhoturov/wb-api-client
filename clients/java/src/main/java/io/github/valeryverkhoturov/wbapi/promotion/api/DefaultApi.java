@@ -51,6 +51,7 @@ import io.github.valeryverkhoturov.wbapi.promotion.model.PostV2SupplierNmsRespon
 import io.github.valeryverkhoturov.wbapi.promotion.model.PutV0AuctionPlacementsRequest;
 import io.github.valeryverkhoturov.wbapi.promotion.model.ResponseWithReturn;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V0DeleteNormQueryBidsRequest;
+import io.github.valeryverkhoturov.wbapi.promotion.model.V0GetDailyLimitsResponse;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V0GetNormQueryBidsRequest;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V0GetNormQueryBidsResponse;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V0GetNormQueryListRequest;
@@ -59,6 +60,8 @@ import io.github.valeryverkhoturov.wbapi.promotion.model.V0GetNormQueryMinusRequ
 import io.github.valeryverkhoturov.wbapi.promotion.model.V0GetNormQueryMinusResponse;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V0GetNormQueryStatsRequest;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V0GetNormQueryStatsResponse;
+import io.github.valeryverkhoturov.wbapi.promotion.model.V0PutDailyLimitsRequest;
+import io.github.valeryverkhoturov.wbapi.promotion.model.V0PutDailyLimitsResponse;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V0SetMinusNormQueryRequest;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V0SetNormQueryBidsRequest;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V1GetNormQueryStatsRequest;
@@ -495,6 +498,196 @@ public class DefaultApi {
     okhttp3.Call localVarCall =
         getV0BidsRecommendationsValidateBeforeCall(nmId, advertId, _callback);
     Type localVarReturnType = new TypeToken<GetV0BidsRecommendations200Response>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * Build call for getV0DailyLimits
+   *
+   * @param advertIds ID кампаний, максимум 100. Укажите значения через запятую (required)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV0DailyLimitsCall(String advertIds, final ApiCallback _callback)
+      throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null) {
+      basePath = localCustomBaseUrl;
+    } else if (localBasePaths.length > 0) {
+      basePath = localBasePaths[localHostIndex];
+    } else {
+      basePath = null;
+    }
+
+    Object localVarPostBody = null;
+
+    // create path and map variables
+    String localVarPath = "/api/advert/v0/daily-limits";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    if (advertIds != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("advertIds", advertIds));
+    }
+
+    final String[] localVarAccepts = {"application/json", "application/problem+json"};
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {};
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    if (localVarContentType != null) {
+      localVarHeaderParams.put("Content-Type", localVarContentType);
+    }
+
+    String[] localVarAuthNames = new String[] {"BearerAuth"};
+    return localVarApiClient.buildCall(
+        basePath,
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call getV0DailyLimitsValidateBeforeCall(
+      String advertIds, final ApiCallback _callback) throws ApiException {
+    // verify the required parameter 'advertIds' is set
+    if (advertIds == null) {
+      throw new ApiException(
+          "Missing the required parameter 'advertIds' when calling getV0DailyLimits(Async)");
+    }
+
+    return getV0DailyLimitsCall(advertIds, _callback);
+  }
+
+  /**
+   * Получить настройки дневных лимитов кампаний Метод
+   * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
+   * по **Персональному** токену, **Сервисному** токену Метод возвращает текущие настройки [дневных
+   * лимитов кампаний
+   * CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1)
+   * — максимальных сумм, которые кампании могут потратить на продвижение в течение суток. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
+   * запросов | 12 сек | 5 запросов |
+   *
+   * @param advertIds ID кампаний, максимум 100. Укажите значения через запятую (required)
+   * @return V0GetDailyLimitsResponse
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public V0GetDailyLimitsResponse getV0DailyLimits(String advertIds) throws ApiException {
+    ApiResponse<V0GetDailyLimitsResponse> localVarResp = getV0DailyLimitsWithHttpInfo(advertIds);
+    return localVarResp.getData();
+  }
+
+  /**
+   * Получить настройки дневных лимитов кампаний Метод
+   * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
+   * по **Персональному** токену, **Сервисному** токену Метод возвращает текущие настройки [дневных
+   * лимитов кампаний
+   * CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1)
+   * — максимальных сумм, которые кампании могут потратить на продвижение в течение суток. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
+   * запросов | 12 сек | 5 запросов |
+   *
+   * @param advertIds ID кампаний, максимум 100. Укажите значения через запятую (required)
+   * @return ApiResponse&lt;V0GetDailyLimitsResponse&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<V0GetDailyLimitsResponse> getV0DailyLimitsWithHttpInfo(String advertIds)
+      throws ApiException {
+    okhttp3.Call localVarCall = getV0DailyLimitsValidateBeforeCall(advertIds, null);
+    Type localVarReturnType = new TypeToken<V0GetDailyLimitsResponse>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * Получить настройки дневных лимитов кампаний (asynchronously) Метод
+   * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
+   * по **Персональному** токену, **Сервисному** токену Метод возвращает текущие настройки [дневных
+   * лимитов кампаний
+   * CPC](https://cmp.wildberries.ru/campaigns/help/knowledge-base/options#%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B2%D0%BA%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%D1%85%D1%81%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%D0%B7%D0%B0%D0%BA%D0%BB%D0%B8%D0%BA%D0%B8%D0%A1%D0%A0%D0%A1)
+   * — максимальных сумм, которые кампании могут потратить на продвижение в течение суток. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
+   * запросов | 12 сек | 5 запросов |
+   *
+   * @param advertIds ID кампаний, максимум 100. Укажите значения через запятую (required)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV0DailyLimitsAsync(
+      String advertIds, final ApiCallback<V0GetDailyLimitsResponse> _callback) throws ApiException {
+
+    okhttp3.Call localVarCall = getV0DailyLimitsValidateBeforeCall(advertIds, _callback);
+    Type localVarReturnType = new TypeToken<V0GetDailyLimitsResponse>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -7921,6 +8114,193 @@ public class DefaultApi {
     okhttp3.Call localVarCall =
         putV0AuctionPlacementsValidateBeforeCall(putV0AuctionPlacementsRequest, _callback);
     localVarApiClient.executeAsync(localVarCall, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * Build call for putV0DailyLimits
+   *
+   * @param v0PutDailyLimitsRequest (required)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call putV0DailyLimitsCall(
+      V0PutDailyLimitsRequest v0PutDailyLimitsRequest, final ApiCallback _callback)
+      throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null) {
+      basePath = localCustomBaseUrl;
+    } else if (localBasePaths.length > 0) {
+      basePath = localBasePaths[localHostIndex];
+    } else {
+      basePath = null;
+    }
+
+    Object localVarPostBody = v0PutDailyLimitsRequest;
+
+    // create path and map variables
+    String localVarPath = "/api/advert/v0/daily-limits";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    final String[] localVarAccepts = {"application/json", "application/problem+json"};
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    if (localVarContentType != null) {
+      localVarHeaderParams.put("Content-Type", localVarContentType);
+    }
+
+    String[] localVarAuthNames = new String[] {"BearerAuth"};
+    return localVarApiClient.buildCall(
+        basePath,
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call putV0DailyLimitsValidateBeforeCall(
+      V0PutDailyLimitsRequest v0PutDailyLimitsRequest, final ApiCallback _callback)
+      throws ApiException {
+    // verify the required parameter 'v0PutDailyLimitsRequest' is set
+    if (v0PutDailyLimitsRequest == null) {
+      throw new ApiException(
+          "Missing the required parameter 'v0PutDailyLimitsRequest' when calling putV0DailyLimits(Async)");
+    }
+
+    return putV0DailyLimitsCall(v0PutDailyLimitsRequest, _callback);
+  }
+
+  /**
+   * Настройка дневных лимитов кампаний Метод
+   * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
+   * по **Персональному** токену, **Сервисному** токену Метод включает, выключает и обновляет
+   * дневной лимит кампаний. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
+   * запросов | 12 сек | 5 запросов |
+   *
+   * @param v0PutDailyLimitsRequest (required)
+   * @return V0PutDailyLimitsResponse
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public V0PutDailyLimitsResponse putV0DailyLimits(V0PutDailyLimitsRequest v0PutDailyLimitsRequest)
+      throws ApiException {
+    ApiResponse<V0PutDailyLimitsResponse> localVarResp =
+        putV0DailyLimitsWithHttpInfo(v0PutDailyLimitsRequest);
+    return localVarResp.getData();
+  }
+
+  /**
+   * Настройка дневных лимитов кампаний Метод
+   * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
+   * по **Персональному** токену, **Сервисному** токену Метод включает, выключает и обновляет
+   * дневной лимит кампаний. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
+   * запросов | 12 сек | 5 запросов |
+   *
+   * @param v0PutDailyLimitsRequest (required)
+   * @return ApiResponse&lt;V0PutDailyLimitsResponse&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<V0PutDailyLimitsResponse> putV0DailyLimitsWithHttpInfo(
+      V0PutDailyLimitsRequest v0PutDailyLimitsRequest) throws ApiException {
+    okhttp3.Call localVarCall = putV0DailyLimitsValidateBeforeCall(v0PutDailyLimitsRequest, null);
+    Type localVarReturnType = new TypeToken<V0PutDailyLimitsResponse>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * Настройка дневных лимитов кампаний (asynchronously) Метод
+   * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
+   * по **Персональному** токену, **Сервисному** токену Метод включает, выключает и обновляет
+   * дневной лимит кампаний. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5
+   * запросов | 12 сек | 5 запросов |
+   *
+   * @param v0PutDailyLimitsRequest (required)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call putV0DailyLimitsAsync(
+      V0PutDailyLimitsRequest v0PutDailyLimitsRequest,
+      final ApiCallback<V0PutDailyLimitsResponse> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall =
+        putV0DailyLimitsValidateBeforeCall(v0PutDailyLimitsRequest, _callback);
+    Type localVarReturnType = new TypeToken<V0PutDailyLimitsResponse>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
 }
