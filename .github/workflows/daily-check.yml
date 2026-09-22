@@ -163,16 +163,32 @@ jobs:
   publish:
     needs: regenerate
     if: needs.regenerate.outputs.changed == 'true' || inputs.force
+    # Trigger publish.yml via workflow_dispatch (fire-and-forget) rather
+    # than `uses: publish.yml` (workflow_call). Reason: PyPI + npm
+    # trusted publishing verify BOTH the OIDC token exchange (matches
+    # `job_workflow_ref`) AND the Sigstore attestation cert (matches
+    # `workflow_ref`). With workflow_call those two claims point at
+    # DIFFERENT files — the callee (publish.yml) and the caller
+    # (daily-check.yml) — and no trusted-publisher config can satisfy
+    # both. Dispatching makes publish.yml top-level, so both claims
+    # point at publish.yml and the trusted publisher matches cleanly.
+    # Trade-off: daily-check completes without waiting for publish
+    # results — watch the individual publish runs in the Actions tab.
+    runs-on: ubuntu-latest
     permissions:
-      id-token: write
-      contents: read
+      actions: write             # dispatch publish.yml via API
     strategy:
       fail-fast: false
       matrix:
         lang: [python, typescript, go, java, php]
-    uses: ./.github/workflows/publish.yml
-    with:
-      lang: ${{ matrix.lang }}
-      version: ${{ needs.regenerate.outputs.version }}
-      ref: ${{ needs.regenerate.outputs.tag }}
-    secrets: inherit
+    steps:
+      - name: Dispatch publish.yml for ${{ matrix.lang }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh workflow run publish.yml \
+            --repo "${{ github.repository }}" \
+            --ref main \
+            -f lang="${{ matrix.lang }}" \
+            -f version="${{ needs.regenerate.outputs.version }}" \
+            -f ref="${{ needs.regenerate.outputs.tag }}"
