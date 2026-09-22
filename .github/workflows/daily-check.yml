@@ -120,12 +120,20 @@ jobs:
         run: |
           git config user.name "wb-api-client-bot"
           git config user.email "bot@users.noreply.github.com"
+          git fetch origin main
+          if ! git diff --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+            git stash push -u -m "regen"
+            git checkout -B main origin/main
+            git stash pop
+          else
+            git checkout -B main origin/main
+          fi
           git add -A
           if git diff --cached --quiet; then
             echo "No PHP changes to commit"
           else
             git commit -m "chore(release): regenerate at ${{ steps.version.outputs.version }}"
-            git push origin HEAD:main
+            git push origin main
           fi
           # Idempotent tag: skip if identical tag already exists.
           if ! git rev-parse "${{ steps.version.outputs.tag }}" >/dev/null 2>&1; then
