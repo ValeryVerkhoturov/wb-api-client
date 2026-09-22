@@ -138,7 +138,7 @@ Configured in GitHub Environments referenced by `publish.yml`:
 | Go (no env) | git tags only | none — `proxy.golang.org` fetches from the pushed tag |
 | — (repo-level) | `PHP_REPO_TOKEN` PAT (repo scope) for pushing tags to `wb-api-client-php` in daily-check; falls back to `GITHUB_TOKEN` for read-only PR checks |
 
-PyPI + npm trusted publishing: **the OIDC audience uses `job_workflow_ref`**, which for reusable workflows resolves to the callee, so the "Workflow filename" field on both registries must be `publish.yml` (not `daily-check.yml`). Environment names must match the `environment:` value on the job or the token exchange fails.
+PyPI + npm trusted publishing: **the Sigstore certificate's Build Config URI embeds `workflow_ref`, i.e. the top-level workflow that received the event** — for reusable workflows this is the caller, not the callee. So the "Workflow filename" field on both pypi.org and npmjs.com must be `daily-check.yml`, NOT `publish.yml`. (`job_workflow_ref` does point at the callee, but PyPI/npm match the Sigstore cert URI, not that OIDC claim.) Environment names must still match the `environment:` value on the specific publish job (`pypi` / `npm`) or the token exchange fails.
 
 ## PHP-specific quirks
 
