@@ -66,7 +66,9 @@ jobs:
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
             echo "Upstream diff:"
-            diff /tmp/checksums.prev.txt swaggers/checksums.txt || true
+            # tee the diff to a file so the release-notes step can include it
+            diff /tmp/checksums.prev.txt swaggers/checksums.txt \
+              | tee /tmp/upstream-diff.txt || true
           fi
 
       - name: Compute release version
@@ -141,6 +143,41 @@ jobs:
             git push origin "${{ steps.version.outputs.tag }}"
           fi
 
+      - name: Create GitHub Release on sibling PHP repo
+        if: steps.diff.outputs.changed == 'true' || inputs.force
+        # Cross-repo release creation needs PHP_REPO_TOKEN (contents:write
+        # on wb-api-client-php). Falls back to GITHUB_TOKEN which will
+        # 404 for cross-repo — that's fine, tag is still pushed above.
+        env:
+          GH_TOKEN: ${{ secrets.PHP_REPO_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ steps.version.outputs.tag }}"
+          VERSION="${{ steps.version.outputs.version }}"
+          # Skip if release already exists (idempotent).
+          if gh release view "${TAG}" --repo ValeryVerkhoturov/wb-api-client-php >/dev/null 2>&1; then
+            echo "Release ${TAG} already exists on sibling repo, skipping"
+            exit 0
+          fi
+          cat > /tmp/php-release-notes.md <<'EOF'
+          Автоматический релиз PHP-клиента Wildberries Seller API.
+
+          Этот репозиторий синхронизирован с [wb-api-client __TAG__](https://github.com/ValeryVerkhoturov/wb-api-client/releases/tag/__TAG__) — код регенерируется в основном репозитории и коммитится сюда одним и тем же тегом.
+
+          ## Установка
+
+          ```bash
+          composer require valeryverkhoturov/wb-api-client:__VERSION__
+          ```
+
+          - [Packagist](https://packagist.org/packages/valeryverkhoturov/wb-api-client#__VERSION__)
+          - [Документация](https://valeryverkhoturov.github.io/wb-api-client-docs/languages/php)
+          EOF
+          sed -i "s|__VERSION__|${VERSION}|g; s|__TAG__|${TAG}|g" /tmp/php-release-notes.md
+          gh release create "${TAG}" \
+            --repo ValeryVerkhoturov/wb-api-client-php \
+            --title "${TAG}" \
+            --notes-file /tmp/php-release-notes.md
+
       - name: Commit specs + generated clients + submodule pointer, push tag
         if: steps.diff.outputs.changed == 'true' || inputs.force
         run: |
@@ -159,6 +196,76 @@ jobs:
           git push
           git tag -a "${{ steps.version.outputs.tag }}" -m "Release ${{ steps.version.outputs.tag }}"
           git push origin "${{ steps.version.outputs.tag }}"
+
+      - name: Create GitHub Release on main repo
+        if: steps.diff.outputs.changed == 'true' || inputs.force
+        # The tag was just pushed above; promote it to a full GitHub
+        # Release with install snippets + package links + the upstream
+        # spec diff that triggered this release. Idempotent — skips if
+        # a release for this tag already exists (happens on re-runs).
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ steps.version.outputs.tag }}"
+          VERSION="${{ steps.version.outputs.version }}"
+          if gh release view "${TAG}" --repo "${{ github.repository }}" >/dev/null 2>&1; then
+            echo "Release ${TAG} already exists, skipping"
+            exit 0
+          fi
+          # Quoted heredoc so backticks in the code fences aren't
+          # interpreted as command substitution. Placeholders are
+          # replaced by sed below.
+          cat > /tmp/release-notes.md <<'EOF'
+          Автоматический релиз по итогам ежедневной сверки с апстримом Wildberries.
+
+          ## Установка (эта версия)
+
+          ```bash
+          pip install valeryverkhoturov-wb-api-client==__VERSION__
+          npm install @valeryverkhoturov/wb-api-client@__VERSION__
+          go get github.com/ValeryVerkhoturov/wb-api-client/clients/go@__TAG__
+          composer require valeryverkhoturov/wb-api-client:__VERSION__
+          ```
+
+          Java (Maven):
+          ```xml
+          <dependency>
+            <groupId>io.github.valeryverkhoturov</groupId>
+            <artifactId>wb-api-client</artifactId>
+            <version>__VERSION__</version>
+          </dependency>
+          ```
+
+          ## Пакеты
+
+          - [PyPI](https://pypi.org/project/valeryverkhoturov-wb-api-client/__VERSION__/)
+          - [npm](https://www.npmjs.com/package/@valeryverkhoturov/wb-api-client/v/__VERSION__)
+          - [Go / pkg.go.dev](https://pkg.go.dev/github.com/ValeryVerkhoturov/wb-api-client/clients/go@__TAG__)
+          - [Maven Central](https://central.sonatype.com/artifact/io.github.valeryverkhoturov/wb-api-client/__VERSION__)
+          - [Packagist](https://packagist.org/packages/valeryverkhoturov/wb-api-client#__VERSION__)
+
+          ## Документация
+
+          https://valeryverkhoturov.github.io/wb-api-client-docs/
+          EOF
+          sed -i "s|__VERSION__|${VERSION}|g; s|__TAG__|${TAG}|g" /tmp/release-notes.md
+          # Append the upstream spec diff, if any — this is what
+          # triggered the release. Empty on forced re-runs where
+          # nothing changed upstream.
+          if [[ -s /tmp/upstream-diff.txt ]]; then
+            {
+              echo ""
+              echo "## Изменения апстрим-спецификаций"
+              echo ""
+              echo '```diff'
+              cat /tmp/upstream-diff.txt
+              echo '```'
+            } >> /tmp/release-notes.md
+          fi
+          gh release create "${TAG}" \
+            --repo "${{ github.repository }}" \
+            --title "${TAG}" \
+            --notes-file /tmp/release-notes.md
 
   publish:
     needs: regenerate
