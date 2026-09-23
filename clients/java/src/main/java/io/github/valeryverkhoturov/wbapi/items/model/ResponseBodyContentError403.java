@@ -103,7 +103,7 @@ public class ResponseBodyContentError403 {
   }
 
   /**
-   * Текст ошибки
+   * Описание ошибки
    *
    * @return errorText
    */

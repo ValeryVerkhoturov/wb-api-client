@@ -56,7 +56,7 @@ class GoodBufferHistory(BaseModel):
         default=None, description="Статус товара: `1` — в обработке "
     )
     error_text: Optional[StrictStr] = Field(
-        default=None, description="Текст ошибки", alias="errorText"
+        default=None, description="Описание ошибки", alias="errorText"
     )
     __properties: ClassVar[List[str]] = [
         "nmID",

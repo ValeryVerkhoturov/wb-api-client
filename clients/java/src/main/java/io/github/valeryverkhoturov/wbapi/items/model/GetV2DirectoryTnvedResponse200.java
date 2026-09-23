@@ -117,7 +117,7 @@ public class GetV2DirectoryTnvedResponse200 {
   }
 
   /**
-   * Текст ошибки
+   * Описание ошибки
    *
    * @return errorText
    */

@@ -190,7 +190,8 @@ type DefaultApi interface {
 			GetV1SuppliesSupplyIdDiscrepanciesQuantity Расхождения в поставке
 
 			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-		**Персональному** токену
+		**Персональному** токену,
+		**Сервисному** токену
 
 		Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.
 
@@ -1662,7 +1663,8 @@ func (r ApiGetV1SuppliesSupplyIdDiscrepanciesQuantityRequest) Execute() ([]Model
 GetV1SuppliesSupplyIdDiscrepanciesQuantity Расхождения в поставке
 
 Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену
+**Персональному** токену,
+**Сервисному** токену
 
 Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.
 

@@ -113,7 +113,7 @@ public class GetV2DirectoryVatResponse200 {
   }
 
   /**
-   * Текст ошибки
+   * Описание ошибки
    *
    * @return errorText
    */

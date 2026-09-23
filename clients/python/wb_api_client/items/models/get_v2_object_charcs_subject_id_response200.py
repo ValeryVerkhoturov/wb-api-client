@@ -36,7 +36,7 @@ class GetV2ObjectCharcsSubjectIdResponse200(BaseModel):
     )
     error: Optional[StrictBool] = Field(default=None, description="Флаг наличия ошибки")
     error_text: Optional[StrictStr] = Field(
-        default=None, description="Текст ошибки", alias="errorText"
+        default=None, description="Описание ошибки", alias="errorText"
     )
     additional_errors: Optional[StrictStr] = Field(
         default=None, description="Дополнительные ошибки", alias="additionalErrors"

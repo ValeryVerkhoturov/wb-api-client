@@ -38,7 +38,7 @@ class V0PutDailyLimitsRequest(BaseModel):
     )
     daily_limit: Optional[Annotated[int, Field(strict=True, ge=1000)]] = Field(
         default=None,
-        description='Сумма дневного лимита. Параметр обязателен при `"enabled": true`. Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config](). ',
+        description='Сумма дневного лимита. Параметр обязателен при `"enabled": true`. Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config]() ',
         alias="dailyLimit",
     )
     carry_over_enabled: Optional[StrictBool] = Field(

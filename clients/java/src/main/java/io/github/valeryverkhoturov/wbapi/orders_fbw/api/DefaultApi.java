@@ -1572,17 +1572,18 @@ public class DefaultApi {
   /**
    * Расхождения в поставке Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену Метод возвращает информацию о выявленных расхождениях между
-   * заявленным и фактическим количеством товара в поставке. Для поставок принятых не позднее года
-   * назад. \\*\\*Типы расхождений:\\*\\* Расхождение в большую сторону: 1. Избыток товара с
-   * заявленным баркодом: - &#x60;\&quot;discrepancyType\&quot;: \&quot;surplus\&quot;&#x60; -
-   * &#x60;\&quot;discrepancyLabel\&quot;: \&quot;surplus\&quot;&#x60; 2. Избыток товара с
-   * несоответствующим заявленному баркодом: - &#x60;\&quot;discrepancyType\&quot;:
-   * \&quot;surplus\&quot;&#x60; - &#x60;\&quot;discrepancyLabel\&quot;:
-   * \&quot;re-sorting\&quot;&#x60; Расхождение в меньшую сторону: 1. Не хватает товара: -
+   * по **Персональному** токену, **Сервисному** токену Метод возвращает информацию о выявленных
+   * расхождениях между заявленным и фактическим количеством товара в поставке. Для поставок
+   * принятых не позднее года назад. \\*\\*Типы расхождений:\\*\\* Расхождение в большую сторону: 1.
+   * Избыток товара с заявленным баркодом: - &#x60;\&quot;discrepancyType\&quot;:
+   * \&quot;surplus\&quot;&#x60; - &#x60;\&quot;discrepancyLabel\&quot;: \&quot;surplus\&quot;&#x60;
+   * 2. Избыток товара с несоответствующим заявленному баркодом: -
+   * &#x60;\&quot;discrepancyType\&quot;: \&quot;surplus\&quot;&#x60; -
+   * &#x60;\&quot;discrepancyLabel\&quot;: \&quot;re-sorting\&quot;&#x60; Расхождение в меньшую
+   * сторону: 1. Не хватает товара: - &#x60;\&quot;discrepancyType\&quot;:
+   * \&quot;shortage\&quot;&#x60; - &#x60;\&quot;discrepancyLabel\&quot;:
+   * \&quot;shortage\&quot;&#x60; 2. Некоторые баркоды не соответствуют заявленным: -
    * &#x60;\&quot;discrepancyType\&quot;: \&quot;shortage\&quot;&#x60; -
-   * &#x60;\&quot;discrepancyLabel\&quot;: \&quot;shortage\&quot;&#x60; 2. Некоторые баркоды не
-   * соответствуют заявленным: - &#x60;\&quot;discrepancyType\&quot;: \&quot;shortage\&quot;&#x60; -
    * &#x60;\&quot;discrepancyLabel\&quot;: \&quot;re-sorting\&quot;&#x60; [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
@@ -1614,17 +1615,18 @@ public class DefaultApi {
   /**
    * Расхождения в поставке Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену Метод возвращает информацию о выявленных расхождениях между
-   * заявленным и фактическим количеством товара в поставке. Для поставок принятых не позднее года
-   * назад. \\*\\*Типы расхождений:\\*\\* Расхождение в большую сторону: 1. Избыток товара с
-   * заявленным баркодом: - &#x60;\&quot;discrepancyType\&quot;: \&quot;surplus\&quot;&#x60; -
-   * &#x60;\&quot;discrepancyLabel\&quot;: \&quot;surplus\&quot;&#x60; 2. Избыток товара с
-   * несоответствующим заявленному баркодом: - &#x60;\&quot;discrepancyType\&quot;:
-   * \&quot;surplus\&quot;&#x60; - &#x60;\&quot;discrepancyLabel\&quot;:
-   * \&quot;re-sorting\&quot;&#x60; Расхождение в меньшую сторону: 1. Не хватает товара: -
+   * по **Персональному** токену, **Сервисному** токену Метод возвращает информацию о выявленных
+   * расхождениях между заявленным и фактическим количеством товара в поставке. Для поставок
+   * принятых не позднее года назад. \\*\\*Типы расхождений:\\*\\* Расхождение в большую сторону: 1.
+   * Избыток товара с заявленным баркодом: - &#x60;\&quot;discrepancyType\&quot;:
+   * \&quot;surplus\&quot;&#x60; - &#x60;\&quot;discrepancyLabel\&quot;: \&quot;surplus\&quot;&#x60;
+   * 2. Избыток товара с несоответствующим заявленному баркодом: -
+   * &#x60;\&quot;discrepancyType\&quot;: \&quot;surplus\&quot;&#x60; -
+   * &#x60;\&quot;discrepancyLabel\&quot;: \&quot;re-sorting\&quot;&#x60; Расхождение в меньшую
+   * сторону: 1. Не хватает товара: - &#x60;\&quot;discrepancyType\&quot;:
+   * \&quot;shortage\&quot;&#x60; - &#x60;\&quot;discrepancyLabel\&quot;:
+   * \&quot;shortage\&quot;&#x60; 2. Некоторые баркоды не соответствуют заявленным: -
    * &#x60;\&quot;discrepancyType\&quot;: \&quot;shortage\&quot;&#x60; -
-   * &#x60;\&quot;discrepancyLabel\&quot;: \&quot;shortage\&quot;&#x60; 2. Некоторые баркоды не
-   * соответствуют заявленным: - &#x60;\&quot;discrepancyType\&quot;: \&quot;shortage\&quot;&#x60; -
    * &#x60;\&quot;discrepancyLabel\&quot;: \&quot;re-sorting\&quot;&#x60; [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
@@ -1657,17 +1659,18 @@ public class DefaultApi {
   /**
    * Расхождения в поставке (asynchronously) Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену Метод возвращает информацию о выявленных расхождениях между
-   * заявленным и фактическим количеством товара в поставке. Для поставок принятых не позднее года
-   * назад. \\*\\*Типы расхождений:\\*\\* Расхождение в большую сторону: 1. Избыток товара с
-   * заявленным баркодом: - &#x60;\&quot;discrepancyType\&quot;: \&quot;surplus\&quot;&#x60; -
-   * &#x60;\&quot;discrepancyLabel\&quot;: \&quot;surplus\&quot;&#x60; 2. Избыток товара с
-   * несоответствующим заявленному баркодом: - &#x60;\&quot;discrepancyType\&quot;:
-   * \&quot;surplus\&quot;&#x60; - &#x60;\&quot;discrepancyLabel\&quot;:
-   * \&quot;re-sorting\&quot;&#x60; Расхождение в меньшую сторону: 1. Не хватает товара: -
+   * по **Персональному** токену, **Сервисному** токену Метод возвращает информацию о выявленных
+   * расхождениях между заявленным и фактическим количеством товара в поставке. Для поставок
+   * принятых не позднее года назад. \\*\\*Типы расхождений:\\*\\* Расхождение в большую сторону: 1.
+   * Избыток товара с заявленным баркодом: - &#x60;\&quot;discrepancyType\&quot;:
+   * \&quot;surplus\&quot;&#x60; - &#x60;\&quot;discrepancyLabel\&quot;: \&quot;surplus\&quot;&#x60;
+   * 2. Избыток товара с несоответствующим заявленному баркодом: -
+   * &#x60;\&quot;discrepancyType\&quot;: \&quot;surplus\&quot;&#x60; -
+   * &#x60;\&quot;discrepancyLabel\&quot;: \&quot;re-sorting\&quot;&#x60; Расхождение в меньшую
+   * сторону: 1. Не хватает товара: - &#x60;\&quot;discrepancyType\&quot;:
+   * \&quot;shortage\&quot;&#x60; - &#x60;\&quot;discrepancyLabel\&quot;:
+   * \&quot;shortage\&quot;&#x60; 2. Некоторые баркоды не соответствуют заявленным: -
    * &#x60;\&quot;discrepancyType\&quot;: \&quot;shortage\&quot;&#x60; -
-   * &#x60;\&quot;discrepancyLabel\&quot;: \&quot;shortage\&quot;&#x60; 2. Некоторые баркоды не
-   * соответствуют заявленным: - &#x60;\&quot;discrepancyType\&quot;: \&quot;shortage\&quot;&#x60; -
    * &#x60;\&quot;discrepancyLabel\&quot;: \&quot;re-sorting\&quot;&#x60; [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1

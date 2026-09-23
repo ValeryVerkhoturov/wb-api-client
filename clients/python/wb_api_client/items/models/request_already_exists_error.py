@@ -34,7 +34,7 @@ class RequestAlreadyExistsError(BaseModel):
     data: Optional[RequestAlreadyExistsErrorData] = None
     error: Optional[StrictBool] = Field(default=None, description="Флаг ошибки")
     error_text: Optional[StrictStr] = Field(
-        default=None, description="Текст ошибки", alias="errorText"
+        default=None, description="Описание ошибки", alias="errorText"
     )
     __properties: ClassVar[List[str]] = ["data", "error", "errorText"]
 

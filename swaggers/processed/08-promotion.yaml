@@ -2197,6 +2197,7 @@ paths:
                 cpmStep: 100000
                 currency: UZS
                 currencyCode: 860
+                minDailyLimit: 100000
                 minTopUp: 10000
         '401':
           $ref: '#/components/responses/401'
@@ -3797,7 +3798,7 @@ components:
           type: integer
           format: int64
           description: |
-            Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
+            Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
           example: 3001
     V0PutDailyLimitsRequest:
       type: object
@@ -3830,7 +3831,7 @@ components:
           minimum: 1000
           description: |
             Сумма дневного лимита. Параметр обязателен при `"enabled": true`.
-            Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config]().
+            Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config]()
           example: 1000
         carryOverEnabled:
           type: boolean
@@ -4017,6 +4018,7 @@ components:
       - cpmStep
       - cpcStep
       - minTopUp
+      - minDailyLimit
       properties:
         currency:
           type: string
@@ -4039,6 +4041,11 @@ components:
           description: |
             Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
              Например, минимальная сумма пополнения бюджета при `"minTopUp": 10000` и `"currency": "UZS"` — 100 узбекских сум
+        minDailyLimit:
+          type: integer
+          format: int64
+          description: |
+            Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
     V0BidsRecommendationsCpmResponse1:
       type: object
       properties:

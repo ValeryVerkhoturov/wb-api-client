@@ -98,7 +98,7 @@ public class GetV2BufferGoodsTask200Response {
   }
 
   /**
-   * Текст ошибки
+   * Описание ошибки
    *
    * @return errorText
    */

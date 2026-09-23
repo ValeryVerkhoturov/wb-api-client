@@ -115,7 +115,7 @@ public class GetV2ObjectAllResponse200 {
   }
 
   /**
-   * Текст ошибки
+   * Описание ошибки
    *
    * @return errorText
    */

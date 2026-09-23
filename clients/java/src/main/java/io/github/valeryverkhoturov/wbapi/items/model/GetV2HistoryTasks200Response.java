@@ -97,7 +97,7 @@ public class GetV2HistoryTasks200Response {
   }
 
   /**
-   * Текст ошибки
+   * Описание ошибки
    *
    * @return errorText
    */

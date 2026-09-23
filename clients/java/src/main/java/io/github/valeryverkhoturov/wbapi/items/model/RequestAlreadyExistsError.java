@@ -98,7 +98,7 @@ public class RequestAlreadyExistsError {
   }
 
   /**
-   * Текст ошибки
+   * Описание ошибки
    *
    * @return errorText
    */

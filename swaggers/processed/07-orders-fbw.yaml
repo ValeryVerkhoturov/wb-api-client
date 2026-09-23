@@ -960,12 +960,14 @@ paths:
       x-category: supplies
       x-token-types:
       - personal
+      - service
       tags:
       - Информация о поставках
       summary: Расхождения в поставке
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-        **Персональному** токену
+        **Персональному** токену,
+        **Сервисному** токену
 
         Метод возвращает информацию о выявленных расхождениях между заявленным и фактическим количеством товара в поставке.
 

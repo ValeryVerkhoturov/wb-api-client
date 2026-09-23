@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.20260923.0"
+__version__ = "1.20260923.1"
 
 # import apis into sdk package
 from wb_api_client.orders_fbs.api.api import Api

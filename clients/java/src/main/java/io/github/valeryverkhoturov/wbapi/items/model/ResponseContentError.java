@@ -103,7 +103,7 @@ public class ResponseContentError {
   }
 
   /**
-   * Текст ошибки
+   * Описание ошибки
    *
    * @return errorText
    */

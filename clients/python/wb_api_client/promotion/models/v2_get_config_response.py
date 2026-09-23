@@ -47,12 +47,17 @@ class V2GetConfigResponse(BaseModel):
         description='Минимальная сумма пополнения бюджета кампании в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).  Например, минимальная сумма пополнения бюджета при `"minTopUp": 10000` и `"currency": "UZS"` — 100 узбекских сум ',
         alias="minTopUp",
     )
+    min_daily_limit: StrictInt = Field(
+        description="Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) ",
+        alias="minDailyLimit",
+    )
     __properties: ClassVar[List[str]] = [
         "currency",
         "currencyCode",
         "cpmStep",
         "cpcStep",
         "minTopUp",
+        "minDailyLimit",
     ]
 
     model_config = ConfigDict(
@@ -110,6 +115,7 @@ class V2GetConfigResponse(BaseModel):
                 "cpmStep": obj.get("cpmStep"),
                 "cpcStep": obj.get("cpcStep"),
                 "minTopUp": obj.get("minTopUp"),
+                "minDailyLimit": obj.get("minDailyLimit"),
             }
         )
         return _obj

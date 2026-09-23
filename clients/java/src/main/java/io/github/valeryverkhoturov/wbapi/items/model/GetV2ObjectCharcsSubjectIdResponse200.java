@@ -118,7 +118,7 @@ public class GetV2ObjectCharcsSubjectIdResponse200 {
   }
 
   /**
-   * Текст ошибки
+   * Описание ошибки
    *
    * @return errorText
    */

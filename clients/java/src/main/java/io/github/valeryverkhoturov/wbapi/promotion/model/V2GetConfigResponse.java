@@ -63,6 +63,12 @@ public class V2GetConfigResponse {
   @jakarta.annotation.Nonnull
   private Long minTopUp;
 
+  public static final String SERIALIZED_NAME_MIN_DAILY_LIMIT = "minDailyLimit";
+
+  @SerializedName(SERIALIZED_NAME_MIN_DAILY_LIMIT)
+  @jakarta.annotation.Nonnull
+  private Long minDailyLimit;
+
   public V2GetConfigResponse() {}
 
   public V2GetConfigResponse currency(@jakarta.annotation.Nonnull String currency) {
@@ -165,6 +171,27 @@ public class V2GetConfigResponse {
     this.minTopUp = minTopUp;
   }
 
+  public V2GetConfigResponse minDailyLimit(@jakarta.annotation.Nonnull Long minDailyLimit) {
+    this.minDailyLimit = minDailyLimit;
+    return this;
+  }
+
+  /**
+   * Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в
+   * разменных единицах — 0,01 от базовой валюты [аккаунта
+   * продавца](https://cmp.wildberries.ru/campaigns/finances)
+   *
+   * @return minDailyLimit
+   */
+  @jakarta.annotation.Nonnull
+  public Long getMinDailyLimit() {
+    return minDailyLimit;
+  }
+
+  public void setMinDailyLimit(@jakarta.annotation.Nonnull Long minDailyLimit) {
+    this.minDailyLimit = minDailyLimit;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -178,12 +205,13 @@ public class V2GetConfigResponse {
         && Objects.equals(this.currencyCode, v2GetConfigResponse.currencyCode)
         && Objects.equals(this.cpmStep, v2GetConfigResponse.cpmStep)
         && Objects.equals(this.cpcStep, v2GetConfigResponse.cpcStep)
-        && Objects.equals(this.minTopUp, v2GetConfigResponse.minTopUp);
+        && Objects.equals(this.minTopUp, v2GetConfigResponse.minTopUp)
+        && Objects.equals(this.minDailyLimit, v2GetConfigResponse.minDailyLimit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, currencyCode, cpmStep, cpcStep, minTopUp);
+    return Objects.hash(currency, currencyCode, cpmStep, cpcStep, minTopUp, minDailyLimit);
   }
 
   @Override
@@ -195,6 +223,7 @@ public class V2GetConfigResponse {
     sb.append("    cpmStep: ").append(toIndentedString(cpmStep)).append("\n");
     sb.append("    cpcStep: ").append(toIndentedString(cpcStep)).append("\n");
     sb.append("    minTopUp: ").append(toIndentedString(minTopUp)).append("\n");
+    sb.append("    minDailyLimit: ").append(toIndentedString(minDailyLimit)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -220,6 +249,7 @@ public class V2GetConfigResponse {
     openapiFields.add("cpmStep");
     openapiFields.add("cpcStep");
     openapiFields.add("minTopUp");
+    openapiFields.add("minDailyLimit");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -228,6 +258,7 @@ public class V2GetConfigResponse {
     openapiRequiredFields.add("cpmStep");
     openapiRequiredFields.add("cpcStep");
     openapiRequiredFields.add("minTopUp");
+    openapiRequiredFields.add("minDailyLimit");
   }
 
   /**

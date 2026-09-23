@@ -122,7 +122,7 @@ public class MediaErrors {
   }
 
   /**
-   * Текст ошибки
+   * Описание ошибки
    *
    * @return errorText
    */

@@ -97,7 +97,7 @@ public class TaskCreated {
   }
 
   /**
-   * Текст ошибки
+   * Описание ошибки
    *
    * @return errorText
    */

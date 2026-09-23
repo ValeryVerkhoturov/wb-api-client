@@ -273,7 +273,7 @@ public class GoodBufferHistory {
   }
 
   /**
-   * Текст ошибки
+   * Описание ошибки
    *
    * @return errorText
    */

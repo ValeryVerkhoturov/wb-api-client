@@ -103,7 +103,7 @@ public class ResponseBodyContentError400 {
   }
 
   /**
-   * Текст ошибки
+   * Описание ошибки
    *
    * @return errorText
    */

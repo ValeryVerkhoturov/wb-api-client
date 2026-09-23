@@ -3620,7 +3620,7 @@ export interface V0DailyLimitAdvert {
    */
   valid: boolean;
   /**
-   * Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances).
+   * Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
    * @type {number}
    * @memberof V0DailyLimitAdvert
    */
@@ -4135,7 +4135,7 @@ export interface V0PutDailyLimitsRequest {
    */
   enabled: boolean;
   /**
-   * Сумма дневного лимита. Параметр обязателен при `\"enabled\": true`. Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config]().
+   * Сумма дневного лимита. Параметр обязателен при `\"enabled\": true`. Минимально допустимая сумма указана в поле `minDailyLimit` метода [GET /api/advert/v1/config]()
    * @type {number}
    * @memberof V0PutDailyLimitsRequest
    */
@@ -4584,6 +4584,12 @@ export interface V2GetConfigResponse {
    * @memberof V2GetConfigResponse
    */
   minTopUp: number;
+  /**
+   * Минимально допустимый размер дневного лимита, вне зависимости от ставок кампании. Указывается в разменных единицах — 0,01 от базовой валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
+   * @type {number}
+   * @memberof V2GetConfigResponse
+   */
+  minDailyLimit: number;
 }
 
 /**

@@ -5319,18 +5319,22 @@ components:
       properties:
         data:
           type: object
+          example: {}
           nullable: true
           description: Данные ошибки
         error:
           description: Флаг ошибки
           type: boolean
+          example: true
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           type: string
+          example: Bad request
         additionalErrors:
           nullable: true
           description: Дополнительные ошибки
           type: object
+          example: {}
     responseBodyContentError403:
       type: object
       properties:
@@ -5342,7 +5346,7 @@ components:
           description: Флаг ошибки
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           type: string
         additionalErrors:
           nullable: true
@@ -5364,7 +5368,7 @@ components:
           description: Флаг ошибки
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           type: string
         additionalErrors:
           description: Дополнительные ошибки
@@ -5390,13 +5394,13 @@ components:
           description: Флаг ошибки
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           type: string
       example:
         additionalErrors:
         data:
         error: true
-        errorText: Error text
+        errorText: Failed to deserialize the JSON body into the target type
     ResponseError:
       type: object
       properties:
@@ -5409,7 +5413,7 @@ components:
           description: Флаг ошибки
         errorText:
           type: string
-          description: Текст ошибки
+          description: Описание ошибки
     ResponseErrorV3:
       type: object
       required:
@@ -5456,7 +5460,7 @@ components:
           description: Флаг ошибки
           type: boolean
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           type: string
     UpdateBlocked:
       type: object
@@ -5492,7 +5496,7 @@ components:
           type: boolean
           example: false
         errorText:
-          description: Текст ошибки
+          description: Описание ошибки
           type: string
           example: ''
     Item:
@@ -5745,7 +5749,7 @@ components:
         errorText:
           type: string
           example:
-          description: Текст ошибки
+          description: Описание ошибки
           nullable: true
     GoodHistory:
       type: object
@@ -5791,7 +5795,7 @@ components:
           type: string
           nullable: true
           example: New price is several times lower than the current price. Item has been moved to Price Quarantine
-          description: "Текст ошибки. Например:\n  - `New price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1). Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).\n"
+          description: "Описание ошибки. Например:\n  - `New price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1). Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).\n"
     SellerTaskMetadata:
       type: object
       nullable: true
@@ -6669,7 +6673,7 @@ components:
           description: Флаг наличия ошибки
         errorText:
           type: string
-          description: Текст ошибки
+          description: Описание ошибки
         additionalErrors:
           nullable: true
           description: Дополнительные ошибки
@@ -6743,7 +6747,7 @@ components:
           description: Флаг наличия ошибки
         errorText:
           type: string
-          description: Текст ошибки
+          description: Описание ошибки
         additionalErrors:
           type: string
           description: Дополнительные ошибки
@@ -6881,7 +6885,7 @@ components:
           description: Флаг наличия ошибки
         errorText:
           type: string
-          description: Текст ошибки
+          description: Описание ошибки
         additionalErrors:
           nullable: true
           type: string
@@ -6909,7 +6913,7 @@ components:
           example: false
         errorText:
           type: string
-          description: Текст ошибки
+          description: Описание ошибки
         additionalErrors:
           nullable: true
           type: string
@@ -7996,7 +8000,7 @@ components:
                 example: false
               errorText:
                 type: string
-                description: Текст ошибки
+                description: Описание ошибки
                 example: ''
     ResponseGoodHistories:
       description: Успешно
@@ -8048,7 +8052,7 @@ components:
                 example: false
               errorText:
                 type: string
-                description: Текст ошибки
+                description: Описание ошибки
                 example: ''
     ResponseTaskHistory:
       description: Успешно
@@ -8064,7 +8068,7 @@ components:
                 description: Флаг ошибки
                 example: false
               errorText:
-                description: Текст ошибки
+                description: Описание ошибки
                 type: string
                 example: ''
     ResponseTaskBuffer:
@@ -8082,7 +8086,7 @@ components:
                 example: false
               errorText:
                 type: string
-                description: Текст ошибки
+                description: Описание ошибки
                 example: ''
     ResponseSizeLists:
       description: Успешно
@@ -8106,7 +8110,7 @@ components:
                 type: boolean
                 example: false
               errorText:
-                description: Текст ошибки
+                description: Описание ошибки
                 type: string
     SuccessTaskResponse:
       description: Успешно
@@ -8213,7 +8217,7 @@ components:
                 type: boolean
                 example: false
               errorText:
-                description: Текст ошибки
+                description: Описание ошибки
                 type: string
                 example: ''
     Response208:
@@ -8660,9 +8664,9 @@ components:
       value:
         data:
         error: true
-        errorText: Недопустимо отправлять дублирующиеся запросы!
+        errorText: Недопустимо отправлять дублирующиеся запросы
         additionalErrors:
-          error: Недопустимо отправлять дублирующиеся запросы!
+          error: Недопустимо отправлять дублирующиеся запросы
     responseAllListingsInSameGroup:
       description: ''
       value:
@@ -8676,9 +8680,9 @@ components:
       value:
         data:
         error: true
-        errorText: string
+        errorText: The request format is incorrect, the nmIDs field cannot be empty
         additionalErrors:
-          string: string
+          string: ''
     InvalidRequestFormatContent:
       description: Некорректный формат запроса
       value:
@@ -8738,7 +8742,7 @@ components:
       value:
         data:
         error: true
-        errorText: Текст ошибки
+        errorText: 'arguments could not be decoded: invalid syntax'
         additionalErrors:
     responseBody400LenName:
       description: ''
@@ -8818,7 +8822,7 @@ components:
       value:
         data:
         error: true
-        errorText: Duplicate item Nos.
+        errorText: Duplicate item nmIDs
     DuplicateSizeIDs:
       description: В запросе несколько одинаковых `sizeID`
       value:
@@ -8874,7 +8878,7 @@ components:
       value:
         data:
         error: true
-        errorText: Invalid item No.
+        errorText: Invalid item nmID
     InvalidItemNoV3:
       description: Неправильный `nmId`
       value:
@@ -8892,7 +8896,7 @@ components:
       value:
         data:
         error: true
-        errorText: Invalid size
+        errorText: Invalid sizeID
     PriceAndDiscountNotSpecified:
       description: Цена и скидка не указаны
       value:

@@ -115,7 +115,7 @@ public class V0PutDailyLimitsRequest {
   /**
    * Сумма дневного лимита. Параметр обязателен при &#x60;\&quot;enabled\&quot;: true&#x60;.
    * Минимально допустимая сумма указана в поле &#x60;minDailyLimit&#x60; метода [GET
-   * /api/advert/v1/config](). minimum: 1000
+   * /api/advert/v1/config]() minimum: 1000
    *
    * @return dailyLimit
    */

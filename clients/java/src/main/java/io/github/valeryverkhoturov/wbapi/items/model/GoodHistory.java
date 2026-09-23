@@ -273,9 +273,9 @@ public class GoodHistory {
   }
 
   /**
-   * Текст ошибки. Например: - &#x60;New price is several times lower than the current price. Item
-   * has been moved to Price Quarantine&#x60; — ошибка возникает, если новая цена со скидкой меньше
-   * [порогового
+   * Описание ошибки. Например: - &#x60;New price is several times lower than the current price.
+   * Item has been moved to Price Quarantine&#x60; — ошибка возникает, если новая цена со скидкой
+   * меньше [порогового
    * значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1).
    * Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном
    * кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).

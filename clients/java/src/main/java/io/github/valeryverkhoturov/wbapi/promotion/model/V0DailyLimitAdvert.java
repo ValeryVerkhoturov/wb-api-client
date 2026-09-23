@@ -230,7 +230,7 @@ public class V0DailyLimitAdvert {
   /**
    * Рекомендуемый минимальный размер дневного лимита при текущих ставках кампании. Указывается в
    * разменных единицах — 0,01 от базовой валюты [аккаунта
-   * продавца](https://cmp.wildberries.ru/campaigns/finances).
+   * продавца](https://cmp.wildberries.ru/campaigns/finances)
    *
    * @return requiredLimit
    */

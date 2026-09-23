@@ -33,7 +33,7 @@ class GetV2ListGoodsFilter200Response(BaseModel):
 
     data: GetV2ListGoodsFilter200ResponseData
     error: StrictBool = Field(description="Флаг ошибки")
-    error_text: StrictStr = Field(description="Текст ошибки", alias="errorText")
+    error_text: StrictStr = Field(description="Описание ошибки", alias="errorText")
     __properties: ClassVar[List[str]] = ["data", "error", "errorText"]
 
     model_config = ConfigDict(

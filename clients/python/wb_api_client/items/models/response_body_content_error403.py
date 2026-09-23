@@ -31,7 +31,7 @@ class ResponseBodyContentError403(BaseModel):
     data: Optional[Dict[str, Any]] = Field(default=None, description="Данные ошибки")
     error: Optional[StrictBool] = Field(default=None, description="Флаг ошибки")
     error_text: Optional[StrictStr] = Field(
-        default=None, description="Текст ошибки", alias="errorText"
+        default=None, description="Описание ошибки", alias="errorText"
     )
     additional_errors: Optional[StrictStr] = Field(
         default=None, description="Дополнительные ошибки", alias="additionalErrors"

@@ -97,7 +97,7 @@ public class ResponseError {
   }
 
   /**
-   * Текст ошибки
+   * Описание ошибки
    *
    * @return errorText
    */

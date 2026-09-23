@@ -392,7 +392,7 @@ export interface GetV2BufferGoodsTask200Response {
    */
   error?: boolean;
   /**
-   * Текст ошибки
+   * Описание ошибки
    * @type {string}
    * @memberof GetV2BufferGoodsTask200Response
    */
@@ -436,7 +436,7 @@ export interface GetV2BufferTasks200Response {
    */
   error?: boolean;
   /**
-   * Текст ошибки
+   * Описание ошибки
    * @type {string}
    * @memberof GetV2BufferTasks200Response
    */
@@ -679,7 +679,7 @@ export interface GetV2DirectoryTnvedResponse200 {
    */
   error?: boolean;
   /**
-   * Текст ошибки
+   * Описание ошибки
    * @type {string}
    * @memberof GetV2DirectoryTnvedResponse200
    */
@@ -729,7 +729,7 @@ export interface GetV2DirectoryVatResponse200 {
    */
   error?: boolean;
   /**
-   * Текст ошибки
+   * Описание ошибки
    * @type {string}
    * @memberof GetV2DirectoryVatResponse200
    */
@@ -792,7 +792,7 @@ export interface GetV2HistoryTasks200Response {
    */
   error?: boolean;
   /**
-   * Текст ошибки
+   * Описание ошибки
    * @type {string}
    * @memberof GetV2HistoryTasks200Response
    */
@@ -817,7 +817,7 @@ export interface GetV2ListGoodsFilter200Response {
    */
   error: boolean;
   /**
-   * Текст ошибки
+   * Описание ошибки
    * @type {string}
    * @memberof GetV2ListGoodsFilter200Response
    */
@@ -855,7 +855,7 @@ export interface GetV2ListGoodsSizeNm200Response {
    */
   error?: boolean;
   /**
-   * Текст ошибки
+   * Описание ошибки
    * @type {string}
    * @memberof GetV2ListGoodsSizeNm200Response
    */
@@ -948,7 +948,7 @@ export interface GetV2ObjectAllResponse200 {
    */
   error?: boolean;
   /**
-   * Текст ошибки
+   * Описание ошибки
    * @type {string}
    * @memberof GetV2ObjectAllResponse200
    */
@@ -1010,7 +1010,7 @@ export interface GetV2ObjectCharcsSubjectIdResponse200 {
    */
   error?: boolean;
   /**
-   * Текст ошибки
+   * Описание ошибки
    * @type {string}
    * @memberof GetV2ObjectCharcsSubjectIdResponse200
    */
@@ -1231,7 +1231,7 @@ export interface GetV2QuarantineGoods200Response {
    */
   error?: boolean;
   /**
-   * Текст ошибки
+   * Описание ошибки
    * @type {string}
    * @memberof GetV2QuarantineGoods200Response
    */
@@ -1418,7 +1418,7 @@ export interface GoodBufferHistory {
    */
   status?: number;
   /**
-   * Текст ошибки
+   * Описание ошибки
    * @type {string}
    * @memberof GoodBufferHistory
    */
@@ -1485,7 +1485,7 @@ export interface GoodHistory {
    */
   status?: number;
   /**
-   * Текст ошибки. Например:   - `New price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1). Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).
+   * Описание ошибки. Например:   - `New price is several times lower than the current price. Item has been moved to Price Quarantine` — ошибка возникает, если новая цена со скидкой меньше [порогового значения](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1). Вы можете изменить цену или скидку с помощью API либо вывести товар из карантина в [личном кабинете](https://seller.wildberries.ru/discount-and-prices/quarantine).
    * @type {string}
    * @memberof GoodHistory
    */
@@ -1633,7 +1633,7 @@ export interface MediaErrors {
    */
   error?: boolean;
   /**
-   * Текст ошибки
+   * Описание ошибки
    * @type {string}
    * @memberof MediaErrors
    */
@@ -4207,7 +4207,7 @@ export interface RequestAlreadyExistsError {
    */
   error?: boolean;
   /**
-   * Текст ошибки
+   * Описание ошибки
    * @type {string}
    * @memberof RequestAlreadyExistsError
    */
@@ -4450,7 +4450,7 @@ export interface ResponseBodyContentError400 {
    */
   error?: boolean;
   /**
-   * Текст ошибки
+   * Описание ошибки
    * @type {string}
    * @memberof ResponseBodyContentError400
    */
@@ -4481,7 +4481,7 @@ export interface ResponseBodyContentError403 {
    */
   error?: boolean;
   /**
-   * Текст ошибки
+   * Описание ошибки
    * @type {string}
    * @memberof ResponseBodyContentError403
    */
@@ -4512,7 +4512,7 @@ export interface ResponseContentError {
    */
   error?: boolean;
   /**
-   * Текст ошибки
+   * Описание ошибки
    * @type {string}
    * @memberof ResponseContentError
    */
@@ -4543,7 +4543,7 @@ export interface ResponseError {
    */
   error?: boolean;
   /**
-   * Текст ошибки
+   * Описание ошибки
    * @type {string}
    * @memberof ResponseError
    */
@@ -5071,7 +5071,7 @@ export interface TaskCreated {
    */
   error?: boolean;
   /**
-   * Текст ошибки
+   * Описание ошибки
    * @type {string}
    * @memberof TaskCreated
    */
