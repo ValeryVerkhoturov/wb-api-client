@@ -17,26 +17,25 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from typing import Any, ClassVar, Dict, List
+from wb_api_client.reports.models.goods_return200_response_report_inner import (
+    GoodsReturn200ResponseReportInner,
+)
 from typing import Optional, Set
 from typing_extensions import Self
 
 
-class Http4XXResponse(BaseModel):
+class GoodsReturn200Response(BaseModel):
     """
-    Http4XXResponse
+    GoodsReturn200Response
     """  # noqa: E501
 
-    detail: Optional[StrictStr] = Field(default=None, description="Детали ошибки")
-    origin: Optional[StrictStr] = Field(
-        default=None, description="ID внутреннего сервиса WB"
+    count: StrictInt = Field(
+        description="Общее количество возвратов за запрашиваемый период"
     )
-    request_id: Optional[StrictStr] = Field(
-        default=None, description="Уникальный ID запроса", alias="requestId"
-    )
-    title: Optional[StrictStr] = Field(default=None, description="Заголовок ошибки")
-    __properties: ClassVar[List[str]] = ["detail", "origin", "requestId", "title"]
+    report: List[GoodsReturn200ResponseReportInner] = Field(description="Отчёт")
+    __properties: ClassVar[List[str]] = ["count", "report"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,7 +54,7 @@ class Http4XXResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Http4XXResponse from a JSON string"""
+        """Create an instance of GoodsReturn200Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -75,11 +74,18 @@ class Http4XXResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in report (list)
+        _items = []
+        if self.report:
+            for _item_report in self.report:
+                if _item_report:
+                    _items.append(_item_report.to_dict())
+            _dict["report"] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Http4XXResponse from a dict"""
+        """Create an instance of GoodsReturn200Response from a dict"""
         if obj is None:
             return None
 
@@ -88,10 +94,15 @@ class Http4XXResponse(BaseModel):
 
         _obj = cls.model_validate(
             {
-                "detail": obj.get("detail"),
-                "origin": obj.get("origin"),
-                "requestId": obj.get("requestId"),
-                "title": obj.get("title"),
+                "count": obj.get("count"),
+                "report": (
+                    [
+                        GoodsReturn200ResponseReportInner.from_dict(_item)
+                        for _item in obj["report"]
+                    ]
+                    if obj.get("report") is not None
+                    else None
+                ),
             }
         )
         return _obj

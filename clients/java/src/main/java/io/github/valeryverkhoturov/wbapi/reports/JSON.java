@@ -192,7 +192,13 @@ public class JSON {
             .GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.reports.model.Http4XxResponse
+        new io.github.valeryverkhoturov.wbapi.reports.model.GoodsReturn200Response
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.reports.model.GoodsReturn200ResponseReportInner
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.reports.model.Http4XXResponse
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.reports.model.MeasurementPenalties

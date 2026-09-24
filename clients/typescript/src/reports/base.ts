@@ -89,6 +89,12 @@ interface ServerMap {
  * @export
  */
 export const operationServerMap: ServerMap = {
+  "DefaultApi.getAnalyticsV1GoodsReturn": [
+    {
+      url: "https://seller-analytics-api.wildberries.ru",
+      description: "No description provided",
+    },
+  ],
   "DefaultApi.getV1AcceptanceReport": [
     {
       url: "https://seller-analytics-api.wildberries.ru",

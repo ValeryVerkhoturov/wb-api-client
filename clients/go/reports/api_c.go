@@ -174,7 +174,7 @@ func (a *CAPIService) PostV1AnalyticsExciseReportExecute(r ApiPostV1AnalyticsExc
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v Http4XxResponse
+			var v Http4XXResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

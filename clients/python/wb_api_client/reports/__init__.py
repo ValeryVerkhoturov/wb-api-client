@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.20260923.1"
+__version__ = "1.20260924.0"
 
 # import apis into sdk package
 from wb_api_client.reports.api.api import Api
@@ -125,7 +125,11 @@ from wb_api_client.reports.models.get_v1_warehouse_remains_tasks_task_id_downloa
 from wb_api_client.reports.models.get_v1_warehouse_remains_tasks_task_id_download_response200_inner_warehouses_inner import (
     GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner,
 )
-from wb_api_client.reports.models.http4_xx_response import Http4XxResponse
+from wb_api_client.reports.models.goods_return200_response import GoodsReturn200Response
+from wb_api_client.reports.models.goods_return200_response_report_inner import (
+    GoodsReturn200ResponseReportInner,
+)
+from wb_api_client.reports.models.http4_xx_response import Http4XXResponse
 from wb_api_client.reports.models.measurement_penalties import MeasurementPenalties
 from wb_api_client.reports.models.measurement_penalties_data import (
     MeasurementPenaltiesData,

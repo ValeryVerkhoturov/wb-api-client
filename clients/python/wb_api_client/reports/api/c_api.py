@@ -105,7 +105,7 @@ class CApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "ExciseReportResponse",
-            "400": "Http4XxResponse",
+            "400": "Http4XXResponse",
             "401": "GetV1SupplierOrders401Response",
             "402": "GetV1SupplierOrders402Response",
             "403": "GetV1SupplierOrders403Response",
@@ -186,7 +186,7 @@ class CApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "ExciseReportResponse",
-            "400": "Http4XxResponse",
+            "400": "Http4XXResponse",
             "401": "GetV1SupplierOrders401Response",
             "402": "GetV1SupplierOrders402Response",
             "403": "GetV1SupplierOrders403Response",
@@ -267,7 +267,7 @@ class CApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "ExciseReportResponse",
-            "400": "Http4XxResponse",
+            "400": "Http4XXResponse",
             "401": "GetV1SupplierOrders401Response",
             "402": "GetV1SupplierOrders402Response",
             "403": "GetV1SupplierOrders403Response",

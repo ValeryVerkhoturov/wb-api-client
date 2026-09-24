@@ -33,6 +33,7 @@ import io.github.valeryverkhoturov.wbapi.reports.model.GetV1AnalyticsRegionSale2
 import io.github.valeryverkhoturov.wbapi.reports.model.GetV1Deductions200Response;
 import io.github.valeryverkhoturov.wbapi.reports.model.GetV1PaidStorageTasksTaskIdDownloadResponse200Inner;
 import io.github.valeryverkhoturov.wbapi.reports.model.GetV1WarehouseRemainsTasksTaskIdDownloadResponse200Inner;
+import io.github.valeryverkhoturov.wbapi.reports.model.GoodsReturn200Response;
 import io.github.valeryverkhoturov.wbapi.reports.model.MeasurementPenalties;
 import io.github.valeryverkhoturov.wbapi.reports.model.OrdersItem;
 import io.github.valeryverkhoturov.wbapi.reports.model.SalesItem;
@@ -80,6 +81,261 @@ public class DefaultApi {
 
   public void setCustomBaseUrl(String customBaseUrl) {
     this.localCustomBaseUrl = customBaseUrl;
+  }
+
+  /**
+   * Build call for getAnalyticsV1GoodsReturn
+   *
+   * @param dateFrom Дата начала отчётного периода (required)
+   * @param dateTo Дата окончания отчётного периода (required)
+   * @param status Статус возврата: - &#x60;archive&#x60; — архивный - &#x60;active&#x60; — активный
+   *     (required)
+   * @param limit Количество возвратов в ответе (required)
+   * @param offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11
+   *     элемента (required)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 204 </td><td> Нет данных </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getAnalyticsV1GoodsReturnCall(
+      LocalDate dateFrom,
+      LocalDate dateTo,
+      String status,
+      Integer limit,
+      Integer offset,
+      final ApiCallback _callback)
+      throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {"https://seller-analytics-api.wildberries.ru"};
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null) {
+      basePath = localCustomBaseUrl;
+    } else if (localBasePaths.length > 0) {
+      basePath = localBasePaths[localHostIndex];
+    } else {
+      basePath = null;
+    }
+
+    Object localVarPostBody = null;
+
+    // create path and map variables
+    String localVarPath = "/api/analytics/v1/item-returns";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    if (dateFrom != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("dateFrom", dateFrom));
+    }
+
+    if (dateTo != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("dateTo", dateTo));
+    }
+
+    if (status != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+    }
+
+    if (limit != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+    }
+
+    if (offset != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+    }
+
+    final String[] localVarAccepts = {"application/json", "application/problem+json"};
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {};
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    if (localVarContentType != null) {
+      localVarHeaderParams.put("Content-Type", localVarContentType);
+    }
+
+    String[] localVarAuthNames = new String[] {"BearerAuth"};
+    return localVarApiClient.buildCall(
+        basePath,
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call getAnalyticsV1GoodsReturnValidateBeforeCall(
+      LocalDate dateFrom,
+      LocalDate dateTo,
+      String status,
+      Integer limit,
+      Integer offset,
+      final ApiCallback _callback)
+      throws ApiException {
+    // verify the required parameter 'dateFrom' is set
+    if (dateFrom == null) {
+      throw new ApiException(
+          "Missing the required parameter 'dateFrom' when calling getAnalyticsV1GoodsReturn(Async)");
+    }
+
+    // verify the required parameter 'dateTo' is set
+    if (dateTo == null) {
+      throw new ApiException(
+          "Missing the required parameter 'dateTo' when calling getAnalyticsV1GoodsReturn(Async)");
+    }
+
+    // verify the required parameter 'status' is set
+    if (status == null) {
+      throw new ApiException(
+          "Missing the required parameter 'status' when calling getAnalyticsV1GoodsReturn(Async)");
+    }
+
+    // verify the required parameter 'limit' is set
+    if (limit == null) {
+      throw new ApiException(
+          "Missing the required parameter 'limit' when calling getAnalyticsV1GoodsReturn(Async)");
+    }
+
+    // verify the required parameter 'offset' is set
+    if (offset == null) {
+      throw new ApiException(
+          "Missing the required parameter 'offset' when calling getAnalyticsV1GoodsReturn(Async)");
+    }
+
+    return getAnalyticsV1GoodsReturnCall(dateFrom, dateTo, status, limit, offset, _callback);
+  }
+
+  /**
+   * Получить отчёт Метод возвращает отчёт о [возвратах товаров
+   * продавцу](https://seller.wildberries.ru/return-transfer-reports).
+   *
+   * @param dateFrom Дата начала отчётного периода (required)
+   * @param dateTo Дата окончания отчётного периода (required)
+   * @param status Статус возврата: - &#x60;archive&#x60; — архивный - &#x60;active&#x60; — активный
+   *     (required)
+   * @param limit Количество возвратов в ответе (required)
+   * @param offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11
+   *     элемента (required)
+   * @return GoodsReturn200Response
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 204 </td><td> Нет данных </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public GoodsReturn200Response getAnalyticsV1GoodsReturn(
+      LocalDate dateFrom, LocalDate dateTo, String status, Integer limit, Integer offset)
+      throws ApiException {
+    ApiResponse<GoodsReturn200Response> localVarResp =
+        getAnalyticsV1GoodsReturnWithHttpInfo(dateFrom, dateTo, status, limit, offset);
+    return localVarResp.getData();
+  }
+
+  /**
+   * Получить отчёт Метод возвращает отчёт о [возвратах товаров
+   * продавцу](https://seller.wildberries.ru/return-transfer-reports).
+   *
+   * @param dateFrom Дата начала отчётного периода (required)
+   * @param dateTo Дата окончания отчётного периода (required)
+   * @param status Статус возврата: - &#x60;archive&#x60; — архивный - &#x60;active&#x60; — активный
+   *     (required)
+   * @param limit Количество возвратов в ответе (required)
+   * @param offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11
+   *     элемента (required)
+   * @return ApiResponse&lt;GoodsReturn200Response&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 204 </td><td> Нет данных </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<GoodsReturn200Response> getAnalyticsV1GoodsReturnWithHttpInfo(
+      LocalDate dateFrom, LocalDate dateTo, String status, Integer limit, Integer offset)
+      throws ApiException {
+    okhttp3.Call localVarCall =
+        getAnalyticsV1GoodsReturnValidateBeforeCall(dateFrom, dateTo, status, limit, offset, null);
+    Type localVarReturnType = new TypeToken<GoodsReturn200Response>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * Получить отчёт (asynchronously) Метод возвращает отчёт о [возвратах товаров
+   * продавцу](https://seller.wildberries.ru/return-transfer-reports).
+   *
+   * @param dateFrom Дата начала отчётного периода (required)
+   * @param dateTo Дата окончания отчётного периода (required)
+   * @param status Статус возврата: - &#x60;archive&#x60; — архивный - &#x60;active&#x60; — активный
+   *     (required)
+   * @param limit Количество возвратов в ответе (required)
+   * @param offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11
+   *     элемента (required)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 204 </td><td> Нет данных </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getAnalyticsV1GoodsReturnAsync(
+      LocalDate dateFrom,
+      LocalDate dateTo,
+      String status,
+      Integer limit,
+      Integer offset,
+      final ApiCallback<GoodsReturn200Response> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall =
+        getAnalyticsV1GoodsReturnValidateBeforeCall(
+            dateFrom, dateTo, status, limit, offset, _callback);
+    Type localVarReturnType = new TypeToken<GoodsReturn200Response>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
   }
 
   /**
@@ -2019,7 +2275,10 @@ public class DefaultApi {
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public okhttp3.Call getV1AnalyticsGoodsReturnCall(
       LocalDate dateFrom, LocalDate dateTo, final ApiCallback _callback) throws ApiException {
     String basePath = null;
@@ -2082,6 +2341,7 @@ public class DefaultApi {
         _callback);
   }
 
+  @Deprecated
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1AnalyticsGoodsReturnValidateBeforeCall(
       LocalDate dateFrom, LocalDate dateTo, final ApiCallback _callback) throws ApiException {
@@ -2101,14 +2361,8 @@ public class DefaultApi {
   }
 
   /**
-   * Получить отчёт Метод возвращает отчёт о [возвратах товаров
-   * продавцу](https://seller.wildberries.ru/analytics-reports/goods-return). Можно получить отчёт
-   * максимум за 31 день. [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
-   * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
-   * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * Получить отчёт Метод будет отключен [26
+   * октября](https://dev.wildberries.ru/release-notes?id&#x3D;577).
    *
    * @param dateFrom Дата начала отчётного периода (required)
    * @param dateTo Дата окончания отчётного периода (required)
@@ -2126,7 +2380,10 @@ public class DefaultApi {
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public GetV1AnalyticsGoodsReturnResponse200 getV1AnalyticsGoodsReturn(
       LocalDate dateFrom, LocalDate dateTo) throws ApiException {
     ApiResponse<GetV1AnalyticsGoodsReturnResponse200> localVarResp =
@@ -2135,14 +2392,8 @@ public class DefaultApi {
   }
 
   /**
-   * Получить отчёт Метод возвращает отчёт о [возвратах товаров
-   * продавцу](https://seller.wildberries.ru/analytics-reports/goods-return). Можно получить отчёт
-   * максимум за 31 день. [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
-   * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
-   * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * Получить отчёт Метод будет отключен [26
+   * октября](https://dev.wildberries.ru/release-notes?id&#x3D;577).
    *
    * @param dateFrom Дата начала отчётного периода (required)
    * @param dateTo Дата окончания отчётного периода (required)
@@ -2160,7 +2411,10 @@ public class DefaultApi {
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<GetV1AnalyticsGoodsReturnResponse200> getV1AnalyticsGoodsReturnWithHttpInfo(
       LocalDate dateFrom, LocalDate dateTo) throws ApiException {
     okhttp3.Call localVarCall = getV1AnalyticsGoodsReturnValidateBeforeCall(dateFrom, dateTo, null);
@@ -2169,14 +2423,8 @@ public class DefaultApi {
   }
 
   /**
-   * Получить отчёт (asynchronously) Метод возвращает отчёт о [возвратах товаров
-   * продавцу](https://seller.wildberries.ru/analytics-reports/goods-return). Можно получить отчёт
-   * максимум за 31 день. [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
-   * | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1
-   * запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов |
-   * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
+   * Получить отчёт (asynchronously) Метод будет отключен [26
+   * октября](https://dev.wildberries.ru/release-notes?id&#x3D;577).
    *
    * @param dateFrom Дата начала отчётного периода (required)
    * @param dateTo Дата окончания отчётного периода (required)
@@ -2194,7 +2442,10 @@ public class DefaultApi {
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public okhttp3.Call getV1AnalyticsGoodsReturnAsync(
       LocalDate dateFrom,
       LocalDate dateTo,

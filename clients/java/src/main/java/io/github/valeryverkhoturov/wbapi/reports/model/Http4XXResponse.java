@@ -28,11 +28,11 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Http4XxResponse */
+/** Http4XXResponse */
 @jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
-public class Http4XxResponse {
+public class Http4XXResponse {
   public static final String SERIALIZED_NAME_DETAIL = "detail";
 
   @SerializedName(SERIALIZED_NAME_DETAIL)
@@ -57,9 +57,9 @@ public class Http4XxResponse {
   @jakarta.annotation.Nullable
   private String title;
 
-  public Http4XxResponse() {}
+  public Http4XXResponse() {}
 
-  public Http4XxResponse detail(@jakarta.annotation.Nullable String detail) {
+  public Http4XXResponse detail(@jakarta.annotation.Nullable String detail) {
     this.detail = detail;
     return this;
   }
@@ -78,7 +78,7 @@ public class Http4XxResponse {
     this.detail = detail;
   }
 
-  public Http4XxResponse origin(@jakarta.annotation.Nullable String origin) {
+  public Http4XXResponse origin(@jakarta.annotation.Nullable String origin) {
     this.origin = origin;
     return this;
   }
@@ -97,7 +97,7 @@ public class Http4XxResponse {
     this.origin = origin;
   }
 
-  public Http4XxResponse requestId(@jakarta.annotation.Nullable String requestId) {
+  public Http4XXResponse requestId(@jakarta.annotation.Nullable String requestId) {
     this.requestId = requestId;
     return this;
   }
@@ -116,7 +116,7 @@ public class Http4XxResponse {
     this.requestId = requestId;
   }
 
-  public Http4XxResponse title(@jakarta.annotation.Nullable String title) {
+  public Http4XXResponse title(@jakarta.annotation.Nullable String title) {
     this.title = title;
     return this;
   }
@@ -143,11 +143,11 @@ public class Http4XxResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Http4XxResponse http4XxResponse = (Http4XxResponse) o;
-    return Objects.equals(this.detail, http4XxResponse.detail)
-        && Objects.equals(this.origin, http4XxResponse.origin)
-        && Objects.equals(this.requestId, http4XxResponse.requestId)
-        && Objects.equals(this.title, http4XxResponse.title);
+    Http4XXResponse http4XXResponse = (Http4XXResponse) o;
+    return Objects.equals(this.detail, http4XXResponse.detail)
+        && Objects.equals(this.origin, http4XXResponse.origin)
+        && Objects.equals(this.requestId, http4XXResponse.requestId)
+        && Objects.equals(this.title, http4XXResponse.title);
   }
 
   @Override
@@ -158,7 +158,7 @@ public class Http4XxResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Http4XxResponse {\n");
+    sb.append("class Http4XXResponse {\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
     sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
@@ -196,26 +196,26 @@ public class Http4XxResponse {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Http4XxResponse
+   * @throws IOException if the JSON Element is invalid with respect to Http4XXResponse
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
     if (jsonElement == null) {
-      if (!Http4XxResponse.openapiRequiredFields
+      if (!Http4XXResponse.openapiRequiredFields
           .isEmpty()) { // has required fields but JSON element is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in Http4XxResponse is not found in the empty JSON string",
-                Http4XxResponse.openapiRequiredFields.toString()));
+                "The required field(s) %s in Http4XXResponse is not found in the empty JSON string",
+                Http4XXResponse.openapiRequiredFields.toString()));
       }
     }
 
     Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
     // check to see if the JSON string contains additional fields
     for (Map.Entry<String, JsonElement> entry : entries) {
-      if (!Http4XxResponse.openapiFields.contains(entry.getKey())) {
+      if (!Http4XXResponse.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `Http4XxResponse` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `Http4XXResponse` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
       }
     }
@@ -254,23 +254,23 @@ public class Http4XxResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-      if (!Http4XxResponse.class.isAssignableFrom(type.getRawType())) {
-        return null; // this class only serializes 'Http4XxResponse' and its subtypes
+      if (!Http4XXResponse.class.isAssignableFrom(type.getRawType())) {
+        return null; // this class only serializes 'Http4XXResponse' and its subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-      final TypeAdapter<Http4XxResponse> thisAdapter =
-          gson.getDelegateAdapter(this, TypeToken.get(Http4XxResponse.class));
+      final TypeAdapter<Http4XXResponse> thisAdapter =
+          gson.getDelegateAdapter(this, TypeToken.get(Http4XXResponse.class));
 
       return (TypeAdapter<T>)
-          new TypeAdapter<Http4XxResponse>() {
+          new TypeAdapter<Http4XXResponse>() {
             @Override
-            public void write(JsonWriter out, Http4XxResponse value) throws IOException {
+            public void write(JsonWriter out, Http4XXResponse value) throws IOException {
               JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
               elementAdapter.write(out, obj);
             }
 
             @Override
-            public Http4XxResponse read(JsonReader in) throws IOException {
+            public Http4XXResponse read(JsonReader in) throws IOException {
               JsonElement jsonElement = elementAdapter.read(in);
               validateJsonElement(jsonElement);
               return thisAdapter.fromJsonTree(jsonElement);
@@ -280,18 +280,18 @@ public class Http4XxResponse {
   }
 
   /**
-   * Create an instance of Http4XxResponse given an JSON string
+   * Create an instance of Http4XXResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Http4XxResponse
-   * @throws IOException if the JSON string is invalid with respect to Http4XxResponse
+   * @return An instance of Http4XXResponse
+   * @throws IOException if the JSON string is invalid with respect to Http4XXResponse
    */
-  public static Http4XxResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Http4XxResponse.class);
+  public static Http4XXResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Http4XXResponse.class);
   }
 
   /**
-   * Convert an instance of Http4XxResponse to an JSON string
+   * Convert an instance of Http4XXResponse to an JSON string
    *
    * @return JSON string
    */

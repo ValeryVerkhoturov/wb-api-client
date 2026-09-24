@@ -14,11 +14,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the Http4XxResponse type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &Http4XxResponse{}
+// checks if the Http4XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Http4XXResponse{}
 
-// Http4XxResponse struct for Http4XxResponse
-type Http4XxResponse struct {
+// Http4XXResponse struct for Http4XXResponse
+type Http4XXResponse struct {
 	// Детали ошибки
 	Detail *string `json:"detail,omitempty"`
 	// ID внутреннего сервиса WB
@@ -29,25 +29,25 @@ type Http4XxResponse struct {
 	Title *string `json:"title,omitempty"`
 }
 
-// NewHttp4XxResponse instantiates a new Http4XxResponse object
+// NewHttp4XXResponse instantiates a new Http4XXResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHttp4XxResponse() *Http4XxResponse {
-	this := Http4XxResponse{}
+func NewHttp4XXResponse() *Http4XXResponse {
+	this := Http4XXResponse{}
 	return &this
 }
 
-// NewHttp4XxResponseWithDefaults instantiates a new Http4XxResponse object
+// NewHttp4XXResponseWithDefaults instantiates a new Http4XXResponse object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewHttp4XxResponseWithDefaults() *Http4XxResponse {
-	this := Http4XxResponse{}
+func NewHttp4XXResponseWithDefaults() *Http4XXResponse {
+	this := Http4XXResponse{}
 	return &this
 }
 
 // GetDetail returns the Detail field value if set, zero value otherwise.
-func (o *Http4XxResponse) GetDetail() string {
+func (o *Http4XXResponse) GetDetail() string {
 	if o == nil || IsNil(o.Detail) {
 		var ret string
 		return ret
@@ -57,7 +57,7 @@ func (o *Http4XxResponse) GetDetail() string {
 
 // GetDetailOk returns a tuple with the Detail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Http4XxResponse) GetDetailOk() (*string, bool) {
+func (o *Http4XXResponse) GetDetailOk() (*string, bool) {
 	if o == nil || IsNil(o.Detail) {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *Http4XxResponse) GetDetailOk() (*string, bool) {
 }
 
 // HasDetail returns a boolean if a field has been set.
-func (o *Http4XxResponse) HasDetail() bool {
+func (o *Http4XXResponse) HasDetail() bool {
 	if o != nil && !IsNil(o.Detail) {
 		return true
 	}
@@ -74,12 +74,12 @@ func (o *Http4XxResponse) HasDetail() bool {
 }
 
 // SetDetail gets a reference to the given string and assigns it to the Detail field.
-func (o *Http4XxResponse) SetDetail(v string) {
+func (o *Http4XXResponse) SetDetail(v string) {
 	o.Detail = &v
 }
 
 // GetOrigin returns the Origin field value if set, zero value otherwise.
-func (o *Http4XxResponse) GetOrigin() string {
+func (o *Http4XXResponse) GetOrigin() string {
 	if o == nil || IsNil(o.Origin) {
 		var ret string
 		return ret
@@ -89,7 +89,7 @@ func (o *Http4XxResponse) GetOrigin() string {
 
 // GetOriginOk returns a tuple with the Origin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Http4XxResponse) GetOriginOk() (*string, bool) {
+func (o *Http4XXResponse) GetOriginOk() (*string, bool) {
 	if o == nil || IsNil(o.Origin) {
 		return nil, false
 	}
@@ -97,7 +97,7 @@ func (o *Http4XxResponse) GetOriginOk() (*string, bool) {
 }
 
 // HasOrigin returns a boolean if a field has been set.
-func (o *Http4XxResponse) HasOrigin() bool {
+func (o *Http4XXResponse) HasOrigin() bool {
 	if o != nil && !IsNil(o.Origin) {
 		return true
 	}
@@ -106,12 +106,12 @@ func (o *Http4XxResponse) HasOrigin() bool {
 }
 
 // SetOrigin gets a reference to the given string and assigns it to the Origin field.
-func (o *Http4XxResponse) SetOrigin(v string) {
+func (o *Http4XXResponse) SetOrigin(v string) {
 	o.Origin = &v
 }
 
 // GetRequestId returns the RequestId field value if set, zero value otherwise.
-func (o *Http4XxResponse) GetRequestId() string {
+func (o *Http4XXResponse) GetRequestId() string {
 	if o == nil || IsNil(o.RequestId) {
 		var ret string
 		return ret
@@ -121,7 +121,7 @@ func (o *Http4XxResponse) GetRequestId() string {
 
 // GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Http4XxResponse) GetRequestIdOk() (*string, bool) {
+func (o *Http4XXResponse) GetRequestIdOk() (*string, bool) {
 	if o == nil || IsNil(o.RequestId) {
 		return nil, false
 	}
@@ -129,7 +129,7 @@ func (o *Http4XxResponse) GetRequestIdOk() (*string, bool) {
 }
 
 // HasRequestId returns a boolean if a field has been set.
-func (o *Http4XxResponse) HasRequestId() bool {
+func (o *Http4XXResponse) HasRequestId() bool {
 	if o != nil && !IsNil(o.RequestId) {
 		return true
 	}
@@ -138,12 +138,12 @@ func (o *Http4XxResponse) HasRequestId() bool {
 }
 
 // SetRequestId gets a reference to the given string and assigns it to the RequestId field.
-func (o *Http4XxResponse) SetRequestId(v string) {
+func (o *Http4XXResponse) SetRequestId(v string) {
 	o.RequestId = &v
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise.
-func (o *Http4XxResponse) GetTitle() string {
+func (o *Http4XXResponse) GetTitle() string {
 	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
@@ -153,7 +153,7 @@ func (o *Http4XxResponse) GetTitle() string {
 
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Http4XxResponse) GetTitleOk() (*string, bool) {
+func (o *Http4XXResponse) GetTitleOk() (*string, bool) {
 	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
@@ -161,7 +161,7 @@ func (o *Http4XxResponse) GetTitleOk() (*string, bool) {
 }
 
 // HasTitle returns a boolean if a field has been set.
-func (o *Http4XxResponse) HasTitle() bool {
+func (o *Http4XXResponse) HasTitle() bool {
 	if o != nil && !IsNil(o.Title) {
 		return true
 	}
@@ -170,11 +170,11 @@ func (o *Http4XxResponse) HasTitle() bool {
 }
 
 // SetTitle gets a reference to the given string and assigns it to the Title field.
-func (o *Http4XxResponse) SetTitle(v string) {
+func (o *Http4XXResponse) SetTitle(v string) {
 	o.Title = &v
 }
 
-func (o Http4XxResponse) MarshalJSON() ([]byte, error) {
+func (o Http4XXResponse) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -182,7 +182,7 @@ func (o Http4XxResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o Http4XxResponse) ToMap() (map[string]interface{}, error) {
+func (o Http4XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Detail) {
 		toSerialize["detail"] = o.Detail
@@ -199,38 +199,38 @@ func (o Http4XxResponse) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableHttp4XxResponse struct {
-	value *Http4XxResponse
+type NullableHttp4XXResponse struct {
+	value *Http4XXResponse
 	isSet bool
 }
 
-func (v NullableHttp4XxResponse) Get() *Http4XxResponse {
+func (v NullableHttp4XXResponse) Get() *Http4XXResponse {
 	return v.value
 }
 
-func (v *NullableHttp4XxResponse) Set(val *Http4XxResponse) {
+func (v *NullableHttp4XXResponse) Set(val *Http4XXResponse) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableHttp4XxResponse) IsSet() bool {
+func (v NullableHttp4XXResponse) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableHttp4XxResponse) Unset() {
+func (v *NullableHttp4XXResponse) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableHttp4XxResponse(val *Http4XxResponse) *NullableHttp4XxResponse {
-	return &NullableHttp4XxResponse{value: val, isSet: true}
+func NewNullableHttp4XXResponse(val *Http4XXResponse) *NullableHttp4XXResponse {
+	return &NullableHttp4XXResponse{value: val, isSet: true}
 }
 
-func (v NullableHttp4XxResponse) MarshalJSON() ([]byte, error) {
+func (v NullableHttp4XXResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableHttp4XxResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableHttp4XXResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
