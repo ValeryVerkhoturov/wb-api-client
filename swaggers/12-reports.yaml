@@ -2052,7 +2052,7 @@ paths:
         - Отчёт о возвратах и перемещении товаров
       summary: Получить отчёт
       description: |
-        Метод будет отключен [26 октября](https://dev.wildberries.ru/release-notes?id=577).
+        Метод будет отключен [26 октября](/release-notes?id=577).
       parameters:
         - name: dateFrom
           in: query

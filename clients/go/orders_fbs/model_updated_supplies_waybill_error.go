@@ -16,40 +16,40 @@ import (
 	"fmt"
 )
 
-// checks if the ReplyBatchError type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ReplyBatchError{}
+// checks if the UpdatedSuppliesWaybillError type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UpdatedSuppliesWaybillError{}
 
-// ReplyBatchError Детали ошибки
-type ReplyBatchError struct {
+// UpdatedSuppliesWaybillError Ошибка обработки запроса для поставки. Возможные варианты ошибок:   - `400 IncorrectRequestBody`:     - некорректный ID поставки     - склад назначения находится не в РФ   - `404 NotFound` — поставка не найдена   - `409 SupplyAlreadyScanned` — поставка или её короба уже отсканированы в пункте отгрузки   - `409 SupplyShippingRequired` — не указан пункт отгрузки поставки   - `409 UnsuitableShippingType` — не указан способ доставки либо способ доставки не `transportCompany`   - `409 WaybillUUIDIsProcessing` — ЭТрН находится в обработке
+type UpdatedSuppliesWaybillError struct {
 	// Код ошибки
 	Code int32 `json:"code"`
 	// Дополнительная информация об ошибке
 	Detail string `json:"detail"`
 }
 
-type _ReplyBatchError ReplyBatchError
+type _UpdatedSuppliesWaybillError UpdatedSuppliesWaybillError
 
-// NewReplyBatchError instantiates a new ReplyBatchError object
+// NewUpdatedSuppliesWaybillError instantiates a new UpdatedSuppliesWaybillError object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewReplyBatchError(code int32, detail string) *ReplyBatchError {
-	this := ReplyBatchError{}
+func NewUpdatedSuppliesWaybillError(code int32, detail string) *UpdatedSuppliesWaybillError {
+	this := UpdatedSuppliesWaybillError{}
 	this.Code = code
 	this.Detail = detail
 	return &this
 }
 
-// NewReplyBatchErrorWithDefaults instantiates a new ReplyBatchError object
+// NewUpdatedSuppliesWaybillErrorWithDefaults instantiates a new UpdatedSuppliesWaybillError object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewReplyBatchErrorWithDefaults() *ReplyBatchError {
-	this := ReplyBatchError{}
+func NewUpdatedSuppliesWaybillErrorWithDefaults() *UpdatedSuppliesWaybillError {
+	this := UpdatedSuppliesWaybillError{}
 	return &this
 }
 
 // GetCode returns the Code field value
-func (o *ReplyBatchError) GetCode() int32 {
+func (o *UpdatedSuppliesWaybillError) GetCode() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -60,7 +60,7 @@ func (o *ReplyBatchError) GetCode() int32 {
 
 // GetCodeOk returns a tuple with the Code field value
 // and a boolean to check if the value has been set.
-func (o *ReplyBatchError) GetCodeOk() (*int32, bool) {
+func (o *UpdatedSuppliesWaybillError) GetCodeOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,12 +68,12 @@ func (o *ReplyBatchError) GetCodeOk() (*int32, bool) {
 }
 
 // SetCode sets field value
-func (o *ReplyBatchError) SetCode(v int32) {
+func (o *UpdatedSuppliesWaybillError) SetCode(v int32) {
 	o.Code = v
 }
 
 // GetDetail returns the Detail field value
-func (o *ReplyBatchError) GetDetail() string {
+func (o *UpdatedSuppliesWaybillError) GetDetail() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -84,7 +84,7 @@ func (o *ReplyBatchError) GetDetail() string {
 
 // GetDetailOk returns a tuple with the Detail field value
 // and a boolean to check if the value has been set.
-func (o *ReplyBatchError) GetDetailOk() (*string, bool) {
+func (o *UpdatedSuppliesWaybillError) GetDetailOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,11 +92,11 @@ func (o *ReplyBatchError) GetDetailOk() (*string, bool) {
 }
 
 // SetDetail sets field value
-func (o *ReplyBatchError) SetDetail(v string) {
+func (o *UpdatedSuppliesWaybillError) SetDetail(v string) {
 	o.Detail = v
 }
 
-func (o ReplyBatchError) MarshalJSON() ([]byte, error) {
+func (o UpdatedSuppliesWaybillError) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -104,14 +104,14 @@ func (o ReplyBatchError) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ReplyBatchError) ToMap() (map[string]interface{}, error) {
+func (o UpdatedSuppliesWaybillError) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["code"] = o.Code
 	toSerialize["detail"] = o.Detail
 	return toSerialize, nil
 }
 
-func (o *ReplyBatchError) UnmarshalJSON(data []byte) (err error) {
+func (o *UpdatedSuppliesWaybillError) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -134,53 +134,53 @@ func (o *ReplyBatchError) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varReplyBatchError := _ReplyBatchError{}
+	varUpdatedSuppliesWaybillError := _UpdatedSuppliesWaybillError{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varReplyBatchError)
+	err = decoder.Decode(&varUpdatedSuppliesWaybillError)
 
 	if err != nil {
 		return err
 	}
 
-	*o = ReplyBatchError(varReplyBatchError)
+	*o = UpdatedSuppliesWaybillError(varUpdatedSuppliesWaybillError)
 
 	return err
 }
 
-type NullableReplyBatchError struct {
-	value *ReplyBatchError
+type NullableUpdatedSuppliesWaybillError struct {
+	value *UpdatedSuppliesWaybillError
 	isSet bool
 }
 
-func (v NullableReplyBatchError) Get() *ReplyBatchError {
+func (v NullableUpdatedSuppliesWaybillError) Get() *UpdatedSuppliesWaybillError {
 	return v.value
 }
 
-func (v *NullableReplyBatchError) Set(val *ReplyBatchError) {
+func (v *NullableUpdatedSuppliesWaybillError) Set(val *UpdatedSuppliesWaybillError) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableReplyBatchError) IsSet() bool {
+func (v NullableUpdatedSuppliesWaybillError) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableReplyBatchError) Unset() {
+func (v *NullableUpdatedSuppliesWaybillError) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableReplyBatchError(val *ReplyBatchError) *NullableReplyBatchError {
-	return &NullableReplyBatchError{value: val, isSet: true}
+func NewNullableUpdatedSuppliesWaybillError(val *UpdatedSuppliesWaybillError) *NullableUpdatedSuppliesWaybillError {
+	return &NullableUpdatedSuppliesWaybillError{value: val, isSet: true}
 }
 
-func (v NullableReplyBatchError) MarshalJSON() ([]byte, error) {
+func (v NullableUpdatedSuppliesWaybillError) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableReplyBatchError) UnmarshalJSON(src []byte) error {
+func (v *NullableUpdatedSuppliesWaybillError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

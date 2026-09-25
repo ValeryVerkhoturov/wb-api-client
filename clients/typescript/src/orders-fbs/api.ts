@@ -2029,25 +2029,6 @@ export interface PutV3PassesPassIdRequest {
   officeId: number;
 }
 /**
- * Детали ошибки
- * @export
- * @interface ReplyBatchError
- */
-export interface ReplyBatchError {
-  /**
-   * Код ошибки
-   * @type {number}
-   * @memberof ReplyBatchError
-   */
-  code: number;
-  /**
-   * Дополнительная информация об ошибке
-   * @type {string}
-   * @memberof ReplyBatchError
-   */
-  detail: string;
-}
-/**
  *
  * @export
  * @interface Response4XX
@@ -2563,19 +2544,6 @@ export interface TrbxStickers {
 /**
  *
  * @export
- * @interface UpdateSuppliesResponse
- */
-export interface UpdateSuppliesResponse {
-  /**
-   *
-   * @type {Array<UpdatedSupplies>}
-   * @memberof UpdateSuppliesResponse
-   */
-  results: Array<UpdatedSupplies>;
-}
-/**
- *
- * @export
  * @interface UpdateSuppliesShippingMethodRequest
  */
 export interface UpdateSuppliesShippingMethodRequest {
@@ -2589,6 +2557,19 @@ export interface UpdateSuppliesShippingMethodRequest {
 /**
  *
  * @export
+ * @interface UpdateSuppliesShippingMethodResponse
+ */
+export interface UpdateSuppliesShippingMethodResponse {
+  /**
+   *
+   * @type {Array<UpdatedSuppliesShippingMethod>}
+   * @memberof UpdateSuppliesShippingMethodResponse
+   */
+  results: Array<UpdatedSuppliesShippingMethod>;
+}
+/**
+ *
+ * @export
  * @interface UpdateSuppliesWaybill
  */
 export interface UpdateSuppliesWaybill {
@@ -2598,6 +2579,19 @@ export interface UpdateSuppliesWaybill {
    * @memberof UpdateSuppliesWaybill
    */
   data: Array<UpdateSupplyWaybill>;
+}
+/**
+ *
+ * @export
+ * @interface UpdateSuppliesWaybillResponse
+ */
+export interface UpdateSuppliesWaybillResponse {
+  /**
+   *
+   * @type {Array<UpdatedSuppliesWaybill>}
+   * @memberof UpdateSuppliesWaybillResponse
+   */
+  results: Array<UpdatedSuppliesWaybill>;
 }
 /**
  *
@@ -2661,27 +2655,90 @@ export interface UpdateSupplyWaybill {
 /**
  * Результат обработки запроса для одной поставки
  * @export
- * @interface UpdatedSupplies
+ * @interface UpdatedSuppliesShippingMethod
  */
-export interface UpdatedSupplies {
+export interface UpdatedSuppliesShippingMethod {
   /**
    *
-   * @type {ReplyBatchError}
-   * @memberof UpdatedSupplies
+   * @type {UpdatedSuppliesShippingMethodError}
+   * @memberof UpdatedSuppliesShippingMethod
    */
-  error?: ReplyBatchError;
+  error?: UpdatedSuppliesShippingMethodError;
   /**
    * Успешна ли обработка запроса для данной поставки. Может быть только `true`
    * @type {boolean}
-   * @memberof UpdatedSupplies
+   * @memberof UpdatedSuppliesShippingMethod
    */
   success?: boolean;
   /**
    * ID поставки
    * @type {string}
-   * @memberof UpdatedSupplies
+   * @memberof UpdatedSuppliesShippingMethod
    */
   supplyId: string;
+}
+/**
+ * Ошибка обработки запроса для поставки. Возможные варианты ошибок:   - `400 IncorrectRequestBody`:     - некорректный ID поставки     - место отгрузки не найдено     - склад назначения находится не в РФ     - неизвестный `shippingType`     - дата не соответствует формату `YYYY-MM-DD`   - `400 FulfillmentRequired` — в месте отгрузки недоступна услуга **Фулфилмент в СЦ**   - `404 NotFound` — поставка не найдена   - `409 SupplyAlreadyScanned` — поставка или её короба уже отсканированы в пункте отгрузки   - `409 InvalidShippingDt` — некорректная дата отгрузки поставки
+ * @export
+ * @interface UpdatedSuppliesShippingMethodError
+ */
+export interface UpdatedSuppliesShippingMethodError {
+  /**
+   * Код ошибки
+   * @type {number}
+   * @memberof UpdatedSuppliesShippingMethodError
+   */
+  code: number;
+  /**
+   * Дополнительная информация об ошибке
+   * @type {string}
+   * @memberof UpdatedSuppliesShippingMethodError
+   */
+  detail: string;
+}
+/**
+ * Результат обработки запроса для одной поставки
+ * @export
+ * @interface UpdatedSuppliesWaybill
+ */
+export interface UpdatedSuppliesWaybill {
+  /**
+   *
+   * @type {UpdatedSuppliesWaybillError}
+   * @memberof UpdatedSuppliesWaybill
+   */
+  error?: UpdatedSuppliesWaybillError;
+  /**
+   * Успешна ли обработка запроса для данной поставки. Может быть только `true`
+   * @type {boolean}
+   * @memberof UpdatedSuppliesWaybill
+   */
+  success?: boolean;
+  /**
+   * ID поставки
+   * @type {string}
+   * @memberof UpdatedSuppliesWaybill
+   */
+  supplyId: string;
+}
+/**
+ * Ошибка обработки запроса для поставки. Возможные варианты ошибок:   - `400 IncorrectRequestBody`:     - некорректный ID поставки     - склад назначения находится не в РФ   - `404 NotFound` — поставка не найдена   - `409 SupplyAlreadyScanned` — поставка или её короба уже отсканированы в пункте отгрузки   - `409 SupplyShippingRequired` — не указан пункт отгрузки поставки   - `409 UnsuitableShippingType` — не указан способ доставки либо способ доставки не `transportCompany`   - `409 WaybillUUIDIsProcessing` — ЭТрН находится в обработке
+ * @export
+ * @interface UpdatedSuppliesWaybillError
+ */
+export interface UpdatedSuppliesWaybillError {
+  /**
+   * Код ошибки
+   * @type {number}
+   * @memberof UpdatedSuppliesWaybillError
+   */
+  code: number;
+  /**
+   * Дополнительная информация об ошибке
+   * @type {string}
+   * @memberof UpdatedSuppliesWaybillError
+   */
+  detail: string;
 }
 /**
  *
@@ -4736,7 +4793,7 @@ export const FBSApiAxiosParamCreator = function (
       };
     },
     /**
-     * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).  Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки `\"shippingType\":\"transportCompany\"` на `selfShipping`. Если вы хотите изменить способ доставки обратно на `transportCompany`, [добавьте ID ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) заново.  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).  Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки `\"shippingType\":\"transportCompany\"` на `selfShipping`. Если вы хотите изменить способ доставки обратно на `transportCompany`, [добавьте ID ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) заново.  Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Установить параметры отгрузки поставок
      * @param {PatchV3FbsSuppliesShippingMethodRequest} patchV3FbsSuppliesShippingMethodRequest
      * @param {*} [options] Override http request option.
@@ -4794,7 +4851,7 @@ export const FBSApiAxiosParamCreator = function (
       };
     },
     /**
-     * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.  ID ЭТрН нужно указать до передачи поставки в доставку. Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Установить ID ЭТрН поставок
      * @param {PatchV3FbsSuppliesWaybillRequest} patchV3FbsSuppliesWaybillRequest
      * @param {*} [options] Override http request option.
@@ -6803,7 +6860,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
-     * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).  Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки `\"shippingType\":\"transportCompany\"` на `selfShipping`. Если вы хотите изменить способ доставки обратно на `transportCompany`, [добавьте ID ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) заново.  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).  Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки `\"shippingType\":\"transportCompany\"` на `selfShipping`. Если вы хотите изменить способ доставки обратно на `transportCompany`, [добавьте ID ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) заново.  Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Установить параметры отгрузки поставок
      * @param {PatchV3FbsSuppliesShippingMethodRequest} patchV3FbsSuppliesShippingMethodRequest
      * @param {*} [options] Override http request option.
@@ -6816,7 +6873,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
       (
         axios?: AxiosInstance,
         basePath?: string,
-      ) => AxiosPromise<UpdateSuppliesResponse>
+      ) => AxiosPromise<UpdateSuppliesShippingMethodResponse>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.patchV3FbsSuppliesShippingMethod(
@@ -6837,7 +6894,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
-     * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.  ID ЭТрН нужно указать до передачи поставки в доставку. Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Установить ID ЭТрН поставок
      * @param {PatchV3FbsSuppliesWaybillRequest} patchV3FbsSuppliesWaybillRequest
      * @param {*} [options] Override http request option.
@@ -6850,7 +6907,7 @@ export const FBSApiFp = function (configuration?: Configuration) {
       (
         axios?: AxiosInstance,
         basePath?: string,
-      ) => AxiosPromise<UpdateSuppliesResponse>
+      ) => AxiosPromise<UpdateSuppliesWaybillResponse>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.patchV3FbsSuppliesWaybill(
@@ -7927,7 +7984,7 @@ export const FBSApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).  Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки `\"shippingType\":\"transportCompany\"` на `selfShipping`. Если вы хотите изменить способ доставки обратно на `transportCompany`, [добавьте ID ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) заново.  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).  Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки `\"shippingType\":\"transportCompany\"` на `selfShipping`. Если вы хотите изменить способ доставки обратно на `transportCompany`, [добавьте ID ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) заново.  Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Установить параметры отгрузки поставок
      * @param {PatchV3FbsSuppliesShippingMethodRequest} patchV3FbsSuppliesShippingMethodRequest
      * @param {*} [options] Override http request option.
@@ -7936,7 +7993,7 @@ export const FBSApiFactory = function (
     patchV3FbsSuppliesShippingMethod(
       patchV3FbsSuppliesShippingMethodRequest: PatchV3FbsSuppliesShippingMethodRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<UpdateSuppliesResponse> {
+    ): AxiosPromise<UpdateSuppliesShippingMethodResponse> {
       return localVarFp
         .patchV3FbsSuppliesShippingMethod(
           patchV3FbsSuppliesShippingMethodRequest,
@@ -7945,7 +8002,7 @@ export const FBSApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.  ID ЭТрН нужно указать до передачи поставки в доставку. Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Установить ID ЭТрН поставок
      * @param {PatchV3FbsSuppliesWaybillRequest} patchV3FbsSuppliesWaybillRequest
      * @param {*} [options] Override http request option.
@@ -7954,7 +8011,7 @@ export const FBSApiFactory = function (
     patchV3FbsSuppliesWaybill(
       patchV3FbsSuppliesWaybillRequest: PatchV3FbsSuppliesWaybillRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<UpdateSuppliesResponse> {
+    ): AxiosPromise<UpdateSuppliesWaybillResponse> {
       return localVarFp
         .patchV3FbsSuppliesWaybill(patchV3FbsSuppliesWaybillRequest, options)
         .then((request) => request(axios, basePath));
@@ -8623,7 +8680,7 @@ export interface FBSApiInterface {
   ): AxiosPromise<GetV3SuppliesSupplyIdTrbxResponse200>;
 
   /**
-   * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).  Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки `\"shippingType\":\"transportCompany\"` на `selfShipping`. Если вы хотите изменить способ доставки обратно на `transportCompany`, [добавьте ID ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) заново.  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).  Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки `\"shippingType\":\"transportCompany\"` на `selfShipping`. Если вы хотите изменить способ доставки обратно на `transportCompany`, [добавьте ID ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) заново.  Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Установить параметры отгрузки поставок
    * @param {PatchV3FbsSuppliesShippingMethodRequest} patchV3FbsSuppliesShippingMethodRequest
    * @param {*} [options] Override http request option.
@@ -8633,10 +8690,10 @@ export interface FBSApiInterface {
   patchV3FbsSuppliesShippingMethod(
     patchV3FbsSuppliesShippingMethodRequest: PatchV3FbsSuppliesShippingMethodRequest,
     options?: RawAxiosRequestConfig,
-  ): AxiosPromise<UpdateSuppliesResponse>;
+  ): AxiosPromise<UpdateSuppliesShippingMethodResponse>;
 
   /**
-   * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.  ID ЭТрН нужно указать до передачи поставки в доставку. Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Установить ID ЭТрН поставок
    * @param {PatchV3FbsSuppliesWaybillRequest} patchV3FbsSuppliesWaybillRequest
    * @param {*} [options] Override http request option.
@@ -8646,7 +8703,7 @@ export interface FBSApiInterface {
   patchV3FbsSuppliesWaybill(
     patchV3FbsSuppliesWaybillRequest: PatchV3FbsSuppliesWaybillRequest,
     options?: RawAxiosRequestConfig,
-  ): AxiosPromise<UpdateSuppliesResponse>;
+  ): AxiosPromise<UpdateSuppliesWaybillResponse>;
 
   /**
    * Метод отменяет [сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) и переводит в [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) `cancel` — отменено продавцом.  Сборочное задание можно отменить до его передачи Wildberries. Чтобы проверить, можно ли отменить сборочное задание, используйте метод [POST /api/v3/orders/status](https://dev.wildberries.ru/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isCancellable`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
@@ -9282,7 +9339,7 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
   }
 
   /**
-   * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).  Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки `\"shippingType\":\"transportCompany\"` на `selfShipping`. Если вы хотите изменить способ доставки обратно на `transportCompany`, [добавьте ID ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) заново.  Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.  Для доставки транспортной компанией `\"shippingType\":\"transportCompany\"` укажите ID ЭТрН — электронной транспортной накладной — с помощью метода установки [ID ЭТрН поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).  Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки `\"shippingType\":\"transportCompany\"` на `selfShipping`. Если вы хотите изменить способ доставки обратно на `transportCompany`, [добавьте ID ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) заново.  Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Установить параметры отгрузки поставок
    * @param {PatchV3FbsSuppliesShippingMethodRequest} patchV3FbsSuppliesShippingMethodRequest
    * @param {*} [options] Override http request option.
@@ -9302,7 +9359,7 @@ export class FBSApi extends BaseAPI implements FBSApiInterface {
   }
 
   /**
-   * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.  Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `\"shippingType\":\"transportCompany\"`.  ID ЭТрН нужно указать до передачи поставки в доставку. Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Установить ID ЭТрН поставок
    * @param {PatchV3FbsSuppliesWaybillRequest} patchV3FbsSuppliesWaybillRequest
    * @param {*} [options] Override http request option.

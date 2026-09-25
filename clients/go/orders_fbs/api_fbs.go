@@ -487,7 +487,7 @@ type FBSAPI interface {
 
 		Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки `"shippingType":"transportCompany"` на `selfShipping`. Если вы хотите изменить способ доставки обратно на `transportCompany`, [добавьте ID ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) заново.
 
-		Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.
+		Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.
 
 		В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.
 
@@ -503,15 +503,15 @@ type FBSAPI interface {
 	PatchV3FbsSuppliesShippingMethod(ctx context.Context) ApiPatchV3FbsSuppliesShippingMethodRequest
 
 	// PatchV3FbsSuppliesShippingMethodExecute executes the request
-	//  @return UpdateSuppliesResponse
-	PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsSuppliesShippingMethodRequest) (*UpdateSuppliesResponse, *http.Response, error)
+	//  @return UpdateSuppliesShippingMethodResponse
+	PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsSuppliesShippingMethodRequest) (*UpdateSuppliesShippingMethodResponse, *http.Response, error)
 
 	/*
 			PatchV3FbsSuppliesWaybill Установить ID ЭТрН поставок
 
 			Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `"shippingType":"transportCompany"`.
 
-		Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.
+		ID ЭТрН нужно указать до передачи поставки в доставку. Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.
 
 		В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.
 
@@ -527,8 +527,8 @@ type FBSAPI interface {
 	PatchV3FbsSuppliesWaybill(ctx context.Context) ApiPatchV3FbsSuppliesWaybillRequest
 
 	// PatchV3FbsSuppliesWaybillExecute executes the request
-	//  @return UpdateSuppliesResponse
-	PatchV3FbsSuppliesWaybillExecute(r ApiPatchV3FbsSuppliesWaybillRequest) (*UpdateSuppliesResponse, *http.Response, error)
+	//  @return UpdateSuppliesWaybillResponse
+	PatchV3FbsSuppliesWaybillExecute(r ApiPatchV3FbsSuppliesWaybillRequest) (*UpdateSuppliesWaybillResponse, *http.Response, error)
 
 	/*
 			PatchV3OrdersOrderIdCancel Отменить сборочное задание
@@ -4361,7 +4361,7 @@ func (r ApiPatchV3FbsSuppliesShippingMethodRequest) PatchV3FbsSuppliesShippingMe
 	return r
 }
 
-func (r ApiPatchV3FbsSuppliesShippingMethodRequest) Execute() (*UpdateSuppliesResponse, *http.Response, error) {
+func (r ApiPatchV3FbsSuppliesShippingMethodRequest) Execute() (*UpdateSuppliesShippingMethodResponse, *http.Response, error) {
 	return r.ApiService.PatchV3FbsSuppliesShippingMethodExecute(r)
 }
 
@@ -4374,7 +4374,7 @@ PatchV3FbsSuppliesShippingMethod Установить параметры отг�
 
 Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки `"shippingType":"transportCompany"` на `selfShipping`. Если вы хотите изменить способ доставки обратно на `transportCompany`, [добавьте ID ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) заново.
 
-Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.
+Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.
 
 В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.
 
@@ -4396,13 +4396,13 @@ func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethod(ctx context.Context) Ap
 
 // Execute executes the request
 //
-//	@return UpdateSuppliesResponse
-func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsSuppliesShippingMethodRequest) (*UpdateSuppliesResponse, *http.Response, error) {
+//	@return UpdateSuppliesShippingMethodResponse
+func (a *FBSAPIService) PatchV3FbsSuppliesShippingMethodExecute(r ApiPatchV3FbsSuppliesShippingMethodRequest) (*UpdateSuppliesShippingMethodResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPatch
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *UpdateSuppliesResponse
+		localVarReturnValue *UpdateSuppliesShippingMethodResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PatchV3FbsSuppliesShippingMethod")
@@ -4540,7 +4540,7 @@ func (r ApiPatchV3FbsSuppliesWaybillRequest) PatchV3FbsSuppliesWaybillRequest(pa
 	return r
 }
 
-func (r ApiPatchV3FbsSuppliesWaybillRequest) Execute() (*UpdateSuppliesResponse, *http.Response, error) {
+func (r ApiPatchV3FbsSuppliesWaybillRequest) Execute() (*UpdateSuppliesWaybillResponse, *http.Response, error) {
 	return r.ApiService.PatchV3FbsSuppliesWaybillExecute(r)
 }
 
@@ -4549,7 +4549,7 @@ PatchV3FbsSuppliesWaybill Установить ID ЭТрН поставок
 
 Метод устанавливает ID ЭТрН — электронной транспортной накладной. Чтобы использовать метод, укажите [место отгрузки поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) со способом доставки `"shippingType":"transportCompany"`.
 
-Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки.
+ID ЭТрН нужно указать до передачи поставки в доставку. Вы можете обновлять ID ЭТрН до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.
 
 В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.
 
@@ -4571,13 +4571,13 @@ func (a *FBSAPIService) PatchV3FbsSuppliesWaybill(ctx context.Context) ApiPatchV
 
 // Execute executes the request
 //
-//	@return UpdateSuppliesResponse
-func (a *FBSAPIService) PatchV3FbsSuppliesWaybillExecute(r ApiPatchV3FbsSuppliesWaybillRequest) (*UpdateSuppliesResponse, *http.Response, error) {
+//	@return UpdateSuppliesWaybillResponse
+func (a *FBSAPIService) PatchV3FbsSuppliesWaybillExecute(r ApiPatchV3FbsSuppliesWaybillRequest) (*UpdateSuppliesWaybillResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPatch
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *UpdateSuppliesResponse
+		localVarReturnValue *UpdateSuppliesWaybillResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FBSAPIService.PatchV3FbsSuppliesWaybill")

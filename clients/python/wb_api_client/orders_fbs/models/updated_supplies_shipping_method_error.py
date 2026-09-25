@@ -23,9 +23,9 @@ from typing import Optional, Set
 from typing_extensions import Self
 
 
-class ReplyBatchError(BaseModel):
+class UpdatedSuppliesShippingMethodError(BaseModel):
     """
-    Детали ошибки
+    Ошибка обработки запроса для поставки. Возможные варианты ошибок:   - `400 IncorrectRequestBody`:     - некорректный ID поставки     - место отгрузки не найдено     - склад назначения находится не в РФ     - неизвестный `shippingType`     - дата не соответствует формату `YYYY-MM-DD`   - `400 FulfillmentRequired` — в месте отгрузки недоступна услуга **Фулфилмент в СЦ**   - `404 NotFound` — поставка не найдена   - `409 SupplyAlreadyScanned` — поставка или её короба уже отсканированы в пункте отгрузки   - `409 InvalidShippingDt` — некорректная дата отгрузки поставки
     """  # noqa: E501
 
     code: StrictInt = Field(description="Код ошибки")
@@ -49,7 +49,7 @@ class ReplyBatchError(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ReplyBatchError from a JSON string"""
+        """Create an instance of UpdatedSuppliesShippingMethodError from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,7 +73,7 @@ class ReplyBatchError(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ReplyBatchError from a dict"""
+        """Create an instance of UpdatedSuppliesShippingMethodError from a dict"""
         if obj is None:
             return None
 

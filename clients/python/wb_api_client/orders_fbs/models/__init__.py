@@ -218,7 +218,6 @@ from wb_api_client.orders_fbs.models.put_v3_orders_order_id_meta_uin_request imp
 from wb_api_client.orders_fbs.models.put_v3_passes_pass_id_request import (
     PutV3PassesPassIdRequest,
 )
-from wb_api_client.orders_fbs.models.reply_batch_error import ReplyBatchError
 from wb_api_client.orders_fbs.models.response4_xx import Response4XX
 from wb_api_client.orders_fbs.models.shipping_point import ShippingPoint
 from wb_api_client.orders_fbs.models.shipping_points_response import (
@@ -241,20 +240,34 @@ from wb_api_client.orders_fbs.models.supply_spot_data_response_supplies_inner_sp
 from wb_api_client.orders_fbs.models.supply_spot_qr_code import SupplySpotQRCode
 from wb_api_client.orders_fbs.models.supply_trbx import SupplyTrbx
 from wb_api_client.orders_fbs.models.trbx_stickers import TrbxStickers
-from wb_api_client.orders_fbs.models.update_supplies_response import (
-    UpdateSuppliesResponse,
-)
 from wb_api_client.orders_fbs.models.update_supplies_shipping_method_request import (
     UpdateSuppliesShippingMethodRequest,
 )
+from wb_api_client.orders_fbs.models.update_supplies_shipping_method_response import (
+    UpdateSuppliesShippingMethodResponse,
+)
 from wb_api_client.orders_fbs.models.update_supplies_waybill import (
     UpdateSuppliesWaybill,
+)
+from wb_api_client.orders_fbs.models.update_supplies_waybill_response import (
+    UpdateSuppliesWaybillResponse,
 )
 from wb_api_client.orders_fbs.models.update_supply_shipping_method import (
     UpdateSupplyShippingMethod,
 )
 from wb_api_client.orders_fbs.models.update_supply_waybill import UpdateSupplyWaybill
-from wb_api_client.orders_fbs.models.updated_supplies import UpdatedSupplies
+from wb_api_client.orders_fbs.models.updated_supplies_shipping_method import (
+    UpdatedSuppliesShippingMethod,
+)
+from wb_api_client.orders_fbs.models.updated_supplies_shipping_method_error import (
+    UpdatedSuppliesShippingMethodError,
+)
+from wb_api_client.orders_fbs.models.updated_supplies_waybill import (
+    UpdatedSuppliesWaybill,
+)
+from wb_api_client.orders_fbs.models.updated_supplies_waybill_error import (
+    UpdatedSuppliesWaybillError,
+)
 from wb_api_client.orders_fbs.models.v3_api_error import V3APIError
 from wb_api_client.orders_fbs.models.v3_archive_order import V3ArchiveOrder
 from wb_api_client.orders_fbs.models.v3_archive_order_cross_border import (

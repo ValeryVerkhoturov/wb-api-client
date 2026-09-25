@@ -323,9 +323,6 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.PutV3PassesPassIdRequest
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.ReplyBatchError
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.Response4XX
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
@@ -361,13 +358,16 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.TrbxStickers
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.UpdateSuppliesResponse
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.UpdateSuppliesShippingMethodRequest
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.UpdateSuppliesShippingMethodResponse
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.UpdateSuppliesWaybill
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.UpdateSuppliesWaybillResponse
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.UpdateSupplyShippingMethod
@@ -376,7 +376,16 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.UpdateSupplyWaybill
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.UpdatedSupplies
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.UpdatedSuppliesShippingMethod
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.UpdatedSuppliesShippingMethodError
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.UpdatedSuppliesWaybill
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.UpdatedSuppliesWaybillError
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.V3APIError

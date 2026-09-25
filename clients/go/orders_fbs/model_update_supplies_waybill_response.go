@@ -16,38 +16,38 @@ import (
 	"fmt"
 )
 
-// checks if the UpdateSuppliesResponse type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &UpdateSuppliesResponse{}
+// checks if the UpdateSuppliesWaybillResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UpdateSuppliesWaybillResponse{}
 
-// UpdateSuppliesResponse struct for UpdateSuppliesResponse
-type UpdateSuppliesResponse struct {
-	Results []UpdatedSupplies `json:"results"`
+// UpdateSuppliesWaybillResponse struct for UpdateSuppliesWaybillResponse
+type UpdateSuppliesWaybillResponse struct {
+	Results []UpdatedSuppliesWaybill `json:"results"`
 }
 
-type _UpdateSuppliesResponse UpdateSuppliesResponse
+type _UpdateSuppliesWaybillResponse UpdateSuppliesWaybillResponse
 
-// NewUpdateSuppliesResponse instantiates a new UpdateSuppliesResponse object
+// NewUpdateSuppliesWaybillResponse instantiates a new UpdateSuppliesWaybillResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateSuppliesResponse(results []UpdatedSupplies) *UpdateSuppliesResponse {
-	this := UpdateSuppliesResponse{}
+func NewUpdateSuppliesWaybillResponse(results []UpdatedSuppliesWaybill) *UpdateSuppliesWaybillResponse {
+	this := UpdateSuppliesWaybillResponse{}
 	this.Results = results
 	return &this
 }
 
-// NewUpdateSuppliesResponseWithDefaults instantiates a new UpdateSuppliesResponse object
+// NewUpdateSuppliesWaybillResponseWithDefaults instantiates a new UpdateSuppliesWaybillResponse object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewUpdateSuppliesResponseWithDefaults() *UpdateSuppliesResponse {
-	this := UpdateSuppliesResponse{}
+func NewUpdateSuppliesWaybillResponseWithDefaults() *UpdateSuppliesWaybillResponse {
+	this := UpdateSuppliesWaybillResponse{}
 	return &this
 }
 
 // GetResults returns the Results field value
-func (o *UpdateSuppliesResponse) GetResults() []UpdatedSupplies {
+func (o *UpdateSuppliesWaybillResponse) GetResults() []UpdatedSuppliesWaybill {
 	if o == nil {
-		var ret []UpdatedSupplies
+		var ret []UpdatedSuppliesWaybill
 		return ret
 	}
 
@@ -56,7 +56,7 @@ func (o *UpdateSuppliesResponse) GetResults() []UpdatedSupplies {
 
 // GetResultsOk returns a tuple with the Results field value
 // and a boolean to check if the value has been set.
-func (o *UpdateSuppliesResponse) GetResultsOk() ([]UpdatedSupplies, bool) {
+func (o *UpdateSuppliesWaybillResponse) GetResultsOk() ([]UpdatedSuppliesWaybill, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -64,11 +64,11 @@ func (o *UpdateSuppliesResponse) GetResultsOk() ([]UpdatedSupplies, bool) {
 }
 
 // SetResults sets field value
-func (o *UpdateSuppliesResponse) SetResults(v []UpdatedSupplies) {
+func (o *UpdateSuppliesWaybillResponse) SetResults(v []UpdatedSuppliesWaybill) {
 	o.Results = v
 }
 
-func (o UpdateSuppliesResponse) MarshalJSON() ([]byte, error) {
+func (o UpdateSuppliesWaybillResponse) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -76,13 +76,13 @@ func (o UpdateSuppliesResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o UpdateSuppliesResponse) ToMap() (map[string]interface{}, error) {
+func (o UpdateSuppliesWaybillResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["results"] = o.Results
 	return toSerialize, nil
 }
 
-func (o *UpdateSuppliesResponse) UnmarshalJSON(data []byte) (err error) {
+func (o *UpdateSuppliesWaybillResponse) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -104,53 +104,53 @@ func (o *UpdateSuppliesResponse) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varUpdateSuppliesResponse := _UpdateSuppliesResponse{}
+	varUpdateSuppliesWaybillResponse := _UpdateSuppliesWaybillResponse{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUpdateSuppliesResponse)
+	err = decoder.Decode(&varUpdateSuppliesWaybillResponse)
 
 	if err != nil {
 		return err
 	}
 
-	*o = UpdateSuppliesResponse(varUpdateSuppliesResponse)
+	*o = UpdateSuppliesWaybillResponse(varUpdateSuppliesWaybillResponse)
 
 	return err
 }
 
-type NullableUpdateSuppliesResponse struct {
-	value *UpdateSuppliesResponse
+type NullableUpdateSuppliesWaybillResponse struct {
+	value *UpdateSuppliesWaybillResponse
 	isSet bool
 }
 
-func (v NullableUpdateSuppliesResponse) Get() *UpdateSuppliesResponse {
+func (v NullableUpdateSuppliesWaybillResponse) Get() *UpdateSuppliesWaybillResponse {
 	return v.value
 }
 
-func (v *NullableUpdateSuppliesResponse) Set(val *UpdateSuppliesResponse) {
+func (v *NullableUpdateSuppliesWaybillResponse) Set(val *UpdateSuppliesWaybillResponse) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableUpdateSuppliesResponse) IsSet() bool {
+func (v NullableUpdateSuppliesWaybillResponse) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableUpdateSuppliesResponse) Unset() {
+func (v *NullableUpdateSuppliesWaybillResponse) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableUpdateSuppliesResponse(val *UpdateSuppliesResponse) *NullableUpdateSuppliesResponse {
-	return &NullableUpdateSuppliesResponse{value: val, isSet: true}
+func NewNullableUpdateSuppliesWaybillResponse(val *UpdateSuppliesWaybillResponse) *NullableUpdateSuppliesWaybillResponse {
+	return &NullableUpdateSuppliesWaybillResponse{value: val, isSet: true}
 }
 
-func (v NullableUpdateSuppliesResponse) MarshalJSON() ([]byte, error) {
+func (v NullableUpdateSuppliesWaybillResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableUpdateSuppliesResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableUpdateSuppliesWaybillResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

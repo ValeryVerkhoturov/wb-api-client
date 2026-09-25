@@ -17,25 +17,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.orders_fbs.models.reply_batch_error import ReplyBatchError
+from pydantic import BaseModel, ConfigDict
+from typing import Any, ClassVar, Dict, List
+from wb_api_client.orders_fbs.models.updated_supplies_shipping_method import (
+    UpdatedSuppliesShippingMethod,
+)
 from typing import Optional, Set
 from typing_extensions import Self
 
 
-class UpdatedSupplies(BaseModel):
+class UpdateSuppliesShippingMethodResponse(BaseModel):
     """
-    Результат обработки запроса для одной поставки
+    UpdateSuppliesShippingMethodResponse
     """  # noqa: E501
 
-    error: Optional[ReplyBatchError] = None
-    success: Optional[StrictBool] = Field(
-        default=None,
-        description="Успешна ли обработка запроса для данной поставки. Может быть только `true`",
-    )
-    supply_id: StrictStr = Field(description="ID поставки", alias="supplyId")
-    __properties: ClassVar[List[str]] = ["error", "success", "supplyId"]
+    results: List[UpdatedSuppliesShippingMethod]
+    __properties: ClassVar[List[str]] = ["results"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -54,7 +51,7 @@ class UpdatedSupplies(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of UpdatedSupplies from a JSON string"""
+        """Create an instance of UpdateSuppliesShippingMethodResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,14 +71,18 @@ class UpdatedSupplies(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of error
-        if self.error:
-            _dict["error"] = self.error.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in results (list)
+        _items = []
+        if self.results:
+            for _item_results in self.results:
+                if _item_results:
+                    _items.append(_item_results.to_dict())
+            _dict["results"] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of UpdatedSupplies from a dict"""
+        """Create an instance of UpdateSuppliesShippingMethodResponse from a dict"""
         if obj is None:
             return None
 
@@ -90,13 +91,14 @@ class UpdatedSupplies(BaseModel):
 
         _obj = cls.model_validate(
             {
-                "error": (
-                    ReplyBatchError.from_dict(obj["error"])
-                    if obj.get("error") is not None
+                "results": (
+                    [
+                        UpdatedSuppliesShippingMethod.from_dict(_item)
+                        for _item in obj["results"]
+                    ]
+                    if obj.get("results") is not None
                     else None
-                ),
-                "success": obj.get("success"),
-                "supplyId": obj.get("supplyId"),
+                )
             }
         )
         return _obj

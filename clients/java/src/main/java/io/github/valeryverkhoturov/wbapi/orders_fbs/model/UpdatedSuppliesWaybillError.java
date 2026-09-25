@@ -28,86 +28,69 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Результат обработки запроса для одной поставки */
+/**
+ * Ошибка обработки запроса для поставки. Возможные варианты ошибок: - &#x60;400
+ * IncorrectRequestBody&#x60;: - некорректный ID поставки - склад назначения находится не в РФ -
+ * &#x60;404 NotFound&#x60; — поставка не найдена - &#x60;409 SupplyAlreadyScanned&#x60; — поставка
+ * или её короба уже отсканированы в пункте отгрузки - &#x60;409 SupplyShippingRequired&#x60; — не
+ * указан пункт отгрузки поставки - &#x60;409 UnsuitableShippingType&#x60; — не указан способ
+ * доставки либо способ доставки не &#x60;transportCompany&#x60; - &#x60;409
+ * WaybillUUIDIsProcessing&#x60; — ЭТрН находится в обработке
+ */
 @jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
-public class UpdatedSupplies {
-  public static final String SERIALIZED_NAME_ERROR = "error";
+public class UpdatedSuppliesWaybillError {
+  public static final String SERIALIZED_NAME_CODE = "code";
 
-  @SerializedName(SERIALIZED_NAME_ERROR)
-  @jakarta.annotation.Nullable
-  private ReplyBatchError error;
-
-  public static final String SERIALIZED_NAME_SUCCESS = "success";
-
-  @SerializedName(SERIALIZED_NAME_SUCCESS)
-  @jakarta.annotation.Nullable
-  private Boolean success;
-
-  public static final String SERIALIZED_NAME_SUPPLY_ID = "supplyId";
-
-  @SerializedName(SERIALIZED_NAME_SUPPLY_ID)
+  @SerializedName(SERIALIZED_NAME_CODE)
   @jakarta.annotation.Nonnull
-  private String supplyId;
+  private Integer code;
 
-  public UpdatedSupplies() {}
+  public static final String SERIALIZED_NAME_DETAIL = "detail";
 
-  public UpdatedSupplies error(@jakarta.annotation.Nullable ReplyBatchError error) {
-    this.error = error;
+  @SerializedName(SERIALIZED_NAME_DETAIL)
+  @jakarta.annotation.Nonnull
+  private String detail;
+
+  public UpdatedSuppliesWaybillError() {}
+
+  public UpdatedSuppliesWaybillError code(@jakarta.annotation.Nonnull Integer code) {
+    this.code = code;
     return this;
   }
 
   /**
-   * Get error
+   * Код ошибки
    *
-   * @return error
-   */
-  @jakarta.annotation.Nullable
-  public ReplyBatchError getError() {
-    return error;
-  }
-
-  public void setError(@jakarta.annotation.Nullable ReplyBatchError error) {
-    this.error = error;
-  }
-
-  public UpdatedSupplies success(@jakarta.annotation.Nullable Boolean success) {
-    this.success = success;
-    return this;
-  }
-
-  /**
-   * Успешна ли обработка запроса для данной поставки. Может быть только &#x60;true&#x60;
-   *
-   * @return success
-   */
-  @jakarta.annotation.Nullable
-  public Boolean getSuccess() {
-    return success;
-  }
-
-  public void setSuccess(@jakarta.annotation.Nullable Boolean success) {
-    this.success = success;
-  }
-
-  public UpdatedSupplies supplyId(@jakarta.annotation.Nonnull String supplyId) {
-    this.supplyId = supplyId;
-    return this;
-  }
-
-  /**
-   * ID поставки
-   *
-   * @return supplyId
+   * @return code
    */
   @jakarta.annotation.Nonnull
-  public String getSupplyId() {
-    return supplyId;
+  public Integer getCode() {
+    return code;
   }
 
-  public void setSupplyId(@jakarta.annotation.Nonnull String supplyId) {
-    this.supplyId = supplyId;
+  public void setCode(@jakarta.annotation.Nonnull Integer code) {
+    this.code = code;
+  }
+
+  public UpdatedSuppliesWaybillError detail(@jakarta.annotation.Nonnull String detail) {
+    this.detail = detail;
+    return this;
+  }
+
+  /**
+   * Дополнительная информация об ошибке
+   *
+   * @return detail
+   */
+  @jakarta.annotation.Nonnull
+  public String getDetail() {
+    return detail;
+  }
+
+  public void setDetail(@jakarta.annotation.Nonnull String detail) {
+    this.detail = detail;
   }
 
   @Override
@@ -118,24 +101,22 @@ public class UpdatedSupplies {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdatedSupplies updatedSupplies = (UpdatedSupplies) o;
-    return Objects.equals(this.error, updatedSupplies.error)
-        && Objects.equals(this.success, updatedSupplies.success)
-        && Objects.equals(this.supplyId, updatedSupplies.supplyId);
+    UpdatedSuppliesWaybillError updatedSuppliesWaybillError = (UpdatedSuppliesWaybillError) o;
+    return Objects.equals(this.code, updatedSuppliesWaybillError.code)
+        && Objects.equals(this.detail, updatedSuppliesWaybillError.detail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, success, supplyId);
+    return Objects.hash(code, detail);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdatedSupplies {\n");
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
-    sb.append("    success: ").append(toIndentedString(success)).append("\n");
-    sb.append("    supplyId: ").append(toIndentedString(supplyId)).append("\n");
+    sb.append("class UpdatedSuppliesWaybillError {\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -156,45 +137,45 @@ public class UpdatedSupplies {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("error");
-    openapiFields.add("success");
-    openapiFields.add("supplyId");
+    openapiFields.add("code");
+    openapiFields.add("detail");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("supplyId");
+    openapiRequiredFields.add("code");
+    openapiRequiredFields.add("detail");
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to UpdatedSupplies
+   * @throws IOException if the JSON Element is invalid with respect to UpdatedSuppliesWaybillError
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
     if (jsonElement == null) {
-      if (!UpdatedSupplies.openapiRequiredFields
+      if (!UpdatedSuppliesWaybillError.openapiRequiredFields
           .isEmpty()) { // has required fields but JSON element is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in UpdatedSupplies is not found in the empty JSON string",
-                UpdatedSupplies.openapiRequiredFields.toString()));
+                "The required field(s) %s in UpdatedSuppliesWaybillError is not found in the empty JSON string",
+                UpdatedSuppliesWaybillError.openapiRequiredFields.toString()));
       }
     }
 
     Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
     // check to see if the JSON string contains additional fields
     for (Map.Entry<String, JsonElement> entry : entries) {
-      if (!UpdatedSupplies.openapiFields.contains(entry.getKey())) {
+      if (!UpdatedSuppliesWaybillError.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `UpdatedSupplies` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `UpdatedSuppliesWaybillError` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
       }
     }
 
     // check to make sure all required properties/fields are present in the JSON string
-    for (String requiredField : UpdatedSupplies.openapiRequiredFields) {
+    for (String requiredField : UpdatedSuppliesWaybillError.openapiRequiredFields) {
       if (jsonElement.getAsJsonObject().get(requiredField) == null) {
         throw new IllegalArgumentException(
             String.format(
@@ -203,15 +184,11 @@ public class UpdatedSupplies {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // validate the optional field `error`
-    if (jsonObj.get("error") != null && !jsonObj.get("error").isJsonNull()) {
-      ReplyBatchError.validateJsonElement(jsonObj.get("error"));
-    }
-    if (!jsonObj.get("supplyId").isJsonPrimitive()) {
+    if (!jsonObj.get("detail").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `supplyId` to be a primitive type in the JSON string but got `%s`",
-              jsonObj.get("supplyId").toString()));
+              "Expected the field `detail` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("detail").toString()));
     }
   }
 
@@ -219,23 +196,24 @@ public class UpdatedSupplies {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-      if (!UpdatedSupplies.class.isAssignableFrom(type.getRawType())) {
-        return null; // this class only serializes 'UpdatedSupplies' and its subtypes
+      if (!UpdatedSuppliesWaybillError.class.isAssignableFrom(type.getRawType())) {
+        return null; // this class only serializes 'UpdatedSuppliesWaybillError' and its subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-      final TypeAdapter<UpdatedSupplies> thisAdapter =
-          gson.getDelegateAdapter(this, TypeToken.get(UpdatedSupplies.class));
+      final TypeAdapter<UpdatedSuppliesWaybillError> thisAdapter =
+          gson.getDelegateAdapter(this, TypeToken.get(UpdatedSuppliesWaybillError.class));
 
       return (TypeAdapter<T>)
-          new TypeAdapter<UpdatedSupplies>() {
+          new TypeAdapter<UpdatedSuppliesWaybillError>() {
             @Override
-            public void write(JsonWriter out, UpdatedSupplies value) throws IOException {
+            public void write(JsonWriter out, UpdatedSuppliesWaybillError value)
+                throws IOException {
               JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
               elementAdapter.write(out, obj);
             }
 
             @Override
-            public UpdatedSupplies read(JsonReader in) throws IOException {
+            public UpdatedSuppliesWaybillError read(JsonReader in) throws IOException {
               JsonElement jsonElement = elementAdapter.read(in);
               validateJsonElement(jsonElement);
               return thisAdapter.fromJsonTree(jsonElement);
@@ -245,18 +223,18 @@ public class UpdatedSupplies {
   }
 
   /**
-   * Create an instance of UpdatedSupplies given an JSON string
+   * Create an instance of UpdatedSuppliesWaybillError given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of UpdatedSupplies
-   * @throws IOException if the JSON string is invalid with respect to UpdatedSupplies
+   * @return An instance of UpdatedSuppliesWaybillError
+   * @throws IOException if the JSON string is invalid with respect to UpdatedSuppliesWaybillError
    */
-  public static UpdatedSupplies fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UpdatedSupplies.class);
+  public static UpdatedSuppliesWaybillError fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UpdatedSuppliesWaybillError.class);
   }
 
   /**
-   * Convert an instance of UpdatedSupplies to an JSON string
+   * Convert an instance of UpdatedSuppliesWaybillError to an JSON string
    *
    * @return JSON string
    */

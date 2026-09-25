@@ -16,42 +16,42 @@ import (
 	"fmt"
 )
 
-// checks if the UpdatedSupplies type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &UpdatedSupplies{}
+// checks if the UpdatedSuppliesWaybill type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UpdatedSuppliesWaybill{}
 
-// UpdatedSupplies Результат обработки запроса для одной поставки
-type UpdatedSupplies struct {
-	Error *ReplyBatchError `json:"error,omitempty"`
+// UpdatedSuppliesWaybill Результат обработки запроса для одной поставки
+type UpdatedSuppliesWaybill struct {
+	Error *UpdatedSuppliesWaybillError `json:"error,omitempty"`
 	// Успешна ли обработка запроса для данной поставки. Может быть только `true`
 	Success *bool `json:"success,omitempty"`
 	// ID поставки
 	SupplyId string `json:"supplyId"`
 }
 
-type _UpdatedSupplies UpdatedSupplies
+type _UpdatedSuppliesWaybill UpdatedSuppliesWaybill
 
-// NewUpdatedSupplies instantiates a new UpdatedSupplies object
+// NewUpdatedSuppliesWaybill instantiates a new UpdatedSuppliesWaybill object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdatedSupplies(supplyId string) *UpdatedSupplies {
-	this := UpdatedSupplies{}
+func NewUpdatedSuppliesWaybill(supplyId string) *UpdatedSuppliesWaybill {
+	this := UpdatedSuppliesWaybill{}
 	this.SupplyId = supplyId
 	return &this
 }
 
-// NewUpdatedSuppliesWithDefaults instantiates a new UpdatedSupplies object
+// NewUpdatedSuppliesWaybillWithDefaults instantiates a new UpdatedSuppliesWaybill object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewUpdatedSuppliesWithDefaults() *UpdatedSupplies {
-	this := UpdatedSupplies{}
+func NewUpdatedSuppliesWaybillWithDefaults() *UpdatedSuppliesWaybill {
+	this := UpdatedSuppliesWaybill{}
 	return &this
 }
 
 // GetError returns the Error field value if set, zero value otherwise.
-func (o *UpdatedSupplies) GetError() ReplyBatchError {
+func (o *UpdatedSuppliesWaybill) GetError() UpdatedSuppliesWaybillError {
 	if o == nil || IsNil(o.Error) {
-		var ret ReplyBatchError
+		var ret UpdatedSuppliesWaybillError
 		return ret
 	}
 	return *o.Error
@@ -59,7 +59,7 @@ func (o *UpdatedSupplies) GetError() ReplyBatchError {
 
 // GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdatedSupplies) GetErrorOk() (*ReplyBatchError, bool) {
+func (o *UpdatedSuppliesWaybill) GetErrorOk() (*UpdatedSuppliesWaybillError, bool) {
 	if o == nil || IsNil(o.Error) {
 		return nil, false
 	}
@@ -67,7 +67,7 @@ func (o *UpdatedSupplies) GetErrorOk() (*ReplyBatchError, bool) {
 }
 
 // HasError returns a boolean if a field has been set.
-func (o *UpdatedSupplies) HasError() bool {
+func (o *UpdatedSuppliesWaybill) HasError() bool {
 	if o != nil && !IsNil(o.Error) {
 		return true
 	}
@@ -75,13 +75,13 @@ func (o *UpdatedSupplies) HasError() bool {
 	return false
 }
 
-// SetError gets a reference to the given ReplyBatchError and assigns it to the Error field.
-func (o *UpdatedSupplies) SetError(v ReplyBatchError) {
+// SetError gets a reference to the given UpdatedSuppliesWaybillError and assigns it to the Error field.
+func (o *UpdatedSuppliesWaybill) SetError(v UpdatedSuppliesWaybillError) {
 	o.Error = &v
 }
 
 // GetSuccess returns the Success field value if set, zero value otherwise.
-func (o *UpdatedSupplies) GetSuccess() bool {
+func (o *UpdatedSuppliesWaybill) GetSuccess() bool {
 	if o == nil || IsNil(o.Success) {
 		var ret bool
 		return ret
@@ -91,7 +91,7 @@ func (o *UpdatedSupplies) GetSuccess() bool {
 
 // GetSuccessOk returns a tuple with the Success field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdatedSupplies) GetSuccessOk() (*bool, bool) {
+func (o *UpdatedSuppliesWaybill) GetSuccessOk() (*bool, bool) {
 	if o == nil || IsNil(o.Success) {
 		return nil, false
 	}
@@ -99,7 +99,7 @@ func (o *UpdatedSupplies) GetSuccessOk() (*bool, bool) {
 }
 
 // HasSuccess returns a boolean if a field has been set.
-func (o *UpdatedSupplies) HasSuccess() bool {
+func (o *UpdatedSuppliesWaybill) HasSuccess() bool {
 	if o != nil && !IsNil(o.Success) {
 		return true
 	}
@@ -108,12 +108,12 @@ func (o *UpdatedSupplies) HasSuccess() bool {
 }
 
 // SetSuccess gets a reference to the given bool and assigns it to the Success field.
-func (o *UpdatedSupplies) SetSuccess(v bool) {
+func (o *UpdatedSuppliesWaybill) SetSuccess(v bool) {
 	o.Success = &v
 }
 
 // GetSupplyId returns the SupplyId field value
-func (o *UpdatedSupplies) GetSupplyId() string {
+func (o *UpdatedSuppliesWaybill) GetSupplyId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -124,7 +124,7 @@ func (o *UpdatedSupplies) GetSupplyId() string {
 
 // GetSupplyIdOk returns a tuple with the SupplyId field value
 // and a boolean to check if the value has been set.
-func (o *UpdatedSupplies) GetSupplyIdOk() (*string, bool) {
+func (o *UpdatedSuppliesWaybill) GetSupplyIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -132,11 +132,11 @@ func (o *UpdatedSupplies) GetSupplyIdOk() (*string, bool) {
 }
 
 // SetSupplyId sets field value
-func (o *UpdatedSupplies) SetSupplyId(v string) {
+func (o *UpdatedSuppliesWaybill) SetSupplyId(v string) {
 	o.SupplyId = v
 }
 
-func (o UpdatedSupplies) MarshalJSON() ([]byte, error) {
+func (o UpdatedSuppliesWaybill) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -144,7 +144,7 @@ func (o UpdatedSupplies) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o UpdatedSupplies) ToMap() (map[string]interface{}, error) {
+func (o UpdatedSuppliesWaybill) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Error) {
 		toSerialize["error"] = o.Error
@@ -156,7 +156,7 @@ func (o UpdatedSupplies) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *UpdatedSupplies) UnmarshalJSON(data []byte) (err error) {
+func (o *UpdatedSuppliesWaybill) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -178,53 +178,53 @@ func (o *UpdatedSupplies) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varUpdatedSupplies := _UpdatedSupplies{}
+	varUpdatedSuppliesWaybill := _UpdatedSuppliesWaybill{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varUpdatedSupplies)
+	err = decoder.Decode(&varUpdatedSuppliesWaybill)
 
 	if err != nil {
 		return err
 	}
 
-	*o = UpdatedSupplies(varUpdatedSupplies)
+	*o = UpdatedSuppliesWaybill(varUpdatedSuppliesWaybill)
 
 	return err
 }
 
-type NullableUpdatedSupplies struct {
-	value *UpdatedSupplies
+type NullableUpdatedSuppliesWaybill struct {
+	value *UpdatedSuppliesWaybill
 	isSet bool
 }
 
-func (v NullableUpdatedSupplies) Get() *UpdatedSupplies {
+func (v NullableUpdatedSuppliesWaybill) Get() *UpdatedSuppliesWaybill {
 	return v.value
 }
 
-func (v *NullableUpdatedSupplies) Set(val *UpdatedSupplies) {
+func (v *NullableUpdatedSuppliesWaybill) Set(val *UpdatedSuppliesWaybill) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableUpdatedSupplies) IsSet() bool {
+func (v NullableUpdatedSuppliesWaybill) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableUpdatedSupplies) Unset() {
+func (v *NullableUpdatedSuppliesWaybill) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableUpdatedSupplies(val *UpdatedSupplies) *NullableUpdatedSupplies {
-	return &NullableUpdatedSupplies{value: val, isSet: true}
+func NewNullableUpdatedSuppliesWaybill(val *UpdatedSuppliesWaybill) *NullableUpdatedSuppliesWaybill {
+	return &NullableUpdatedSuppliesWaybill{value: val, isSet: true}
 }
 
-func (v NullableUpdatedSupplies) MarshalJSON() ([]byte, error) {
+func (v NullableUpdatedSuppliesWaybill) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableUpdatedSupplies) UnmarshalJSON(src []byte) error {
+func (v *NullableUpdatedSuppliesWaybill) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
