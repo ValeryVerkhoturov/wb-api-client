@@ -1,0 +1,31 @@
+{
+  "name": "@valeryverkhoturov/wb-api-client",
+  "version": "0.0.0.dev0",
+  "description": "Auto-generated TypeScript client for the Wildberries Seller API",
+  "license": "Apache-2.0",
+  "author": "Valery Verkhoturov",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ValeryVerkhoturov/wb-api-client.git"
+  },
+  "homepage": "https://github.com/ValeryVerkhoturov/wb-api-client",
+  "keywords": ["wildberries", "wb", "api", "client", "sdk"],
+  "type": "commonjs",
+  "sideEffects": false,
+  "files": ["dist/**/*"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "@types/node": "^20.0.0",
+    "prettier": "3.3.3"
+  },
+  "exports": {"./general": {"types": "./dist/general/index.d.ts", "default": "./dist/general/index.js"},"./items": {"types": "./dist/items/index.d.ts", "default": "./dist/items/index.js"},"./orders-fbs": {"types": "./dist/orders-fbs/index.d.ts", "default": "./dist/orders-fbs/index.js"},"./orders-dbw": {"types": "./dist/orders-dbw/index.d.ts", "default": "./dist/orders-dbw/index.js"},"./dbs": {"types": "./dist/dbs/index.d.ts", "default": "./dist/dbs/index.js"},"./in-store-pickup": {"types": "./dist/in-store-pickup/index.d.ts", "default": "./dist/in-store-pickup/index.js"},"./orders-fbw": {"types": "./dist/orders-fbw/index.d.ts", "default": "./dist/orders-fbw/index.js"},"./promotion": {"types": "./dist/promotion/index.d.ts", "default": "./dist/promotion/index.js"},"./communications": {"types": "./dist/communications/index.d.ts", "default": "./dist/communications/index.js"},"./rates": {"types": "./dist/rates/index.d.ts", "default": "./dist/rates/index.js"},"./analytics": {"types": "./dist/analytics/index.d.ts", "default": "./dist/analytics/index.js"},"./reports": {"types": "./dist/reports/index.d.ts", "default": "./dist/reports/index.js"},"./finances": {"types": "./dist/finances/index.d.ts", "default": "./dist/finances/index.js"}}
+}
