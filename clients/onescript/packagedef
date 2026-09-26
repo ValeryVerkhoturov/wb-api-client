@@ -4,7 +4,7 @@
 //
 
 Описание.Имя("wb-api-client")
-	.Версия("0.0.0.dev0")
+	.Версия("1.20260926.0")
 	.Автор("Valery Verkhoturov")
 	.АдресАвтора("valery.verkhoturov1505@gmail.com")
 	.Описание("Клиент Wildberries API для OneScript: 13 категорий WB API в одном пакете")
