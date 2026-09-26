@@ -109,6 +109,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: connectionCheck
   /api/communications/v2/news:
     servers:
     - url: https://common-api.wildberries.ru
@@ -200,6 +201,7 @@ paths:
           $ref: '#/components/responses/401'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: newsApi
   /api/v1/seller-info:
     servers:
     - url: https://common-api.wildberries.ru
@@ -242,6 +244,7 @@ paths:
           $ref: '#/components/responses/402'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerInformation
   /api/common/v1/rating:
     servers:
     - url: https://feedbacks-api.wildberries.ru
@@ -292,6 +295,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerInformation
   /api/common/v1/subscriptions:
     servers:
     - url: https://common-api.wildberries.ru
@@ -352,6 +356,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerInformation
   /api/common/v1/tariff-constructor/options:
     servers:
     - url: https://common-api.wildberries.ru
@@ -437,6 +442,7 @@ paths:
                   $ref: '#/components/examples/PlanBuilder404'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerInformation
   /api/v1/invite:
     servers:
     - url: https://user-management-api.wildberries.ru
@@ -503,6 +509,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerUserManagement
   /api/v1/users:
     servers:
     - url: https://user-management-api.wildberries.ru
@@ -831,6 +838,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerUserManagement
   /api/v1/users/access:
     servers:
     - url: https://user-management-api.wildberries.ru
@@ -887,6 +895,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerUserManagement
   /api/v1/user:
     servers:
     - url: https://user-management-api.wildberries.ru
@@ -943,6 +952,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerUserManagement
 components:
   securitySchemes:
     BearerAuth:

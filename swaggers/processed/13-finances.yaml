@@ -60,6 +60,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: balance
   /api/finance/v1/sales-reports/list:
     servers:
     - url: https://finance-api.wildberries.ru
@@ -120,6 +121,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: financialReports
   /api/finance/v1/sales-reports/detailed/{reportId}:
     servers:
     - url: https://finance-api.wildberries.ru
@@ -192,6 +194,7 @@ paths:
           $ref: '#/components/responses/response404SalesReports'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: financialReports
   /api/finance/v1/sales-reports/detailed:
     servers:
     - url: https://finance-api.wildberries.ru
@@ -243,6 +246,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: financialReports
   /api/finance/v1/acquiring/list:
     servers:
     - url: https://finance-api.wildberries.ru
@@ -301,6 +305,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: financialReports
   /api/finance/v1/acquiring/detailed/{reportId}:
     servers:
     - url: https://finance-api.wildberries.ru
@@ -371,6 +376,7 @@ paths:
           $ref: '#/components/responses/response404AcquiringReports'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: financialReports
   /api/finance/v1/acquiring/detailed:
     servers:
     - url: https://finance-api.wildberries.ru
@@ -431,6 +437,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: financialReports
   /api/v1/documents/categories:
     servers:
     - url: https://documents-api.wildberries.ru
@@ -470,6 +477,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: documents
   /api/v1/documents/list:
     servers:
     - url: https://documents-api.wildberries.ru
@@ -582,6 +590,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: documents
   /api/v1/documents/download:
     servers:
     - url: https://documents-api.wildberries.ru
@@ -636,6 +645,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: documents
   /api/v1/documents/download/all:
     servers:
     - url: https://documents-api.wildberries.ru
@@ -686,6 +696,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: documents
 components:
   parameters:
     LocaleCat:

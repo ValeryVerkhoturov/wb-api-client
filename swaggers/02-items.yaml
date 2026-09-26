@@ -179,6 +179,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
   /content/v2/object/all:
     servers:
       - url: https://content-api.wildberries.ru
@@ -316,6 +317,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
   /content/v2/object/charcs/{subjectId}:
     servers:
       - url: https://content-api.wildberries.ru
@@ -501,6 +503,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
   /content/v2/directory/colors:
     servers:
       - url: https://content-api.wildberries.ru
@@ -606,6 +609,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
   /content/v2/directory/kinds:
     servers:
       - url: https://content-api.wildberries.ru
@@ -705,6 +709,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
   /content/v2/directory/countries:
     servers:
       - url: https://content-api.wildberries.ru
@@ -820,6 +825,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
   /content/v2/directory/seasons:
     servers:
       - url: https://content-api.wildberries.ru
@@ -919,6 +925,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
   /content/v2/directory/vat:
     servers:
       - url: https://content-api.wildberries.ru
@@ -1023,6 +1030,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
   /content/v2/directory/tnved:
     servers:
       - url: https://content-api.wildberries.ru
@@ -1154,6 +1162,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
   /api/content/v1/brands:
     servers:
       - url: https://content-api.wildberries.ru
@@ -1227,6 +1236,7 @@ paths:
                   $ref: '#/components/examples/BrandsResponseNotFound'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: categoriesSubcategoriesAndCharacteristics
   /content/v2/tags:
     servers:
       - url: https://content-api.wildberries.ru
@@ -1321,6 +1331,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: labels
   /content/v2/tag:
     servers:
       - url: https://content-api.wildberries.ru
@@ -1422,6 +1433,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: labels
   /content/v2/tag/{id}:
     servers:
       - url: https://content-api.wildberries.ru
@@ -1521,6 +1533,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: labels
     delete:
       operationId: deleteV2TagId
       x-readonly-method: false
@@ -1596,6 +1609,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: labels
   /content/v2/tag/nomenclature/link:
     servers:
       - url: https://content-api.wildberries.ru
@@ -1690,6 +1704,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: labels
   /content/v2/get/cards/list:
     servers:
       - url: https://content-api.wildberries.ru
@@ -2263,6 +2278,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: listings
   /content/v2/cards/error/list:
     servers:
       - url: https://content-api.wildberries.ru
@@ -2437,6 +2453,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: listings
   /content/v2/cards/update:
     servers:
       - url: https://content-api.wildberries.ru
@@ -2698,6 +2715,7 @@ paths:
                 statusText: Request Entity Too Large
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: listings
   /content/v2/cards/moveNm:
     servers:
       - url: https://content-api.wildberries.ru
@@ -2826,6 +2844,7 @@ paths:
                   $ref: '#/components/examples/BodySizeExceedsTheGivenLimit'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: listings
   /content/v2/cards/delete/trash:
     servers:
       - url: https://content-api.wildberries.ru
@@ -2934,6 +2953,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: listings
   /content/v2/cards/recover:
     servers:
       - url: https://content-api.wildberries.ru
@@ -3037,6 +3057,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: listings
   /content/v2/get/cards/trash:
     servers:
       - url: https://content-api.wildberries.ru
@@ -3387,6 +3408,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: listings
   /content/v2/cards/limits:
     servers:
       - url: https://content-api.wildberries.ru
@@ -3484,6 +3506,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: listingItems
   /content/v2/barcodes:
     servers:
       - url: https://content-api.wildberries.ru
@@ -3583,6 +3606,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: listingItems
   /content/v2/cards/upload:
     servers:
       - url: https://content-api.wildberries.ru
@@ -3834,6 +3858,7 @@ paths:
                 statusText: Request Entity Too Large
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: listingItems
   /content/v2/cards/upload/add:
     servers:
       - url: https://content-api.wildberries.ru
@@ -4159,6 +4184,7 @@ paths:
                 statusText: Request Entity Too Large
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: listingItems
   /content/v3/media/file:
     servers:
       - url: https://content-api.wildberries.ru
@@ -4253,6 +4279,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: mediaFiles
   /content/v3/media/save:
     servers:
       - url: https://content-api.wildberries.ru
@@ -4352,6 +4379,7 @@ paths:
                 $ref: '#/components/schemas/mediaErrors'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: mediaFiles
   /api/content/v1/recommendations/list:
     servers:
       - url: https://content-api.wildberries.ru
@@ -4415,6 +4443,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: recommendations
   /api/content/v1/recommendations/set:
     servers:
       - url: https://content-api.wildberries.ru
@@ -4484,6 +4513,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: recommendations
   /api/v2/upload/task:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
@@ -4601,6 +4631,7 @@ paths:
                   $ref: '#/components/examples/UnexpectedResult'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: pricesAndDiscounts
   /api/v2/upload/task/size:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
@@ -4722,6 +4753,7 @@ paths:
                   $ref: '#/components/examples/UnexpectedResult'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: pricesAndDiscounts
   /api/v2/upload/task/club-discount:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
@@ -4823,6 +4855,7 @@ paths:
                   $ref: '#/components/examples/UnexpectedResult'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: pricesAndDiscounts
   /api/discounts-prices/v1/upload/task/b2b/wholesale:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
@@ -4898,6 +4931,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: pricesAndDiscounts
   /api/v2/history/tasks:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
@@ -4971,6 +5005,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: pricesAndDiscounts
   /api/v2/history/goods/task:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
@@ -5046,6 +5081,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: pricesAndDiscounts
   /api/v2/buffer/tasks:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
@@ -5119,6 +5155,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: pricesAndDiscounts
   /api/v2/buffer/goods/task:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
@@ -5194,6 +5231,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: pricesAndDiscounts
   /api/v2/list/goods/filter:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
@@ -5276,6 +5314,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: pricesAndDiscounts
     post:
       operationId: postV2ListGoodsFilter
       x-readonly-method: true
@@ -5345,6 +5384,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: pricesAndDiscounts
   /api/v2/list/goods/size/nm:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
@@ -5422,6 +5462,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: pricesAndDiscounts
   /api/v2/quarantine/goods:
     servers:
       - url: https://discounts-prices-api.wildberries.ru
@@ -5485,6 +5526,7 @@ paths:
                   $ref: '#/components/examples/UnexpectedResult'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: pricesAndDiscounts
   /api/v3/stocks/{warehouseId}:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -5628,6 +5670,7 @@ paths:
                   $ref: '#/components/examples/DeliveryTypeRestriction'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerWarehousesInventory
     delete:
       operationId: deleteV3StocksWarehouseId
       x-readonly-method: false
@@ -5740,6 +5783,7 @@ paths:
                   $ref: '#/components/examples/StoreIsProcessing'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerWarehousesInventory
     post:
       operationId: postV3StocksWarehouseId
       x-readonly-method: true
@@ -5848,6 +5892,7 @@ paths:
           $ref: '#/components/responses/NotFound'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerWarehousesInventory
   /api/v3/offices:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -5912,6 +5957,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerWarehouses
   /api/v3/warehouses:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -5976,6 +6022,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerWarehouses
     post:
       operationId: postV3Warehouses
       x-readonly-method: false
@@ -6078,6 +6125,7 @@ paths:
                 $ref: '#/components/schemas/Error'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerWarehouses
   /api/v3/warehouses/{warehouseId}:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -6180,6 +6228,7 @@ paths:
                 $ref: '#/components/schemas/Error'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerWarehouses
     delete:
       operationId: deleteV3WarehousesWarehouseId
       x-readonly-method: false
@@ -6234,6 +6283,7 @@ paths:
           $ref: '#/components/responses/NotFound'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerWarehouses
   /api/v3/dbw/warehouses/{warehouseId}/contacts:
     servers:
       - url: https://marketplace-api.wildberries.ru
@@ -6323,6 +6373,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerWarehouses
     put:
       operationId: putV3DbwWarehousesWarehouseIdContacts
       x-readonly-method: false
@@ -6404,6 +6455,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: sellerWarehouses
 components:
   schemas:
     BrandsResponse:

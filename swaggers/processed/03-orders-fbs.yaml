@@ -97,6 +97,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsPasses
   /api/v3/passes:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -154,6 +155,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsPasses
     post:
       operationId: postV3Passes
       x-readonly-method: false
@@ -259,6 +261,7 @@ paths:
           $ref: '#/components/responses/NotFound'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsPasses
   /api/v3/passes/{passId}:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -374,6 +377,7 @@ paths:
           $ref: '#/components/responses/NotFound'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsPasses
     delete:
       operationId: deleteV3PassesPassId
       x-readonly-method: false
@@ -423,6 +427,7 @@ paths:
           $ref: '#/components/responses/NotFound'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsPasses
   /api/v3/orders/new:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -485,6 +490,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsAssemblyOrders
   /api/v3/orders:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -569,6 +575,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsAssemblyOrders
   /api/v3/orders/status:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -681,6 +688,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsAssemblyOrders
   /api/v3/supplies/orders/reshipment:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -753,6 +761,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsAssemblyOrders
   /api/v3/orders/{orderId}/cancel:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -833,6 +842,7 @@ paths:
                   $ref: '#/components/examples/StatusChangeNotAllowed'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsAssemblyOrders
   /api/v3/orders/stickers:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -969,6 +979,7 @@ paths:
                   $ref: '#/components/examples/CustomsDeclarationIsRequired'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsAssemblyOrders
   /api/v3/orders/stickers/cross-border:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1070,6 +1081,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsAssemblyOrders
   /api/v3/orders/status/history:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1148,6 +1160,7 @@ paths:
           $ref: '#/components/responses/NotFound'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsAssemblyOrders
   /api/v3/orders/client:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1223,6 +1236,7 @@ paths:
           $ref: '#/components/responses/NotFound'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsAssemblyOrders
   /api/marketplace/v3/fbs/orders/archive:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1313,6 +1327,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429-2'
+      x-tagKey: fbsAssemblyOrders
   /api/marketplace/v3/orders/meta:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1406,6 +1421,7 @@ paths:
                 data: {}
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsLabelIdentifiers
   /api/v3/orders/{orderId}/meta:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1501,6 +1517,7 @@ paths:
                   $ref: '#/components/examples/FailedToUpdateMeta'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsLabelIdentifiers
   /api/v3/orders/{orderId}/meta/sgtin:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1610,6 +1627,7 @@ paths:
                   $ref: '#/components/examples/MetaKeyNotRequired'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsLabelIdentifiers
   /api/v3/orders/{orderId}/meta/uin:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1706,6 +1724,7 @@ paths:
                   $ref: '#/components/examples/MetaKeyNotRequired'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsLabelIdentifiers
   /api/v3/orders/{orderId}/meta/imei:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1802,6 +1821,7 @@ paths:
                   $ref: '#/components/examples/MetaKeyNotRequired'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsLabelIdentifiers
   /api/v3/orders/{orderId}/meta/gtin:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1898,6 +1918,7 @@ paths:
                   $ref: '#/components/examples/MetaKeyNotRequired'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsLabelIdentifiers
   /api/v3/orders/{orderId}/meta/expiration:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -1999,6 +2020,7 @@ paths:
                   $ref: '#/components/examples/MetaKeyNotRequired'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsLabelIdentifiers
   /api/marketplace/v3/orders/{orderId}/meta/customs-declaration:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2098,6 +2120,7 @@ paths:
                   $ref: '#/components/examples/MetaKeyNotRequired'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsLabelIdentifiers
   /api/v3/supplies:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2182,6 +2205,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsSupplies
     get:
       operationId: getV3Supplies
       x-readonly-method: true
@@ -2243,6 +2267,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsSupplies
   /api/marketplace/v3/supplies/{supplyId}/orders:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2350,6 +2375,7 @@ paths:
                   $ref: '#/components/examples/FailedToAddSupplyOrder'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsSupplies
   /api/v3/supplies/{supplyId}:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2420,6 +2446,7 @@ paths:
           $ref: '#/components/responses/NotFound'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsSupplies
     delete:
       operationId: deleteV3SuppliesSupplyId
       x-readonly-method: false
@@ -2487,6 +2514,7 @@ paths:
                   $ref: '#/components/examples/SupplyHasOrders'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsSupplies
   /api/marketplace/v3/supplies/{supplyId}/order-ids:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2560,6 +2588,7 @@ paths:
           $ref: '#/components/responses/NotFound'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsSupplies
   /api/marketplace/v3/fbs/shipping-points:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2628,6 +2657,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429-2'
+      x-tagKey: fbsSupplies
   /api/marketplace/v3/fbs/supplies/shipping-method:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2711,6 +2741,7 @@ paths:
                   $ref: '#/components/examples/WaybillUUIDConflict'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsSupplies
   /api/marketplace/v3/fbs/supplies/waybill:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2781,6 +2812,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsSupplies
   /api/marketplace/v3/fbs/supplies/waybill/status:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2874,6 +2906,7 @@ paths:
                   $ref: '#/components/examples/SupplyShippingRequired'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsSupplies
   /api/v3/supplies/{supplyId}/barcode:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -2971,6 +3004,7 @@ paths:
                   $ref: '#/components/examples/SupplyNotClosed'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsSupplies
   /api/v3/supplies/{supplyId}/trbx:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -3041,6 +3075,7 @@ paths:
           $ref: '#/components/responses/NotFound'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsSupplies
     post:
       operationId: postV3SuppliesSupplyIdTrbx
       x-readonly-method: false
@@ -3121,6 +3156,7 @@ paths:
           $ref: '#/components/responses/NotFound'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsSupplies
     delete:
       operationId: deleteV3SuppliesSupplyIdTrbx
       x-readonly-method: false
@@ -3195,6 +3231,7 @@ paths:
           $ref: '#/components/responses/NotFound'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsSupplies
   /api/v3/supplies/{supplyId}/trbx/stickers:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -3296,6 +3333,7 @@ paths:
           $ref: '#/components/responses/NotFound'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsSupplies
   /api/marketplace/v3/fbs/dictionaries/countries/oksm:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -3327,6 +3365,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsSupplies
   /api/marketplace/v3/fbs/supplies/{supplyId}/spot:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -3433,6 +3472,7 @@ paths:
                   $ref: '#/components/examples/SpotApiError409V3'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsSupplies
   /api/marketplace/v3/fbs/supplies/spot/list:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -3498,6 +3538,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsSupplies
   /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -3556,6 +3597,7 @@ paths:
                   $ref: '#/components/examples/ApiError404V3'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: fbsSupplies
   /api/marketplace/v3/fbs/settings/autoreturns:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -3605,6 +3647,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: autoreturnSettings
     patch:
       x-readonly-method: false
       x-token-types:
@@ -3674,6 +3717,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: autoreturnSettings
   /api/marketplace/v3/fbs/settings/autoreturns/items:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -3751,6 +3795,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: autoreturnSettings
     patch:
       x-readonly-method: false
       x-token-types:
@@ -3836,6 +3881,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: autoreturnSettings
   /api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -3913,6 +3959,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: autoreturnSettings
 components:
   securitySchemes:
     BearerAuth:

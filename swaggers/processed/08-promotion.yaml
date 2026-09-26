@@ -104,6 +104,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaigns
   /api/advert/v2/adverts:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -241,6 +242,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaigns
   /api/advert/v1/bids/min:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -360,6 +362,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: creatingCampaigns
   /adv/v2/seacat/save-ad:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -473,6 +476,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: creatingCampaigns
   /adv/v1/supplier/subjects:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -534,6 +538,7 @@ paths:
           description: Не найдено
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: creatingCampaigns
   /adv/v2/supplier/nms:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -594,6 +599,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: creatingCampaigns
   /adv/v0/delete:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -648,6 +654,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /adv/v0/rename:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -726,6 +733,7 @@ paths:
                   $ref: '#/components/examples/CompanyNameChangeErr'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /adv/v0/start:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -793,6 +801,7 @@ paths:
                   $ref: '#/components/examples/StatusNoChangeAdv'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /adv/v0/pause:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -857,6 +866,7 @@ paths:
                   $ref: '#/components/examples/StatusNoChangeAdv'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /adv/v0/stop:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -923,6 +933,7 @@ paths:
                   $ref: '#/components/examples/StatusNoChangeAdv'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /adv/v0/auction/placements:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1025,6 +1036,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /api/advert/v1/bids:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1148,6 +1160,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /adv/v1/balance:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1210,6 +1223,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: finances
   /api/advert/v2/budget:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1269,6 +1283,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: finances
   /adv/v1/budget:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1332,6 +1347,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: finances
   /adv/v1/budget/deposit:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1442,6 +1458,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: finances
   /adv/v1/upd:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1527,6 +1544,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: finances
   /adv/v1/payments:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1610,6 +1628,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: finances
   /adv/v0/auction/nms:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1715,6 +1734,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /api/advert/v0/bids/recommendations:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -1786,6 +1806,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /adv/v0/normquery/stats:
     post:
       operationId: postV0NormqueryStats
@@ -2071,6 +2092,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: statistics
   /adv/v0/normquery/get-bids:
     post:
       operationId: postV0NormqueryGetBids
@@ -2161,6 +2183,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchClusters
   /api/advert/v1/config:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -2214,6 +2237,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
   /api/advert/v1/normquery/bids:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -2280,6 +2304,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchClusters
   /adv/v0/normquery/bids:
     post:
       operationId: postV0NormqueryBids
@@ -2349,6 +2374,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchClusters
     delete:
       operationId: deleteV0NormqueryBids
       x-readonly-method: false
@@ -2416,6 +2442,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchClusters
   /adv/v0/normquery/get-minus:
     post:
       operationId: postV0NormqueryGetMinus
@@ -2492,6 +2519,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchClusters
   /adv/v0/normquery/set-minus:
     post:
       operationId: postV0NormquerySetMinus
@@ -2559,6 +2587,7 @@ paths:
                   $ref: '#/components/examples/Response403TokenCategory'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchClusters
   /adv/v1/count:
     servers:
     - url: https://advert-media-api.wildberries.ru
@@ -2600,6 +2629,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: media
   /adv/v1/adverts:
     servers:
     - url: https://advert-media-api.wildberries.ru
@@ -2709,6 +2739,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: media
   /adv/v1/advert:
     servers:
     - url: https://advert-media-api.wildberries.ru
@@ -2767,6 +2798,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: media
   /adv/v3/fullstats:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -3191,6 +3223,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: statistics
   /adv/v1/stats:
     servers:
     - url: https://advert-media-api.wildberries.ru
@@ -3268,6 +3301,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: statistics
   /api/v1/calendar/promotions:
     servers:
     - url: https://dp-calendar-api.wildberries.ru
@@ -3309,6 +3343,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: promoCalendar
   /api/v1/calendar/promotions/details:
     servers:
     - url: https://dp-calendar-api.wildberries.ru
@@ -3346,6 +3381,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: promoCalendar
   /api/v1/calendar/promotions/nomenclatures:
     servers:
     - url: https://dp-calendar-api.wildberries.ru
@@ -3387,6 +3423,7 @@ paths:
           $ref: '#/components/responses/ErrParameterValuesIncorrect'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: promoCalendar
   /api/v1/calendar/promotions/upload:
     servers:
     - url: https://dp-calendar-api.wildberries.ru
@@ -3429,6 +3466,7 @@ paths:
           $ref: '#/components/responses/UnprocessableEntity'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: promoCalendar
   /adv/v0/normquery/list:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -3503,6 +3541,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: searchClusters
   /adv/v1/normquery/stats:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -3605,6 +3644,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: statistics
   /api/advert/v0/daily-limits:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -3661,6 +3701,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
     put:
       x-readonly-method: false
       x-category: advert
@@ -3730,6 +3771,7 @@ paths:
           $ref: '#/components/responses/403'
         '429':
           $ref: '#/components/responses/429'
+      x-tagKey: campaignManagement
 components:
   schemas:
     V0GetDailyLimitsResponse:
