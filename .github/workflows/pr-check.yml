@@ -37,9 +37,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          # Fetch clients/php (submodule pointing at wb-api-client-php).
-          # Read-only in PR check, so no PAT needed — the default
-          # GITHUB_TOKEN can clone the public sibling repo.
+          # Fetch clients/php and clients/onescript (submodules pointing at
+          # wb-api-client-php and wb-api-client-1c). Read-only in PR check,
+          # so no PAT needed — the default GITHUB_TOKEN can clone the public
+          # sibling repos.
           submodules: recursive
 
       - name: Extract committed version
@@ -67,7 +68,7 @@ jobs:
       - name: Post-process specs
         run: python scripts/post-process.py
 
-      - name: Regenerate all four language clients
+      - name: Regenerate all six language clients
         # openapi-generator runs inside Docker, which ubuntu-latest ships.
         # generate.sh also runs `go mod tidy` in a Go container to refresh
         # clients/go/go.sum and `gofmt -w` to keep the Go tree canonical.
@@ -116,12 +117,20 @@ jobs:
             ghcr.io/php-cs-fixer/php-cs-fixer:3-php8.3 \
             fix src --dry-run --rules=@PSR12 --using-cache=no
 
-      - name: Diff against committed tree (main repo + PHP submodule)
+      - name: OneScript compiles
+        # OneScript has no formatter to check against — the generator emits its
+        # own canonical layout — so the equivalent gate is that every module
+        # still compiles and the package's lib.config still resolves. The
+        # toolchain script downloads a pinned OneScript into .cache/.
+        run: ./scripts/verify-onescript.sh
+
+      - name: Diff against committed tree (main repo + both submodules)
         id: diff
         # `git diff --exit-code` exits non-zero when there is drift.
-        # Runs in both the main repo AND the PHP submodule — regeneration
-        # writes into clients/php (submodule mount), so drift shows up in
-        # the submodule's own git status, not the main repo's.
+        # Runs in the main repo AND both submodules — regeneration writes
+        # into clients/php and clients/onescript (submodule mounts), so
+        # drift shows up in each submodule's own git status, not the main
+        # repo's.
         # Print both the file-list (--stat) and the full diff to the CI
         # log so the failure is diagnosable without opening the step
         # summary. Truncate the full diff to a sensible size — a full
@@ -131,9 +140,13 @@ jobs:
           set +e
           git diff --stat -- swaggers/ clients/ > /tmp/diff.stat
           git diff -- swaggers/ clients/ > /tmp/diff.full
-          # Also capture drift inside the PHP submodule.
-          (cd clients/php && git diff --stat) >> /tmp/diff.stat
-          (cd clients/php && git diff) >> /tmp/diff.full
+          # Also capture drift inside each submodule. `git add -AN` records
+          # intent-to-add so brand-new files (e.g. a new API category) show up
+          # in `git diff`, which otherwise only reports tracked files.
+          for sub in php onescript; do
+            (cd "clients/${sub}" && git add -AN && git diff --stat) >> /tmp/diff.stat
+            (cd "clients/${sub}" && git diff) >> /tmp/diff.full
+          done
           rc=$(( $(wc -c < /tmp/diff.full) > 0 ))
           if [[ $rc -ne 0 ]]; then
             echo "── drift summary ──────────────────────────────"

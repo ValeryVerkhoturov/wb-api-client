@@ -114,6 +114,13 @@ def php_apis(root: Path, pascal: str) -> list[str]:
     return sorted(p.stem for p in api_dir.glob("*.php"))
 
 
+def onescript_apis(root: Path, pascal: str) -> list[str]:
+    api_dir = root / "src" / "Классы" / pascal
+    if not api_dir.is_dir():
+        return []
+    return sorted(p.stem for p in api_dir.glob("*.os"))
+
+
 # ────────── per-language README rendering ──────────
 
 _HEADER = """# wb-api-client — {lang_display}
@@ -136,7 +143,7 @@ Every module accepts the same WB bearer JWT. The token is stored in a redacting 
 
 ## Modules
 
-Each row below is a sub-module you can import independently. Import path is `{import_prefix}<slug>`.
+{module_intro}
 
 | Slug | Category | APIs |
 |---|---|---|
@@ -207,8 +214,23 @@ def _phpsnippet(pascal: str, apis: list[str]) -> str:
     )
 
 
+def _ossnippet(pascal: str, apis: list[str]) -> str:
+    api = apis[0] if apis else "Конфигурация"
+    return (
+        f"#Использовать \"wb-api-client\"\n\n"
+        f"Настройки = Новый Конфигурация();\n"
+        f"Настройки.УстановитьТокен(\"<your WB JWT>\");\n\n"
+        f"Клиент = Новый {api}(Настройки);"
+    )
+
+
 def write_readme(path: Path, header_ctx: dict, specs: list[dict],
                  apis_fn, snippet_fn, code_fence: str, docs_url: callable) -> None:
+    header_ctx.setdefault(
+        "module_intro",
+        "Each row below is a sub-module you can import independently. "
+        "Import path is `{import_prefix}<slug>`.".format(**header_ctx),
+    )
     # Module table
     rows = []
     for spec in specs:
@@ -398,7 +420,45 @@ def main() -> int:
         docs_url=docs_url_for,
     )
 
-    print(f"  wrote 5 per-language READMEs covering {len(specs)} modules each")
+    # ── OneScript ──
+    os_root = root / "clients" / "onescript"
+    write_readme(
+        os_root / "README.md",
+        header_ctx={
+            "lang_display": "OneScript",
+            "install": "opm install wb-api-client",
+            "wrapper_note": "a `СекретнаяСтрока` class",
+            "log_call": "Сообщить",
+            "expose_call": ".Раскрыть()",
+            "lang_code": "bsl",
+            "auth_snippet": (
+                "#Использовать \"wb-api-client\"\n\n"
+                "Настройки = Новый Конфигурация();\n"
+                "Настройки.УстановитьТокен(\"<your WB JWT>\");"
+            ),
+            "import_prefix": "",
+            # OneScript has no namespaces: one #Использовать brings in every
+            # class, so categories are separated by class name rather than by
+            # import path. Model names carry the category as a prefix because
+            # 34 of them repeat across specs; API class names are unique
+            # already, so they are left as the spec's tag.
+            "module_intro": (
+                "OneScript has no namespaces — a single `#Использовать` brings in "
+                "every class. Categories are separated by name rather than by import "
+                "path: API classes are named after the spec's tag, and model classes "
+                "carry the category as a prefix (`ItemsResponse4XX`, "
+                "`OrdersFbsResponse4XX`). Sources are grouped under "
+                "`src/Классы/<Category>/` and `src/Модели/<Category>/`."
+            ),
+        },
+        specs=specs,
+        apis_fn=lambda s: onescript_apis(os_root, s["_pascal"]),
+        snippet_fn=lambda s, apis: _ossnippet(s["_pascal"], apis),
+        code_fence="bsl",
+        docs_url=docs_url_for,
+    )
+
+    print(f"  wrote 6 per-language READMEs covering {len(specs)} modules each")
     return 0
 
 
