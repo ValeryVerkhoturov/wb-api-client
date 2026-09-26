@@ -14,6 +14,9 @@ clients/**/.php-cs-fixer.cache
 
 # Local generator scratch
 clients/.tmp/
+# Pinned toolchain downloads: the OneScript runtime and the built codegen
+# plugin jar. Both are reproducible from scripts/onescript-toolchain.sh.
+.cache/
 .openapi-generator/
 .openapi-generator-cli.jar
 .venv/

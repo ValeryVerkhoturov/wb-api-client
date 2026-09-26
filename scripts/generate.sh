@@ -45,6 +45,39 @@ OPENAPI_GENERATOR_VERSION="${OPENAPI_GENERATOR_VERSION:-v7.10.0}"
 GEN="docker run --rm -u $(id -u):$(id -g) -v ${REPO_ROOT}:/work -w /work openapitools/openapi-generator-cli:${OPENAPI_GENERATOR_VERSION}"
 in_container() { echo "${1#${REPO_ROOT}/}"; }
 
+# OneScript has no generator in openapi-generator itself. The plugin lives in
+# a sibling repo, pinned by commit, and is loaded next to the CLI jar on the
+# classpath — Java merges both META-INF/services entries, so `-g onescript`
+# resolves exactly like a built-in generator.
+# shellcheck source=scripts/onescript-toolchain.sh
+source "${REPO_ROOT}/scripts/onescript-toolchain.sh"
+ensure_onescript_plugin
+
+# Runtime classes the plugin emits into every generated package. They are
+# identical across specs (bar Конфигурация — see the splice below), so the
+# unified package keeps exactly one copy of each.
+ONESCRIPT_RUNTIME=(Конфигурация СекретнаяСтрока ТранспортHTTP ОтветAPI)
+
+gen_onescript() {
+  local spec="$1" out="$2" extra="$3"
+  mkdir -p "${out}"
+  docker run --rm -u "$(id -u):$(id -g)" \
+    -v "${REPO_ROOT}:/work" \
+    -v "${ONESCRIPT_PLUGIN}:/plugin.jar:ro" \
+    -w /work \
+    --entrypoint java \
+    "openapitools/openapi-generator-cli:${OPENAPI_GENERATOR_VERSION}" \
+    -cp "/plugin.jar:/opt/openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar" \
+    org.openapitools.codegen.OpenAPIGenerator generate \
+    --input-spec "$(in_container "${spec}")" \
+    --generator-name onescript \
+    --output "$(in_container "${out}")" \
+    --config "$(in_container "${CONFIG_DIR}/onescript.yaml")" \
+    --additional-properties="packageVersion=${VERSION},${extra}" \
+    --skip-validate-spec \
+    >/dev/null
+}
+
 JAVA_GROUP_PATH="io/github/valeryverkhoturov/wbapi"
 
 # category slug from spec filename: "02-items.yaml" → "items"
@@ -74,7 +107,7 @@ gen() {
 # would blow away its .git gitfile, silently converting the mount into
 # a plain directory. Subsequent writes would then land in an orphaned
 # dir under the main repo instead of the sibling repo's working tree.
-rm -rf "${CLIENTS_DIR}"/{python,typescript,go,java}
+rm -rf "${CLIENTS_DIR}"/{python,typescript,go,java,onescript}
 
 # Guard: PHP dir MUST be a proper submodule mount before we write into
 # it, otherwise the composer.json + src/ we produce would sit as
@@ -106,7 +139,8 @@ EOF
   exit 1
 fi
 
-mkdir -p "${CLIENTS_DIR}"/{python/wb_api_client,typescript/src,go,java/src/main/java/${JAVA_GROUP_PATH},php/src}
+mkdir -p "${CLIENTS_DIR}"/{python/wb_api_client,typescript/src,go,java/src/main/java/${JAVA_GROUP_PATH},php/src} \
+         "${CLIENTS_DIR}/onescript/src/Классы" "${CLIENTS_DIR}/onescript/src/Модели"
 SCRATCH="${CLIENTS_DIR}/.tmp"
 mkdir -p "${SCRATCH}"
 
@@ -197,6 +231,53 @@ for spec in "${SPEC_DIR}"/*.yaml; do
   mkdir -p "${php_dest}"
   # Move Api/ Model/ dirs and top-level .php files into place.
   mv "${php_tmp}/src"/* "${php_dest}/"
+
+  # -------- OneScript --------
+  # The plugin emits a standalone opm package per spec. We keep the API and
+  # model classes and drop the per-spec packagedef/lib.config/README — the
+  # unified package gets one of each after the loop.
+  #
+  # OneScript has no namespaces: every class name is global. Tag names are
+  # unique across all 13 specs, so API classes keep their generated names;
+  # model names are not (Response4XX alone appears in 12 specs), so each
+  # category stamps its slug onto them via modelNamePrefix. Directories are
+  # for humans — lib.config is what actually resolves a class.
+  os_tmp="${SCRATCH}/os-${slug_snake}"
+  gen_onescript "${spec}" "${os_tmp}" "modelNamePrefix=${slug_pascal}"
+
+  os_api_dest="${CLIENTS_DIR}/onescript/src/Классы/${slug_pascal}"
+  os_model_dest="${CLIENTS_DIR}/onescript/src/Модели/${slug_pascal}"
+  mkdir -p "${os_api_dest}" "${os_model_dest}"
+
+  # Everything in Классы/ except the shared runtime is an API class.
+  for os_class in "${os_tmp}"/src/Классы/*.os; do
+    [[ -e "${os_class}" ]] || continue
+    os_name="$(basename "${os_class}" .os)"
+    os_is_runtime=0
+    for os_runtime in "${ONESCRIPT_RUNTIME[@]}"; do
+      [[ "${os_name}" == "${os_runtime}" ]] && os_is_runtime=1 && break
+    done
+    [[ ${os_is_runtime} -eq 1 ]] || mv "${os_class}" "${os_api_dest}/"
+  done
+
+  if compgen -G "${os_tmp}/src/Модели/*.os" >/dev/null; then
+    mv "${os_tmp}"/src/Модели/*.os "${os_model_dest}/"
+  fi
+
+  # Take the runtime from the first spec only; the copies are identical.
+  if [[ ! -f "${CLIENTS_DIR}/onescript/src/Классы/Конфигурация.os" ]]; then
+    for os_runtime in "${ONESCRIPT_RUNTIME[@]}"; do
+      cp "${os_tmp}/src/Классы/${os_runtime}.os" \
+         "${CLIENTS_DIR}/onescript/src/Классы/${os_runtime}.os"
+    done
+    # Конфигурация is the one runtime class whose text depends on the spec it
+    # came from: it documents that spec's default host. Here 13 categories sit
+    # on different hosts and every operation carries its own address, so the
+    # line would be wrong at package level.
+    sed -i.bak '/Адрес по умолчанию из спецификации/d' \
+      "${CLIENTS_DIR}/onescript/src/Классы/Конфигурация.os"
+    rm -f "${CLIENTS_DIR}/onescript/src/Классы/Конфигурация.os.bak"
+  fi
 done
 
 # -------- Drop in top-level manifests, substituting __VERSION__ --------
@@ -267,6 +348,17 @@ sed "s/__VERSION__/${VERSION}/g" "${TEMPLATE_DIR}/java/pom.xml" \
 sed "s/__VERSION__/${VERSION}/g" "${TEMPLATE_DIR}/php/composer.json" \
     > "${CLIENTS_DIR}/php/composer.json"
 
+# OneScript — one packagedef + lib.config covering all 13 categories. Both are
+# a class-name registry, so they are built from the spliced tree rather than
+# from a static template: a new spec surfaces without editing anything.
+# OneScript resolves classes only through lib.config, so a class missing from
+# it is unreachable no matter where its file sits.
+if [[ -x "${REPO_ROOT}/.venv/bin/python" ]]; then
+  "${REPO_ROOT}/.venv/bin/python" "${REPO_ROOT}/scripts/gen-onescript-manifests.py" "${REPO_ROOT}" "${VERSION}"
+else
+  python3 "${REPO_ROOT}/scripts/gen-onescript-manifests.py" "${REPO_ROOT}" "${VERSION}"
+fi
+
 # ── canonicalize per-language formatting ──────────────────────────────
 # Each language uses its own community-standard formatter, pinned so
 # local and CI produce byte-identical output. The pr-check workflow's
@@ -326,4 +418,4 @@ else
 fi
 
 rm -rf "${SCRATCH}"
-echo "Generated 5 unified client libraries at version ${VERSION}"
+echo "Generated 6 unified client libraries at version ${VERSION}"

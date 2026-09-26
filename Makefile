@@ -33,6 +33,7 @@ PHP_DOCKER  = docker run --rm -u $$(id -u):$$(id -g) \
 .DEFAULT_GOAL := help
 .PHONY: help venv download post-process generate regen \
         verify verify-python verify-ts verify-go verify-java verify-php \
+        verify-onescript \
         gofmt black prettier spotless php-cs-fixer clean \
         git-status git-commit git-push git-pull
 
@@ -59,14 +60,14 @@ download: ## Pull swagger YAMLs from dev.wildberries.ru
 post-process: ## Run all post-processing passes on swaggers/
 	$(PY) scripts/post-process.py
 
-generate: post-process ## Regenerate all four language clients
+generate: post-process ## Regenerate all six language clients
 	./scripts/generate.sh $(VERSION)
 
 regen: download post-process generate ## Full pipeline: download → process → generate
 
 # ── verification ──────────────────────────────────────────────────────────
 
-verify: verify-python verify-ts verify-go verify-java verify-php gofmt black prettier spotless php-cs-fixer ## Build every language + fmt checks
+verify: verify-python verify-ts verify-go verify-java verify-php verify-onescript gofmt black prettier spotless php-cs-fixer ## Build every language + fmt checks
 
 verify-python: ## Build the Python wheel and import every sub-module
 	@echo "── Python ─────────────────────────────────────"
@@ -103,6 +104,12 @@ verify-php: ## composer validate + PHP lint every generated file
 	@docker run --rm -u $$(id -u):$$(id -g) -v $(CURDIR)/clients/php:/app -w /app \
 	  -e HOME=/tmp php:8.3-cli-alpine sh -c \
 	  "find src -name '*.php' -print0 | xargs -0 -n1 php -l >/dev/null && echo '  ✓ php -l passes on every file'"
+
+verify-onescript: ## Compile-check every OneScript module + load the package
+	@echo "── OneScript ──────────────────────────────────"
+	@# No formatter step: the generator emits its own canonical layout and
+	@# OneScript has no community formatter to canonicalize against.
+	./scripts/verify-onescript.sh
 
 gofmt: ## Fail if any Go file needs `gofmt -w`
 	@out=$$(docker run --rm -v $(CURDIR)/clients/go:/app -w /app golang:1.22-alpine gofmt -l . 2>&1); \
@@ -167,4 +174,4 @@ git-pull: ## Pull main AND fast-forward the PHP submodule
 # ── housekeeping ──────────────────────────────────────────────────────────
 
 clean: ## Remove generated clients/, processed swaggers, local scratch
-	rm -rf clients/ swaggers/processed/ .venv/
+	rm -rf clients/ swaggers/processed/ .venv/ .cache/
