@@ -10,6 +10,10 @@
 #   make generate VERSION=2026.09.20
 VERSION ?= 0.0.0.dev0
 
+# Sibling repos mounted under clients/. Both are committed, tagged and
+# pushed alongside the main repo — see the git-* targets below.
+SUBMODULES := php onescript
+
 # Prefer a venv-local python if one exists, else system python3.
 PY := $(shell test -x .venv/bin/python && echo .venv/bin/python || echo python3)
 
@@ -133,45 +137,60 @@ php-cs-fixer: ## Fail if any PHP file needs `php-cs-fixer` (PSR-12)
 	  >/dev/null 2>&1 && echo "  ✓ php-cs-fixer clean"
 
 # ── main + submodule git ops ──────────────────────────────────────────────
-# `clients/php` is a submodule pointing at ValeryVerkhoturov/wb-api-client-php.
-# These targets act on BOTH the main repo and the submodule so you don't
-# have to remember to `cd clients/php && git …` after every regen.
+# `clients/php` and `clients/onescript` are submodules pointing at
+# ValeryVerkhoturov/wb-api-client-php and .../wb-api-client-1c. These targets
+# act on the main repo AND both submodules so you don't have to remember to
+# `cd clients/<sub> && git …` after every regen.
 
-git-status: ## Show `git status` in main repo AND the PHP submodule
+git-status: ## Show `git status` in main repo AND both submodules
 	@echo "── main repo ──"
 	@git status --short
-	@echo ""
-	@echo "── clients/php submodule ──"
-	@cd clients/php && git status --short
+	@for sub in $(SUBMODULES); do \
+	  echo ""; echo "── clients/$$sub submodule ──"; \
+	  (cd clients/$$sub && git status --short); \
+	done
 
-git-commit: ## Commit main + PHP submodule with the same message (MSG=…)
+git-commit: ## Commit main + both submodules with the same message (MSG=…)
 	@if [ -z "$(MSG)" ]; then \
 	  echo "usage: make git-commit MSG=\"your message\""; exit 2; \
 	fi
-	@# Submodule first so the pointer we record in main is the new SHA.
-	@echo "── clients/php ──"
-	@cd clients/php && \
-	  if ! git diff --cached --quiet || ! git diff --quiet; then \
-	    git add -A && git commit -m "$(MSG)"; \
-	  else echo "  (no PHP changes)"; fi
+	@# Submodules first so the pointers we record in main are the new SHAs.
+	@for sub in $(SUBMODULES); do \
+	  echo "── clients/$$sub ──"; \
+	  (cd clients/$$sub && \
+	    if ! git diff --cached --quiet || ! git diff --quiet || \
+	       [ -n "$$(git ls-files --others --exclude-standard)" ]; then \
+	      git add -A && git commit -m "$(MSG)"; \
+	    else echo "  (no changes)"; fi); \
+	done
 	@echo "── main ──"
 	@git add -A && \
 	  if ! git diff --cached --quiet; then git commit -m "$(MSG)"; \
 	  else echo "  (no main-repo changes)"; fi
 
-git-push: ## Push main AND the PHP submodule (needs push rights on both)
-	@echo "── clients/php ──"
-	@cd clients/php && git push origin HEAD:main
+git-push: ## Push main AND both submodules (needs push rights on all three)
+	@for sub in $(SUBMODULES); do \
+	  echo "── clients/$$sub ──"; \
+	  (cd clients/$$sub && git push origin HEAD:main); \
+	done
 	@echo "── main ──"
 	@git push
 
-git-pull: ## Pull main AND fast-forward the PHP submodule
+git-pull: ## Pull main AND fast-forward both submodules
 	@echo "── main ──"
 	@git pull --ff-only
-	@echo "── clients/php ──"
-	@git submodule update --remote --merge clients/php
+	@for sub in $(SUBMODULES); do \
+	  echo "── clients/$$sub ──"; \
+	  git submodule update --remote --merge clients/$$sub; \
+	done
 
 # ── housekeeping ──────────────────────────────────────────────────────────
 
 clean: ## Remove generated clients/, processed swaggers, local scratch
-	rm -rf clients/ swaggers/processed/ .venv/ .cache/
+	@# Never `rm -rf clients/`: that deletes the .git gitfile inside each
+	@# submodule mount, silently turning it into a plain directory — after
+	@# which regeneration writes into the main repo instead of the sibling
+	@# repo. Same invariant generate.sh protects.
+	rm -rf clients/python clients/typescript clients/go clients/java clients/.tmp
+	@for sub in $(SUBMODULES); do rm -rf clients/$$sub/src; done
+	rm -rf swaggers/processed/ .venv/ .cache/

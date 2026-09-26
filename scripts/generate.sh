@@ -102,42 +102,52 @@ gen() {
     >/dev/null
 }
 
-# Reset the non-submodule client trees. Leave clients/php alone — it's
-# a git submodule (pointing at wb-api-client-php), and `rm -rf clients/`
-# would blow away its .git gitfile, silently converting the mount into
-# a plain directory. Subsequent writes would then land in an orphaned
-# dir under the main repo instead of the sibling repo's working tree.
-rm -rf "${CLIENTS_DIR}"/{python,typescript,go,java,onescript}
+# Reset the non-submodule client trees. Leave clients/php and
+# clients/onescript alone — both are git submodules (pointing at
+# wb-api-client-php and wb-api-client-1c), and `rm -rf` would blow away
+# their .git gitfile, silently converting the mount into a plain
+# directory. Subsequent writes would then land in an orphaned dir under
+# the main repo instead of the sibling repo's working tree.
+rm -rf "${CLIENTS_DIR}"/{python,typescript,go,java}
 
-# Guard: PHP dir MUST be a proper submodule mount before we write into
-# it, otherwise the composer.json + src/ we produce would sit as
-# untracked bytes in the main repo (invisible to consumers via
-# Packagist, since Packagist crawls the sibling repo).
-# Clear only clients/php/src/ (the sub-module dirs regen recreates from
-# scratch). Preserve everything else in the submodule mount: composer.json,
-# README.md, LICENSE, .gitignore, and — critically — the .git gitfile
-# that makes the mount work.
-rm -rf "${CLIENTS_DIR}/php/src"
+# Guard: each submodule dir MUST be a proper mount before we write into
+# it, otherwise the manifests + src/ we produce would sit as untracked
+# bytes in the main repo, invisible to consumers — Packagist crawls the
+# PHP sibling repo, and the OneScript package is published from the 1c one.
+#
+# Clear only <mount>/src/ (regen recreates those from scratch). Preserve
+# everything else in the mount: composer.json / packagedef, README.md,
+# LICENSE, .gitignore, and — critically — the .git gitfile that makes the
+# mount work.
+for submodule in php onescript; do
+  if [[ -e "${CLIENTS_DIR}/${submodule}/.git" ]]; then
+    rm -rf "${CLIENTS_DIR}/${submodule}/src"
+    continue
+  fi
 
-if [[ ! -e "${CLIENTS_DIR}/php/.git" ]]; then
+  case "${submodule}" in
+    php)       sibling="wb-api-client-php" ;;
+    onescript) sibling="wb-api-client-1c" ;;
+  esac
+
   cat >&2 <<EOF
-error: clients/php is not a git submodule mount (${CLIENTS_DIR}/php/.git missing).
-       PHP output would land in an orphaned directory, not the sibling
-       wb-api-client-php repo. Initialize the submodule first:
+error: clients/${submodule} is not a git submodule mount (${CLIENTS_DIR}/${submodule}/.git missing).
+       Output would land in an orphaned directory, not the sibling
+       ${sibling} repo. Initialize the submodule first:
 
-           git submodule update --init clients/php
+           git submodule update --init clients/${submodule}
 
        On a fresh checkout add --recurse-submodules to the clone. For
        local dev without the GitHub sibling repo available, override
        the URL:
 
-           git config -f .git/config submodule.clients/php.url \\
-               file:///path/to/wb-api-client-php
-           git submodule sync clients/php
-           git submodule update --init clients/php
+           git config -f .git/config submodule.clients/${submodule}.url \\
+               file:///path/to/${sibling}
+           git submodule sync clients/${submodule}
+           git -c protocol.file.allow=always submodule update --init clients/${submodule}
 EOF
   exit 1
-fi
+done
 
 mkdir -p "${CLIENTS_DIR}"/{python/wb_api_client,typescript/src,go,java/src/main/java/${JAVA_GROUP_PATH},php/src} \
          "${CLIENTS_DIR}/onescript/src/Классы" "${CLIENTS_DIR}/onescript/src/Модели"

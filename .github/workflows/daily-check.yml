@@ -33,14 +33,15 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0    # need history for `git tag --list` version calc
-          # Fetch the clients/php submodule too. Uses `PHP_REPO_TOKEN`
-          # instead of the default GITHUB_TOKEN because we need PUSH
-          # rights on the sibling repo (default token is scoped to this
-          # repo only). Store a PAT with `repo` scope on
-          # github.com/ValeryVerkhoturov/wb-api-client-php as
-          # secrets.PHP_REPO_TOKEN.
+          # Fetch both sibling submodules (clients/php, clients/onescript).
+          # Uses a PAT instead of the default GITHUB_TOKEN because we need
+          # PUSH rights on those repos and the default token is scoped to
+          # this one. Store a PAT with `repo` scope covering BOTH
+          # wb-api-client-php and wb-api-client-1c as
+          # secrets.SIBLING_REPO_TOKEN. PHP_REPO_TOKEN is still accepted so
+          # an existing single-repo setup keeps working until it is rotated.
           submodules: recursive
-          token: ${{ secrets.PHP_REPO_TOKEN || secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.SIBLING_REPO_TOKEN || secrets.PHP_REPO_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Snapshot previous checksums
         run: |
@@ -149,7 +150,7 @@ jobs:
         # on wb-api-client-php). Falls back to GITHUB_TOKEN which will
         # 404 for cross-repo — that's fine, tag is still pushed above.
         env:
-          GH_TOKEN: ${{ secrets.PHP_REPO_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.SIBLING_REPO_TOKEN || secrets.PHP_REPO_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
           TAG="${{ steps.version.outputs.tag }}"
           VERSION="${{ steps.version.outputs.version }}"
@@ -178,6 +179,75 @@ jobs:
             --title "${TAG}" \
             --notes-file /tmp/php-release-notes.md
 
+      - name: Commit OneScript submodule (separate repo)
+        if: steps.diff.outputs.changed == 'true' || inputs.force
+        # OneScript lives in its own repo (wb-api-client-1c) mounted here as
+        # a submodule, so 1C/OneScript users can clone just the client and
+        # `opm install` straight from a tag. Same ordering as PHP: commit +
+        # tag + push inside the submodule FIRST, so the main repo's commit
+        # below records the new submodule SHA. Both repos end up with the
+        # same v<version> tag over their respective regenerated trees.
+        working-directory: clients/onescript
+        run: |
+          git config user.name "wb-api-client-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git fetch origin main
+          if ! git diff --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+            git stash push -u -m "regen"
+            git checkout -B main origin/main
+            git stash pop
+          else
+            git checkout -B main origin/main
+          fi
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No OneScript changes to commit"
+          else
+            git commit -m "chore(release): regenerate at ${{ steps.version.outputs.version }}"
+            git push origin main
+          fi
+          # Idempotent tag: skip if identical tag already exists.
+          if ! git rev-parse "${{ steps.version.outputs.tag }}" >/dev/null 2>&1; then
+            git tag -a "${{ steps.version.outputs.tag }}" -m "Release ${{ steps.version.outputs.tag }}"
+            git push origin "${{ steps.version.outputs.tag }}"
+          fi
+
+      - name: Create GitHub Release on sibling 1c repo
+        if: steps.diff.outputs.changed == 'true' || inputs.force
+        env:
+          GH_TOKEN: ${{ secrets.SIBLING_REPO_TOKEN || secrets.PHP_REPO_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ steps.version.outputs.tag }}"
+          VERSION="${{ steps.version.outputs.version }}"
+          if gh release view "${TAG}" --repo ValeryVerkhoturov/wb-api-client-1c >/dev/null 2>&1; then
+            echo "Release ${TAG} already exists on sibling repo, skipping"
+            exit 0
+          fi
+          cat > /tmp/onescript-release-notes.md <<'EOF'
+          Автоматический релиз клиента Wildberries Seller API для OneScript.
+
+          Этот репозиторий синхронизирован с [wb-api-client __TAG__](https://github.com/ValeryVerkhoturov/wb-api-client/releases/tag/__TAG__) — код регенерируется в основном репозитории и коммитится сюда одним и тем же тегом.
+
+          ## Установка
+
+          ```bash
+          opm install wb-api-client
+          ```
+
+          Либо прямо из этого тега:
+
+          ```bash
+          git clone --branch __TAG__ https://github.com/ValeryVerkhoturov/wb-api-client-1c.git
+          ```
+
+          - [hub.oscript.io](https://hub.oscript.io/package/wb-api-client)
+          EOF
+          sed -i "s|__VERSION__|${VERSION}|g; s|__TAG__|${TAG}|g" /tmp/onescript-release-notes.md
+          gh release create "${TAG}" \
+            --repo ValeryVerkhoturov/wb-api-client-1c \
+            --title "${TAG}" \
+            --notes-file /tmp/onescript-release-notes.md
+
       - name: Commit specs + generated clients + submodule pointer, push tag
         if: steps.diff.outputs.changed == 'true' || inputs.force
         run: |
@@ -185,8 +255,8 @@ jobs:
           git config user.email "bot@users.noreply.github.com"
           # Stage explicitly rather than `git add -A` to avoid picking up
           # workflow scratch (dist/, node_modules/, target/ …). Also
-          # include clients/php to record the submodule pointer bump
-          # from the sibling-repo commit above.
+          # include clients/php and clients/onescript to record the
+          # submodule pointer bumps from the sibling-repo commits above.
           git add swaggers/ clients/
           if git diff --cached --quiet; then
             echo "No file changes to commit despite checksum diff — nothing to do"

@@ -93,7 +93,9 @@ opm install wb-api-client
 
 OneScript has no namespaces, so categories are separated by class name rather
 than import path: API classes keep the spec's tag (`КарточкиТоваровApi`), and
-model classes carry the category as a prefix (`ItemsResponse4XX`).
+model classes carry the category as a prefix (`ItemsResponse4XX`). The package
+also lives in its own repo, [`wb-api-client-1c`](https://github.com/ValeryVerkhoturov/wb-api-client-1c),
+so you can clone it at a tag instead of going through the hub.
 
 ### Per-language module reference
 
@@ -104,7 +106,7 @@ Each generated client has its own README with an install snippet, the auth block
 - **Go** — [`clients/go/README.md`](clients/go/README.md)
 - **Java** — [`clients/java/README.md`](clients/java/README.md)
 - **PHP** — [`ValeryVerkhoturov/wb-api-client-php`](https://github.com/ValeryVerkhoturov/wb-api-client-php#readme) (separate repo, mounted here as the `clients/php` submodule)
-- **OneScript** — [`clients/onescript/README.md`](clients/onescript/README.md)
+- **OneScript** — [`ValeryVerkhoturov/wb-api-client-1c`](https://github.com/ValeryVerkhoturov/wb-api-client-1c#readme) (separate repo, mounted here as the `clients/onescript` submodule)
 
 ### Secret redaction
 
@@ -147,7 +149,8 @@ Each language branch in `publish.yml` regenerates its clients from the just-upda
 | `maven-central` | `MAVEN_USERNAME`, `MAVEN_PASSWORD`, `MAVEN_GPG_PRIVATE_KEY`, `MAVEN_GPG_PASSPHRASE` |
 | `packagist` | `PACKAGIST_USERNAME`, `PACKAGIST_API_TOKEN` — package must be pre-registered at [packagist.org/packages/submit](https://packagist.org/packages/submit) |
 | Go | none — tags in this repo are the release mechanism |
-| `onescript` | `OSCRIPT_HUB_TOKEN` — a GitHub token; [hub.oscript.io](https://hub.oscript.io) uses it to verify the pusher, and the package must be pre-registered there |
+| `onescript` | `OSCRIPT_HUB_TOKEN` — a GitHub token; [hub.oscript.io](https://hub.oscript.io) uses it to verify the pusher (no scopes needed), and the package must be pre-registered there |
+| — (repo-level) | `SIBLING_REPO_TOKEN` — PAT with `repo` scope on **both** `wb-api-client-php` and `wb-api-client-1c`, used to push their commits and tags |
 
 ## License
 

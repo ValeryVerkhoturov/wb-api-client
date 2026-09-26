@@ -2,3 +2,7 @@
 	path = clients/php
 	url = https://github.com/ValeryVerkhoturov/wb-api-client-php.git
 	branch = main
+[submodule "clients/onescript"]
+	path = clients/onescript
+	url = https://github.com/ValeryVerkhoturov/wb-api-client-1c.git
+	branch = main

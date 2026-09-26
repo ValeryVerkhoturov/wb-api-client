@@ -152,10 +152,16 @@ jobs:
     if: inputs.lang == 'onescript'
     runs-on: ubuntu-latest
     environment: onescript
+    # OneScript lives in a separate repo (wb-api-client-1c) mounted here as
+    # the clients/onescript submodule, so the package source only appears
+    # once the submodule is checked out. daily-check.yml commits and tags
+    # the sibling before tagging this repo, so the pointer at `ref` already
+    # resolves to the matching tree.
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ inputs.ref }}
+          submodules: recursive
 
       - name: Install OneScript
         env:

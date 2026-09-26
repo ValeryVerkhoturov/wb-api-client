@@ -27,9 +27,25 @@ generate.sh <ver>      →  clients/<lang>/…        (openapi-generator-cli, 6 
 publish.yml            →  PyPI / npm / Go tag / Maven Central / Packagist / hub.oscript.io
 ```
 
-`swaggers/`, `clients/python/`, `clients/typescript/`, `clients/go/`, `clients/java/`, `clients/onescript/` are committed here at each release tag. `clients/php/` is a **git submodule** pointing at [`ValeryVerkhoturov/wb-api-client-php`](https://github.com/ValeryVerkhoturov/wb-api-client-php) — Packagist requires `composer.json` at the ROOT of the crawled repo, so PHP can't live under `clients/`. daily-check.yml regenerates everything, commits and tags the sibling PHP repo FIRST, then commits + tags the main repo (which now includes the bumped submodule pointer), then dispatches publish per language. `publish.yml` is a pure publish step — it does not regenerate; it checks out the tag and pushes to the registry. Rationale: consumers can browse and pin exact source; Go modules resolve directly from the tag; Packagist crawls the sibling repo's tag; audits diff cleanly between releases.
+`swaggers/`, `clients/python/`, `clients/typescript/`, `clients/go/`, `clients/java/` are committed here at each release tag. Two languages live in **sibling repos mounted as git submodules**:
 
-**Submodule mechanics for local dev**: `git clone --recurse-submodules` clones both. If you already cloned without: `git submodule update --init --recursive`. The tracked URL in `.gitmodules` is the GitHub HTTPS URL; local iteration can override to a `file://` path with `git config -f .git/config submodule.clients/php.url file:///path/to/wb-api-client-php`. `scripts/generate.sh` writes to `clients/php/…` unchanged — the mount transparently redirects into the submodule working tree.
+| Mount | Sibling repo | Why it can't live under `clients/` |
+|---|---|---|
+| `clients/php` | [`wb-api-client-php`](https://github.com/ValeryVerkhoturov/wb-api-client-php) | Packagist requires `composer.json` at the ROOT of the crawled repo |
+| `clients/onescript` | [`wb-api-client-1c`](https://github.com/ValeryVerkhoturov/wb-api-client-1c) | so 1C/OneScript users can clone just the client and `opm install` straight from a tag, without the rest of the pipeline |
+
+daily-check.yml regenerates everything, commits and tags BOTH sibling repos FIRST, then commits + tags the main repo (which now includes the bumped submodule pointers), then dispatches publish per language. `publish.yml` is a pure publish step — it does not regenerate; it checks out the tag and pushes to the registry. Rationale: consumers can browse and pin exact source; Go modules resolve directly from the tag; Packagist crawls the sibling repo's tag; audits diff cleanly between releases.
+
+**Submodule mechanics for local dev**: `git clone --recurse-submodules` clones all three repos. If you already cloned without: `git submodule update --init --recursive`. The tracked URLs in `.gitmodules` are the GitHub HTTPS ones; local iteration can override either to a `file://` path:
+
+```bash
+git config -f .git/config submodule.clients/onescript.url file:///path/to/wb-api-client-1c
+git submodule sync clients/onescript
+# git blocks file:// submodule transport by default (CVE-2022-39253)
+git -c protocol.file.allow=always submodule update --init clients/onescript
+```
+
+`scripts/generate.sh` writes to `clients/php/…` and `clients/onescript/…` unchanged — the mounts transparently redirect into the submodule working trees. `make git-status` / `git-commit` / `git-push` / `git-pull` act on the main repo and both submodules (the `SUBMODULES` variable at the top of the Makefile is the list).
 
 `pr-check.yml` enforces the invariant on pull requests: it regenerates from scratch using the version currently baked into `clients/python/pyproject.toml`, then fails the PR if `git diff` against `swaggers/` or `clients/` is non-empty. For that check to be meaningful, generation must be deterministic — every generator config sets `hideGenerationTimestamp: true`, and the openapi-generator Docker image tag is pinned in `generate.sh`. Each formatter version is pinned too (black in `scripts/requirements.txt`; prettier in `templates/typescript/package.json`; google-java-format via spotless in `templates/java/pom.xml`; php-cs-fixer image tag in `generate.sh`; gofmt bundled with pinned `golang:1.22-alpine`). If a change makes generation non-deterministic (e.g. re-adds a timestamp), PRs will flap; fix at the source rather than skipping the check.
 
@@ -142,12 +158,20 @@ Configured in GitHub Environments referenced by `publish.yml`:
 | `packagist` | API token + separate GitHub repo | `PACKAGIST_USERNAME`, `PACKAGIST_API_TOKEN` — package pre-registered at packagist.org pointing at `wb-api-client-php` sibling repo |
 | `onescript` | `opm push` to hub.oscript.io | `OSCRIPT_HUB_TOKEN` — a GitHub token used only to verify the pusher's identity; package pre-registered on the hub |
 | Go (no env) | git tags only | none — `proxy.golang.org` fetches from the pushed tag |
-| — (repo-level) | `PHP_REPO_TOKEN` PAT (repo scope) for pushing tags to `wb-api-client-php` in daily-check; falls back to `GITHUB_TOKEN` for read-only PR checks |
+| — (repo-level) | `SIBLING_REPO_TOKEN` PAT (repo scope) covering BOTH `wb-api-client-php` and `wb-api-client-1c`, for pushing their commits/tags/releases in daily-check. Falls back to the older `PHP_REPO_TOKEN`, then to `GITHUB_TOKEN` (fine for read-only PR checks, but cross-repo pushes will fail) |
 
 PyPI + npm trusted publishing: **the "Workflow filename" on pypi.org and npmjs.com must be `publish.yml`**, and daily-check must dispatch it via `gh workflow run publish.yml` (workflow_dispatch), NOT `uses: ./.github/workflows/publish.yml` (workflow_call). Reason: trusted publishing verifies both the OIDC `job_workflow_ref` claim and the Sigstore attestation cert's `workflow_ref` extension. With workflow_call those two claims point at *different* files (callee vs caller) and no TP config can satisfy both — PyPI explicitly does not support reusable workflows. Dispatching makes publish.yml a top-level workflow so both claims resolve to it. Environment names on the TP page must match the `environment:` value on the publish job (`pypi` / `npm`).
 
 ## OneScript-specific quirks
 
+- **Lives in a separate git repo** ([`ValeryVerkhoturov/wb-api-client-1c`](https://github.com/ValeryVerkhoturov/wb-api-client-1c)),
+  mounted here as the `clients/onescript` submodule — same arrangement as PHP, so
+  OneScript users can clone just the client and `opm install` from a tag. See the
+  pipeline section for how daily-check.yml coordinates commits + tags across the three
+  repos. `generate.sh` must never `rm -rf` the mount: that would delete the `.git`
+  gitfile and silently turn it into a plain directory, after which every regenerated
+  file would land in the main repo instead of the sibling. It clears only
+  `clients/onescript/src/` and refuses to run if the mount is missing.
 - **The generator is out-of-tree.** openapi-generator has no OneScript target, so
   `-g onescript` comes from a plugin in
   [`ValeryVerkhoturov/onescript-openapi-generator`](https://github.com/ValeryVerkhoturov/onescript-openapi-generator),
