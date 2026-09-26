@@ -11,9 +11,14 @@ clients/**/build/
 clients/**/*.egg-info/
 clients/**/vendor/
 clients/**/.php-cs-fixer.cache
+# opm build artifact; the .ospx is produced at publish time, not committed
+clients/**/*.ospx
 
 # Local generator scratch
 clients/.tmp/
+# Pinned toolchain downloads: the OneScript runtime and the built codegen
+# plugin jar. Both are reproducible from scripts/onescript-toolchain.sh.
+.cache/
 .openapi-generator/
 .openapi-generator-cli.jar
 .venv/
