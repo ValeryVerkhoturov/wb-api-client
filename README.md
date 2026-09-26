@@ -1,12 +1,12 @@
 # wb-api-client
 
-Auto-generated client libraries for the [Wildberries Seller API](https://dev.wildberries.ru/) in **Python**, **TypeScript**, **Go**, **Java**, and **PHP**. Specs are pulled daily from `dev.wildberries.ru`; when they change, new packages are cut and pushed to each language's package manager.
+Auto-generated client libraries for the [Wildberries Seller API](https://dev.wildberries.ru/) in **Python**, **TypeScript**, **Go**, **Java**, **PHP**, and **OneScript**. Specs are pulled daily from `dev.wildberries.ru`; when they change, new packages are cut and pushed to each language's package manager.
 
 ## What's in the box
 
 - **One package per language**, with all 13 WB API categories as sub-modules: `general`, `items`, `orders_fbs`, `orders_dbw`, `dbs`, `in_store_pickup`, `orders_fbw`, `promotion`, `communications`, `rates`, `analytics`, `reports`, `finances`.
 - **Bearer JWT authorization** is injected into every spec before generation, even though upstream YAMLs omit a security scheme. All generated clients expose an `Authorization` parameter.
-- Stable-semver releases (`1.YYYYMMDD.N` — MAJOR fixed at 1, MINOR is the release date as an int, PATCH is a same-day counter) — one string covers all 5 languages so versions line up across ecosystems, and `npm/pip/mvn/composer/go get @latest` all auto-pick the highest.
+- Stable-semver releases (`1.YYYYMMDD.N` — MAJOR fixed at 1, MINOR is the release date as an int, PATCH is a same-day counter) — one string covers all 6 languages so versions line up across ecosystems, and `npm/pip/mvn/composer/go get @latest` all auto-pick the highest.
 
 ## Install & import
 
@@ -79,15 +79,32 @@ $config = (new Configuration())
 $api = new DefaultApi(new Client(), $config);
 ```
 
+**OneScript ([hub.oscript.io](https://hub.oscript.io)):**
+```bash
+opm install wb-api-client
+```
+```bsl
+#Использовать "wb-api-client"
+
+Настройки = Новый Конфигурация();
+Настройки.УстановитьТокен("<your WB JWT>");
+Клиент = Новый КарточкиТоваровApi(Настройки);
+```
+
+OneScript has no namespaces, so categories are separated by class name rather
+than import path: API classes keep the spec's tag (`КарточкиТоваровApi`), and
+model classes carry the category as a prefix (`ItemsResponse4XX`).
+
 ### Per-language module reference
 
-Each generated client has its own README with an install snippet, the auth block, and a per-module import + instantiate example for all 13 API categories. The four READMEs are regenerated on every release, so they never drift from the code:
+Each generated client has its own README with an install snippet, the auth block, and a per-module import + instantiate example for all 13 API categories. The six READMEs are regenerated on every release, so they never drift from the code:
 
 - **Python** — [`clients/python/README.md`](clients/python/README.md)
 - **TypeScript** — [`clients/typescript/README.md`](clients/typescript/README.md)
 - **Go** — [`clients/go/README.md`](clients/go/README.md)
 - **Java** — [`clients/java/README.md`](clients/java/README.md)
 - **PHP** — [`ValeryVerkhoturov/wb-api-client-php`](https://github.com/ValeryVerkhoturov/wb-api-client-php#readme) (separate repo, mounted here as the `clients/php` submodule)
+- **OneScript** — [`clients/onescript/README.md`](clients/onescript/README.md)
 
 ### Secret redaction
 
@@ -100,6 +117,7 @@ In every language the bearer JWT is stored inside a "secret-string" wrapper so i
 | Go | [`secrecy.SecretString`](https://github.com/negrel/secrecy) | `fmt.Printf("%v", cfg.AccessToken)` → `<!SECRET_LEAKED!>` | `.ExposeSecret()` |
 | Java | `SecretString` class (per sub-module) | `System.out.println(s)` → `<REDACTED>` | `.exposeSecret()` |
 | PHP | `SecretString` class (per sub-module) | `var_dump($secret)` → `'<REDACTED>'` | `->exposeSecret()` |
+| OneScript | `СекретнаяСтрока` class | `Сообщить(Настройки.Токен())` → `СекретнаяСтрока` | `.Раскрыть()` |
 
 Passing the token through the wrapper is the only supported path.
 
@@ -109,7 +127,7 @@ Passing the token through the wrapper is the only supported path.
 ./scripts/download-swaggers.sh          # pull YAMLs from dev.wildberries.ru
 pip install -r scripts/requirements.txt
 python  scripts/post-process.py         # inject Bearer auth security scheme
-./scripts/generate.sh 0.0.0-local       # emit clients/{python,typescript,go,java,php}
+./scripts/generate.sh 0.0.0-local       # emit clients/{python,typescript,go,java,php,onescript}
 ```
 
 ## How the daily release works
@@ -129,6 +147,7 @@ Each language branch in `publish.yml` regenerates its clients from the just-upda
 | `maven-central` | `MAVEN_USERNAME`, `MAVEN_PASSWORD`, `MAVEN_GPG_PRIVATE_KEY`, `MAVEN_GPG_PASSPHRASE` |
 | `packagist` | `PACKAGIST_USERNAME`, `PACKAGIST_API_TOKEN` — package must be pre-registered at [packagist.org/packages/submit](https://packagist.org/packages/submit) |
 | Go | none — tags in this repo are the release mechanism |
+| `onescript` | `OSCRIPT_HUB_TOKEN` — a GitHub token; [hub.oscript.io](https://hub.oscript.io) uses it to verify the pusher, and the package must be pre-registered there |
 
 ## License
 

@@ -67,7 +67,7 @@ jobs:
       - name: Post-process specs
         run: python scripts/post-process.py
 
-      - name: Regenerate all four language clients
+      - name: Regenerate all six language clients
         # openapi-generator runs inside Docker, which ubuntu-latest ships.
         # generate.sh also runs `go mod tidy` in a Go container to refresh
         # clients/go/go.sum and `gofmt -w` to keep the Go tree canonical.
@@ -115,6 +115,13 @@ jobs:
             -e HOME=/tmp -e PHP_CS_FIXER_IGNORE_ENV=1 \
             ghcr.io/php-cs-fixer/php-cs-fixer:3-php8.3 \
             fix src --dry-run --rules=@PSR12 --using-cache=no
+
+      - name: OneScript compiles
+        # OneScript has no formatter to check against — the generator emits its
+        # own canonical layout — so the equivalent gate is that every module
+        # still compiles and the package's lib.config still resolves. The
+        # toolchain script downloads a pinned OneScript into .cache/.
+        run: ./scripts/verify-onescript.sh
 
       - name: Diff against committed tree (main repo + PHP submodule)
         id: diff

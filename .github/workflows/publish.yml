@@ -27,7 +27,7 @@ on:
     inputs:
       lang:
         type: choice
-        options: [python, typescript, go, java, php]
+        options: [python, typescript, go, java, php, onescript]
         required: true
       version:
         type: string
@@ -147,3 +147,45 @@ jobs:
           MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
         run: mvn --batch-mode -DskipTests deploy
+
+  publish-onescript:
+    if: inputs.lang == 'onescript'
+    runs-on: ubuntu-latest
+    environment: onescript
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+
+      - name: Install OneScript
+        env:
+          ONESCRIPT_VERSION: "2.2.0"
+        run: |
+          curl -fsSL -o /tmp/onescript.zip \
+            "https://github.com/EvilBeaver/OneScript/releases/download/v${ONESCRIPT_VERSION}/OneScript-${ONESCRIPT_VERSION}-linux-x64.zip"
+          # Not `unzip`: the archive stores its (Cyrillic) entry names in UTF-8
+          # and Info-ZIP rewrites them as #Uxxxx escapes, which leaves every
+          # path in lib.config dangling — opm then fails to load its own core.
+          python3 -m zipfile -e /tmp/onescript.zip "${HOME}/onescript"
+          chmod +x "${HOME}/onescript/bin/oscript"
+          echo "OSCRIPT=${HOME}/onescript/bin/oscript" >> "${GITHUB_ENV}"
+          echo "OPM=${HOME}/onescript/lib/opm/src/cmd/opm.os" >> "${GITHUB_ENV}"
+          "${HOME}/onescript/bin/oscript" -version
+
+      - name: Build the opm package
+        working-directory: clients/onescript
+        run: |
+          "${OSCRIPT}" "${OPM}" build .
+          ls -la ./*.ospx
+
+      - name: Push to hub.oscript.io
+        working-directory: clients/onescript
+        env:
+          # opm authenticates against the hub with a GitHub token, used only to
+          # verify the pusher's identity — per `opm push --help` it needs no
+          # scopes at all, and it never touches this repository.
+          GITHUB_OAUTH_TOKEN: ${{ secrets.OSCRIPT_HUB_TOKEN }}
+          VERSION: ${{ inputs.version }}
+        run: |
+          "${OSCRIPT}" "${OPM}" push --channel stable "wb-api-client-${VERSION}.ospx"
+          echo "  ✓ published — https://hub.oscript.io/package/wb-api-client"

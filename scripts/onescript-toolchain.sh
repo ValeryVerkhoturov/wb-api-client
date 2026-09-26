@@ -65,13 +65,13 @@ ensure_onescript() {
     curl -fsSL -o "${archive}" \
       "https://github.com/EvilBeaver/OneScript/releases/download/v${ONESCRIPT_VERSION}/OneScript-${ONESCRIPT_VERSION}-${platform}.zip"
 
-    # macOS `unzip` mis-decodes the Cyrillic entry names in these archives
-    # (the zip carries no UTF-8 name flag); `ditto` reads them correctly.
-    if command -v ditto >/dev/null 2>&1; then
-      ditto -x -k "${archive}" "${home}"
-    else
-      unzip -q -o "${archive}" -d "${home}"
-    fi
+    # Deliberately not `unzip`: the archive stores its (Cyrillic) entry names
+    # in UTF-8, and Info-ZIP rewrites them — as #Uxxxx escapes on Linux, as
+    # decomposed NFD on some macOS tools. Either way every path recorded in
+    # lib.config is then dangling, and OneScript's own bundled libraries
+    # (asserts → cli, logos, opm) fail to load. Python's zipfile reads the
+    # names as stored.
+    python3 -m zipfile -e "${archive}" "${home}"
     rm -f "${archive}"
     chmod +x "${home}/bin/oscript"
 
