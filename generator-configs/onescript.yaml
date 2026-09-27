@@ -13,5 +13,15 @@
 # 13 trees are spliced together.
 generatorName: onescript
 hideGenerationTimestamp: true
+# Transport is built on 1connector; this is the minimum stamped into packagedef.
+# Keep in step with ONESCRIPT_CONNECTOR_VERSION in scripts/onescript-toolchain.sh,
+# which installs it so the generated client can be compile-checked.
+connectorVersion: "2.3.3"
+# Model shape is declared as jason annotations: &Сериализуемое for the JSON name,
+# &Тип/&ДляКаждого for the class to deserialize into. jason requires OneScript
+# 2.0, which is why environmentVersion is 2.0.0. Keep in step with the
+# ONESCRIPT_*_VERSION values in scripts/onescript-toolchain.sh, which installs it.
+jasonVersion: "0.6.0"
+environmentVersion: "2.0.0"
 environmentVersion: "1.9.0"
 userAgent: ValeryVerkhoturov/wb-api-client/onescript

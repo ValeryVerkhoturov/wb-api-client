@@ -8,6 +8,28 @@ Auto-generated client libraries for the [Wildberries Seller API](https://dev.wil
 - **Bearer JWT authorization** is injected into every spec before generation, even though upstream YAMLs omit a security scheme. All generated clients expose an `Authorization` parameter.
 - Stable-semver releases (`1.YYYYMMDD.N` — MAJOR fixed at 1, MINOR is the release date as an int, PATCH is a same-day counter) — one string covers all 6 languages so versions line up across ecosystems, and `npm/pip/mvn/composer/go get @latest` all auto-pick the highest.
 
+## Repositories
+
+The project spans three repositories. This one holds the pipeline and four of the
+six generated clients; PHP and OneScript live in their own repos, mounted here as
+git submodules under `clients/`.
+
+| Repository | Holds | Why separate |
+|---|---|---|
+| [`wb-api-client`](https://github.com/ValeryVerkhoturov/wb-api-client) | the pipeline, specs, and the Python / TypeScript / Go / Java clients | — |
+| [`wb-api-client-php`](https://github.com/ValeryVerkhoturov/wb-api-client-php) | the PHP client → `clients/php` | Packagist crawls a repo root, so `composer.json` cannot sit in a subdirectory |
+| [`wb-api-client-1c`](https://github.com/ValeryVerkhoturov/wb-api-client-1c) | the OneScript client → `clients/onescript` | lets 1C/OneScript users clone just the client, or `opm install` straight from a tag |
+
+All three carry the **same `v<version>` tag** for a given release. Code is generated
+here and committed into the siblings, so never edit a sibling repo directly — the
+next regeneration overwrites it.
+
+```bash
+git clone --recurse-submodules https://github.com/ValeryVerkhoturov/wb-api-client.git
+# already cloned without it:
+git submodule update --init --recursive
+```
+
 ## Install & import
 
 **Python (PyPI):**
@@ -91,8 +113,9 @@ opm install wb-api-client
 Клиент = Новый КарточкиТоваровApi(Настройки);
 ```
 
-OneScript has no namespaces, so categories are separated by class name rather
-than import path: API classes keep the spec's tag (`КарточкиТоваровApi`), and
+The client is built on [1connector](https://github.com/vbondarevsky/1connector),
+its only dependency — `opm` pulls it in automatically. OneScript has no
+namespaces, so categories are separated by class name rather than import path: API classes keep the spec's tag (`КарточкиТоваровApi`), and
 model classes carry the category as a prefix (`ItemsResponse4XX`). The package
 also lives in its own repo, [`wb-api-client-1c`](https://github.com/ValeryVerkhoturov/wb-api-client-1c),
 so you can clone it at a tag instead of going through the hub.
@@ -126,11 +149,17 @@ Passing the token through the wrapper is the only supported path.
 ## Local development
 
 ```bash
+git submodule update --init --recursive # clients/php + clients/onescript must be mounted
 ./scripts/download-swaggers.sh          # pull YAMLs from dev.wildberries.ru
 pip install -r scripts/requirements.txt
 python  scripts/post-process.py         # inject Bearer auth security scheme
 ./scripts/generate.sh 0.0.0-local       # emit clients/{python,typescript,go,java,php,onescript}
 ```
+
+`generate.sh` refuses to run if either submodule is missing: without the mount its
+output would land in an orphaned directory in this repo instead of the sibling.
+`make git-status` / `git-commit` / `git-push` / `git-pull` act on all three repos at
+once, submodules first so the recorded pointers are the new commits.
 
 ## How the daily release works
 
@@ -139,6 +168,11 @@ python  scripts/post-process.py         # inject Bearer auth security scheme
 1. Re-downloads all 13 specs.
 2. Diffs `swaggers/checksums.txt` against the freshly generated one.
 3. If any file changed (or `workflow_dispatch` was called with `force: true`), it commits the new specs, computes a CalVer version, tags the repo, and dispatches `publish.yml` once per language.
+
+Both sibling repos are committed, tagged and pushed **before** this one, so the
+submodule pointers recorded in the release commit already exist on their remotes —
+otherwise a fresh `git clone --recurse-submodules` fails on a ref the sibling has
+never seen.
 
 Each language branch in `publish.yml` regenerates its clients from the just-updated specs and pushes to its registry. Publish credentials live in GitHub Environments (`pypi`, `npm`, `maven-central`) and Actions secrets:
 

@@ -172,6 +172,16 @@ PyPI + npm trusted publishing: **the "Workflow filename" on pypi.org and npmjs.c
   gitfile and silently turn it into a plain directory, after which every regenerated
   file would land in the main repo instead of the sibling. It clears only
   `clients/onescript/src/` and refuses to run if the mount is missing.
+- **The transport is built on [1connector](https://github.com/vbondarevsky/1connector).**
+  It is the generated package's only dependency, declared in `packagedef` and pinned
+  by `connectorVersion` in `generator-configs/onescript.yaml`. Keep that in step with
+  `ONESCRIPT_CONNECTOR_VERSION` in `scripts/onescript-toolchain.sh`, which installs it —
+  `ТранспортHTTP.os` opens with `#Использовать 1connector`, so the library must resolve
+  even for `oscript -check`, not just at runtime. 1connector supplies query-string
+  building and encoding, JSON serialisation, response parsing, retries, proxy and SSL;
+  the generated transport only adds headers, the bearer token, the body and `ОтветAPI`.
+  Path segments are still escaped by the transport — they go into the URL before
+  1connector parses it.
 - **The generator is out-of-tree.** openapi-generator has no OneScript target, so
   `-g onescript` comes from a plugin in
   [`ValeryVerkhoturov/onescript-openapi-generator`](https://github.com/ValeryVerkhoturov/onescript-openapi-generator),
