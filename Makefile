@@ -45,7 +45,7 @@ DOTNET_DOCKER = docker run --rm -u $$(id -u):$$(id -g) \
         verify-csharp \
         verify-onescript \
         gofmt black prettier spotless php-cs-fixer dotnet-format clean \
-        git-status git-commit git-push git-pull
+        git-status git-commit git-push git-pull check-submodules
 
 # ── help ──────────────────────────────────────────────────────────────────
 
@@ -187,12 +187,40 @@ git-commit: ## Commit main + both submodules with the same message (MSG=…)
 	  else echo "  (no main-repo changes)"; fi
 
 git-push: ## Push main AND both submodules (needs push rights on all three)
+	@# Push to the URL recorded in .gitmodules, NOT to `origin`. Local iteration
+	@# overrides origin to a file:// path (see CLAUDE.md), so `git push origin`
+	@# targets that local clone: it either reports "Everything up-to-date" while
+	@# GitHub never moves, or is rejected outright for pushing to a checked-out
+	@# branch. Either way the sibling repo stays behind, the main repo's pointer
+	@# references a commit the remote has never seen, and CI fails cloning it.
 	@for sub in $(SUBMODULES); do \
-	  echo "── clients/$$sub ──"; \
-	  (cd clients/$$sub && git push origin HEAD:main); \
+	  url=$$(git config -f .gitmodules --get submodule.clients/$$sub.url); \
+	  echo "── clients/$$sub → $$url ──"; \
+	  (cd clients/$$sub && git push "$$url" HEAD:main) || exit 1; \
 	done
 	@echo "── main ──"
 	@git push
+	@$(MAKE) --no-print-directory check-submodules
+
+check-submodules: ## Fail if a recorded submodule pointer is missing from its remote
+	@# The failure this catches is otherwise silent until CI: `git clone
+	@# --recurse-submodules` is the first thing that actually resolves the pointer.
+	@rc=0; \
+	 for sub in $(SUBMODULES); do \
+	   url=$$(git config -f .gitmodules --get submodule.clients/$$sub.url); \
+	   sha=$$(git ls-tree HEAD clients/$$sub | awk '{print $$3}'); \
+	   if [ -z "$$sha" ]; then \
+	     echo "  ! clients/$$sub is not a gitlink in HEAD"; rc=1; continue; \
+	   fi; \
+	   if git ls-remote "$$url" 2>/dev/null | grep -q "$$sha"; then \
+	     echo "  ✓ clients/$$sub $$(echo $$sha | cut -c1-12) is on its remote"; \
+	   else \
+	     echo "  ✗ clients/$$sub $$(echo $$sha | cut -c1-12) is NOT on $$url"; \
+	     echo "    push that repo first, or CI will fail cloning the submodule"; \
+	     rc=1; \
+	   fi; \
+	 done; \
+	 exit $$rc
 
 git-pull: ## Pull main AND fast-forward both submodules
 	@echo "── main ──"
