@@ -7,6 +7,10 @@
 clients/**/dist/
 clients/**/node_modules/
 clients/**/target/
+# .NET build output: `dotnet build` writes these next to the sources, and the
+# csproj lives at the package root, so they land inside clients/csharp/.
+clients/**/bin/
+clients/**/obj/
 clients/**/build/
 clients/**/*.egg-info/
 clients/**/vendor/
