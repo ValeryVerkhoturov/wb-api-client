@@ -33,12 +33,18 @@ PHP_DOCKER  = docker run --rm -u $$(id -u):$$(id -g) \
                 -v $(CURDIR)/clients/php:/app -w /app \
                 -e HOME=/tmp -e COMPOSER_HOME=/tmp/.composer \
                 composer:2
+DOTNET_DOCKER = docker run --rm -u $$(id -u):$$(id -g) \
+                -v $(CURDIR)/clients/csharp:/app -w /app \
+                -e HOME=/tmp -e DOTNET_CLI_TELEMETRY_OPTOUT=1 -e DOTNET_NOLOGO=1 \
+                -e NUGET_PACKAGES=/tmp/.nuget \
+                mcr.microsoft.com/dotnet/sdk:8.0
 
 .DEFAULT_GOAL := help
 .PHONY: help venv download post-process generate regen \
         verify verify-python verify-ts verify-go verify-java verify-php \
+        verify-csharp \
         verify-onescript \
-        gofmt black prettier spotless php-cs-fixer clean \
+        gofmt black prettier spotless php-cs-fixer dotnet-format clean \
         git-status git-commit git-push git-pull
 
 # ── help ──────────────────────────────────────────────────────────────────
@@ -71,7 +77,7 @@ regen: download post-process generate ## Full pipeline: download → process →
 
 # ── verification ──────────────────────────────────────────────────────────
 
-verify: verify-python verify-ts verify-go verify-java verify-php verify-onescript gofmt black prettier spotless php-cs-fixer ## Build every language + fmt checks
+verify: verify-python verify-ts verify-go verify-java verify-php verify-csharp verify-onescript gofmt black prettier spotless php-cs-fixer dotnet-format ## Build every language + fmt checks
 
 verify-python: ## Build the Python wheel and import every sub-module
 	@echo "── Python ─────────────────────────────────────"
@@ -109,11 +115,23 @@ verify-php: ## composer validate + PHP lint every generated file
 	  -e HOME=/tmp php:8.3-cli-alpine sh -c \
 	  "find src -name '*.php' -print0 | xargs -0 -n1 php -l >/dev/null && echo '  ✓ php -l passes on every file'"
 
+verify-csharp: ## Build the C# package
+	@echo "── C# ─────────────────────────────────────────"
+	$(DOTNET_DOCKER) dotnet build -v q --nologo
+	@echo "  ✓ dotnet build OK"
+
 verify-onescript: ## Compile-check every OneScript module + load the package
 	@echo "── OneScript ──────────────────────────────────"
 	@# No formatter step: the generator emits its own canonical layout and
 	@# OneScript has no community formatter to canonicalize against.
 	./scripts/verify-onescript.sh
+
+dotnet-format: ## Fail if any C# file needs `dotnet format`
+	@# Whitespace only: the generator's own output does not follow every
+	@# analyzer convention, and style/analyzer passes would fail on code we
+	@# do not control.
+	@$(DOTNET_DOCKER) dotnet format whitespace --verify-no-changes --no-restore -v q \
+	  && echo "  ✓ dotnet format clean"
 
 gofmt: ## Fail if any Go file needs `gofmt -w`
 	@out=$$(docker run --rm -v $(CURDIR)/clients/go:/app -w /app golang:1.22-alpine gofmt -l . 2>&1); \
@@ -191,6 +209,6 @@ clean: ## Remove generated clients/, processed swaggers, local scratch
 	@# submodule mount, silently turning it into a plain directory — after
 	@# which regeneration writes into the main repo instead of the sibling
 	@# repo. Same invariant generate.sh protects.
-	rm -rf clients/python clients/typescript clients/go clients/java clients/.tmp
+	rm -rf clients/python clients/typescript clients/go clients/java clients/csharp clients/.tmp
 	@for sub in $(SUBMODULES); do rm -rf clients/$$sub/src; done
 	rm -rf swaggers/processed/ .venv/ .cache/

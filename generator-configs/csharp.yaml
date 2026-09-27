@@ -1,0 +1,16 @@
+# Per-slug packageName is injected by generate.sh so each of the 13 categories
+# gets its own namespace root (ValeryVerkhoturov.WbApiClient.<Slug>). The
+# generated per-spec .csproj files are discarded — the unified package uses one
+# project file from templates/csharp/, and SDK-style projects pick up every .cs
+# under their directory automatically.
+#
+# `restsharp` is the generator default and the only non-experimental library
+# option; `httpclient` and `generichost` are both marked "Subject to breaking
+# changes without notice", which is not what a published client wants.
+generatorName: csharp
+library: restsharp
+sourceFolder: src
+targetFramework: net8.0
+netCoreProjectFile: true
+nullableReferenceTypes: true
+hideGenerationTimestamp: true

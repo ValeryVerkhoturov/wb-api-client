@@ -114,6 +114,13 @@ def php_apis(root: Path, pascal: str) -> list[str]:
     return sorted(p.stem for p in api_dir.glob("*.php"))
 
 
+def csharp_apis(root: Path, pascal: str) -> list[str]:
+    api_dir = root / "src" / pascal / "Api"
+    if not api_dir.is_dir():
+        return []
+    return sorted(p.stem for p in api_dir.glob("*.cs"))
+
+
 def onescript_apis(root: Path, pascal: str) -> list[str]:
     api_dir = root / "src" / "Классы" / pascal
     if not api_dir.is_dir():
@@ -211,6 +218,18 @@ def _phpsnippet(pascal: str, apis: list[str]) -> str:
         f"$config = (new Configuration())\n"
         f"    ->setAccessTokenSecret(new SecretString('<your WB JWT>'));\n"
         f"$api = new {api}(new Client(), $config);"
+    )
+
+
+def _cssnippet(pascal: str, apis: list[str]) -> str:
+    api = apis[0] if apis else "DefaultApi"
+    ns = f"ValeryVerkhoturov.WbApiClient.{pascal}"
+    return (
+        f"using {ns}.Api;\n"
+        f"using {ns}.Client;\n\n"
+        f"var config = new Configuration();\n"
+        f"config.AccessTokenSecret = new SecretString(\"<your WB JWT>\");\n"
+        f"var api = new {api}(config);"
     )
 
 
@@ -420,6 +439,31 @@ def main() -> int:
         docs_url=docs_url_for,
     )
 
+    # ── C# ──
+    cs_root = root / "clients" / "csharp"
+    write_readme(
+        cs_root / "README.md",
+        header_ctx={
+            "lang_display": "C#",
+            "install": "dotnet add package ValeryVerkhoturov.WbApiClient",
+            "wrapper_note": "a per-namespace `SecretString` class",
+            "log_call": "Console.WriteLine",
+            "expose_call": ".ExposeSecret()",
+            "lang_code": "csharp",
+            "auth_snippet": (
+                "using ValeryVerkhoturov.WbApiClient.Items.Client;\n\n"
+                "var config = new Configuration();\n"
+                "config.AccessTokenSecret = new SecretString(\"<your WB JWT>\");"
+            ),
+            "import_prefix": "ValeryVerkhoturov.WbApiClient.",
+        },
+        specs=specs,
+        apis_fn=lambda s: csharp_apis(cs_root, s["_pascal"]),
+        snippet_fn=lambda s, apis: _cssnippet(s["_pascal"], apis),
+        code_fence="csharp",
+        docs_url=docs_url_for,
+    )
+
     # ── OneScript ──
     os_root = root / "clients" / "onescript"
     write_readme(
@@ -458,7 +502,7 @@ def main() -> int:
         docs_url=docs_url_for,
     )
 
-    print(f"  wrote 6 per-language READMEs covering {len(specs)} modules each")
+    print(f"  wrote 7 per-language READMEs covering {len(specs)} modules each")
     return 0
 
 
