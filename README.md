@@ -1,12 +1,12 @@
 # wb-api-client
 
-Auto-generated client libraries for the [Wildberries Seller API](https://dev.wildberries.ru/) in **Python**, **TypeScript**, **Go**, **Java**, **PHP**, and **OneScript**. Specs are pulled daily from `dev.wildberries.ru`; when they change, new packages are cut and pushed to each language's package manager.
+Auto-generated client libraries for the [Wildberries Seller API](https://dev.wildberries.ru/) in **Python**, **TypeScript**, **Go**, **Java**, **PHP**, **OneScript**, and **C#**. Specs are pulled daily from `dev.wildberries.ru`; when they change, new packages are cut and pushed to each language's package manager.
 
 ## What's in the box
 
 - **One package per language**, with all 13 WB API categories as sub-modules: `general`, `items`, `orders_fbs`, `orders_dbw`, `dbs`, `in_store_pickup`, `orders_fbw`, `promotion`, `communications`, `rates`, `analytics`, `reports`, `finances`.
 - **Bearer JWT authorization** is injected into every spec before generation, even though upstream YAMLs omit a security scheme. All generated clients expose an `Authorization` parameter.
-- Stable-semver releases (`1.YYYYMMDD.N` — MAJOR fixed at 1, MINOR is the release date as an int, PATCH is a same-day counter) — one string covers all 6 languages so versions line up across ecosystems, and `npm/pip/mvn/composer/go get @latest` all auto-pick the highest.
+- Stable-semver releases (`1.YYYYMMDD.N` — MAJOR fixed at 1, MINOR is the release date as an int, PATCH is a same-day counter) — one string covers all 7 languages so versions line up across ecosystems, and `npm/pip/mvn/composer/go get @latest` all auto-pick the highest.
 
 ## Repositories
 
@@ -101,6 +101,19 @@ $config = (new Configuration())
 $api = new DefaultApi(new Client(), $config);
 ```
 
+**C# ([NuGet](https://www.nuget.org/packages/ValeryVerkhoturov.WbApiClient)):**
+```bash
+dotnet add package ValeryVerkhoturov.WbApiClient
+```
+```csharp
+using ValeryVerkhoturov.WbApiClient.Items.Api;
+using ValeryVerkhoturov.WbApiClient.Items.Client;
+
+var config = new Configuration();
+config.AccessTokenSecret = new SecretString("<your WB JWT>");
+var api = new DefaultApi(config);
+```
+
 **OneScript ([hub.oscript.io](https://hub.oscript.io)):**
 ```bash
 opm install wb-api-client
@@ -129,6 +142,7 @@ Each generated client has its own README with an install snippet, the auth block
 - **Go** — [`clients/go/README.md`](clients/go/README.md)
 - **Java** — [`clients/java/README.md`](clients/java/README.md)
 - **PHP** — [`ValeryVerkhoturov/wb-api-client-php`](https://github.com/ValeryVerkhoturov/wb-api-client-php#readme) (separate repo, mounted here as the `clients/php` submodule)
+- **C#** — [`clients/csharp/README.md`](clients/csharp/README.md)
 - **OneScript** — [`ValeryVerkhoturov/wb-api-client-1c`](https://github.com/ValeryVerkhoturov/wb-api-client-1c#readme) (separate repo, mounted here as the `clients/onescript` submodule)
 
 ### Secret redaction
@@ -142,6 +156,7 @@ In every language the bearer JWT is stored inside a "secret-string" wrapper so i
 | Go | [`secrecy.SecretString`](https://github.com/negrel/secrecy) | `fmt.Printf("%v", cfg.AccessToken)` → `<!SECRET_LEAKED!>` | `.ExposeSecret()` |
 | Java | `SecretString` class (per sub-module) | `System.out.println(s)` → `<REDACTED>` | `.exposeSecret()` |
 | PHP | `SecretString` class (per sub-module) | `var_dump($secret)` → `'<REDACTED>'` | `->exposeSecret()` |
+| C# | `SecretString` class (per namespace) | `Console.WriteLine(cfg.AccessTokenSecret)` → `<REDACTED>` | `.ExposeSecret()` |
 | OneScript | `СекретнаяСтрока` class | `Сообщить(Настройки.Токен())` → `СекретнаяСтрока` | `.Раскрыть()` |
 
 Passing the token through the wrapper is the only supported path.
@@ -153,7 +168,7 @@ git submodule update --init --recursive # clients/php + clients/onescript must b
 ./scripts/download-swaggers.sh          # pull YAMLs from dev.wildberries.ru
 pip install -r scripts/requirements.txt
 python  scripts/post-process.py         # inject Bearer auth security scheme
-./scripts/generate.sh 0.0.0-local       # emit clients/{python,typescript,go,java,php,onescript}
+./scripts/generate.sh 0.0.0-local       # emit clients/{python,typescript,go,java,php,onescript,csharp}
 ```
 
 `generate.sh` refuses to run if either submodule is missing: without the mount its
@@ -183,6 +198,7 @@ Each language branch in `publish.yml` regenerates its clients from the just-upda
 | `maven-central` | `MAVEN_USERNAME`, `MAVEN_PASSWORD`, `MAVEN_GPG_PRIVATE_KEY`, `MAVEN_GPG_PASSPHRASE` |
 | `packagist` | `PACKAGIST_USERNAME`, `PACKAGIST_API_TOKEN` — package must be pre-registered at [packagist.org/packages/submit](https://packagist.org/packages/submit) |
 | Go | none — tags in this repo are the release mechanism |
+| `nuget` | `NUGET_API_KEY` — API key from nuget.org for `ValeryVerkhoturov.WbApiClient` |
 | `onescript` | `OSCRIPT_HUB_TOKEN` — a GitHub token; [hub.oscript.io](https://hub.oscript.io) uses it to verify the pusher (no scopes needed), and the package must be pre-registered there |
 | — (repo-level) | `SIBLING_REPO_TOKEN` — PAT with `repo` scope on **both** `wb-api-client-php` and `wb-api-client-1c`, used to push their commits and tags |
 

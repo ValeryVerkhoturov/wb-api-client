@@ -68,7 +68,7 @@ jobs:
       - name: Post-process specs
         run: python scripts/post-process.py
 
-      - name: Regenerate all six language clients
+      - name: Regenerate all seven language clients
         # openapi-generator runs inside Docker, which ubuntu-latest ships.
         # generate.sh also runs `go mod tidy` in a Go container to refresh
         # clients/go/go.sum and `gofmt -w` to keep the Go tree canonical.
@@ -116,6 +116,15 @@ jobs:
             -e HOME=/tmp -e PHP_CS_FIXER_IGNORE_ENV=1 \
             ghcr.io/php-cs-fixer/php-cs-fixer:3-php8.3 \
             fix src --dry-run --rules=@PSR12 --using-cache=no
+
+      - name: C# builds and is formatted
+        # Whitespace only: the generator's own output does not follow every
+        # analyzer convention, and a style pass would fail on code we do not control.
+        run: |
+          docker run --rm -u $(id -u):$(id -g) -v "$PWD/clients/csharp:/app" -w /app \
+            -e HOME=/tmp -e DOTNET_CLI_TELEMETRY_OPTOUT=1 -e DOTNET_NOLOGO=1 \
+            -e NUGET_PACKAGES=/tmp/.nuget mcr.microsoft.com/dotnet/sdk:8.0 \
+            sh -c "dotnet build -v q --nologo && dotnet format whitespace --verify-no-changes --no-restore -v q"
 
       - name: OneScript compiles
         # OneScript has no formatter to check against — the generator emits its

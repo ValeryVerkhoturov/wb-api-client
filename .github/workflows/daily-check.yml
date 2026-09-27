@@ -103,7 +103,7 @@ jobs:
         if: steps.diff.outputs.changed == 'true' || inputs.force
         run: python scripts/post-process.py
 
-      - name: Regenerate all six language clients
+      - name: Regenerate all seven language clients
         if: steps.diff.outputs.changed == 'true' || inputs.force
         # generate.sh uses openapi-generator-cli inside Docker; runners
         # ship Docker preinstalled, and generate.sh also runs `go mod tidy`
@@ -357,7 +357,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        lang: [python, typescript, go, java, php, onescript]
+        lang: [python, typescript, go, java, php, onescript, csharp]
     steps:
       - name: Dispatch publish.yml for ${{ matrix.lang }}
         env:

@@ -108,7 +108,7 @@ gen() {
 # their .git gitfile, silently converting the mount into a plain
 # directory. Subsequent writes would then land in an orphaned dir under
 # the main repo instead of the sibling repo's working tree.
-rm -rf "${CLIENTS_DIR}"/{python,typescript,go,java}
+rm -rf "${CLIENTS_DIR}"/{python,typescript,go,java,csharp}
 
 # Guard: each submodule dir MUST be a proper mount before we write into
 # it, otherwise the manifests + src/ we produce would sit as untracked
@@ -149,7 +149,7 @@ EOF
   exit 1
 done
 
-mkdir -p "${CLIENTS_DIR}"/{python/wb_api_client,typescript/src,go,java/src/main/java/${JAVA_GROUP_PATH},php/src} \
+mkdir -p "${CLIENTS_DIR}"/{python/wb_api_client,typescript/src,go,java/src/main/java/${JAVA_GROUP_PATH},php/src,csharp/src} \
          "${CLIENTS_DIR}/onescript/src/Классы" "${CLIENTS_DIR}/onescript/src/Модели"
 SCRATCH="${CLIENTS_DIR}/.tmp"
 mkdir -p "${SCRATCH}"
@@ -241,6 +241,25 @@ for spec in "${SPEC_DIR}"/*.yaml; do
   mkdir -p "${php_dest}"
   # Move Api/ Model/ dirs and top-level .php files into place.
   mv "${php_tmp}/src"/* "${php_dest}/"
+
+  # -------- C# --------
+  # Each slug becomes its own namespace root
+  # (ValeryVerkhoturov.WbApiClient.<Slug>), which the generator already writes
+  # into every file — so no post-processing is needed to keep categories apart.
+  # It emits src/<packageName>/{Api,Client,Model} plus a per-spec .csproj, .sln,
+  # docs and tests; only the source tree is kept. The unified project file comes
+  # from templates/csharp/ and picks these up automatically, because SDK-style
+  # projects include every .cs beneath them.
+  cs_tmp="${SCRATCH}/cs-${slug_snake}"
+  cs_ns="ValeryVerkhoturov.WbApiClient.${slug_pascal}"
+  gen csharp "${spec}" "${cs_tmp}" "${CONFIG_DIR}/csharp.yaml" \
+    "packageName=${cs_ns}"
+  cs_dest="${CLIENTS_DIR}/csharp/src/${slug_pascal}"
+  mkdir -p "${cs_dest}"
+  for cs_sub in Api Client Model; do
+    [[ -d "${cs_tmp}/src/${cs_ns}/${cs_sub}" ]] && \
+      mv "${cs_tmp}/src/${cs_ns}/${cs_sub}" "${cs_dest}/"
+  done
 
   # -------- OneScript --------
   # The plugin emits a standalone opm package per spec. We keep the API and
@@ -358,6 +377,10 @@ sed "s/__VERSION__/${VERSION}/g" "${TEMPLATE_DIR}/java/pom.xml" \
 sed "s/__VERSION__/${VERSION}/g" "${TEMPLATE_DIR}/php/composer.json" \
     > "${CLIENTS_DIR}/php/composer.json"
 
+# C# — one .csproj at the package root covering every slug.
+sed "s/__VERSION__/${VERSION}/g" "${TEMPLATE_DIR}/csharp/WbApiClient.csproj" \
+    > "${CLIENTS_DIR}/csharp/WbApiClient.csproj"
+
 # OneScript — one packagedef + lib.config covering all 13 categories. Both are
 # a class-name registry, so they are built from the spliced tree rather than
 # from a static template: a new spec surfaces without editing anything.
@@ -419,6 +442,19 @@ if command -v docker >/dev/null 2>&1; then
     echo "  ! php-cs-fixer failed — run manually in clients/php before publish"
 fi
 
+# C# — dotnet format. Whitespace only: the generated sources do not follow
+# every analyzer convention, and a style/analyzer pass would rewrite code we
+# don't control. Pinned via the SDK image tag, like the other formatters.
+if command -v docker >/dev/null 2>&1; then
+  docker run --rm -u "$(id -u):$(id -g)" \
+    -v "${REPO_ROOT}/clients/csharp:/app" -w /app \
+    -e HOME=/tmp -e DOTNET_CLI_TELEMETRY_OPTOUT=1 -e DOTNET_NOLOGO=1 \
+    -e NUGET_PACKAGES=/tmp/.nuget \
+    mcr.microsoft.com/dotnet/sdk:8.0 \
+    dotnet format whitespace -v q >/dev/null 2>&1 || \
+    echo "  ! dotnet format failed — run manually in clients/csharp before publish"
+fi
+
 # Per-language READMEs. Runs last so it can introspect the final,
 # formatted trees (enumerating Api classes from *.py/*.ts/*.go/*.java).
 if [[ -x "${REPO_ROOT}/.venv/bin/python" ]]; then
@@ -428,4 +464,4 @@ else
 fi
 
 rm -rf "${SCRATCH}"
-echo "Generated 6 unified client libraries at version ${VERSION}"
+echo "Generated 7 unified client libraries at version ${VERSION}"

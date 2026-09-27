@@ -27,7 +27,7 @@ on:
     inputs:
       lang:
         type: choice
-        options: [python, typescript, go, java, php, onescript]
+        options: [python, typescript, go, java, php, onescript, csharp]
         required: true
       version:
         type: string
@@ -195,3 +195,33 @@ jobs:
         run: |
           "${OSCRIPT}" "${OPM}" push --channel stable "wb-api-client-${VERSION}.ospx"
           echo "  ✓ published — https://hub.oscript.io/package/wb-api-client"
+
+  publish-csharp:
+    if: inputs.lang == 'csharp'
+    runs-on: ubuntu-latest
+    environment: nuget
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Pack
+        working-directory: clients/csharp
+        run: dotnet pack -c Release -o ./artifacts
+
+      - name: Push to NuGet
+        working-directory: clients/csharp
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          # --skip-duplicate keeps a re-run from failing when the version is
+          # already live, matching the idempotence of the other publish jobs.
+          dotnet nuget push "./artifacts/*.nupkg" \
+            --api-key "${NUGET_API_KEY}" \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
+          echo "  ✓ published — https://www.nuget.org/packages/ValeryVerkhoturov.WbApiClient"

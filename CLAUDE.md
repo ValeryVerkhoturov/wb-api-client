@@ -18,16 +18,16 @@ Everything under `clients/` is generated output. Do not edit it — regenerate.
 ```
 download-swaggers.sh   →  swaggers/*.yaml         (raw upstream, checksummed)
 post-process.py        →  swaggers/processed/     (7 passes; see below)
-generate.sh <ver>      →  clients/<lang>/…        (openapi-generator-cli, 6 langs)
+generate.sh <ver>      →  clients/<lang>/…        (openapi-generator-cli, 7 langs)
     ├── inject-secret.py           (SecretString wrapper per lang; OneScript ships its own)
     ├── {black|prettier|gofmt|spotless|php-cs-fixer}   (canonicalize formatting)
     ├── gen-onescript-manifests.py (unified packagedef + lib.config)
     └── gen-readmes.py             (per-language README.md)
-     ↓ committed at v<version>, single tag covers all 6 languages
-publish.yml            →  PyPI / npm / Go tag / Maven Central / Packagist / hub.oscript.io
+     ↓ committed at v<version>, single tag covers all 7 languages
+publish.yml            →  PyPI / npm / Go tag / Maven Central / Packagist / hub.oscript.io / NuGet
 ```
 
-`swaggers/`, `clients/python/`, `clients/typescript/`, `clients/go/`, `clients/java/` are committed here at each release tag. Two languages live in **sibling repos mounted as git submodules**:
+`swaggers/`, `clients/python/`, `clients/typescript/`, `clients/go/`, `clients/java/`, `clients/csharp/` are committed here at each release tag. Two languages live in **sibling repos mounted as git submodules**:
 
 | Mount | Sibling repo | Why it can't live under `clients/` |
 |---|---|---|
@@ -64,6 +64,7 @@ The bearer JWT is stored inside a **secret-string wrapper** per language so it r
 | Go | `github.com/negrel/secrecy` | `Configuration.SetAccessToken(token)` | `.ExposeSecret()` |
 | Java | per-sub-module `SecretString` | `ApiClient.setBearerToken(SecretString)` | `.exposeSecret()` |
 | PHP | per-sub-module `SecretString` | `Configuration::setAccessTokenSecret(SecretString)` | `->exposeSecret()` |
+| C# | per-namespace `SecretString` | `Configuration.AccessTokenSecret = new SecretString(...)` | `.ExposeSecret()` |
 | OneScript | `СекретнаяСтрока` | `Конфигурация.УстановитьТокен(строка или СекретнаяСтрока)` | `.Раскрыть()` |
 
 For Go we additionally strip the openapi-generator-default `ContextAccessToken` context-value channel — `cfg.SetAccessToken` is the only auth path, so no accidental bypass is possible.
@@ -80,7 +81,7 @@ Computed in `daily-check.yml`: `n=$(git tag --list "v1.$(date -u +%Y%m%d).*" | w
 
 ## Package layout — one library per language, 13 sub-modules inside
 
-6 published packages per release (one per language), each bundling all 13 WB API categories as isolated sub-namespaces. `openapi-generator` still emits a standalone SDK per spec (own `ApiClient`, own model namespace); `generate.sh` splices those 13 outputs into a single unified tree with no cross-category name clashes:
+7 published packages per release (one per language), each bundling all 13 WB API categories as isolated sub-namespaces. `openapi-generator` still emits a standalone SDK per spec (own `ApiClient`, own model namespace); `generate.sh` splices those 13 outputs into a single unified tree with no cross-category name clashes:
 
 ```
 clients/python/wb_api_client/<slug>/…           (packageName=wb_api_client.<slug>)
@@ -89,6 +90,7 @@ clients/go/<slug>/…                             (single go.mod at clients/go)
 clients/java/src/main/java/io/github/valeryverkhoturov/wbapi/<slug>/…
 clients/php/src/<Slug>/…                        (PSR-4 ValeryVerkhoturov\WbApiClient\<Slug>)
 clients/onescript/src/{Классы,Модели}/<Slug>/…   (no namespaces — see below)
+clients/csharp/src/<Slug>/…                     (namespace ValeryVerkhoturov.WbApiClient.<Slug>)
 ```
 
 Package names on each registry (some diverge from the natural `wb-api-client` because that name is taken):
@@ -101,8 +103,9 @@ Package names on each registry (some diverge from the natural `wb-api-client` be
 | Go (git tag) | `github.com/ValeryVerkhoturov/wb-api-client/clients/go` |
 | Packagist | `valeryverkhoturov/wb-api-client` |
 | hub.oscript.io | `wb-api-client` |
+| NuGet | `ValeryVerkhoturov.WbApiClient` |
 
-Top-level manifests come from `templates/{python,typescript,go,java,php,onescript}/`. `__VERSION__` (and `__EXPORTS__` for TS) is substituted at generate time — do not hand-edit `clients/*/package.json` etc., they're regenerated on every run.
+Top-level manifests come from `templates/{python,typescript,go,java,php,onescript,csharp}/`. `__VERSION__` (and `__EXPORTS__` for TS) is substituted at generate time — do not hand-edit `clients/*/package.json` etc., they're regenerated on every run.
 
 Slugs come from the spec filename (`02-items.yaml` → `items`, snake_cased where needed, PascalCased for PHP). Keep spec filenames stable — they become part of every import path.
 
@@ -114,6 +117,7 @@ Every generated client sends `ValeryVerkhoturov/wb-api-client/<lang>` on every r
 - TypeScript: seeded into `Configuration.baseOptions.headers` by inject-secret.py (typescript-axios generator doesn't accept `httpUserAgent`)
 - PHP: `Configuration::$userAgent` default is replaced by inject-secret.py (php generator doesn't accept `httpUserAgent` either)
 - OneScript: the `userAgent` generator option in `generator-configs/onescript.yaml`
+- C#: `Configuration.UserAgent`'s default is rewritten by inject-secret.py (the csharp generator accepts no `httpUserAgent` either)
 
 ## post-process.py passes (in order)
 
@@ -138,11 +142,11 @@ Every generated client sends `ValeryVerkhoturov/wb-api-client/<lang>` on every r
 ./scripts/download-swaggers.sh                     # pull upstream (may 498 locally)
 pip install -r scripts/requirements.txt            # ruamel.yaml, markdownify, black, flask
 python  scripts/post-process.py                    # -> swaggers/processed/
-./scripts/generate.sh 1.20260920.0                 # -> clients/{python,typescript,go,java,php,onescript}
+./scripts/generate.sh 1.20260920.0                 # -> clients/{python,typescript,go,java,php,onescript,csharp}
 make verify                                         # build + format check every language
 ```
 
-`generate.sh` always regenerates all six languages; if you need per-language iteration during debugging, comment out the other four loops rather than adding a flag — the script is <200 lines and doesn't need argument plumbing.
+`generate.sh` always regenerates all seven languages; if you need per-language iteration during debugging, comment out the other four loops rather than adding a flag — the script is <200 lines and doesn't need argument plumbing.
 
 Formatting runs inside Docker so contributors don't need language runtimes installed. `make verify-<lang>` and `make {black,prettier,gofmt,spotless,php-cs-fixer}` are individual targets. `make help` lists all.
 
@@ -157,6 +161,7 @@ Configured in GitHub Environments referenced by `publish.yml`:
 | `maven-central` | GPG-signed deploy | `MAVEN_USERNAME`, `MAVEN_PASSWORD`, `MAVEN_GPG_PRIVATE_KEY`, `MAVEN_GPG_PASSPHRASE` |
 | `packagist` | API token + separate GitHub repo | `PACKAGIST_USERNAME`, `PACKAGIST_API_TOKEN` — package pre-registered at packagist.org pointing at `wb-api-client-php` sibling repo |
 | `onescript` | `opm push` to hub.oscript.io | `OSCRIPT_HUB_TOKEN` — a GitHub token used only to verify the pusher's identity; package pre-registered on the hub |
+| `nuget` | API key | `NUGET_API_KEY` — from nuget.org, scoped to `ValeryVerkhoturov.WbApiClient` |
 | Go (no env) | git tags only | none — `proxy.golang.org` fetches from the pushed tag |
 | — (repo-level) | `SIBLING_REPO_TOKEN` PAT (repo scope) covering BOTH `wb-api-client-php` and `wb-api-client-1c`, for pushing their commits/tags/releases in daily-check. Falls back to the older `PHP_REPO_TOKEN`, then to `GITHUB_TOKEN` (fine for read-only PR checks, but cross-repo pushes will fail) |
 

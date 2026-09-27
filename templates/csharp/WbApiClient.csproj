@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- One project for all 13 WB API categories. SDK-style projects include
+       every .cs beneath them, so the per-slug trees under src/ are picked up
+       without listing them. Regenerated on every run — do not hand-edit. -->
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>annotations</Nullable>
+    <OutputType>Library</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+
+    <AssemblyName>ValeryVerkhoturov.WbApiClient</AssemblyName>
+    <RootNamespace>ValeryVerkhoturov.WbApiClient</RootNamespace>
+
+    <PackageId>ValeryVerkhoturov.WbApiClient</PackageId>
+    <Version>__VERSION__</Version>
+    <Authors>Valery Verkhoturov</Authors>
+    <Description>Auto-generated Wildberries Seller API client. All 13 API categories as isolated namespaces.</Description>
+    <PackageTags>wildberries;wb;api;client;openapi;sdk</PackageTags>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/ValeryVerkhoturov/wb-api-client</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ValeryVerkhoturov/wb-api-client.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+
+    <!-- The generated sources carry no XML doc on every member; treating that
+         as an error would fail the build on the generator's own output. -->
+    <NoWarn>$(NoWarn);CS1591;CS0618</NoWarn>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Versions match what openapi-generator's restsharp template expects. -->
+    <PackageReference Include="JsonSubTypes" Version="2.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Polly" Version="8.1.0" />
+    <PackageReference Include="RestSharp" Version="112.0.0" />
+  </ItemGroup>
+
+</Project>
