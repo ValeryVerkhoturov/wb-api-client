@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A code-generation pipeline, not a hand-written library. The only human-authored source is:
 
-- `scripts/` — download, post-process, generate, inject-secret, gen-readmes
+- `scripts/` — download, post-process, generate, inject-secret, gen-readmes, gen-api-reference
 - `generator-configs/` — one YAML per target language, passed to `openapi-generator-cli`
 - `templates/` — top-level manifests (`pyproject.toml`, `package.json`, `go.mod`, `pom.xml`, `composer.json`) with `__VERSION__` placeholders
 - `.github/workflows/` — daily upstream check + PR-drift check + reusable per-language publish
@@ -25,7 +25,37 @@ generate.sh <ver>      →  clients/<lang>/…        (openapi-generator-cli, 7 
     └── gen-readmes.py             (per-language README.md)
      ↓ committed at v<version>, single tag covers all 7 languages
 publish.yml            →  PyPI / npm / Go tag / Maven Central / Packagist / hub.oscript.io / NuGet
+gen-api-reference.py   →  wb-api-client-docs/docs/**    (endpoint reference, pushed cross-repo)
 ```
+
+### Endpoint reference on the docs site
+
+`scripts/gen-api-reference.py <wb-api-client-docs>/docs` writes one page per
+operation (305 across 13 modules, in Russian and English) plus a module index,
+a section index and the sidebar the docs site imports. It reads **both**
+`swaggers/processed/*.yaml` (summary, description, parameters, request body,
+responses) and `clients/<lang>/**` — the call examples are parsed out of the
+generated method signatures, so a snippet cannot claim a method a client does
+not have. Run it with `make reference DOCS=<path>`.
+
+Before it exits it runs the docs repo's own pinned Prettier over everything it
+wrote (its installed binary, else the same version via npx), so the generated
+pages satisfy `prettier --check .` there rather than being exempted from it.
+That makes Node a requirement for running this script.
+
+That second input is why it lives here: the docs repo has the specs only at
+arm's length and the client sources not at all. daily-check.yml runs it after
+the clients are regenerated, clones `wb-api-client-docs`, commits the result
+and pushes — which trips that repo's own Pages deploy. It needs a PAT with
+`repo` scope on the docs repo in `secrets.DOCS_REPO_TOKEN`; without one the
+step warns and the release proceeds.
+
+Coverage is printed per language on every run. Six clients expose all 305
+operations; **Python exposes 201** — tags that sanitize to the same class name
+collapse into one `Api`/`DefaultApi` and the later operations are dropped by
+openapi-generator. Those operations get no Python tab rather than an invented
+one. Fixing the Python client (distinct `apiNameSuffix` / explicit tag
+sanitization) would restore 104 pages' worth of Python examples.
 
 `swaggers/`, `clients/python/`, `clients/typescript/`, `clients/go/`, `clients/java/`, `clients/csharp/` are committed here at each release tag. Two languages live in **sibling repos mounted as git submodules**:
 

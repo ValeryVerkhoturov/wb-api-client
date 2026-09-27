@@ -14,6 +14,11 @@ VERSION ?= 0.0.0.dev0
 # pushed alongside the main repo — see the git-* targets below.
 SUBMODULES := php onescript
 
+# Sibling docs site. `make reference` writes the generated endpoint pages
+# into this checkout; daily-check.yml clones it instead. Overridable:
+#   make reference DOCS=~/src/wb-api-client-docs
+DOCS ?= ../wb-api-client-docs
+
 # Prefer a venv-local python if one exists, else system python3.
 PY := $(shell test -x .venv/bin/python && echo .venv/bin/python || echo python3)
 
@@ -40,7 +45,7 @@ DOTNET_DOCKER = docker run --rm -u $$(id -u):$$(id -g) \
                 mcr.microsoft.com/dotnet/sdk:8.0
 
 .DEFAULT_GOAL := help
-.PHONY: help venv download post-process generate regen \
+.PHONY: help venv download post-process generate regen reference \
         verify verify-python verify-ts verify-go verify-java verify-php \
         verify-csharp \
         verify-onescript \
@@ -74,6 +79,11 @@ generate: post-process ## Regenerate all six language clients
 	./scripts/generate.sh $(VERSION)
 
 regen: download post-process generate ## Full pipeline: download → process → generate
+
+reference: ## Regenerate the docs-site API reference into $(DOCS)
+	@test -d "$(DOCS)/docs/.vitepress" || \
+	  { echo "No docs checkout at $(DOCS) — clone wb-api-client-docs or pass DOCS=<path>"; exit 1; }
+	$(PY) scripts/gen-api-reference.py "$(DOCS)/docs"
 
 # ── verification ──────────────────────────────────────────────────────────
 

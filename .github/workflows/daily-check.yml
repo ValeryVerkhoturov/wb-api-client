@@ -267,6 +267,54 @@ jobs:
           git tag -a "${{ steps.version.outputs.tag }}" -m "Release ${{ steps.version.outputs.tag }}"
           git push origin "${{ steps.version.outputs.tag }}"
 
+      - name: Regenerate the docs site's API reference
+        if: steps.diff.outputs.changed == 'true' || inputs.force
+        # The endpoint reference at
+        # valeryverkhoturov.github.io/wb-api-client-docs/reference/api/ is
+        # generated from swaggers/processed/ AND from the clients
+        # regenerated above — the call examples are read off the actual
+        # generated method signatures — so it can only be built here, not
+        # in the docs repo.
+        #
+        # The generator formats its output with the docs repo's pinned
+        # Prettier (via npx — the clone below is shallow and has no
+        # node_modules), so what lands there passes that repo's
+        # `prettier --check .`. Node comes preinstalled on ubuntu-latest.
+        #
+        # Pushing to wb-api-client-docs triggers its own Pages deploy, so
+        # the site is live a couple of minutes after this step. A missing
+        # token is a warning, not a failure: the release itself is
+        # already tagged and pushed by the step above, and a stale
+        # reference is better than a red daily run. Store a PAT with
+        # `repo` scope on wb-api-client-docs as secrets.DOCS_REPO_TOKEN.
+        env:
+          DOCS_TOKEN: ${{ secrets.DOCS_REPO_TOKEN || secrets.SIBLING_REPO_TOKEN || secrets.PHP_REPO_TOKEN }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          if [[ -z "${DOCS_TOKEN}" ]]; then
+            echo "::warning::No token for wb-api-client-docs — API reference not updated"
+            exit 0
+          fi
+
+          git clone --depth 1 \
+            "https://x-access-token:${DOCS_TOKEN}@github.com/ValeryVerkhoturov/wb-api-client-docs.git" \
+            "${RUNNER_TEMP}/docs"
+
+          python scripts/gen-api-reference.py "${RUNNER_TEMP}/docs/docs"
+
+          cd "${RUNNER_TEMP}/docs"
+          git config user.name "wb-api-client-bot"
+          git config user.email "bot@users.noreply.github.com"
+          # Only the three paths the generator owns — never `git add -A`,
+          # which would sweep up anything else a future run leaves behind.
+          git add docs/reference/api docs/en/reference/api docs/.vitepress/api-sidebar.ts
+          if git diff --cached --quiet; then
+            echo "API reference already matches the new specs — nothing to push"
+            exit 0
+          fi
+          git commit -m "docs: regenerate API reference at ${VERSION}"
+          git push
+
       - name: Create GitHub Release on main repo
         if: steps.diff.outputs.changed == 'true' || inputs.force
         # The tag was just pushed above; promote it to a full GitHub
