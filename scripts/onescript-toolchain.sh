@@ -17,11 +17,21 @@ set -euo pipefail
 
 ONESCRIPT_VERSION="${ONESCRIPT_VERSION:-2.2.0}"
 
+# The generated client's transport is built on 1connector, so the library has to
+# be installed before the client can be compiled — ТранспортHTTP.os opens with
+# `#Использовать 1connector`, and even `oscript -check` has to resolve it.
+# Keep in step with `connectorVersion` in generator-configs/onescript.yaml.
+ONESCRIPT_CONNECTOR_VERSION="${ONESCRIPT_CONNECTOR_VERSION:-2.3.3}"
+# Models are described with jason annotations, so jason has to resolve even for
+# `oscript -check`. It depends on validate — where the &Тип and &ДляКаждого
+# annotations it reads are defined — and opm installs that alongside.
+ONESCRIPT_JASON_VERSION="${ONESCRIPT_JASON_VERSION:-0.6.0}"
+
 # Pinned so regeneration is reproducible: the plugin decides every generated
 # name and file, exactly like the openapi-generator image tag does for the
 # other five languages.
 ONESCRIPT_CODEGEN_REPO="${ONESCRIPT_CODEGEN_REPO:-https://github.com/ValeryVerkhoturov/onescript-openapi-generator.git}"
-ONESCRIPT_CODEGEN_REF="${ONESCRIPT_CODEGEN_REF:-6bbe860bd0fe5309357c49a05fbc31d71223121d}"
+ONESCRIPT_CODEGEN_REF="${ONESCRIPT_CODEGEN_REF:-70fd9f920900dabd9f7c3293a21106ec98fceb65}"
 
 TOOLCHAIN_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 CACHE_DIR="${TOOLCHAIN_ROOT}/.cache"
@@ -89,6 +99,27 @@ ensure_onescript() {
   ONESCRIPT_BIN="${home}/bin/oscript"
   ONESCRIPT_HOME="${home}"
   export ONESCRIPT_BIN ONESCRIPT_HOME
+
+  ensure_onescript_package 1connector "${ONESCRIPT_CONNECTOR_VERSION}"
+  ensure_onescript_package jason "${ONESCRIPT_JASON_VERSION}"
+}
+
+# Installs a library into the OneScript distribution being used. Idempotent —
+# the lib directory's presence is the marker, so repeat runs cost nothing.
+#
+# These are needed for compile-checking, not just at runtime: ТранспортHTTP.os
+# and every model open with `#Использовать`, so `oscript -check` has to resolve
+# them too.
+ensure_onescript_package() {
+  local name="$1" version="$2"
+
+  if [[ -d "${ONESCRIPT_HOME}/lib/${name}" ]]; then
+    return 0
+  fi
+
+  echo "→ installing ${name} ${version}"
+  "${ONESCRIPT_BIN}" "${ONESCRIPT_HOME}/lib/opm/src/cmd/opm.os" \
+    install "${name}@${version}" >/dev/null
 }
 
 ensure_onescript_plugin() {
