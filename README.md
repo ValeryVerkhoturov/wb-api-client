@@ -73,7 +73,7 @@ client := wbitems.NewAPIClient(cfg)
 <dependency>
   <groupId>io.github.valeryverkhoturov</groupId>
   <artifactId>wb-api-client</artifactId>
-  <version>1.20260921.0</version>
+  <version>1.20260928.0</version>
 </dependency>
 ```
 ```java

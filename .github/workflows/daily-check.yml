@@ -343,6 +343,8 @@ jobs:
           npm install @valeryverkhoturov/wb-api-client@__VERSION__
           go get github.com/ValeryVerkhoturov/wb-api-client/clients/go@__TAG__
           composer require valeryverkhoturov/wb-api-client:__VERSION__
+          dotnet add package ValeryVerkhoturov.WbApiClient --version __VERSION__
+          opm install wb-api-client@__VERSION__
           ```
 
           Java (Maven):
@@ -361,6 +363,8 @@ jobs:
           - [Go / pkg.go.dev](https://pkg.go.dev/github.com/ValeryVerkhoturov/wb-api-client/clients/go@__TAG__)
           - [Maven Central](https://central.sonatype.com/artifact/io.github.valeryverkhoturov/wb-api-client/__VERSION__)
           - [Packagist](https://packagist.org/packages/valeryverkhoturov/wb-api-client#__VERSION__)
+          - [NuGet](https://www.nuget.org/packages/ValeryVerkhoturov.WbApiClient/__VERSION__)
+          - [hub.oscript.io](https://hub.oscript.io/package/wb-api-client)
 
           ## Документация
 
