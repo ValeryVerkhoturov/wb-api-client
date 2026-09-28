@@ -23,5 +23,4 @@ connectorVersion: "2.3.3"
 # ONESCRIPT_*_VERSION values in scripts/onescript-toolchain.sh, which installs it.
 jasonVersion: "0.6.0"
 environmentVersion: "2.0.0"
-environmentVersion: "1.9.0"
 userAgent: ValeryVerkhoturov/wb-api-client/onescript
