@@ -1705,6 +1705,24 @@ export interface SalesReportsDetailedRes {
    */
   warehouseLogisticsCoeff: number;
   /**
+   * КПП B2B-покупателя
+   * @type {string}
+   * @memberof SalesReportsDetailedRes
+   */
+  buyerTaxRegistrationReasonCode: string;
+  /**
+   * Номер УПД или УКД
+   * @type {string}
+   * @memberof SalesReportsDetailedRes
+   */
+  utdUcdNumber: string;
+  /**
+   * Дата УПД или УКД
+   * @type {string}
+   * @memberof SalesReportsDetailedRes
+   */
+  utdUcdDate: string;
+  /**
    * ID корзины заказа — транзакции. Заказы в одной корзине покупателя будут иметь одинаковый `orderUid`
    * @type {string}
    * @memberof SalesReportsDetailedRes

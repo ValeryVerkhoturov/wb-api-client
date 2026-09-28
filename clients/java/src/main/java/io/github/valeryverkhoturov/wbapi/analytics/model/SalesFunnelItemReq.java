@@ -85,7 +85,8 @@ public class SalesFunnelItemReq {
   }
 
   /**
-   * Тип отчёта &#x60;DETAIL_HISTORY_REPORT&#x60; — Воронка продаж. По артикулам WB
+   * Тип отчёта &#x60;DETAIL\\_HISTORY\\_REPORT&#x60; — Воронка продаж. По артикулам WB. Данные
+   * отчёта обновляются 1 раз в 2 часа.
    *
    * @return reportType
    */

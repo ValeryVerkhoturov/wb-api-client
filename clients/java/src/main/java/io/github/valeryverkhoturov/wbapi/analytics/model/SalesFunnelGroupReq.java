@@ -85,7 +85,8 @@ public class SalesFunnelGroupReq {
   }
 
   /**
-   * Тип отчёта &#x60;GROUPED_HISTORY_REPORT&#x60; — Воронка продаж. По предметам, брендам и ярлыкам
+   * Тип отчёта &#x60;GROUPED\\_HISTORY\\_REPORT&#x60; — Воронка продаж. По предметам, брендам и
+   * ярлыкам. Данные отчёта обновляются 1 раз в 2 часа.
    *
    * @return reportType
    */

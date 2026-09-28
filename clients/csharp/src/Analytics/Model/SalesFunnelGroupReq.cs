@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// Initializes a new instance of the <see cref="SalesFunnelGroupReq" /> class.
         /// </summary>
         /// <param name="id">ID отчёта в UUID-формате. Генерируется продавцом самостоятельно (required).</param>
-        /// <param name="reportType">Тип отчёта &#x60;GROUPED_HISTORY_REPORT&#x60; — Воронка продаж. По предметам, брендам и ярлыкам (required).</param>
+        /// <param name="reportType">Тип отчёта &#x60;GROUPED\\_HISTORY\\_REPORT&#x60; — Воронка продаж. По предметам, брендам и ярлыкам.  Данные отчёта обновляются 1 раз в 2 часа. (required).</param>
         /// <param name="userReportName">Название отчёта. Если не указано, сформируется автоматически.</param>
         /// <param name="varParams">varParams (required).</param>
         public SalesFunnelGroupReq(Guid id = default(Guid), string reportType = default(string), string userReportName = default(string), SalesFunnelGroupReqParams varParams = default(SalesFunnelGroupReqParams))
@@ -69,9 +69,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Тип отчёта &#x60;GROUPED_HISTORY_REPORT&#x60; — Воронка продаж. По предметам, брендам и ярлыкам
+        /// Тип отчёта &#x60;GROUPED\\_HISTORY\\_REPORT&#x60; — Воронка продаж. По предметам, брендам и ярлыкам.  Данные отчёта обновляются 1 раз в 2 часа.
         /// </summary>
-        /// <value>Тип отчёта &#x60;GROUPED_HISTORY_REPORT&#x60; — Воронка продаж. По предметам, брендам и ярлыкам</value>
+        /// <value>Тип отчёта &#x60;GROUPED\\_HISTORY\\_REPORT&#x60; — Воронка продаж. По предметам, брендам и ярлыкам.  Данные отчёта обновляются 1 раз в 2 часа.</value>
         [DataMember(Name = "reportType", IsRequired = true, EmitDefaultValue = true)]
         public string ReportType { get; set; }
 

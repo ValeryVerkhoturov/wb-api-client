@@ -271,6 +271,13 @@ class SalesReportsDetailedRes(BaseModel):
     warehouse_logistics_coeff: Union[StrictFloat, StrictInt] = Field(
         description="Коэффициент доставки", alias="warehouseLogisticsCoeff"
     )
+    buyer_tax_registration_reason_code: StrictStr = Field(
+        description="КПП B2B-покупателя", alias="buyerTaxRegistrationReasonCode"
+    )
+    utd_ucd_number: StrictStr = Field(
+        description="Номер УПД или УКД", alias="utdUcdNumber"
+    )
+    utd_ucd_date: date = Field(description="Дата УПД или УКД", alias="utdUcdDate")
     order_uid: StrictStr = Field(
         description="ID корзины заказа — транзакции. Заказы в одной корзине покупателя будут иметь одинаковый `orderUid`",
         alias="orderUid",
@@ -370,6 +377,9 @@ class SalesReportsDetailedRes(BaseModel):
         "b2bCustomerTin",
         "paidWithSocialCertificate",
         "warehouseLogisticsCoeff",
+        "buyerTaxRegistrationReasonCode",
+        "utdUcdNumber",
+        "utdUcdDate",
         "orderUid",
         "srid",
     ]
@@ -528,6 +538,11 @@ class SalesReportsDetailedRes(BaseModel):
                 "b2bCustomerTin": obj.get("b2bCustomerTin"),
                 "paidWithSocialCertificate": obj.get("paidWithSocialCertificate"),
                 "warehouseLogisticsCoeff": obj.get("warehouseLogisticsCoeff"),
+                "buyerTaxRegistrationReasonCode": obj.get(
+                    "buyerTaxRegistrationReasonCode"
+                ),
+                "utdUcdNumber": obj.get("utdUcdNumber"),
+                "utdUcdDate": obj.get("utdUcdDate"),
                 "orderUid": obj.get("orderUid"),
                 "srid": obj.get("srid"),
             }

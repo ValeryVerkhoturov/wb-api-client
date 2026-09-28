@@ -641,6 +641,25 @@ public class SalesReportsDetailedRes {
   @jakarta.annotation.Nonnull
   private BigDecimal warehouseLogisticsCoeff;
 
+  public static final String SERIALIZED_NAME_BUYER_TAX_REGISTRATION_REASON_CODE =
+      "buyerTaxRegistrationReasonCode";
+
+  @SerializedName(SERIALIZED_NAME_BUYER_TAX_REGISTRATION_REASON_CODE)
+  @jakarta.annotation.Nonnull
+  private String buyerTaxRegistrationReasonCode;
+
+  public static final String SERIALIZED_NAME_UTD_UCD_NUMBER = "utdUcdNumber";
+
+  @SerializedName(SERIALIZED_NAME_UTD_UCD_NUMBER)
+  @jakarta.annotation.Nonnull
+  private String utdUcdNumber;
+
+  public static final String SERIALIZED_NAME_UTD_UCD_DATE = "utdUcdDate";
+
+  @SerializedName(SERIALIZED_NAME_UTD_UCD_DATE)
+  @jakarta.annotation.Nonnull
+  private LocalDate utdUcdDate;
+
   public static final String SERIALIZED_NAME_ORDER_UID = "orderUid";
 
   @SerializedName(SERIALIZED_NAME_ORDER_UID)
@@ -2421,6 +2440,65 @@ public class SalesReportsDetailedRes {
     this.warehouseLogisticsCoeff = warehouseLogisticsCoeff;
   }
 
+  public SalesReportsDetailedRes buyerTaxRegistrationReasonCode(
+      @jakarta.annotation.Nonnull String buyerTaxRegistrationReasonCode) {
+    this.buyerTaxRegistrationReasonCode = buyerTaxRegistrationReasonCode;
+    return this;
+  }
+
+  /**
+   * КПП B2B-покупателя
+   *
+   * @return buyerTaxRegistrationReasonCode
+   */
+  @jakarta.annotation.Nonnull
+  public String getBuyerTaxRegistrationReasonCode() {
+    return buyerTaxRegistrationReasonCode;
+  }
+
+  public void setBuyerTaxRegistrationReasonCode(
+      @jakarta.annotation.Nonnull String buyerTaxRegistrationReasonCode) {
+    this.buyerTaxRegistrationReasonCode = buyerTaxRegistrationReasonCode;
+  }
+
+  public SalesReportsDetailedRes utdUcdNumber(@jakarta.annotation.Nonnull String utdUcdNumber) {
+    this.utdUcdNumber = utdUcdNumber;
+    return this;
+  }
+
+  /**
+   * Номер УПД или УКД
+   *
+   * @return utdUcdNumber
+   */
+  @jakarta.annotation.Nonnull
+  public String getUtdUcdNumber() {
+    return utdUcdNumber;
+  }
+
+  public void setUtdUcdNumber(@jakarta.annotation.Nonnull String utdUcdNumber) {
+    this.utdUcdNumber = utdUcdNumber;
+  }
+
+  public SalesReportsDetailedRes utdUcdDate(@jakarta.annotation.Nonnull LocalDate utdUcdDate) {
+    this.utdUcdDate = utdUcdDate;
+    return this;
+  }
+
+  /**
+   * Дата УПД или УКД
+   *
+   * @return utdUcdDate
+   */
+  @jakarta.annotation.Nonnull
+  public LocalDate getUtdUcdDate() {
+    return utdUcdDate;
+  }
+
+  public void setUtdUcdDate(@jakarta.annotation.Nonnull LocalDate utdUcdDate) {
+    this.utdUcdDate = utdUcdDate;
+  }
+
   public SalesReportsDetailedRes orderUid(@jakarta.annotation.Nonnull String orderUid) {
     this.orderUid = orderUid;
     return this;
@@ -2574,6 +2652,11 @@ public class SalesReportsDetailedRes {
             this.paidWithSocialCertificate, salesReportsDetailedRes.paidWithSocialCertificate)
         && Objects.equals(
             this.warehouseLogisticsCoeff, salesReportsDetailedRes.warehouseLogisticsCoeff)
+        && Objects.equals(
+            this.buyerTaxRegistrationReasonCode,
+            salesReportsDetailedRes.buyerTaxRegistrationReasonCode)
+        && Objects.equals(this.utdUcdNumber, salesReportsDetailedRes.utdUcdNumber)
+        && Objects.equals(this.utdUcdDate, salesReportsDetailedRes.utdUcdDate)
         && Objects.equals(this.orderUid, salesReportsDetailedRes.orderUid)
         && Objects.equals(this.srid, salesReportsDetailedRes.srid);
   }
@@ -2672,6 +2755,9 @@ public class SalesReportsDetailedRes {
         b2bCustomerTin,
         paidWithSocialCertificate,
         warehouseLogisticsCoeff,
+        buyerTaxRegistrationReasonCode,
+        utdUcdNumber,
+        utdUcdDate,
         orderUid,
         srid);
   }
@@ -2797,6 +2883,11 @@ public class SalesReportsDetailedRes {
     sb.append("    warehouseLogisticsCoeff: ")
         .append(toIndentedString(warehouseLogisticsCoeff))
         .append("\n");
+    sb.append("    buyerTaxRegistrationReasonCode: ")
+        .append(toIndentedString(buyerTaxRegistrationReasonCode))
+        .append("\n");
+    sb.append("    utdUcdNumber: ").append(toIndentedString(utdUcdNumber)).append("\n");
+    sb.append("    utdUcdDate: ").append(toIndentedString(utdUcdDate)).append("\n");
     sb.append("    orderUid: ").append(toIndentedString(orderUid)).append("\n");
     sb.append("    srid: ").append(toIndentedString(srid)).append("\n");
     sb.append("}");
@@ -2910,6 +3001,9 @@ public class SalesReportsDetailedRes {
     openapiFields.add("b2bCustomerTin");
     openapiFields.add("paidWithSocialCertificate");
     openapiFields.add("warehouseLogisticsCoeff");
+    openapiFields.add("buyerTaxRegistrationReasonCode");
+    openapiFields.add("utdUcdNumber");
+    openapiFields.add("utdUcdDate");
     openapiFields.add("orderUid");
     openapiFields.add("srid");
 
@@ -3002,6 +3096,9 @@ public class SalesReportsDetailedRes {
     openapiRequiredFields.add("b2bCustomerTin");
     openapiRequiredFields.add("paidWithSocialCertificate");
     openapiRequiredFields.add("warehouseLogisticsCoeff");
+    openapiRequiredFields.add("buyerTaxRegistrationReasonCode");
+    openapiRequiredFields.add("utdUcdNumber");
+    openapiRequiredFields.add("utdUcdDate");
     openapiRequiredFields.add("orderUid");
     openapiRequiredFields.add("srid");
   }
@@ -3336,6 +3433,18 @@ public class SalesReportsDetailedRes {
           String.format(
               "Expected the field `b2bCustomerTin` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("b2bCustomerTin").toString()));
+    }
+    if (!jsonObj.get("buyerTaxRegistrationReasonCode").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `buyerTaxRegistrationReasonCode` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("buyerTaxRegistrationReasonCode").toString()));
+    }
+    if (!jsonObj.get("utdUcdNumber").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `utdUcdNumber` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("utdUcdNumber").toString()));
     }
     if (!jsonObj.get("orderUid").isJsonPrimitive()) {
       throw new IllegalArgumentException(

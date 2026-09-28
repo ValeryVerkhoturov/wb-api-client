@@ -35,7 +35,7 @@ class SalesFunnelGroupReq(BaseModel):
         description="ID отчёта в UUID-формате. Генерируется продавцом самостоятельно"
     )
     report_type: StrictStr = Field(
-        description="Тип отчёта `GROUPED_HISTORY_REPORT` — Воронка продаж. По предметам, брендам и ярлыкам",
+        description="Тип отчёта `GROUPED\\_HISTORY\\_REPORT` — Воронка продаж. По предметам, брендам и ярлыкам.  Данные отчёта обновляются 1 раз в 2 часа.",
         alias="reportType",
     )
     user_report_name: Optional[StrictStr] = Field(
