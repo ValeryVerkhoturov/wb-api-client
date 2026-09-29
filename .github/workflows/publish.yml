@@ -194,7 +194,7 @@ jobs:
           VERSION: ${{ inputs.version }}
         run: |
           "${OSCRIPT}" "${OPM}" push --channel stable "wb-api-client-${VERSION}.ospx"
-          echo "  ✓ published — https://hub.oscript.io/package/wb-api-client"
+          echo "  ✓ published — https://hub.oscript.io/pools/default/packages/wb-api-client"
 
   publish-csharp:
     if: inputs.lang == 'csharp'

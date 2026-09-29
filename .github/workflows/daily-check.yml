@@ -240,7 +240,7 @@ jobs:
           git clone --branch __TAG__ https://github.com/ValeryVerkhoturov/wb-api-client-1c.git
           ```
 
-          - [hub.oscript.io](https://hub.oscript.io/package/wb-api-client)
+          - [hub.oscript.io](https://hub.oscript.io/pools/default/packages/wb-api-client)
           EOF
           sed -i "s|__VERSION__|${VERSION}|g; s|__TAG__|${TAG}|g" /tmp/onescript-release-notes.md
           gh release create "${TAG}" \
@@ -364,7 +364,7 @@ jobs:
           - [Maven Central](https://central.sonatype.com/artifact/io.github.valeryverkhoturov/wb-api-client/__VERSION__)
           - [Packagist](https://packagist.org/packages/valeryverkhoturov/wb-api-client#__VERSION__)
           - [NuGet](https://www.nuget.org/packages/ValeryVerkhoturov.WbApiClient/__VERSION__)
-          - [hub.oscript.io](https://hub.oscript.io/package/wb-api-client)
+          - [hub.oscript.io](https://hub.oscript.io/pools/default/packages/wb-api-client)
 
           ## Документация
 
