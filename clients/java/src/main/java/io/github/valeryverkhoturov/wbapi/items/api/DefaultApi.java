@@ -29,7 +29,10 @@ import io.github.valeryverkhoturov.wbapi.items.model.GetV2CardsLimitsResponse200
 import io.github.valeryverkhoturov.wbapi.items.model.GetV2DirectoryColorsResponse200;
 import io.github.valeryverkhoturov.wbapi.items.model.GetV2DirectoryCountriesResponse200;
 import io.github.valeryverkhoturov.wbapi.items.model.GetV2DirectoryKindsResponse200;
+import io.github.valeryverkhoturov.wbapi.items.model.GetV2DirectoryOkpdAllResponse200;
+import io.github.valeryverkhoturov.wbapi.items.model.GetV2DirectoryOkpdResponse200;
 import io.github.valeryverkhoturov.wbapi.items.model.GetV2DirectorySeasonsResponse200;
+import io.github.valeryverkhoturov.wbapi.items.model.GetV2DirectoryTnvedAllResponse200;
 import io.github.valeryverkhoturov.wbapi.items.model.GetV2DirectoryTnvedResponse200;
 import io.github.valeryverkhoturov.wbapi.items.model.GetV2DirectoryVatResponse200;
 import io.github.valeryverkhoturov.wbapi.items.model.GetV2HistoryGoodsTask200Response;
@@ -85,6 +88,7 @@ import io.github.valeryverkhoturov.wbapi.items.model.TaskCreated;
 import io.github.valeryverkhoturov.wbapi.items.model.Warehouse;
 import java.io.File;
 import java.lang.reflect.Type;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -2187,6 +2191,473 @@ public class DefaultApi {
   }
 
   /**
+   * Build call for getV2DirectoryOkpd
+   *
+   * @param subjectId ID предмета (required)
+   * @param search Поиск по фрагменту кода ОКПД2. Работает только в паре с &#x60;subjectId&#x60;.
+   *     Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)
+   * @param locale Язык полей ответа: - &#x60;ru&#x60; — русский (optional, default to ru)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV2DirectoryOkpdCall(
+      Integer subjectId, String search, String locale, final ApiCallback _callback)
+      throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {"https://content-api.wildberries.ru"};
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null) {
+      basePath = localCustomBaseUrl;
+    } else if (localBasePaths.length > 0) {
+      basePath = localBasePaths[localHostIndex];
+    } else {
+      basePath = null;
+    }
+
+    Object localVarPostBody = null;
+
+    // create path and map variables
+    String localVarPath = "/api/content/v2/directory/okpd";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    if (subjectId != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("subjectId", subjectId));
+    }
+
+    if (search != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("search", search));
+    }
+
+    if (locale != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("locale", locale));
+    }
+
+    final String[] localVarAccepts = {"application/json", "application/problem+json"};
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {};
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    if (localVarContentType != null) {
+      localVarHeaderParams.put("Content-Type", localVarContentType);
+    }
+
+    String[] localVarAuthNames = new String[] {"BearerAuth"};
+    return localVarApiClient.buildCall(
+        basePath,
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call getV2DirectoryOkpdValidateBeforeCall(
+      Integer subjectId, String search, String locale, final ApiCallback _callback)
+      throws ApiException {
+    // verify the required parameter 'subjectId' is set
+    if (subjectId == null) {
+      throw new ApiException(
+          "Missing the required parameter 'subjectId' when calling getV2DirectoryOkpd(Async)");
+    }
+
+    return getV2DirectoryOkpdCall(subjectId, search, locale, _callback);
+  }
+
+  /**
+   * Код ОКПД2 предмета Метод возвращает список кодов ОКПД2 по ID
+   * [предмета](https://dev.wildberries.ru/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get)
+   * и фрагменту кода ОКПД2. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
+   * методы: * [создания карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+   * * [создания карточек товаров с
+   * присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+   * * [редактирования карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+   * * [восстановления карточек товаров из
+   * корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+   * * [получения списка рекомендаций в карточках
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+   * * [установки рекомендаций для
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+   *
+   * @param subjectId ID предмета (required)
+   * @param search Поиск по фрагменту кода ОКПД2. Работает только в паре с &#x60;subjectId&#x60;.
+   *     Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)
+   * @param locale Язык полей ответа: - &#x60;ru&#x60; — русский (optional, default to ru)
+   * @return GetV2DirectoryOkpdResponse200
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public GetV2DirectoryOkpdResponse200 getV2DirectoryOkpd(
+      Integer subjectId, String search, String locale) throws ApiException {
+    ApiResponse<GetV2DirectoryOkpdResponse200> localVarResp =
+        getV2DirectoryOkpdWithHttpInfo(subjectId, search, locale);
+    return localVarResp.getData();
+  }
+
+  /**
+   * Код ОКПД2 предмета Метод возвращает список кодов ОКПД2 по ID
+   * [предмета](https://dev.wildberries.ru/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get)
+   * и фрагменту кода ОКПД2. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
+   * методы: * [создания карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+   * * [создания карточек товаров с
+   * присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+   * * [редактирования карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+   * * [восстановления карточек товаров из
+   * корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+   * * [получения списка рекомендаций в карточках
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+   * * [установки рекомендаций для
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+   *
+   * @param subjectId ID предмета (required)
+   * @param search Поиск по фрагменту кода ОКПД2. Работает только в паре с &#x60;subjectId&#x60;.
+   *     Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)
+   * @param locale Язык полей ответа: - &#x60;ru&#x60; — русский (optional, default to ru)
+   * @return ApiResponse&lt;GetV2DirectoryOkpdResponse200&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<GetV2DirectoryOkpdResponse200> getV2DirectoryOkpdWithHttpInfo(
+      Integer subjectId, String search, String locale) throws ApiException {
+    okhttp3.Call localVarCall =
+        getV2DirectoryOkpdValidateBeforeCall(subjectId, search, locale, null);
+    Type localVarReturnType = new TypeToken<GetV2DirectoryOkpdResponse200>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * Код ОКПД2 предмета (asynchronously) Метод возвращает список кодов ОКПД2 по ID
+   * [предмета](https://dev.wildberries.ru/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get)
+   * и фрагменту кода ОКПД2. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
+   * методы: * [создания карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+   * * [создания карточек товаров с
+   * присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+   * * [редактирования карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+   * * [восстановления карточек товаров из
+   * корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+   * * [получения списка рекомендаций в карточках
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+   * * [установки рекомендаций для
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+   *
+   * @param subjectId ID предмета (required)
+   * @param search Поиск по фрагменту кода ОКПД2. Работает только в паре с &#x60;subjectId&#x60;.
+   *     Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)
+   * @param locale Язык полей ответа: - &#x60;ru&#x60; — русский (optional, default to ru)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV2DirectoryOkpdAsync(
+      Integer subjectId,
+      String search,
+      String locale,
+      final ApiCallback<GetV2DirectoryOkpdResponse200> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall =
+        getV2DirectoryOkpdValidateBeforeCall(subjectId, search, locale, _callback);
+    Type localVarReturnType = new TypeToken<GetV2DirectoryOkpdResponse200>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * Build call for getV2DirectoryOkpdAll
+   *
+   * @param search Поиск по фрагменту кода ОКПД2. Укажите первые цифры кода через точку, чтобы найти
+   *     код по этому фрагменту (optional)
+   * @param locale Язык полей ответа: - &#x60;ru&#x60; — русский (optional, default to ru)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV2DirectoryOkpdAllCall(
+      BigDecimal search, String locale, final ApiCallback _callback) throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {"https://content-api.wildberries.ru"};
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null) {
+      basePath = localCustomBaseUrl;
+    } else if (localBasePaths.length > 0) {
+      basePath = localBasePaths[localHostIndex];
+    } else {
+      basePath = null;
+    }
+
+    Object localVarPostBody = null;
+
+    // create path and map variables
+    String localVarPath = "/api/content/v2/directory/okpd/all";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    if (search != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("search", search));
+    }
+
+    if (locale != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("locale", locale));
+    }
+
+    final String[] localVarAccepts = {"application/json", "application/problem+json"};
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {};
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    if (localVarContentType != null) {
+      localVarHeaderParams.put("Content-Type", localVarContentType);
+    }
+
+    String[] localVarAuthNames = new String[] {"BearerAuth"};
+    return localVarApiClient.buildCall(
+        basePath,
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call getV2DirectoryOkpdAllValidateBeforeCall(
+      BigDecimal search, String locale, final ApiCallback _callback) throws ApiException {
+    return getV2DirectoryOkpdAllCall(search, locale, _callback);
+  }
+
+  /**
+   * Список кодов ОКПД2 Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его
+   * фрагменту, укажите первые цифры кода через точку в параметре &#x60;search&#x60;. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
+   * методы: * [создания карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+   * * [создания карточек товаров с
+   * присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+   * * [редактирования карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+   * * [восстановления карточек товаров из
+   * корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+   * * [получения списка рекомендаций в карточках
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+   * * [установки рекомендаций для
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+   *
+   * @param search Поиск по фрагменту кода ОКПД2. Укажите первые цифры кода через точку, чтобы найти
+   *     код по этому фрагменту (optional)
+   * @param locale Язык полей ответа: - &#x60;ru&#x60; — русский (optional, default to ru)
+   * @return GetV2DirectoryOkpdAllResponse200
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public GetV2DirectoryOkpdAllResponse200 getV2DirectoryOkpdAll(BigDecimal search, String locale)
+      throws ApiException {
+    ApiResponse<GetV2DirectoryOkpdAllResponse200> localVarResp =
+        getV2DirectoryOkpdAllWithHttpInfo(search, locale);
+    return localVarResp.getData();
+  }
+
+  /**
+   * Список кодов ОКПД2 Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его
+   * фрагменту, укажите первые цифры кода через точку в параметре &#x60;search&#x60;. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
+   * методы: * [создания карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+   * * [создания карточек товаров с
+   * присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+   * * [редактирования карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+   * * [восстановления карточек товаров из
+   * корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+   * * [получения списка рекомендаций в карточках
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+   * * [установки рекомендаций для
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+   *
+   * @param search Поиск по фрагменту кода ОКПД2. Укажите первые цифры кода через точку, чтобы найти
+   *     код по этому фрагменту (optional)
+   * @param locale Язык полей ответа: - &#x60;ru&#x60; — русский (optional, default to ru)
+   * @return ApiResponse&lt;GetV2DirectoryOkpdAllResponse200&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<GetV2DirectoryOkpdAllResponse200> getV2DirectoryOkpdAllWithHttpInfo(
+      BigDecimal search, String locale) throws ApiException {
+    okhttp3.Call localVarCall = getV2DirectoryOkpdAllValidateBeforeCall(search, locale, null);
+    Type localVarReturnType = new TypeToken<GetV2DirectoryOkpdAllResponse200>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * Список кодов ОКПД2 (asynchronously) Метод возвращает справочный список всех кодов ОКПД2. Чтобы
+   * найти код по его фрагменту, укажите первые цифры кода через точку в параметре
+   * &#x60;search&#x60;. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
+   * методы: * [создания карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+   * * [создания карточек товаров с
+   * присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+   * * [редактирования карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+   * * [восстановления карточек товаров из
+   * корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+   * * [получения списка рекомендаций в карточках
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+   * * [установки рекомендаций для
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+   *
+   * @param search Поиск по фрагменту кода ОКПД2. Укажите первые цифры кода через точку, чтобы найти
+   *     код по этому фрагменту (optional)
+   * @param locale Язык полей ответа: - &#x60;ru&#x60; — русский (optional, default to ru)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV2DirectoryOkpdAllAsync(
+      BigDecimal search,
+      String locale,
+      final ApiCallback<GetV2DirectoryOkpdAllResponse200> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall = getV2DirectoryOkpdAllValidateBeforeCall(search, locale, _callback);
+    Type localVarReturnType = new TypeToken<GetV2DirectoryOkpdAllResponse200>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+
+  /**
    * Build call for getV2DirectorySeasons
    *
    * @param locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;: - &#x60;ru&#x60; —
@@ -2387,7 +2858,7 @@ public class DefaultApi {
    * Build call for getV2DirectoryTnved
    *
    * @param subjectID ID предмета (required)
-   * @param search Поиск по ТНВЭД-коду. Работает только в паре с &#x60;subjectID&#x60; (optional)
+   * @param search Поиск по коду ТН ВЭД. Работает только в паре с &#x60;subjectID&#x60; (optional)
    * @param locale Язык полей ответа: - &#x60;ru&#x60; — русский - &#x60;en&#x60; — английский -
    *     &#x60;zh&#x60; — китайский Не используется в песочнице. Данные песочницы возвращаются
    *     только на русском языке (optional)
@@ -2489,9 +2960,9 @@ public class DefaultApi {
   }
 
   /**
-   * ТНВЭД-код Метод возвращает список ТНВЭД-кодов по ID
+   * Код ТН ВЭД предмета Метод возвращает список кодов ТН ВЭД по ID
    * [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll)
-   * и фрагменту ТНВЭД-кода. [Лимит
+   * и фрагменту кода ТН ВЭД. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
@@ -2511,7 +2982,7 @@ public class DefaultApi {
    * для всех методов **Контента**.
    *
    * @param subjectID ID предмета (required)
-   * @param search Поиск по ТНВЭД-коду. Работает только в паре с &#x60;subjectID&#x60; (optional)
+   * @param search Поиск по коду ТН ВЭД. Работает только в паре с &#x60;subjectID&#x60; (optional)
    * @param locale Язык полей ответа: - &#x60;ru&#x60; — русский - &#x60;en&#x60; — английский -
    *     &#x60;zh&#x60; — китайский Не используется в песочнице. Данные песочницы возвращаются
    *     только на русском языке (optional)
@@ -2537,9 +3008,9 @@ public class DefaultApi {
   }
 
   /**
-   * ТНВЭД-код Метод возвращает список ТНВЭД-кодов по ID
+   * Код ТН ВЭД предмета Метод возвращает список кодов ТН ВЭД по ID
    * [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll)
-   * и фрагменту ТНВЭД-кода. [Лимит
+   * и фрагменту кода ТН ВЭД. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
@@ -2559,7 +3030,7 @@ public class DefaultApi {
    * для всех методов **Контента**.
    *
    * @param subjectID ID предмета (required)
-   * @param search Поиск по ТНВЭД-коду. Работает только в паре с &#x60;subjectID&#x60; (optional)
+   * @param search Поиск по коду ТН ВЭД. Работает только в паре с &#x60;subjectID&#x60; (optional)
    * @param locale Язык полей ответа: - &#x60;ru&#x60; — русский - &#x60;en&#x60; — английский -
    *     &#x60;zh&#x60; — китайский Не используется в песочнице. Данные песочницы возвращаются
    *     только на русском языке (optional)
@@ -2586,9 +3057,9 @@ public class DefaultApi {
   }
 
   /**
-   * ТНВЭД-код (asynchronously) Метод возвращает список ТНВЭД-кодов по ID
+   * Код ТН ВЭД предмета (asynchronously) Метод возвращает список кодов ТН ВЭД по ID
    * [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll)
-   * и фрагменту ТНВЭД-кода. [Лимит
+   * и фрагменту кода ТН ВЭД. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
    * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
@@ -2608,7 +3079,7 @@ public class DefaultApi {
    * для всех методов **Контента**.
    *
    * @param subjectID ID предмета (required)
-   * @param search Поиск по ТНВЭД-коду. Работает только в паре с &#x60;subjectID&#x60; (optional)
+   * @param search Поиск по коду ТН ВЭД. Работает только в паре с &#x60;subjectID&#x60; (optional)
    * @param locale Язык полей ответа: - &#x60;ru&#x60; — русский - &#x60;en&#x60; — английский -
    *     &#x60;zh&#x60; — китайский Не используется в песочнице. Данные песочницы возвращаются
    *     только на русском языке (optional)
@@ -2636,6 +3107,233 @@ public class DefaultApi {
     okhttp3.Call localVarCall =
         getV2DirectoryTnvedValidateBeforeCall(subjectID, search, locale, _callback);
     Type localVarReturnType = new TypeToken<GetV2DirectoryTnvedResponse200>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * Build call for getV2DirectoryTnvedAll
+   *
+   * @param search Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов (optional)
+   * @param locale Язык полей ответа: - &#x60;ru&#x60; — русский - &#x60;en&#x60; — английский
+   *     (optional, default to ru)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV2DirectoryTnvedAllCall(
+      Integer search, String locale, final ApiCallback _callback) throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {"https://content-api.wildberries.ru"};
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null) {
+      basePath = localCustomBaseUrl;
+    } else if (localBasePaths.length > 0) {
+      basePath = localBasePaths[localHostIndex];
+    } else {
+      basePath = null;
+    }
+
+    Object localVarPostBody = null;
+
+    // create path and map variables
+    String localVarPath = "/api/content/v2/directory/tnved/all";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    if (search != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("search", search));
+    }
+
+    if (locale != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("locale", locale));
+    }
+
+    final String[] localVarAccepts = {"application/json", "application/problem+json"};
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {};
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    if (localVarContentType != null) {
+      localVarHeaderParams.put("Content-Type", localVarContentType);
+    }
+
+    String[] localVarAuthNames = new String[] {"BearerAuth"};
+    return localVarApiClient.buildCall(
+        basePath,
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call getV2DirectoryTnvedAllValidateBeforeCall(
+      Integer search, String locale, final ApiCallback _callback) throws ApiException {
+    return getV2DirectoryTnvedAllCall(search, locale, _callback);
+  }
+
+  /**
+   * Список кодов ТН ВЭД Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по
+   * его фрагменту, укажите первые цифры кода в параметре &#x60;search&#x60;. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
+   * методы: * [создания карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+   * * [создания карточек товаров с
+   * присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+   * * [редактирования карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+   * * [восстановления карточек товаров из
+   * корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+   * * [получения списка рекомендаций в карточках
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+   * * [установки рекомендаций для
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**.
+   *
+   * @param search Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов (optional)
+   * @param locale Язык полей ответа: - &#x60;ru&#x60; — русский - &#x60;en&#x60; — английский
+   *     (optional, default to ru)
+   * @return GetV2DirectoryTnvedAllResponse200
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public GetV2DirectoryTnvedAllResponse200 getV2DirectoryTnvedAll(Integer search, String locale)
+      throws ApiException {
+    ApiResponse<GetV2DirectoryTnvedAllResponse200> localVarResp =
+        getV2DirectoryTnvedAllWithHttpInfo(search, locale);
+    return localVarResp.getData();
+  }
+
+  /**
+   * Список кодов ТН ВЭД Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по
+   * его фрагменту, укажите первые цифры кода в параметре &#x60;search&#x60;. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
+   * методы: * [создания карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+   * * [создания карточек товаров с
+   * присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+   * * [редактирования карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+   * * [восстановления карточек товаров из
+   * корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+   * * [получения списка рекомендаций в карточках
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+   * * [установки рекомендаций для
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**.
+   *
+   * @param search Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов (optional)
+   * @param locale Язык полей ответа: - &#x60;ru&#x60; — русский - &#x60;en&#x60; — английский
+   *     (optional, default to ru)
+   * @return ApiResponse&lt;GetV2DirectoryTnvedAllResponse200&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<GetV2DirectoryTnvedAllResponse200> getV2DirectoryTnvedAllWithHttpInfo(
+      Integer search, String locale) throws ApiException {
+    okhttp3.Call localVarCall = getV2DirectoryTnvedAllValidateBeforeCall(search, locale, null);
+    Type localVarReturnType = new TypeToken<GetV2DirectoryTnvedAllResponse200>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * Список кодов ТН ВЭД (asynchronously) Метод возвращает справочный список всех кодов ТН ВЭД.
+   * Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре &#x60;search&#x60;.
+   * [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * Всплеск | | --- | --- | --- | --- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение —
+   * методы: * [создания карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+   * * [создания карточек товаров с
+   * присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+   * * [редактирования карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+   * * [восстановления карточек товаров из
+   * корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+   * * [получения списка рекомендаций в карточках
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+   * * [установки рекомендаций для
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**.
+   *
+   * @param search Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов (optional)
+   * @param locale Язык полей ответа: - &#x60;ru&#x60; — русский - &#x60;en&#x60; — английский
+   *     (optional, default to ru)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV2DirectoryTnvedAllAsync(
+      Integer search, String locale, final ApiCallback<GetV2DirectoryTnvedAllResponse200> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall = getV2DirectoryTnvedAllValidateBeforeCall(search, locale, _callback);
+    Type localVarReturnType = new TypeToken<GetV2DirectoryTnvedAllResponse200>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }

@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.20260928.0"
+__version__ = "1.20260930.0"
 
 # import apis into sdk package
 from wb_api_client.general.api.api_api import APIApi

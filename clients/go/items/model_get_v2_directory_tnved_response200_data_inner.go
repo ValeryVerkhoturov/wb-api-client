@@ -19,7 +19,7 @@ var _ MappedNullable = &GetV2DirectoryTnvedResponse200DataInner{}
 
 // GetV2DirectoryTnvedResponse200DataInner struct for GetV2DirectoryTnvedResponse200DataInner
 type GetV2DirectoryTnvedResponse200DataInner struct {
-	// ТНВЭД-код
+	// Код ТН ВЭД
 	Tnved *string `json:"tnved,omitempty"`
 	// - `true` — код маркировки [Честного знака](https://честныйзнак.рф/) требуется - `false` — код маркировки [Честного знака](https://честныйзнак.рф/) не требуется
 	IsKiz *bool `json:"isKiz,omitempty"`

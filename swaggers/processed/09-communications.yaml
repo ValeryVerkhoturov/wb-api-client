@@ -1450,7 +1450,7 @@ paths:
     servers:
     - url: https://feedbacks-api.wildberries.ru
     get:
-      operationId: getFeedbacksV1Pins
+      operationId: getV1Pins
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
@@ -1550,7 +1550,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetFeedbacksV1PinsResponse200'
+                $ref: '#/components/schemas/GetV1PinsResponse200'
         '400':
           description: Неправильный запрос
           content:
@@ -1573,7 +1573,7 @@ paths:
           $ref: '#/components/responses/429'
       x-tagKey: pinnedFeedbacks
     post:
-      operationId: postFeedbacksV1Pins
+      operationId: postV1Pins
       x-readonly-method: false
       x-category: questionsandfeedback
       security:
@@ -1581,7 +1581,7 @@ paths:
       summary: Закрепить отзывы
       description: |-
         Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.
-        Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
+        Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).
 
         Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \*\*Закрепление отзыва\*\*.
 
@@ -1616,7 +1616,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PostFeedbacksV1PinsResponse200'
+                $ref: '#/components/schemas/PostV1PinsResponse200'
         '400':
           description: Неправильный запрос
           content:
@@ -1655,7 +1655,7 @@ paths:
           $ref: '#/components/responses/429'
       x-tagKey: pinnedFeedbacks
     delete:
-      operationId: deleteFeedbacksV1Pins
+      operationId: deleteV1Pins
       x-readonly-method: false
       x-category: questionsandfeedback
       security:
@@ -1663,7 +1663,7 @@ paths:
       summary: Открепить отзывы
       description: |-
         Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек.
-        Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
+        Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).
 
         [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**:
         | Тип | Период | Лимит | Интервал | Всплеск |
@@ -1694,7 +1694,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeleteFeedbacksV1PinsResponse200'
+                $ref: '#/components/schemas/DeleteV1PinsResponse200'
         '400':
           description: Неправильный запрос
           content:
@@ -1720,7 +1720,7 @@ paths:
     servers:
     - url: https://feedbacks-api.wildberries.ru
     get:
-      operationId: getFeedbacksV1PinsCount
+      operationId: getV1PinsCount
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
@@ -1804,7 +1804,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetFeedbacksV1PinsCountResponse200'
+                $ref: '#/components/schemas/GetV1PinsCountResponse200'
         '400':
           description: Неправильный запрос
           content:
@@ -1830,7 +1830,7 @@ paths:
     servers:
     - url: https://feedbacks-api.wildberries.ru
     get:
-      operationId: getFeedbacksV1PinsLimits
+      operationId: getV1PinsLimits
       x-readonly-method: true
       x-category: questionsandfeedback
       security:
@@ -1854,7 +1854,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetFeedbacksV1PinsLimitsResponse200'
+                $ref: '#/components/schemas/GetV1PinsLimitsResponse200'
         '401':
           $ref: '#/components/responses/401'
         '402':
@@ -4060,7 +4060,7 @@ components:
           type: array
           items:
             type: string
-    GetFeedbacksV1PinsResponse200:
+    GetV1PinsResponse200:
       allOf:
       - $ref: '#/components/schemas/respond.SuccessResponse'
       - type: object
@@ -4073,11 +4073,11 @@ components:
             type: integer
             description: Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные
             example: 200
-    PostFeedbacksV1PinsResponse200:
+    PostV1PinsResponse200:
       allOf:
       - $ref: '#/components/schemas/respond.SuccessResponse'
       - $ref: '#/components/schemas/openapi.PinReviewItemResult'
-    DeleteFeedbacksV1PinsResponse200:
+    DeleteV1PinsResponse200:
       allOf:
       - $ref: '#/components/schemas/respond.SuccessResponse'
       - type: object
@@ -4091,7 +4091,7 @@ components:
             - 345678
             items:
               type: integer
-    GetFeedbacksV1PinsCountResponse200:
+    GetV1PinsCountResponse200:
       allOf:
       - $ref: '#/components/schemas/respond.SuccessResponse'
       - type: object
@@ -4099,7 +4099,7 @@ components:
           data:
             type: integer
             description: Количество отзывов
-    GetFeedbacksV1PinsLimitsResponse200:
+    GetV1PinsLimitsResponse200:
       allOf:
       - $ref: '#/components/schemas/respond.SuccessResponse'
       - $ref: '#/components/schemas/openapi.SellerLimitsResponse'

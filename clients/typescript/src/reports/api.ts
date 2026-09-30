@@ -2218,95 +2218,6 @@ export const DefaultApiAxiosParamCreator = function (
 ) {
   return {
     /**
-     * Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
-     * @summary Получить отчёт
-     * @param {string} dateFrom Дата начала отчётного периода
-     * @param {string} dateTo Дата окончания отчётного периода
-     * @param {GetAnalyticsV1GoodsReturnStatusEnum} status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
-     * @param {number} limit Количество возвратов в ответе
-     * @param {number} offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAnalyticsV1GoodsReturn: async (
-      dateFrom: string,
-      dateTo: string,
-      status: GetAnalyticsV1GoodsReturnStatusEnum,
-      limit: number,
-      offset: number,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      // verify required parameter 'dateFrom' is not null or undefined
-      assertParamExists("getAnalyticsV1GoodsReturn", "dateFrom", dateFrom);
-      // verify required parameter 'dateTo' is not null or undefined
-      assertParamExists("getAnalyticsV1GoodsReturn", "dateTo", dateTo);
-      // verify required parameter 'status' is not null or undefined
-      assertParamExists("getAnalyticsV1GoodsReturn", "status", status);
-      // verify required parameter 'limit' is not null or undefined
-      assertParamExists("getAnalyticsV1GoodsReturn", "limit", limit);
-      // verify required parameter 'offset' is not null or undefined
-      assertParamExists("getAnalyticsV1GoodsReturn", "offset", offset);
-      const localVarPath = `/api/analytics/v1/item-returns`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "GET",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      if (dateFrom !== undefined) {
-        localVarQueryParameter["dateFrom"] =
-          (dateFrom as any) instanceof Date
-            ? (dateFrom as any).toISOString().substring(0, 10)
-            : dateFrom;
-      }
-
-      if (dateTo !== undefined) {
-        localVarQueryParameter["dateTo"] =
-          (dateTo as any) instanceof Date
-            ? (dateTo as any).toISOString().substring(0, 10)
-            : dateTo;
-      }
-
-      if (status !== undefined) {
-        localVarQueryParameter["status"] = status;
-      }
-
-      if (limit !== undefined) {
-        localVarQueryParameter["limit"] = limit;
-      }
-
-      if (offset !== undefined) {
-        localVarQueryParameter["offset"] = offset;
-      }
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
      * Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
      * @summary Создать отчёт
      * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
@@ -3066,6 +2977,95 @@ export const DefaultApiAxiosParamCreator = function (
       };
     },
     /**
+     * Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
+     * @summary Получить отчёт
+     * @param {string} dateFrom Дата начала отчётного периода
+     * @param {string} dateTo Дата окончания отчётного периода
+     * @param {GetV1GoodsReturnStatusEnum} status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
+     * @param {number} limit Количество возвратов в ответе
+     * @param {number} offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV1GoodsReturn: async (
+      dateFrom: string,
+      dateTo: string,
+      status: GetV1GoodsReturnStatusEnum,
+      limit: number,
+      offset: number,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'dateFrom' is not null or undefined
+      assertParamExists("getV1GoodsReturn", "dateFrom", dateFrom);
+      // verify required parameter 'dateTo' is not null or undefined
+      assertParamExists("getV1GoodsReturn", "dateTo", dateTo);
+      // verify required parameter 'status' is not null or undefined
+      assertParamExists("getV1GoodsReturn", "status", status);
+      // verify required parameter 'limit' is not null or undefined
+      assertParamExists("getV1GoodsReturn", "limit", limit);
+      // verify required parameter 'offset' is not null or undefined
+      assertParamExists("getV1GoodsReturn", "offset", offset);
+      const localVarPath = `/api/analytics/v1/item-returns`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "GET",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      if (dateFrom !== undefined) {
+        localVarQueryParameter["dateFrom"] =
+          (dateFrom as any) instanceof Date
+            ? (dateFrom as any).toISOString().substring(0, 10)
+            : dateFrom;
+      }
+
+      if (dateTo !== undefined) {
+        localVarQueryParameter["dateTo"] =
+          (dateTo as any) instanceof Date
+            ? (dateTo as any).toISOString().substring(0, 10)
+            : dateTo;
+      }
+
+      if (status !== undefined) {
+        localVarQueryParameter["status"] = status;
+      }
+
+      if (limit !== undefined) {
+        localVarQueryParameter["limit"] = limit;
+      }
+
+      if (offset !== undefined) {
+        localVarQueryParameter["offset"] = offset;
+      }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
      * Метод возвращает отчёт об [удержаниях за занижение габаритов упаковки](https://seller.wildberries.ru/analytics-reports/dimensions-penalties)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 6 ч | 1 запрос | 6 ч | 1 запрос |
      * @summary Удержания за занижение габаритов упаковки
      * @param {string} dateTo Конец отчётного периода
@@ -3716,52 +3716,6 @@ export const DefaultApiFp = function (configuration?: Configuration) {
   const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration);
   return {
     /**
-     * Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
-     * @summary Получить отчёт
-     * @param {string} dateFrom Дата начала отчётного периода
-     * @param {string} dateTo Дата окончания отчётного периода
-     * @param {GetAnalyticsV1GoodsReturnStatusEnum} status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
-     * @param {number} limit Количество возвратов в ответе
-     * @param {number} offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async getAnalyticsV1GoodsReturn(
-      dateFrom: string,
-      dateTo: string,
-      status: GetAnalyticsV1GoodsReturnStatusEnum,
-      limit: number,
-      offset: number,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<GoodsReturn200Response>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.getAnalyticsV1GoodsReturn(
-          dateFrom,
-          dateTo,
-          status,
-          limit,
-          offset,
-          options,
-        );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getAnalyticsV1GoodsReturn"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
      * Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
      * @summary Создать отчёт
      * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
@@ -4215,6 +4169,52 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
+     * Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
+     * @summary Получить отчёт
+     * @param {string} dateFrom Дата начала отчётного периода
+     * @param {string} dateTo Дата окончания отчётного периода
+     * @param {GetV1GoodsReturnStatusEnum} status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
+     * @param {number} limit Количество возвратов в ответе
+     * @param {number} offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getV1GoodsReturn(
+      dateFrom: string,
+      dateTo: string,
+      status: GetV1GoodsReturnStatusEnum,
+      limit: number,
+      offset: number,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<GoodsReturn200Response>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.getV1GoodsReturn(
+          dateFrom,
+          dateTo,
+          status,
+          limit,
+          offset,
+          options,
+        );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["DefaultApi.getV1GoodsReturn"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
      * Метод возвращает отчёт об [удержаниях за занижение габаритов упаковки](https://seller.wildberries.ru/analytics-reports/dimensions-penalties)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 6 ч | 1 запрос | 6 ч | 1 запрос |
      * @summary Удержания за занижение габаритов упаковки
      * @param {string} dateTo Конец отчётного периода
@@ -4621,36 +4621,6 @@ export const DefaultApiFactory = function (
   const localVarFp = DefaultApiFp(configuration);
   return {
     /**
-     * Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
-     * @summary Получить отчёт
-     * @param {string} dateFrom Дата начала отчётного периода
-     * @param {string} dateTo Дата окончания отчётного периода
-     * @param {GetAnalyticsV1GoodsReturnStatusEnum} status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
-     * @param {number} limit Количество возвратов в ответе
-     * @param {number} offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAnalyticsV1GoodsReturn(
-      dateFrom: string,
-      dateTo: string,
-      status: GetAnalyticsV1GoodsReturnStatusEnum,
-      limit: number,
-      offset: number,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<GoodsReturn200Response> {
-      return localVarFp
-        .getAnalyticsV1GoodsReturn(
-          dateFrom,
-          dateTo,
-          status,
-          limit,
-          offset,
-          options,
-        )
-        .then((request) => request(axios, basePath));
-    },
-    /**
      * Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
      * @summary Создать отчёт
      * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
@@ -4870,6 +4840,29 @@ export const DefaultApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
+     * Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
+     * @summary Получить отчёт
+     * @param {string} dateFrom Дата начала отчётного периода
+     * @param {string} dateTo Дата окончания отчётного периода
+     * @param {GetV1GoodsReturnStatusEnum} status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
+     * @param {number} limit Количество возвратов в ответе
+     * @param {number} offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV1GoodsReturn(
+      dateFrom: string,
+      dateTo: string,
+      status: GetV1GoodsReturnStatusEnum,
+      limit: number,
+      offset: number,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<GoodsReturn200Response> {
+      return localVarFp
+        .getV1GoodsReturn(dateFrom, dateTo, status, limit, offset, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
      * Метод возвращает отчёт об [удержаниях за занижение габаритов упаковки](https://seller.wildberries.ru/analytics-reports/dimensions-penalties)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 6 ч | 1 запрос | 6 ч | 1 запрос |
      * @summary Удержания за занижение габаритов упаковки
      * @param {string} dateTo Конец отчётного периода
@@ -5078,27 +5071,6 @@ export const DefaultApiFactory = function (
  */
 export interface DefaultApiInterface {
   /**
-   * Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
-   * @summary Получить отчёт
-   * @param {string} dateFrom Дата начала отчётного периода
-   * @param {string} dateTo Дата окончания отчётного периода
-   * @param {GetAnalyticsV1GoodsReturnStatusEnum} status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
-   * @param {number} limit Количество возвратов в ответе
-   * @param {number} offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  getAnalyticsV1GoodsReturn(
-    dateFrom: string,
-    dateTo: string,
-    status: GetAnalyticsV1GoodsReturnStatusEnum,
-    limit: number,
-    offset: number,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<GoodsReturn200Response>;
-
-  /**
    * Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
    * @summary Создать отчёт
    * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
@@ -5288,6 +5260,27 @@ export interface DefaultApiInterface {
   ): AxiosPromise<GetV1Deductions200Response>;
 
   /**
+   * Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
+   * @summary Получить отчёт
+   * @param {string} dateFrom Дата начала отчётного периода
+   * @param {string} dateTo Дата окончания отчётного периода
+   * @param {GetV1GoodsReturnStatusEnum} status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
+   * @param {number} limit Количество возвратов в ответе
+   * @param {number} offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DefaultApiInterface
+   */
+  getV1GoodsReturn(
+    dateFrom: string,
+    dateTo: string,
+    status: GetV1GoodsReturnStatusEnum,
+    limit: number,
+    offset: number,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<GoodsReturn200Response>;
+
+  /**
    * Метод возвращает отчёт об [удержаниях за занижение габаритов упаковки](https://seller.wildberries.ru/analytics-reports/dimensions-penalties)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 6 ч | 1 запрос | 6 ч | 1 запрос |
    * @summary Удержания за занижение габаритов упаковки
    * @param {string} dateTo Конец отчётного периода
@@ -5461,38 +5454,6 @@ export interface DefaultApiInterface {
  * @extends {BaseAPI}
  */
 export class DefaultApi extends BaseAPI implements DefaultApiInterface {
-  /**
-   * Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
-   * @summary Получить отчёт
-   * @param {string} dateFrom Дата начала отчётного периода
-   * @param {string} dateTo Дата окончания отчётного периода
-   * @param {GetAnalyticsV1GoodsReturnStatusEnum} status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
-   * @param {number} limit Количество возвратов в ответе
-   * @param {number} offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public getAnalyticsV1GoodsReturn(
-    dateFrom: string,
-    dateTo: string,
-    status: GetAnalyticsV1GoodsReturnStatusEnum,
-    limit: number,
-    offset: number,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .getAnalyticsV1GoodsReturn(
-        dateFrom,
-        dateTo,
-        status,
-        limit,
-        offset,
-        options,
-      )
-      .then((request) => request(this.axios, this.basePath));
-  }
-
   /**
    * Метод создаёт [задание на генерацию](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdStatus) отчёта об [операциях при приёмке](https://dev.wildberries.ru/openapi/reports#tag/acceptanceExpenses/operation/getV1AcceptanceReportTasksTaskIdDownload).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
    * @summary Создать отчёт
@@ -5733,6 +5694,31 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
   }
 
   /**
+   * Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
+   * @summary Получить отчёт
+   * @param {string} dateFrom Дата начала отчётного периода
+   * @param {string} dateTo Дата окончания отчётного периода
+   * @param {GetV1GoodsReturnStatusEnum} status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
+   * @param {number} limit Количество возвратов в ответе
+   * @param {number} offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DefaultApi
+   */
+  public getV1GoodsReturn(
+    dateFrom: string,
+    dateTo: string,
+    status: GetV1GoodsReturnStatusEnum,
+    limit: number,
+    offset: number,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return DefaultApiFp(this.configuration)
+      .getV1GoodsReturn(dateFrom, dateTo, status, limit, offset, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
    * Метод возвращает отчёт об [удержаниях за занижение габаритов упаковки](https://seller.wildberries.ru/analytics-reports/dimensions-penalties)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 6 ч | 1 запрос | 6 ч | 1 запрос |
    * @summary Удержания за занижение габаритов упаковки
    * @param {string} dateTo Конец отчётного периода
@@ -5951,15 +5937,6 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
 /**
  * @export
  */
-export const GetAnalyticsV1GoodsReturnStatusEnum = {
-  Active: "active",
-  Archive: "archive",
-} as const;
-export type GetAnalyticsV1GoodsReturnStatusEnum =
-  (typeof GetAnalyticsV1GoodsReturnStatusEnum)[keyof typeof GetAnalyticsV1GoodsReturnStatusEnum];
-/**
- * @export
- */
 export const GetV1AnalyticsBannedProducsBlockedSortEnum = {
   Brand: "brand",
   NmId: "nmId",
@@ -5997,6 +5974,15 @@ export const GetV1DeductionsOrderEnum = {
 } as const;
 export type GetV1DeductionsOrderEnum =
   (typeof GetV1DeductionsOrderEnum)[keyof typeof GetV1DeductionsOrderEnum];
+/**
+ * @export
+ */
+export const GetV1GoodsReturnStatusEnum = {
+  Active: "active",
+  Archive: "archive",
+} as const;
+export type GetV1GoodsReturnStatusEnum =
+  (typeof GetV1GoodsReturnStatusEnum)[keyof typeof GetV1GoodsReturnStatusEnum];
 
 /**
  * CApi - axios parameter creator

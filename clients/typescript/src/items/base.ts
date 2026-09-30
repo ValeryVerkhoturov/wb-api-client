@@ -185,6 +185,18 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
+  "DefaultApi.getV2DirectoryOkpd": [
+    {
+      url: "https://content-api.wildberries.ru",
+      description: "**Prod** ",
+    },
+  ],
+  "DefaultApi.getV2DirectoryOkpdAll": [
+    {
+      url: "https://content-api.wildberries.ru",
+      description: "**Prod** ",
+    },
+  ],
   "DefaultApi.getV2DirectorySeasons": [
     {
       url: "https://content-api.wildberries.ru",
@@ -203,6 +215,12 @@ export const operationServerMap: ServerMap = {
     {
       url: "https://content-api-sandbox.wildberries.ru",
       description: "**Sandbox** ",
+    },
+  ],
+  "DefaultApi.getV2DirectoryTnvedAll": [
+    {
+      url: "https://content-api.wildberries.ru",
+      description: "**Prod** ",
     },
   ],
   "DefaultApi.getV2DirectoryVat": [

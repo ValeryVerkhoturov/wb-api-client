@@ -3607,8 +3607,10 @@ paths:
       x-readonly-method: true
       x-token-types:
       - personal
+      - service
+      - base-with-secret
       x-category: marketplace
-      operationId: getMarketplaceV3FbsSettingsAutoreturns
+      operationId: getV3FbsSettingsAutoreturns
       security:
       - BearerAuth: []
       tags:
@@ -3616,7 +3618,9 @@ paths:
       summary: Получить настройки автовозврата продавца
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-        **Персональному** токену
+        **Персональному** токену,
+        **Сервисному** токену,
+        **Базовому** токену **с секретом**
 
         Метод возвращает информацию о настройках автовозврата, установленных продавцом.
 
@@ -3631,7 +3635,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetMarketplaceV3FbsSettingsAutoreturnsResponse200'
+                $ref: '#/components/schemas/GetV3FbsSettingsAutoreturnsResponse200'
         '401':
           $ref: '#/components/responses/401'
         '403':
@@ -3652,8 +3656,10 @@ paths:
       x-readonly-method: false
       x-token-types:
       - personal
+      - service
+      - base-with-secret
       x-category: marketplace
-      operationId: patchMarketplaceV3FbsSettingsAutoreturns
+      operationId: patchV3FbsSettingsAutoreturns
       security:
       - BearerAuth: []
       tags:
@@ -3661,7 +3667,9 @@ paths:
       summary: Обновить настройки автовозврата продавца
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-        **Персональному** токену
+        **Персональному** токену,
+        **Сервисному** токену,
+        **Базовому** токену **с секретом**
 
         Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `"cargoType":1`.
 
@@ -3683,7 +3691,7 @@ paths:
                   example: allToWarehouse
                   description: |
                     Тип автовозврата малогабаритных товаров:
-                      - `allToWarehouse` — отправлять все товары на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
+                      - `allToWarehouse` — отправлять все товары на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
                       - `allToPickupPoint` — отправлять все товары на пункт выдачи заказов
                       - `manual` — использовать ручные настройки
                   enum:
@@ -3727,8 +3735,10 @@ paths:
       x-readonly-method: true
       x-token-types:
       - personal
+      - service
+      - base-with-secret
       x-category: marketplace
-      operationId: postMarketplaceV3FbsSettingsAutoreturnsItems
+      operationId: postV3FbsSettingsAutoreturnsItems
       security:
       - BearerAuth: []
       tags:
@@ -3736,7 +3746,9 @@ paths:
       summary: Получить настройки автовозврата товаров
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-        **Персональному** токену
+        **Персональному** токену,
+        **Сервисному** токену,
+        **Базовому** токену **с секретом**
 
         Метод возвращает настройки автовозврата товаров.
 
@@ -3770,7 +3782,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200'
+                $ref: '#/components/schemas/PostV3FbsSettingsAutoreturnsItemsResponse200'
         '400':
           description: Неправильный запрос
           content:
@@ -3800,8 +3812,10 @@ paths:
       x-readonly-method: false
       x-token-types:
       - personal
+      - service
+      - base-with-secret
       x-category: marketplace
-      operationId: patchMarketplaceV3FbsSettingsAutoreturnsItems
+      operationId: patchV3FbsSettingsAutoreturnsItems
       security:
       - BearerAuth: []
       tags:
@@ -3809,7 +3823,9 @@ paths:
       summary: Обновить настройки автовозврата товаров
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-        **Персональному** токену
+        **Персональному** токену,
+        **Сервисному** токену,
+        **Базовому** токену **с секретом**
 
         Метод устанавливает настройки автовозврата малогабаритных товаров — `"cargoType":1`.
 
@@ -3854,7 +3870,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200'
+                $ref: '#/components/schemas/PatchV3FbsSettingsAutoreturnsItemsResponse200'
         '400':
           description: Неправильный запрос
           content:
@@ -3891,8 +3907,10 @@ paths:
       x-readonly-method: true
       x-token-types:
       - personal
+      - service
+      - base-with-secret
       x-category: marketplace
-      operationId: getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted
+      operationId: getV3FbsSettingsAutoreturnsSubcategoriesRestricted
       security:
       - BearerAuth: []
       tags:
@@ -3900,7 +3918,9 @@ paths:
       summary: Получить предметы, которые не хранятся на складах WB
       description: |-
         Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-        **Персональному** токену
+        **Персональному** токену,
+        **Сервисному** токену,
+        **Базовому** токену **с секретом**
 
         Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.
 
@@ -3934,7 +3954,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200'
+                $ref: '#/components/schemas/GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200'
         '400':
           description: Неправильный запрос
           content:
@@ -6333,7 +6353,7 @@ components:
           minItems: 1
           items:
             $ref: '#/components/schemas/TrbxStickers'
-    GetMarketplaceV3FbsSettingsAutoreturnsResponse200:
+    GetV3FbsSettingsAutoreturnsResponse200:
       type: object
       required:
       - type
@@ -6344,14 +6364,14 @@ components:
           nullable: false
           description: |
             Тип автовозврата:
-              - `allToWarehouse` — все товары отправляются на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
+              - `allToWarehouse` — все товары отправляются на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
               - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов
               - `manual` — используются ручные настройки
           enum:
           - allToWarehouse
           - allToPickupPoint
           - manual
-    PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200:
+    PostV3FbsSettingsAutoreturnsItemsResponse200:
       required:
       - results
       example:
@@ -6392,7 +6412,7 @@ components:
                     - `auto` — место возврата определяется автоматически
                     - `byWarehouse` — на склад WB
                     - `byPickupPoint` — на пункт выдачи заказов
-                    - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
+                    - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
               changeable:
                 type: boolean
                 description: |
@@ -6413,7 +6433,7 @@ components:
                         Дополнительная информация об ошибке
                 type: array
                 description: Детали ошибки
-    PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200:
+    PatchV3FbsSettingsAutoreturnsItemsResponse200:
       type: object
       required:
       - results
@@ -6457,7 +6477,7 @@ components:
                 type: boolean
                 description: |
                   - `true` — настройки автовозврата товара обновлены
-    GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200:
+    GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200:
       type: object
       required:
       - next

@@ -99,31 +99,31 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"DefaultApiService.GetMarketplaceV3FbsSettingsAutoreturns": {
+			"DefaultApiService.GetV3FbsSettingsAutoreturns": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 			},
-			"DefaultApiService.GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted": {
+			"DefaultApiService.GetV3FbsSettingsAutoreturnsSubcategoriesRestricted": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 			},
-			"DefaultApiService.PatchMarketplaceV3FbsSettingsAutoreturns": {
+			"DefaultApiService.PatchV3FbsSettingsAutoreturns": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 			},
-			"DefaultApiService.PatchMarketplaceV3FbsSettingsAutoreturnsItems": {
+			"DefaultApiService.PatchV3FbsSettingsAutoreturnsItems": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",
 				},
 			},
-			"DefaultApiService.PostMarketplaceV3FbsSettingsAutoreturnsItems": {
+			"DefaultApiService.PostV3FbsSettingsAutoreturnsItems": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",
 					Description: "**Prod** ",

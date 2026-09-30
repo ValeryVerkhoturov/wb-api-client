@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20260928.0";
+        public const string Version = "1.20260930.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -317,6 +317,30 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                     }
                 },
                 {
+                    "DefaultApi.GetV2DirectoryOkpd", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://content-api.wildberries.ru"},
+                                {"description", "**Prod** "}
+                            }
+                        },
+                    }
+                },
+                {
+                    "DefaultApi.GetV2DirectoryOkpdAll", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://content-api.wildberries.ru"},
+                                {"description", "**Prod** "}
+                            }
+                        },
+                    }
+                },
+                {
                     "DefaultApi.GetV2DirectorySeasons", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
@@ -350,6 +374,18 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
                             {
                                 {"url", "https://content-api-sandbox.wildberries.ru"},
                                 {"description", "**Sandbox** "}
+                            }
+                        },
+                    }
+                },
+                {
+                    "DefaultApi.GetV2DirectoryTnvedAll", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://content-api.wildberries.ru"},
+                                {"description", "**Prod** "}
                             }
                         },
                     }
@@ -1509,7 +1545,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: items\n";
-            report += "    SDK Package Version: 1.20260928.0\n";
+            report += "    SDK Package Version: 1.20260930.0\n";
 
             return report;
         }

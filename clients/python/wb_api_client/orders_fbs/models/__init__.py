@@ -33,17 +33,17 @@ from wb_api_client.orders_fbs.models.delete_v3_supplies_supply_id_trbx_request i
     DeleteV3SuppliesSupplyIdTrbxRequest,
 )
 from wb_api_client.orders_fbs.models.error import Error
-from wb_api_client.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns_response200 import (
-    GetMarketplaceV3FbsSettingsAutoreturnsResponse200,
-)
-from wb_api_client.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_response200 import (
-    GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200,
-)
-from wb_api_client.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_response200_data_inner import (
-    GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner,
-)
 from wb_api_client.orders_fbs.models.get_v3_fbs_orders_archive403_response import (
     GetV3FbsOrdersArchive403Response,
+)
+from wb_api_client.orders_fbs.models.get_v3_fbs_settings_autoreturns_response200 import (
+    GetV3FbsSettingsAutoreturnsResponse200,
+)
+from wb_api_client.orders_fbs.models.get_v3_fbs_settings_autoreturns_subcategories_restricted_response200 import (
+    GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200,
+)
+from wb_api_client.orders_fbs.models.get_v3_fbs_settings_autoreturns_subcategories_restricted_response200_data_inner import (
+    GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner,
 )
 from wb_api_client.orders_fbs.models.get_v3_fbs_shipping_points403_response import (
     GetV3FbsShippingPoints403Response,
@@ -94,20 +94,20 @@ from wb_api_client.orders_fbs.models.order_new import OrderNew
 from wb_api_client.orders_fbs.models.order_options import OrderOptions
 from wb_api_client.orders_fbs.models.orders_request_api import OrdersRequestAPI
 from wb_api_client.orders_fbs.models.pass_office import PassOffice
-from wb_api_client.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_items_request import (
-    PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+from wb_api_client.orders_fbs.models.patch_v3_fbs_settings_autoreturns_items_request import (
+    PatchV3FbsSettingsAutoreturnsItemsRequest,
 )
-from wb_api_client.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_items_response200 import (
-    PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200,
+from wb_api_client.orders_fbs.models.patch_v3_fbs_settings_autoreturns_items_response200 import (
+    PatchV3FbsSettingsAutoreturnsItemsResponse200,
 )
-from wb_api_client.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_items_response200_results_inner import (
-    PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner,
+from wb_api_client.orders_fbs.models.patch_v3_fbs_settings_autoreturns_items_response200_results_inner import (
+    PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner,
 )
-from wb_api_client.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_items_response200_results_inner_error_inner import (
-    PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner,
+from wb_api_client.orders_fbs.models.patch_v3_fbs_settings_autoreturns_items_response200_results_inner_error_inner import (
+    PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner,
 )
-from wb_api_client.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_request import (
-    PatchMarketplaceV3FbsSettingsAutoreturnsRequest,
+from wb_api_client.orders_fbs.models.patch_v3_fbs_settings_autoreturns_request import (
+    PatchV3FbsSettingsAutoreturnsRequest,
 )
 from wb_api_client.orders_fbs.models.patch_v3_fbs_supplies_shipping_method_request import (
     PatchV3FbsSuppliesShippingMethodRequest,
@@ -118,17 +118,17 @@ from wb_api_client.orders_fbs.models.patch_v3_fbs_supplies_waybill_request impor
 from wb_api_client.orders_fbs.models.patch_v3_supplies_supply_id_orders_request import (
     PatchV3SuppliesSupplyIdOrdersRequest,
 )
-from wb_api_client.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items_request import (
-    PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+from wb_api_client.orders_fbs.models.post_v3_fbs_settings_autoreturns_items_request import (
+    PostV3FbsSettingsAutoreturnsItemsRequest,
 )
-from wb_api_client.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items_response200 import (
-    PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200,
+from wb_api_client.orders_fbs.models.post_v3_fbs_settings_autoreturns_items_response200 import (
+    PostV3FbsSettingsAutoreturnsItemsResponse200,
 )
-from wb_api_client.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items_response200_results_inner import (
-    PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner,
+from wb_api_client.orders_fbs.models.post_v3_fbs_settings_autoreturns_items_response200_results_inner import (
+    PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner,
 )
-from wb_api_client.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items_response200_results_inner_error_inner import (
-    PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner,
+from wb_api_client.orders_fbs.models.post_v3_fbs_settings_autoreturns_items_response200_results_inner_error_inner import (
+    PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner,
 )
 from wb_api_client.orders_fbs.models.post_v3_fbs_supplies_spot_list_request import (
     PostV3FbsSuppliesSpotListRequest,

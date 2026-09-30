@@ -195,6 +195,18 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
+			"DefaultApiService.GetV2DirectoryOkpd": {
+				{
+					URL:         "https://content-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+			},
+			"DefaultApiService.GetV2DirectoryOkpdAll": {
+				{
+					URL:         "https://content-api.wildberries.ru",
+					Description: "**Prod** ",
+				},
+			},
 			"DefaultApiService.GetV2DirectorySeasons": {
 				{
 					URL:         "https://content-api.wildberries.ru",
@@ -213,6 +225,12 @@ func NewConfiguration() *Configuration {
 				{
 					URL:         "https://content-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.GetV2DirectoryTnvedAll": {
+				{
+					URL:         "https://content-api.wildberries.ru",
+					Description: "**Prod** ",
 				},
 			},
 			"DefaultApiService.GetV2DirectoryVat": {

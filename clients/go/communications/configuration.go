@@ -99,25 +99,7 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"DefaultApiService.DeleteFeedbacksV1Pins": {
-				{
-					URL:         "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.GetFeedbacksV1Pins": {
-				{
-					URL:         "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.GetFeedbacksV1PinsCount": {
-				{
-					URL:         "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
-			"DefaultApiService.GetFeedbacksV1PinsLimits": {
+			"DefaultApiService.DeleteV1Pins": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
 					Description: "No description provided",
@@ -187,6 +169,24 @@ func NewConfiguration() *Configuration {
 				{
 					URL:         "https://feedbacks-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.GetV1Pins": {
+				{
+					URL:         "https://feedbacks-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.GetV1PinsCount": {
+				{
+					URL:         "https://feedbacks-api.wildberries.ru",
+					Description: "No description provided",
+				},
+			},
+			"DefaultApiService.GetV1PinsLimits": {
+				{
+					URL:         "https://feedbacks-api.wildberries.ru",
+					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.GetV1Question": {
@@ -273,12 +273,6 @@ func NewConfiguration() *Configuration {
 					Description: "**Sandbox** ",
 				},
 			},
-			"DefaultApiService.PostFeedbacksV1Pins": {
-				{
-					URL:         "https://feedbacks-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
 			"DefaultApiService.PostV1FeedbacksAnswer": {
 				{
 					URL:         "https://feedbacks-api.wildberries.ru",
@@ -297,6 +291,12 @@ func NewConfiguration() *Configuration {
 				{
 					URL:         "https://feedbacks-api-sandbox.wildberries.ru",
 					Description: "**Sandbox** ",
+				},
+			},
+			"DefaultApiService.PostV1Pins": {
+				{
+					URL:         "https://feedbacks-api.wildberries.ru",
+					Description: "No description provided",
 				},
 			},
 			"DefaultApiService.PostV1SellerMessage": {

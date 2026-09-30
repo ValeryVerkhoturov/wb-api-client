@@ -21,33 +21,6 @@ import (
 type DefaultApi interface {
 
 	/*
-			PostAnalyticsV1StocksReportSellerWarehouses Остатки на складах продавца
-
-			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-		**Персональному** токену,
-		**Сервисному** токену
-
-		Метод возвращает текущие остатки товаров на складах продавца.
-
-		Данные обновляются 1 раз в 30 минут.
-
-		1 строка ответа — данные об 1 размере товара на 1 складе продавца.
-
-		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-		| Период | Лимит | Интервал | Всплеск |
-		| --- | --- | --- | --- |
-		| 1 мин | 3 запроса | 20 сек | 1 запрос |
-
-			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			@return ApiPostAnalyticsV1StocksReportSellerWarehousesRequest
-	*/
-	PostAnalyticsV1StocksReportSellerWarehouses(ctx context.Context) ApiPostAnalyticsV1StocksReportSellerWarehousesRequest
-
-	// PostAnalyticsV1StocksReportSellerWarehousesExecute executes the request
-	//  @return PostAnalyticsV1StocksReportSellerWarehousesResponse200
-	PostAnalyticsV1StocksReportSellerWarehousesExecute(r ApiPostAnalyticsV1StocksReportSellerWarehousesRequest) (*PostAnalyticsV1StocksReportSellerWarehousesResponse200, *http.Response, error)
-
-	/*
 			PostV1OrderFeed Получить отчёт
 
 			Метод формирует набор данных о заказах и продажах.
@@ -80,6 +53,33 @@ type DefaultApi interface {
 	// PostV1OrderFeedExecute executes the request
 	//  @return PostV1OrderFeedResponse200
 	PostV1OrderFeedExecute(r ApiPostV1OrderFeedRequest) (*PostV1OrderFeedResponse200, *http.Response, error)
+
+	/*
+			PostV1StocksReportSellerWarehouses Остатки на складах продавца
+
+			Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+		**Персональному** токену,
+		**Сервисному** токену
+
+		Метод возвращает текущие остатки товаров на складах продавца.
+
+		Данные обновляются 1 раз в 30 минут.
+
+		1 строка ответа — данные об 1 размере товара на 1 складе продавца.
+
+		[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+		| Период | Лимит | Интервал | Всплеск |
+		| --- | --- | --- | --- |
+		| 1 мин | 3 запроса | 20 сек | 1 запрос |
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiPostV1StocksReportSellerWarehousesRequest
+	*/
+	PostV1StocksReportSellerWarehouses(ctx context.Context) ApiPostV1StocksReportSellerWarehousesRequest
+
+	// PostV1StocksReportSellerWarehousesExecute executes the request
+	//  @return PostV1StocksReportSellerWarehousesResponse200
+	PostV1StocksReportSellerWarehousesExecute(r ApiPostV1StocksReportSellerWarehousesRequest) (*PostV1StocksReportSellerWarehousesResponse200, *http.Response, error)
 
 	/*
 			PostV1StocksReportWbWarehouses Остатки на складах WB
@@ -519,173 +519,6 @@ type DefaultApi interface {
 // DefaultApiService DefaultApi service
 type DefaultApiService service
 
-type ApiPostAnalyticsV1StocksReportSellerWarehousesRequest struct {
-	ctx              context.Context
-	ApiService       DefaultApi
-	inventoryRequest *InventoryRequest
-}
-
-func (r ApiPostAnalyticsV1StocksReportSellerWarehousesRequest) InventoryRequest(inventoryRequest InventoryRequest) ApiPostAnalyticsV1StocksReportSellerWarehousesRequest {
-	r.inventoryRequest = &inventoryRequest
-	return r
-}
-
-func (r ApiPostAnalyticsV1StocksReportSellerWarehousesRequest) Execute() (*PostAnalyticsV1StocksReportSellerWarehousesResponse200, *http.Response, error) {
-	return r.ApiService.PostAnalyticsV1StocksReportSellerWarehousesExecute(r)
-}
-
-/*
-PostAnalyticsV1StocksReportSellerWarehouses Остатки на складах продавца
-
-Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
-**Персональному** токену,
-**Сервисному** токену
-
-Метод возвращает текущие остатки товаров на складах продавца.
-
-Данные обновляются 1 раз в 30 минут.
-
-1 строка ответа — данные об 1 размере товара на 1 складе продавца.
-
-[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
-| Период | Лимит | Интервал | Всплеск |
-| --- | --- | --- | --- |
-| 1 мин | 3 запроса | 20 сек | 1 запрос |
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostAnalyticsV1StocksReportSellerWarehousesRequest
-*/
-func (a *DefaultApiService) PostAnalyticsV1StocksReportSellerWarehouses(ctx context.Context) ApiPostAnalyticsV1StocksReportSellerWarehousesRequest {
-	return ApiPostAnalyticsV1StocksReportSellerWarehousesRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-// Execute executes the request
-//
-//	@return PostAnalyticsV1StocksReportSellerWarehousesResponse200
-func (a *DefaultApiService) PostAnalyticsV1StocksReportSellerWarehousesExecute(r ApiPostAnalyticsV1StocksReportSellerWarehousesRequest) (*PostAnalyticsV1StocksReportSellerWarehousesResponse200, *http.Response, error) {
-	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *PostAnalyticsV1StocksReportSellerWarehousesResponse200
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostAnalyticsV1StocksReportSellerWarehouses")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/analytics/v1/stocks-report/seller-warehouses"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.inventoryRequest == nil {
-		return localVarReturnValue, nil, reportError("inventoryRequest is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.inventoryRequest
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorObject400
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostV3SalesFunnelProducts401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorObject403
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v PostV3SalesFunnelProducts401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type ApiPostV1OrderFeedRequest struct {
 	ctx              context.Context
 	ApiService       DefaultApi
@@ -777,6 +610,173 @@ func (a *DefaultApiService) PostV1OrderFeedExecute(r ApiPostV1OrderFeedRequest) 
 	}
 	// body params
 	localVarPostBody = r.orderFeedRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorObject400
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v PostV3SalesFunnelProducts401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorObject403
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v PostV3SalesFunnelProducts401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostV1StocksReportSellerWarehousesRequest struct {
+	ctx              context.Context
+	ApiService       DefaultApi
+	inventoryRequest *InventoryRequest
+}
+
+func (r ApiPostV1StocksReportSellerWarehousesRequest) InventoryRequest(inventoryRequest InventoryRequest) ApiPostV1StocksReportSellerWarehousesRequest {
+	r.inventoryRequest = &inventoryRequest
+	return r
+}
+
+func (r ApiPostV1StocksReportSellerWarehousesRequest) Execute() (*PostV1StocksReportSellerWarehousesResponse200, *http.Response, error) {
+	return r.ApiService.PostV1StocksReportSellerWarehousesExecute(r)
+}
+
+/*
+PostV1StocksReportSellerWarehouses Остатки на складах продавца
+
+Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по
+**Персональному** токену,
+**Сервисному** токену
+
+Метод возвращает текущие остатки товаров на складах продавца.
+
+Данные обновляются 1 раз в 30 минут.
+
+1 строка ответа — данные об 1 размере товара на 1 складе продавца.
+
+[Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца:
+| Период | Лимит | Интервал | Всплеск |
+| --- | --- | --- | --- |
+| 1 мин | 3 запроса | 20 сек | 1 запрос |
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostV1StocksReportSellerWarehousesRequest
+*/
+func (a *DefaultApiService) PostV1StocksReportSellerWarehouses(ctx context.Context) ApiPostV1StocksReportSellerWarehousesRequest {
+	return ApiPostV1StocksReportSellerWarehousesRequest{
+		ApiService: a,
+		ctx:        ctx,
+	}
+}
+
+// Execute executes the request
+//
+//	@return PostV1StocksReportSellerWarehousesResponse200
+func (a *DefaultApiService) PostV1StocksReportSellerWarehousesExecute(r ApiPostV1StocksReportSellerWarehousesRequest) (*PostV1StocksReportSellerWarehousesResponse200, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PostV1StocksReportSellerWarehousesResponse200
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.PostV1StocksReportSellerWarehouses")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/analytics/v1/stocks-report/seller-warehouses"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.inventoryRequest == nil {
+		return localVarReturnValue, nil, reportError("inventoryRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/problem+json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.inventoryRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

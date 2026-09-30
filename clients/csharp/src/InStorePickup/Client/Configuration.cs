@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20260928.0";
+        public const string Version = "1.20260930.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -872,7 +872,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: instorepickup\n";
-            report += "    SDK Package Version: 1.20260928.0\n";
+            report += "    SDK Package Version: 1.20260930.0\n";
 
             return report;
         }

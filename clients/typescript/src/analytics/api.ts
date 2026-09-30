@@ -3118,19 +3118,6 @@ export interface PositionInfoMedian {
 /**
  *
  * @export
- * @interface PostAnalyticsV1StocksReportSellerWarehousesResponse200
- */
-export interface PostAnalyticsV1StocksReportSellerWarehousesResponse200 {
-  /**
-   *
-   * @type {InventorySellerResponse}
-   * @memberof PostAnalyticsV1StocksReportSellerWarehousesResponse200
-   */
-  data: InventorySellerResponse;
-}
-/**
- *
- * @export
  * @interface PostV1OrderFeedResponse200
  */
 export interface PostV1OrderFeedResponse200 {
@@ -3140,6 +3127,19 @@ export interface PostV1OrderFeedResponse200 {
    * @memberof PostV1OrderFeedResponse200
    */
   data: OrderFeedResponse;
+}
+/**
+ *
+ * @export
+ * @interface PostV1StocksReportSellerWarehousesResponse200
+ */
+export interface PostV1StocksReportSellerWarehousesResponse200 {
+  /**
+   *
+   * @type {InventorySellerResponse}
+   * @memberof PostV1StocksReportSellerWarehousesResponse200
+   */
+  data: InventorySellerResponse;
 }
 /**
  *
@@ -7181,64 +7181,6 @@ export const DefaultApiAxiosParamCreator = function (
 ) {
   return {
     /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
-     * @summary Остатки на складах продавца
-     * @param {InventoryRequest} inventoryRequest
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postAnalyticsV1StocksReportSellerWarehouses: async (
-      inventoryRequest: InventoryRequest,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      // verify required parameter 'inventoryRequest' is not null or undefined
-      assertParamExists(
-        "postAnalyticsV1StocksReportSellerWarehouses",
-        "inventoryRequest",
-        inventoryRequest,
-      );
-      const localVarPath = `/api/analytics/v1/stocks-report/seller-warehouses`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "POST",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      localVarHeaderParameter["Content-Type"] = "application/json";
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-      localVarRequestOptions.data = serializeDataIfNeeded(
-        inventoryRequest,
-        localVarRequestOptions,
-        configuration,
-      );
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
      * Метод формирует набор данных о заказах и продажах.  Данные отчёта обновляются в режиме реального времени.  > 1 заказ = 1 сборочное задание = 1 единица товара Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все заказы продавца. Если вы указали несколько параметров, в ответе будут заказы, в которых есть одновременно все эти параметры. Если заказы не подходят по параметрам запроса, вернётся пустой массив `[]`.  Можно получить отчёт максимум за последние 31 день.  Заказы отдаются по времени текущего статуса, от самого нового к самому раннему.  Можно использовать пагинацию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
      * @summary Получить отчёт
      * @param {OrderFeedRequest} [orderFeedRequest]
@@ -7281,6 +7223,64 @@ export const DefaultApiAxiosParamCreator = function (
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
         orderFeedRequest,
+        localVarRequestOptions,
+        configuration,
+      );
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
+     * @summary Остатки на складах продавца
+     * @param {InventoryRequest} inventoryRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postV1StocksReportSellerWarehouses: async (
+      inventoryRequest: InventoryRequest,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'inventoryRequest' is not null or undefined
+      assertParamExists(
+        "postV1StocksReportSellerWarehouses",
+        "inventoryRequest",
+        inventoryRequest,
+      );
+      const localVarPath = `/api/analytics/v1/stocks-report/seller-warehouses`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "POST",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      localVarHeaderParameter["Content-Type"] = "application/json";
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+      localVarRequestOptions.data = serializeDataIfNeeded(
+        inventoryRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -8109,40 +8109,6 @@ export const DefaultApiFp = function (configuration?: Configuration) {
   const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration);
   return {
     /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
-     * @summary Остатки на складах продавца
-     * @param {InventoryRequest} inventoryRequest
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async postAnalyticsV1StocksReportSellerWarehouses(
-      inventoryRequest: InventoryRequest,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<PostAnalyticsV1StocksReportSellerWarehousesResponse200>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.postAnalyticsV1StocksReportSellerWarehouses(
-          inventoryRequest,
-          options,
-        );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap[
-          "DefaultApi.postAnalyticsV1StocksReportSellerWarehouses"
-        ]?.[localVarOperationServerIndex]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
      * Метод формирует набор данных о заказах и продажах.  Данные отчёта обновляются в режиме реального времени.  > 1 заказ = 1 сборочное задание = 1 единица товара Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все заказы продавца. Если вы указали несколько параметров, в ответе будут заказы, в которых есть одновременно все эти параметры. Если заказы не подходят по параметрам запроса, вернётся пустой массив `[]`.  Можно получить отчёт максимум за последние 31 день.  Заказы отдаются по времени текущего статуса, от самого нового к самому раннему.  Можно использовать пагинацию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
      * @summary Получить отчёт
      * @param {OrderFeedRequest} [orderFeedRequest]
@@ -8165,6 +8131,40 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
         operationServerMap["DefaultApi.postV1OrderFeed"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
+     * @summary Остатки на складах продавца
+     * @param {InventoryRequest} inventoryRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async postV1StocksReportSellerWarehouses(
+      inventoryRequest: InventoryRequest,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<PostV1StocksReportSellerWarehousesResponse200>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.postV1StocksReportSellerWarehouses(
+          inventoryRequest,
+          options,
+        );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["DefaultApi.postV1StocksReportSellerWarehouses"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8666,21 +8666,6 @@ export const DefaultApiFactory = function (
   const localVarFp = DefaultApiFp(configuration);
   return {
     /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
-     * @summary Остатки на складах продавца
-     * @param {InventoryRequest} inventoryRequest
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postAnalyticsV1StocksReportSellerWarehouses(
-      inventoryRequest: InventoryRequest,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<PostAnalyticsV1StocksReportSellerWarehousesResponse200> {
-      return localVarFp
-        .postAnalyticsV1StocksReportSellerWarehouses(inventoryRequest, options)
-        .then((request) => request(axios, basePath));
-    },
-    /**
      * Метод формирует набор данных о заказах и продажах.  Данные отчёта обновляются в режиме реального времени.  > 1 заказ = 1 сборочное задание = 1 единица товара Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все заказы продавца. Если вы указали несколько параметров, в ответе будут заказы, в которых есть одновременно все эти параметры. Если заказы не подходят по параметрам запроса, вернётся пустой массив `[]`.  Можно получить отчёт максимум за последние 31 день.  Заказы отдаются по времени текущего статуса, от самого нового к самому раннему.  Можно использовать пагинацию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
      * @summary Получить отчёт
      * @param {OrderFeedRequest} [orderFeedRequest]
@@ -8693,6 +8678,21 @@ export const DefaultApiFactory = function (
     ): AxiosPromise<PostV1OrderFeedResponse200> {
       return localVarFp
         .postV1OrderFeed(orderFeedRequest, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
+     * @summary Остатки на складах продавца
+     * @param {InventoryRequest} inventoryRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postV1StocksReportSellerWarehouses(
+      inventoryRequest: InventoryRequest,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<PostV1StocksReportSellerWarehousesResponse200> {
+      return localVarFp
+        .postV1StocksReportSellerWarehouses(inventoryRequest, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -8915,19 +8915,6 @@ export const DefaultApiFactory = function (
  */
 export interface DefaultApiInterface {
   /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
-   * @summary Остатки на складах продавца
-   * @param {InventoryRequest} inventoryRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postAnalyticsV1StocksReportSellerWarehouses(
-    inventoryRequest: InventoryRequest,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostAnalyticsV1StocksReportSellerWarehousesResponse200>;
-
-  /**
    * Метод формирует набор данных о заказах и продажах.  Данные отчёта обновляются в режиме реального времени.  > 1 заказ = 1 сборочное задание = 1 единица товара Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все заказы продавца. Если вы указали несколько параметров, в ответе будут заказы, в которых есть одновременно все эти параметры. Если заказы не подходят по параметрам запроса, вернётся пустой массив `[]`.  Можно получить отчёт максимум за последние 31 день.  Заказы отдаются по времени текущего статуса, от самого нового к самому раннему.  Можно использовать пагинацию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
    * @summary Получить отчёт
    * @param {OrderFeedRequest} [orderFeedRequest]
@@ -8939,6 +8926,19 @@ export interface DefaultApiInterface {
     orderFeedRequest?: OrderFeedRequest,
     options?: RawAxiosRequestConfig,
   ): AxiosPromise<PostV1OrderFeedResponse200>;
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
+   * @summary Остатки на складах продавца
+   * @param {InventoryRequest} inventoryRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DefaultApiInterface
+   */
+  postV1StocksReportSellerWarehouses(
+    inventoryRequest: InventoryRequest,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PostV1StocksReportSellerWarehousesResponse200>;
 
   /**
    * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает текущие остатки товаров на складах WB.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе WB.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
@@ -9131,23 +9131,6 @@ export interface DefaultApiInterface {
  */
 export class DefaultApi extends BaseAPI implements DefaultApiInterface {
   /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
-   * @summary Остатки на складах продавца
-   * @param {InventoryRequest} inventoryRequest
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postAnalyticsV1StocksReportSellerWarehouses(
-    inventoryRequest: InventoryRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postAnalyticsV1StocksReportSellerWarehouses(inventoryRequest, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
    * Метод формирует набор данных о заказах и продажах.  Данные отчёта обновляются в режиме реального времени.  > 1 заказ = 1 сборочное задание = 1 единица товара Параметры `brandNames`,`subjectIds`, `tagIds`, `nmIds` могут быть пустыми `[]`, тогда в ответе возвращаются все заказы продавца. Если вы указали несколько параметров, в ответе будут заказы, в которых есть одновременно все эти параметры. Если заказы не подходят по параметрам запроса, вернётся пустой массив `[]`.  Можно получить отчёт максимум за последние 31 день.  Заказы отдаются по времени текущего статуса, от самого нового к самому раннему.  Можно использовать пагинацию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
    * @summary Получить отчёт
    * @param {OrderFeedRequest} [orderFeedRequest]
@@ -9161,6 +9144,23 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
   ) {
     return DefaultApiFp(this.configuration)
       .postV1OrderFeed(orderFeedRequest, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
+   * @summary Остатки на складах продавца
+   * @param {InventoryRequest} inventoryRequest
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DefaultApi
+   */
+  public postV1StocksReportSellerWarehouses(
+    inventoryRequest: InventoryRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return DefaultApiFp(this.configuration)
+      .postV1StocksReportSellerWarehouses(inventoryRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
 

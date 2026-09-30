@@ -151,7 +151,22 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.items.model.GetV2DirectoryKindsResponse200
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.items.model.GetV2DirectoryOkpdAllResponse200
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.items.model.GetV2DirectoryOkpdResponse200
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.items.model.GetV2DirectoryOkpdResponse200DataInner
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.items.model.GetV2DirectorySeasonsResponse200
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.items.model.GetV2DirectoryTnvedAllResponse200
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.items.model.GetV2DirectoryTnvedAllResponse200DataInner
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.items.model.GetV2DirectoryTnvedResponse200

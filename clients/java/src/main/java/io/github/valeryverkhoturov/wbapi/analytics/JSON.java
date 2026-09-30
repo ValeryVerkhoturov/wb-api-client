@@ -426,11 +426,11 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.analytics.model.PositionInfoMedian
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.analytics.model
-            .PostAnalyticsV1StocksReportSellerWarehousesResponse200.CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.analytics.model.PostV1OrderFeedResponse200
             .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.analytics.model
+            .PostV1StocksReportSellerWarehousesResponse200.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.analytics.model
             .PostV1StocksReportWbWarehousesResponse200.CustomTypeAdapterFactory());

@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20260928.0";
+        public const string Version = "1.20260930.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -134,7 +134,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
             OperationServers = new Dictionary<string, List<IReadOnlyDictionary<string, object>>>()
             {
                 {
-                    "DefaultApi.GetMarketplaceV3FbsSettingsAutoreturns", new List<IReadOnlyDictionary<string, object>>
+                    "DefaultApi.GetV3FbsSettingsAutoreturns", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -146,7 +146,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "DefaultApi.GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted", new List<IReadOnlyDictionary<string, object>>
+                    "DefaultApi.GetV3FbsSettingsAutoreturnsSubcategoriesRestricted", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -158,7 +158,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "DefaultApi.PatchMarketplaceV3FbsSettingsAutoreturns", new List<IReadOnlyDictionary<string, object>>
+                    "DefaultApi.PatchV3FbsSettingsAutoreturns", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -170,7 +170,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "DefaultApi.PatchMarketplaceV3FbsSettingsAutoreturnsItems", new List<IReadOnlyDictionary<string, object>>
+                    "DefaultApi.PatchV3FbsSettingsAutoreturnsItems", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -182,7 +182,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
                     }
                 },
                 {
-                    "DefaultApi.PostMarketplaceV3FbsSettingsAutoreturnsItems", new List<IReadOnlyDictionary<string, object>>
+                    "DefaultApi.PostV3FbsSettingsAutoreturnsItems", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -1358,7 +1358,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: order\n";
-            report += "    SDK Package Version: 1.20260928.0\n";
+            report += "    SDK Package Version: 1.20260930.0\n";
 
             return report;
         }

@@ -34,7 +34,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV2DirectoryTnvedResponse200DataInner" /> class.
         /// </summary>
-        /// <param name="tnved">ТНВЭД-код.</param>
+        /// <param name="tnved">Код ТН ВЭД.</param>
         /// <param name="isKiz">- &#x60;true&#x60; — код маркировки [Честного знака](https://честныйзнак.рф/) требуется - &#x60;false&#x60; — код маркировки [Честного знака](https://честныйзнак.рф/) не требуется .</param>
         public GetV2DirectoryTnvedResponse200DataInner(string tnved = default(string), bool isKiz = default(bool))
         {
@@ -43,9 +43,9 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         }
 
         /// <summary>
-        /// ТНВЭД-код
+        /// Код ТН ВЭД
         /// </summary>
-        /// <value>ТНВЭД-код</value>
+        /// <value>Код ТН ВЭД</value>
         [DataMember(Name = "tnved", EmitDefaultValue = false)]
         public string Tnved { get; set; }
 

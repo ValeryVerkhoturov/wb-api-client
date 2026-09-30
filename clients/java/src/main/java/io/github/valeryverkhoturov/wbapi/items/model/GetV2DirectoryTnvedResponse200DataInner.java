@@ -53,7 +53,7 @@ public class GetV2DirectoryTnvedResponse200DataInner {
   }
 
   /**
-   * ТНВЭД-код
+   * Код ТН ВЭД
    *
    * @return tnved
    */

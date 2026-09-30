@@ -27,37 +27,6 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Получить отчёт
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Дата начала отчётного периода</param>
-        /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
-        /// <param name="limit">Количество возвратов в ответе</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GoodsReturn200Response</returns>
-        GoodsReturn200Response GetAnalyticsV1GoodsReturn(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0);
-
-        /// <summary>
-        /// Получить отчёт
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Дата начала отчётного периода</param>
-        /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
-        /// <param name="limit">Количество возвратов в ответе</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GoodsReturn200Response</returns>
-        ApiResponse<GoodsReturn200Response> GetAnalyticsV1GoodsReturnWithHttpInfo(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0);
-        /// <summary>
         /// Создать отчёт
         /// </summary>
         /// <remarks>
@@ -366,6 +335,37 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <returns>ApiResponse of GetV1Deductions200Response</returns>
         ApiResponse<GetV1Deductions200Response> GetV1DeductionsWithHttpInfo(DateTime dateTo, int limit, DateTime? dateFrom = default(DateTime?), string? sort = default(string?), string? order = default(string?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
+        /// Получить отчёт
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dateFrom">Дата начала отчётного периода</param>
+        /// <param name="dateTo">Дата окончания отчётного периода</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
+        /// <param name="limit">Количество возвратов в ответе</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GoodsReturn200Response</returns>
+        GoodsReturn200Response GetV1GoodsReturn(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0);
+
+        /// <summary>
+        /// Получить отчёт
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dateFrom">Дата начала отчётного периода</param>
+        /// <param name="dateTo">Дата окончания отчётного периода</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
+        /// <param name="limit">Количество возвратов в ответе</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GoodsReturn200Response</returns>
+        ApiResponse<GoodsReturn200Response> GetV1GoodsReturnWithHttpInfo(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0);
+        /// <summary>
         /// Удержания за занижение габаритов упаковки
         /// </summary>
         /// <remarks>
@@ -638,39 +638,6 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
     public interface IDefaultApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
-        /// <summary>
-        /// Получить отчёт
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Дата начала отчётного периода</param>
-        /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
-        /// <param name="limit">Количество возвратов в ответе</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GoodsReturn200Response</returns>
-        System.Threading.Tasks.Task<GoodsReturn200Response> GetAnalyticsV1GoodsReturnAsync(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Получить отчёт
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Дата начала отчётного периода</param>
-        /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
-        /// <param name="limit">Количество возвратов в ответе</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GoodsReturn200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GoodsReturn200Response>> GetAnalyticsV1GoodsReturnWithHttpInfoAsync(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Создать отчёт
         /// </summary>
@@ -1003,6 +970,39 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1Deductions200Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetV1Deductions200Response>> GetV1DeductionsWithHttpInfoAsync(DateTime dateTo, int limit, DateTime? dateFrom = default(DateTime?), string? sort = default(string?), string? order = default(string?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Получить отчёт
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dateFrom">Дата начала отчётного периода</param>
+        /// <param name="dateTo">Дата окончания отчётного периода</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
+        /// <param name="limit">Количество возвратов в ответе</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GoodsReturn200Response</returns>
+        System.Threading.Tasks.Task<GoodsReturn200Response> GetV1GoodsReturnAsync(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Получить отчёт
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dateFrom">Дата начала отчётного периода</param>
+        /// <param name="dateTo">Дата окончания отчётного периода</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
+        /// <param name="limit">Количество возвратов в ответе</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GoodsReturn200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GoodsReturn200Response>> GetV1GoodsReturnWithHttpInfoAsync(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Удержания за занижение габаритов упаковки
         /// </summary>
@@ -1405,188 +1405,6 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
-        }
-
-        /// <summary>
-        /// Получить отчёт Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Дата начала отчётного периода</param>
-        /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
-        /// <param name="limit">Количество возвратов в ответе</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GoodsReturn200Response</returns>
-        public GoodsReturn200Response GetAnalyticsV1GoodsReturn(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0)
-        {
-            ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GoodsReturn200Response> localVarResponse = GetAnalyticsV1GoodsReturnWithHttpInfo(dateFrom, dateTo, status, limit, offset);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Получить отчёт Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Дата начала отчётного периода</param>
-        /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
-        /// <param name="limit">Количество возвратов в ответе</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GoodsReturn200Response</returns>
-        public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GoodsReturn200Response> GetAnalyticsV1GoodsReturnWithHttpInfo(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0)
-        {
-            // verify the required parameter 'status' is set
-            if (status == null)
-            {
-                throw new ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException(400, "Missing required parameter 'status' when calling DefaultApi->GetAnalyticsV1GoodsReturn");
-            }
-
-            ValeryVerkhoturov.WbApiClient.Reports.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Reports.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "dateFrom", dateFrom));
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "dateTo", dateTo));
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "status", status));
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
-
-            localVarRequestOptions.Operation = "DefaultApi.GetAnalyticsV1GoodsReturn";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<GoodsReturn200Response>("/api/analytics/v1/item-returns", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetAnalyticsV1GoodsReturn", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Получить отчёт Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Дата начала отчётного периода</param>
-        /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
-        /// <param name="limit">Количество возвратов в ответе</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GoodsReturn200Response</returns>
-        public async System.Threading.Tasks.Task<GoodsReturn200Response> GetAnalyticsV1GoodsReturnAsync(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GoodsReturn200Response> localVarResponse = await GetAnalyticsV1GoodsReturnWithHttpInfoAsync(dateFrom, dateTo, status, limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Получить отчёт Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dateFrom">Дата начала отчётного периода</param>
-        /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
-        /// <param name="limit">Количество возвратов в ответе</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GoodsReturn200Response)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GoodsReturn200Response>> GetAnalyticsV1GoodsReturnWithHttpInfoAsync(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'status' is set
-            if (status == null)
-            {
-                throw new ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException(400, "Missing required parameter 'status' when calling DefaultApi->GetAnalyticsV1GoodsReturn");
-            }
-
-
-            ValeryVerkhoturov.WbApiClient.Reports.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Reports.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "dateFrom", dateFrom));
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "dateTo", dateTo));
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "status", status));
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
-
-            localVarRequestOptions.Operation = "DefaultApi.GetAnalyticsV1GoodsReturn";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GoodsReturn200Response>("/api/analytics/v1/item-returns", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetAnalyticsV1GoodsReturn", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
         }
 
         /// <summary>
@@ -3630,6 +3448,188 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetV1Deductions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Получить отчёт Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dateFrom">Дата начала отчётного периода</param>
+        /// <param name="dateTo">Дата окончания отчётного периода</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
+        /// <param name="limit">Количество возвратов в ответе</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GoodsReturn200Response</returns>
+        public GoodsReturn200Response GetV1GoodsReturn(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GoodsReturn200Response> localVarResponse = GetV1GoodsReturnWithHttpInfo(dateFrom, dateTo, status, limit, offset);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Получить отчёт Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dateFrom">Дата начала отчётного периода</param>
+        /// <param name="dateTo">Дата окончания отчётного периода</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
+        /// <param name="limit">Количество возвратов в ответе</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GoodsReturn200Response</returns>
+        public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GoodsReturn200Response> GetV1GoodsReturnWithHttpInfo(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0)
+        {
+            // verify the required parameter 'status' is set
+            if (status == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException(400, "Missing required parameter 'status' when calling DefaultApi->GetV1GoodsReturn");
+            }
+
+            ValeryVerkhoturov.WbApiClient.Reports.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Reports.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "dateFrom", dateFrom));
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "dateTo", dateTo));
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "status", status));
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+
+            localVarRequestOptions.Operation = "DefaultApi.GetV1GoodsReturn";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<GoodsReturn200Response>("/api/analytics/v1/item-returns", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV1GoodsReturn", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Получить отчёт Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dateFrom">Дата начала отчётного периода</param>
+        /// <param name="dateTo">Дата окончания отчётного периода</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
+        /// <param name="limit">Количество возвратов в ответе</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GoodsReturn200Response</returns>
+        public async System.Threading.Tasks.Task<GoodsReturn200Response> GetV1GoodsReturnAsync(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GoodsReturn200Response> localVarResponse = await GetV1GoodsReturnWithHttpInfoAsync(dateFrom, dateTo, status, limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Получить отчёт Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports). 
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dateFrom">Дата начала отчётного периода</param>
+        /// <param name="dateTo">Дата окончания отчётного периода</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
+        /// <param name="limit">Количество возвратов в ответе</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GoodsReturn200Response)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GoodsReturn200Response>> GetV1GoodsReturnWithHttpInfoAsync(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'status' is set
+            if (status == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException(400, "Missing required parameter 'status' when calling DefaultApi->GetV1GoodsReturn");
+            }
+
+
+            ValeryVerkhoturov.WbApiClient.Reports.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Reports.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "dateFrom", dateFrom));
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "dateTo", dateTo));
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "status", status));
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+
+            localVarRequestOptions.Operation = "DefaultApi.GetV1GoodsReturn";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GoodsReturn200Response>("/api/analytics/v1/item-returns", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV1GoodsReturn", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

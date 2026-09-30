@@ -240,61 +240,6 @@ export interface DeleteV3SuppliesSupplyIdTrbxRequest {
   trbxIds: Array<string>;
 }
 /**
- *
- * @export
- * @interface GetMarketplaceV3FbsSettingsAutoreturnsResponse200
- */
-export interface GetMarketplaceV3FbsSettingsAutoreturnsResponse200 {
-  /**
-   * Тип автовозврата:   - `allToWarehouse` — все товары отправляются на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов   - `manual` — используются ручные настройки
-   * @type {string}
-   * @memberof GetMarketplaceV3FbsSettingsAutoreturnsResponse200
-   */
-  type: GetMarketplaceV3FbsSettingsAutoreturnsResponse200TypeEnum;
-}
-
-export const GetMarketplaceV3FbsSettingsAutoreturnsResponse200TypeEnum = {
-  AllToWarehouse: "allToWarehouse",
-  AllToPickupPoint: "allToPickupPoint",
-  Manual: "manual",
-} as const;
-
-export type GetMarketplaceV3FbsSettingsAutoreturnsResponse200TypeEnum =
-  (typeof GetMarketplaceV3FbsSettingsAutoreturnsResponse200TypeEnum)[keyof typeof GetMarketplaceV3FbsSettingsAutoreturnsResponse200TypeEnum];
-
-/**
- *
- * @export
- * @interface GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
- */
-export interface GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 {
-  /**
-   * Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
-   * @type {number}
-   * @memberof GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
-   */
-  next: number | null;
-  /**
-   * Список ID предметов, товары которых не хранятся на складах WB
-   * @type {Array<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner>}
-   * @memberof GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
-   */
-  data: Array<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner>;
-}
-/**
- *
- * @export
- * @interface GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner
- */
-export interface GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner {
-  /**
-   * ID предмета
-   * @type {number}
-   * @memberof GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner
-   */
-  subjectId: number;
-}
-/**
  * @type GetV3FbsOrdersArchive403Response
  * @export
  */
@@ -302,6 +247,61 @@ export type GetV3FbsOrdersArchive403Response =
   | ArhiveOrderError400
   | Response4XX;
 
+/**
+ *
+ * @export
+ * @interface GetV3FbsSettingsAutoreturnsResponse200
+ */
+export interface GetV3FbsSettingsAutoreturnsResponse200 {
+  /**
+   * Тип автовозврата:   - `allToWarehouse` — все товары отправляются на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - `allToPickupPoint` — все товары отправляются на пункт выдачи заказов   - `manual` — используются ручные настройки
+   * @type {string}
+   * @memberof GetV3FbsSettingsAutoreturnsResponse200
+   */
+  type: GetV3FbsSettingsAutoreturnsResponse200TypeEnum;
+}
+
+export const GetV3FbsSettingsAutoreturnsResponse200TypeEnum = {
+  AllToWarehouse: "allToWarehouse",
+  AllToPickupPoint: "allToPickupPoint",
+  Manual: "manual",
+} as const;
+
+export type GetV3FbsSettingsAutoreturnsResponse200TypeEnum =
+  (typeof GetV3FbsSettingsAutoreturnsResponse200TypeEnum)[keyof typeof GetV3FbsSettingsAutoreturnsResponse200TypeEnum];
+
+/**
+ *
+ * @export
+ * @interface GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
+ */
+export interface GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 {
+  /**
+   * Параметр пагинации. Содержит значение, которое необходимо указать в запросе для получения следующего пакета данных
+   * @type {number}
+   * @memberof GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
+   */
+  next: number | null;
+  /**
+   * Список ID предметов, товары которых не хранятся на складах WB
+   * @type {Array<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner>}
+   * @memberof GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
+   */
+  data: Array<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner>;
+}
+/**
+ *
+ * @export
+ * @interface GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner
+ */
+export interface GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner {
+  /**
+   * ID предмета
+   * @type {number}
+   * @memberof GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner
+   */
+  subjectId: number;
+}
 /**
  *
  * @export
@@ -1195,110 +1195,110 @@ export interface PassOffice {
 /**
  *
  * @export
- * @interface PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+ * @interface PatchV3FbsSettingsAutoreturnsItemsRequest
  */
-export interface PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest {
+export interface PatchV3FbsSettingsAutoreturnsItemsRequest {
   /**
    * Список ID размеров товаров в системе WB
    * @type {Array<number>}
-   * @memberof PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+   * @memberof PatchV3FbsSettingsAutoreturnsItemsRequest
    */
   chrtIds: Array<number>;
   /**
    * Тип автовозврата малогабаритных товаров:   - `byWarehouse` — все товары отправляются на склад WB   - `byPickupPoint` — все товары отправляются на пункт выдачи заказов
    * @type {string}
-   * @memberof PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+   * @memberof PatchV3FbsSettingsAutoreturnsItemsRequest
    */
-  type: PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequestTypeEnum;
+  type: PatchV3FbsSettingsAutoreturnsItemsRequestTypeEnum;
 }
 
-export const PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequestTypeEnum = {
+export const PatchV3FbsSettingsAutoreturnsItemsRequestTypeEnum = {
   ByWarehouse: "byWarehouse",
   ByPickupPoint: "byPickupPoint",
 } as const;
 
-export type PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequestTypeEnum =
-  (typeof PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequestTypeEnum)[keyof typeof PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequestTypeEnum];
+export type PatchV3FbsSettingsAutoreturnsItemsRequestTypeEnum =
+  (typeof PatchV3FbsSettingsAutoreturnsItemsRequestTypeEnum)[keyof typeof PatchV3FbsSettingsAutoreturnsItemsRequestTypeEnum];
 
 /**
  *
  * @export
- * @interface PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
+ * @interface PatchV3FbsSettingsAutoreturnsItemsResponse200
  */
-export interface PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200 {
+export interface PatchV3FbsSettingsAutoreturnsItemsResponse200 {
   /**
    *
-   * @type {Array<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner>}
-   * @memberof PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
+   * @type {Array<PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner>}
+   * @memberof PatchV3FbsSettingsAutoreturnsItemsResponse200
    */
-  results: Array<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner>;
+  results: Array<PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner>;
 }
 /**
  *
  * @export
- * @interface PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
+ * @interface PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
  */
-export interface PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
+export interface PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
   /**
    * ID размера товара в системе WB
    * @type {number}
-   * @memberof PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
+   * @memberof PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
    */
   chrtId: number;
   /**
    * Детали ошибки
-   * @type {Array<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner>}
-   * @memberof PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
+   * @type {Array<PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner>}
+   * @memberof PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
    */
-  error?: Array<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner>;
+  error?: Array<PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner>;
   /**
    * - `true` — настройки автовозврата товара обновлены
    * @type {boolean}
-   * @memberof PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
+   * @memberof PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
    */
   success?: boolean;
 }
 /**
  *
  * @export
- * @interface PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
+ * @interface PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
  */
-export interface PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner {
+export interface PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner {
   /**
    * Код ошибки
    * @type {number}
-   * @memberof PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
+   * @memberof PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
    */
   code: number;
   /**
    * Дополнительная информация об ошибке:   - `Not Found` — ID размера товара не найден или указан ID размера немалогабаритного товара
    * @type {string}
-   * @memberof PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
+   * @memberof PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
    */
   detail: string;
 }
 /**
  *
  * @export
- * @interface PatchMarketplaceV3FbsSettingsAutoreturnsRequest
+ * @interface PatchV3FbsSettingsAutoreturnsRequest
  */
-export interface PatchMarketplaceV3FbsSettingsAutoreturnsRequest {
+export interface PatchV3FbsSettingsAutoreturnsRequest {
   /**
-   * Тип автовозврата малогабаритных товаров:   - `allToWarehouse` — отправлять все товары на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - `allToPickupPoint` — отправлять все товары на пункт выдачи заказов   - `manual` — использовать ручные настройки
+   * Тип автовозврата малогабаритных товаров:   - `allToWarehouse` — отправлять все товары на склад WB, кроме товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ   - `allToPickupPoint` — отправлять все товары на пункт выдачи заказов   - `manual` — использовать ручные настройки
    * @type {string}
-   * @memberof PatchMarketplaceV3FbsSettingsAutoreturnsRequest
+   * @memberof PatchV3FbsSettingsAutoreturnsRequest
    */
-  type: PatchMarketplaceV3FbsSettingsAutoreturnsRequestTypeEnum;
+  type: PatchV3FbsSettingsAutoreturnsRequestTypeEnum;
 }
 
-export const PatchMarketplaceV3FbsSettingsAutoreturnsRequestTypeEnum = {
+export const PatchV3FbsSettingsAutoreturnsRequestTypeEnum = {
   AllToWarehouse: "allToWarehouse",
   AllToPickupPoint: "allToPickupPoint",
   Manual: "manual",
 } as const;
 
-export type PatchMarketplaceV3FbsSettingsAutoreturnsRequestTypeEnum =
-  (typeof PatchMarketplaceV3FbsSettingsAutoreturnsRequestTypeEnum)[keyof typeof PatchMarketplaceV3FbsSettingsAutoreturnsRequestTypeEnum];
+export type PatchV3FbsSettingsAutoreturnsRequestTypeEnum =
+  (typeof PatchV3FbsSettingsAutoreturnsRequestTypeEnum)[keyof typeof PatchV3FbsSettingsAutoreturnsRequestTypeEnum];
 
 /**
  *
@@ -1342,68 +1342,68 @@ export interface PatchV3SuppliesSupplyIdOrdersRequest {
 /**
  *
  * @export
- * @interface PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+ * @interface PostV3FbsSettingsAutoreturnsItemsRequest
  */
-export interface PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest {
+export interface PostV3FbsSettingsAutoreturnsItemsRequest {
   /**
    * Список ID размеров товаров в системе WB
    * @type {Array<number>}
-   * @memberof PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+   * @memberof PostV3FbsSettingsAutoreturnsItemsRequest
    */
   chrtIds: Array<number>;
 }
 /**
  *
  * @export
- * @interface PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
+ * @interface PostV3FbsSettingsAutoreturnsItemsResponse200
  */
-export interface PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200 {
+export interface PostV3FbsSettingsAutoreturnsItemsResponse200 {
   /**
    *
-   * @type {Array<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner>}
-   * @memberof PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
+   * @type {Array<PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner>}
+   * @memberof PostV3FbsSettingsAutoreturnsItemsResponse200
    */
-  results: Array<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner>;
+  results: Array<PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner>;
 }
 /**
  *
  * @export
- * @interface PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
+ * @interface PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
  */
-export interface PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
+export interface PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner {
   /**
    * - `true` — настройки автовозврата товара успешно получены
    * @type {boolean}
-   * @memberof PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
+   * @memberof PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
    */
   success?: boolean;
   /**
    * ID размера товара в системе WB
    * @type {number}
-   * @memberof PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
+   * @memberof PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
    */
   chrtId: number;
   /**
-   * Куда будет возвращён товар:   - `auto` — место возврата определяется автоматически   - `byWarehouse` — на склад WB   - `byPickupPoint` — на пункт выдачи заказов   - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
+   * Куда будет возвращён товар:   - `auto` — место возврата определяется автоматически   - `byWarehouse` — на склад WB   - `byPickupPoint` — на пункт выдачи заказов   - `byCourier` — продавцу курьером. Всегда для товаров тех [предметов](https://dev.wildberries.ru/openapi/orders-fbs#tag/autoreturnSettings/operation/getV3FbsSettingsAutoreturnsSubcategoriesRestricted), которые автоматически возвращаются в ПВЗ
    * @type {string}
-   * @memberof PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
+   * @memberof PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
    */
-  type?: PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerTypeEnum;
+  type?: PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerTypeEnum;
   /**
    * - `true` — настройки автовозврата товара можно изменить
    * @type {boolean}
-   * @memberof PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
+   * @memberof PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
    */
   changeable?: boolean;
   /**
    * Детали ошибки
-   * @type {Array<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner>}
-   * @memberof PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
+   * @type {Array<PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner>}
+   * @memberof PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
    */
-  error?: Array<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner>;
+  error?: Array<PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner>;
 }
 
-export const PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerTypeEnum =
+export const PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerTypeEnum =
   {
     Auto: "auto",
     ByWarehouse: "byWarehouse",
@@ -1411,25 +1411,25 @@ export const PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
     ByCourier: "byCourier",
   } as const;
 
-export type PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerTypeEnum =
-  (typeof PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerTypeEnum)[keyof typeof PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerTypeEnum];
+export type PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerTypeEnum =
+  (typeof PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerTypeEnum)[keyof typeof PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerTypeEnum];
 
 /**
  *
  * @export
- * @interface PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
+ * @interface PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
  */
-export interface PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner {
+export interface PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner {
   /**
    * Код ошибки
    * @type {number}
-   * @memberof PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
+   * @memberof PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
    */
   code: number;
   /**
    * Дополнительная информация об ошибке
    * @type {string}
-   * @memberof PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
+   * @memberof PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
    */
   detail: string;
 }
@@ -3099,12 +3099,12 @@ export const DefaultApiAxiosParamCreator = function (
 ) {
   return {
     /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Получить настройки автовозврата продавца
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMarketplaceV3FbsSettingsAutoreturns: async (
+    getV3FbsSettingsAutoreturns: async (
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       const localVarPath = `/api/marketplace/v3/fbs/settings/autoreturns`;
@@ -3142,27 +3142,27 @@ export const DefaultApiAxiosParamCreator = function (
       };
     },
     /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Получить предметы, которые не хранятся на складах WB
      * @param {number} next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
      * @param {number} limit Количество предметов в ответе
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted: async (
+    getV3FbsSettingsAutoreturnsSubcategoriesRestricted: async (
       next: number,
       limit: number,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'next' is not null or undefined
       assertParamExists(
-        "getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted",
+        "getV3FbsSettingsAutoreturnsSubcategoriesRestricted",
         "next",
         next,
       );
       // verify required parameter 'limit' is not null or undefined
       assertParamExists(
-        "getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted",
+        "getV3FbsSettingsAutoreturnsSubcategoriesRestricted",
         "limit",
         limit,
       );
@@ -3209,14 +3209,14 @@ export const DefaultApiAxiosParamCreator = function (
       };
     },
     /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Обновить настройки автовозврата продавца
-     * @param {PatchMarketplaceV3FbsSettingsAutoreturnsRequest} [patchMarketplaceV3FbsSettingsAutoreturnsRequest]
+     * @param {PatchV3FbsSettingsAutoreturnsRequest} [patchV3FbsSettingsAutoreturnsRequest]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchMarketplaceV3FbsSettingsAutoreturns: async (
-      patchMarketplaceV3FbsSettingsAutoreturnsRequest?: PatchMarketplaceV3FbsSettingsAutoreturnsRequest,
+    patchV3FbsSettingsAutoreturns: async (
+      patchV3FbsSettingsAutoreturnsRequest?: PatchV3FbsSettingsAutoreturnsRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       const localVarPath = `/api/marketplace/v3/fbs/settings/autoreturns`;
@@ -3250,7 +3250,7 @@ export const DefaultApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        patchMarketplaceV3FbsSettingsAutoreturnsRequest,
+        patchV3FbsSettingsAutoreturnsRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -3261,14 +3261,14 @@ export const DefaultApiAxiosParamCreator = function (
       };
     },
     /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Обновить настройки автовозврата товаров
-     * @param {PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest} [patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest]
+     * @param {PatchV3FbsSettingsAutoreturnsItemsRequest} [patchV3FbsSettingsAutoreturnsItemsRequest]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchMarketplaceV3FbsSettingsAutoreturnsItems: async (
-      patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest?: PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+    patchV3FbsSettingsAutoreturnsItems: async (
+      patchV3FbsSettingsAutoreturnsItemsRequest?: PatchV3FbsSettingsAutoreturnsItemsRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       const localVarPath = `/api/marketplace/v3/fbs/settings/autoreturns/items`;
@@ -3302,7 +3302,7 @@ export const DefaultApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+        patchV3FbsSettingsAutoreturnsItemsRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -3313,14 +3313,14 @@ export const DefaultApiAxiosParamCreator = function (
       };
     },
     /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Получить настройки автовозврата товаров
-     * @param {PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest} [postMarketplaceV3FbsSettingsAutoreturnsItemsRequest]
+     * @param {PostV3FbsSettingsAutoreturnsItemsRequest} [postV3FbsSettingsAutoreturnsItemsRequest]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postMarketplaceV3FbsSettingsAutoreturnsItems: async (
-      postMarketplaceV3FbsSettingsAutoreturnsItemsRequest?: PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+    postV3FbsSettingsAutoreturnsItems: async (
+      postV3FbsSettingsAutoreturnsItemsRequest?: PostV3FbsSettingsAutoreturnsItemsRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       const localVarPath = `/api/marketplace/v3/fbs/settings/autoreturns/items`;
@@ -3354,7 +3354,7 @@ export const DefaultApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        postMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+        postV3FbsSettingsAutoreturnsItemsRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -3375,28 +3375,26 @@ export const DefaultApiFp = function (configuration?: Configuration) {
   const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration);
   return {
     /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Получить настройки автовозврата продавца
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async getMarketplaceV3FbsSettingsAutoreturns(
+    async getV3FbsSettingsAutoreturns(
       options?: RawAxiosRequestConfig,
     ): Promise<
       (
         axios?: AxiosInstance,
         basePath?: string,
-      ) => AxiosPromise<GetMarketplaceV3FbsSettingsAutoreturnsResponse200>
+      ) => AxiosPromise<GetV3FbsSettingsAutoreturnsResponse200>
     > {
       const localVarAxiosArgs =
-        await localVarAxiosParamCreator.getMarketplaceV3FbsSettingsAutoreturns(
-          options,
-        );
+        await localVarAxiosParamCreator.getV3FbsSettingsAutoreturns(options);
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap[
-          "DefaultApi.getMarketplaceV3FbsSettingsAutoreturns"
-        ]?.[localVarOperationServerIndex]?.url;
+        operationServerMap["DefaultApi.getV3FbsSettingsAutoreturns"]?.[
+          localVarOperationServerIndex
+        ]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -3406,14 +3404,14 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Получить предметы, которые не хранятся на складах WB
      * @param {number} next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
      * @param {number} limit Количество предметов в ответе
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted(
+    async getV3FbsSettingsAutoreturnsSubcategoriesRestricted(
       next: number,
       limit: number,
       options?: RawAxiosRequestConfig,
@@ -3421,10 +3419,10 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       (
         axios?: AxiosInstance,
         basePath?: string,
-      ) => AxiosPromise<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>
+      ) => AxiosPromise<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>
     > {
       const localVarAxiosArgs =
-        await localVarAxiosParamCreator.getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted(
+        await localVarAxiosParamCreator.getV3FbsSettingsAutoreturnsSubcategoriesRestricted(
           next,
           limit,
           options,
@@ -3432,7 +3430,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
         operationServerMap[
-          "DefaultApi.getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted"
+          "DefaultApi.getV3FbsSettingsAutoreturnsSubcategoriesRestricted"
         ]?.[localVarOperationServerIndex]?.url;
       return (axios, basePath) =>
         createRequestFunction(
@@ -3443,28 +3441,28 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Обновить настройки автовозврата продавца
-     * @param {PatchMarketplaceV3FbsSettingsAutoreturnsRequest} [patchMarketplaceV3FbsSettingsAutoreturnsRequest]
+     * @param {PatchV3FbsSettingsAutoreturnsRequest} [patchV3FbsSettingsAutoreturnsRequest]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async patchMarketplaceV3FbsSettingsAutoreturns(
-      patchMarketplaceV3FbsSettingsAutoreturnsRequest?: PatchMarketplaceV3FbsSettingsAutoreturnsRequest,
+    async patchV3FbsSettingsAutoreturns(
+      patchV3FbsSettingsAutoreturnsRequest?: PatchV3FbsSettingsAutoreturnsRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>
     > {
       const localVarAxiosArgs =
-        await localVarAxiosParamCreator.patchMarketplaceV3FbsSettingsAutoreturns(
-          patchMarketplaceV3FbsSettingsAutoreturnsRequest,
+        await localVarAxiosParamCreator.patchV3FbsSettingsAutoreturns(
+          patchV3FbsSettingsAutoreturnsRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap[
-          "DefaultApi.patchMarketplaceV3FbsSettingsAutoreturns"
-        ]?.[localVarOperationServerIndex]?.url;
+        operationServerMap["DefaultApi.patchV3FbsSettingsAutoreturns"]?.[
+          localVarOperationServerIndex
+        ]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -3474,31 +3472,31 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Обновить настройки автовозврата товаров
-     * @param {PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest} [patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest]
+     * @param {PatchV3FbsSettingsAutoreturnsItemsRequest} [patchV3FbsSettingsAutoreturnsItemsRequest]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async patchMarketplaceV3FbsSettingsAutoreturnsItems(
-      patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest?: PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+    async patchV3FbsSettingsAutoreturnsItems(
+      patchV3FbsSettingsAutoreturnsItemsRequest?: PatchV3FbsSettingsAutoreturnsItemsRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (
         axios?: AxiosInstance,
         basePath?: string,
-      ) => AxiosPromise<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200>
+      ) => AxiosPromise<PatchV3FbsSettingsAutoreturnsItemsResponse200>
     > {
       const localVarAxiosArgs =
-        await localVarAxiosParamCreator.patchMarketplaceV3FbsSettingsAutoreturnsItems(
-          patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+        await localVarAxiosParamCreator.patchV3FbsSettingsAutoreturnsItems(
+          patchV3FbsSettingsAutoreturnsItemsRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap[
-          "DefaultApi.patchMarketplaceV3FbsSettingsAutoreturnsItems"
-        ]?.[localVarOperationServerIndex]?.url;
+        operationServerMap["DefaultApi.patchV3FbsSettingsAutoreturnsItems"]?.[
+          localVarOperationServerIndex
+        ]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -3508,31 +3506,31 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Получить настройки автовозврата товаров
-     * @param {PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest} [postMarketplaceV3FbsSettingsAutoreturnsItemsRequest]
+     * @param {PostV3FbsSettingsAutoreturnsItemsRequest} [postV3FbsSettingsAutoreturnsItemsRequest]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async postMarketplaceV3FbsSettingsAutoreturnsItems(
-      postMarketplaceV3FbsSettingsAutoreturnsItemsRequest?: PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+    async postV3FbsSettingsAutoreturnsItems(
+      postV3FbsSettingsAutoreturnsItemsRequest?: PostV3FbsSettingsAutoreturnsItemsRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (
         axios?: AxiosInstance,
         basePath?: string,
-      ) => AxiosPromise<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200>
+      ) => AxiosPromise<PostV3FbsSettingsAutoreturnsItemsResponse200>
     > {
       const localVarAxiosArgs =
-        await localVarAxiosParamCreator.postMarketplaceV3FbsSettingsAutoreturnsItems(
-          postMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+        await localVarAxiosParamCreator.postV3FbsSettingsAutoreturnsItems(
+          postV3FbsSettingsAutoreturnsItemsRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap[
-          "DefaultApi.postMarketplaceV3FbsSettingsAutoreturnsItems"
-        ]?.[localVarOperationServerIndex]?.url;
+        operationServerMap["DefaultApi.postV3FbsSettingsAutoreturnsItems"]?.[
+          localVarOperationServerIndex
+        ]?.url;
       return (axios, basePath) =>
         createRequestFunction(
           localVarAxiosArgs,
@@ -3556,33 +3554,33 @@ export const DefaultApiFactory = function (
   const localVarFp = DefaultApiFp(configuration);
   return {
     /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Получить настройки автовозврата продавца
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMarketplaceV3FbsSettingsAutoreturns(
+    getV3FbsSettingsAutoreturns(
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<GetMarketplaceV3FbsSettingsAutoreturnsResponse200> {
+    ): AxiosPromise<GetV3FbsSettingsAutoreturnsResponse200> {
       return localVarFp
-        .getMarketplaceV3FbsSettingsAutoreturns(options)
+        .getV3FbsSettingsAutoreturns(options)
         .then((request) => request(axios, basePath));
     },
     /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Получить предметы, которые не хранятся на складах WB
      * @param {number} next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
      * @param {number} limit Количество предметов в ответе
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted(
+    getV3FbsSettingsAutoreturnsSubcategoriesRestricted(
       next: number,
       limit: number,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> {
+    ): AxiosPromise<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> {
       return localVarFp
-        .getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted(
+        .getV3FbsSettingsAutoreturnsSubcategoriesRestricted(
           next,
           limit,
           options,
@@ -3590,55 +3588,55 @@ export const DefaultApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Обновить настройки автовозврата продавца
-     * @param {PatchMarketplaceV3FbsSettingsAutoreturnsRequest} [patchMarketplaceV3FbsSettingsAutoreturnsRequest]
+     * @param {PatchV3FbsSettingsAutoreturnsRequest} [patchV3FbsSettingsAutoreturnsRequest]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchMarketplaceV3FbsSettingsAutoreturns(
-      patchMarketplaceV3FbsSettingsAutoreturnsRequest?: PatchMarketplaceV3FbsSettingsAutoreturnsRequest,
+    patchV3FbsSettingsAutoreturns(
+      patchV3FbsSettingsAutoreturnsRequest?: PatchV3FbsSettingsAutoreturnsRequest,
       options?: RawAxiosRequestConfig,
     ): AxiosPromise<void> {
       return localVarFp
-        .patchMarketplaceV3FbsSettingsAutoreturns(
-          patchMarketplaceV3FbsSettingsAutoreturnsRequest,
+        .patchV3FbsSettingsAutoreturns(
+          patchV3FbsSettingsAutoreturnsRequest,
           options,
         )
         .then((request) => request(axios, basePath));
     },
     /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Обновить настройки автовозврата товаров
-     * @param {PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest} [patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest]
+     * @param {PatchV3FbsSettingsAutoreturnsItemsRequest} [patchV3FbsSettingsAutoreturnsItemsRequest]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchMarketplaceV3FbsSettingsAutoreturnsItems(
-      patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest?: PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+    patchV3FbsSettingsAutoreturnsItems(
+      patchV3FbsSettingsAutoreturnsItemsRequest?: PatchV3FbsSettingsAutoreturnsItemsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200> {
+    ): AxiosPromise<PatchV3FbsSettingsAutoreturnsItemsResponse200> {
       return localVarFp
-        .patchMarketplaceV3FbsSettingsAutoreturnsItems(
-          patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+        .patchV3FbsSettingsAutoreturnsItems(
+          patchV3FbsSettingsAutoreturnsItemsRequest,
           options,
         )
         .then((request) => request(axios, basePath));
     },
     /**
-     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+     * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
      * @summary Получить настройки автовозврата товаров
-     * @param {PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest} [postMarketplaceV3FbsSettingsAutoreturnsItemsRequest]
+     * @param {PostV3FbsSettingsAutoreturnsItemsRequest} [postV3FbsSettingsAutoreturnsItemsRequest]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postMarketplaceV3FbsSettingsAutoreturnsItems(
-      postMarketplaceV3FbsSettingsAutoreturnsItemsRequest?: PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+    postV3FbsSettingsAutoreturnsItems(
+      postV3FbsSettingsAutoreturnsItemsRequest?: PostV3FbsSettingsAutoreturnsItemsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200> {
+    ): AxiosPromise<PostV3FbsSettingsAutoreturnsItemsResponse200> {
       return localVarFp
-        .postMarketplaceV3FbsSettingsAutoreturnsItems(
-          postMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+        .postV3FbsSettingsAutoreturnsItems(
+          postV3FbsSettingsAutoreturnsItemsRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -3653,18 +3651,18 @@ export const DefaultApiFactory = function (
  */
 export interface DefaultApiInterface {
   /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Получить настройки автовозврата продавца
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DefaultApiInterface
    */
-  getMarketplaceV3FbsSettingsAutoreturns(
+  getV3FbsSettingsAutoreturns(
     options?: RawAxiosRequestConfig,
-  ): AxiosPromise<GetMarketplaceV3FbsSettingsAutoreturnsResponse200>;
+  ): AxiosPromise<GetV3FbsSettingsAutoreturnsResponse200>;
 
   /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Получить предметы, которые не хранятся на складах WB
    * @param {number} next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
    * @param {number} limit Количество предметов в ответе
@@ -3672,50 +3670,50 @@ export interface DefaultApiInterface {
    * @throws {RequiredError}
    * @memberof DefaultApiInterface
    */
-  getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted(
+  getV3FbsSettingsAutoreturnsSubcategoriesRestricted(
     next: number,
     limit: number,
     options?: RawAxiosRequestConfig,
-  ): AxiosPromise<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>;
+  ): AxiosPromise<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>;
 
   /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Обновить настройки автовозврата продавца
-   * @param {PatchMarketplaceV3FbsSettingsAutoreturnsRequest} [patchMarketplaceV3FbsSettingsAutoreturnsRequest]
+   * @param {PatchV3FbsSettingsAutoreturnsRequest} [patchV3FbsSettingsAutoreturnsRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DefaultApiInterface
    */
-  patchMarketplaceV3FbsSettingsAutoreturns(
-    patchMarketplaceV3FbsSettingsAutoreturnsRequest?: PatchMarketplaceV3FbsSettingsAutoreturnsRequest,
+  patchV3FbsSettingsAutoreturns(
+    patchV3FbsSettingsAutoreturnsRequest?: PatchV3FbsSettingsAutoreturnsRequest,
     options?: RawAxiosRequestConfig,
   ): AxiosPromise<void>;
 
   /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Обновить настройки автовозврата товаров
-   * @param {PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest} [patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest]
+   * @param {PatchV3FbsSettingsAutoreturnsItemsRequest} [patchV3FbsSettingsAutoreturnsItemsRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DefaultApiInterface
    */
-  patchMarketplaceV3FbsSettingsAutoreturnsItems(
-    patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest?: PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+  patchV3FbsSettingsAutoreturnsItems(
+    patchV3FbsSettingsAutoreturnsItemsRequest?: PatchV3FbsSettingsAutoreturnsItemsRequest,
     options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200>;
+  ): AxiosPromise<PatchV3FbsSettingsAutoreturnsItemsResponse200>;
 
   /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Получить настройки автовозврата товаров
-   * @param {PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest} [postMarketplaceV3FbsSettingsAutoreturnsItemsRequest]
+   * @param {PostV3FbsSettingsAutoreturnsItemsRequest} [postV3FbsSettingsAutoreturnsItemsRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DefaultApiInterface
    */
-  postMarketplaceV3FbsSettingsAutoreturnsItems(
-    postMarketplaceV3FbsSettingsAutoreturnsItemsRequest?: PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+  postV3FbsSettingsAutoreturnsItems(
+    postV3FbsSettingsAutoreturnsItemsRequest?: PostV3FbsSettingsAutoreturnsItemsRequest,
     options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200>;
+  ): AxiosPromise<PostV3FbsSettingsAutoreturnsItemsResponse200>;
 }
 
 /**
@@ -3726,22 +3724,20 @@ export interface DefaultApiInterface {
  */
 export class DefaultApi extends BaseAPI implements DefaultApiInterface {
   /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Получить настройки автовозврата продавца
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DefaultApi
    */
-  public getMarketplaceV3FbsSettingsAutoreturns(
-    options?: RawAxiosRequestConfig,
-  ) {
+  public getV3FbsSettingsAutoreturns(options?: RawAxiosRequestConfig) {
     return DefaultApiFp(this.configuration)
-      .getMarketplaceV3FbsSettingsAutoreturns(options)
+      .getV3FbsSettingsAutoreturns(options)
       .then((request) => request(this.axios, this.basePath));
   }
 
   /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Получить предметы, которые не хранятся на складах WB
    * @param {number} next Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
    * @param {number} limit Количество предметов в ответе
@@ -3749,75 +3745,71 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @throws {RequiredError}
    * @memberof DefaultApi
    */
-  public getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted(
+  public getV3FbsSettingsAutoreturnsSubcategoriesRestricted(
     next: number,
     limit: number,
     options?: RawAxiosRequestConfig,
   ) {
     return DefaultApiFp(this.configuration)
-      .getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted(
-        next,
-        limit,
-        options,
-      )
+      .getV3FbsSettingsAutoreturnsSubcategoriesRestricted(next, limit, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
   /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Обновить настройки автовозврата продавца
-   * @param {PatchMarketplaceV3FbsSettingsAutoreturnsRequest} [patchMarketplaceV3FbsSettingsAutoreturnsRequest]
+   * @param {PatchV3FbsSettingsAutoreturnsRequest} [patchV3FbsSettingsAutoreturnsRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DefaultApi
    */
-  public patchMarketplaceV3FbsSettingsAutoreturns(
-    patchMarketplaceV3FbsSettingsAutoreturnsRequest?: PatchMarketplaceV3FbsSettingsAutoreturnsRequest,
+  public patchV3FbsSettingsAutoreturns(
+    patchV3FbsSettingsAutoreturnsRequest?: PatchV3FbsSettingsAutoreturnsRequest,
     options?: RawAxiosRequestConfig,
   ) {
     return DefaultApiFp(this.configuration)
-      .patchMarketplaceV3FbsSettingsAutoreturns(
-        patchMarketplaceV3FbsSettingsAutoreturnsRequest,
+      .patchV3FbsSettingsAutoreturns(
+        patchV3FbsSettingsAutoreturnsRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
   }
 
   /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Обновить настройки автовозврата товаров
-   * @param {PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest} [patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest]
+   * @param {PatchV3FbsSettingsAutoreturnsItemsRequest} [patchV3FbsSettingsAutoreturnsItemsRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DefaultApi
    */
-  public patchMarketplaceV3FbsSettingsAutoreturnsItems(
-    patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest?: PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+  public patchV3FbsSettingsAutoreturnsItems(
+    patchV3FbsSettingsAutoreturnsItemsRequest?: PatchV3FbsSettingsAutoreturnsItemsRequest,
     options?: RawAxiosRequestConfig,
   ) {
     return DefaultApiFp(this.configuration)
-      .patchMarketplaceV3FbsSettingsAutoreturnsItems(
-        patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+      .patchV3FbsSettingsAutoreturnsItems(
+        patchV3FbsSettingsAutoreturnsItemsRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
   }
 
   /**
-   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+   * Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
    * @summary Получить настройки автовозврата товаров
-   * @param {PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest} [postMarketplaceV3FbsSettingsAutoreturnsItemsRequest]
+   * @param {PostV3FbsSettingsAutoreturnsItemsRequest} [postV3FbsSettingsAutoreturnsItemsRequest]
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DefaultApi
    */
-  public postMarketplaceV3FbsSettingsAutoreturnsItems(
-    postMarketplaceV3FbsSettingsAutoreturnsItemsRequest?: PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+  public postV3FbsSettingsAutoreturnsItems(
+    postV3FbsSettingsAutoreturnsItemsRequest?: PostV3FbsSettingsAutoreturnsItemsRequest,
     options?: RawAxiosRequestConfig,
   ) {
     return DefaultApiFp(this.configuration)
-      .postMarketplaceV3FbsSettingsAutoreturnsItems(
-        postMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+      .postV3FbsSettingsAutoreturnsItems(
+        postV3FbsSettingsAutoreturnsItemsRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));

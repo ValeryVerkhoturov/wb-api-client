@@ -27,29 +27,6 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Остатки на складах продавца
-        /// </summary>
-        /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inventoryRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>PostAnalyticsV1StocksReportSellerWarehousesResponse200</returns>
-        PostAnalyticsV1StocksReportSellerWarehousesResponse200 PostAnalyticsV1StocksReportSellerWarehouses(InventoryRequest inventoryRequest, int operationIndex = 0);
-
-        /// <summary>
-        /// Остатки на складах продавца
-        /// </summary>
-        /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inventoryRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of PostAnalyticsV1StocksReportSellerWarehousesResponse200</returns>
-        ApiResponse<PostAnalyticsV1StocksReportSellerWarehousesResponse200> PostAnalyticsV1StocksReportSellerWarehousesWithHttpInfo(InventoryRequest inventoryRequest, int operationIndex = 0);
-        /// <summary>
         /// Получить отчёт
         /// </summary>
         /// <remarks>
@@ -72,6 +49,29 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PostV1OrderFeedResponse200</returns>
         ApiResponse<PostV1OrderFeedResponse200> PostV1OrderFeedWithHttpInfo(OrderFeedRequest? orderFeedRequest = default(OrderFeedRequest?), int operationIndex = 0);
+        /// <summary>
+        /// Остатки на складах продавца
+        /// </summary>
+        /// <remarks>
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inventoryRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>PostV1StocksReportSellerWarehousesResponse200</returns>
+        PostV1StocksReportSellerWarehousesResponse200 PostV1StocksReportSellerWarehouses(InventoryRequest inventoryRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// Остатки на складах продавца
+        /// </summary>
+        /// <remarks>
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inventoryRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of PostV1StocksReportSellerWarehousesResponse200</returns>
+        ApiResponse<PostV1StocksReportSellerWarehousesResponse200> PostV1StocksReportSellerWarehousesWithHttpInfo(InventoryRequest inventoryRequest, int operationIndex = 0);
         /// <summary>
         /// Остатки на складах WB
         /// </summary>
@@ -404,31 +404,6 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Остатки на складах продавца
-        /// </summary>
-        /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inventoryRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PostAnalyticsV1StocksReportSellerWarehousesResponse200</returns>
-        System.Threading.Tasks.Task<PostAnalyticsV1StocksReportSellerWarehousesResponse200> PostAnalyticsV1StocksReportSellerWarehousesAsync(InventoryRequest inventoryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Остатки на складах продавца
-        /// </summary>
-        /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inventoryRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PostAnalyticsV1StocksReportSellerWarehousesResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostAnalyticsV1StocksReportSellerWarehousesResponse200>> PostAnalyticsV1StocksReportSellerWarehousesWithHttpInfoAsync(InventoryRequest inventoryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
         /// Получить отчёт
         /// </summary>
         /// <remarks>
@@ -453,6 +428,31 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PostV1OrderFeedResponse200)</returns>
         System.Threading.Tasks.Task<ApiResponse<PostV1OrderFeedResponse200>> PostV1OrderFeedWithHttpInfoAsync(OrderFeedRequest? orderFeedRequest = default(OrderFeedRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Остатки на складах продавца
+        /// </summary>
+        /// <remarks>
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inventoryRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PostV1StocksReportSellerWarehousesResponse200</returns>
+        System.Threading.Tasks.Task<PostV1StocksReportSellerWarehousesResponse200> PostV1StocksReportSellerWarehousesAsync(InventoryRequest inventoryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Остатки на складах продавца
+        /// </summary>
+        /// <remarks>
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inventoryRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PostV1StocksReportSellerWarehousesResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PostV1StocksReportSellerWarehousesResponse200>> PostV1StocksReportSellerWarehousesWithHttpInfoAsync(InventoryRequest inventoryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Остатки на складах WB
         /// </summary>
@@ -924,166 +924,6 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Api
         }
 
         /// <summary>
-        /// Остатки на складах продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inventoryRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>PostAnalyticsV1StocksReportSellerWarehousesResponse200</returns>
-        public PostAnalyticsV1StocksReportSellerWarehousesResponse200 PostAnalyticsV1StocksReportSellerWarehouses(InventoryRequest inventoryRequest, int operationIndex = 0)
-        {
-            ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiResponse<PostAnalyticsV1StocksReportSellerWarehousesResponse200> localVarResponse = PostAnalyticsV1StocksReportSellerWarehousesWithHttpInfo(inventoryRequest);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Остатки на складах продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inventoryRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of PostAnalyticsV1StocksReportSellerWarehousesResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiResponse<PostAnalyticsV1StocksReportSellerWarehousesResponse200> PostAnalyticsV1StocksReportSellerWarehousesWithHttpInfo(InventoryRequest inventoryRequest, int operationIndex = 0)
-        {
-            // verify the required parameter 'inventoryRequest' is set
-            if (inventoryRequest == null)
-            {
-                throw new ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException(400, "Missing required parameter 'inventoryRequest' when calling DefaultApi->PostAnalyticsV1StocksReportSellerWarehouses");
-            }
-
-            ValeryVerkhoturov.WbApiClient.Analytics.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Analytics.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.Analytics.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.Analytics.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = inventoryRequest;
-
-            localVarRequestOptions.Operation = "DefaultApi.PostAnalyticsV1StocksReportSellerWarehouses";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<PostAnalyticsV1StocksReportSellerWarehousesResponse200>("/api/analytics/v1/stocks-report/seller-warehouses", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PostAnalyticsV1StocksReportSellerWarehouses", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Остатки на складах продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inventoryRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PostAnalyticsV1StocksReportSellerWarehousesResponse200</returns>
-        public async System.Threading.Tasks.Task<PostAnalyticsV1StocksReportSellerWarehousesResponse200> PostAnalyticsV1StocksReportSellerWarehousesAsync(InventoryRequest inventoryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiResponse<PostAnalyticsV1StocksReportSellerWarehousesResponse200> localVarResponse = await PostAnalyticsV1StocksReportSellerWarehousesWithHttpInfoAsync(inventoryRequest, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Остатки на складах продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inventoryRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PostAnalyticsV1StocksReportSellerWarehousesResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiResponse<PostAnalyticsV1StocksReportSellerWarehousesResponse200>> PostAnalyticsV1StocksReportSellerWarehousesWithHttpInfoAsync(InventoryRequest inventoryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'inventoryRequest' is set
-            if (inventoryRequest == null)
-            {
-                throw new ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException(400, "Missing required parameter 'inventoryRequest' when calling DefaultApi->PostAnalyticsV1StocksReportSellerWarehouses");
-            }
-
-
-            ValeryVerkhoturov.WbApiClient.Analytics.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Analytics.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.Analytics.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.Analytics.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = inventoryRequest;
-
-            localVarRequestOptions.Operation = "DefaultApi.PostAnalyticsV1StocksReportSellerWarehouses";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<PostAnalyticsV1StocksReportSellerWarehousesResponse200>("/api/analytics/v1/stocks-report/seller-warehouses", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PostAnalyticsV1StocksReportSellerWarehouses", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Получить отчёт Метод формирует набор данных о заказах и продажах.  Данные отчёта обновляются в режиме реального времени.  &gt; 1 заказ &#x3D; 1 сборочное задание &#x3D; 1 единица товара Параметры &#x60;brandNames&#x60;,&#x60;subjectIds&#x60;, &#x60;tagIds&#x60;, &#x60;nmIds&#x60; могут быть пустыми &#x60;[]&#x60;, тогда в ответе возвращаются все заказы продавца. Если вы указали несколько параметров, в ответе будут заказы, в которых есть одновременно все эти параметры. Если заказы не подходят по параметрам запроса, вернётся пустой массив &#x60;[]&#x60;.  Можно получить отчёт максимум за последние 31 день.  Заказы отдаются по времени текущего статуса, от самого нового к самому раннему.  Можно использовать пагинацию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 3 ч | 1 запрос | 3 ч | 1 запрос |
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1222,6 +1062,166 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostV1OrderFeed", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Остатки на складах продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inventoryRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>PostV1StocksReportSellerWarehousesResponse200</returns>
+        public PostV1StocksReportSellerWarehousesResponse200 PostV1StocksReportSellerWarehouses(InventoryRequest inventoryRequest, int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiResponse<PostV1StocksReportSellerWarehousesResponse200> localVarResponse = PostV1StocksReportSellerWarehousesWithHttpInfo(inventoryRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Остатки на складах продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inventoryRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of PostV1StocksReportSellerWarehousesResponse200</returns>
+        public ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiResponse<PostV1StocksReportSellerWarehousesResponse200> PostV1StocksReportSellerWarehousesWithHttpInfo(InventoryRequest inventoryRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'inventoryRequest' is set
+            if (inventoryRequest == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException(400, "Missing required parameter 'inventoryRequest' when calling DefaultApi->PostV1StocksReportSellerWarehouses");
+            }
+
+            ValeryVerkhoturov.WbApiClient.Analytics.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Analytics.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Analytics.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Analytics.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = inventoryRequest;
+
+            localVarRequestOptions.Operation = "DefaultApi.PostV1StocksReportSellerWarehouses";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<PostV1StocksReportSellerWarehousesResponse200>("/api/analytics/v1/stocks-report/seller-warehouses", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PostV1StocksReportSellerWarehouses", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Остатки на складах продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inventoryRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PostV1StocksReportSellerWarehousesResponse200</returns>
+        public async System.Threading.Tasks.Task<PostV1StocksReportSellerWarehousesResponse200> PostV1StocksReportSellerWarehousesAsync(InventoryRequest inventoryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiResponse<PostV1StocksReportSellerWarehousesResponse200> localVarResponse = await PostV1StocksReportSellerWarehousesWithHttpInfoAsync(inventoryRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Остатки на складах продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  Метод возвращает текущие остатки товаров на складах продавца.  Данные обновляются 1 раз в 30 минут.  1 строка ответа — данные об 1 размере товара на 1 складе продавца.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 3 запроса | 20 сек | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inventoryRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PostV1StocksReportSellerWarehousesResponse200)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiResponse<PostV1StocksReportSellerWarehousesResponse200>> PostV1StocksReportSellerWarehousesWithHttpInfoAsync(InventoryRequest inventoryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'inventoryRequest' is set
+            if (inventoryRequest == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException(400, "Missing required parameter 'inventoryRequest' when calling DefaultApi->PostV1StocksReportSellerWarehouses");
+            }
+
+
+            ValeryVerkhoturov.WbApiClient.Analytics.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Analytics.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Analytics.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Analytics.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = inventoryRequest;
+
+            localVarRequestOptions.Operation = "DefaultApi.PostV1StocksReportSellerWarehouses";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<PostV1StocksReportSellerWarehousesResponse200>("/api/analytics/v1/stocks-report/seller-warehouses", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PostV1StocksReportSellerWarehouses", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

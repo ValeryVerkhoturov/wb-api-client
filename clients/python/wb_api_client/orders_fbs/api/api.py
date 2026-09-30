@@ -19,26 +19,26 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt
 from typing import Optional
 from typing_extensions import Annotated
-from wb_api_client.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns_response200 import (
-    GetMarketplaceV3FbsSettingsAutoreturnsResponse200,
+from wb_api_client.orders_fbs.models.get_v3_fbs_settings_autoreturns_response200 import (
+    GetV3FbsSettingsAutoreturnsResponse200,
 )
-from wb_api_client.orders_fbs.models.get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_response200 import (
-    GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200,
+from wb_api_client.orders_fbs.models.get_v3_fbs_settings_autoreturns_subcategories_restricted_response200 import (
+    GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200,
 )
-from wb_api_client.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_items_request import (
-    PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+from wb_api_client.orders_fbs.models.patch_v3_fbs_settings_autoreturns_items_request import (
+    PatchV3FbsSettingsAutoreturnsItemsRequest,
 )
-from wb_api_client.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_items_response200 import (
-    PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200,
+from wb_api_client.orders_fbs.models.patch_v3_fbs_settings_autoreturns_items_response200 import (
+    PatchV3FbsSettingsAutoreturnsItemsResponse200,
 )
-from wb_api_client.orders_fbs.models.patch_marketplace_v3_fbs_settings_autoreturns_request import (
-    PatchMarketplaceV3FbsSettingsAutoreturnsRequest,
+from wb_api_client.orders_fbs.models.patch_v3_fbs_settings_autoreturns_request import (
+    PatchV3FbsSettingsAutoreturnsRequest,
 )
-from wb_api_client.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items_request import (
-    PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+from wb_api_client.orders_fbs.models.post_v3_fbs_settings_autoreturns_items_request import (
+    PostV3FbsSettingsAutoreturnsItemsRequest,
 )
-from wb_api_client.orders_fbs.models.post_marketplace_v3_fbs_settings_autoreturns_items_response200 import (
-    PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200,
+from wb_api_client.orders_fbs.models.post_v3_fbs_settings_autoreturns_items_response200 import (
+    PostV3FbsSettingsAutoreturnsItemsResponse200,
 )
 
 from wb_api_client.orders_fbs.api_client import ApiClient, RequestSerialized
@@ -59,7 +59,7 @@ class Api:
         self.api_client = api_client
 
     @validate_call
-    def get_marketplace_v3_fbs_settings_autoreturns(
+    def get_v3_fbs_settings_autoreturns(
         self,
         _request_timeout: Union[
             None,
@@ -72,10 +72,10 @@ class Api:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> GetMarketplaceV3FbsSettingsAutoreturnsResponse200:
+    ) -> GetV3FbsSettingsAutoreturnsResponse200:
         """Получить настройки автовозврата продавца
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -99,7 +99,7 @@ class Api:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._get_marketplace_v3_fbs_settings_autoreturns_serialize(
+        _param = self._get_v3_fbs_settings_autoreturns_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -107,7 +107,7 @@ class Api:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetMarketplaceV3FbsSettingsAutoreturnsResponse200",
+            "200": "GetV3FbsSettingsAutoreturnsResponse200",
             "401": "GetV3PassesOffices401Response",
             "403": "Response4XX",
             "429": "GetV3PassesOffices401Response",
@@ -122,7 +122,7 @@ class Api:
         ).data
 
     @validate_call
-    def get_marketplace_v3_fbs_settings_autoreturns_with_http_info(
+    def get_v3_fbs_settings_autoreturns_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -135,10 +135,10 @@ class Api:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[GetMarketplaceV3FbsSettingsAutoreturnsResponse200]:
+    ) -> ApiResponse[GetV3FbsSettingsAutoreturnsResponse200]:
         """Получить настройки автовозврата продавца
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -162,7 +162,7 @@ class Api:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._get_marketplace_v3_fbs_settings_autoreturns_serialize(
+        _param = self._get_v3_fbs_settings_autoreturns_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -170,7 +170,7 @@ class Api:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetMarketplaceV3FbsSettingsAutoreturnsResponse200",
+            "200": "GetV3FbsSettingsAutoreturnsResponse200",
             "401": "GetV3PassesOffices401Response",
             "403": "Response4XX",
             "429": "GetV3PassesOffices401Response",
@@ -185,7 +185,7 @@ class Api:
         )
 
     @validate_call
-    def get_marketplace_v3_fbs_settings_autoreturns_without_preload_content(
+    def get_v3_fbs_settings_autoreturns_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -201,7 +201,7 @@ class Api:
     ) -> RESTResponseType:
         """Получить настройки автовозврата продавца
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -225,7 +225,7 @@ class Api:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._get_marketplace_v3_fbs_settings_autoreturns_serialize(
+        _param = self._get_v3_fbs_settings_autoreturns_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -233,7 +233,7 @@ class Api:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetMarketplaceV3FbsSettingsAutoreturnsResponse200",
+            "200": "GetV3FbsSettingsAutoreturnsResponse200",
             "401": "GetV3PassesOffices401Response",
             "403": "Response4XX",
             "429": "GetV3PassesOffices401Response",
@@ -243,7 +243,7 @@ class Api:
         )
         return response_data.response
 
-    def _get_marketplace_v3_fbs_settings_autoreturns_serialize(
+    def _get_v3_fbs_settings_autoreturns_serialize(
         self,
         _request_auth,
         _content_type,
@@ -296,7 +296,7 @@ class Api:
         )
 
     @validate_call
-    def get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted(
+    def get_v3_fbs_settings_autoreturns_subcategories_restricted(
         self,
         next: Annotated[
             StrictInt,
@@ -324,10 +324,10 @@ class Api:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200:
+    ) -> GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200:
         """Получить предметы, которые не хранятся на складах WB
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
         :param next: Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе. (required)
         :type next: int
@@ -355,17 +355,19 @@ class Api:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_serialize(
-            next=next,
-            limit=limit,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index,
+        _param = (
+            self._get_v3_fbs_settings_autoreturns_subcategories_restricted_serialize(
+                next=next,
+                limit=limit,
+                _request_auth=_request_auth,
+                _content_type=_content_type,
+                _headers=_headers,
+                _host_index=_host_index,
+            )
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200",
+            "200": "GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200",
             "400": "ApiErrorV3",
             "401": "GetV3PassesOffices401Response",
             "403": "Response4XX",
@@ -381,7 +383,7 @@ class Api:
         ).data
 
     @validate_call
-    def get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_with_http_info(
+    def get_v3_fbs_settings_autoreturns_subcategories_restricted_with_http_info(
         self,
         next: Annotated[
             StrictInt,
@@ -409,12 +411,10 @@ class Api:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[
-        GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
-    ]:
+    ) -> ApiResponse[GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200]:
         """Получить предметы, которые не хранятся на складах WB
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
         :param next: Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе. (required)
         :type next: int
@@ -442,17 +442,19 @@ class Api:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_serialize(
-            next=next,
-            limit=limit,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index,
+        _param = (
+            self._get_v3_fbs_settings_autoreturns_subcategories_restricted_serialize(
+                next=next,
+                limit=limit,
+                _request_auth=_request_auth,
+                _content_type=_content_type,
+                _headers=_headers,
+                _host_index=_host_index,
+            )
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200",
+            "200": "GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200",
             "400": "ApiErrorV3",
             "401": "GetV3PassesOffices401Response",
             "403": "Response4XX",
@@ -468,7 +470,7 @@ class Api:
         )
 
     @validate_call
-    def get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_without_preload_content(
+    def get_v3_fbs_settings_autoreturns_subcategories_restricted_without_preload_content(
         self,
         next: Annotated[
             StrictInt,
@@ -499,7 +501,7 @@ class Api:
     ) -> RESTResponseType:
         """Получить предметы, которые не хранятся на складах WB
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
         :param next: Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен `0` в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе. (required)
         :type next: int
@@ -527,17 +529,19 @@ class Api:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_serialize(
-            next=next,
-            limit=limit,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index,
+        _param = (
+            self._get_v3_fbs_settings_autoreturns_subcategories_restricted_serialize(
+                next=next,
+                limit=limit,
+                _request_auth=_request_auth,
+                _content_type=_content_type,
+                _headers=_headers,
+                _host_index=_host_index,
+            )
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200",
+            "200": "GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200",
             "400": "ApiErrorV3",
             "401": "GetV3PassesOffices401Response",
             "403": "Response4XX",
@@ -548,7 +552,7 @@ class Api:
         )
         return response_data.response
 
-    def _get_marketplace_v3_fbs_settings_autoreturns_subcategories_restricted_serialize(
+    def _get_v3_fbs_settings_autoreturns_subcategories_restricted_serialize(
         self,
         next,
         limit,
@@ -611,10 +615,10 @@ class Api:
         )
 
     @validate_call
-    def patch_marketplace_v3_fbs_settings_autoreturns(
+    def patch_v3_fbs_settings_autoreturns(
         self,
-        patch_marketplace_v3_fbs_settings_autoreturns_request: Optional[
-            PatchMarketplaceV3FbsSettingsAutoreturnsRequest
+        patch_v3_fbs_settings_autoreturns_request: Optional[
+            PatchV3FbsSettingsAutoreturnsRequest
         ] = None,
         _request_timeout: Union[
             None,
@@ -630,10 +634,10 @@ class Api:
     ) -> None:
         """Обновить настройки автовозврата продавца
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-        :param patch_marketplace_v3_fbs_settings_autoreturns_request:
-        :type patch_marketplace_v3_fbs_settings_autoreturns_request: PatchMarketplaceV3FbsSettingsAutoreturnsRequest
+        :param patch_v3_fbs_settings_autoreturns_request:
+        :type patch_v3_fbs_settings_autoreturns_request: PatchV3FbsSettingsAutoreturnsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -656,8 +660,8 @@ class Api:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._patch_marketplace_v3_fbs_settings_autoreturns_serialize(
-            patch_marketplace_v3_fbs_settings_autoreturns_request=patch_marketplace_v3_fbs_settings_autoreturns_request,
+        _param = self._patch_v3_fbs_settings_autoreturns_serialize(
+            patch_v3_fbs_settings_autoreturns_request=patch_v3_fbs_settings_autoreturns_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -681,10 +685,10 @@ class Api:
         ).data
 
     @validate_call
-    def patch_marketplace_v3_fbs_settings_autoreturns_with_http_info(
+    def patch_v3_fbs_settings_autoreturns_with_http_info(
         self,
-        patch_marketplace_v3_fbs_settings_autoreturns_request: Optional[
-            PatchMarketplaceV3FbsSettingsAutoreturnsRequest
+        patch_v3_fbs_settings_autoreturns_request: Optional[
+            PatchV3FbsSettingsAutoreturnsRequest
         ] = None,
         _request_timeout: Union[
             None,
@@ -700,10 +704,10 @@ class Api:
     ) -> ApiResponse[None]:
         """Обновить настройки автовозврата продавца
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-        :param patch_marketplace_v3_fbs_settings_autoreturns_request:
-        :type patch_marketplace_v3_fbs_settings_autoreturns_request: PatchMarketplaceV3FbsSettingsAutoreturnsRequest
+        :param patch_v3_fbs_settings_autoreturns_request:
+        :type patch_v3_fbs_settings_autoreturns_request: PatchV3FbsSettingsAutoreturnsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -726,8 +730,8 @@ class Api:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._patch_marketplace_v3_fbs_settings_autoreturns_serialize(
-            patch_marketplace_v3_fbs_settings_autoreturns_request=patch_marketplace_v3_fbs_settings_autoreturns_request,
+        _param = self._patch_v3_fbs_settings_autoreturns_serialize(
+            patch_v3_fbs_settings_autoreturns_request=patch_v3_fbs_settings_autoreturns_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -751,10 +755,10 @@ class Api:
         )
 
     @validate_call
-    def patch_marketplace_v3_fbs_settings_autoreturns_without_preload_content(
+    def patch_v3_fbs_settings_autoreturns_without_preload_content(
         self,
-        patch_marketplace_v3_fbs_settings_autoreturns_request: Optional[
-            PatchMarketplaceV3FbsSettingsAutoreturnsRequest
+        patch_v3_fbs_settings_autoreturns_request: Optional[
+            PatchV3FbsSettingsAutoreturnsRequest
         ] = None,
         _request_timeout: Union[
             None,
@@ -770,10 +774,10 @@ class Api:
     ) -> RESTResponseType:
         """Обновить настройки автовозврата продавца
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-        :param patch_marketplace_v3_fbs_settings_autoreturns_request:
-        :type patch_marketplace_v3_fbs_settings_autoreturns_request: PatchMarketplaceV3FbsSettingsAutoreturnsRequest
+        :param patch_v3_fbs_settings_autoreturns_request:
+        :type patch_v3_fbs_settings_autoreturns_request: PatchV3FbsSettingsAutoreturnsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -796,8 +800,8 @@ class Api:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._patch_marketplace_v3_fbs_settings_autoreturns_serialize(
-            patch_marketplace_v3_fbs_settings_autoreturns_request=patch_marketplace_v3_fbs_settings_autoreturns_request,
+        _param = self._patch_v3_fbs_settings_autoreturns_serialize(
+            patch_v3_fbs_settings_autoreturns_request=patch_v3_fbs_settings_autoreturns_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -816,9 +820,9 @@ class Api:
         )
         return response_data.response
 
-    def _patch_marketplace_v3_fbs_settings_autoreturns_serialize(
+    def _patch_v3_fbs_settings_autoreturns_serialize(
         self,
-        patch_marketplace_v3_fbs_settings_autoreturns_request,
+        patch_v3_fbs_settings_autoreturns_request,
         _request_auth,
         _content_type,
         _headers,
@@ -844,8 +848,8 @@ class Api:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if patch_marketplace_v3_fbs_settings_autoreturns_request is not None:
-            _body_params = patch_marketplace_v3_fbs_settings_autoreturns_request
+        if patch_v3_fbs_settings_autoreturns_request is not None:
+            _body_params = patch_v3_fbs_settings_autoreturns_request
 
         # set the HTTP header `Accept`
         if "Accept" not in _header_params:
@@ -882,10 +886,10 @@ class Api:
         )
 
     @validate_call
-    def patch_marketplace_v3_fbs_settings_autoreturns_items(
+    def patch_v3_fbs_settings_autoreturns_items(
         self,
-        patch_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[
-            PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+        patch_v3_fbs_settings_autoreturns_items_request: Optional[
+            PatchV3FbsSettingsAutoreturnsItemsRequest
         ] = None,
         _request_timeout: Union[
             None,
@@ -898,13 +902,13 @@ class Api:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200:
+    ) -> PatchV3FbsSettingsAutoreturnsItemsResponse200:
         """Обновить настройки автовозврата товаров
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-        :param patch_marketplace_v3_fbs_settings_autoreturns_items_request:
-        :type patch_marketplace_v3_fbs_settings_autoreturns_items_request: PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+        :param patch_v3_fbs_settings_autoreturns_items_request:
+        :type patch_v3_fbs_settings_autoreturns_items_request: PatchV3FbsSettingsAutoreturnsItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -927,8 +931,8 @@ class Api:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._patch_marketplace_v3_fbs_settings_autoreturns_items_serialize(
-            patch_marketplace_v3_fbs_settings_autoreturns_items_request=patch_marketplace_v3_fbs_settings_autoreturns_items_request,
+        _param = self._patch_v3_fbs_settings_autoreturns_items_serialize(
+            patch_v3_fbs_settings_autoreturns_items_request=patch_v3_fbs_settings_autoreturns_items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -936,7 +940,7 @@ class Api:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200",
+            "200": "PatchV3FbsSettingsAutoreturnsItemsResponse200",
             "400": "ApiErrorV3",
             "401": "GetV3PassesOffices401Response",
             "403": "Response4XX",
@@ -952,10 +956,10 @@ class Api:
         ).data
 
     @validate_call
-    def patch_marketplace_v3_fbs_settings_autoreturns_items_with_http_info(
+    def patch_v3_fbs_settings_autoreturns_items_with_http_info(
         self,
-        patch_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[
-            PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+        patch_v3_fbs_settings_autoreturns_items_request: Optional[
+            PatchV3FbsSettingsAutoreturnsItemsRequest
         ] = None,
         _request_timeout: Union[
             None,
@@ -968,13 +972,13 @@ class Api:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200]:
+    ) -> ApiResponse[PatchV3FbsSettingsAutoreturnsItemsResponse200]:
         """Обновить настройки автовозврата товаров
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-        :param patch_marketplace_v3_fbs_settings_autoreturns_items_request:
-        :type patch_marketplace_v3_fbs_settings_autoreturns_items_request: PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+        :param patch_v3_fbs_settings_autoreturns_items_request:
+        :type patch_v3_fbs_settings_autoreturns_items_request: PatchV3FbsSettingsAutoreturnsItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -997,8 +1001,8 @@ class Api:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._patch_marketplace_v3_fbs_settings_autoreturns_items_serialize(
-            patch_marketplace_v3_fbs_settings_autoreturns_items_request=patch_marketplace_v3_fbs_settings_autoreturns_items_request,
+        _param = self._patch_v3_fbs_settings_autoreturns_items_serialize(
+            patch_v3_fbs_settings_autoreturns_items_request=patch_v3_fbs_settings_autoreturns_items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1006,7 +1010,7 @@ class Api:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200",
+            "200": "PatchV3FbsSettingsAutoreturnsItemsResponse200",
             "400": "ApiErrorV3",
             "401": "GetV3PassesOffices401Response",
             "403": "Response4XX",
@@ -1022,10 +1026,10 @@ class Api:
         )
 
     @validate_call
-    def patch_marketplace_v3_fbs_settings_autoreturns_items_without_preload_content(
+    def patch_v3_fbs_settings_autoreturns_items_without_preload_content(
         self,
-        patch_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[
-            PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+        patch_v3_fbs_settings_autoreturns_items_request: Optional[
+            PatchV3FbsSettingsAutoreturnsItemsRequest
         ] = None,
         _request_timeout: Union[
             None,
@@ -1041,10 +1045,10 @@ class Api:
     ) -> RESTResponseType:
         """Обновить настройки автовозврата товаров
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — `\"cargoType\":1`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-        :param patch_marketplace_v3_fbs_settings_autoreturns_items_request:
-        :type patch_marketplace_v3_fbs_settings_autoreturns_items_request: PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+        :param patch_v3_fbs_settings_autoreturns_items_request:
+        :type patch_v3_fbs_settings_autoreturns_items_request: PatchV3FbsSettingsAutoreturnsItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1067,8 +1071,8 @@ class Api:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._patch_marketplace_v3_fbs_settings_autoreturns_items_serialize(
-            patch_marketplace_v3_fbs_settings_autoreturns_items_request=patch_marketplace_v3_fbs_settings_autoreturns_items_request,
+        _param = self._patch_v3_fbs_settings_autoreturns_items_serialize(
+            patch_v3_fbs_settings_autoreturns_items_request=patch_v3_fbs_settings_autoreturns_items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1076,7 +1080,7 @@ class Api:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200",
+            "200": "PatchV3FbsSettingsAutoreturnsItemsResponse200",
             "400": "ApiErrorV3",
             "401": "GetV3PassesOffices401Response",
             "403": "Response4XX",
@@ -1087,9 +1091,9 @@ class Api:
         )
         return response_data.response
 
-    def _patch_marketplace_v3_fbs_settings_autoreturns_items_serialize(
+    def _patch_v3_fbs_settings_autoreturns_items_serialize(
         self,
-        patch_marketplace_v3_fbs_settings_autoreturns_items_request,
+        patch_v3_fbs_settings_autoreturns_items_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1115,8 +1119,8 @@ class Api:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if patch_marketplace_v3_fbs_settings_autoreturns_items_request is not None:
-            _body_params = patch_marketplace_v3_fbs_settings_autoreturns_items_request
+        if patch_v3_fbs_settings_autoreturns_items_request is not None:
+            _body_params = patch_v3_fbs_settings_autoreturns_items_request
 
         # set the HTTP header `Accept`
         if "Accept" not in _header_params:
@@ -1153,10 +1157,10 @@ class Api:
         )
 
     @validate_call
-    def post_marketplace_v3_fbs_settings_autoreturns_items(
+    def post_v3_fbs_settings_autoreturns_items(
         self,
-        post_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[
-            PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+        post_v3_fbs_settings_autoreturns_items_request: Optional[
+            PostV3FbsSettingsAutoreturnsItemsRequest
         ] = None,
         _request_timeout: Union[
             None,
@@ -1169,13 +1173,13 @@ class Api:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200:
+    ) -> PostV3FbsSettingsAutoreturnsItemsResponse200:
         """Получить настройки автовозврата товаров
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-        :param post_marketplace_v3_fbs_settings_autoreturns_items_request:
-        :type post_marketplace_v3_fbs_settings_autoreturns_items_request: PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+        :param post_v3_fbs_settings_autoreturns_items_request:
+        :type post_v3_fbs_settings_autoreturns_items_request: PostV3FbsSettingsAutoreturnsItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1198,8 +1202,8 @@ class Api:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._post_marketplace_v3_fbs_settings_autoreturns_items_serialize(
-            post_marketplace_v3_fbs_settings_autoreturns_items_request=post_marketplace_v3_fbs_settings_autoreturns_items_request,
+        _param = self._post_v3_fbs_settings_autoreturns_items_serialize(
+            post_v3_fbs_settings_autoreturns_items_request=post_v3_fbs_settings_autoreturns_items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1207,7 +1211,7 @@ class Api:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200",
+            "200": "PostV3FbsSettingsAutoreturnsItemsResponse200",
             "400": "ApiErrorV3",
             "401": "GetV3PassesOffices401Response",
             "403": "Response4XX",
@@ -1223,10 +1227,10 @@ class Api:
         ).data
 
     @validate_call
-    def post_marketplace_v3_fbs_settings_autoreturns_items_with_http_info(
+    def post_v3_fbs_settings_autoreturns_items_with_http_info(
         self,
-        post_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[
-            PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+        post_v3_fbs_settings_autoreturns_items_request: Optional[
+            PostV3FbsSettingsAutoreturnsItemsRequest
         ] = None,
         _request_timeout: Union[
             None,
@@ -1239,13 +1243,13 @@ class Api:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200]:
+    ) -> ApiResponse[PostV3FbsSettingsAutoreturnsItemsResponse200]:
         """Получить настройки автовозврата товаров
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-        :param post_marketplace_v3_fbs_settings_autoreturns_items_request:
-        :type post_marketplace_v3_fbs_settings_autoreturns_items_request: PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+        :param post_v3_fbs_settings_autoreturns_items_request:
+        :type post_v3_fbs_settings_autoreturns_items_request: PostV3FbsSettingsAutoreturnsItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1268,8 +1272,8 @@ class Api:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._post_marketplace_v3_fbs_settings_autoreturns_items_serialize(
-            post_marketplace_v3_fbs_settings_autoreturns_items_request=post_marketplace_v3_fbs_settings_autoreturns_items_request,
+        _param = self._post_v3_fbs_settings_autoreturns_items_serialize(
+            post_v3_fbs_settings_autoreturns_items_request=post_v3_fbs_settings_autoreturns_items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1277,7 +1281,7 @@ class Api:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200",
+            "200": "PostV3FbsSettingsAutoreturnsItemsResponse200",
             "400": "ApiErrorV3",
             "401": "GetV3PassesOffices401Response",
             "403": "Response4XX",
@@ -1293,10 +1297,10 @@ class Api:
         )
 
     @validate_call
-    def post_marketplace_v3_fbs_settings_autoreturns_items_without_preload_content(
+    def post_v3_fbs_settings_autoreturns_items_without_preload_content(
         self,
-        post_marketplace_v3_fbs_settings_autoreturns_items_request: Optional[
-            PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+        post_v3_fbs_settings_autoreturns_items_request: Optional[
+            PostV3FbsSettingsAutoreturnsItemsRequest
         ] = None,
         _request_timeout: Union[
             None,
@@ -1312,10 +1316,10 @@ class Api:
     ) -> RESTResponseType:
         """Получить настройки автовозврата товаров
 
-        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
+        Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов
 
-        :param post_marketplace_v3_fbs_settings_autoreturns_items_request:
-        :type post_marketplace_v3_fbs_settings_autoreturns_items_request: PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
+        :param post_v3_fbs_settings_autoreturns_items_request:
+        :type post_v3_fbs_settings_autoreturns_items_request: PostV3FbsSettingsAutoreturnsItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1338,8 +1342,8 @@ class Api:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._post_marketplace_v3_fbs_settings_autoreturns_items_serialize(
-            post_marketplace_v3_fbs_settings_autoreturns_items_request=post_marketplace_v3_fbs_settings_autoreturns_items_request,
+        _param = self._post_v3_fbs_settings_autoreturns_items_serialize(
+            post_v3_fbs_settings_autoreturns_items_request=post_v3_fbs_settings_autoreturns_items_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1347,7 +1351,7 @@ class Api:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200",
+            "200": "PostV3FbsSettingsAutoreturnsItemsResponse200",
             "400": "ApiErrorV3",
             "401": "GetV3PassesOffices401Response",
             "403": "Response4XX",
@@ -1358,9 +1362,9 @@ class Api:
         )
         return response_data.response
 
-    def _post_marketplace_v3_fbs_settings_autoreturns_items_serialize(
+    def _post_v3_fbs_settings_autoreturns_items_serialize(
         self,
-        post_marketplace_v3_fbs_settings_autoreturns_items_request,
+        post_v3_fbs_settings_autoreturns_items_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1386,8 +1390,8 @@ class Api:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if post_marketplace_v3_fbs_settings_autoreturns_items_request is not None:
-            _body_params = post_marketplace_v3_fbs_settings_autoreturns_items_request
+        if post_v3_fbs_settings_autoreturns_items_request is not None:
+            _body_params = post_v3_fbs_settings_autoreturns_items_request
 
         # set the HTTP header `Accept`
         if "Accept" not in _header_params:

@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20260928.0";
+        public const string Version = "1.20260930.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -134,43 +134,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
             OperationServers = new Dictionary<string, List<IReadOnlyDictionary<string, object>>>()
             {
                 {
-                    "DefaultApi.DeleteFeedbacksV1Pins", new List<IReadOnlyDictionary<string, object>>
-                    {
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://feedbacks-api.wildberries.ru"},
-                                {"description", "No description provided"}
-                            }
-                        },
-                    }
-                },
-                {
-                    "DefaultApi.GetFeedbacksV1Pins", new List<IReadOnlyDictionary<string, object>>
-                    {
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://feedbacks-api.wildberries.ru"},
-                                {"description", "No description provided"}
-                            }
-                        },
-                    }
-                },
-                {
-                    "DefaultApi.GetFeedbacksV1PinsCount", new List<IReadOnlyDictionary<string, object>>
-                    {
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://feedbacks-api.wildberries.ru"},
-                                {"description", "No description provided"}
-                            }
-                        },
-                    }
-                },
-                {
-                    "DefaultApi.GetFeedbacksV1PinsLimits", new List<IReadOnlyDictionary<string, object>>
+                    "DefaultApi.DeleteV1Pins", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -303,6 +267,42 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                             {
                                 {"url", "https://feedbacks-api-sandbox.wildberries.ru"},
                                 {"description", "**Sandbox** "}
+                            }
+                        },
+                    }
+                },
+                {
+                    "DefaultApi.GetV1Pins", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://feedbacks-api.wildberries.ru"},
+                                {"description", "No description provided"}
+                            }
+                        },
+                    }
+                },
+                {
+                    "DefaultApi.GetV1PinsCount", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://feedbacks-api.wildberries.ru"},
+                                {"description", "No description provided"}
+                            }
+                        },
+                    }
+                },
+                {
+                    "DefaultApi.GetV1PinsLimits", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://feedbacks-api.wildberries.ru"},
+                                {"description", "No description provided"}
                             }
                         },
                     }
@@ -470,18 +470,6 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                     }
                 },
                 {
-                    "DefaultApi.PostFeedbacksV1Pins", new List<IReadOnlyDictionary<string, object>>
-                    {
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://feedbacks-api.wildberries.ru"},
-                                {"description", "No description provided"}
-                            }
-                        },
-                    }
-                },
-                {
                     "DefaultApi.PostV1FeedbacksAnswer", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
@@ -515,6 +503,18 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
                             {
                                 {"url", "https://feedbacks-api-sandbox.wildberries.ru"},
                                 {"description", "**Sandbox** "}
+                            }
+                        },
+                    }
+                },
+                {
+                    "DefaultApi.PostV1Pins", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://feedbacks-api.wildberries.ru"},
+                                {"description", "No description provided"}
                             }
                         },
                     }
@@ -961,7 +961,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: communication\n";
-            report += "    SDK Package Version: 1.20260928.0\n";
+            report += "    SDK Package Version: 1.20260930.0\n";
 
             return report;
         }

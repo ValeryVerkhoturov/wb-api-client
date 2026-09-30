@@ -188,11 +188,11 @@ from wb_api_client.analytics.models.position_cluster import PositionCluster
 from wb_api_client.analytics.models.position_info import PositionInfo
 from wb_api_client.analytics.models.position_info_average import PositionInfoAverage
 from wb_api_client.analytics.models.position_info_median import PositionInfoMedian
-from wb_api_client.analytics.models.post_analytics_v1_stocks_report_seller_warehouses_response200 import (
-    PostAnalyticsV1StocksReportSellerWarehousesResponse200,
-)
 from wb_api_client.analytics.models.post_v1_order_feed_response200 import (
     PostV1OrderFeedResponse200,
+)
+from wb_api_client.analytics.models.post_v1_stocks_report_seller_warehouses_response200 import (
+    PostV1StocksReportSellerWarehousesResponse200,
 )
 from wb_api_client.analytics.models.post_v1_stocks_report_wb_warehouses_response200 import (
     PostV1StocksReportWbWarehousesResponse200,

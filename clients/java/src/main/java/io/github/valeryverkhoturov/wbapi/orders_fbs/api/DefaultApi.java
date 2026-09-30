@@ -19,13 +19,13 @@ import io.github.valeryverkhoturov.wbapi.orders_fbs.ApiException;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.ApiResponse;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.Configuration;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.Pair;
-import io.github.valeryverkhoturov.wbapi.orders_fbs.model.GetMarketplaceV3FbsSettingsAutoreturnsResponse200;
-import io.github.valeryverkhoturov.wbapi.orders_fbs.model.GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200;
-import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest;
-import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200;
-import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PatchMarketplaceV3FbsSettingsAutoreturnsRequest;
-import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest;
-import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200;
+import io.github.valeryverkhoturov.wbapi.orders_fbs.model.GetV3FbsSettingsAutoreturnsResponse200;
+import io.github.valeryverkhoturov.wbapi.orders_fbs.model.GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200;
+import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PatchV3FbsSettingsAutoreturnsItemsRequest;
+import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PatchV3FbsSettingsAutoreturnsItemsResponse200;
+import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PatchV3FbsSettingsAutoreturnsRequest;
+import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PostV3FbsSettingsAutoreturnsItemsRequest;
+import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PostV3FbsSettingsAutoreturnsItemsResponse200;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -70,7 +70,7 @@ public class DefaultApi {
   }
 
   /**
-   * Build call for getMarketplaceV3FbsSettingsAutoreturns
+   * Build call for getV3FbsSettingsAutoreturns
    *
    * @param _callback Callback for upload/download progress
    * @return Call to execute
@@ -85,7 +85,7 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getMarketplaceV3FbsSettingsAutoreturnsCall(final ApiCallback _callback)
+  public okhttp3.Call getV3FbsSettingsAutoreturnsCall(final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -140,23 +140,23 @@ public class DefaultApi {
   }
 
   @SuppressWarnings("rawtypes")
-  private okhttp3.Call getMarketplaceV3FbsSettingsAutoreturnsValidateBeforeCall(
-      final ApiCallback _callback) throws ApiException {
-    return getMarketplaceV3FbsSettingsAutoreturnsCall(_callback);
+  private okhttp3.Call getV3FbsSettingsAutoreturnsValidateBeforeCall(final ApiCallback _callback)
+      throws ApiException {
+    return getV3FbsSettingsAutoreturnsCall(_callback);
   }
 
   /**
    * Получить настройки автовозврата продавца Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену Метод возвращает информацию о настройках автовозврата,
-   * установленных продавцом. [Лимит
+   * по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом** Метод
+   * возвращает информацию о настройках автовозврата, установленных продавцом. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов
    *
-   * @return GetMarketplaceV3FbsSettingsAutoreturnsResponse200
+   * @return GetV3FbsSettingsAutoreturnsResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -169,25 +169,24 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public GetMarketplaceV3FbsSettingsAutoreturnsResponse200 getMarketplaceV3FbsSettingsAutoreturns()
-      throws ApiException {
-    ApiResponse<GetMarketplaceV3FbsSettingsAutoreturnsResponse200> localVarResp =
-        getMarketplaceV3FbsSettingsAutoreturnsWithHttpInfo();
+  public GetV3FbsSettingsAutoreturnsResponse200 getV3FbsSettingsAutoreturns() throws ApiException {
+    ApiResponse<GetV3FbsSettingsAutoreturnsResponse200> localVarResp =
+        getV3FbsSettingsAutoreturnsWithHttpInfo();
     return localVarResp.getData();
   }
 
   /**
    * Получить настройки автовозврата продавца Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену Метод возвращает информацию о настройках автовозврата,
-   * установленных продавцом. [Лимит
+   * по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом** Метод
+   * возвращает информацию о настройках автовозврата, установленных продавцом. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов
    *
-   * @return ApiResponse&lt;GetMarketplaceV3FbsSettingsAutoreturnsResponse200&gt;
+   * @return ApiResponse&lt;GetV3FbsSettingsAutoreturnsResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -200,19 +199,18 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<GetMarketplaceV3FbsSettingsAutoreturnsResponse200>
-      getMarketplaceV3FbsSettingsAutoreturnsWithHttpInfo() throws ApiException {
-    okhttp3.Call localVarCall = getMarketplaceV3FbsSettingsAutoreturnsValidateBeforeCall(null);
-    Type localVarReturnType =
-        new TypeToken<GetMarketplaceV3FbsSettingsAutoreturnsResponse200>() {}.getType();
+  public ApiResponse<GetV3FbsSettingsAutoreturnsResponse200>
+      getV3FbsSettingsAutoreturnsWithHttpInfo() throws ApiException {
+    okhttp3.Call localVarCall = getV3FbsSettingsAutoreturnsValidateBeforeCall(null);
+    Type localVarReturnType = new TypeToken<GetV3FbsSettingsAutoreturnsResponse200>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
   /**
    * Получить настройки автовозврата продавца (asynchronously) Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену Метод возвращает информацию о настройках автовозврата,
-   * установленных продавцом. [Лимит
+   * по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом** Метод
+   * возвращает информацию о настройках автовозврата, установленных продавцом. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
@@ -232,19 +230,17 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getMarketplaceV3FbsSettingsAutoreturnsAsync(
-      final ApiCallback<GetMarketplaceV3FbsSettingsAutoreturnsResponse200> _callback)
-      throws ApiException {
+  public okhttp3.Call getV3FbsSettingsAutoreturnsAsync(
+      final ApiCallback<GetV3FbsSettingsAutoreturnsResponse200> _callback) throws ApiException {
 
-    okhttp3.Call localVarCall = getMarketplaceV3FbsSettingsAutoreturnsValidateBeforeCall(_callback);
-    Type localVarReturnType =
-        new TypeToken<GetMarketplaceV3FbsSettingsAutoreturnsResponse200>() {}.getType();
+    okhttp3.Call localVarCall = getV3FbsSettingsAutoreturnsValidateBeforeCall(_callback);
+    Type localVarReturnType = new TypeToken<GetV3FbsSettingsAutoreturnsResponse200>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
 
   /**
-   * Build call for getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted
+   * Build call for getV3FbsSettingsAutoreturnsSubcategoriesRestricted
    *
    * @param next Параметр пагинации. Устанавливает значение, с которого надо получить следующий
    *     пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом
@@ -265,7 +261,7 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedCall(
+  public okhttp3.Call getV3FbsSettingsAutoreturnsSubcategoriesRestrictedCall(
       Long next, Integer limit, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -328,30 +324,29 @@ public class DefaultApi {
   }
 
   @SuppressWarnings("rawtypes")
-  private okhttp3.Call
-      getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedValidateBeforeCall(
-          Long next, Integer limit, final ApiCallback _callback) throws ApiException {
+  private okhttp3.Call getV3FbsSettingsAutoreturnsSubcategoriesRestrictedValidateBeforeCall(
+      Long next, Integer limit, final ApiCallback _callback) throws ApiException {
     // verify the required parameter 'next' is set
     if (next == null) {
       throw new ApiException(
-          "Missing the required parameter 'next' when calling getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted(Async)");
+          "Missing the required parameter 'next' when calling getV3FbsSettingsAutoreturnsSubcategoriesRestricted(Async)");
     }
 
     // verify the required parameter 'limit' is set
     if (limit == null) {
       throw new ApiException(
-          "Missing the required parameter 'limit' when calling getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted(Async)");
+          "Missing the required parameter 'limit' when calling getV3FbsSettingsAutoreturnsSubcategoriesRestricted(Async)");
     }
 
-    return getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedCall(
-        next, limit, _callback);
+    return getV3FbsSettingsAutoreturnsSubcategoriesRestrictedCall(next, limit, _callback);
   }
 
   /**
    * Получить предметы, которые не хранятся на складах WB Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену Метод возвращает список ID предметов, товары которых не могут
-   * храниться на складах WB и будут возвращены в ПВЗ автоматически. [Лимит
+   * по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом** Метод
+   * возвращает список ID предметов, товары которых не могут храниться на складах WB и будут
+   * возвращены в ПВЗ автоматически. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
@@ -363,7 +358,7 @@ public class DefaultApi {
    *     запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
    *     (required)
    * @param limit Количество предметов в ответе (required)
-   * @return GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
+   * @return GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -377,20 +372,20 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
-      getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted(Long next, Integer limit)
+  public GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
+      getV3FbsSettingsAutoreturnsSubcategoriesRestricted(Long next, Integer limit)
           throws ApiException {
-    ApiResponse<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>
-        localVarResp =
-            getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfo(next, limit);
+    ApiResponse<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> localVarResp =
+        getV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfo(next, limit);
     return localVarResp.getData();
   }
 
   /**
    * Получить предметы, которые не хранятся на складах WB Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену Метод возвращает список ID предметов, товары которых не могут
-   * храниться на складах WB и будут возвращены в ПВЗ автоматически. [Лимит
+   * по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом** Метод
+   * возвращает список ID предметов, товары которых не могут храниться на складах WB и будут
+   * возвращены в ПВЗ автоматически. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
@@ -402,8 +397,7 @@ public class DefaultApi {
    *     запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.
    *     (required)
    * @param limit Количество предметов в ответе (required)
-   * @return
-   *     ApiResponse&lt;GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200&gt;
+   * @return ApiResponse&lt;GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -417,23 +411,22 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>
-      getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfo(
-          Long next, Integer limit) throws ApiException {
+  public ApiResponse<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>
+      getV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfo(Long next, Integer limit)
+          throws ApiException {
     okhttp3.Call localVarCall =
-        getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedValidateBeforeCall(
-            next, limit, null);
+        getV3FbsSettingsAutoreturnsSubcategoriesRestrictedValidateBeforeCall(next, limit, null);
     Type localVarReturnType =
-        new TypeToken<
-            GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>() {}.getType();
+        new TypeToken<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
   /**
    * Получить предметы, которые не хранятся на складах WB (asynchronously) Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену Метод возвращает список ID предметов, товары которых не могут
-   * храниться на складах WB и будут возвращены в ПВЗ автоматически. [Лимит
+   * по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом** Метод
+   * возвращает список ID предметов, товары которых не могут храниться на складах WB и будут
+   * возвращены в ПВЗ автоматически. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
@@ -459,27 +452,25 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedAsync(
+  public okhttp3.Call getV3FbsSettingsAutoreturnsSubcategoriesRestrictedAsync(
       Long next,
       Integer limit,
-      final ApiCallback<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>
-          _callback)
+      final ApiCallback<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedValidateBeforeCall(
+        getV3FbsSettingsAutoreturnsSubcategoriesRestrictedValidateBeforeCall(
             next, limit, _callback);
     Type localVarReturnType =
-        new TypeToken<
-            GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>() {}.getType();
+        new TypeToken<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
 
   /**
-   * Build call for patchMarketplaceV3FbsSettingsAutoreturns
+   * Build call for patchV3FbsSettingsAutoreturns
    *
-   * @param patchMarketplaceV3FbsSettingsAutoreturnsRequest (optional)
+   * @param patchV3FbsSettingsAutoreturnsRequest (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -494,9 +485,8 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call patchMarketplaceV3FbsSettingsAutoreturnsCall(
-      PatchMarketplaceV3FbsSettingsAutoreturnsRequest
-          patchMarketplaceV3FbsSettingsAutoreturnsRequest,
+  public okhttp3.Call patchV3FbsSettingsAutoreturnsCall(
+      PatchV3FbsSettingsAutoreturnsRequest patchV3FbsSettingsAutoreturnsRequest,
       final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
@@ -512,7 +502,7 @@ public class DefaultApi {
       basePath = null;
     }
 
-    Object localVarPostBody = patchMarketplaceV3FbsSettingsAutoreturnsRequest;
+    Object localVarPostBody = patchV3FbsSettingsAutoreturnsRequest;
 
     // create path and map variables
     String localVarPath = "/api/marketplace/v3/fbs/settings/autoreturns";
@@ -552,27 +542,26 @@ public class DefaultApi {
   }
 
   @SuppressWarnings("rawtypes")
-  private okhttp3.Call patchMarketplaceV3FbsSettingsAutoreturnsValidateBeforeCall(
-      PatchMarketplaceV3FbsSettingsAutoreturnsRequest
-          patchMarketplaceV3FbsSettingsAutoreturnsRequest,
+  private okhttp3.Call patchV3FbsSettingsAutoreturnsValidateBeforeCall(
+      PatchV3FbsSettingsAutoreturnsRequest patchV3FbsSettingsAutoreturnsRequest,
       final ApiCallback _callback)
       throws ApiException {
-    return patchMarketplaceV3FbsSettingsAutoreturnsCall(
-        patchMarketplaceV3FbsSettingsAutoreturnsRequest, _callback);
+    return patchV3FbsSettingsAutoreturnsCall(patchV3FbsSettingsAutoreturnsRequest, _callback);
   }
 
   /**
    * Обновить настройки автовозврата продавца Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену Метод устанавливает настройки автовозврата продавца для
-   * малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;. [Лимит
+   * по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом** Метод
+   * устанавливает настройки автовозврата продавца для малогабаритных товаров —
+   * &#x60;\&quot;cargoType\&quot;:1&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов
    *
-   * @param patchMarketplaceV3FbsSettingsAutoreturnsRequest (optional)
+   * @param patchV3FbsSettingsAutoreturnsRequest (optional)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -586,26 +575,25 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public void patchMarketplaceV3FbsSettingsAutoreturns(
-      PatchMarketplaceV3FbsSettingsAutoreturnsRequest
-          patchMarketplaceV3FbsSettingsAutoreturnsRequest)
+  public void patchV3FbsSettingsAutoreturns(
+      PatchV3FbsSettingsAutoreturnsRequest patchV3FbsSettingsAutoreturnsRequest)
       throws ApiException {
-    patchMarketplaceV3FbsSettingsAutoreturnsWithHttpInfo(
-        patchMarketplaceV3FbsSettingsAutoreturnsRequest);
+    patchV3FbsSettingsAutoreturnsWithHttpInfo(patchV3FbsSettingsAutoreturnsRequest);
   }
 
   /**
    * Обновить настройки автовозврата продавца Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену Метод устанавливает настройки автовозврата продавца для
-   * малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;. [Лимит
+   * по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом** Метод
+   * устанавливает настройки автовозврата продавца для малогабаритных товаров —
+   * &#x60;\&quot;cargoType\&quot;:1&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов
    *
-   * @param patchMarketplaceV3FbsSettingsAutoreturnsRequest (optional)
+   * @param patchV3FbsSettingsAutoreturnsRequest (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -620,28 +608,27 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<Void> patchMarketplaceV3FbsSettingsAutoreturnsWithHttpInfo(
-      PatchMarketplaceV3FbsSettingsAutoreturnsRequest
-          patchMarketplaceV3FbsSettingsAutoreturnsRequest)
+  public ApiResponse<Void> patchV3FbsSettingsAutoreturnsWithHttpInfo(
+      PatchV3FbsSettingsAutoreturnsRequest patchV3FbsSettingsAutoreturnsRequest)
       throws ApiException {
     okhttp3.Call localVarCall =
-        patchMarketplaceV3FbsSettingsAutoreturnsValidateBeforeCall(
-            patchMarketplaceV3FbsSettingsAutoreturnsRequest, null);
+        patchV3FbsSettingsAutoreturnsValidateBeforeCall(patchV3FbsSettingsAutoreturnsRequest, null);
     return localVarApiClient.execute(localVarCall);
   }
 
   /**
    * Обновить настройки автовозврата продавца (asynchronously) Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену Метод устанавливает настройки автовозврата продавца для
-   * малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;. [Лимит
+   * по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом** Метод
+   * устанавливает настройки автовозврата продавца для малогабаритных товаров —
+   * &#x60;\&quot;cargoType\&quot;:1&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов
    *
-   * @param patchMarketplaceV3FbsSettingsAutoreturnsRequest (optional)
+   * @param patchV3FbsSettingsAutoreturnsRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -656,23 +643,22 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call patchMarketplaceV3FbsSettingsAutoreturnsAsync(
-      PatchMarketplaceV3FbsSettingsAutoreturnsRequest
-          patchMarketplaceV3FbsSettingsAutoreturnsRequest,
+  public okhttp3.Call patchV3FbsSettingsAutoreturnsAsync(
+      PatchV3FbsSettingsAutoreturnsRequest patchV3FbsSettingsAutoreturnsRequest,
       final ApiCallback<Void> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        patchMarketplaceV3FbsSettingsAutoreturnsValidateBeforeCall(
-            patchMarketplaceV3FbsSettingsAutoreturnsRequest, _callback);
+        patchV3FbsSettingsAutoreturnsValidateBeforeCall(
+            patchV3FbsSettingsAutoreturnsRequest, _callback);
     localVarApiClient.executeAsync(localVarCall, _callback);
     return localVarCall;
   }
 
   /**
-   * Build call for patchMarketplaceV3FbsSettingsAutoreturnsItems
+   * Build call for patchV3FbsSettingsAutoreturnsItems
    *
-   * @param patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest (optional)
+   * @param patchV3FbsSettingsAutoreturnsItemsRequest (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -687,9 +673,8 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call patchMarketplaceV3FbsSettingsAutoreturnsItemsCall(
-      PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
-          patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+  public okhttp3.Call patchV3FbsSettingsAutoreturnsItemsCall(
+      PatchV3FbsSettingsAutoreturnsItemsRequest patchV3FbsSettingsAutoreturnsItemsRequest,
       final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
@@ -705,7 +690,7 @@ public class DefaultApi {
       basePath = null;
     }
 
-    Object localVarPostBody = patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest;
+    Object localVarPostBody = patchV3FbsSettingsAutoreturnsItemsRequest;
 
     // create path and map variables
     String localVarPath = "/api/marketplace/v3/fbs/settings/autoreturns/items";
@@ -745,19 +730,19 @@ public class DefaultApi {
   }
 
   @SuppressWarnings("rawtypes")
-  private okhttp3.Call patchMarketplaceV3FbsSettingsAutoreturnsItemsValidateBeforeCall(
-      PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
-          patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+  private okhttp3.Call patchV3FbsSettingsAutoreturnsItemsValidateBeforeCall(
+      PatchV3FbsSettingsAutoreturnsItemsRequest patchV3FbsSettingsAutoreturnsItemsRequest,
       final ApiCallback _callback)
       throws ApiException {
-    return patchMarketplaceV3FbsSettingsAutoreturnsItemsCall(
-        patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest, _callback);
+    return patchV3FbsSettingsAutoreturnsItemsCall(
+        patchV3FbsSettingsAutoreturnsItemsRequest, _callback);
   }
 
   /**
    * Обновить настройки автовозврата товаров Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену Метод устанавливает настройки автовозврата малогабаритных товаров —
+   * по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом** Метод
+   * устанавливает настройки автовозврата малогабаритных товаров —
    * &#x60;\&quot;cargoType\&quot;:1&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
@@ -765,8 +750,8 @@ public class DefaultApi {
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов
    *
-   * @param patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest (optional)
-   * @return PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
+   * @param patchV3FbsSettingsAutoreturnsItemsRequest (optional)
+   * @return PatchV3FbsSettingsAutoreturnsItemsResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -780,21 +765,19 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
-      patchMarketplaceV3FbsSettingsAutoreturnsItems(
-          PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
-              patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest)
-          throws ApiException {
-    ApiResponse<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200> localVarResp =
-        patchMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfo(
-            patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest);
+  public PatchV3FbsSettingsAutoreturnsItemsResponse200 patchV3FbsSettingsAutoreturnsItems(
+      PatchV3FbsSettingsAutoreturnsItemsRequest patchV3FbsSettingsAutoreturnsItemsRequest)
+      throws ApiException {
+    ApiResponse<PatchV3FbsSettingsAutoreturnsItemsResponse200> localVarResp =
+        patchV3FbsSettingsAutoreturnsItemsWithHttpInfo(patchV3FbsSettingsAutoreturnsItemsRequest);
     return localVarResp.getData();
   }
 
   /**
    * Обновить настройки автовозврата товаров Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену Метод устанавливает настройки автовозврата малогабаритных товаров —
+   * по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом** Метод
+   * устанавливает настройки автовозврата малогабаритных товаров —
    * &#x60;\&quot;cargoType\&quot;:1&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
@@ -802,8 +785,8 @@ public class DefaultApi {
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов
    *
-   * @param patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest (optional)
-   * @return ApiResponse&lt;PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200&gt;
+   * @param patchV3FbsSettingsAutoreturnsItemsRequest (optional)
+   * @return ApiResponse&lt;PatchV3FbsSettingsAutoreturnsItemsResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -817,23 +800,23 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200>
-      patchMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfo(
-          PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
-              patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest)
+  public ApiResponse<PatchV3FbsSettingsAutoreturnsItemsResponse200>
+      patchV3FbsSettingsAutoreturnsItemsWithHttpInfo(
+          PatchV3FbsSettingsAutoreturnsItemsRequest patchV3FbsSettingsAutoreturnsItemsRequest)
           throws ApiException {
     okhttp3.Call localVarCall =
-        patchMarketplaceV3FbsSettingsAutoreturnsItemsValidateBeforeCall(
-            patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest, null);
+        patchV3FbsSettingsAutoreturnsItemsValidateBeforeCall(
+            patchV3FbsSettingsAutoreturnsItemsRequest, null);
     Type localVarReturnType =
-        new TypeToken<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200>() {}.getType();
+        new TypeToken<PatchV3FbsSettingsAutoreturnsItemsResponse200>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
   /**
    * Обновить настройки автовозврата товаров (asynchronously) Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену Метод устанавливает настройки автовозврата малогабаритных товаров —
+   * по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом** Метод
+   * устанавливает настройки автовозврата малогабаритных товаров —
    * &#x60;\&quot;cargoType\&quot;:1&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
@@ -841,7 +824,7 @@ public class DefaultApi {
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов
    *
-   * @param patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest (optional)
+   * @param patchV3FbsSettingsAutoreturnsItemsRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -856,25 +839,24 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call patchMarketplaceV3FbsSettingsAutoreturnsItemsAsync(
-      PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest
-          patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
-      final ApiCallback<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200> _callback)
+  public okhttp3.Call patchV3FbsSettingsAutoreturnsItemsAsync(
+      PatchV3FbsSettingsAutoreturnsItemsRequest patchV3FbsSettingsAutoreturnsItemsRequest,
+      final ApiCallback<PatchV3FbsSettingsAutoreturnsItemsResponse200> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        patchMarketplaceV3FbsSettingsAutoreturnsItemsValidateBeforeCall(
-            patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest, _callback);
+        patchV3FbsSettingsAutoreturnsItemsValidateBeforeCall(
+            patchV3FbsSettingsAutoreturnsItemsRequest, _callback);
     Type localVarReturnType =
-        new TypeToken<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200>() {}.getType();
+        new TypeToken<PatchV3FbsSettingsAutoreturnsItemsResponse200>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
 
   /**
-   * Build call for postMarketplaceV3FbsSettingsAutoreturnsItems
+   * Build call for postV3FbsSettingsAutoreturnsItems
    *
-   * @param postMarketplaceV3FbsSettingsAutoreturnsItemsRequest (optional)
+   * @param postV3FbsSettingsAutoreturnsItemsRequest (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -889,9 +871,8 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call postMarketplaceV3FbsSettingsAutoreturnsItemsCall(
-      PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
-          postMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+  public okhttp3.Call postV3FbsSettingsAutoreturnsItemsCall(
+      PostV3FbsSettingsAutoreturnsItemsRequest postV3FbsSettingsAutoreturnsItemsRequest,
       final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
@@ -907,7 +888,7 @@ public class DefaultApi {
       basePath = null;
     }
 
-    Object localVarPostBody = postMarketplaceV3FbsSettingsAutoreturnsItemsRequest;
+    Object localVarPostBody = postV3FbsSettingsAutoreturnsItemsRequest;
 
     // create path and map variables
     String localVarPath = "/api/marketplace/v3/fbs/settings/autoreturns/items";
@@ -947,27 +928,27 @@ public class DefaultApi {
   }
 
   @SuppressWarnings("rawtypes")
-  private okhttp3.Call postMarketplaceV3FbsSettingsAutoreturnsItemsValidateBeforeCall(
-      PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
-          postMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
+  private okhttp3.Call postV3FbsSettingsAutoreturnsItemsValidateBeforeCall(
+      PostV3FbsSettingsAutoreturnsItemsRequest postV3FbsSettingsAutoreturnsItemsRequest,
       final ApiCallback _callback)
       throws ApiException {
-    return postMarketplaceV3FbsSettingsAutoreturnsItemsCall(
-        postMarketplaceV3FbsSettingsAutoreturnsItemsRequest, _callback);
+    return postV3FbsSettingsAutoreturnsItemsCall(
+        postV3FbsSettingsAutoreturnsItemsRequest, _callback);
   }
 
   /**
    * Получить настройки автовозврата товаров Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену Метод возвращает настройки автовозврата товаров. [Лимит
+   * по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом** Метод
+   * возвращает настройки автовозврата товаров. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов
    *
-   * @param postMarketplaceV3FbsSettingsAutoreturnsItemsRequest (optional)
-   * @return PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
+   * @param postV3FbsSettingsAutoreturnsItemsRequest (optional)
+   * @return PostV3FbsSettingsAutoreturnsItemsResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -981,29 +962,27 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200
-      postMarketplaceV3FbsSettingsAutoreturnsItems(
-          PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
-              postMarketplaceV3FbsSettingsAutoreturnsItemsRequest)
-          throws ApiException {
-    ApiResponse<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200> localVarResp =
-        postMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfo(
-            postMarketplaceV3FbsSettingsAutoreturnsItemsRequest);
+  public PostV3FbsSettingsAutoreturnsItemsResponse200 postV3FbsSettingsAutoreturnsItems(
+      PostV3FbsSettingsAutoreturnsItemsRequest postV3FbsSettingsAutoreturnsItemsRequest)
+      throws ApiException {
+    ApiResponse<PostV3FbsSettingsAutoreturnsItemsResponse200> localVarResp =
+        postV3FbsSettingsAutoreturnsItemsWithHttpInfo(postV3FbsSettingsAutoreturnsItemsRequest);
     return localVarResp.getData();
   }
 
   /**
    * Получить настройки автовозврата товаров Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену Метод возвращает настройки автовозврата товаров. [Лимит
+   * по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом** Метод
+   * возвращает настройки автовозврата товаров. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов
    *
-   * @param postMarketplaceV3FbsSettingsAutoreturnsItemsRequest (optional)
-   * @return ApiResponse&lt;PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200&gt;
+   * @param postV3FbsSettingsAutoreturnsItemsRequest (optional)
+   * @return ApiResponse&lt;PostV3FbsSettingsAutoreturnsItemsResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -1017,30 +996,30 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200>
-      postMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfo(
-          PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
-              postMarketplaceV3FbsSettingsAutoreturnsItemsRequest)
+  public ApiResponse<PostV3FbsSettingsAutoreturnsItemsResponse200>
+      postV3FbsSettingsAutoreturnsItemsWithHttpInfo(
+          PostV3FbsSettingsAutoreturnsItemsRequest postV3FbsSettingsAutoreturnsItemsRequest)
           throws ApiException {
     okhttp3.Call localVarCall =
-        postMarketplaceV3FbsSettingsAutoreturnsItemsValidateBeforeCall(
-            postMarketplaceV3FbsSettingsAutoreturnsItemsRequest, null);
+        postV3FbsSettingsAutoreturnsItemsValidateBeforeCall(
+            postV3FbsSettingsAutoreturnsItemsRequest, null);
     Type localVarReturnType =
-        new TypeToken<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200>() {}.getType();
+        new TypeToken<PostV3FbsSettingsAutoreturnsItemsResponse200>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
   /**
    * Получить настройки автовозврата товаров (asynchronously) Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену Метод возвращает настройки автовозврата товаров. [Лимит
+   * по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом** Метод
+   * возвращает настройки автовозврата товаров. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
    * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
    * как 10 запросов
    *
-   * @param postMarketplaceV3FbsSettingsAutoreturnsItemsRequest (optional)
+   * @param postV3FbsSettingsAutoreturnsItemsRequest (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1055,17 +1034,16 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call postMarketplaceV3FbsSettingsAutoreturnsItemsAsync(
-      PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest
-          postMarketplaceV3FbsSettingsAutoreturnsItemsRequest,
-      final ApiCallback<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200> _callback)
+  public okhttp3.Call postV3FbsSettingsAutoreturnsItemsAsync(
+      PostV3FbsSettingsAutoreturnsItemsRequest postV3FbsSettingsAutoreturnsItemsRequest,
+      final ApiCallback<PostV3FbsSettingsAutoreturnsItemsResponse200> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        postMarketplaceV3FbsSettingsAutoreturnsItemsValidateBeforeCall(
-            postMarketplaceV3FbsSettingsAutoreturnsItemsRequest, _callback);
+        postV3FbsSettingsAutoreturnsItemsValidateBeforeCall(
+            postV3FbsSettingsAutoreturnsItemsRequest, _callback);
     Type localVarReturnType =
-        new TypeToken<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200>() {}.getType();
+        new TypeToken<PostV3FbsSettingsAutoreturnsItemsResponse200>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }

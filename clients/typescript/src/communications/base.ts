@@ -89,25 +89,7 @@ interface ServerMap {
  * @export
  */
 export const operationServerMap: ServerMap = {
-  "DefaultApi.deleteFeedbacksV1Pins": [
-    {
-      url: "https://feedbacks-api.wildberries.ru",
-      description: "No description provided",
-    },
-  ],
-  "DefaultApi.getFeedbacksV1Pins": [
-    {
-      url: "https://feedbacks-api.wildberries.ru",
-      description: "No description provided",
-    },
-  ],
-  "DefaultApi.getFeedbacksV1PinsCount": [
-    {
-      url: "https://feedbacks-api.wildberries.ru",
-      description: "No description provided",
-    },
-  ],
-  "DefaultApi.getFeedbacksV1PinsLimits": [
+  "DefaultApi.deleteV1Pins": [
     {
       url: "https://feedbacks-api.wildberries.ru",
       description: "No description provided",
@@ -177,6 +159,24 @@ export const operationServerMap: ServerMap = {
     {
       url: "https://feedbacks-api-sandbox.wildberries.ru",
       description: "**Sandbox** ",
+    },
+  ],
+  "DefaultApi.getV1Pins": [
+    {
+      url: "https://feedbacks-api.wildberries.ru",
+      description: "No description provided",
+    },
+  ],
+  "DefaultApi.getV1PinsCount": [
+    {
+      url: "https://feedbacks-api.wildberries.ru",
+      description: "No description provided",
+    },
+  ],
+  "DefaultApi.getV1PinsLimits": [
+    {
+      url: "https://feedbacks-api.wildberries.ru",
+      description: "No description provided",
     },
   ],
   "DefaultApi.getV1Question": [
@@ -263,12 +263,6 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "DefaultApi.postFeedbacksV1Pins": [
-    {
-      url: "https://feedbacks-api.wildberries.ru",
-      description: "No description provided",
-    },
-  ],
   "DefaultApi.postV1FeedbacksAnswer": [
     {
       url: "https://feedbacks-api.wildberries.ru",
@@ -287,6 +281,12 @@ export const operationServerMap: ServerMap = {
     {
       url: "https://feedbacks-api-sandbox.wildberries.ru",
       description: "**Sandbox** ",
+    },
+  ],
+  "DefaultApi.postV1Pins": [
+    {
+      url: "https://feedbacks-api.wildberries.ru",
+      description: "No description provided",
     },
   ],
   "DefaultApi.postV1SellerMessage": [

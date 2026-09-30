@@ -118,18 +118,18 @@ public class JSON {
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.Error.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model
-            .GetMarketplaceV3FbsSettingsAutoreturnsResponse200.CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model
-            .GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model
-            .GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.GetV3FbsOrdersArchive403Response
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model
+            .GetV3FbsSettingsAutoreturnsResponse200.CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model
+            .GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model
+            .GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200DataInner
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.GetV3FbsShippingPoints403Response
@@ -193,21 +193,20 @@ public class JSON {
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model
-            .PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest.CustomTypeAdapterFactory());
+            .PatchV3FbsSettingsAutoreturnsItemsRequest.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model
-            .PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200.CustomTypeAdapterFactory());
+            .PatchV3FbsSettingsAutoreturnsItemsResponse200.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model
-            .PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
+            .PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInner.CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model
+            .PatchV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model
-            .PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.PatchV3FbsSettingsAutoreturnsRequest
             .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model
-            .PatchMarketplaceV3FbsSettingsAutoreturnsRequest.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model
             .PatchV3FbsSuppliesShippingMethodRequest.CustomTypeAdapterFactory());
@@ -219,17 +218,16 @@ public class JSON {
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model
-            .PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest.CustomTypeAdapterFactory());
+            .PostV3FbsSettingsAutoreturnsItemsRequest.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model
-            .PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200.CustomTypeAdapterFactory());
+            .PostV3FbsSettingsAutoreturnsItemsResponse200.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model
-            .PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInner
-            .CustomTypeAdapterFactory());
+            .PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInner.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model
-            .PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
+            .PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.PostV3FbsSuppliesSpotListRequest

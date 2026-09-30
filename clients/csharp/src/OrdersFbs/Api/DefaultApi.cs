@@ -30,117 +30,117 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// Получить настройки автовозврата продавца
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetMarketplaceV3FbsSettingsAutoreturnsResponse200</returns>
-        GetMarketplaceV3FbsSettingsAutoreturnsResponse200 GetMarketplaceV3FbsSettingsAutoreturns(int operationIndex = 0);
+        /// <returns>GetV3FbsSettingsAutoreturnsResponse200</returns>
+        GetV3FbsSettingsAutoreturnsResponse200 GetV3FbsSettingsAutoreturns(int operationIndex = 0);
 
         /// <summary>
         /// Получить настройки автовозврата продавца
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetMarketplaceV3FbsSettingsAutoreturnsResponse200</returns>
-        ApiResponse<GetMarketplaceV3FbsSettingsAutoreturnsResponse200> GetMarketplaceV3FbsSettingsAutoreturnsWithHttpInfo(int operationIndex = 0);
+        /// <returns>ApiResponse of GetV3FbsSettingsAutoreturnsResponse200</returns>
+        ApiResponse<GetV3FbsSettingsAutoreturnsResponse200> GetV3FbsSettingsAutoreturnsWithHttpInfo(int operationIndex = 0);
         /// <summary>
         /// Получить предметы, которые не хранятся на складах WB
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="next">Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.</param>
         /// <param name="limit">Количество предметов в ответе</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200</returns>
-        GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted(long next, int limit, int operationIndex = 0);
+        /// <returns>GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200</returns>
+        GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 GetV3FbsSettingsAutoreturnsSubcategoriesRestricted(long next, int limit, int operationIndex = 0);
 
         /// <summary>
         /// Получить предметы, которые не хранятся на складах WB
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="next">Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.</param>
         /// <param name="limit">Количество предметов в ответе</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200</returns>
-        ApiResponse<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfo(long next, int limit, int operationIndex = 0);
+        /// <returns>ApiResponse of GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200</returns>
+        ApiResponse<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfo(long next, int limit, int operationIndex = 0);
         /// <summary>
         /// Обновить настройки автовозврата продавца
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchMarketplaceV3FbsSettingsAutoreturnsRequest"> (optional)</param>
+        /// <param name="patchV3FbsSettingsAutoreturnsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void PatchMarketplaceV3FbsSettingsAutoreturns(PatchMarketplaceV3FbsSettingsAutoreturnsRequest? patchMarketplaceV3FbsSettingsAutoreturnsRequest = default(PatchMarketplaceV3FbsSettingsAutoreturnsRequest?), int operationIndex = 0);
+        void PatchV3FbsSettingsAutoreturns(PatchV3FbsSettingsAutoreturnsRequest? patchV3FbsSettingsAutoreturnsRequest = default(PatchV3FbsSettingsAutoreturnsRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Обновить настройки автовозврата продавца
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchMarketplaceV3FbsSettingsAutoreturnsRequest"> (optional)</param>
+        /// <param name="patchV3FbsSettingsAutoreturnsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> PatchMarketplaceV3FbsSettingsAutoreturnsWithHttpInfo(PatchMarketplaceV3FbsSettingsAutoreturnsRequest? patchMarketplaceV3FbsSettingsAutoreturnsRequest = default(PatchMarketplaceV3FbsSettingsAutoreturnsRequest?), int operationIndex = 0);
+        ApiResponse<Object> PatchV3FbsSettingsAutoreturnsWithHttpInfo(PatchV3FbsSettingsAutoreturnsRequest? patchV3FbsSettingsAutoreturnsRequest = default(PatchV3FbsSettingsAutoreturnsRequest?), int operationIndex = 0);
         /// <summary>
         /// Обновить настройки автовозврата товаров
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
+        /// <param name="patchV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200</returns>
-        PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200 PatchMarketplaceV3FbsSettingsAutoreturnsItems(PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest? patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest = default(PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0);
+        /// <returns>PatchV3FbsSettingsAutoreturnsItemsResponse200</returns>
+        PatchV3FbsSettingsAutoreturnsItemsResponse200 PatchV3FbsSettingsAutoreturnsItems(PatchV3FbsSettingsAutoreturnsItemsRequest? patchV3FbsSettingsAutoreturnsItemsRequest = default(PatchV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Обновить настройки автовозврата товаров
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
+        /// <param name="patchV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200</returns>
-        ApiResponse<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200> PatchMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfo(PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest? patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest = default(PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0);
+        /// <returns>ApiResponse of PatchV3FbsSettingsAutoreturnsItemsResponse200</returns>
+        ApiResponse<PatchV3FbsSettingsAutoreturnsItemsResponse200> PatchV3FbsSettingsAutoreturnsItemsWithHttpInfo(PatchV3FbsSettingsAutoreturnsItemsRequest? patchV3FbsSettingsAutoreturnsItemsRequest = default(PatchV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0);
         /// <summary>
         /// Получить настройки автовозврата товаров
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postMarketplaceV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
+        /// <param name="postV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200</returns>
-        PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200 PostMarketplaceV3FbsSettingsAutoreturnsItems(PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest? postMarketplaceV3FbsSettingsAutoreturnsItemsRequest = default(PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0);
+        /// <returns>PostV3FbsSettingsAutoreturnsItemsResponse200</returns>
+        PostV3FbsSettingsAutoreturnsItemsResponse200 PostV3FbsSettingsAutoreturnsItems(PostV3FbsSettingsAutoreturnsItemsRequest? postV3FbsSettingsAutoreturnsItemsRequest = default(PostV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Получить настройки автовозврата товаров
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postMarketplaceV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
+        /// <param name="postV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200</returns>
-        ApiResponse<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200> PostMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfo(PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest? postMarketplaceV3FbsSettingsAutoreturnsItemsRequest = default(PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0);
+        /// <returns>ApiResponse of PostV3FbsSettingsAutoreturnsItemsResponse200</returns>
+        ApiResponse<PostV3FbsSettingsAutoreturnsItemsResponse200> PostV3FbsSettingsAutoreturnsItemsWithHttpInfo(PostV3FbsSettingsAutoreturnsItemsRequest? postV3FbsSettingsAutoreturnsItemsRequest = default(PostV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -154,127 +154,127 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// Получить настройки автовозврата продавца
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetMarketplaceV3FbsSettingsAutoreturnsResponse200</returns>
-        System.Threading.Tasks.Task<GetMarketplaceV3FbsSettingsAutoreturnsResponse200> GetMarketplaceV3FbsSettingsAutoreturnsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of GetV3FbsSettingsAutoreturnsResponse200</returns>
+        System.Threading.Tasks.Task<GetV3FbsSettingsAutoreturnsResponse200> GetV3FbsSettingsAutoreturnsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получить настройки автовозврата продавца
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetMarketplaceV3FbsSettingsAutoreturnsResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetMarketplaceV3FbsSettingsAutoreturnsResponse200>> GetMarketplaceV3FbsSettingsAutoreturnsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (GetV3FbsSettingsAutoreturnsResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetV3FbsSettingsAutoreturnsResponse200>> GetV3FbsSettingsAutoreturnsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Получить предметы, которые не хранятся на складах WB
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="next">Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.</param>
         /// <param name="limit">Количество предметов в ответе</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200</returns>
-        System.Threading.Tasks.Task<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedAsync(long next, int limit, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200</returns>
+        System.Threading.Tasks.Task<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedAsync(long next, int limit, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получить предметы, которые не хранятся на складах WB
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="next">Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.</param>
         /// <param name="limit">Количество предметов в ответе</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>> GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfoAsync(long next, int limit, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>> GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfoAsync(long next, int limit, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Обновить настройки автовозврата продавца
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchMarketplaceV3FbsSettingsAutoreturnsRequest"> (optional)</param>
+        /// <param name="patchV3FbsSettingsAutoreturnsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task PatchMarketplaceV3FbsSettingsAutoreturnsAsync(PatchMarketplaceV3FbsSettingsAutoreturnsRequest? patchMarketplaceV3FbsSettingsAutoreturnsRequest = default(PatchMarketplaceV3FbsSettingsAutoreturnsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task PatchV3FbsSettingsAutoreturnsAsync(PatchV3FbsSettingsAutoreturnsRequest? patchV3FbsSettingsAutoreturnsRequest = default(PatchV3FbsSettingsAutoreturnsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Обновить настройки автовозврата продавца
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchMarketplaceV3FbsSettingsAutoreturnsRequest"> (optional)</param>
+        /// <param name="patchV3FbsSettingsAutoreturnsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> PatchMarketplaceV3FbsSettingsAutoreturnsWithHttpInfoAsync(PatchMarketplaceV3FbsSettingsAutoreturnsRequest? patchMarketplaceV3FbsSettingsAutoreturnsRequest = default(PatchMarketplaceV3FbsSettingsAutoreturnsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> PatchV3FbsSettingsAutoreturnsWithHttpInfoAsync(PatchV3FbsSettingsAutoreturnsRequest? patchV3FbsSettingsAutoreturnsRequest = default(PatchV3FbsSettingsAutoreturnsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Обновить настройки автовозврата товаров
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
+        /// <param name="patchV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200</returns>
-        System.Threading.Tasks.Task<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200> PatchMarketplaceV3FbsSettingsAutoreturnsItemsAsync(PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest? patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest = default(PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of PatchV3FbsSettingsAutoreturnsItemsResponse200</returns>
+        System.Threading.Tasks.Task<PatchV3FbsSettingsAutoreturnsItemsResponse200> PatchV3FbsSettingsAutoreturnsItemsAsync(PatchV3FbsSettingsAutoreturnsItemsRequest? patchV3FbsSettingsAutoreturnsItemsRequest = default(PatchV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Обновить настройки автовозврата товаров
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
+        /// <param name="patchV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200>> PatchMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfoAsync(PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest? patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest = default(PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (PatchV3FbsSettingsAutoreturnsItemsResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PatchV3FbsSettingsAutoreturnsItemsResponse200>> PatchV3FbsSettingsAutoreturnsItemsWithHttpInfoAsync(PatchV3FbsSettingsAutoreturnsItemsRequest? patchV3FbsSettingsAutoreturnsItemsRequest = default(PatchV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Получить настройки автовозврата товаров
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postMarketplaceV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
+        /// <param name="postV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200</returns>
-        System.Threading.Tasks.Task<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200> PostMarketplaceV3FbsSettingsAutoreturnsItemsAsync(PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest? postMarketplaceV3FbsSettingsAutoreturnsItemsRequest = default(PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of PostV3FbsSettingsAutoreturnsItemsResponse200</returns>
+        System.Threading.Tasks.Task<PostV3FbsSettingsAutoreturnsItemsResponse200> PostV3FbsSettingsAutoreturnsItemsAsync(PostV3FbsSettingsAutoreturnsItemsRequest? postV3FbsSettingsAutoreturnsItemsRequest = default(PostV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получить настройки автовозврата товаров
         /// </summary>
         /// <remarks>
-        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postMarketplaceV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
+        /// <param name="postV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200>> PostMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfoAsync(PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest? postMarketplaceV3FbsSettingsAutoreturnsItemsRequest = default(PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (PostV3FbsSettingsAutoreturnsItemsResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PostV3FbsSettingsAutoreturnsItemsResponse200>> PostV3FbsSettingsAutoreturnsItemsWithHttpInfoAsync(PostV3FbsSettingsAutoreturnsItemsRequest? postV3FbsSettingsAutoreturnsItemsRequest = default(PostV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -396,24 +396,24 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         }
 
         /// <summary>
-        /// Получить настройки автовозврата продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Получить настройки автовозврата продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetMarketplaceV3FbsSettingsAutoreturnsResponse200</returns>
-        public GetMarketplaceV3FbsSettingsAutoreturnsResponse200 GetMarketplaceV3FbsSettingsAutoreturns(int operationIndex = 0)
+        /// <returns>GetV3FbsSettingsAutoreturnsResponse200</returns>
+        public GetV3FbsSettingsAutoreturnsResponse200 GetV3FbsSettingsAutoreturns(int operationIndex = 0)
         {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetMarketplaceV3FbsSettingsAutoreturnsResponse200> localVarResponse = GetMarketplaceV3FbsSettingsAutoreturnsWithHttpInfo();
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3FbsSettingsAutoreturnsResponse200> localVarResponse = GetV3FbsSettingsAutoreturnsWithHttpInfo();
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Получить настройки автовозврата продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Получить настройки автовозврата продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetMarketplaceV3FbsSettingsAutoreturnsResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetMarketplaceV3FbsSettingsAutoreturnsResponse200> GetMarketplaceV3FbsSettingsAutoreturnsWithHttpInfo(int operationIndex = 0)
+        /// <returns>ApiResponse of GetV3FbsSettingsAutoreturnsResponse200</returns>
+        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3FbsSettingsAutoreturnsResponse200> GetV3FbsSettingsAutoreturnsWithHttpInfo(int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
 
@@ -439,7 +439,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
             }
 
 
-            localVarRequestOptions.Operation = "DefaultApi.GetMarketplaceV3FbsSettingsAutoreturns";
+            localVarRequestOptions.Operation = "DefaultApi.GetV3FbsSettingsAutoreturns";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -450,10 +450,10 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetMarketplaceV3FbsSettingsAutoreturnsResponse200>("/api/marketplace/v3/fbs/settings/autoreturns", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<GetV3FbsSettingsAutoreturnsResponse200>("/api/marketplace/v3/fbs/settings/autoreturns", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetMarketplaceV3FbsSettingsAutoreturns", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetV3FbsSettingsAutoreturns", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -464,26 +464,26 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         }
 
         /// <summary>
-        /// Получить настройки автовозврата продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Получить настройки автовозврата продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetMarketplaceV3FbsSettingsAutoreturnsResponse200</returns>
-        public async System.Threading.Tasks.Task<GetMarketplaceV3FbsSettingsAutoreturnsResponse200> GetMarketplaceV3FbsSettingsAutoreturnsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of GetV3FbsSettingsAutoreturnsResponse200</returns>
+        public async System.Threading.Tasks.Task<GetV3FbsSettingsAutoreturnsResponse200> GetV3FbsSettingsAutoreturnsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetMarketplaceV3FbsSettingsAutoreturnsResponse200> localVarResponse = await GetMarketplaceV3FbsSettingsAutoreturnsWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3FbsSettingsAutoreturnsResponse200> localVarResponse = await GetV3FbsSettingsAutoreturnsWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Получить настройки автовозврата продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Получить настройки автовозврата продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает информацию о настройках автовозврата, установленных продавцом.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetMarketplaceV3FbsSettingsAutoreturnsResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetMarketplaceV3FbsSettingsAutoreturnsResponse200>> GetMarketplaceV3FbsSettingsAutoreturnsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (GetV3FbsSettingsAutoreturnsResponse200)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3FbsSettingsAutoreturnsResponse200>> GetV3FbsSettingsAutoreturnsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
@@ -510,7 +510,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
             }
 
 
-            localVarRequestOptions.Operation = "DefaultApi.GetMarketplaceV3FbsSettingsAutoreturns";
+            localVarRequestOptions.Operation = "DefaultApi.GetV3FbsSettingsAutoreturns";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -521,11 +521,11 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetMarketplaceV3FbsSettingsAutoreturnsResponse200>("/api/marketplace/v3/fbs/settings/autoreturns", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetV3FbsSettingsAutoreturnsResponse200>("/api/marketplace/v3/fbs/settings/autoreturns", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetMarketplaceV3FbsSettingsAutoreturns", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetV3FbsSettingsAutoreturns", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -536,106 +536,29 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         }
 
         /// <summary>
-        /// Получить предметы, которые не хранятся на складах WB Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Получить предметы, которые не хранятся на складах WB Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="next">Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.</param>
         /// <param name="limit">Количество предметов в ответе</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200</returns>
-        public GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted(long next, int limit, int operationIndex = 0)
+        /// <returns>GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200</returns>
+        public GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200 GetV3FbsSettingsAutoreturnsSubcategoriesRestricted(long next, int limit, int operationIndex = 0)
         {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> localVarResponse = GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfo(next, limit);
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> localVarResponse = GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfo(next, limit);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Получить предметы, которые не хранятся на складах WB Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Получить предметы, которые не хранятся на складах WB Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="next">Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.</param>
         /// <param name="limit">Количество предметов в ответе</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfo(long next, int limit, int operationIndex = 0)
+        /// <returns>ApiResponse of GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200</returns>
+        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfo(long next, int limit, int operationIndex = 0)
         {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToMultiMap("", "next", next));
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-
-            localVarRequestOptions.Operation = "DefaultApi.GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>("/api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Получить предметы, которые не хранятся на складах WB Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="next">Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.</param>
-        /// <param name="limit">Количество предметов в ответе</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200</returns>
-        public async System.Threading.Tasks.Task<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedAsync(long next, int limit, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> localVarResponse = await GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfoAsync(next, limit, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Получить предметы, которые не хранятся на складах WB Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="next">Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.</param>
-        /// <param name="limit">Количество предметов в ответе</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>> GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfoAsync(long next, int limit, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -662,7 +585,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
             localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToMultiMap("", "next", next));
             localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
 
-            localVarRequestOptions.Operation = "DefaultApi.GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted";
+            localVarRequestOptions.Operation = "DefaultApi.GetV3FbsSettingsAutoreturnsSubcategoriesRestricted";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -673,11 +596,10 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>("/api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
+            var localVarResponse = this.Client.Get<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>("/api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetV3FbsSettingsAutoreturnsSubcategoriesRestricted", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -688,25 +610,103 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         }
 
         /// <summary>
-        /// Обновить настройки автовозврата продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Получить предметы, которые не хранятся на складах WB Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchMarketplaceV3FbsSettingsAutoreturnsRequest"> (optional)</param>
+        /// <param name="next">Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.</param>
+        /// <param name="limit">Количество предметов в ответе</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200</returns>
+        public async System.Threading.Tasks.Task<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedAsync(long next, int limit, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> localVarResponse = await GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfoAsync(next, limit, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Получить предметы, которые не хранятся на складах WB Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает список ID предметов, товары которых не могут храниться на складах WB и будут возвращены в ПВЗ автоматически.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="next">Параметр пагинации. Устанавливает значение, с которого надо получить следующий пакет данных. Для получения полного списка данных должен быть равен &#x60;0&#x60; в первом запросе. Для следующих запросов необходимо брать значения из одноимённого поля в ответе.</param>
+        /// <param name="limit">Количество предметов в ответе</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>> GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfoAsync(long next, int limit, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToMultiMap("", "next", next));
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+
+            localVarRequestOptions.Operation = "DefaultApi.GetV3FbsSettingsAutoreturnsSubcategoriesRestricted";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>("/api/marketplace/v3/fbs/settings/autoreturns/subcategories/restricted", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV3FbsSettingsAutoreturnsSubcategoriesRestricted", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Обновить настройки автовозврата продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="patchV3FbsSettingsAutoreturnsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void PatchMarketplaceV3FbsSettingsAutoreturns(PatchMarketplaceV3FbsSettingsAutoreturnsRequest? patchMarketplaceV3FbsSettingsAutoreturnsRequest = default(PatchMarketplaceV3FbsSettingsAutoreturnsRequest?), int operationIndex = 0)
+        public void PatchV3FbsSettingsAutoreturns(PatchV3FbsSettingsAutoreturnsRequest? patchV3FbsSettingsAutoreturnsRequest = default(PatchV3FbsSettingsAutoreturnsRequest?), int operationIndex = 0)
         {
-            PatchMarketplaceV3FbsSettingsAutoreturnsWithHttpInfo(patchMarketplaceV3FbsSettingsAutoreturnsRequest);
+            PatchV3FbsSettingsAutoreturnsWithHttpInfo(patchV3FbsSettingsAutoreturnsRequest);
         }
 
         /// <summary>
-        /// Обновить настройки автовозврата продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Обновить настройки автовозврата продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchMarketplaceV3FbsSettingsAutoreturnsRequest"> (optional)</param>
+        /// <param name="patchV3FbsSettingsAutoreturnsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<Object> PatchMarketplaceV3FbsSettingsAutoreturnsWithHttpInfo(PatchMarketplaceV3FbsSettingsAutoreturnsRequest? patchMarketplaceV3FbsSettingsAutoreturnsRequest = default(PatchMarketplaceV3FbsSettingsAutoreturnsRequest?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<Object> PatchV3FbsSettingsAutoreturnsWithHttpInfo(PatchV3FbsSettingsAutoreturnsRequest? patchV3FbsSettingsAutoreturnsRequest = default(PatchV3FbsSettingsAutoreturnsRequest?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
 
@@ -732,9 +732,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = patchMarketplaceV3FbsSettingsAutoreturnsRequest;
+            localVarRequestOptions.Data = patchV3FbsSettingsAutoreturnsRequest;
 
-            localVarRequestOptions.Operation = "DefaultApi.PatchMarketplaceV3FbsSettingsAutoreturns";
+            localVarRequestOptions.Operation = "DefaultApi.PatchV3FbsSettingsAutoreturns";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -748,7 +748,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
             var localVarResponse = this.Client.Patch<Object>("/api/marketplace/v3/fbs/settings/autoreturns", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("PatchMarketplaceV3FbsSettingsAutoreturns", localVarResponse);
+                Exception _exception = this.ExceptionFactory("PatchV3FbsSettingsAutoreturns", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -759,27 +759,27 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         }
 
         /// <summary>
-        /// Обновить настройки автовозврата продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Обновить настройки автовозврата продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchMarketplaceV3FbsSettingsAutoreturnsRequest"> (optional)</param>
+        /// <param name="patchV3FbsSettingsAutoreturnsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task PatchMarketplaceV3FbsSettingsAutoreturnsAsync(PatchMarketplaceV3FbsSettingsAutoreturnsRequest? patchMarketplaceV3FbsSettingsAutoreturnsRequest = default(PatchMarketplaceV3FbsSettingsAutoreturnsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task PatchV3FbsSettingsAutoreturnsAsync(PatchV3FbsSettingsAutoreturnsRequest? patchV3FbsSettingsAutoreturnsRequest = default(PatchV3FbsSettingsAutoreturnsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            await PatchMarketplaceV3FbsSettingsAutoreturnsWithHttpInfoAsync(patchMarketplaceV3FbsSettingsAutoreturnsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            await PatchV3FbsSettingsAutoreturnsWithHttpInfoAsync(patchV3FbsSettingsAutoreturnsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Обновить настройки автовозврата продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Обновить настройки автовозврата продавца Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата продавца для малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchMarketplaceV3FbsSettingsAutoreturnsRequest"> (optional)</param>
+        /// <param name="patchV3FbsSettingsAutoreturnsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<Object>> PatchMarketplaceV3FbsSettingsAutoreturnsWithHttpInfoAsync(PatchMarketplaceV3FbsSettingsAutoreturnsRequest? patchMarketplaceV3FbsSettingsAutoreturnsRequest = default(PatchMarketplaceV3FbsSettingsAutoreturnsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<Object>> PatchV3FbsSettingsAutoreturnsWithHttpInfoAsync(PatchV3FbsSettingsAutoreturnsRequest? patchV3FbsSettingsAutoreturnsRequest = default(PatchV3FbsSettingsAutoreturnsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
@@ -806,9 +806,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = patchMarketplaceV3FbsSettingsAutoreturnsRequest;
+            localVarRequestOptions.Data = patchV3FbsSettingsAutoreturnsRequest;
 
-            localVarRequestOptions.Operation = "DefaultApi.PatchMarketplaceV3FbsSettingsAutoreturns";
+            localVarRequestOptions.Operation = "DefaultApi.PatchV3FbsSettingsAutoreturns";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -823,7 +823,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("PatchMarketplaceV3FbsSettingsAutoreturns", localVarResponse);
+                Exception _exception = this.ExceptionFactory("PatchV3FbsSettingsAutoreturns", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -834,26 +834,26 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         }
 
         /// <summary>
-        /// Обновить настройки автовозврата товаров Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Обновить настройки автовозврата товаров Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
+        /// <param name="patchV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200</returns>
-        public PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200 PatchMarketplaceV3FbsSettingsAutoreturnsItems(PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest? patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest = default(PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0)
+        /// <returns>PatchV3FbsSettingsAutoreturnsItemsResponse200</returns>
+        public PatchV3FbsSettingsAutoreturnsItemsResponse200 PatchV3FbsSettingsAutoreturnsItems(PatchV3FbsSettingsAutoreturnsItemsRequest? patchV3FbsSettingsAutoreturnsItemsRequest = default(PatchV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0)
         {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200> localVarResponse = PatchMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfo(patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest);
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PatchV3FbsSettingsAutoreturnsItemsResponse200> localVarResponse = PatchV3FbsSettingsAutoreturnsItemsWithHttpInfo(patchV3FbsSettingsAutoreturnsItemsRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Обновить настройки автовозврата товаров Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Обновить настройки автовозврата товаров Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
+        /// <param name="patchV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200> PatchMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfo(PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest? patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest = default(PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0)
+        /// <returns>ApiResponse of PatchV3FbsSettingsAutoreturnsItemsResponse200</returns>
+        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PatchV3FbsSettingsAutoreturnsItemsResponse200> PatchV3FbsSettingsAutoreturnsItemsWithHttpInfo(PatchV3FbsSettingsAutoreturnsItemsRequest? patchV3FbsSettingsAutoreturnsItemsRequest = default(PatchV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
 
@@ -879,9 +879,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest;
+            localVarRequestOptions.Data = patchV3FbsSettingsAutoreturnsItemsRequest;
 
-            localVarRequestOptions.Operation = "DefaultApi.PatchMarketplaceV3FbsSettingsAutoreturnsItems";
+            localVarRequestOptions.Operation = "DefaultApi.PatchV3FbsSettingsAutoreturnsItems";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -892,10 +892,10 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Patch<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200>("/api/marketplace/v3/fbs/settings/autoreturns/items", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Patch<PatchV3FbsSettingsAutoreturnsItemsResponse200>("/api/marketplace/v3/fbs/settings/autoreturns/items", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("PatchMarketplaceV3FbsSettingsAutoreturnsItems", localVarResponse);
+                Exception _exception = this.ExceptionFactory("PatchV3FbsSettingsAutoreturnsItems", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -906,176 +906,28 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         }
 
         /// <summary>
-        /// Обновить настройки автовозврата товаров Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Обновить настройки автовозврата товаров Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
+        /// <param name="patchV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200</returns>
-        public async System.Threading.Tasks.Task<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200> PatchMarketplaceV3FbsSettingsAutoreturnsItemsAsync(PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest? patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest = default(PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of PatchV3FbsSettingsAutoreturnsItemsResponse200</returns>
+        public async System.Threading.Tasks.Task<PatchV3FbsSettingsAutoreturnsItemsResponse200> PatchV3FbsSettingsAutoreturnsItemsAsync(PatchV3FbsSettingsAutoreturnsItemsRequest? patchV3FbsSettingsAutoreturnsItemsRequest = default(PatchV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200> localVarResponse = await PatchMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfoAsync(patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PatchV3FbsSettingsAutoreturnsItemsResponse200> localVarResponse = await PatchV3FbsSettingsAutoreturnsItemsWithHttpInfoAsync(patchV3FbsSettingsAutoreturnsItemsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Обновить настройки автовозврата товаров Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод устанавливает настройки автовозврата малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// Обновить настройки автовозврата товаров Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод устанавливает настройки автовозврата малогабаритных товаров — &#x60;\&quot;cargoType\&quot;:1&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
+        /// <param name="patchV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200>> PatchMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfoAsync(PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest? patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest = default(PatchMarketplaceV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = patchMarketplaceV3FbsSettingsAutoreturnsItemsRequest;
-
-            localVarRequestOptions.Operation = "DefaultApi.PatchMarketplaceV3FbsSettingsAutoreturnsItems";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PatchAsync<PatchMarketplaceV3FbsSettingsAutoreturnsItemsResponse200>("/api/marketplace/v3/fbs/settings/autoreturns/items", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PatchMarketplaceV3FbsSettingsAutoreturnsItems", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Получить настройки автовозврата товаров Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postMarketplaceV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200</returns>
-        public PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200 PostMarketplaceV3FbsSettingsAutoreturnsItems(PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest? postMarketplaceV3FbsSettingsAutoreturnsItemsRequest = default(PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0)
-        {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200> localVarResponse = PostMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfo(postMarketplaceV3FbsSettingsAutoreturnsItemsRequest);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Получить настройки автовозврата товаров Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postMarketplaceV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200> PostMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfo(PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest? postMarketplaceV3FbsSettingsAutoreturnsItemsRequest = default(PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0)
-        {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = postMarketplaceV3FbsSettingsAutoreturnsItemsRequest;
-
-            localVarRequestOptions.Operation = "DefaultApi.PostMarketplaceV3FbsSettingsAutoreturnsItems";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200>("/api/marketplace/v3/fbs/settings/autoreturns/items", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PostMarketplaceV3FbsSettingsAutoreturnsItems", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Получить настройки автовозврата товаров Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postMarketplaceV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200</returns>
-        public async System.Threading.Tasks.Task<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200> PostMarketplaceV3FbsSettingsAutoreturnsItemsAsync(PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest? postMarketplaceV3FbsSettingsAutoreturnsItemsRequest = default(PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200> localVarResponse = await PostMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfoAsync(postMarketplaceV3FbsSettingsAutoreturnsItemsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Получить настройки автовозврата товаров Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postMarketplaceV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200>> PostMarketplaceV3FbsSettingsAutoreturnsItemsWithHttpInfoAsync(PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest? postMarketplaceV3FbsSettingsAutoreturnsItemsRequest = default(PostMarketplaceV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (PatchV3FbsSettingsAutoreturnsItemsResponse200)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PatchV3FbsSettingsAutoreturnsItemsResponse200>> PatchV3FbsSettingsAutoreturnsItemsWithHttpInfoAsync(PatchV3FbsSettingsAutoreturnsItemsRequest? patchV3FbsSettingsAutoreturnsItemsRequest = default(PatchV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
@@ -1102,9 +954,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = postMarketplaceV3FbsSettingsAutoreturnsItemsRequest;
+            localVarRequestOptions.Data = patchV3FbsSettingsAutoreturnsItemsRequest;
 
-            localVarRequestOptions.Operation = "DefaultApi.PostMarketplaceV3FbsSettingsAutoreturnsItems";
+            localVarRequestOptions.Operation = "DefaultApi.PatchV3FbsSettingsAutoreturnsItems";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -1115,11 +967,159 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<PostMarketplaceV3FbsSettingsAutoreturnsItemsResponse200>("/api/marketplace/v3/fbs/settings/autoreturns/items", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<PatchV3FbsSettingsAutoreturnsItemsResponse200>("/api/marketplace/v3/fbs/settings/autoreturns/items", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("PostMarketplaceV3FbsSettingsAutoreturnsItems", localVarResponse);
+                Exception _exception = this.ExceptionFactory("PatchV3FbsSettingsAutoreturnsItems", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Получить настройки автовозврата товаров Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>PostV3FbsSettingsAutoreturnsItemsResponse200</returns>
+        public PostV3FbsSettingsAutoreturnsItemsResponse200 PostV3FbsSettingsAutoreturnsItems(PostV3FbsSettingsAutoreturnsItemsRequest? postV3FbsSettingsAutoreturnsItemsRequest = default(PostV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PostV3FbsSettingsAutoreturnsItemsResponse200> localVarResponse = PostV3FbsSettingsAutoreturnsItemsWithHttpInfo(postV3FbsSettingsAutoreturnsItemsRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Получить настройки автовозврата товаров Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of PostV3FbsSettingsAutoreturnsItemsResponse200</returns>
+        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PostV3FbsSettingsAutoreturnsItemsResponse200> PostV3FbsSettingsAutoreturnsItemsWithHttpInfo(PostV3FbsSettingsAutoreturnsItemsRequest? postV3FbsSettingsAutoreturnsItemsRequest = default(PostV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = postV3FbsSettingsAutoreturnsItemsRequest;
+
+            localVarRequestOptions.Operation = "DefaultApi.PostV3FbsSettingsAutoreturnsItems";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<PostV3FbsSettingsAutoreturnsItemsResponse200>("/api/marketplace/v3/fbs/settings/autoreturns/items", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PostV3FbsSettingsAutoreturnsItems", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Получить настройки автовозврата товаров Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PostV3FbsSettingsAutoreturnsItemsResponse200</returns>
+        public async System.Threading.Tasks.Task<PostV3FbsSettingsAutoreturnsItemsResponse200> PostV3FbsSettingsAutoreturnsItemsAsync(PostV3FbsSettingsAutoreturnsItemsRequest? postV3FbsSettingsAutoreturnsItemsRequest = default(PostV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PostV3FbsSettingsAutoreturnsItemsResponse200> localVarResponse = await PostV3FbsSettingsAutoreturnsItemsWithHttpInfoAsync(postV3FbsSettingsAutoreturnsItemsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Получить настройки автовозврата товаров Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену, **Базовому** токену **с секретом**  Метод возвращает настройки автовозврата товаров.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postV3FbsSettingsAutoreturnsItemsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PostV3FbsSettingsAutoreturnsItemsResponse200)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<PostV3FbsSettingsAutoreturnsItemsResponse200>> PostV3FbsSettingsAutoreturnsItemsWithHttpInfoAsync(PostV3FbsSettingsAutoreturnsItemsRequest? postV3FbsSettingsAutoreturnsItemsRequest = default(PostV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = postV3FbsSettingsAutoreturnsItemsRequest;
+
+            localVarRequestOptions.Operation = "DefaultApi.PostV3FbsSettingsAutoreturnsItems";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<PostV3FbsSettingsAutoreturnsItemsResponse200>("/api/marketplace/v3/fbs/settings/autoreturns/items", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PostV3FbsSettingsAutoreturnsItems", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

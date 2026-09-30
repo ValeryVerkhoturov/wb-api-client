@@ -97,7 +97,7 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.communications.model.ChatsResponse
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.communications.model.DeleteFeedbacksV1PinsResponse200
+        new io.github.valeryverkhoturov.wbapi.communications.model.DeleteV1PinsResponse200
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.communications.model.Event
@@ -113,15 +113,6 @@ public class JSON {
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.communications.model.EventsResult
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.communications.model
-            .GetFeedbacksV1PinsCountResponse200.CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.communications.model
-            .GetFeedbacksV1PinsLimitsResponse200.CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.communications.model.GetFeedbacksV1PinsResponse200
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.communications.model.GetV1Claims200Response
@@ -195,6 +186,15 @@ public class JSON {
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.communications.model
             .GetV1NewFeedbacksQuestionsResponse200Data.CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.communications.model.GetV1PinsCountResponse200
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.communications.model.GetV1PinsLimitsResponse200
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.communications.model.GetV1PinsResponse200
+            .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.communications.model.GetV1QuestionResponse200
             .CustomTypeAdapterFactory());
@@ -316,9 +316,6 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.communications.model.PatchV1QuestionsResponse200
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.communications.model.PostFeedbacksV1PinsResponse200
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.communications.model.PostV1FeedbacksAnswer403Response
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
@@ -330,6 +327,9 @@ public class JSON {
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.communications.model
             .PostV1FeedbacksOrderReturnResponse200.CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.communications.model.PostV1PinsResponse200
+            .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.communications.model.PostV1SellerMessageRequest
             .CustomTypeAdapterFactory());

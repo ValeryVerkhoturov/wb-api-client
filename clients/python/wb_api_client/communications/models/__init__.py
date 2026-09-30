@@ -16,8 +16,8 @@
 # import models into model package
 from wb_api_client.communications.models.chat import Chat
 from wb_api_client.communications.models.chats_response import ChatsResponse
-from wb_api_client.communications.models.delete_feedbacks_v1_pins_response200 import (
-    DeleteFeedbacksV1PinsResponse200,
+from wb_api_client.communications.models.delete_v1_pins_response200 import (
+    DeleteV1PinsResponse200,
 )
 from wb_api_client.communications.models.domain_review_pin_method import (
     DomainReviewPinMethod,
@@ -31,15 +31,6 @@ from wb_api_client.communications.models.event_type import EventType
 from wb_api_client.communications.models.events_response import EventsResponse
 from wb_api_client.communications.models.events_result import EventsResult
 from wb_api_client.communications.models.file import File
-from wb_api_client.communications.models.get_feedbacks_v1_pins_count_response200 import (
-    GetFeedbacksV1PinsCountResponse200,
-)
-from wb_api_client.communications.models.get_feedbacks_v1_pins_limits_response200 import (
-    GetFeedbacksV1PinsLimitsResponse200,
-)
-from wb_api_client.communications.models.get_feedbacks_v1_pins_response200 import (
-    GetFeedbacksV1PinsResponse200,
-)
 from wb_api_client.communications.models.get_v1_claims200_response import (
     GetV1Claims200Response,
 )
@@ -111,6 +102,15 @@ from wb_api_client.communications.models.get_v1_new_feedbacks_questions_response
 )
 from wb_api_client.communications.models.get_v1_new_feedbacks_questions_response200_data import (
     GetV1NewFeedbacksQuestionsResponse200Data,
+)
+from wb_api_client.communications.models.get_v1_pins_count_response200 import (
+    GetV1PinsCountResponse200,
+)
+from wb_api_client.communications.models.get_v1_pins_limits_response200 import (
+    GetV1PinsLimitsResponse200,
+)
+from wb_api_client.communications.models.get_v1_pins_response200 import (
+    GetV1PinsResponse200,
 )
 from wb_api_client.communications.models.get_v1_question_response200 import (
     GetV1QuestionResponse200,
@@ -217,9 +217,6 @@ from wb_api_client.communications.models.patch_v1_questions_request_one_of1_answ
 from wb_api_client.communications.models.patch_v1_questions_response200 import (
     PatchV1QuestionsResponse200,
 )
-from wb_api_client.communications.models.post_feedbacks_v1_pins_response200 import (
-    PostFeedbacksV1PinsResponse200,
-)
 from wb_api_client.communications.models.post_v1_feedbacks_answer403_response import (
     PostV1FeedbacksAnswer403Response,
 )
@@ -231,6 +228,9 @@ from wb_api_client.communications.models.post_v1_feedbacks_order_return_request 
 )
 from wb_api_client.communications.models.post_v1_feedbacks_order_return_response200 import (
     PostV1FeedbacksOrderReturnResponse200,
+)
+from wb_api_client.communications.models.post_v1_pins_response200 import (
+    PostV1PinsResponse200,
 )
 from wb_api_client.communications.models.post_v1_seller_message_request import (
     PostV1SellerMessageRequest,

@@ -263,6 +263,58 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <returns>ApiResponse of GetV2DirectoryKindsResponse200</returns>
         ApiResponse<GetV2DirectoryKindsResponse200> GetV2DirectoryKindsWithHttpInfo(string? locale = default(string?), int operationIndex = 0);
         /// <summary>
+        /// Код ОКПД2 предмета
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает список кодов ОКПД2 по ID [предмета](https://dev.wildberries.ru/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту кода ОКПД2.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subjectId">ID предмета</param>
+        /// <param name="search">Поиск по фрагменту кода ОКПД2. Работает только в паре с &#x60;subjectId&#x60;. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GetV2DirectoryOkpdResponse200</returns>
+        GetV2DirectoryOkpdResponse200 GetV2DirectoryOkpd(int subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// Код ОКПД2 предмета
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает список кодов ОКПД2 по ID [предмета](https://dev.wildberries.ru/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту кода ОКПД2.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subjectId">ID предмета</param>
+        /// <param name="search">Поиск по фрагменту кода ОКПД2. Работает только в паре с &#x60;subjectId&#x60;. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetV2DirectoryOkpdResponse200</returns>
+        ApiResponse<GetV2DirectoryOkpdResponse200> GetV2DirectoryOkpdWithHttpInfo(int subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0);
+        /// <summary>
+        /// Список кодов ОКПД2
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его фрагменту, укажите первые цифры кода через точку в параметре &#x60;search&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="search">Поиск по фрагменту кода ОКПД2. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GetV2DirectoryOkpdAllResponse200</returns>
+        GetV2DirectoryOkpdAllResponse200 GetV2DirectoryOkpdAll(decimal? search = default(decimal?), string? locale = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// Список кодов ОКПД2
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его фрагменту, укажите первые цифры кода через точку в параметре &#x60;search&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="search">Поиск по фрагменту кода ОКПД2. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetV2DirectoryOkpdAllResponse200</returns>
+        ApiResponse<GetV2DirectoryOkpdAllResponse200> GetV2DirectoryOkpdAllWithHttpInfo(decimal? search = default(decimal?), string? locale = default(string?), int operationIndex = 0);
+        /// <summary>
         /// Сезон
         /// </summary>
         /// <remarks>
@@ -286,32 +338,57 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <returns>ApiResponse of GetV2DirectorySeasonsResponse200</returns>
         ApiResponse<GetV2DirectorySeasonsResponse200> GetV2DirectorySeasonsWithHttpInfo(string? locale = default(string?), int operationIndex = 0);
         /// <summary>
-        /// ТНВЭД-код
+        /// Код ТН ВЭД предмета
         /// </summary>
         /// <remarks>
-        /// Метод возвращает список ТНВЭД-кодов по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+        /// Метод возвращает список кодов ТН ВЭД по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту кода ТН ВЭД.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subjectID">ID предмета</param>
-        /// <param name="search">Поиск по ТНВЭД-коду. Работает только в паре с &#x60;subjectID&#x60; (optional)</param>
+        /// <param name="search">Поиск по коду ТН ВЭД. Работает только в паре с &#x60;subjectID&#x60; (optional)</param>
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2DirectoryTnvedResponse200</returns>
         GetV2DirectoryTnvedResponse200 GetV2DirectoryTnved(int subjectID, int? search = default(int?), string? locale = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// ТНВЭД-код
+        /// Код ТН ВЭД предмета
         /// </summary>
         /// <remarks>
-        /// Метод возвращает список ТНВЭД-кодов по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+        /// Метод возвращает список кодов ТН ВЭД по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту кода ТН ВЭД.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subjectID">ID предмета</param>
-        /// <param name="search">Поиск по ТНВЭД-коду. Работает только в паре с &#x60;subjectID&#x60; (optional)</param>
+        /// <param name="search">Поиск по коду ТН ВЭД. Работает только в паре с &#x60;subjectID&#x60; (optional)</param>
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2DirectoryTnvedResponse200</returns>
         ApiResponse<GetV2DirectoryTnvedResponse200> GetV2DirectoryTnvedWithHttpInfo(int subjectID, int? search = default(int?), string? locale = default(string?), int operationIndex = 0);
+        /// <summary>
+        /// Список кодов ТН ВЭД
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре &#x60;search&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="search">Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GetV2DirectoryTnvedAllResponse200</returns>
+        GetV2DirectoryTnvedAllResponse200 GetV2DirectoryTnvedAll(int? search = default(int?), string? locale = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// Список кодов ТН ВЭД
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре &#x60;search&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="search">Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetV2DirectoryTnvedAllResponse200</returns>
+        ApiResponse<GetV2DirectoryTnvedAllResponse200> GetV2DirectoryTnvedAllWithHttpInfo(int? search = default(int?), string? locale = default(string?), int operationIndex = 0);
         /// <summary>
         /// Ставка НДС
         /// </summary>
@@ -1536,6 +1613,62 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <returns>Task of ApiResponse (GetV2DirectoryKindsResponse200)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetV2DirectoryKindsResponse200>> GetV2DirectoryKindsWithHttpInfoAsync(string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// Код ОКПД2 предмета
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает список кодов ОКПД2 по ID [предмета](https://dev.wildberries.ru/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту кода ОКПД2.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subjectId">ID предмета</param>
+        /// <param name="search">Поиск по фрагменту кода ОКПД2. Работает только в паре с &#x60;subjectId&#x60;. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetV2DirectoryOkpdResponse200</returns>
+        System.Threading.Tasks.Task<GetV2DirectoryOkpdResponse200> GetV2DirectoryOkpdAsync(int subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Код ОКПД2 предмета
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает список кодов ОКПД2 по ID [предмета](https://dev.wildberries.ru/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту кода ОКПД2.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subjectId">ID предмета</param>
+        /// <param name="search">Поиск по фрагменту кода ОКПД2. Работает только в паре с &#x60;subjectId&#x60;. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetV2DirectoryOkpdResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetV2DirectoryOkpdResponse200>> GetV2DirectoryOkpdWithHttpInfoAsync(int subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Список кодов ОКПД2
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его фрагменту, укажите первые цифры кода через точку в параметре &#x60;search&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="search">Поиск по фрагменту кода ОКПД2. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetV2DirectoryOkpdAllResponse200</returns>
+        System.Threading.Tasks.Task<GetV2DirectoryOkpdAllResponse200> GetV2DirectoryOkpdAllAsync(decimal? search = default(decimal?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Список кодов ОКПД2
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его фрагменту, укажите первые цифры кода через точку в параметре &#x60;search&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="search">Поиск по фрагменту кода ОКПД2. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetV2DirectoryOkpdAllResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetV2DirectoryOkpdAllResponse200>> GetV2DirectoryOkpdAllWithHttpInfoAsync(decimal? search = default(decimal?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Сезон
         /// </summary>
         /// <remarks>
@@ -1561,14 +1694,14 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         /// <returns>Task of ApiResponse (GetV2DirectorySeasonsResponse200)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetV2DirectorySeasonsResponse200>> GetV2DirectorySeasonsWithHttpInfoAsync(string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// ТНВЭД-код
+        /// Код ТН ВЭД предмета
         /// </summary>
         /// <remarks>
-        /// Метод возвращает список ТНВЭД-кодов по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+        /// Метод возвращает список кодов ТН ВЭД по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту кода ТН ВЭД.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subjectID">ID предмета</param>
-        /// <param name="search">Поиск по ТНВЭД-коду. Работает только в паре с &#x60;subjectID&#x60; (optional)</param>
+        /// <param name="search">Поиск по коду ТН ВЭД. Работает только в паре с &#x60;subjectID&#x60; (optional)</param>
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1576,19 +1709,46 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         System.Threading.Tasks.Task<GetV2DirectoryTnvedResponse200> GetV2DirectoryTnvedAsync(int subjectID, int? search = default(int?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
-        /// ТНВЭД-код
+        /// Код ТН ВЭД предмета
         /// </summary>
         /// <remarks>
-        /// Метод возвращает список ТНВЭД-кодов по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+        /// Метод возвращает список кодов ТН ВЭД по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту кода ТН ВЭД.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subjectID">ID предмета</param>
-        /// <param name="search">Поиск по ТНВЭД-коду. Работает только в паре с &#x60;subjectID&#x60; (optional)</param>
+        /// <param name="search">Поиск по коду ТН ВЭД. Работает только в паре с &#x60;subjectID&#x60; (optional)</param>
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2DirectoryTnvedResponse200)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetV2DirectoryTnvedResponse200>> GetV2DirectoryTnvedWithHttpInfoAsync(int subjectID, int? search = default(int?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Список кодов ТН ВЭД
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре &#x60;search&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="search">Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetV2DirectoryTnvedAllResponse200</returns>
+        System.Threading.Tasks.Task<GetV2DirectoryTnvedAllResponse200> GetV2DirectoryTnvedAllAsync(int? search = default(int?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Список кодов ТН ВЭД
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре &#x60;search&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="search">Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetV2DirectoryTnvedAllResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetV2DirectoryTnvedAllResponse200>> GetV2DirectoryTnvedAllWithHttpInfoAsync(int? search = default(int?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Ставка НДС
         /// </summary>
@@ -4266,6 +4426,340 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         }
 
         /// <summary>
+        /// Код ОКПД2 предмета Метод возвращает список кодов ОКПД2 по ID [предмета](https://dev.wildberries.ru/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту кода ОКПД2.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subjectId">ID предмета</param>
+        /// <param name="search">Поиск по фрагменту кода ОКПД2. Работает только в паре с &#x60;subjectId&#x60;. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GetV2DirectoryOkpdResponse200</returns>
+        public GetV2DirectoryOkpdResponse200 GetV2DirectoryOkpd(int subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryOkpdResponse200> localVarResponse = GetV2DirectoryOkpdWithHttpInfo(subjectId, search, locale);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Код ОКПД2 предмета Метод возвращает список кодов ОКПД2 по ID [предмета](https://dev.wildberries.ru/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту кода ОКПД2.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subjectId">ID предмета</param>
+        /// <param name="search">Поиск по фрагменту кода ОКПД2. Работает только в паре с &#x60;subjectId&#x60;. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetV2DirectoryOkpdResponse200</returns>
+        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryOkpdResponse200> GetV2DirectoryOkpdWithHttpInfo(int subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.ParameterToMultiMap("", "subjectId", subjectId));
+            if (search != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.ParameterToMultiMap("", "search", search));
+            }
+            if (locale != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.ParameterToMultiMap("", "locale", locale));
+            }
+
+            localVarRequestOptions.Operation = "DefaultApi.GetV2DirectoryOkpd";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<GetV2DirectoryOkpdResponse200>("/api/content/v2/directory/okpd", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV2DirectoryOkpd", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Код ОКПД2 предмета Метод возвращает список кодов ОКПД2 по ID [предмета](https://dev.wildberries.ru/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту кода ОКПД2.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subjectId">ID предмета</param>
+        /// <param name="search">Поиск по фрагменту кода ОКПД2. Работает только в паре с &#x60;subjectId&#x60;. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetV2DirectoryOkpdResponse200</returns>
+        public async System.Threading.Tasks.Task<GetV2DirectoryOkpdResponse200> GetV2DirectoryOkpdAsync(int subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryOkpdResponse200> localVarResponse = await GetV2DirectoryOkpdWithHttpInfoAsync(subjectId, search, locale, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Код ОКПД2 предмета Метод возвращает список кодов ОКПД2 по ID [предмета](https://dev.wildberries.ru/openapi/work-with-products#tag/categoriesSubcategoriesAndCharacteristics/paths/~1content~1v2~1object~1all/get) и фрагменту кода ОКПД2.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subjectId">ID предмета</param>
+        /// <param name="search">Поиск по фрагменту кода ОКПД2. Работает только в паре с &#x60;subjectId&#x60;. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetV2DirectoryOkpdResponse200)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryOkpdResponse200>> GetV2DirectoryOkpdWithHttpInfoAsync(int subjectId, string? search = default(string?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.ParameterToMultiMap("", "subjectId", subjectId));
+            if (search != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.ParameterToMultiMap("", "search", search));
+            }
+            if (locale != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.ParameterToMultiMap("", "locale", locale));
+            }
+
+            localVarRequestOptions.Operation = "DefaultApi.GetV2DirectoryOkpd";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetV2DirectoryOkpdResponse200>("/api/content/v2/directory/okpd", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV2DirectoryOkpd", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Список кодов ОКПД2 Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его фрагменту, укажите первые цифры кода через точку в параметре &#x60;search&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="search">Поиск по фрагменту кода ОКПД2. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GetV2DirectoryOkpdAllResponse200</returns>
+        public GetV2DirectoryOkpdAllResponse200 GetV2DirectoryOkpdAll(decimal? search = default(decimal?), string? locale = default(string?), int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryOkpdAllResponse200> localVarResponse = GetV2DirectoryOkpdAllWithHttpInfo(search, locale);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Список кодов ОКПД2 Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его фрагменту, укажите первые цифры кода через точку в параметре &#x60;search&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="search">Поиск по фрагменту кода ОКПД2. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetV2DirectoryOkpdAllResponse200</returns>
+        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryOkpdAllResponse200> GetV2DirectoryOkpdAllWithHttpInfo(decimal? search = default(decimal?), string? locale = default(string?), int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (search != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.ParameterToMultiMap("", "search", search));
+            }
+            if (locale != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.ParameterToMultiMap("", "locale", locale));
+            }
+
+            localVarRequestOptions.Operation = "DefaultApi.GetV2DirectoryOkpdAll";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<GetV2DirectoryOkpdAllResponse200>("/api/content/v2/directory/okpd/all", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV2DirectoryOkpdAll", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Список кодов ОКПД2 Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его фрагменту, укажите первые цифры кода через точку в параметре &#x60;search&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="search">Поиск по фрагменту кода ОКПД2. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetV2DirectoryOkpdAllResponse200</returns>
+        public async System.Threading.Tasks.Task<GetV2DirectoryOkpdAllResponse200> GetV2DirectoryOkpdAllAsync(decimal? search = default(decimal?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryOkpdAllResponse200> localVarResponse = await GetV2DirectoryOkpdAllWithHttpInfoAsync(search, locale, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Список кодов ОКПД2 Метод возвращает справочный список всех кодов ОКПД2. Чтобы найти код по его фрагменту, укажите первые цифры кода через точку в параметре &#x60;search&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="search">Поиск по фрагменту кода ОКПД2. Укажите первые цифры кода через точку, чтобы найти код по этому фрагменту (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetV2DirectoryOkpdAllResponse200)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryOkpdAllResponse200>> GetV2DirectoryOkpdAllWithHttpInfoAsync(decimal? search = default(decimal?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (search != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.ParameterToMultiMap("", "search", search));
+            }
+            if (locale != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.ParameterToMultiMap("", "locale", locale));
+            }
+
+            localVarRequestOptions.Operation = "DefaultApi.GetV2DirectoryOkpdAll";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetV2DirectoryOkpdAllResponse200>("/api/content/v2/directory/okpd/all", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV2DirectoryOkpdAll", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Сезон Метод возвращает возможные значения [характеристики](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId) предмета &#x60;Сезон&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для методов **Характеристик**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4418,11 +4912,11 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         }
 
         /// <summary>
-        /// ТНВЭД-код Метод возвращает список ТНВЭД-кодов по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+        /// Код ТН ВЭД предмета Метод возвращает список кодов ТН ВЭД по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту кода ТН ВЭД.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subjectID">ID предмета</param>
-        /// <param name="search">Поиск по ТНВЭД-коду. Работает только в паре с &#x60;subjectID&#x60; (optional)</param>
+        /// <param name="search">Поиск по коду ТН ВЭД. Работает только в паре с &#x60;subjectID&#x60; (optional)</param>
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2DirectoryTnvedResponse200</returns>
@@ -4433,11 +4927,11 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         }
 
         /// <summary>
-        /// ТНВЭД-код Метод возвращает список ТНВЭД-кодов по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+        /// Код ТН ВЭД предмета Метод возвращает список кодов ТН ВЭД по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту кода ТН ВЭД.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subjectID">ID предмета</param>
-        /// <param name="search">Поиск по ТНВЭД-коду. Работает только в паре с &#x60;subjectID&#x60; (optional)</param>
+        /// <param name="search">Поиск по коду ТН ВЭД. Работает только в паре с &#x60;subjectID&#x60; (optional)</param>
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2DirectoryTnvedResponse200</returns>
@@ -4501,11 +4995,11 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         }
 
         /// <summary>
-        /// ТНВЭД-код Метод возвращает список ТНВЭД-кодов по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+        /// Код ТН ВЭД предмета Метод возвращает список кодов ТН ВЭД по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту кода ТН ВЭД.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subjectID">ID предмета</param>
-        /// <param name="search">Поиск по ТНВЭД-коду. Работает только в паре с &#x60;subjectID&#x60; (optional)</param>
+        /// <param name="search">Поиск по коду ТН ВЭД. Работает только в паре с &#x60;subjectID&#x60; (optional)</param>
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4517,11 +5011,11 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
         }
 
         /// <summary>
-        /// ТНВЭД-код Метод возвращает список ТНВЭД-кодов по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту ТНВЭД-кода.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+        /// Код ТН ВЭД предмета Метод возвращает список кодов ТН ВЭД по ID [предмета](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll) и фрагменту кода ТН ВЭД.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subjectID">ID предмета</param>
-        /// <param name="search">Поиск по ТНВЭД-коду. Работает только в паре с &#x60;subjectID&#x60; (optional)</param>
+        /// <param name="search">Поиск по коду ТН ВЭД. Работает только в паре с &#x60;subjectID&#x60; (optional)</param>
         /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский   - &#x60;zh&#x60; — китайский  Не используется в песочнице. Данные песочницы возвращаются только на русском языке  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4578,6 +5072,170 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetV2DirectoryTnved", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Список кодов ТН ВЭД Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре &#x60;search&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="search">Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GetV2DirectoryTnvedAllResponse200</returns>
+        public GetV2DirectoryTnvedAllResponse200 GetV2DirectoryTnvedAll(int? search = default(int?), string? locale = default(string?), int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryTnvedAllResponse200> localVarResponse = GetV2DirectoryTnvedAllWithHttpInfo(search, locale);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Список кодов ТН ВЭД Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре &#x60;search&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="search">Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetV2DirectoryTnvedAllResponse200</returns>
+        public ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryTnvedAllResponse200> GetV2DirectoryTnvedAllWithHttpInfo(int? search = default(int?), string? locale = default(string?), int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (search != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.ParameterToMultiMap("", "search", search));
+            }
+            if (locale != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.ParameterToMultiMap("", "locale", locale));
+            }
+
+            localVarRequestOptions.Operation = "DefaultApi.GetV2DirectoryTnvedAll";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<GetV2DirectoryTnvedAllResponse200>("/api/content/v2/directory/tnved/all", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV2DirectoryTnvedAll", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Список кодов ТН ВЭД Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре &#x60;search&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="search">Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetV2DirectoryTnvedAllResponse200</returns>
+        public async System.Threading.Tasks.Task<GetV2DirectoryTnvedAllResponse200> GetV2DirectoryTnvedAllAsync(int? search = default(int?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryTnvedAllResponse200> localVarResponse = await GetV2DirectoryTnvedAllWithHttpInfoAsync(search, locale, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Список кодов ТН ВЭД Метод возвращает справочный список всех кодов ТН ВЭД. Чтобы найти код по его фрагменту, укажите первые цифры кода в параметре &#x60;search&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Контент**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 100 запросов | 600 мс | 5 запросов | Исключение — методы:  * [создания карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload) * [создания карточек товаров с присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd) * [редактирования карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate) * [восстановления карточек товаров из корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover) * [получения списка рекомендаций в карточках товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList) * [установки рекомендаций для товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Items.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="search">Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов (optional)</param>
+        /// <param name="locale">Язык полей ответа:   - &#x60;ru&#x60; — русский   - &#x60;en&#x60; — английский  (optional, default to ru)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetV2DirectoryTnvedAllResponse200)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Items.Client.ApiResponse<GetV2DirectoryTnvedAllResponse200>> GetV2DirectoryTnvedAllWithHttpInfoAsync(int? search = default(int?), string? locale = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Items.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (search != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.ParameterToMultiMap("", "search", search));
+            }
+            if (locale != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Items.Client.ClientUtils.ParameterToMultiMap("", "locale", locale));
+            }
+
+            localVarRequestOptions.Operation = "DefaultApi.GetV2DirectoryTnvedAll";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetV2DirectoryTnvedAllResponse200>("/api/content/v2/directory/tnved/all", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV2DirectoryTnvedAll", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

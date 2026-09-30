@@ -30,120 +30,25 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// Открепить отзывы
         /// </summary>
         /// <remarks>
-        /// Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Список &#x60;pinId&#x60; — ID операций закрепления отзывов</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>DeleteFeedbacksV1PinsResponse200</returns>
-        DeleteFeedbacksV1PinsResponse200 DeleteFeedbacksV1Pins(List<int> requestBody, int operationIndex = 0);
+        /// <returns>DeleteV1PinsResponse200</returns>
+        DeleteV1PinsResponse200 DeleteV1Pins(List<int> requestBody, int operationIndex = 0);
 
         /// <summary>
         /// Открепить отзывы
         /// </summary>
         /// <remarks>
-        /// Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Список &#x60;pinId&#x60; — ID операций закрепления отзывов</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of DeleteFeedbacksV1PinsResponse200</returns>
-        ApiResponse<DeleteFeedbacksV1PinsResponse200> DeleteFeedbacksV1PinsWithHttpInfo(List<int> requestBody, int operationIndex = 0);
-        /// <summary>
-        /// Список закреплённых и откреплённых отзывов
-        /// </summary>
-        /// <remarks>
-        /// Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
-        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
-        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
-        /// <param name="nmId">Артикул WB (optional)</param>
-        /// <param name="feedbackId">ID отзыва (optional)</param>
-        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
-        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
-        /// <param name="next">ID последней операции закрепления (пагинатор) (optional)</param>
-        /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetFeedbacksV1PinsResponse200</returns>
-        GetFeedbacksV1PinsResponse200 GetFeedbacksV1Pins(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0);
-
-        /// <summary>
-        /// Список закреплённых и откреплённых отзывов
-        /// </summary>
-        /// <remarks>
-        /// Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
-        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
-        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
-        /// <param name="nmId">Артикул WB (optional)</param>
-        /// <param name="feedbackId">ID отзыва (optional)</param>
-        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
-        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
-        /// <param name="next">ID последней операции закрепления (пагинатор) (optional)</param>
-        /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetFeedbacksV1PinsResponse200</returns>
-        ApiResponse<GetFeedbacksV1PinsResponse200> GetFeedbacksV1PinsWithHttpInfo(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0);
-        /// <summary>
-        /// Количество закреплённых и откреплённых отзывов
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
-        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
-        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
-        /// <param name="nmId">Артикул WB (optional)</param>
-        /// <param name="feedbackId">ID отзыва (optional)</param>
-        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
-        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetFeedbacksV1PinsCountResponse200</returns>
-        GetFeedbacksV1PinsCountResponse200 GetFeedbacksV1PinsCount(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0);
-
-        /// <summary>
-        /// Количество закреплённых и откреплённых отзывов
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
-        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
-        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
-        /// <param name="nmId">Артикул WB (optional)</param>
-        /// <param name="feedbackId">ID отзыва (optional)</param>
-        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
-        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetFeedbacksV1PinsCountResponse200</returns>
-        ApiResponse<GetFeedbacksV1PinsCountResponse200> GetFeedbacksV1PinsCountWithHttpInfo(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0);
-        /// <summary>
-        /// Лимиты закреплённых отзывов
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetFeedbacksV1PinsLimitsResponse200</returns>
-        GetFeedbacksV1PinsLimitsResponse200 GetFeedbacksV1PinsLimits(int operationIndex = 0);
-
-        /// <summary>
-        /// Лимиты закреплённых отзывов
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetFeedbacksV1PinsLimitsResponse200</returns>
-        ApiResponse<GetFeedbacksV1PinsLimitsResponse200> GetFeedbacksV1PinsLimitsWithHttpInfo(int operationIndex = 0);
+        /// <returns>ApiResponse of DeleteV1PinsResponse200</returns>
+        ApiResponse<DeleteV1PinsResponse200> DeleteV1PinsWithHttpInfo(List<int> requestBody, int operationIndex = 0);
         /// <summary>
         /// Заявки покупателей на возврат
         /// </summary>
@@ -331,6 +236,101 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1NewFeedbacksQuestionsResponse200</returns>
         ApiResponse<GetV1NewFeedbacksQuestionsResponse200> GetV1NewFeedbacksQuestionsWithHttpInfo(int operationIndex = 0);
+        /// <summary>
+        /// Список закреплённых и откреплённых отзывов
+        /// </summary>
+        /// <remarks>
+        /// Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
+        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
+        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
+        /// <param name="nmId">Артикул WB (optional)</param>
+        /// <param name="feedbackId">ID отзыва (optional)</param>
+        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
+        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
+        /// <param name="next">ID последней операции закрепления (пагинатор) (optional)</param>
+        /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GetV1PinsResponse200</returns>
+        GetV1PinsResponse200 GetV1Pins(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0);
+
+        /// <summary>
+        /// Список закреплённых и откреплённых отзывов
+        /// </summary>
+        /// <remarks>
+        /// Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
+        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
+        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
+        /// <param name="nmId">Артикул WB (optional)</param>
+        /// <param name="feedbackId">ID отзыва (optional)</param>
+        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
+        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
+        /// <param name="next">ID последней операции закрепления (пагинатор) (optional)</param>
+        /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetV1PinsResponse200</returns>
+        ApiResponse<GetV1PinsResponse200> GetV1PinsWithHttpInfo(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0);
+        /// <summary>
+        /// Количество закреплённых и откреплённых отзывов
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
+        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
+        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
+        /// <param name="nmId">Артикул WB (optional)</param>
+        /// <param name="feedbackId">ID отзыва (optional)</param>
+        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
+        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GetV1PinsCountResponse200</returns>
+        GetV1PinsCountResponse200 GetV1PinsCount(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0);
+
+        /// <summary>
+        /// Количество закреплённых и откреплённых отзывов
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
+        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
+        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
+        /// <param name="nmId">Артикул WB (optional)</param>
+        /// <param name="feedbackId">ID отзыва (optional)</param>
+        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
+        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetV1PinsCountResponse200</returns>
+        ApiResponse<GetV1PinsCountResponse200> GetV1PinsCountWithHttpInfo(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0);
+        /// <summary>
+        /// Лимиты закреплённых отзывов
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GetV1PinsLimitsResponse200</returns>
+        GetV1PinsLimitsResponse200 GetV1PinsLimits(int operationIndex = 0);
+
+        /// <summary>
+        /// Лимиты закреплённых отзывов
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetV1PinsLimitsResponse200</returns>
+        ApiResponse<GetV1PinsLimitsResponse200> GetV1PinsLimitsWithHttpInfo(int operationIndex = 0);
         /// <summary>
         /// Получить вопрос по ID
         /// </summary>
@@ -574,29 +574,6 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <returns>ApiResponse of PatchV1QuestionsResponse200</returns>
         ApiResponse<PatchV1QuestionsResponse200> PatchV1QuestionsWithHttpInfo(PatchV1QuestionsRequest? patchV1QuestionsRequest = default(PatchV1QuestionsRequest?), int operationIndex = 0);
         /// <summary>
-        /// Закрепить отзывы
-        /// </summary>
-        /// <remarks>
-        /// Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="openapiPinReviewItem"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>PostFeedbacksV1PinsResponse200</returns>
-        PostFeedbacksV1PinsResponse200 PostFeedbacksV1Pins(List<OpenapiPinReviewItem> openapiPinReviewItem, int operationIndex = 0);
-
-        /// <summary>
-        /// Закрепить отзывы
-        /// </summary>
-        /// <remarks>
-        /// Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="openapiPinReviewItem"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of PostFeedbacksV1PinsResponse200</returns>
-        ApiResponse<PostFeedbacksV1PinsResponse200> PostFeedbacksV1PinsWithHttpInfo(List<OpenapiPinReviewItem> openapiPinReviewItem, int operationIndex = 0);
-        /// <summary>
         /// Ответить на отзыв
         /// </summary>
         /// <remarks>
@@ -643,6 +620,29 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <returns>ApiResponse of PostV1FeedbacksOrderReturnResponse200</returns>
         ApiResponse<PostV1FeedbacksOrderReturnResponse200> PostV1FeedbacksOrderReturnWithHttpInfo(PostV1FeedbacksOrderReturnRequest postV1FeedbacksOrderReturnRequest, int operationIndex = 0);
         /// <summary>
+        /// Закрепить отзывы
+        /// </summary>
+        /// <remarks>
+        /// Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="openapiPinReviewItem"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>PostV1PinsResponse200</returns>
+        PostV1PinsResponse200 PostV1Pins(List<OpenapiPinReviewItem> openapiPinReviewItem, int operationIndex = 0);
+
+        /// <summary>
+        /// Закрепить отзывы
+        /// </summary>
+        /// <remarks>
+        /// Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="openapiPinReviewItem"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of PostV1PinsResponse200</returns>
+        ApiResponse<PostV1PinsResponse200> PostV1PinsWithHttpInfo(List<OpenapiPinReviewItem> openapiPinReviewItem, int operationIndex = 0);
+        /// <summary>
         /// Отправить сообщение
         /// </summary>
         /// <remarks>
@@ -682,128 +682,27 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// Открепить отзывы
         /// </summary>
         /// <remarks>
-        /// Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Список &#x60;pinId&#x60; — ID операций закрепления отзывов</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of DeleteFeedbacksV1PinsResponse200</returns>
-        System.Threading.Tasks.Task<DeleteFeedbacksV1PinsResponse200> DeleteFeedbacksV1PinsAsync(List<int> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of DeleteV1PinsResponse200</returns>
+        System.Threading.Tasks.Task<DeleteV1PinsResponse200> DeleteV1PinsAsync(List<int> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Открепить отзывы
         /// </summary>
         /// <remarks>
-        /// Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Список &#x60;pinId&#x60; — ID операций закрепления отзывов</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (DeleteFeedbacksV1PinsResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeleteFeedbacksV1PinsResponse200>> DeleteFeedbacksV1PinsWithHttpInfoAsync(List<int> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Список закреплённых и откреплённых отзывов
-        /// </summary>
-        /// <remarks>
-        /// Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
-        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
-        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
-        /// <param name="nmId">Артикул WB (optional)</param>
-        /// <param name="feedbackId">ID отзыва (optional)</param>
-        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
-        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
-        /// <param name="next">ID последней операции закрепления (пагинатор) (optional)</param>
-        /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetFeedbacksV1PinsResponse200</returns>
-        System.Threading.Tasks.Task<GetFeedbacksV1PinsResponse200> GetFeedbacksV1PinsAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Список закреплённых и откреплённых отзывов
-        /// </summary>
-        /// <remarks>
-        /// Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
-        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
-        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
-        /// <param name="nmId">Артикул WB (optional)</param>
-        /// <param name="feedbackId">ID отзыва (optional)</param>
-        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
-        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
-        /// <param name="next">ID последней операции закрепления (пагинатор) (optional)</param>
-        /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetFeedbacksV1PinsResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetFeedbacksV1PinsResponse200>> GetFeedbacksV1PinsWithHttpInfoAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Количество закреплённых и откреплённых отзывов
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
-        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
-        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
-        /// <param name="nmId">Артикул WB (optional)</param>
-        /// <param name="feedbackId">ID отзыва (optional)</param>
-        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
-        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetFeedbacksV1PinsCountResponse200</returns>
-        System.Threading.Tasks.Task<GetFeedbacksV1PinsCountResponse200> GetFeedbacksV1PinsCountAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Количество закреплённых и откреплённых отзывов
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
-        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
-        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
-        /// <param name="nmId">Артикул WB (optional)</param>
-        /// <param name="feedbackId">ID отзыва (optional)</param>
-        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
-        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetFeedbacksV1PinsCountResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetFeedbacksV1PinsCountResponse200>> GetFeedbacksV1PinsCountWithHttpInfoAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Лимиты закреплённых отзывов
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetFeedbacksV1PinsLimitsResponse200</returns>
-        System.Threading.Tasks.Task<GetFeedbacksV1PinsLimitsResponse200> GetFeedbacksV1PinsLimitsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Лимиты закреплённых отзывов
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetFeedbacksV1PinsLimitsResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetFeedbacksV1PinsLimitsResponse200>> GetFeedbacksV1PinsLimitsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (DeleteV1PinsResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DeleteV1PinsResponse200>> DeleteV1PinsWithHttpInfoAsync(List<int> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Заявки покупателей на возврат
         /// </summary>
@@ -1005,6 +904,107 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1NewFeedbacksQuestionsResponse200)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetV1NewFeedbacksQuestionsResponse200>> GetV1NewFeedbacksQuestionsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Список закреплённых и откреплённых отзывов
+        /// </summary>
+        /// <remarks>
+        /// Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
+        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
+        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
+        /// <param name="nmId">Артикул WB (optional)</param>
+        /// <param name="feedbackId">ID отзыва (optional)</param>
+        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
+        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
+        /// <param name="next">ID последней операции закрепления (пагинатор) (optional)</param>
+        /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetV1PinsResponse200</returns>
+        System.Threading.Tasks.Task<GetV1PinsResponse200> GetV1PinsAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Список закреплённых и откреплённых отзывов
+        /// </summary>
+        /// <remarks>
+        /// Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
+        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
+        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
+        /// <param name="nmId">Артикул WB (optional)</param>
+        /// <param name="feedbackId">ID отзыва (optional)</param>
+        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
+        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
+        /// <param name="next">ID последней операции закрепления (пагинатор) (optional)</param>
+        /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetV1PinsResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetV1PinsResponse200>> GetV1PinsWithHttpInfoAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Количество закреплённых и откреплённых отзывов
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
+        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
+        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
+        /// <param name="nmId">Артикул WB (optional)</param>
+        /// <param name="feedbackId">ID отзыва (optional)</param>
+        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
+        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetV1PinsCountResponse200</returns>
+        System.Threading.Tasks.Task<GetV1PinsCountResponse200> GetV1PinsCountAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Количество закреплённых и откреплённых отзывов
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
+        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
+        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
+        /// <param name="nmId">Артикул WB (optional)</param>
+        /// <param name="feedbackId">ID отзыва (optional)</param>
+        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
+        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetV1PinsCountResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetV1PinsCountResponse200>> GetV1PinsCountWithHttpInfoAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Лимиты закреплённых отзывов
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetV1PinsLimitsResponse200</returns>
+        System.Threading.Tasks.Task<GetV1PinsLimitsResponse200> GetV1PinsLimitsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Лимиты закреплённых отзывов
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetV1PinsLimitsResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetV1PinsLimitsResponse200>> GetV1PinsLimitsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Получить вопрос по ID
         /// </summary>
@@ -1268,31 +1268,6 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <returns>Task of ApiResponse (PatchV1QuestionsResponse200)</returns>
         System.Threading.Tasks.Task<ApiResponse<PatchV1QuestionsResponse200>> PatchV1QuestionsWithHttpInfoAsync(PatchV1QuestionsRequest? patchV1QuestionsRequest = default(PatchV1QuestionsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Закрепить отзывы
-        /// </summary>
-        /// <remarks>
-        /// Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="openapiPinReviewItem"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PostFeedbacksV1PinsResponse200</returns>
-        System.Threading.Tasks.Task<PostFeedbacksV1PinsResponse200> PostFeedbacksV1PinsAsync(List<OpenapiPinReviewItem> openapiPinReviewItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Закрепить отзывы
-        /// </summary>
-        /// <remarks>
-        /// Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="openapiPinReviewItem"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PostFeedbacksV1PinsResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostFeedbacksV1PinsResponse200>> PostFeedbacksV1PinsWithHttpInfoAsync(List<OpenapiPinReviewItem> openapiPinReviewItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
         /// Ответить на отзыв
         /// </summary>
         /// <remarks>
@@ -1342,6 +1317,31 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PostV1FeedbacksOrderReturnResponse200)</returns>
         System.Threading.Tasks.Task<ApiResponse<PostV1FeedbacksOrderReturnResponse200>> PostV1FeedbacksOrderReturnWithHttpInfoAsync(PostV1FeedbacksOrderReturnRequest postV1FeedbacksOrderReturnRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Закрепить отзывы
+        /// </summary>
+        /// <remarks>
+        /// Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="openapiPinReviewItem"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PostV1PinsResponse200</returns>
+        System.Threading.Tasks.Task<PostV1PinsResponse200> PostV1PinsAsync(List<OpenapiPinReviewItem> openapiPinReviewItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Закрепить отзывы
+        /// </summary>
+        /// <remarks>
+        /// Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="openapiPinReviewItem"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PostV1PinsResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PostV1PinsResponse200>> PostV1PinsWithHttpInfoAsync(List<OpenapiPinReviewItem> openapiPinReviewItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Отправить сообщение
         /// </summary>
@@ -1492,31 +1492,31 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         }
 
         /// <summary>
-        /// Открепить отзывы Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// Открепить отзывы Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Список &#x60;pinId&#x60; — ID операций закрепления отзывов</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>DeleteFeedbacksV1PinsResponse200</returns>
-        public DeleteFeedbacksV1PinsResponse200 DeleteFeedbacksV1Pins(List<int> requestBody, int operationIndex = 0)
+        /// <returns>DeleteV1PinsResponse200</returns>
+        public DeleteV1PinsResponse200 DeleteV1Pins(List<int> requestBody, int operationIndex = 0)
         {
-            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<DeleteFeedbacksV1PinsResponse200> localVarResponse = DeleteFeedbacksV1PinsWithHttpInfo(requestBody);
+            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<DeleteV1PinsResponse200> localVarResponse = DeleteV1PinsWithHttpInfo(requestBody);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Открепить отзывы Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// Открепить отзывы Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Список &#x60;pinId&#x60; — ID операций закрепления отзывов</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of DeleteFeedbacksV1PinsResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<DeleteFeedbacksV1PinsResponse200> DeleteFeedbacksV1PinsWithHttpInfo(List<int> requestBody, int operationIndex = 0)
+        /// <returns>ApiResponse of DeleteV1PinsResponse200</returns>
+        public ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<DeleteV1PinsResponse200> DeleteV1PinsWithHttpInfo(List<int> requestBody, int operationIndex = 0)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException(400, "Missing required parameter 'requestBody' when calling DefaultApi->DeleteFeedbacksV1Pins");
+                throw new ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException(400, "Missing required parameter 'requestBody' when calling DefaultApi->DeleteV1Pins");
             }
 
             ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
@@ -1545,7 +1545,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
 
             localVarRequestOptions.Data = requestBody;
 
-            localVarRequestOptions.Operation = "DefaultApi.DeleteFeedbacksV1Pins";
+            localVarRequestOptions.Operation = "DefaultApi.DeleteV1Pins";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -1556,10 +1556,10 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<DeleteFeedbacksV1PinsResponse200>("/api/feedbacks/v1/pins", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<DeleteV1PinsResponse200>("/api/feedbacks/v1/pins", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteFeedbacksV1Pins", localVarResponse);
+                Exception _exception = this.ExceptionFactory("DeleteV1Pins", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1570,33 +1570,33 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         }
 
         /// <summary>
-        /// Открепить отзывы Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// Открепить отзывы Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Список &#x60;pinId&#x60; — ID операций закрепления отзывов</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of DeleteFeedbacksV1PinsResponse200</returns>
-        public async System.Threading.Tasks.Task<DeleteFeedbacksV1PinsResponse200> DeleteFeedbacksV1PinsAsync(List<int> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of DeleteV1PinsResponse200</returns>
+        public async System.Threading.Tasks.Task<DeleteV1PinsResponse200> DeleteV1PinsAsync(List<int> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<DeleteFeedbacksV1PinsResponse200> localVarResponse = await DeleteFeedbacksV1PinsWithHttpInfoAsync(requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<DeleteV1PinsResponse200> localVarResponse = await DeleteV1PinsWithHttpInfoAsync(requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Открепить отзывы Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// Открепить отзывы Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Список &#x60;pinId&#x60; — ID операций закрепления отзывов</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (DeleteFeedbacksV1PinsResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<DeleteFeedbacksV1PinsResponse200>> DeleteFeedbacksV1PinsWithHttpInfoAsync(List<int> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (DeleteV1PinsResponse200)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<DeleteV1PinsResponse200>> DeleteV1PinsWithHttpInfoAsync(List<int> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException(400, "Missing required parameter 'requestBody' when calling DefaultApi->DeleteFeedbacksV1Pins");
+                throw new ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException(400, "Missing required parameter 'requestBody' when calling DefaultApi->DeleteV1Pins");
             }
 
 
@@ -1626,7 +1626,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
 
             localVarRequestOptions.Data = requestBody;
 
-            localVarRequestOptions.Operation = "DefaultApi.DeleteFeedbacksV1Pins";
+            localVarRequestOptions.Operation = "DefaultApi.DeleteV1Pins";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (BearerAuth) required
@@ -1637,623 +1637,11 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeleteFeedbacksV1PinsResponse200>("/api/feedbacks/v1/pins", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeleteV1PinsResponse200>("/api/feedbacks/v1/pins", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteFeedbacksV1Pins", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Список закреплённых и откреплённых отзывов Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
-        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
-        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
-        /// <param name="nmId">Артикул WB (optional)</param>
-        /// <param name="feedbackId">ID отзыва (optional)</param>
-        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
-        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
-        /// <param name="next">ID последней операции закрепления (пагинатор) (optional)</param>
-        /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetFeedbacksV1PinsResponse200</returns>
-        public GetFeedbacksV1PinsResponse200 GetFeedbacksV1Pins(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0)
-        {
-            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetFeedbacksV1PinsResponse200> localVarResponse = GetFeedbacksV1PinsWithHttpInfo(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, next, limit);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Список закреплённых и откреплённых отзывов Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
-        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
-        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
-        /// <param name="nmId">Артикул WB (optional)</param>
-        /// <param name="feedbackId">ID отзыва (optional)</param>
-        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
-        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
-        /// <param name="next">ID последней операции закрепления (пагинатор) (optional)</param>
-        /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetFeedbacksV1PinsResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetFeedbacksV1PinsResponse200> GetFeedbacksV1PinsWithHttpInfo(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0)
-        {
-            ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            if (state != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "state", state));
-            }
-            if (pinOn != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "pinOn", pinOn));
-            }
-            if (imtId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "imtId", imtId));
-            }
-            if (nmId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "nmId", nmId));
-            }
-            if (feedbackId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "feedbackId", feedbackId));
-            }
-            if (dateFrom != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "dateFrom", dateFrom));
-            }
-            if (dateTo != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "dateTo", dateTo));
-            }
-            if (next != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "next", next));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-
-            localVarRequestOptions.Operation = "DefaultApi.GetFeedbacksV1Pins";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<GetFeedbacksV1PinsResponse200>("/api/feedbacks/v1/pins", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetFeedbacksV1Pins", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Список закреплённых и откреплённых отзывов Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
-        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
-        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
-        /// <param name="nmId">Артикул WB (optional)</param>
-        /// <param name="feedbackId">ID отзыва (optional)</param>
-        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
-        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
-        /// <param name="next">ID последней операции закрепления (пагинатор) (optional)</param>
-        /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetFeedbacksV1PinsResponse200</returns>
-        public async System.Threading.Tasks.Task<GetFeedbacksV1PinsResponse200> GetFeedbacksV1PinsAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetFeedbacksV1PinsResponse200> localVarResponse = await GetFeedbacksV1PinsWithHttpInfoAsync(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, next, limit, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Список закреплённых и откреплённых отзывов Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
-        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
-        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
-        /// <param name="nmId">Артикул WB (optional)</param>
-        /// <param name="feedbackId">ID отзыва (optional)</param>
-        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
-        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
-        /// <param name="next">ID последней операции закрепления (пагинатор) (optional)</param>
-        /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetFeedbacksV1PinsResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetFeedbacksV1PinsResponse200>> GetFeedbacksV1PinsWithHttpInfoAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            if (state != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "state", state));
-            }
-            if (pinOn != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "pinOn", pinOn));
-            }
-            if (imtId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "imtId", imtId));
-            }
-            if (nmId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "nmId", nmId));
-            }
-            if (feedbackId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "feedbackId", feedbackId));
-            }
-            if (dateFrom != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "dateFrom", dateFrom));
-            }
-            if (dateTo != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "dateTo", dateTo));
-            }
-            if (next != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "next", next));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-
-            localVarRequestOptions.Operation = "DefaultApi.GetFeedbacksV1Pins";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetFeedbacksV1PinsResponse200>("/api/feedbacks/v1/pins", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetFeedbacksV1Pins", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Количество закреплённых и откреплённых отзывов Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
-        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
-        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
-        /// <param name="nmId">Артикул WB (optional)</param>
-        /// <param name="feedbackId">ID отзыва (optional)</param>
-        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
-        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetFeedbacksV1PinsCountResponse200</returns>
-        public GetFeedbacksV1PinsCountResponse200 GetFeedbacksV1PinsCount(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0)
-        {
-            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetFeedbacksV1PinsCountResponse200> localVarResponse = GetFeedbacksV1PinsCountWithHttpInfo(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Количество закреплённых и откреплённых отзывов Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
-        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
-        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
-        /// <param name="nmId">Артикул WB (optional)</param>
-        /// <param name="feedbackId">ID отзыва (optional)</param>
-        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
-        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetFeedbacksV1PinsCountResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetFeedbacksV1PinsCountResponse200> GetFeedbacksV1PinsCountWithHttpInfo(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0)
-        {
-            ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            if (state != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "state", state));
-            }
-            if (pinOn != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "pinOn", pinOn));
-            }
-            if (imtId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "imtId", imtId));
-            }
-            if (nmId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "nmId", nmId));
-            }
-            if (feedbackId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "feedbackId", feedbackId));
-            }
-            if (dateFrom != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "dateFrom", dateFrom));
-            }
-            if (dateTo != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "dateTo", dateTo));
-            }
-
-            localVarRequestOptions.Operation = "DefaultApi.GetFeedbacksV1PinsCount";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<GetFeedbacksV1PinsCountResponse200>("/api/feedbacks/v1/pins/count", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetFeedbacksV1PinsCount", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Количество закреплённых и откреплённых отзывов Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
-        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
-        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
-        /// <param name="nmId">Артикул WB (optional)</param>
-        /// <param name="feedbackId">ID отзыва (optional)</param>
-        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
-        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetFeedbacksV1PinsCountResponse200</returns>
-        public async System.Threading.Tasks.Task<GetFeedbacksV1PinsCountResponse200> GetFeedbacksV1PinsCountAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetFeedbacksV1PinsCountResponse200> localVarResponse = await GetFeedbacksV1PinsCountWithHttpInfoAsync(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Количество закреплённых и откреплённых отзывов Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
-        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
-        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
-        /// <param name="nmId">Артикул WB (optional)</param>
-        /// <param name="feedbackId">ID отзыва (optional)</param>
-        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
-        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetFeedbacksV1PinsCountResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetFeedbacksV1PinsCountResponse200>> GetFeedbacksV1PinsCountWithHttpInfoAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            if (state != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "state", state));
-            }
-            if (pinOn != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "pinOn", pinOn));
-            }
-            if (imtId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "imtId", imtId));
-            }
-            if (nmId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "nmId", nmId));
-            }
-            if (feedbackId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "feedbackId", feedbackId));
-            }
-            if (dateFrom != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "dateFrom", dateFrom));
-            }
-            if (dateTo != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "dateTo", dateTo));
-            }
-
-            localVarRequestOptions.Operation = "DefaultApi.GetFeedbacksV1PinsCount";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetFeedbacksV1PinsCountResponse200>("/api/feedbacks/v1/pins/count", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetFeedbacksV1PinsCount", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Лимиты закреплённых отзывов Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetFeedbacksV1PinsLimitsResponse200</returns>
-        public GetFeedbacksV1PinsLimitsResponse200 GetFeedbacksV1PinsLimits(int operationIndex = 0)
-        {
-            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetFeedbacksV1PinsLimitsResponse200> localVarResponse = GetFeedbacksV1PinsLimitsWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Лимиты закреплённых отзывов Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetFeedbacksV1PinsLimitsResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetFeedbacksV1PinsLimitsResponse200> GetFeedbacksV1PinsLimitsWithHttpInfo(int operationIndex = 0)
-        {
-            ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-
-            localVarRequestOptions.Operation = "DefaultApi.GetFeedbacksV1PinsLimits";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<GetFeedbacksV1PinsLimitsResponse200>("/api/feedbacks/v1/pins/limits", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetFeedbacksV1PinsLimits", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Лимиты закреплённых отзывов Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetFeedbacksV1PinsLimitsResponse200</returns>
-        public async System.Threading.Tasks.Task<GetFeedbacksV1PinsLimitsResponse200> GetFeedbacksV1PinsLimitsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetFeedbacksV1PinsLimitsResponse200> localVarResponse = await GetFeedbacksV1PinsLimitsWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Лимиты закреплённых отзывов Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetFeedbacksV1PinsLimitsResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetFeedbacksV1PinsLimitsResponse200>> GetFeedbacksV1PinsLimitsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-
-            localVarRequestOptions.Operation = "DefaultApi.GetFeedbacksV1PinsLimits";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetFeedbacksV1PinsLimitsResponse200>("/api/feedbacks/v1/pins/limits", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetFeedbacksV1PinsLimits", localVarResponse);
+                Exception _exception = this.ExceptionFactory("DeleteV1Pins", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -3438,6 +2826,618 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetV1NewFeedbacksQuestions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Список закреплённых и откреплённых отзывов Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
+        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
+        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
+        /// <param name="nmId">Артикул WB (optional)</param>
+        /// <param name="feedbackId">ID отзыва (optional)</param>
+        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
+        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
+        /// <param name="next">ID последней операции закрепления (пагинатор) (optional)</param>
+        /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GetV1PinsResponse200</returns>
+        public GetV1PinsResponse200 GetV1Pins(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsResponse200> localVarResponse = GetV1PinsWithHttpInfo(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, next, limit);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Список закреплённых и откреплённых отзывов Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
+        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
+        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
+        /// <param name="nmId">Артикул WB (optional)</param>
+        /// <param name="feedbackId">ID отзыва (optional)</param>
+        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
+        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
+        /// <param name="next">ID последней операции закрепления (пагинатор) (optional)</param>
+        /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetV1PinsResponse200</returns>
+        public ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsResponse200> GetV1PinsWithHttpInfo(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (state != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "state", state));
+            }
+            if (pinOn != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "pinOn", pinOn));
+            }
+            if (imtId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "imtId", imtId));
+            }
+            if (nmId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "nmId", nmId));
+            }
+            if (feedbackId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "feedbackId", feedbackId));
+            }
+            if (dateFrom != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "dateFrom", dateFrom));
+            }
+            if (dateTo != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "dateTo", dateTo));
+            }
+            if (next != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "next", next));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            localVarRequestOptions.Operation = "DefaultApi.GetV1Pins";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<GetV1PinsResponse200>("/api/feedbacks/v1/pins", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV1Pins", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Список закреплённых и откреплённых отзывов Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
+        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
+        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
+        /// <param name="nmId">Артикул WB (optional)</param>
+        /// <param name="feedbackId">ID отзыва (optional)</param>
+        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
+        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
+        /// <param name="next">ID последней операции закрепления (пагинатор) (optional)</param>
+        /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetV1PinsResponse200</returns>
+        public async System.Threading.Tasks.Task<GetV1PinsResponse200> GetV1PinsAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsResponse200> localVarResponse = await GetV1PinsWithHttpInfoAsync(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, next, limit, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Список закреплённых и откреплённых отзывов Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
+        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
+        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
+        /// <param name="nmId">Артикул WB (optional)</param>
+        /// <param name="feedbackId">ID отзыва (optional)</param>
+        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
+        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
+        /// <param name="next">ID последней операции закрепления (пагинатор) (optional)</param>
+        /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetV1PinsResponse200)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsResponse200>> GetV1PinsWithHttpInfoAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (state != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "state", state));
+            }
+            if (pinOn != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "pinOn", pinOn));
+            }
+            if (imtId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "imtId", imtId));
+            }
+            if (nmId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "nmId", nmId));
+            }
+            if (feedbackId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "feedbackId", feedbackId));
+            }
+            if (dateFrom != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "dateFrom", dateFrom));
+            }
+            if (dateTo != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "dateTo", dateTo));
+            }
+            if (next != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "next", next));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            localVarRequestOptions.Operation = "DefaultApi.GetV1Pins";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetV1PinsResponse200>("/api/feedbacks/v1/pins", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV1Pins", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Количество закреплённых и откреплённых отзывов Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
+        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
+        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
+        /// <param name="nmId">Артикул WB (optional)</param>
+        /// <param name="feedbackId">ID отзыва (optional)</param>
+        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
+        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GetV1PinsCountResponse200</returns>
+        public GetV1PinsCountResponse200 GetV1PinsCount(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsCountResponse200> localVarResponse = GetV1PinsCountWithHttpInfo(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Количество закреплённых и откреплённых отзывов Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
+        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
+        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
+        /// <param name="nmId">Артикул WB (optional)</param>
+        /// <param name="feedbackId">ID отзыва (optional)</param>
+        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
+        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetV1PinsCountResponse200</returns>
+        public ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsCountResponse200> GetV1PinsCountWithHttpInfo(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (state != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "state", state));
+            }
+            if (pinOn != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "pinOn", pinOn));
+            }
+            if (imtId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "imtId", imtId));
+            }
+            if (nmId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "nmId", nmId));
+            }
+            if (feedbackId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "feedbackId", feedbackId));
+            }
+            if (dateFrom != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "dateFrom", dateFrom));
+            }
+            if (dateTo != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "dateTo", dateTo));
+            }
+
+            localVarRequestOptions.Operation = "DefaultApi.GetV1PinsCount";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<GetV1PinsCountResponse200>("/api/feedbacks/v1/pins/count", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV1PinsCount", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Количество закреплённых и откреплённых отзывов Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
+        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
+        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
+        /// <param name="nmId">Артикул WB (optional)</param>
+        /// <param name="feedbackId">ID отзыва (optional)</param>
+        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
+        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetV1PinsCountResponse200</returns>
+        public async System.Threading.Tasks.Task<GetV1PinsCountResponse200> GetV1PinsCountAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsCountResponse200> localVarResponse = await GetV1PinsCountWithHttpInfoAsync(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Количество закреплённых и откреплённых отзывов Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (optional)</param>
+        /// <param name="pinOn">Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров  (optional)</param>
+        /// <param name="imtId">ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками (optional)</param>
+        /// <param name="nmId">Артикул WB (optional)</param>
+        /// <param name="feedbackId">ID отзыва (optional)</param>
+        /// <param name="dateFrom">Дата закрепления первого отзыва в списке (optional)</param>
+        /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetV1PinsCountResponse200)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsCountResponse200>> GetV1PinsCountWithHttpInfoAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (state != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "state", state));
+            }
+            if (pinOn != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "pinOn", pinOn));
+            }
+            if (imtId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "imtId", imtId));
+            }
+            if (nmId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "nmId", nmId));
+            }
+            if (feedbackId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "feedbackId", feedbackId));
+            }
+            if (dateFrom != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "dateFrom", dateFrom));
+            }
+            if (dateTo != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.ParameterToMultiMap("", "dateTo", dateTo));
+            }
+
+            localVarRequestOptions.Operation = "DefaultApi.GetV1PinsCount";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetV1PinsCountResponse200>("/api/feedbacks/v1/pins/count", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV1PinsCount", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Лимиты закреплённых отзывов Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GetV1PinsLimitsResponse200</returns>
+        public GetV1PinsLimitsResponse200 GetV1PinsLimits(int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsLimitsResponse200> localVarResponse = GetV1PinsLimitsWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Лимиты закреплённых отзывов Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetV1PinsLimitsResponse200</returns>
+        public ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsLimitsResponse200> GetV1PinsLimitsWithHttpInfo(int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            localVarRequestOptions.Operation = "DefaultApi.GetV1PinsLimits";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<GetV1PinsLimitsResponse200>("/api/feedbacks/v1/pins/limits", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV1PinsLimits", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Лимиты закреплённых отзывов Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetV1PinsLimitsResponse200</returns>
+        public async System.Threading.Tasks.Task<GetV1PinsLimitsResponse200> GetV1PinsLimitsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsLimitsResponse200> localVarResponse = await GetV1PinsLimitsWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Лимиты закреплённых отзывов Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetV1PinsLimitsResponse200)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsLimitsResponse200>> GetV1PinsLimitsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            localVarRequestOptions.Operation = "DefaultApi.GetV1PinsLimits";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetV1PinsLimitsResponse200>("/api/feedbacks/v1/pins/limits", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV1PinsLimits", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -5034,166 +5034,6 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         }
 
         /// <summary>
-        /// Закрепить отзывы Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="openapiPinReviewItem"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>PostFeedbacksV1PinsResponse200</returns>
-        public PostFeedbacksV1PinsResponse200 PostFeedbacksV1Pins(List<OpenapiPinReviewItem> openapiPinReviewItem, int operationIndex = 0)
-        {
-            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<PostFeedbacksV1PinsResponse200> localVarResponse = PostFeedbacksV1PinsWithHttpInfo(openapiPinReviewItem);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Закрепить отзывы Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="openapiPinReviewItem"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of PostFeedbacksV1PinsResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<PostFeedbacksV1PinsResponse200> PostFeedbacksV1PinsWithHttpInfo(List<OpenapiPinReviewItem> openapiPinReviewItem, int operationIndex = 0)
-        {
-            // verify the required parameter 'openapiPinReviewItem' is set
-            if (openapiPinReviewItem == null)
-            {
-                throw new ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException(400, "Missing required parameter 'openapiPinReviewItem' when calling DefaultApi->PostFeedbacksV1Pins");
-            }
-
-            ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = openapiPinReviewItem;
-
-            localVarRequestOptions.Operation = "DefaultApi.PostFeedbacksV1Pins";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<PostFeedbacksV1PinsResponse200>("/api/feedbacks/v1/pins", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PostFeedbacksV1Pins", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Закрепить отзывы Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="openapiPinReviewItem"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PostFeedbacksV1PinsResponse200</returns>
-        public async System.Threading.Tasks.Task<PostFeedbacksV1PinsResponse200> PostFeedbacksV1PinsAsync(List<OpenapiPinReviewItem> openapiPinReviewItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<PostFeedbacksV1PinsResponse200> localVarResponse = await PostFeedbacksV1PinsWithHttpInfoAsync(openapiPinReviewItem, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Закрепить отзывы Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="openapiPinReviewItem"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PostFeedbacksV1PinsResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<PostFeedbacksV1PinsResponse200>> PostFeedbacksV1PinsWithHttpInfoAsync(List<OpenapiPinReviewItem> openapiPinReviewItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'openapiPinReviewItem' is set
-            if (openapiPinReviewItem == null)
-            {
-                throw new ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException(400, "Missing required parameter 'openapiPinReviewItem' when calling DefaultApi->PostFeedbacksV1Pins");
-            }
-
-
-            ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = openapiPinReviewItem;
-
-            localVarRequestOptions.Operation = "DefaultApi.PostFeedbacksV1Pins";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<PostFeedbacksV1PinsResponse200>("/api/feedbacks/v1/pins", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PostFeedbacksV1Pins", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Ответить на отзыв Метод позволяет ответить на [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.  ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5490,6 +5330,166 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostV1FeedbacksOrderReturn", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Закрепить отзывы Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="openapiPinReviewItem"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>PostV1PinsResponse200</returns>
+        public PostV1PinsResponse200 PostV1Pins(List<OpenapiPinReviewItem> openapiPinReviewItem, int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<PostV1PinsResponse200> localVarResponse = PostV1PinsWithHttpInfo(openapiPinReviewItem);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Закрепить отзывы Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="openapiPinReviewItem"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of PostV1PinsResponse200</returns>
+        public ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<PostV1PinsResponse200> PostV1PinsWithHttpInfo(List<OpenapiPinReviewItem> openapiPinReviewItem, int operationIndex = 0)
+        {
+            // verify the required parameter 'openapiPinReviewItem' is set
+            if (openapiPinReviewItem == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException(400, "Missing required parameter 'openapiPinReviewItem' when calling DefaultApi->PostV1Pins");
+            }
+
+            ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = openapiPinReviewItem;
+
+            localVarRequestOptions.Operation = "DefaultApi.PostV1Pins";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<PostV1PinsResponse200>("/api/feedbacks/v1/pins", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PostV1Pins", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Закрепить отзывы Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="openapiPinReviewItem"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PostV1PinsResponse200</returns>
+        public async System.Threading.Tasks.Task<PostV1PinsResponse200> PostV1PinsAsync(List<OpenapiPinReviewItem> openapiPinReviewItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<PostV1PinsResponse200> localVarResponse = await PostV1PinsWithHttpInfoAsync(openapiPinReviewItem, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Закрепить отзывы Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="openapiPinReviewItem"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PostV1PinsResponse200)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<PostV1PinsResponse200>> PostV1PinsWithHttpInfoAsync(List<OpenapiPinReviewItem> openapiPinReviewItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'openapiPinReviewItem' is set
+            if (openapiPinReviewItem == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Communications.Client.ApiException(400, "Missing required parameter 'openapiPinReviewItem' when calling DefaultApi->PostV1Pins");
+            }
+
+
+            ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Communications.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = openapiPinReviewItem;
+
+            localVarRequestOptions.Operation = "DefaultApi.PostV1Pins";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<PostV1PinsResponse200>("/api/feedbacks/v1/pins", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PostV1Pins", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

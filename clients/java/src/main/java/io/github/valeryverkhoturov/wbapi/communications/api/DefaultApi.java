@@ -20,11 +20,8 @@ import io.github.valeryverkhoturov.wbapi.communications.ApiResponse;
 import io.github.valeryverkhoturov.wbapi.communications.Configuration;
 import io.github.valeryverkhoturov.wbapi.communications.Pair;
 import io.github.valeryverkhoturov.wbapi.communications.model.ChatsResponse;
-import io.github.valeryverkhoturov.wbapi.communications.model.DeleteFeedbacksV1PinsResponse200;
+import io.github.valeryverkhoturov.wbapi.communications.model.DeleteV1PinsResponse200;
 import io.github.valeryverkhoturov.wbapi.communications.model.EventsResponse;
-import io.github.valeryverkhoturov.wbapi.communications.model.GetFeedbacksV1PinsCountResponse200;
-import io.github.valeryverkhoturov.wbapi.communications.model.GetFeedbacksV1PinsLimitsResponse200;
-import io.github.valeryverkhoturov.wbapi.communications.model.GetFeedbacksV1PinsResponse200;
 import io.github.valeryverkhoturov.wbapi.communications.model.GetV1Claims200Response;
 import io.github.valeryverkhoturov.wbapi.communications.model.GetV1FeedbackResponse200;
 import io.github.valeryverkhoturov.wbapi.communications.model.GetV1FeedbacksArchiveResponse200;
@@ -32,6 +29,9 @@ import io.github.valeryverkhoturov.wbapi.communications.model.GetV1FeedbacksCoun
 import io.github.valeryverkhoturov.wbapi.communications.model.GetV1FeedbacksCountUnansweredResponse200;
 import io.github.valeryverkhoturov.wbapi.communications.model.GetV1FeedbacksResponse200;
 import io.github.valeryverkhoturov.wbapi.communications.model.GetV1NewFeedbacksQuestionsResponse200;
+import io.github.valeryverkhoturov.wbapi.communications.model.GetV1PinsCountResponse200;
+import io.github.valeryverkhoturov.wbapi.communications.model.GetV1PinsLimitsResponse200;
+import io.github.valeryverkhoturov.wbapi.communications.model.GetV1PinsResponse200;
 import io.github.valeryverkhoturov.wbapi.communications.model.GetV1QuestionResponse200;
 import io.github.valeryverkhoturov.wbapi.communications.model.GetV1QuestionsCountResponse200;
 import io.github.valeryverkhoturov.wbapi.communications.model.GetV1QuestionsCountUnansweredResponse200;
@@ -42,10 +42,10 @@ import io.github.valeryverkhoturov.wbapi.communications.model.PatchV1ClaimReques
 import io.github.valeryverkhoturov.wbapi.communications.model.PatchV1FeedbacksAnswerRequest;
 import io.github.valeryverkhoturov.wbapi.communications.model.PatchV1QuestionsRequest;
 import io.github.valeryverkhoturov.wbapi.communications.model.PatchV1QuestionsResponse200;
-import io.github.valeryverkhoturov.wbapi.communications.model.PostFeedbacksV1PinsResponse200;
 import io.github.valeryverkhoturov.wbapi.communications.model.PostV1FeedbacksAnswerRequest;
 import io.github.valeryverkhoturov.wbapi.communications.model.PostV1FeedbacksOrderReturnRequest;
 import io.github.valeryverkhoturov.wbapi.communications.model.PostV1FeedbacksOrderReturnResponse200;
+import io.github.valeryverkhoturov.wbapi.communications.model.PostV1PinsResponse200;
 import java.io.File;
 import java.lang.reflect.Type;
 import java.time.OffsetDateTime;
@@ -93,7 +93,7 @@ public class DefaultApi {
   }
 
   /**
-   * Build call for deleteFeedbacksV1Pins
+   * Build call for deleteV1Pins
    *
    * @param requestBody Список &#x60;pinId&#x60; — ID операций закрепления отзывов (required)
    * @param _callback Callback for upload/download progress
@@ -111,8 +111,8 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call deleteFeedbacksV1PinsCall(
-      List<Integer> requestBody, final ApiCallback _callback) throws ApiException {
+  public okhttp3.Call deleteV1PinsCall(List<Integer> requestBody, final ApiCallback _callback)
+      throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {"https://feedbacks-api.wildberries.ru"};
@@ -166,15 +166,15 @@ public class DefaultApi {
   }
 
   @SuppressWarnings("rawtypes")
-  private okhttp3.Call deleteFeedbacksV1PinsValidateBeforeCall(
+  private okhttp3.Call deleteV1PinsValidateBeforeCall(
       List<Integer> requestBody, final ApiCallback _callback) throws ApiException {
     // verify the required parameter 'requestBody' is set
     if (requestBody == null) {
       throw new ApiException(
-          "Missing the required parameter 'requestBody' when calling deleteFeedbacksV1Pins(Async)");
+          "Missing the required parameter 'requestBody' when calling deleteV1Pins(Async)");
     }
 
-    return deleteFeedbacksV1PinsCall(requestBody, _callback);
+    return deleteV1PinsCall(requestBody, _callback);
   }
 
   /**
@@ -182,7 +182,7 @@ public class DefaultApi {
    * [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
    * карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список
    * закреплённых и откреплённых
-   * отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
+   * отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
@@ -192,7 +192,7 @@ public class DefaultApi {
    * запрос |
    *
    * @param requestBody Список &#x60;pinId&#x60; — ID операций закрепления отзывов (required)
-   * @return DeleteFeedbacksV1PinsResponse200
+   * @return DeleteV1PinsResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -207,10 +207,8 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public DeleteFeedbacksV1PinsResponse200 deleteFeedbacksV1Pins(List<Integer> requestBody)
-      throws ApiException {
-    ApiResponse<DeleteFeedbacksV1PinsResponse200> localVarResp =
-        deleteFeedbacksV1PinsWithHttpInfo(requestBody);
+  public DeleteV1PinsResponse200 deleteV1Pins(List<Integer> requestBody) throws ApiException {
+    ApiResponse<DeleteV1PinsResponse200> localVarResp = deleteV1PinsWithHttpInfo(requestBody);
     return localVarResp.getData();
   }
 
@@ -219,7 +217,7 @@ public class DefaultApi {
    * [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
    * карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список
    * закреплённых и откреплённых
-   * отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
+   * отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
@@ -229,7 +227,7 @@ public class DefaultApi {
    * запрос |
    *
    * @param requestBody Список &#x60;pinId&#x60; — ID операций закрепления отзывов (required)
-   * @return ApiResponse&lt;DeleteFeedbacksV1PinsResponse200&gt;
+   * @return ApiResponse&lt;DeleteV1PinsResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -244,10 +242,10 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<DeleteFeedbacksV1PinsResponse200> deleteFeedbacksV1PinsWithHttpInfo(
-      List<Integer> requestBody) throws ApiException {
-    okhttp3.Call localVarCall = deleteFeedbacksV1PinsValidateBeforeCall(requestBody, null);
-    Type localVarReturnType = new TypeToken<DeleteFeedbacksV1PinsResponse200>() {}.getType();
+  public ApiResponse<DeleteV1PinsResponse200> deleteV1PinsWithHttpInfo(List<Integer> requestBody)
+      throws ApiException {
+    okhttp3.Call localVarCall = deleteV1PinsValidateBeforeCall(requestBody, null);
+    Type localVarReturnType = new TypeToken<DeleteV1PinsResponse200>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -257,7 +255,7 @@ public class DefaultApi {
    * [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
    * карточек. Чтобы получить &#x60;pinId&#x60; — ID операций закрепления, используйте метод [Список
    * закреплённых и откреплённых
-   * отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
+   * отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
@@ -282,829 +280,12 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call deleteFeedbacksV1PinsAsync(
-      List<Integer> requestBody, final ApiCallback<DeleteFeedbacksV1PinsResponse200> _callback)
+  public okhttp3.Call deleteV1PinsAsync(
+      List<Integer> requestBody, final ApiCallback<DeleteV1PinsResponse200> _callback)
       throws ApiException {
 
-    okhttp3.Call localVarCall = deleteFeedbacksV1PinsValidateBeforeCall(requestBody, _callback);
-    Type localVarReturnType = new TypeToken<DeleteFeedbacksV1PinsResponse200>() {}.getType();
-    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-    return localVarCall;
-  }
-
-  /**
-   * Build call for getFeedbacksV1Pins
-   *
-   * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
-   *     (optional)
-   * @param pinOn Место закрепления отзыва: - &#x60;nm&#x60; — карточка товара - &#x60;imt&#x60; —
-   *     группа
-   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   *     карточек товаров (optional)
-   * @param imtId ID для
-   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   *     карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой
-   *     карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-   *     (optional)
-   * @param nmId Артикул WB (optional)
-   * @param feedbackId ID отзыва (optional)
-   * @param dateFrom Дата закрепления первого отзыва в списке (optional)
-   * @param dateTo Дата закрепления последнего отзыва в списке (optional)
-   * @param next ID последней операции закрепления (пагинатор) (optional)
-   * @param limit Количество отзывов на одной странице (пагинация) (optional, default to 500)
-   * @param _callback Callback for upload/download progress
-   * @return Call to execute
-   * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public okhttp3.Call getFeedbacksV1PinsCall(
-      String state,
-      String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo,
-      Integer next,
-      Integer limit,
-      final ApiCallback _callback)
-      throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {"https://feedbacks-api.wildberries.ru"};
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null) {
-      basePath = localCustomBaseUrl;
-    } else if (localBasePaths.length > 0) {
-      basePath = localBasePaths[localHostIndex];
-    } else {
-      basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-    String localVarPath = "/api/feedbacks/v1/pins";
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    if (state != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("state", state));
-    }
-
-    if (pinOn != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("pinOn", pinOn));
-    }
-
-    if (imtId != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("imtId", imtId));
-    }
-
-    if (nmId != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("nmId", nmId));
-    }
-
-    if (feedbackId != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("feedbackId", feedbackId));
-    }
-
-    if (dateFrom != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("dateFrom", dateFrom));
-    }
-
-    if (dateTo != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("dateTo", dateTo));
-    }
-
-    if (next != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("next", next));
-    }
-
-    if (limit != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
-    }
-
-    final String[] localVarAccepts = {"application/json", "application/problem+json"};
-    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-    if (localVarAccept != null) {
-      localVarHeaderParams.put("Accept", localVarAccept);
-    }
-
-    final String[] localVarContentTypes = {};
-    final String localVarContentType =
-        localVarApiClient.selectHeaderContentType(localVarContentTypes);
-    if (localVarContentType != null) {
-      localVarHeaderParams.put("Content-Type", localVarContentType);
-    }
-
-    String[] localVarAuthNames = new String[] {"BearerAuth"};
-    return localVarApiClient.buildCall(
-        basePath,
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAuthNames,
-        _callback);
-  }
-
-  @SuppressWarnings("rawtypes")
-  private okhttp3.Call getFeedbacksV1PinsValidateBeforeCall(
-      String state,
-      String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo,
-      Integer next,
-      Integer limit,
-      final ApiCallback _callback)
-      throws ApiException {
-    return getFeedbacksV1PinsCall(
-        state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, next, limit, _callback);
-  }
-
-  /**
-   * Список закреплённых и откреплённых отзывов Метод предоставляет список закреплённых и
-   * откреплённых отзывов. Откреплёнными считаются только отзывы, которые были откреплены
-   * автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;. [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
-   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
-   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
-   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
-   *
-   * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
-   *     (optional)
-   * @param pinOn Место закрепления отзыва: - &#x60;nm&#x60; — карточка товара - &#x60;imt&#x60; —
-   *     группа
-   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   *     карточек товаров (optional)
-   * @param imtId ID для
-   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   *     карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой
-   *     карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-   *     (optional)
-   * @param nmId Артикул WB (optional)
-   * @param feedbackId ID отзыва (optional)
-   * @param dateFrom Дата закрепления первого отзыва в списке (optional)
-   * @param dateTo Дата закрепления последнего отзыва в списке (optional)
-   * @param next ID последней операции закрепления (пагинатор) (optional)
-   * @param limit Количество отзывов на одной странице (пагинация) (optional, default to 500)
-   * @return GetFeedbacksV1PinsResponse200
-   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-   *     response body
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public GetFeedbacksV1PinsResponse200 getFeedbacksV1Pins(
-      String state,
-      String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo,
-      Integer next,
-      Integer limit)
-      throws ApiException {
-    ApiResponse<GetFeedbacksV1PinsResponse200> localVarResp =
-        getFeedbacksV1PinsWithHttpInfo(
-            state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, next, limit);
-    return localVarResp.getData();
-  }
-
-  /**
-   * Список закреплённых и откреплённых отзывов Метод предоставляет список закреплённых и
-   * откреплённых отзывов. Откреплёнными считаются только отзывы, которые были откреплены
-   * автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;. [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
-   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
-   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
-   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
-   *
-   * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
-   *     (optional)
-   * @param pinOn Место закрепления отзыва: - &#x60;nm&#x60; — карточка товара - &#x60;imt&#x60; —
-   *     группа
-   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   *     карточек товаров (optional)
-   * @param imtId ID для
-   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   *     карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой
-   *     карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-   *     (optional)
-   * @param nmId Артикул WB (optional)
-   * @param feedbackId ID отзыва (optional)
-   * @param dateFrom Дата закрепления первого отзыва в списке (optional)
-   * @param dateTo Дата закрепления последнего отзыва в списке (optional)
-   * @param next ID последней операции закрепления (пагинатор) (optional)
-   * @param limit Количество отзывов на одной странице (пагинация) (optional, default to 500)
-   * @return ApiResponse&lt;GetFeedbacksV1PinsResponse200&gt;
-   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-   *     response body
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public ApiResponse<GetFeedbacksV1PinsResponse200> getFeedbacksV1PinsWithHttpInfo(
-      String state,
-      String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo,
-      Integer next,
-      Integer limit)
-      throws ApiException {
-    okhttp3.Call localVarCall =
-        getFeedbacksV1PinsValidateBeforeCall(
-            state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, next, limit, null);
-    Type localVarReturnType = new TypeToken<GetFeedbacksV1PinsResponse200>() {}.getType();
-    return localVarApiClient.execute(localVarCall, localVarReturnType);
-  }
-
-  /**
-   * Список закреплённых и откреплённых отзывов (asynchronously) Метод предоставляет список
-   * закреплённых и откреплённых отзывов. Откреплёнными считаются только отзывы, которые были
-   * откреплены автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;.
-   * [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
-   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
-   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
-   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
-   *
-   * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
-   *     (optional)
-   * @param pinOn Место закрепления отзыва: - &#x60;nm&#x60; — карточка товара - &#x60;imt&#x60; —
-   *     группа
-   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   *     карточек товаров (optional)
-   * @param imtId ID для
-   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   *     карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой
-   *     карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-   *     (optional)
-   * @param nmId Артикул WB (optional)
-   * @param feedbackId ID отзыва (optional)
-   * @param dateFrom Дата закрепления первого отзыва в списке (optional)
-   * @param dateTo Дата закрепления последнего отзыва в списке (optional)
-   * @param next ID последней операции закрепления (пагинатор) (optional)
-   * @param limit Количество отзывов на одной странице (пагинация) (optional, default to 500)
-   * @param _callback The callback to be executed when the API call finishes
-   * @return The request call
-   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public okhttp3.Call getFeedbacksV1PinsAsync(
-      String state,
-      String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo,
-      Integer next,
-      Integer limit,
-      final ApiCallback<GetFeedbacksV1PinsResponse200> _callback)
-      throws ApiException {
-
-    okhttp3.Call localVarCall =
-        getFeedbacksV1PinsValidateBeforeCall(
-            state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, next, limit, _callback);
-    Type localVarReturnType = new TypeToken<GetFeedbacksV1PinsResponse200>() {}.getType();
-    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-    return localVarCall;
-  }
-
-  /**
-   * Build call for getFeedbacksV1PinsCount
-   *
-   * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
-   *     (optional)
-   * @param pinOn Место закрепления отзыва: - &#x60;nm&#x60; — карточка товара - &#x60;imt&#x60; —
-   *     группа
-   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   *     карточек товаров (optional)
-   * @param imtId ID для
-   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   *     карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой
-   *     карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-   *     (optional)
-   * @param nmId Артикул WB (optional)
-   * @param feedbackId ID отзыва (optional)
-   * @param dateFrom Дата закрепления первого отзыва в списке (optional)
-   * @param dateTo Дата закрепления последнего отзыва в списке (optional)
-   * @param _callback Callback for upload/download progress
-   * @return Call to execute
-   * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public okhttp3.Call getFeedbacksV1PinsCountCall(
-      String state,
-      String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo,
-      final ApiCallback _callback)
-      throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {"https://feedbacks-api.wildberries.ru"};
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null) {
-      basePath = localCustomBaseUrl;
-    } else if (localBasePaths.length > 0) {
-      basePath = localBasePaths[localHostIndex];
-    } else {
-      basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-    String localVarPath = "/api/feedbacks/v1/pins/count";
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    if (state != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("state", state));
-    }
-
-    if (pinOn != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("pinOn", pinOn));
-    }
-
-    if (imtId != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("imtId", imtId));
-    }
-
-    if (nmId != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("nmId", nmId));
-    }
-
-    if (feedbackId != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("feedbackId", feedbackId));
-    }
-
-    if (dateFrom != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("dateFrom", dateFrom));
-    }
-
-    if (dateTo != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("dateTo", dateTo));
-    }
-
-    final String[] localVarAccepts = {"application/json", "application/problem+json"};
-    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-    if (localVarAccept != null) {
-      localVarHeaderParams.put("Accept", localVarAccept);
-    }
-
-    final String[] localVarContentTypes = {};
-    final String localVarContentType =
-        localVarApiClient.selectHeaderContentType(localVarContentTypes);
-    if (localVarContentType != null) {
-      localVarHeaderParams.put("Content-Type", localVarContentType);
-    }
-
-    String[] localVarAuthNames = new String[] {"BearerAuth"};
-    return localVarApiClient.buildCall(
-        basePath,
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAuthNames,
-        _callback);
-  }
-
-  @SuppressWarnings("rawtypes")
-  private okhttp3.Call getFeedbacksV1PinsCountValidateBeforeCall(
-      String state,
-      String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo,
-      final ApiCallback _callback)
-      throws ApiException {
-    return getFeedbacksV1PinsCountCall(
-        state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, _callback);
-  }
-
-  /**
-   * Количество закреплённых и откреплённых отзывов Метод возвращает количество закреплённых и
-   * откреплённых отзывов за заданный период. [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
-   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
-   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
-   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
-   *
-   * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
-   *     (optional)
-   * @param pinOn Место закрепления отзыва: - &#x60;nm&#x60; — карточка товара - &#x60;imt&#x60; —
-   *     группа
-   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   *     карточек товаров (optional)
-   * @param imtId ID для
-   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   *     карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой
-   *     карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-   *     (optional)
-   * @param nmId Артикул WB (optional)
-   * @param feedbackId ID отзыва (optional)
-   * @param dateFrom Дата закрепления первого отзыва в списке (optional)
-   * @param dateTo Дата закрепления последнего отзыва в списке (optional)
-   * @return GetFeedbacksV1PinsCountResponse200
-   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-   *     response body
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public GetFeedbacksV1PinsCountResponse200 getFeedbacksV1PinsCount(
-      String state,
-      String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo)
-      throws ApiException {
-    ApiResponse<GetFeedbacksV1PinsCountResponse200> localVarResp =
-        getFeedbacksV1PinsCountWithHttpInfo(
-            state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo);
-    return localVarResp.getData();
-  }
-
-  /**
-   * Количество закреплённых и откреплённых отзывов Метод возвращает количество закреплённых и
-   * откреплённых отзывов за заданный период. [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
-   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
-   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
-   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
-   *
-   * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
-   *     (optional)
-   * @param pinOn Место закрепления отзыва: - &#x60;nm&#x60; — карточка товара - &#x60;imt&#x60; —
-   *     группа
-   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   *     карточек товаров (optional)
-   * @param imtId ID для
-   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   *     карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой
-   *     карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-   *     (optional)
-   * @param nmId Артикул WB (optional)
-   * @param feedbackId ID отзыва (optional)
-   * @param dateFrom Дата закрепления первого отзыва в списке (optional)
-   * @param dateTo Дата закрепления последнего отзыва в списке (optional)
-   * @return ApiResponse&lt;GetFeedbacksV1PinsCountResponse200&gt;
-   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-   *     response body
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public ApiResponse<GetFeedbacksV1PinsCountResponse200> getFeedbacksV1PinsCountWithHttpInfo(
-      String state,
-      String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo)
-      throws ApiException {
-    okhttp3.Call localVarCall =
-        getFeedbacksV1PinsCountValidateBeforeCall(
-            state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, null);
-    Type localVarReturnType = new TypeToken<GetFeedbacksV1PinsCountResponse200>() {}.getType();
-    return localVarApiClient.execute(localVarCall, localVarReturnType);
-  }
-
-  /**
-   * Количество закреплённых и откреплённых отзывов (asynchronously) Метод возвращает количество
-   * закреплённых и откреплённых отзывов за заданный период. [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
-   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
-   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
-   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
-   *
-   * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
-   *     (optional)
-   * @param pinOn Место закрепления отзыва: - &#x60;nm&#x60; — карточка товара - &#x60;imt&#x60; —
-   *     группа
-   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   *     карточек товаров (optional)
-   * @param imtId ID для
-   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   *     карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой
-   *     карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-   *     (optional)
-   * @param nmId Артикул WB (optional)
-   * @param feedbackId ID отзыва (optional)
-   * @param dateFrom Дата закрепления первого отзыва в списке (optional)
-   * @param dateTo Дата закрепления последнего отзыва в списке (optional)
-   * @param _callback The callback to be executed when the API call finishes
-   * @return The request call
-   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public okhttp3.Call getFeedbacksV1PinsCountAsync(
-      String state,
-      String pinOn,
-      Integer imtId,
-      Integer nmId,
-      Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo,
-      final ApiCallback<GetFeedbacksV1PinsCountResponse200> _callback)
-      throws ApiException {
-
-    okhttp3.Call localVarCall =
-        getFeedbacksV1PinsCountValidateBeforeCall(
-            state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, _callback);
-    Type localVarReturnType = new TypeToken<GetFeedbacksV1PinsCountResponse200>() {}.getType();
-    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-    return localVarCall;
-  }
-
-  /**
-   * Build call for getFeedbacksV1PinsLimits
-   *
-   * @param _callback Callback for upload/download progress
-   * @return Call to execute
-   * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public okhttp3.Call getFeedbacksV1PinsLimitsCall(final ApiCallback _callback)
-      throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {"https://feedbacks-api.wildberries.ru"};
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null) {
-      basePath = localCustomBaseUrl;
-    } else if (localBasePaths.length > 0) {
-      basePath = localBasePaths[localHostIndex];
-    } else {
-      basePath = null;
-    }
-
-    Object localVarPostBody = null;
-
-    // create path and map variables
-    String localVarPath = "/api/feedbacks/v1/pins/limits";
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    final String[] localVarAccepts = {"application/json", "application/problem+json"};
-    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-    if (localVarAccept != null) {
-      localVarHeaderParams.put("Accept", localVarAccept);
-    }
-
-    final String[] localVarContentTypes = {};
-    final String localVarContentType =
-        localVarApiClient.selectHeaderContentType(localVarContentTypes);
-    if (localVarContentType != null) {
-      localVarHeaderParams.put("Content-Type", localVarContentType);
-    }
-
-    String[] localVarAuthNames = new String[] {"BearerAuth"};
-    return localVarApiClient.buildCall(
-        basePath,
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAuthNames,
-        _callback);
-  }
-
-  @SuppressWarnings("rawtypes")
-  private okhttp3.Call getFeedbacksV1PinsLimitsValidateBeforeCall(final ApiCallback _callback)
-      throws ApiException {
-    return getFeedbacksV1PinsLimitsCall(_callback);
-  }
-
-  /**
-   * Лимиты закреплённых отзывов Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.
-   * [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
-   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
-   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
-   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
-   *
-   * @return GetFeedbacksV1PinsLimitsResponse200
-   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-   *     response body
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public GetFeedbacksV1PinsLimitsResponse200 getFeedbacksV1PinsLimits() throws ApiException {
-    ApiResponse<GetFeedbacksV1PinsLimitsResponse200> localVarResp =
-        getFeedbacksV1PinsLimitsWithHttpInfo();
-    return localVarResp.getData();
-  }
-
-  /**
-   * Лимиты закреплённых отзывов Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.
-   * [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
-   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
-   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
-   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
-   *
-   * @return ApiResponse&lt;GetFeedbacksV1PinsLimitsResponse200&gt;
-   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-   *     response body
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public ApiResponse<GetFeedbacksV1PinsLimitsResponse200> getFeedbacksV1PinsLimitsWithHttpInfo()
-      throws ApiException {
-    okhttp3.Call localVarCall = getFeedbacksV1PinsLimitsValidateBeforeCall(null);
-    Type localVarReturnType = new TypeToken<GetFeedbacksV1PinsLimitsResponse200>() {}.getType();
-    return localVarApiClient.execute(localVarCall, localVarReturnType);
-  }
-
-  /**
-   * Лимиты закреплённых отзывов (asynchronously) Метод возвращает лимиты закреплённых отзывов по
-   * тарифу и подписке. [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
-   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
-   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
-   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
-   *
-   * @param _callback The callback to be executed when the API call finishes
-   * @return The request call
-   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public okhttp3.Call getFeedbacksV1PinsLimitsAsync(
-      final ApiCallback<GetFeedbacksV1PinsLimitsResponse200> _callback) throws ApiException {
-
-    okhttp3.Call localVarCall = getFeedbacksV1PinsLimitsValidateBeforeCall(_callback);
-    Type localVarReturnType = new TypeToken<GetFeedbacksV1PinsLimitsResponse200>() {}.getType();
+    okhttp3.Call localVarCall = deleteV1PinsValidateBeforeCall(requestBody, _callback);
+    Type localVarReturnType = new TypeToken<DeleteV1PinsResponse200>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -2689,6 +1870,817 @@ public class DefaultApi {
 
     okhttp3.Call localVarCall = getV1NewFeedbacksQuestionsValidateBeforeCall(_callback);
     Type localVarReturnType = new TypeToken<GetV1NewFeedbacksQuestionsResponse200>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * Build call for getV1Pins
+   *
+   * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
+   *     (optional)
+   * @param pinOn Место закрепления отзыва: - &#x60;nm&#x60; — карточка товара - &#x60;imt&#x60; —
+   *     группа
+   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   *     карточек товаров (optional)
+   * @param imtId ID для
+   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   *     карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой
+   *     карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+   *     (optional)
+   * @param nmId Артикул WB (optional)
+   * @param feedbackId ID отзыва (optional)
+   * @param dateFrom Дата закрепления первого отзыва в списке (optional)
+   * @param dateTo Дата закрепления последнего отзыва в списке (optional)
+   * @param next ID последней операции закрепления (пагинатор) (optional)
+   * @param limit Количество отзывов на одной странице (пагинация) (optional, default to 500)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV1PinsCall(
+      String state,
+      String pinOn,
+      Integer imtId,
+      Integer nmId,
+      Integer feedbackId,
+      OffsetDateTime dateFrom,
+      OffsetDateTime dateTo,
+      Integer next,
+      Integer limit,
+      final ApiCallback _callback)
+      throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {"https://feedbacks-api.wildberries.ru"};
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null) {
+      basePath = localCustomBaseUrl;
+    } else if (localBasePaths.length > 0) {
+      basePath = localBasePaths[localHostIndex];
+    } else {
+      basePath = null;
+    }
+
+    Object localVarPostBody = null;
+
+    // create path and map variables
+    String localVarPath = "/api/feedbacks/v1/pins";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    if (state != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("state", state));
+    }
+
+    if (pinOn != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("pinOn", pinOn));
+    }
+
+    if (imtId != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("imtId", imtId));
+    }
+
+    if (nmId != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("nmId", nmId));
+    }
+
+    if (feedbackId != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("feedbackId", feedbackId));
+    }
+
+    if (dateFrom != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("dateFrom", dateFrom));
+    }
+
+    if (dateTo != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("dateTo", dateTo));
+    }
+
+    if (next != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("next", next));
+    }
+
+    if (limit != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+    }
+
+    final String[] localVarAccepts = {"application/json", "application/problem+json"};
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {};
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    if (localVarContentType != null) {
+      localVarHeaderParams.put("Content-Type", localVarContentType);
+    }
+
+    String[] localVarAuthNames = new String[] {"BearerAuth"};
+    return localVarApiClient.buildCall(
+        basePath,
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call getV1PinsValidateBeforeCall(
+      String state,
+      String pinOn,
+      Integer imtId,
+      Integer nmId,
+      Integer feedbackId,
+      OffsetDateTime dateFrom,
+      OffsetDateTime dateTo,
+      Integer next,
+      Integer limit,
+      final ApiCallback _callback)
+      throws ApiException {
+    return getV1PinsCall(
+        state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, next, limit, _callback);
+  }
+
+  /**
+   * Список закреплённых и откреплённых отзывов Метод предоставляет список закреплённых и
+   * откреплённых отзывов. Откреплёнными считаются только отзывы, которые были откреплены
+   * автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
+   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
+   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
+   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
+   * запрос |
+   *
+   * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
+   *     (optional)
+   * @param pinOn Место закрепления отзыва: - &#x60;nm&#x60; — карточка товара - &#x60;imt&#x60; —
+   *     группа
+   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   *     карточек товаров (optional)
+   * @param imtId ID для
+   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   *     карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой
+   *     карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+   *     (optional)
+   * @param nmId Артикул WB (optional)
+   * @param feedbackId ID отзыва (optional)
+   * @param dateFrom Дата закрепления первого отзыва в списке (optional)
+   * @param dateTo Дата закрепления последнего отзыва в списке (optional)
+   * @param next ID последней операции закрепления (пагинатор) (optional)
+   * @param limit Количество отзывов на одной странице (пагинация) (optional, default to 500)
+   * @return GetV1PinsResponse200
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public GetV1PinsResponse200 getV1Pins(
+      String state,
+      String pinOn,
+      Integer imtId,
+      Integer nmId,
+      Integer feedbackId,
+      OffsetDateTime dateFrom,
+      OffsetDateTime dateTo,
+      Integer next,
+      Integer limit)
+      throws ApiException {
+    ApiResponse<GetV1PinsResponse200> localVarResp =
+        getV1PinsWithHttpInfo(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, next, limit);
+    return localVarResp.getData();
+  }
+
+  /**
+   * Список закреплённых и откреплённых отзывов Метод предоставляет список закреплённых и
+   * откреплённых отзывов. Откреплёнными считаются только отзывы, которые были откреплены
+   * автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
+   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
+   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
+   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
+   * запрос |
+   *
+   * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
+   *     (optional)
+   * @param pinOn Место закрепления отзыва: - &#x60;nm&#x60; — карточка товара - &#x60;imt&#x60; —
+   *     группа
+   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   *     карточек товаров (optional)
+   * @param imtId ID для
+   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   *     карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой
+   *     карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+   *     (optional)
+   * @param nmId Артикул WB (optional)
+   * @param feedbackId ID отзыва (optional)
+   * @param dateFrom Дата закрепления первого отзыва в списке (optional)
+   * @param dateTo Дата закрепления последнего отзыва в списке (optional)
+   * @param next ID последней операции закрепления (пагинатор) (optional)
+   * @param limit Количество отзывов на одной странице (пагинация) (optional, default to 500)
+   * @return ApiResponse&lt;GetV1PinsResponse200&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<GetV1PinsResponse200> getV1PinsWithHttpInfo(
+      String state,
+      String pinOn,
+      Integer imtId,
+      Integer nmId,
+      Integer feedbackId,
+      OffsetDateTime dateFrom,
+      OffsetDateTime dateTo,
+      Integer next,
+      Integer limit)
+      throws ApiException {
+    okhttp3.Call localVarCall =
+        getV1PinsValidateBeforeCall(
+            state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, next, limit, null);
+    Type localVarReturnType = new TypeToken<GetV1PinsResponse200>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * Список закреплённых и откреплённых отзывов (asynchronously) Метод предоставляет список
+   * закреплённых и откреплённых отзывов. Откреплёнными считаются только отзывы, которые были
+   * откреплены автоматически по причинам, указанным в ответе в поле &#x60;unpinnedCause&#x60;.
+   * [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
+   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
+   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
+   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
+   * запрос |
+   *
+   * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
+   *     (optional)
+   * @param pinOn Место закрепления отзыва: - &#x60;nm&#x60; — карточка товара - &#x60;imt&#x60; —
+   *     группа
+   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   *     карточек товаров (optional)
+   * @param imtId ID для
+   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   *     карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой
+   *     карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+   *     (optional)
+   * @param nmId Артикул WB (optional)
+   * @param feedbackId ID отзыва (optional)
+   * @param dateFrom Дата закрепления первого отзыва в списке (optional)
+   * @param dateTo Дата закрепления последнего отзыва в списке (optional)
+   * @param next ID последней операции закрепления (пагинатор) (optional)
+   * @param limit Количество отзывов на одной странице (пагинация) (optional, default to 500)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV1PinsAsync(
+      String state,
+      String pinOn,
+      Integer imtId,
+      Integer nmId,
+      Integer feedbackId,
+      OffsetDateTime dateFrom,
+      OffsetDateTime dateTo,
+      Integer next,
+      Integer limit,
+      final ApiCallback<GetV1PinsResponse200> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall =
+        getV1PinsValidateBeforeCall(
+            state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, next, limit, _callback);
+    Type localVarReturnType = new TypeToken<GetV1PinsResponse200>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * Build call for getV1PinsCount
+   *
+   * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
+   *     (optional)
+   * @param pinOn Место закрепления отзыва: - &#x60;nm&#x60; — карточка товара - &#x60;imt&#x60; —
+   *     группа
+   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   *     карточек товаров (optional)
+   * @param imtId ID для
+   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   *     карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой
+   *     карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+   *     (optional)
+   * @param nmId Артикул WB (optional)
+   * @param feedbackId ID отзыва (optional)
+   * @param dateFrom Дата закрепления первого отзыва в списке (optional)
+   * @param dateTo Дата закрепления последнего отзыва в списке (optional)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV1PinsCountCall(
+      String state,
+      String pinOn,
+      Integer imtId,
+      Integer nmId,
+      Integer feedbackId,
+      OffsetDateTime dateFrom,
+      OffsetDateTime dateTo,
+      final ApiCallback _callback)
+      throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {"https://feedbacks-api.wildberries.ru"};
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null) {
+      basePath = localCustomBaseUrl;
+    } else if (localBasePaths.length > 0) {
+      basePath = localBasePaths[localHostIndex];
+    } else {
+      basePath = null;
+    }
+
+    Object localVarPostBody = null;
+
+    // create path and map variables
+    String localVarPath = "/api/feedbacks/v1/pins/count";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    if (state != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("state", state));
+    }
+
+    if (pinOn != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("pinOn", pinOn));
+    }
+
+    if (imtId != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("imtId", imtId));
+    }
+
+    if (nmId != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("nmId", nmId));
+    }
+
+    if (feedbackId != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("feedbackId", feedbackId));
+    }
+
+    if (dateFrom != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("dateFrom", dateFrom));
+    }
+
+    if (dateTo != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("dateTo", dateTo));
+    }
+
+    final String[] localVarAccepts = {"application/json", "application/problem+json"};
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {};
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    if (localVarContentType != null) {
+      localVarHeaderParams.put("Content-Type", localVarContentType);
+    }
+
+    String[] localVarAuthNames = new String[] {"BearerAuth"};
+    return localVarApiClient.buildCall(
+        basePath,
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call getV1PinsCountValidateBeforeCall(
+      String state,
+      String pinOn,
+      Integer imtId,
+      Integer nmId,
+      Integer feedbackId,
+      OffsetDateTime dateFrom,
+      OffsetDateTime dateTo,
+      final ApiCallback _callback)
+      throws ApiException {
+    return getV1PinsCountCall(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, _callback);
+  }
+
+  /**
+   * Количество закреплённых и откреплённых отзывов Метод возвращает количество закреплённых и
+   * откреплённых отзывов за заданный период. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
+   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
+   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
+   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
+   * запрос |
+   *
+   * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
+   *     (optional)
+   * @param pinOn Место закрепления отзыва: - &#x60;nm&#x60; — карточка товара - &#x60;imt&#x60; —
+   *     группа
+   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   *     карточек товаров (optional)
+   * @param imtId ID для
+   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   *     карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой
+   *     карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+   *     (optional)
+   * @param nmId Артикул WB (optional)
+   * @param feedbackId ID отзыва (optional)
+   * @param dateFrom Дата закрепления первого отзыва в списке (optional)
+   * @param dateTo Дата закрепления последнего отзыва в списке (optional)
+   * @return GetV1PinsCountResponse200
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public GetV1PinsCountResponse200 getV1PinsCount(
+      String state,
+      String pinOn,
+      Integer imtId,
+      Integer nmId,
+      Integer feedbackId,
+      OffsetDateTime dateFrom,
+      OffsetDateTime dateTo)
+      throws ApiException {
+    ApiResponse<GetV1PinsCountResponse200> localVarResp =
+        getV1PinsCountWithHttpInfo(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo);
+    return localVarResp.getData();
+  }
+
+  /**
+   * Количество закреплённых и откреплённых отзывов Метод возвращает количество закреплённых и
+   * откреплённых отзывов за заданный период. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
+   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
+   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
+   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
+   * запрос |
+   *
+   * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
+   *     (optional)
+   * @param pinOn Место закрепления отзыва: - &#x60;nm&#x60; — карточка товара - &#x60;imt&#x60; —
+   *     группа
+   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   *     карточек товаров (optional)
+   * @param imtId ID для
+   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   *     карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой
+   *     карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+   *     (optional)
+   * @param nmId Артикул WB (optional)
+   * @param feedbackId ID отзыва (optional)
+   * @param dateFrom Дата закрепления первого отзыва в списке (optional)
+   * @param dateTo Дата закрепления последнего отзыва в списке (optional)
+   * @return ApiResponse&lt;GetV1PinsCountResponse200&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<GetV1PinsCountResponse200> getV1PinsCountWithHttpInfo(
+      String state,
+      String pinOn,
+      Integer imtId,
+      Integer nmId,
+      Integer feedbackId,
+      OffsetDateTime dateFrom,
+      OffsetDateTime dateTo)
+      throws ApiException {
+    okhttp3.Call localVarCall =
+        getV1PinsCountValidateBeforeCall(
+            state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, null);
+    Type localVarReturnType = new TypeToken<GetV1PinsCountResponse200>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * Количество закреплённых и откреплённых отзывов (asynchronously) Метод возвращает количество
+   * закреплённых и откреплённых отзывов за заданный период. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
+   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
+   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
+   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
+   * запрос |
+   *
+   * @param state Закреплён ли отзыв: - &#x60;pinned&#x60; — да - &#x60;unpinned&#x60; — нет
+   *     (optional)
+   * @param pinOn Место закрепления отзыва: - &#x60;nm&#x60; — карточка товара - &#x60;imt&#x60; —
+   *     группа
+   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   *     карточек товаров (optional)
+   * @param imtId ID для
+   *     [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   *     карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой
+   *     карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+   *     (optional)
+   * @param nmId Артикул WB (optional)
+   * @param feedbackId ID отзыва (optional)
+   * @param dateFrom Дата закрепления первого отзыва в списке (optional)
+   * @param dateTo Дата закрепления последнего отзыва в списке (optional)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV1PinsCountAsync(
+      String state,
+      String pinOn,
+      Integer imtId,
+      Integer nmId,
+      Integer feedbackId,
+      OffsetDateTime dateFrom,
+      OffsetDateTime dateTo,
+      final ApiCallback<GetV1PinsCountResponse200> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall =
+        getV1PinsCountValidateBeforeCall(
+            state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, _callback);
+    Type localVarReturnType = new TypeToken<GetV1PinsCountResponse200>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * Build call for getV1PinsLimits
+   *
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV1PinsLimitsCall(final ApiCallback _callback) throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {"https://feedbacks-api.wildberries.ru"};
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null) {
+      basePath = localCustomBaseUrl;
+    } else if (localBasePaths.length > 0) {
+      basePath = localBasePaths[localHostIndex];
+    } else {
+      basePath = null;
+    }
+
+    Object localVarPostBody = null;
+
+    // create path and map variables
+    String localVarPath = "/api/feedbacks/v1/pins/limits";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    final String[] localVarAccepts = {"application/json", "application/problem+json"};
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {};
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    if (localVarContentType != null) {
+      localVarHeaderParams.put("Content-Type", localVarContentType);
+    }
+
+    String[] localVarAuthNames = new String[] {"BearerAuth"};
+    return localVarApiClient.buildCall(
+        basePath,
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call getV1PinsLimitsValidateBeforeCall(final ApiCallback _callback)
+      throws ApiException {
+    return getV1PinsLimitsCall(_callback);
+  }
+
+  /**
+   * Лимиты закреплённых отзывов Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.
+   * [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
+   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
+   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
+   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
+   * запрос |
+   *
+   * @return GetV1PinsLimitsResponse200
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public GetV1PinsLimitsResponse200 getV1PinsLimits() throws ApiException {
+    ApiResponse<GetV1PinsLimitsResponse200> localVarResp = getV1PinsLimitsWithHttpInfo();
+    return localVarResp.getData();
+  }
+
+  /**
+   * Лимиты закреплённых отзывов Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.
+   * [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
+   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
+   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
+   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
+   * запрос |
+   *
+   * @return ApiResponse&lt;GetV1PinsLimitsResponse200&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<GetV1PinsLimitsResponse200> getV1PinsLimitsWithHttpInfo() throws ApiException {
+    okhttp3.Call localVarCall = getV1PinsLimitsValidateBeforeCall(null);
+    Type localVarReturnType = new TypeToken<GetV1PinsLimitsResponse200>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * Лимиты закреплённых отзывов (asynchronously) Метод возвращает лимиты закреплённых отзывов по
+   * тарифу и подписке. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
+   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
+   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
+   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
+   * запрос |
+   *
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV1PinsLimitsAsync(final ApiCallback<GetV1PinsLimitsResponse200> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall = getV1PinsLimitsValidateBeforeCall(_callback);
+    Type localVarReturnType = new TypeToken<GetV1PinsLimitsResponse200>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -4755,213 +4747,6 @@ public class DefaultApi {
   }
 
   /**
-   * Build call for postFeedbacksV1Pins
-   *
-   * @param openapiPinReviewItem (required)
-   * @param _callback Callback for upload/download progress
-   * @return Call to execute
-   * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public okhttp3.Call postFeedbacksV1PinsCall(
-      List<OpenapiPinReviewItem> openapiPinReviewItem, final ApiCallback _callback)
-      throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {"https://feedbacks-api.wildberries.ru"};
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null) {
-      basePath = localCustomBaseUrl;
-    } else if (localBasePaths.length > 0) {
-      basePath = localBasePaths[localHostIndex];
-    } else {
-      basePath = null;
-    }
-
-    Object localVarPostBody = openapiPinReviewItem;
-
-    // create path and map variables
-    String localVarPath = "/api/feedbacks/v1/pins";
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    final String[] localVarAccepts = {"application/json", "application/problem+json"};
-    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-    if (localVarAccept != null) {
-      localVarHeaderParams.put("Accept", localVarAccept);
-    }
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType =
-        localVarApiClient.selectHeaderContentType(localVarContentTypes);
-    if (localVarContentType != null) {
-      localVarHeaderParams.put("Content-Type", localVarContentType);
-    }
-
-    String[] localVarAuthNames = new String[] {"BearerAuth"};
-    return localVarApiClient.buildCall(
-        basePath,
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAuthNames,
-        _callback);
-  }
-
-  @SuppressWarnings("rawtypes")
-  private okhttp3.Call postFeedbacksV1PinsValidateBeforeCall(
-      List<OpenapiPinReviewItem> openapiPinReviewItem, final ApiCallback _callback)
-      throws ApiException {
-    // verify the required parameter 'openapiPinReviewItem' is set
-    if (openapiPinReviewItem == null) {
-      throw new ApiException(
-          "Missing the required parameter 'openapiPinReviewItem' when calling postFeedbacksV1Pins(Async)");
-    }
-
-    return postFeedbacksV1PinsCall(openapiPinReviewItem, _callback);
-  }
-
-  /**
-   * Закрепить отзывы Метод позволяет закрепить отзывы в карточке товара или в группе
-   * [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   * карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых
-   * отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
-   * Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c
-   * [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление
-   * отзыва\\*\\*. [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
-   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
-   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
-   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
-   *
-   * @param openapiPinReviewItem (required)
-   * @return PostFeedbacksV1PinsResponse200
-   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-   *     response body
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public PostFeedbacksV1PinsResponse200 postFeedbacksV1Pins(
-      List<OpenapiPinReviewItem> openapiPinReviewItem) throws ApiException {
-    ApiResponse<PostFeedbacksV1PinsResponse200> localVarResp =
-        postFeedbacksV1PinsWithHttpInfo(openapiPinReviewItem);
-    return localVarResp.getData();
-  }
-
-  /**
-   * Закрепить отзывы Метод позволяет закрепить отзывы в карточке товара или в группе
-   * [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   * карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых
-   * отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
-   * Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c
-   * [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление
-   * отзыва\\*\\*. [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
-   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
-   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
-   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
-   *
-   * @param openapiPinReviewItem (required)
-   * @return ApiResponse&lt;PostFeedbacksV1PinsResponse200&gt;
-   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-   *     response body
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public ApiResponse<PostFeedbacksV1PinsResponse200> postFeedbacksV1PinsWithHttpInfo(
-      List<OpenapiPinReviewItem> openapiPinReviewItem) throws ApiException {
-    okhttp3.Call localVarCall = postFeedbacksV1PinsValidateBeforeCall(openapiPinReviewItem, null);
-    Type localVarReturnType = new TypeToken<PostFeedbacksV1PinsResponse200>() {}.getType();
-    return localVarApiClient.execute(localVarCall, localVarReturnType);
-  }
-
-  /**
-   * Закрепить отзывы (asynchronously) Метод позволяет закрепить отзывы в карточке товара или в
-   * группе
-   * [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
-   * карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых
-   * отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).
-   * Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c
-   * [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление
-   * отзыва\\*\\*. [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
-   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
-   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
-   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос |
-   *
-   * @param openapiPinReviewItem (required)
-   * @param _callback The callback to be executed when the API call finishes
-   * @return The request call
-   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public okhttp3.Call postFeedbacksV1PinsAsync(
-      List<OpenapiPinReviewItem> openapiPinReviewItem,
-      final ApiCallback<PostFeedbacksV1PinsResponse200> _callback)
-      throws ApiException {
-
-    okhttp3.Call localVarCall =
-        postFeedbacksV1PinsValidateBeforeCall(openapiPinReviewItem, _callback);
-    Type localVarReturnType = new TypeToken<PostFeedbacksV1PinsResponse200>() {}.getType();
-    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-    return localVarCall;
-  }
-
-  /**
    * Build call for postV1FeedbacksAnswer
    *
    * @param postV1FeedbacksAnswerRequest (optional)
@@ -5354,6 +5139,211 @@ public class DefaultApi {
     okhttp3.Call localVarCall =
         postV1FeedbacksOrderReturnValidateBeforeCall(postV1FeedbacksOrderReturnRequest, _callback);
     Type localVarReturnType = new TypeToken<PostV1FeedbacksOrderReturnResponse200>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * Build call for postV1Pins
+   *
+   * @param openapiPinReviewItem (required)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call postV1PinsCall(
+      List<OpenapiPinReviewItem> openapiPinReviewItem, final ApiCallback _callback)
+      throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {"https://feedbacks-api.wildberries.ru"};
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null) {
+      basePath = localCustomBaseUrl;
+    } else if (localBasePaths.length > 0) {
+      basePath = localBasePaths[localHostIndex];
+    } else {
+      basePath = null;
+    }
+
+    Object localVarPostBody = openapiPinReviewItem;
+
+    // create path and map variables
+    String localVarPath = "/api/feedbacks/v1/pins";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    final String[] localVarAccepts = {"application/json", "application/problem+json"};
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    if (localVarContentType != null) {
+      localVarHeaderParams.put("Content-Type", localVarContentType);
+    }
+
+    String[] localVarAuthNames = new String[] {"BearerAuth"};
+    return localVarApiClient.buildCall(
+        basePath,
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call postV1PinsValidateBeforeCall(
+      List<OpenapiPinReviewItem> openapiPinReviewItem, final ApiCallback _callback)
+      throws ApiException {
+    // verify the required parameter 'openapiPinReviewItem' is set
+    if (openapiPinReviewItem == null) {
+      throw new ApiException(
+          "Missing the required parameter 'openapiPinReviewItem' when calling postV1Pins(Async)");
+    }
+
+    return postV1PinsCall(openapiPinReviewItem, _callback);
+  }
+
+  /**
+   * Закрепить отзывы Метод позволяет закрепить отзывы в карточке товара или в группе
+   * [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   * карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых
+   * отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).
+   * Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c
+   * [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление
+   * отзыва\\*\\*. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
+   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
+   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
+   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
+   * запрос |
+   *
+   * @param openapiPinReviewItem (required)
+   * @return PostV1PinsResponse200
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public PostV1PinsResponse200 postV1Pins(List<OpenapiPinReviewItem> openapiPinReviewItem)
+      throws ApiException {
+    ApiResponse<PostV1PinsResponse200> localVarResp = postV1PinsWithHttpInfo(openapiPinReviewItem);
+    return localVarResp.getData();
+  }
+
+  /**
+   * Закрепить отзывы Метод позволяет закрепить отзывы в карточке товара или в группе
+   * [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   * карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых
+   * отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).
+   * Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c
+   * [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление
+   * отзыва\\*\\*. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
+   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
+   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
+   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
+   * запрос |
+   *
+   * @param openapiPinReviewItem (required)
+   * @return ApiResponse&lt;PostV1PinsResponse200&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<PostV1PinsResponse200> postV1PinsWithHttpInfo(
+      List<OpenapiPinReviewItem> openapiPinReviewItem) throws ApiException {
+    okhttp3.Call localVarCall = postV1PinsValidateBeforeCall(openapiPinReviewItem, null);
+    Type localVarReturnType = new TypeToken<PostV1PinsResponse200>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * Закрепить отзывы (asynchronously) Метод позволяет закрепить отзывы в карточке товара или в
+   * группе
+   * [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov)
+   * карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых
+   * отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).
+   * Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c
+   * [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление
+   * отзыва\\*\\*. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период |
+   * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
+   * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
+   * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
+   * запрос |
+   *
+   * @param openapiPinReviewItem (required)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call postV1PinsAsync(
+      List<OpenapiPinReviewItem> openapiPinReviewItem,
+      final ApiCallback<PostV1PinsResponse200> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall = postV1PinsValidateBeforeCall(openapiPinReviewItem, _callback);
+    Type localVarReturnType = new TypeToken<PostV1PinsResponse200>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }

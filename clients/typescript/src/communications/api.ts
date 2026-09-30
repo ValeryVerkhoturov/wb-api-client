@@ -98,13 +98,13 @@ export interface ChatsResponse {
 /**
  *
  * @export
- * @interface DeleteFeedbacksV1PinsResponse200
+ * @interface DeleteV1PinsResponse200
  */
-export interface DeleteFeedbacksV1PinsResponse200 {
+export interface DeleteV1PinsResponse200 {
   /**
    * Список `pinId` — ID операций закрепления отзывов, которые были успешно откреплены
    * @type {Array<number>}
-   * @memberof DeleteFeedbacksV1PinsResponse200
+   * @memberof DeleteV1PinsResponse200
    */
   data: Array<number>;
 }
@@ -335,51 +335,6 @@ export interface EventsResult {
    * @memberof EventsResult
    */
   events?: Array<Event>;
-}
-/**
- *
- * @export
- * @interface GetFeedbacksV1PinsCountResponse200
- */
-export interface GetFeedbacksV1PinsCountResponse200 {
-  /**
-   * Количество отзывов
-   * @type {number}
-   * @memberof GetFeedbacksV1PinsCountResponse200
-   */
-  data: number;
-}
-/**
- *
- * @export
- * @interface GetFeedbacksV1PinsLimitsResponse200
- */
-export interface GetFeedbacksV1PinsLimitsResponse200 {
-  /**
-   *
-   * @type {OpenapiSellerLimitsResponseData}
-   * @memberof GetFeedbacksV1PinsLimitsResponse200
-   */
-  data: OpenapiSellerLimitsResponseData;
-}
-/**
- *
- * @export
- * @interface GetFeedbacksV1PinsResponse200
- */
-export interface GetFeedbacksV1PinsResponse200 {
-  /**
-   *
-   * @type {Array<OpenapiPinnedReviewItemResult>}
-   * @memberof GetFeedbacksV1PinsResponse200
-   */
-  data: Array<OpenapiPinnedReviewItemResult>;
-  /**
-   * Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные
-   * @type {number}
-   * @memberof GetFeedbacksV1PinsResponse200
-   */
-  next?: number;
 }
 /**
  *
@@ -1460,6 +1415,51 @@ export interface GetV1NewFeedbacksQuestionsResponse200Data {
    * @memberof GetV1NewFeedbacksQuestionsResponse200Data
    */
   hasNewFeedbacks?: boolean;
+}
+/**
+ *
+ * @export
+ * @interface GetV1PinsCountResponse200
+ */
+export interface GetV1PinsCountResponse200 {
+  /**
+   * Количество отзывов
+   * @type {number}
+   * @memberof GetV1PinsCountResponse200
+   */
+  data: number;
+}
+/**
+ *
+ * @export
+ * @interface GetV1PinsLimitsResponse200
+ */
+export interface GetV1PinsLimitsResponse200 {
+  /**
+   *
+   * @type {OpenapiSellerLimitsResponseData}
+   * @memberof GetV1PinsLimitsResponse200
+   */
+  data: OpenapiSellerLimitsResponseData;
+}
+/**
+ *
+ * @export
+ * @interface GetV1PinsResponse200
+ */
+export interface GetV1PinsResponse200 {
+  /**
+   *
+   * @type {Array<OpenapiPinnedReviewItemResult>}
+   * @memberof GetV1PinsResponse200
+   */
+  data: Array<OpenapiPinnedReviewItemResult>;
+  /**
+   * Параметр пагинации. Укажите это значение в запросе, чтобы получить следующий пакет данных. Если поле отсутствует, вы получили все данные
+   * @type {number}
+   * @memberof GetV1PinsResponse200
+   */
+  next?: number;
 }
 /**
  *
@@ -2737,19 +2737,6 @@ export interface PatchV1QuestionsResponse200 {
 /**
  *
  * @export
- * @interface PostFeedbacksV1PinsResponse200
- */
-export interface PostFeedbacksV1PinsResponse200 {
-  /**
-   *
-   * @type {Array<OpenapiPinReviewItemResultDataInner>}
-   * @memberof PostFeedbacksV1PinsResponse200
-   */
-  data: Array<OpenapiPinReviewItemResultDataInner>;
-}
-/**
- *
- * @export
  * @interface PostV1FeedbacksAnswer403Response
  */
 export interface PostV1FeedbacksAnswer403Response {
@@ -2864,6 +2851,19 @@ export interface PostV1FeedbacksOrderReturnResponse200 {
    * @memberof PostV1FeedbacksOrderReturnResponse200
    */
   additionalErrors?: Array<string> | null;
+}
+/**
+ *
+ * @export
+ * @interface PostV1PinsResponse200
+ */
+export interface PostV1PinsResponse200 {
+  /**
+   *
+   * @type {Array<OpenapiPinReviewItemResultDataInner>}
+   * @memberof PostV1PinsResponse200
+   */
+  data: Array<OpenapiPinReviewItemResultDataInner>;
 }
 /**
  *
@@ -3130,18 +3130,18 @@ export const DefaultApiAxiosParamCreator = function (
 ) {
   return {
     /**
-     * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Открепить отзывы
      * @param {Array<number>} requestBody Список &#x60;pinId&#x60; — ID операций закрепления отзывов
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFeedbacksV1Pins: async (
+    deleteV1Pins: async (
       requestBody: Array<number>,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'requestBody' is not null or undefined
-      assertParamExists("deleteFeedbacksV1Pins", "requestBody", requestBody);
+      assertParamExists("deleteV1Pins", "requestBody", requestBody);
       const localVarPath = `/api/feedbacks/v1/pins`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3177,243 +3177,6 @@ export const DefaultApiAxiosParamCreator = function (
         localVarRequestOptions,
         configuration,
       );
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-     * @summary Список закреплённых и откреплённых отзывов
-     * @param {GetFeedbacksV1PinsStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
-     * @param {GetFeedbacksV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-     * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-     * @param {number} [nmId] Артикул WB
-     * @param {number} [feedbackId] ID отзыва
-     * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
-     * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
-     * @param {number} [next] ID последней операции закрепления (пагинатор)
-     * @param {number} [limit] Количество отзывов на одной странице (пагинация)
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFeedbacksV1Pins: async (
-      state?: GetFeedbacksV1PinsStateEnum,
-      pinOn?: GetFeedbacksV1PinsPinOnEnum,
-      imtId?: number,
-      nmId?: number,
-      feedbackId?: number,
-      dateFrom?: string,
-      dateTo?: string,
-      next?: number,
-      limit?: number,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      const localVarPath = `/api/feedbacks/v1/pins`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "GET",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      if (state !== undefined) {
-        localVarQueryParameter["state"] = state;
-      }
-
-      if (pinOn !== undefined) {
-        localVarQueryParameter["pinOn"] = pinOn;
-      }
-
-      if (imtId !== undefined) {
-        localVarQueryParameter["imtId"] = imtId;
-      }
-
-      if (nmId !== undefined) {
-        localVarQueryParameter["nmId"] = nmId;
-      }
-
-      if (feedbackId !== undefined) {
-        localVarQueryParameter["feedbackId"] = feedbackId;
-      }
-
-      if (dateFrom !== undefined) {
-        localVarQueryParameter["dateFrom"] =
-          (dateFrom as any) instanceof Date
-            ? (dateFrom as any).toISOString()
-            : dateFrom;
-      }
-
-      if (dateTo !== undefined) {
-        localVarQueryParameter["dateTo"] =
-          (dateTo as any) instanceof Date
-            ? (dateTo as any).toISOString()
-            : dateTo;
-      }
-
-      if (next !== undefined) {
-        localVarQueryParameter["next"] = next;
-      }
-
-      if (limit !== undefined) {
-        localVarQueryParameter["limit"] = limit;
-      }
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-     * @summary Количество закреплённых и откреплённых отзывов
-     * @param {GetFeedbacksV1PinsCountStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
-     * @param {GetFeedbacksV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-     * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-     * @param {number} [nmId] Артикул WB
-     * @param {number} [feedbackId] ID отзыва
-     * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
-     * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFeedbacksV1PinsCount: async (
-      state?: GetFeedbacksV1PinsCountStateEnum,
-      pinOn?: GetFeedbacksV1PinsCountPinOnEnum,
-      imtId?: number,
-      nmId?: number,
-      feedbackId?: number,
-      dateFrom?: string,
-      dateTo?: string,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      const localVarPath = `/api/feedbacks/v1/pins/count`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "GET",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      if (state !== undefined) {
-        localVarQueryParameter["state"] = state;
-      }
-
-      if (pinOn !== undefined) {
-        localVarQueryParameter["pinOn"] = pinOn;
-      }
-
-      if (imtId !== undefined) {
-        localVarQueryParameter["imtId"] = imtId;
-      }
-
-      if (nmId !== undefined) {
-        localVarQueryParameter["nmId"] = nmId;
-      }
-
-      if (feedbackId !== undefined) {
-        localVarQueryParameter["feedbackId"] = feedbackId;
-      }
-
-      if (dateFrom !== undefined) {
-        localVarQueryParameter["dateFrom"] =
-          (dateFrom as any) instanceof Date
-            ? (dateFrom as any).toISOString()
-            : dateFrom;
-      }
-
-      if (dateTo !== undefined) {
-        localVarQueryParameter["dateTo"] =
-          (dateTo as any) instanceof Date
-            ? (dateTo as any).toISOString()
-            : dateTo;
-      }
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-     * @summary Лимиты закреплённых отзывов
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFeedbacksV1PinsLimits: async (
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      const localVarPath = `/api/feedbacks/v1/pins/limits`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "GET",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
 
       return {
         url: toPathString(localVarUrlObj),
@@ -3824,6 +3587,243 @@ export const DefaultApiAxiosParamCreator = function (
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       const localVarPath = `/api/v1/new-feedbacks-questions`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "GET",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * @summary Список закреплённых и откреплённых отзывов
+     * @param {GetV1PinsStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
+     * @param {GetV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+     * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+     * @param {number} [nmId] Артикул WB
+     * @param {number} [feedbackId] ID отзыва
+     * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
+     * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
+     * @param {number} [next] ID последней операции закрепления (пагинатор)
+     * @param {number} [limit] Количество отзывов на одной странице (пагинация)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV1Pins: async (
+      state?: GetV1PinsStateEnum,
+      pinOn?: GetV1PinsPinOnEnum,
+      imtId?: number,
+      nmId?: number,
+      feedbackId?: number,
+      dateFrom?: string,
+      dateTo?: string,
+      next?: number,
+      limit?: number,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/feedbacks/v1/pins`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "GET",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      if (state !== undefined) {
+        localVarQueryParameter["state"] = state;
+      }
+
+      if (pinOn !== undefined) {
+        localVarQueryParameter["pinOn"] = pinOn;
+      }
+
+      if (imtId !== undefined) {
+        localVarQueryParameter["imtId"] = imtId;
+      }
+
+      if (nmId !== undefined) {
+        localVarQueryParameter["nmId"] = nmId;
+      }
+
+      if (feedbackId !== undefined) {
+        localVarQueryParameter["feedbackId"] = feedbackId;
+      }
+
+      if (dateFrom !== undefined) {
+        localVarQueryParameter["dateFrom"] =
+          (dateFrom as any) instanceof Date
+            ? (dateFrom as any).toISOString()
+            : dateFrom;
+      }
+
+      if (dateTo !== undefined) {
+        localVarQueryParameter["dateTo"] =
+          (dateTo as any) instanceof Date
+            ? (dateTo as any).toISOString()
+            : dateTo;
+      }
+
+      if (next !== undefined) {
+        localVarQueryParameter["next"] = next;
+      }
+
+      if (limit !== undefined) {
+        localVarQueryParameter["limit"] = limit;
+      }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * @summary Количество закреплённых и откреплённых отзывов
+     * @param {GetV1PinsCountStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
+     * @param {GetV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+     * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+     * @param {number} [nmId] Артикул WB
+     * @param {number} [feedbackId] ID отзыва
+     * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
+     * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV1PinsCount: async (
+      state?: GetV1PinsCountStateEnum,
+      pinOn?: GetV1PinsCountPinOnEnum,
+      imtId?: number,
+      nmId?: number,
+      feedbackId?: number,
+      dateFrom?: string,
+      dateTo?: string,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/feedbacks/v1/pins/count`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "GET",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      if (state !== undefined) {
+        localVarQueryParameter["state"] = state;
+      }
+
+      if (pinOn !== undefined) {
+        localVarQueryParameter["pinOn"] = pinOn;
+      }
+
+      if (imtId !== undefined) {
+        localVarQueryParameter["imtId"] = imtId;
+      }
+
+      if (nmId !== undefined) {
+        localVarQueryParameter["nmId"] = nmId;
+      }
+
+      if (feedbackId !== undefined) {
+        localVarQueryParameter["feedbackId"] = feedbackId;
+      }
+
+      if (dateFrom !== undefined) {
+        localVarQueryParameter["dateFrom"] =
+          (dateFrom as any) instanceof Date
+            ? (dateFrom as any).toISOString()
+            : dateFrom;
+      }
+
+      if (dateTo !== undefined) {
+        localVarQueryParameter["dateTo"] =
+          (dateTo as any) instanceof Date
+            ? (dateTo as any).toISOString()
+            : dateTo;
+      }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * @summary Лимиты закреплённых отзывов
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV1PinsLimits: async (
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/api/feedbacks/v1/pins/limits`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
       let baseOptions;
@@ -4408,64 +4408,6 @@ export const DefaultApiAxiosParamCreator = function (
       };
     },
     /**
-     * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-     * @summary Закрепить отзывы
-     * @param {Array<OpenapiPinReviewItem>} openapiPinReviewItem
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postFeedbacksV1Pins: async (
-      openapiPinReviewItem: Array<OpenapiPinReviewItem>,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      // verify required parameter 'openapiPinReviewItem' is not null or undefined
-      assertParamExists(
-        "postFeedbacksV1Pins",
-        "openapiPinReviewItem",
-        openapiPinReviewItem,
-      );
-      const localVarPath = `/api/feedbacks/v1/pins`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "POST",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      localVarHeaderParameter["Content-Type"] = "application/json";
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-      localVarRequestOptions.data = serializeDataIfNeeded(
-        openapiPinReviewItem,
-        localVarRequestOptions,
-        configuration,
-      );
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
      * Метод позволяет ответить на [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.  ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Ответить на отзыв
      * @param {PostV1FeedbacksAnswerRequest} [postV1FeedbacksAnswerRequest]
@@ -4576,6 +4518,64 @@ export const DefaultApiAxiosParamCreator = function (
       };
     },
     /**
+     * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * @summary Закрепить отзывы
+     * @param {Array<OpenapiPinReviewItem>} openapiPinReviewItem
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postV1Pins: async (
+      openapiPinReviewItem: Array<OpenapiPinReviewItem>,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'openapiPinReviewItem' is not null or undefined
+      assertParamExists(
+        "postV1Pins",
+        "openapiPinReviewItem",
+        openapiPinReviewItem,
+      );
+      const localVarPath = `/api/feedbacks/v1/pins`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "POST",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      localVarHeaderParameter["Content-Type"] = "application/json";
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+      localVarRequestOptions.data = serializeDataIfNeeded(
+        openapiPinReviewItem,
+        localVarRequestOptions,
+        configuration,
+      );
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
      * Метод отправляет сообщения в [чат с покупателем](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @summary Отправить сообщение
      * @param {string} replySign Подпись чата. Можно получить из [информации по чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./customer-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле &#x60;\\\&quot;isNewChat\\\&quot;: true&#x60;.
@@ -4656,168 +4656,28 @@ export const DefaultApiFp = function (configuration?: Configuration) {
   const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration);
   return {
     /**
-     * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Открепить отзывы
      * @param {Array<number>} requestBody Список &#x60;pinId&#x60; — ID операций закрепления отзывов
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async deleteFeedbacksV1Pins(
+    async deleteV1Pins(
       requestBody: Array<number>,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (
         axios?: AxiosInstance,
         basePath?: string,
-      ) => AxiosPromise<DeleteFeedbacksV1PinsResponse200>
+      ) => AxiosPromise<DeleteV1PinsResponse200>
     > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.deleteFeedbacksV1Pins(
-          requestBody,
-          options,
-        );
+      const localVarAxiosArgs = await localVarAxiosParamCreator.deleteV1Pins(
+        requestBody,
+        options,
+      );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.deleteFeedbacksV1Pins"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
-     * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-     * @summary Список закреплённых и откреплённых отзывов
-     * @param {GetFeedbacksV1PinsStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
-     * @param {GetFeedbacksV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-     * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-     * @param {number} [nmId] Артикул WB
-     * @param {number} [feedbackId] ID отзыва
-     * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
-     * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
-     * @param {number} [next] ID последней операции закрепления (пагинатор)
-     * @param {number} [limit] Количество отзывов на одной странице (пагинация)
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async getFeedbacksV1Pins(
-      state?: GetFeedbacksV1PinsStateEnum,
-      pinOn?: GetFeedbacksV1PinsPinOnEnum,
-      imtId?: number,
-      nmId?: number,
-      feedbackId?: number,
-      dateFrom?: string,
-      dateTo?: string,
-      next?: number,
-      limit?: number,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<GetFeedbacksV1PinsResponse200>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.getFeedbacksV1Pins(
-          state,
-          pinOn,
-          imtId,
-          nmId,
-          feedbackId,
-          dateFrom,
-          dateTo,
-          next,
-          limit,
-          options,
-        );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getFeedbacksV1Pins"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
-     * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-     * @summary Количество закреплённых и откреплённых отзывов
-     * @param {GetFeedbacksV1PinsCountStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
-     * @param {GetFeedbacksV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-     * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-     * @param {number} [nmId] Артикул WB
-     * @param {number} [feedbackId] ID отзыва
-     * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
-     * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async getFeedbacksV1PinsCount(
-      state?: GetFeedbacksV1PinsCountStateEnum,
-      pinOn?: GetFeedbacksV1PinsCountPinOnEnum,
-      imtId?: number,
-      nmId?: number,
-      feedbackId?: number,
-      dateFrom?: string,
-      dateTo?: string,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<GetFeedbacksV1PinsCountResponse200>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.getFeedbacksV1PinsCount(
-          state,
-          pinOn,
-          imtId,
-          nmId,
-          feedbackId,
-          dateFrom,
-          dateTo,
-          options,
-        );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getFeedbacksV1PinsCount"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
-     * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-     * @summary Лимиты закреплённых отзывов
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async getFeedbacksV1PinsLimits(
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<GetFeedbacksV1PinsLimitsResponse200>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.getFeedbacksV1PinsLimits(options);
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.getFeedbacksV1PinsLimits"]?.[
+        operationServerMap["DefaultApi.deleteV1Pins"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5088,6 +4948,143 @@ export const DefaultApiFp = function (configuration?: Configuration) {
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
         operationServerMap["DefaultApi.getV1NewFeedbacksQuestions"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * @summary Список закреплённых и откреплённых отзывов
+     * @param {GetV1PinsStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
+     * @param {GetV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+     * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+     * @param {number} [nmId] Артикул WB
+     * @param {number} [feedbackId] ID отзыва
+     * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
+     * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
+     * @param {number} [next] ID последней операции закрепления (пагинатор)
+     * @param {number} [limit] Количество отзывов на одной странице (пагинация)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getV1Pins(
+      state?: GetV1PinsStateEnum,
+      pinOn?: GetV1PinsPinOnEnum,
+      imtId?: number,
+      nmId?: number,
+      feedbackId?: number,
+      dateFrom?: string,
+      dateTo?: string,
+      next?: number,
+      limit?: number,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<GetV1PinsResponse200>
+    > {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.getV1Pins(
+        state,
+        pinOn,
+        imtId,
+        nmId,
+        feedbackId,
+        dateFrom,
+        dateTo,
+        next,
+        limit,
+        options,
+      );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["DefaultApi.getV1Pins"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * @summary Количество закреплённых и откреплённых отзывов
+     * @param {GetV1PinsCountStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
+     * @param {GetV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+     * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+     * @param {number} [nmId] Артикул WB
+     * @param {number} [feedbackId] ID отзыва
+     * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
+     * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getV1PinsCount(
+      state?: GetV1PinsCountStateEnum,
+      pinOn?: GetV1PinsCountPinOnEnum,
+      imtId?: number,
+      nmId?: number,
+      feedbackId?: number,
+      dateFrom?: string,
+      dateTo?: string,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<GetV1PinsCountResponse200>
+    > {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.getV1PinsCount(
+        state,
+        pinOn,
+        imtId,
+        nmId,
+        feedbackId,
+        dateFrom,
+        dateTo,
+        options,
+      );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["DefaultApi.getV1PinsCount"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * @summary Лимиты закреплённых отзывов
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getV1PinsLimits(
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<GetV1PinsLimitsResponse200>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.getV1PinsLimits(options);
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["DefaultApi.getV1PinsLimits"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -5429,40 +5426,6 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
-     * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-     * @summary Закрепить отзывы
-     * @param {Array<OpenapiPinReviewItem>} openapiPinReviewItem
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async postFeedbacksV1Pins(
-      openapiPinReviewItem: Array<OpenapiPinReviewItem>,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<PostFeedbacksV1PinsResponse200>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.postFeedbacksV1Pins(
-          openapiPinReviewItem,
-          options,
-        );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["DefaultApi.postFeedbacksV1Pins"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
      * Метод позволяет ответить на [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.  ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Ответить на отзыв
      * @param {PostV1FeedbacksAnswerRequest} [postV1FeedbacksAnswerRequest]
@@ -5528,6 +5491,39 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
+     * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * @summary Закрепить отзывы
+     * @param {Array<OpenapiPinReviewItem>} openapiPinReviewItem
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async postV1Pins(
+      openapiPinReviewItem: Array<OpenapiPinReviewItem>,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<PostV1PinsResponse200>
+    > {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.postV1Pins(
+        openapiPinReviewItem,
+        options,
+      );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["DefaultApi.postV1Pins"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
      * Метод отправляет сообщения в [чат с покупателем](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @summary Отправить сообщение
      * @param {string} replySign Подпись чата. Можно получить из [информации по чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./customer-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле &#x60;\\\&quot;isNewChat\\\&quot;: true&#x60;.
@@ -5582,109 +5578,18 @@ export const DefaultApiFactory = function (
   const localVarFp = DefaultApiFp(configuration);
   return {
     /**
-     * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Открепить отзывы
      * @param {Array<number>} requestBody Список &#x60;pinId&#x60; — ID операций закрепления отзывов
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFeedbacksV1Pins(
+    deleteV1Pins(
       requestBody: Array<number>,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<DeleteFeedbacksV1PinsResponse200> {
+    ): AxiosPromise<DeleteV1PinsResponse200> {
       return localVarFp
-        .deleteFeedbacksV1Pins(requestBody, options)
-        .then((request) => request(axios, basePath));
-    },
-    /**
-     * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-     * @summary Список закреплённых и откреплённых отзывов
-     * @param {GetFeedbacksV1PinsStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
-     * @param {GetFeedbacksV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-     * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-     * @param {number} [nmId] Артикул WB
-     * @param {number} [feedbackId] ID отзыва
-     * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
-     * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
-     * @param {number} [next] ID последней операции закрепления (пагинатор)
-     * @param {number} [limit] Количество отзывов на одной странице (пагинация)
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFeedbacksV1Pins(
-      state?: GetFeedbacksV1PinsStateEnum,
-      pinOn?: GetFeedbacksV1PinsPinOnEnum,
-      imtId?: number,
-      nmId?: number,
-      feedbackId?: number,
-      dateFrom?: string,
-      dateTo?: string,
-      next?: number,
-      limit?: number,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<GetFeedbacksV1PinsResponse200> {
-      return localVarFp
-        .getFeedbacksV1Pins(
-          state,
-          pinOn,
-          imtId,
-          nmId,
-          feedbackId,
-          dateFrom,
-          dateTo,
-          next,
-          limit,
-          options,
-        )
-        .then((request) => request(axios, basePath));
-    },
-    /**
-     * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-     * @summary Количество закреплённых и откреплённых отзывов
-     * @param {GetFeedbacksV1PinsCountStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
-     * @param {GetFeedbacksV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-     * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-     * @param {number} [nmId] Артикул WB
-     * @param {number} [feedbackId] ID отзыва
-     * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
-     * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFeedbacksV1PinsCount(
-      state?: GetFeedbacksV1PinsCountStateEnum,
-      pinOn?: GetFeedbacksV1PinsCountPinOnEnum,
-      imtId?: number,
-      nmId?: number,
-      feedbackId?: number,
-      dateFrom?: string,
-      dateTo?: string,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<GetFeedbacksV1PinsCountResponse200> {
-      return localVarFp
-        .getFeedbacksV1PinsCount(
-          state,
-          pinOn,
-          imtId,
-          nmId,
-          feedbackId,
-          dateFrom,
-          dateTo,
-          options,
-        )
-        .then((request) => request(axios, basePath));
-    },
-    /**
-     * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-     * @summary Лимиты закреплённых отзывов
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFeedbacksV1PinsLimits(
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<GetFeedbacksV1PinsLimitsResponse200> {
-      return localVarFp
-        .getFeedbacksV1PinsLimits(options)
+        .deleteV1Pins(requestBody, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -5825,6 +5730,97 @@ export const DefaultApiFactory = function (
     ): AxiosPromise<GetV1NewFeedbacksQuestionsResponse200> {
       return localVarFp
         .getV1NewFeedbacksQuestions(options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * @summary Список закреплённых и откреплённых отзывов
+     * @param {GetV1PinsStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
+     * @param {GetV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+     * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+     * @param {number} [nmId] Артикул WB
+     * @param {number} [feedbackId] ID отзыва
+     * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
+     * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
+     * @param {number} [next] ID последней операции закрепления (пагинатор)
+     * @param {number} [limit] Количество отзывов на одной странице (пагинация)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV1Pins(
+      state?: GetV1PinsStateEnum,
+      pinOn?: GetV1PinsPinOnEnum,
+      imtId?: number,
+      nmId?: number,
+      feedbackId?: number,
+      dateFrom?: string,
+      dateTo?: string,
+      next?: number,
+      limit?: number,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<GetV1PinsResponse200> {
+      return localVarFp
+        .getV1Pins(
+          state,
+          pinOn,
+          imtId,
+          nmId,
+          feedbackId,
+          dateFrom,
+          dateTo,
+          next,
+          limit,
+          options,
+        )
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * @summary Количество закреплённых и откреплённых отзывов
+     * @param {GetV1PinsCountStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
+     * @param {GetV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+     * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+     * @param {number} [nmId] Артикул WB
+     * @param {number} [feedbackId] ID отзыва
+     * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
+     * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV1PinsCount(
+      state?: GetV1PinsCountStateEnum,
+      pinOn?: GetV1PinsCountPinOnEnum,
+      imtId?: number,
+      nmId?: number,
+      feedbackId?: number,
+      dateFrom?: string,
+      dateTo?: string,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<GetV1PinsCountResponse200> {
+      return localVarFp
+        .getV1PinsCount(
+          state,
+          pinOn,
+          imtId,
+          nmId,
+          feedbackId,
+          dateFrom,
+          dateTo,
+          options,
+        )
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * @summary Лимиты закреплённых отзывов
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV1PinsLimits(
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<GetV1PinsLimitsResponse200> {
+      return localVarFp
+        .getV1PinsLimits(options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -5999,21 +5995,6 @@ export const DefaultApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-     * @summary Закрепить отзывы
-     * @param {Array<OpenapiPinReviewItem>} openapiPinReviewItem
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postFeedbacksV1Pins(
-      openapiPinReviewItem: Array<OpenapiPinReviewItem>,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<PostFeedbacksV1PinsResponse200> {
-      return localVarFp
-        .postFeedbacksV1Pins(openapiPinReviewItem, options)
-        .then((request) => request(axios, basePath));
-    },
-    /**
      * Метод позволяет ответить на [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.  ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
      * @summary Ответить на отзыв
      * @param {PostV1FeedbacksAnswerRequest} [postV1FeedbacksAnswerRequest]
@@ -6041,6 +6022,21 @@ export const DefaultApiFactory = function (
     ): AxiosPromise<PostV1FeedbacksOrderReturnResponse200> {
       return localVarFp
         .postV1FeedbacksOrderReturn(postV1FeedbacksOrderReturnRequest, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+     * @summary Закрепить отзывы
+     * @param {Array<OpenapiPinReviewItem>} openapiPinReviewItem
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postV1Pins(
+      openapiPinReviewItem: Array<OpenapiPinReviewItem>,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<PostV1PinsResponse200> {
+      return localVarFp
+        .postV1Pins(openapiPinReviewItem, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -6072,82 +6068,17 @@ export const DefaultApiFactory = function (
  */
 export interface DefaultApiInterface {
   /**
-   * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
    * @summary Открепить отзывы
    * @param {Array<number>} requestBody Список &#x60;pinId&#x60; — ID операций закрепления отзывов
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DefaultApiInterface
    */
-  deleteFeedbacksV1Pins(
+  deleteV1Pins(
     requestBody: Array<number>,
     options?: RawAxiosRequestConfig,
-  ): AxiosPromise<DeleteFeedbacksV1PinsResponse200>;
-
-  /**
-   * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-   * @summary Список закреплённых и откреплённых отзывов
-   * @param {GetFeedbacksV1PinsStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
-   * @param {GetFeedbacksV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-   * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-   * @param {number} [nmId] Артикул WB
-   * @param {number} [feedbackId] ID отзыва
-   * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
-   * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
-   * @param {number} [next] ID последней операции закрепления (пагинатор)
-   * @param {number} [limit] Количество отзывов на одной странице (пагинация)
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  getFeedbacksV1Pins(
-    state?: GetFeedbacksV1PinsStateEnum,
-    pinOn?: GetFeedbacksV1PinsPinOnEnum,
-    imtId?: number,
-    nmId?: number,
-    feedbackId?: number,
-    dateFrom?: string,
-    dateTo?: string,
-    next?: number,
-    limit?: number,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<GetFeedbacksV1PinsResponse200>;
-
-  /**
-   * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-   * @summary Количество закреплённых и откреплённых отзывов
-   * @param {GetFeedbacksV1PinsCountStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
-   * @param {GetFeedbacksV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-   * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-   * @param {number} [nmId] Артикул WB
-   * @param {number} [feedbackId] ID отзыва
-   * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
-   * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  getFeedbacksV1PinsCount(
-    state?: GetFeedbacksV1PinsCountStateEnum,
-    pinOn?: GetFeedbacksV1PinsCountPinOnEnum,
-    imtId?: number,
-    nmId?: number,
-    feedbackId?: number,
-    dateFrom?: string,
-    dateTo?: string,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<GetFeedbacksV1PinsCountResponse200>;
-
-  /**
-   * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-   * @summary Лимиты закреплённых отзывов
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  getFeedbacksV1PinsLimits(
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<GetFeedbacksV1PinsLimitsResponse200>;
+  ): AxiosPromise<DeleteV1PinsResponse200>;
 
   /**
    * Метод возвращает заявки покупателей на возврат товаров за последние 14 дней. Вы можете [отвечать на эти заявки](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersReturns/operation/patchV1Claim).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Сервисный | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
@@ -6265,6 +6196,71 @@ export interface DefaultApiInterface {
   getV1NewFeedbacksQuestions(
     options?: RawAxiosRequestConfig,
   ): AxiosPromise<GetV1NewFeedbacksQuestionsResponse200>;
+
+  /**
+   * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * @summary Список закреплённых и откреплённых отзывов
+   * @param {GetV1PinsStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
+   * @param {GetV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+   * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+   * @param {number} [nmId] Артикул WB
+   * @param {number} [feedbackId] ID отзыва
+   * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
+   * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
+   * @param {number} [next] ID последней операции закрепления (пагинатор)
+   * @param {number} [limit] Количество отзывов на одной странице (пагинация)
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DefaultApiInterface
+   */
+  getV1Pins(
+    state?: GetV1PinsStateEnum,
+    pinOn?: GetV1PinsPinOnEnum,
+    imtId?: number,
+    nmId?: number,
+    feedbackId?: number,
+    dateFrom?: string,
+    dateTo?: string,
+    next?: number,
+    limit?: number,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<GetV1PinsResponse200>;
+
+  /**
+   * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * @summary Количество закреплённых и откреплённых отзывов
+   * @param {GetV1PinsCountStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
+   * @param {GetV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+   * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+   * @param {number} [nmId] Артикул WB
+   * @param {number} [feedbackId] ID отзыва
+   * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
+   * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DefaultApiInterface
+   */
+  getV1PinsCount(
+    state?: GetV1PinsCountStateEnum,
+    pinOn?: GetV1PinsCountPinOnEnum,
+    imtId?: number,
+    nmId?: number,
+    feedbackId?: number,
+    dateFrom?: string,
+    dateTo?: string,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<GetV1PinsCountResponse200>;
+
+  /**
+   * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * @summary Лимиты закреплённых отзывов
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DefaultApiInterface
+   */
+  getV1PinsLimits(
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<GetV1PinsLimitsResponse200>;
 
   /**
    * Метод возвращает данные [вопроса](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/getV1Questions) по его ID. Далее вы можете [работать с этим вопросом](https://dev.wildberries.ru/openapi/customer-communication#tag/questions/operation/patchV1Questions).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
@@ -6409,19 +6405,6 @@ export interface DefaultApiInterface {
   ): AxiosPromise<PatchV1QuestionsResponse200>;
 
   /**
-   * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-   * @summary Закрепить отзывы
-   * @param {Array<OpenapiPinReviewItem>} openapiPinReviewItem
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApiInterface
-   */
-  postFeedbacksV1Pins(
-    openapiPinReviewItem: Array<OpenapiPinReviewItem>,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<PostFeedbacksV1PinsResponse200>;
-
-  /**
    * Метод позволяет ответить на [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.  ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
    * @summary Ответить на отзыв
    * @param {PostV1FeedbacksAnswerRequest} [postV1FeedbacksAnswerRequest]
@@ -6446,6 +6429,19 @@ export interface DefaultApiInterface {
     postV1FeedbacksOrderReturnRequest: PostV1FeedbacksOrderReturnRequest,
     options?: RawAxiosRequestConfig,
   ): AxiosPromise<PostV1FeedbacksOrderReturnResponse200>;
+
+  /**
+   * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * @summary Закрепить отзывы
+   * @param {Array<OpenapiPinReviewItem>} openapiPinReviewItem
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DefaultApiInterface
+   */
+  postV1Pins(
+    openapiPinReviewItem: Array<OpenapiPinReviewItem>,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<PostV1PinsResponse200>;
 
   /**
    * Метод отправляет сообщения в [чат с покупателем](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
@@ -6473,114 +6469,19 @@ export interface DefaultApiInterface {
  */
 export class DefaultApi extends BaseAPI implements DefaultApiInterface {
   /**
-   * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * Метод позволяет открепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить `pinId` — ID операций закрепления, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
    * @summary Открепить отзывы
    * @param {Array<number>} requestBody Список &#x60;pinId&#x60; — ID операций закрепления отзывов
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DefaultApi
    */
-  public deleteFeedbacksV1Pins(
+  public deleteV1Pins(
     requestBody: Array<number>,
     options?: RawAxiosRequestConfig,
   ) {
     return DefaultApiFp(this.configuration)
-      .deleteFeedbacksV1Pins(requestBody, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-   * @summary Список закреплённых и откреплённых отзывов
-   * @param {GetFeedbacksV1PinsStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
-   * @param {GetFeedbacksV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-   * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-   * @param {number} [nmId] Артикул WB
-   * @param {number} [feedbackId] ID отзыва
-   * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
-   * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
-   * @param {number} [next] ID последней операции закрепления (пагинатор)
-   * @param {number} [limit] Количество отзывов на одной странице (пагинация)
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public getFeedbacksV1Pins(
-    state?: GetFeedbacksV1PinsStateEnum,
-    pinOn?: GetFeedbacksV1PinsPinOnEnum,
-    imtId?: number,
-    nmId?: number,
-    feedbackId?: number,
-    dateFrom?: string,
-    dateTo?: string,
-    next?: number,
-    limit?: number,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .getFeedbacksV1Pins(
-        state,
-        pinOn,
-        imtId,
-        nmId,
-        feedbackId,
-        dateFrom,
-        dateTo,
-        next,
-        limit,
-        options,
-      )
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-   * @summary Количество закреплённых и откреплённых отзывов
-   * @param {GetFeedbacksV1PinsCountStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
-   * @param {GetFeedbacksV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
-   * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
-   * @param {number} [nmId] Артикул WB
-   * @param {number} [feedbackId] ID отзыва
-   * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
-   * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public getFeedbacksV1PinsCount(
-    state?: GetFeedbacksV1PinsCountStateEnum,
-    pinOn?: GetFeedbacksV1PinsCountPinOnEnum,
-    imtId?: number,
-    nmId?: number,
-    feedbackId?: number,
-    dateFrom?: string,
-    dateTo?: string,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .getFeedbacksV1PinsCount(
-        state,
-        pinOn,
-        imtId,
-        nmId,
-        feedbackId,
-        dateFrom,
-        dateTo,
-        options,
-      )
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-   * @summary Лимиты закреплённых отзывов
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public getFeedbacksV1PinsLimits(options?: RawAxiosRequestConfig) {
-    return DefaultApiFp(this.configuration)
-      .getFeedbacksV1PinsLimits(options)
+      .deleteV1Pins(requestBody, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -6728,6 +6629,101 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
   public getV1NewFeedbacksQuestions(options?: RawAxiosRequestConfig) {
     return DefaultApiFp(this.configuration)
       .getV1NewFeedbacksQuestions(options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод предоставляет список закреплённых и откреплённых отзывов.  Откреплёнными считаются только отзывы, которые были откреплены автоматически по причинам, указанным в ответе в поле `unpinnedCause`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * @summary Список закреплённых и откреплённых отзывов
+   * @param {GetV1PinsStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
+   * @param {GetV1PinsPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+   * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+   * @param {number} [nmId] Артикул WB
+   * @param {number} [feedbackId] ID отзыва
+   * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
+   * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
+   * @param {number} [next] ID последней операции закрепления (пагинатор)
+   * @param {number} [limit] Количество отзывов на одной странице (пагинация)
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DefaultApi
+   */
+  public getV1Pins(
+    state?: GetV1PinsStateEnum,
+    pinOn?: GetV1PinsPinOnEnum,
+    imtId?: number,
+    nmId?: number,
+    feedbackId?: number,
+    dateFrom?: string,
+    dateTo?: string,
+    next?: number,
+    limit?: number,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return DefaultApiFp(this.configuration)
+      .getV1Pins(
+        state,
+        pinOn,
+        imtId,
+        nmId,
+        feedbackId,
+        dateFrom,
+        dateTo,
+        next,
+        limit,
+        options,
+      )
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод возвращает количество закреплённых и откреплённых отзывов за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * @summary Количество закреплённых и откреплённых отзывов
+   * @param {GetV1PinsCountStateEnum} [state] Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
+   * @param {GetV1PinsCountPinOnEnum} [pinOn] Место закрепления отзыва:   - &#x60;nm&#x60; — карточка товара   - &#x60;imt&#x60; — группа [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
+   * @param {number} [imtId] ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров. Един для всех артикулов WB группы объединённых карточек. У каждой карточки товара есть &#x60;imtId&#x60;, даже если она не объединена с другими карточками
+   * @param {number} [nmId] Артикул WB
+   * @param {number} [feedbackId] ID отзыва
+   * @param {string} [dateFrom] Дата закрепления первого отзыва в списке
+   * @param {string} [dateTo] Дата закрепления последнего отзыва в списке
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DefaultApi
+   */
+  public getV1PinsCount(
+    state?: GetV1PinsCountStateEnum,
+    pinOn?: GetV1PinsCountPinOnEnum,
+    imtId?: number,
+    nmId?: number,
+    feedbackId?: number,
+    dateFrom?: string,
+    dateTo?: string,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return DefaultApiFp(this.configuration)
+      .getV1PinsCount(
+        state,
+        pinOn,
+        imtId,
+        nmId,
+        feedbackId,
+        dateFrom,
+        dateTo,
+        options,
+      )
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод возвращает лимиты закреплённых отзывов по тарифу и подписке.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * @summary Лимиты закреплённых отзывов
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DefaultApi
+   */
+  public getV1PinsLimits(options?: RawAxiosRequestConfig) {
+    return DefaultApiFp(this.configuration)
+      .getV1PinsLimits(options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -6910,23 +6906,6 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
   }
 
   /**
-   * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getFeedbacksV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
-   * @summary Закрепить отзывы
-   * @param {Array<OpenapiPinReviewItem>} openapiPinReviewItem
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof DefaultApi
-   */
-  public postFeedbacksV1Pins(
-    openapiPinReviewItem: Array<OpenapiPinReviewItem>,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return DefaultApiFp(this.configuration)
-      .postFeedbacksV1Pins(openapiPinReviewItem, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
    * Метод позволяет ответить на [отзыв](https://dev.wildberries.ru/openapi/customer-communication#tag/feedbacks/operation/getV1Feedbacks) покупателя.  ID отзыва не валидируется. Если в запросе вы передали некорректный ID, вы не получите ошибку.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
    * @summary Ответить на отзыв
    * @param {PostV1FeedbacksAnswerRequest} [postV1FeedbacksAnswerRequest]
@@ -6961,6 +6940,23 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
   }
 
   /**
+   * Метод позволяет закрепить отзывы в карточке товара или в группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек. Чтобы получить ID отзывов, используйте метод [Список закреплённых и откреплённых отзывов](https://dev.wildberries.ru/openapi/customer-communication#tag/pinnedFeedbacks/operation/getV1Pins).  Метод доступен по [подписке Джем](https://seller.wildberries.ru/monetization/jam) или c [тарифной опцией](https://seller.wildberries.ru/tariff-constructor) \\*\\*Закрепление отзыва\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Вопросы и отзывы**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+   * @summary Закрепить отзывы
+   * @param {Array<OpenapiPinReviewItem>} openapiPinReviewItem
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DefaultApi
+   */
+  public postV1Pins(
+    openapiPinReviewItem: Array<OpenapiPinReviewItem>,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return DefaultApiFp(this.configuration)
+      .postV1Pins(openapiPinReviewItem, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
    * Метод отправляет сообщения в [чат с покупателем](https://dev.wildberries.ru/openapi/customer-communication#tag/buyersChat/operation/getV1SellerChats).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Сервисный | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый с секретом | 10 сек | 10 запросов | 1 сек | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
    * @summary Отправить сообщение
    * @param {string} replySign Подпись чата. Можно получить из [информации по чату](./customer-communication#tag/buyersChat/operation/getV1SellerChats) или [данных события](./customer-communication#tag/buyersChat/operation/getV1SellerEvents), если в событии есть поле &#x60;\\\&quot;isNewChat\\\&quot;: true&#x60;.
@@ -6985,42 +6981,6 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
 /**
  * @export
  */
-export const GetFeedbacksV1PinsStateEnum = {
-  Pinned: "pinned",
-  Unpinned: "unpinned",
-} as const;
-export type GetFeedbacksV1PinsStateEnum =
-  (typeof GetFeedbacksV1PinsStateEnum)[keyof typeof GetFeedbacksV1PinsStateEnum];
-/**
- * @export
- */
-export const GetFeedbacksV1PinsPinOnEnum = {
-  Nm: "nm",
-  Imt: "imt",
-} as const;
-export type GetFeedbacksV1PinsPinOnEnum =
-  (typeof GetFeedbacksV1PinsPinOnEnum)[keyof typeof GetFeedbacksV1PinsPinOnEnum];
-/**
- * @export
- */
-export const GetFeedbacksV1PinsCountStateEnum = {
-  Pinned: "pinned",
-  Unpinned: "unpinned",
-} as const;
-export type GetFeedbacksV1PinsCountStateEnum =
-  (typeof GetFeedbacksV1PinsCountStateEnum)[keyof typeof GetFeedbacksV1PinsCountStateEnum];
-/**
- * @export
- */
-export const GetFeedbacksV1PinsCountPinOnEnum = {
-  Nm: "nm",
-  Imt: "imt",
-} as const;
-export type GetFeedbacksV1PinsCountPinOnEnum =
-  (typeof GetFeedbacksV1PinsCountPinOnEnum)[keyof typeof GetFeedbacksV1PinsCountPinOnEnum];
-/**
- * @export
- */
 export const GetV1FeedbacksOrderEnum = {
   DateAsc: "dateAsc",
   DateDesc: "dateDesc",
@@ -7036,3 +6996,39 @@ export const GetV1FeedbacksArchiveOrderEnum = {
 } as const;
 export type GetV1FeedbacksArchiveOrderEnum =
   (typeof GetV1FeedbacksArchiveOrderEnum)[keyof typeof GetV1FeedbacksArchiveOrderEnum];
+/**
+ * @export
+ */
+export const GetV1PinsStateEnum = {
+  Pinned: "pinned",
+  Unpinned: "unpinned",
+} as const;
+export type GetV1PinsStateEnum =
+  (typeof GetV1PinsStateEnum)[keyof typeof GetV1PinsStateEnum];
+/**
+ * @export
+ */
+export const GetV1PinsPinOnEnum = {
+  Nm: "nm",
+  Imt: "imt",
+} as const;
+export type GetV1PinsPinOnEnum =
+  (typeof GetV1PinsPinOnEnum)[keyof typeof GetV1PinsPinOnEnum];
+/**
+ * @export
+ */
+export const GetV1PinsCountStateEnum = {
+  Pinned: "pinned",
+  Unpinned: "unpinned",
+} as const;
+export type GetV1PinsCountStateEnum =
+  (typeof GetV1PinsCountStateEnum)[keyof typeof GetV1PinsCountStateEnum];
+/**
+ * @export
+ */
+export const GetV1PinsCountPinOnEnum = {
+  Nm: "nm",
+  Imt: "imt",
+} as const;
+export type GetV1PinsCountPinOnEnum =
+  (typeof GetV1PinsCountPinOnEnum)[keyof typeof GetV1PinsCountPinOnEnum];

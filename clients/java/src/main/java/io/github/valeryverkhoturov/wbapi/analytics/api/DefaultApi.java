@@ -28,8 +28,8 @@ import io.github.valeryverkhoturov.wbapi.analytics.model.ItemSearchTextsRequest;
 import io.github.valeryverkhoturov.wbapi.analytics.model.ItemsRequest;
 import io.github.valeryverkhoturov.wbapi.analytics.model.MainRequest;
 import io.github.valeryverkhoturov.wbapi.analytics.model.OrderFeedRequest;
-import io.github.valeryverkhoturov.wbapi.analytics.model.PostAnalyticsV1StocksReportSellerWarehousesResponse200;
 import io.github.valeryverkhoturov.wbapi.analytics.model.PostV1OrderFeedResponse200;
+import io.github.valeryverkhoturov.wbapi.analytics.model.PostV1StocksReportSellerWarehousesResponse200;
 import io.github.valeryverkhoturov.wbapi.analytics.model.PostV1StocksReportWbWarehousesResponse200;
 import io.github.valeryverkhoturov.wbapi.analytics.model.PostV2ItemRatingResponse200;
 import io.github.valeryverkhoturov.wbapi.analytics.model.PostV2SearchReportProductOrdersResponse200;
@@ -91,200 +91,6 @@ public class DefaultApi {
 
   public void setCustomBaseUrl(String customBaseUrl) {
     this.localCustomBaseUrl = customBaseUrl;
-  }
-
-  /**
-   * Build call for postAnalyticsV1StocksReportSellerWarehouses
-   *
-   * @param inventoryRequest (required)
-   * @param _callback Callback for upload/download progress
-   * @return Call to execute
-   * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 204 </td><td> Нет данных </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public okhttp3.Call postAnalyticsV1StocksReportSellerWarehousesCall(
-      InventoryRequest inventoryRequest, final ApiCallback _callback) throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {"https://seller-analytics-api.wildberries.ru"};
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null) {
-      basePath = localCustomBaseUrl;
-    } else if (localBasePaths.length > 0) {
-      basePath = localBasePaths[localHostIndex];
-    } else {
-      basePath = null;
-    }
-
-    Object localVarPostBody = inventoryRequest;
-
-    // create path and map variables
-    String localVarPath = "/api/analytics/v1/stocks-report/seller-warehouses";
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    final String[] localVarAccepts = {"application/json", "application/problem+json"};
-    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-    if (localVarAccept != null) {
-      localVarHeaderParams.put("Accept", localVarAccept);
-    }
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType =
-        localVarApiClient.selectHeaderContentType(localVarContentTypes);
-    if (localVarContentType != null) {
-      localVarHeaderParams.put("Content-Type", localVarContentType);
-    }
-
-    String[] localVarAuthNames = new String[] {"BearerAuth"};
-    return localVarApiClient.buildCall(
-        basePath,
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAuthNames,
-        _callback);
-  }
-
-  @SuppressWarnings("rawtypes")
-  private okhttp3.Call postAnalyticsV1StocksReportSellerWarehousesValidateBeforeCall(
-      InventoryRequest inventoryRequest, final ApiCallback _callback) throws ApiException {
-    // verify the required parameter 'inventoryRequest' is set
-    if (inventoryRequest == null) {
-      throw new ApiException(
-          "Missing the required parameter 'inventoryRequest' when calling postAnalyticsV1StocksReportSellerWarehouses(Async)");
-    }
-
-    return postAnalyticsV1StocksReportSellerWarehousesCall(inventoryRequest, _callback);
-  }
-
-  /**
-   * Остатки на складах продавца Метод
-   * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену, **Сервисному** токену Метод возвращает текущие остатки товаров на
-   * складах продавца. Данные обновляются 1 раз в 30 минут. 1 строка ответа — данные об 1 размере
-   * товара на 1 складе продавца. [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 3 запроса | 20 сек | 1 запрос |
-   *
-   * @param inventoryRequest (required)
-   * @return PostAnalyticsV1StocksReportSellerWarehousesResponse200
-   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-   *     response body
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 204 </td><td> Нет данных </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public PostAnalyticsV1StocksReportSellerWarehousesResponse200
-      postAnalyticsV1StocksReportSellerWarehouses(InventoryRequest inventoryRequest)
-          throws ApiException {
-    ApiResponse<PostAnalyticsV1StocksReportSellerWarehousesResponse200> localVarResp =
-        postAnalyticsV1StocksReportSellerWarehousesWithHttpInfo(inventoryRequest);
-    return localVarResp.getData();
-  }
-
-  /**
-   * Остатки на складах продавца Метод
-   * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену, **Сервисному** токену Метод возвращает текущие остатки товаров на
-   * складах продавца. Данные обновляются 1 раз в 30 минут. 1 строка ответа — данные об 1 размере
-   * товара на 1 складе продавца. [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 3 запроса | 20 сек | 1 запрос |
-   *
-   * @param inventoryRequest (required)
-   * @return ApiResponse&lt;PostAnalyticsV1StocksReportSellerWarehousesResponse200&gt;
-   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-   *     response body
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 204 </td><td> Нет данных </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public ApiResponse<PostAnalyticsV1StocksReportSellerWarehousesResponse200>
-      postAnalyticsV1StocksReportSellerWarehousesWithHttpInfo(InventoryRequest inventoryRequest)
-          throws ApiException {
-    okhttp3.Call localVarCall =
-        postAnalyticsV1StocksReportSellerWarehousesValidateBeforeCall(inventoryRequest, null);
-    Type localVarReturnType =
-        new TypeToken<PostAnalyticsV1StocksReportSellerWarehousesResponse200>() {}.getType();
-    return localVarApiClient.execute(localVarCall, localVarReturnType);
-  }
-
-  /**
-   * Остатки на складах продавца (asynchronously) Метод
-   * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
-   * по **Персональному** токену, **Сервисному** токену Метод возвращает текущие остатки товаров на
-   * складах продавца. Данные обновляются 1 раз в 30 минут. 1 строка ответа — данные об 1 размере
-   * товара на 1 складе продавца. [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 3 запроса | 20 сек | 1 запрос |
-   *
-   * @param inventoryRequest (required)
-   * @param _callback The callback to be executed when the API call finishes
-   * @return The request call
-   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 204 </td><td> Нет данных </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public okhttp3.Call postAnalyticsV1StocksReportSellerWarehousesAsync(
-      InventoryRequest inventoryRequest,
-      final ApiCallback<PostAnalyticsV1StocksReportSellerWarehousesResponse200> _callback)
-      throws ApiException {
-
-    okhttp3.Call localVarCall =
-        postAnalyticsV1StocksReportSellerWarehousesValidateBeforeCall(inventoryRequest, _callback);
-    Type localVarReturnType =
-        new TypeToken<PostAnalyticsV1StocksReportSellerWarehousesResponse200>() {}.getType();
-    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-    return localVarCall;
   }
 
   /**
@@ -476,6 +282,199 @@ public class DefaultApi {
 
     okhttp3.Call localVarCall = postV1OrderFeedValidateBeforeCall(orderFeedRequest, _callback);
     Type localVarReturnType = new TypeToken<PostV1OrderFeedResponse200>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * Build call for postV1StocksReportSellerWarehouses
+   *
+   * @param inventoryRequest (required)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 204 </td><td> Нет данных </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call postV1StocksReportSellerWarehousesCall(
+      InventoryRequest inventoryRequest, final ApiCallback _callback) throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {"https://seller-analytics-api.wildberries.ru"};
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null) {
+      basePath = localCustomBaseUrl;
+    } else if (localBasePaths.length > 0) {
+      basePath = localBasePaths[localHostIndex];
+    } else {
+      basePath = null;
+    }
+
+    Object localVarPostBody = inventoryRequest;
+
+    // create path and map variables
+    String localVarPath = "/api/analytics/v1/stocks-report/seller-warehouses";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    final String[] localVarAccepts = {"application/json", "application/problem+json"};
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    if (localVarContentType != null) {
+      localVarHeaderParams.put("Content-Type", localVarContentType);
+    }
+
+    String[] localVarAuthNames = new String[] {"BearerAuth"};
+    return localVarApiClient.buildCall(
+        basePath,
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call postV1StocksReportSellerWarehousesValidateBeforeCall(
+      InventoryRequest inventoryRequest, final ApiCallback _callback) throws ApiException {
+    // verify the required parameter 'inventoryRequest' is set
+    if (inventoryRequest == null) {
+      throw new ApiException(
+          "Missing the required parameter 'inventoryRequest' when calling postV1StocksReportSellerWarehouses(Async)");
+    }
+
+    return postV1StocksReportSellerWarehousesCall(inventoryRequest, _callback);
+  }
+
+  /**
+   * Остатки на складах продавца Метод
+   * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
+   * по **Персональному** токену, **Сервисному** токену Метод возвращает текущие остатки товаров на
+   * складах продавца. Данные обновляются 1 раз в 30 минут. 1 строка ответа — данные об 1 размере
+   * товара на 1 складе продавца. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * мин | 3 запроса | 20 сек | 1 запрос |
+   *
+   * @param inventoryRequest (required)
+   * @return PostV1StocksReportSellerWarehousesResponse200
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 204 </td><td> Нет данных </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public PostV1StocksReportSellerWarehousesResponse200 postV1StocksReportSellerWarehouses(
+      InventoryRequest inventoryRequest) throws ApiException {
+    ApiResponse<PostV1StocksReportSellerWarehousesResponse200> localVarResp =
+        postV1StocksReportSellerWarehousesWithHttpInfo(inventoryRequest);
+    return localVarResp.getData();
+  }
+
+  /**
+   * Остатки на складах продавца Метод
+   * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
+   * по **Персональному** токену, **Сервисному** токену Метод возвращает текущие остатки товаров на
+   * складах продавца. Данные обновляются 1 раз в 30 минут. 1 строка ответа — данные об 1 размере
+   * товара на 1 складе продавца. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * мин | 3 запроса | 20 сек | 1 запрос |
+   *
+   * @param inventoryRequest (required)
+   * @return ApiResponse&lt;PostV1StocksReportSellerWarehousesResponse200&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 204 </td><td> Нет данных </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<PostV1StocksReportSellerWarehousesResponse200>
+      postV1StocksReportSellerWarehousesWithHttpInfo(InventoryRequest inventoryRequest)
+          throws ApiException {
+    okhttp3.Call localVarCall =
+        postV1StocksReportSellerWarehousesValidateBeforeCall(inventoryRequest, null);
+    Type localVarReturnType =
+        new TypeToken<PostV1StocksReportSellerWarehousesResponse200>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * Остатки на складах продавца (asynchronously) Метод
+   * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
+   * по **Персональному** токену, **Сервисному** токену Метод возвращает текущие остатки товаров на
+   * складах продавца. Данные обновляются 1 раз в 30 минут. 1 строка ответа — данные об 1 размере
+   * товара на 1 складе продавца. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один аккаунт продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
+   * мин | 3 запроса | 20 сек | 1 запрос |
+   *
+   * @param inventoryRequest (required)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 204 </td><td> Нет данных </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call postV1StocksReportSellerWarehousesAsync(
+      InventoryRequest inventoryRequest,
+      final ApiCallback<PostV1StocksReportSellerWarehousesResponse200> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall =
+        postV1StocksReportSellerWarehousesValidateBeforeCall(inventoryRequest, _callback);
+    Type localVarReturnType =
+        new TypeToken<PostV1StocksReportSellerWarehousesResponse200>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }

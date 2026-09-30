@@ -61,8 +61,23 @@ from wb_api_client.items.models.get_v2_directory_countries_response200_data_inne
 from wb_api_client.items.models.get_v2_directory_kinds_response200 import (
     GetV2DirectoryKindsResponse200,
 )
+from wb_api_client.items.models.get_v2_directory_okpd_all_response200 import (
+    GetV2DirectoryOkpdAllResponse200,
+)
+from wb_api_client.items.models.get_v2_directory_okpd_response200 import (
+    GetV2DirectoryOkpdResponse200,
+)
+from wb_api_client.items.models.get_v2_directory_okpd_response200_data_inner import (
+    GetV2DirectoryOkpdResponse200DataInner,
+)
 from wb_api_client.items.models.get_v2_directory_seasons_response200 import (
     GetV2DirectorySeasonsResponse200,
+)
+from wb_api_client.items.models.get_v2_directory_tnved_all_response200 import (
+    GetV2DirectoryTnvedAllResponse200,
+)
+from wb_api_client.items.models.get_v2_directory_tnved_all_response200_data_inner import (
+    GetV2DirectoryTnvedAllResponse200DataInner,
 )
 from wb_api_client.items.models.get_v2_directory_tnved_response200 import (
     GetV2DirectoryTnvedResponse200,

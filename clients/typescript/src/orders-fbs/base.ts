@@ -89,31 +89,31 @@ interface ServerMap {
  * @export
  */
 export const operationServerMap: ServerMap = {
-  "DefaultApi.getMarketplaceV3FbsSettingsAutoreturns": [
+  "DefaultApi.getV3FbsSettingsAutoreturns": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
     },
   ],
-  "DefaultApi.getMarketplaceV3FbsSettingsAutoreturnsSubcategoriesRestricted": [
+  "DefaultApi.getV3FbsSettingsAutoreturnsSubcategoriesRestricted": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
     },
   ],
-  "DefaultApi.patchMarketplaceV3FbsSettingsAutoreturns": [
+  "DefaultApi.patchV3FbsSettingsAutoreturns": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
     },
   ],
-  "DefaultApi.patchMarketplaceV3FbsSettingsAutoreturnsItems": [
+  "DefaultApi.patchV3FbsSettingsAutoreturnsItems": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
     },
   ],
-  "DefaultApi.postMarketplaceV3FbsSettingsAutoreturnsItems": [
+  "DefaultApi.postV3FbsSettingsAutoreturnsItems": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "**Prod** ",
