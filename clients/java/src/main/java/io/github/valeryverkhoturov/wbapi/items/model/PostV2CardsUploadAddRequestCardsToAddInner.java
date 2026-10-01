@@ -95,7 +95,7 @@ public class PostV2CardsUploadAddRequestCardsToAddInner {
 
   @SerializedName(SERIALIZED_NAME_DOCUMENTS)
   @jakarta.annotation.Nullable
-  private PostV2CardsUploadRequestInnerVariantsInnerDocuments documents;
+  private PostV2CardsUploadAddRequestCardsToAddInnerDocuments documents;
 
   public PostV2CardsUploadAddRequestCardsToAddInner() {}
 
@@ -148,11 +148,11 @@ public class PostV2CardsUploadAddRequestCardsToAddInner {
   /**
    * Подтверждение, что на товар нанесён обязательный код маркировки [Честного
    * знака](https://честныйзнак.рф/): - &#x60;true&#x60; — продавец подтверждает, что на товар
-   * нанесён обязательный код маркировки. - &#x60;false&#x60; — продавец не подтверждает, что на
+   * нанесён обязательный код маркировки - &#x60;false&#x60; — продавец не подтверждает, что на
    * товар нанесён обязательный код маркировки. Передайте в запросе &#x60;true&#x60;, чтобы
    * подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт
-   * модерацию, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на
-   * товар. Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/)
+   * проверку, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на
+   * товар Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/)
    * обязательным, используйте метод [Список карточек
    * товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа
    * &#x60;needKiz&#x60;
@@ -324,7 +324,7 @@ public class PostV2CardsUploadAddRequestCardsToAddInner {
   }
 
   public PostV2CardsUploadAddRequestCardsToAddInner documents(
-      @jakarta.annotation.Nullable PostV2CardsUploadRequestInnerVariantsInnerDocuments documents) {
+      @jakarta.annotation.Nullable PostV2CardsUploadAddRequestCardsToAddInnerDocuments documents) {
     this.documents = documents;
     return this;
   }
@@ -335,12 +335,12 @@ public class PostV2CardsUploadAddRequestCardsToAddInner {
    * @return documents
    */
   @jakarta.annotation.Nullable
-  public PostV2CardsUploadRequestInnerVariantsInnerDocuments getDocuments() {
+  public PostV2CardsUploadAddRequestCardsToAddInnerDocuments getDocuments() {
     return documents;
   }
 
   public void setDocuments(
-      @jakarta.annotation.Nullable PostV2CardsUploadRequestInnerVariantsInnerDocuments documents) {
+      @jakarta.annotation.Nullable PostV2CardsUploadAddRequestCardsToAddInnerDocuments documents) {
     this.documents = documents;
   }
 
@@ -548,7 +548,7 @@ public class PostV2CardsUploadAddRequestCardsToAddInner {
     }
     // validate the optional field `documents`
     if (jsonObj.get("documents") != null && !jsonObj.get("documents").isJsonNull()) {
-      PostV2CardsUploadRequestInnerVariantsInnerDocuments.validateJsonElement(
+      PostV2CardsUploadAddRequestCardsToAddInnerDocuments.validateJsonElement(
           jsonObj.get("documents"));
     }
   }

@@ -29,7 +29,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Результат проверки документа. Возвращается, когда проверка завершена */
+/** Результат проверки документа. Возвращается, когда проверка документа завершена */
 @jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")

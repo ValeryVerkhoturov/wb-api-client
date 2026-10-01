@@ -26,7 +26,7 @@ using OpenAPIDateConverter = ValeryVerkhoturov.WbApiClient.Items.Client.OpenAPID
 namespace ValeryVerkhoturov.WbApiClient.Items.Model
 {
     /// <summary>
-    /// Документы
+    /// Документы, прикреплённые к карточке товара. Результаты проверки каждого документа указаны в &#x60;items&#x60;. Результат проверки всей карточки товара указан в &#x60;overallVerdict&#x60;
     /// </summary>
     [DataContract(Name = "PostV2GetCardsListResponse200_cards_inner_documents")]
     public partial class PostV2GetCardsListResponse200CardsInnerDocuments : IValidatableObject
@@ -34,9 +34,9 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostV2GetCardsListResponse200CardsInnerDocuments" /> class.
         /// </summary>
-        /// <param name="items">Список документов.</param>
+        /// <param name="items">Список документов и результаты проверки каждого документа.</param>
         /// <param name="overallVerdict">overallVerdict.</param>
-        /// <param name="excludeDocuments">Исключены ли документы из проверки карточки товара:   - &#x60;true&#x60; — да, документы не проверяются при проверке карточки   - &#x60;false&#x60; — нет, документы проверяются при проверке карточки .</param>
+        /// <param name="excludeDocuments">Подтверждение продавца, что для товара не требуются разрешительные документы:   - &#x60;true&#x60; —  продавец подтверждает, что документы не требуются. Все значения, переданные в &#x60;documents&#x60;, будут заменены на пустые значения   - &#x60;false&#x60; —  продавец не подтверждает, что документы не требуются  Обязательность документов проверяется при создании и изменении карточки товара. Если для товара требуются документы и указано значение &#x60;true&#x60;, карточка не пройдёт проверку .</param>
         public PostV2GetCardsListResponse200CardsInnerDocuments(List<PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner> items = default(List<PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner>), PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict overallVerdict = default(PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict), bool excludeDocuments = default(bool))
         {
             this.Items = items;
@@ -45,9 +45,9 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         }
 
         /// <summary>
-        /// Список документов
+        /// Список документов и результаты проверки каждого документа
         /// </summary>
-        /// <value>Список документов</value>
+        /// <value>Список документов и результаты проверки каждого документа</value>
         [DataMember(Name = "items", EmitDefaultValue = false)]
         public List<PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner> Items { get; set; }
 
@@ -58,9 +58,9 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         public PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict OverallVerdict { get; set; }
 
         /// <summary>
-        /// Исключены ли документы из проверки карточки товара:   - &#x60;true&#x60; — да, документы не проверяются при проверке карточки   - &#x60;false&#x60; — нет, документы проверяются при проверке карточки 
+        /// Подтверждение продавца, что для товара не требуются разрешительные документы:   - &#x60;true&#x60; —  продавец подтверждает, что документы не требуются. Все значения, переданные в &#x60;documents&#x60;, будут заменены на пустые значения   - &#x60;false&#x60; —  продавец не подтверждает, что документы не требуются  Обязательность документов проверяется при создании и изменении карточки товара. Если для товара требуются документы и указано значение &#x60;true&#x60;, карточка не пройдёт проверку 
         /// </summary>
-        /// <value>Исключены ли документы из проверки карточки товара:   - &#x60;true&#x60; — да, документы не проверяются при проверке карточки   - &#x60;false&#x60; — нет, документы проверяются при проверке карточки </value>
+        /// <value>Подтверждение продавца, что для товара не требуются разрешительные документы:   - &#x60;true&#x60; —  продавец подтверждает, что документы не требуются. Все значения, переданные в &#x60;documents&#x60;, будут заменены на пустые значения   - &#x60;false&#x60; —  продавец не подтверждает, что документы не требуются  Обязательность документов проверяется при создании и изменении карточки товара. Если для товара требуются документы и указано значение &#x60;true&#x60;, карточка не пройдёт проверку </value>
         [DataMember(Name = "excludeDocuments", EmitDefaultValue = true)]
         public bool ExcludeDocuments { get; set; }
 

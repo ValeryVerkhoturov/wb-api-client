@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.20260930.0"
+__version__ = "1.20261001.0"
 
 # import apis into sdk package
 from wb_api_client.items.api.default_api import DefaultApi
@@ -252,6 +252,9 @@ from wb_api_client.items.models.post_v2_cards_upload_add_request_cards_to_add_in
 )
 from wb_api_client.items.models.post_v2_cards_upload_add_request_cards_to_add_inner_dimensions import (
     PostV2CardsUploadAddRequestCardsToAddInnerDimensions,
+)
+from wb_api_client.items.models.post_v2_cards_upload_add_request_cards_to_add_inner_documents import (
+    PostV2CardsUploadAddRequestCardsToAddInnerDocuments,
 )
 from wb_api_client.items.models.post_v2_cards_upload_add_request_cards_to_add_inner_sizes_inner import (
     PostV2CardsUploadAddRequestCardsToAddInnerSizesInner,

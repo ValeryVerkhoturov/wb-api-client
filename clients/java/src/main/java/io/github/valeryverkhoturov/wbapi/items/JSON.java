@@ -346,6 +346,9 @@ public class JSON {
             .PostV2CardsUploadAddRequestCardsToAddInnerDimensions.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.items.model
+            .PostV2CardsUploadAddRequestCardsToAddInnerDocuments.CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.items.model
             .PostV2CardsUploadAddRequestCardsToAddInnerSizesInner.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.items.model.PostV2CardsUploadAddResponse413

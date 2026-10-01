@@ -26,7 +26,7 @@ using OpenAPIDateConverter = ValeryVerkhoturov.WbApiClient.Items.Client.OpenAPID
 namespace ValeryVerkhoturov.WbApiClient.Items.Model
 {
     /// <summary>
-    /// Результат проверки документа. Возвращается, когда проверка завершена
+    /// Результат проверки документа. Возвращается, когда проверка документа завершена
     /// </summary>
     [DataContract(Name = "PostV2GetCardsListResponse200_cards_inner_documents_items_inner_verdict")]
     public partial class PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict : IValidatableObject

@@ -18,7 +18,7 @@ import (
 // checks if the PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict{}
 
-// PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict Результат проверки документа. Возвращается, когда проверка завершена
+// PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict Результат проверки документа. Возвращается, когда проверка документа завершена
 type PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict struct {
 	// - `true` — документ проверен - `false` — документ не проверен
 	Verified *bool `json:"verified,omitempty"`

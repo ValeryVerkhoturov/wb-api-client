@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict(BaseModel):
     """
-    Результат проверки документа. Возвращается, когда проверка завершена
+    Результат проверки документа. Возвращается, когда проверка документа завершена
     """  # noqa: E501
 
     verified: Optional[StrictBool] = Field(

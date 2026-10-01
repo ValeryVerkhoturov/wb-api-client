@@ -26,17 +26,17 @@ using OpenAPIDateConverter = ValeryVerkhoturov.WbApiClient.Items.Client.OpenAPID
 namespace ValeryVerkhoturov.WbApiClient.Items.Model
 {
     /// <summary>
-    /// Разрешительные документы карточки товара
+    /// Документы
     /// </summary>
-    [DataContract(Name = "postV2CardsUpload_request_inner_variants_inner_documents")]
-    public partial class PostV2CardsUploadRequestInnerVariantsInnerDocuments : IValidatableObject
+    [DataContract(Name = "postV2CardsUploadAdd_request_cardsToAdd_inner_documents")]
+    public partial class PostV2CardsUploadAddRequestCardsToAddInnerDocuments : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PostV2CardsUploadRequestInnerVariantsInnerDocuments" /> class.
+        /// Initializes a new instance of the <see cref="PostV2CardsUploadAddRequestCardsToAddInnerDocuments" /> class.
         /// </summary>
         /// <param name="items">Список разрешительных документов и их данные. Тип документа &#x60;type&#x60; обязателен для каждого документа .</param>
         /// <param name="excludeDocuments">Подтверждение продавца, что для товара не требуются разрешительные документы:   - &#x60;true&#x60; —  продавец подтверждает, что документы не требуются. Все значения, переданные в &#x60;documents&#x60;, будут заменены на пустые значения   - &#x60;false&#x60; —  продавец не подтверждает, что документы не требуются  Обязательность документов проверяется при создании и изменении карточки товара. Если для товара требуются документы и указано значение &#x60;true&#x60;, карточка не пройдёт проверку  (default to false).</param>
-        public PostV2CardsUploadRequestInnerVariantsInnerDocuments(List<DocumentsRequest> items = default(List<DocumentsRequest>), bool excludeDocuments = false)
+        public PostV2CardsUploadAddRequestCardsToAddInnerDocuments(List<DocumentsRequest> items = default(List<DocumentsRequest>), bool excludeDocuments = false)
         {
             this.Items = items;
             this.ExcludeDocuments = excludeDocuments;
@@ -63,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PostV2CardsUploadRequestInnerVariantsInnerDocuments {\n");
+            sb.Append("class PostV2CardsUploadAddRequestCardsToAddInnerDocuments {\n");
             sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("  ExcludeDocuments: ").Append(ExcludeDocuments).Append("\n");
             sb.Append("}\n");

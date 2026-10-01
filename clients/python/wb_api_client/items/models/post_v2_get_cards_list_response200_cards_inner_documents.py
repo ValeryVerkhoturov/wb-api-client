@@ -31,18 +31,21 @@ from typing_extensions import Self
 
 class PostV2GetCardsListResponse200CardsInnerDocuments(BaseModel):
     """
-    Документы
+    Документы, прикреплённые к карточке товара. Результаты проверки каждого документа указаны в `items`. Результат проверки всей карточки товара указан в `overallVerdict`
     """  # noqa: E501
 
     items: Optional[
         List[PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner]
-    ] = Field(default=None, description="Список документов")
+    ] = Field(
+        default=None,
+        description="Список документов и результаты проверки каждого документа",
+    )
     overall_verdict: Optional[
         PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict
     ] = Field(default=None, alias="overallVerdict")
     exclude_documents: Optional[StrictBool] = Field(
         default=None,
-        description="Исключены ли документы из проверки карточки товара:   - `true` — да, документы не проверяются при проверке карточки   - `false` — нет, документы проверяются при проверке карточки ",
+        description="Подтверждение продавца, что для товара не требуются разрешительные документы:   - `true` —  продавец подтверждает, что документы не требуются. Все значения, переданные в `documents`, будут заменены на пустые значения   - `false` —  продавец не подтверждает, что документы не требуются  Обязательность документов проверяется при создании и изменении карточки товара. Если для товара требуются документы и указано значение `true`, карточка не пройдёт проверку ",
         alias="excludeDocuments",
     )
     __properties: ClassVar[List[str]] = ["items", "overallVerdict", "excludeDocuments"]

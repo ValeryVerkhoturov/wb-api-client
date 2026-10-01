@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.20260930.0"
+__version__ = "1.20261001.0"
 
 # import apis into sdk package
 from wb_api_client.in_store_pickup.api.api import Api

@@ -19,20 +19,19 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.items.models.post_v2_cards_update_request_inner_documents_items_inner import (
-    PostV2CardsUpdateRequestInnerDocumentsItemsInner,
-)
+from wb_api_client.items.models.documents_request import DocumentsRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
 
-class PostV2CardsUpdateRequestInnerDocuments(BaseModel):
+class PostV2CardsUploadAddRequestCardsToAddInnerDocuments(BaseModel):
     """
-    Разрешительные документы карточки товара
+    Документы
     """  # noqa: E501
 
-    items: Optional[List[PostV2CardsUpdateRequestInnerDocumentsItemsInner]] = Field(
-        default=None, description="Список разрешительных документов и их данные"
+    items: Optional[List[DocumentsRequest]] = Field(
+        default=None,
+        description="Список разрешительных документов и их данные. Тип документа `type` обязателен для каждого документа ",
     )
     exclude_documents: Optional[StrictBool] = Field(
         default=False,
@@ -58,7 +57,7 @@ class PostV2CardsUpdateRequestInnerDocuments(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PostV2CardsUpdateRequestInnerDocuments from a JSON string"""
+        """Create an instance of PostV2CardsUploadAddRequestCardsToAddInnerDocuments from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -89,7 +88,7 @@ class PostV2CardsUpdateRequestInnerDocuments(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PostV2CardsUpdateRequestInnerDocuments from a dict"""
+        """Create an instance of PostV2CardsUploadAddRequestCardsToAddInnerDocuments from a dict"""
         if obj is None:
             return None
 
@@ -99,12 +98,7 @@ class PostV2CardsUpdateRequestInnerDocuments(BaseModel):
         _obj = cls.model_validate(
             {
                 "items": (
-                    [
-                        PostV2CardsUpdateRequestInnerDocumentsItemsInner.from_dict(
-                            _item
-                        )
-                        for _item in obj["items"]
-                    ]
+                    [DocumentsRequest.from_dict(_item) for _item in obj["items"]]
                     if obj.get("items") is not None
                     else None
                 ),

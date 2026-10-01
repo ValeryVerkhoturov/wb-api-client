@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict(BaseModel):
     """
-    Результат проверки карточки товара. Возвращается, когда проверка завершена
+    Общий результат проверки всей карточки товара. Возвращается, когда проверка завершена. Результаты проверок отдельных документов и общий результат карточки могут различаться. Например, карточка может пройти проверку, если обязательный документ прошёл проверку, а дополнительный документ не прошёл
     """  # noqa: E501
 
     is_fully_checked: Optional[StrictBool] = Field(
@@ -40,7 +40,7 @@ class PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict(BaseModel):
     )
     reason: Optional[StrictStr] = Field(
         default=None,
-        description="Ошибка при проверке, возвращается для `status: 2`. Возможные значения: - `tnved\\_missing` — Не указан код ТН ВЭД - `supplier\\_inn\\_missing` — Не указан ИНН - `supplier\\_not\\_registered` — Поставщик не найден в реестре - `supplier\\_inactive` — Ошибка в статусе поставщика, проверьте его в реестре - `product\\_group\\_not\\_registered` — Добавлена неверная товарная группа в системе маркировки - `kiz\\_required` — Этот товар нельзя продавать в России без кода маркировки Честного Знака - `kiz\\_certificate\\_missing` — Нет подтверждения, что на товар нанесена необходимая маркировка",
+        description="Ошибка при проверке, возвращается для `status: 2`. Указывается только 1 причина. Если карточка не прошла проверку по нескольким причинам, то после исправления первой причины, вернётся следующая. Возможные значения: - `tnved\\_missing` — Не указан код ТН ВЭД - `supplier\\_inn\\_missing` — Не указан ИНН - `supplier\\_not\\_registered` — Поставщик не найден в реестре - `supplier\\_inactive` — Ошибка в статусе поставщика, проверьте его в реестре - `product\\_group\\_not\\_registered` — Добавлена неверная товарная группа в системе маркировки - `kiz\\_required` — Этот товар нельзя продавать в России без кода маркировки Честного Знака - `kiz\\_certificate\\_missing` — Нет подтверждения, что на товар нанесена необходимая маркировка",
     )
     created_at: Optional[datetime] = Field(
         default=None,

@@ -14,39 +14,42 @@ import (
 	"encoding/json"
 )
 
-// checks if the PostV2GetCardsListResponse200CardsInnerDocuments type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &PostV2GetCardsListResponse200CardsInnerDocuments{}
+// checks if the PostV2CardsUploadAddRequestCardsToAddInnerDocuments type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PostV2CardsUploadAddRequestCardsToAddInnerDocuments{}
 
-// PostV2GetCardsListResponse200CardsInnerDocuments Документы, прикреплённые к карточке товара. Результаты проверки каждого документа указаны в `items`. Результат проверки всей карточки товара указан в `overallVerdict`
-type PostV2GetCardsListResponse200CardsInnerDocuments struct {
-	// Список документов и результаты проверки каждого документа
-	Items          []PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner    `json:"items,omitempty"`
-	OverallVerdict *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict `json:"overallVerdict,omitempty"`
+// PostV2CardsUploadAddRequestCardsToAddInnerDocuments Документы
+type PostV2CardsUploadAddRequestCardsToAddInnerDocuments struct {
+	// Список разрешительных документов и их данные. Тип документа `type` обязателен для каждого документа
+	Items []DocumentsRequest `json:"items,omitempty"`
 	// Подтверждение продавца, что для товара не требуются разрешительные документы:   - `true` —  продавец подтверждает, что документы не требуются. Все значения, переданные в `documents`, будут заменены на пустые значения   - `false` —  продавец не подтверждает, что документы не требуются  Обязательность документов проверяется при создании и изменении карточки товара. Если для товара требуются документы и указано значение `true`, карточка не пройдёт проверку
 	ExcludeDocuments *bool `json:"excludeDocuments,omitempty"`
 }
 
-// NewPostV2GetCardsListResponse200CardsInnerDocuments instantiates a new PostV2GetCardsListResponse200CardsInnerDocuments object
+// NewPostV2CardsUploadAddRequestCardsToAddInnerDocuments instantiates a new PostV2CardsUploadAddRequestCardsToAddInnerDocuments object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostV2GetCardsListResponse200CardsInnerDocuments() *PostV2GetCardsListResponse200CardsInnerDocuments {
-	this := PostV2GetCardsListResponse200CardsInnerDocuments{}
+func NewPostV2CardsUploadAddRequestCardsToAddInnerDocuments() *PostV2CardsUploadAddRequestCardsToAddInnerDocuments {
+	this := PostV2CardsUploadAddRequestCardsToAddInnerDocuments{}
+	var excludeDocuments bool = false
+	this.ExcludeDocuments = &excludeDocuments
 	return &this
 }
 
-// NewPostV2GetCardsListResponse200CardsInnerDocumentsWithDefaults instantiates a new PostV2GetCardsListResponse200CardsInnerDocuments object
+// NewPostV2CardsUploadAddRequestCardsToAddInnerDocumentsWithDefaults instantiates a new PostV2CardsUploadAddRequestCardsToAddInnerDocuments object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewPostV2GetCardsListResponse200CardsInnerDocumentsWithDefaults() *PostV2GetCardsListResponse200CardsInnerDocuments {
-	this := PostV2GetCardsListResponse200CardsInnerDocuments{}
+func NewPostV2CardsUploadAddRequestCardsToAddInnerDocumentsWithDefaults() *PostV2CardsUploadAddRequestCardsToAddInnerDocuments {
+	this := PostV2CardsUploadAddRequestCardsToAddInnerDocuments{}
+	var excludeDocuments bool = false
+	this.ExcludeDocuments = &excludeDocuments
 	return &this
 }
 
 // GetItems returns the Items field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200CardsInnerDocuments) GetItems() []PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner {
+func (o *PostV2CardsUploadAddRequestCardsToAddInnerDocuments) GetItems() []DocumentsRequest {
 	if o == nil || IsNil(o.Items) {
-		var ret []PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner
+		var ret []DocumentsRequest
 		return ret
 	}
 	return o.Items
@@ -54,7 +57,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocuments) GetItems() []PostV2Ge
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200CardsInnerDocuments) GetItemsOk() ([]PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner, bool) {
+func (o *PostV2CardsUploadAddRequestCardsToAddInnerDocuments) GetItemsOk() ([]DocumentsRequest, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
@@ -62,7 +65,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocuments) GetItemsOk() ([]PostV
 }
 
 // HasItems returns a boolean if a field has been set.
-func (o *PostV2GetCardsListResponse200CardsInnerDocuments) HasItems() bool {
+func (o *PostV2CardsUploadAddRequestCardsToAddInnerDocuments) HasItems() bool {
 	if o != nil && !IsNil(o.Items) {
 		return true
 	}
@@ -70,45 +73,13 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocuments) HasItems() bool {
 	return false
 }
 
-// SetItems gets a reference to the given []PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner and assigns it to the Items field.
-func (o *PostV2GetCardsListResponse200CardsInnerDocuments) SetItems(v []PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) {
+// SetItems gets a reference to the given []DocumentsRequest and assigns it to the Items field.
+func (o *PostV2CardsUploadAddRequestCardsToAddInnerDocuments) SetItems(v []DocumentsRequest) {
 	o.Items = v
 }
 
-// GetOverallVerdict returns the OverallVerdict field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200CardsInnerDocuments) GetOverallVerdict() PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict {
-	if o == nil || IsNil(o.OverallVerdict) {
-		var ret PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict
-		return ret
-	}
-	return *o.OverallVerdict
-}
-
-// GetOverallVerdictOk returns a tuple with the OverallVerdict field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200CardsInnerDocuments) GetOverallVerdictOk() (*PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict, bool) {
-	if o == nil || IsNil(o.OverallVerdict) {
-		return nil, false
-	}
-	return o.OverallVerdict, true
-}
-
-// HasOverallVerdict returns a boolean if a field has been set.
-func (o *PostV2GetCardsListResponse200CardsInnerDocuments) HasOverallVerdict() bool {
-	if o != nil && !IsNil(o.OverallVerdict) {
-		return true
-	}
-
-	return false
-}
-
-// SetOverallVerdict gets a reference to the given PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict and assigns it to the OverallVerdict field.
-func (o *PostV2GetCardsListResponse200CardsInnerDocuments) SetOverallVerdict(v PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) {
-	o.OverallVerdict = &v
-}
-
 // GetExcludeDocuments returns the ExcludeDocuments field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200CardsInnerDocuments) GetExcludeDocuments() bool {
+func (o *PostV2CardsUploadAddRequestCardsToAddInnerDocuments) GetExcludeDocuments() bool {
 	if o == nil || IsNil(o.ExcludeDocuments) {
 		var ret bool
 		return ret
@@ -118,7 +89,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocuments) GetExcludeDocuments()
 
 // GetExcludeDocumentsOk returns a tuple with the ExcludeDocuments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200CardsInnerDocuments) GetExcludeDocumentsOk() (*bool, bool) {
+func (o *PostV2CardsUploadAddRequestCardsToAddInnerDocuments) GetExcludeDocumentsOk() (*bool, bool) {
 	if o == nil || IsNil(o.ExcludeDocuments) {
 		return nil, false
 	}
@@ -126,7 +97,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocuments) GetExcludeDocumentsOk
 }
 
 // HasExcludeDocuments returns a boolean if a field has been set.
-func (o *PostV2GetCardsListResponse200CardsInnerDocuments) HasExcludeDocuments() bool {
+func (o *PostV2CardsUploadAddRequestCardsToAddInnerDocuments) HasExcludeDocuments() bool {
 	if o != nil && !IsNil(o.ExcludeDocuments) {
 		return true
 	}
@@ -135,11 +106,11 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocuments) HasExcludeDocuments()
 }
 
 // SetExcludeDocuments gets a reference to the given bool and assigns it to the ExcludeDocuments field.
-func (o *PostV2GetCardsListResponse200CardsInnerDocuments) SetExcludeDocuments(v bool) {
+func (o *PostV2CardsUploadAddRequestCardsToAddInnerDocuments) SetExcludeDocuments(v bool) {
 	o.ExcludeDocuments = &v
 }
 
-func (o PostV2GetCardsListResponse200CardsInnerDocuments) MarshalJSON() ([]byte, error) {
+func (o PostV2CardsUploadAddRequestCardsToAddInnerDocuments) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -147,13 +118,10 @@ func (o PostV2GetCardsListResponse200CardsInnerDocuments) MarshalJSON() ([]byte,
 	return json.Marshal(toSerialize)
 }
 
-func (o PostV2GetCardsListResponse200CardsInnerDocuments) ToMap() (map[string]interface{}, error) {
+func (o PostV2CardsUploadAddRequestCardsToAddInnerDocuments) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Items) {
 		toSerialize["items"] = o.Items
-	}
-	if !IsNil(o.OverallVerdict) {
-		toSerialize["overallVerdict"] = o.OverallVerdict
 	}
 	if !IsNil(o.ExcludeDocuments) {
 		toSerialize["excludeDocuments"] = o.ExcludeDocuments
@@ -161,38 +129,38 @@ func (o PostV2GetCardsListResponse200CardsInnerDocuments) ToMap() (map[string]in
 	return toSerialize, nil
 }
 
-type NullablePostV2GetCardsListResponse200CardsInnerDocuments struct {
-	value *PostV2GetCardsListResponse200CardsInnerDocuments
+type NullablePostV2CardsUploadAddRequestCardsToAddInnerDocuments struct {
+	value *PostV2CardsUploadAddRequestCardsToAddInnerDocuments
 	isSet bool
 }
 
-func (v NullablePostV2GetCardsListResponse200CardsInnerDocuments) Get() *PostV2GetCardsListResponse200CardsInnerDocuments {
+func (v NullablePostV2CardsUploadAddRequestCardsToAddInnerDocuments) Get() *PostV2CardsUploadAddRequestCardsToAddInnerDocuments {
 	return v.value
 }
 
-func (v *NullablePostV2GetCardsListResponse200CardsInnerDocuments) Set(val *PostV2GetCardsListResponse200CardsInnerDocuments) {
+func (v *NullablePostV2CardsUploadAddRequestCardsToAddInnerDocuments) Set(val *PostV2CardsUploadAddRequestCardsToAddInnerDocuments) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullablePostV2GetCardsListResponse200CardsInnerDocuments) IsSet() bool {
+func (v NullablePostV2CardsUploadAddRequestCardsToAddInnerDocuments) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullablePostV2GetCardsListResponse200CardsInnerDocuments) Unset() {
+func (v *NullablePostV2CardsUploadAddRequestCardsToAddInnerDocuments) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullablePostV2GetCardsListResponse200CardsInnerDocuments(val *PostV2GetCardsListResponse200CardsInnerDocuments) *NullablePostV2GetCardsListResponse200CardsInnerDocuments {
-	return &NullablePostV2GetCardsListResponse200CardsInnerDocuments{value: val, isSet: true}
+func NewNullablePostV2CardsUploadAddRequestCardsToAddInnerDocuments(val *PostV2CardsUploadAddRequestCardsToAddInnerDocuments) *NullablePostV2CardsUploadAddRequestCardsToAddInnerDocuments {
+	return &NullablePostV2CardsUploadAddRequestCardsToAddInnerDocuments{value: val, isSet: true}
 }
 
-func (v NullablePostV2GetCardsListResponse200CardsInnerDocuments) MarshalJSON() ([]byte, error) {
+func (v NullablePostV2CardsUploadAddRequestCardsToAddInnerDocuments) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullablePostV2GetCardsListResponse200CardsInnerDocuments) UnmarshalJSON(src []byte) error {
+func (v *NullablePostV2CardsUploadAddRequestCardsToAddInnerDocuments) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

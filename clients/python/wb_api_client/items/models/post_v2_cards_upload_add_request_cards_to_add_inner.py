@@ -26,11 +26,11 @@ from wb_api_client.items.models.post_v2_cards_update_request_inner_characteristi
 from wb_api_client.items.models.post_v2_cards_upload_add_request_cards_to_add_inner_dimensions import (
     PostV2CardsUploadAddRequestCardsToAddInnerDimensions,
 )
+from wb_api_client.items.models.post_v2_cards_upload_add_request_cards_to_add_inner_documents import (
+    PostV2CardsUploadAddRequestCardsToAddInnerDocuments,
+)
 from wb_api_client.items.models.post_v2_cards_upload_add_request_cards_to_add_inner_sizes_inner import (
     PostV2CardsUploadAddRequestCardsToAddInnerSizesInner,
-)
-from wb_api_client.items.models.post_v2_cards_upload_request_inner_variants_inner_documents import (
-    PostV2CardsUploadRequestInnerVariantsInnerDocuments,
 )
 from wb_api_client.items.models.post_v2_cards_upload_request_inner_variants_inner_wholesale import (
     PostV2CardsUploadRequestInnerVariantsInnerWholesale,
@@ -50,7 +50,7 @@ class PostV2CardsUploadAddRequestCardsToAddInner(BaseModel):
     )
     kiz_marked: Optional[StrictBool] = Field(
         default=False,
-        description="Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки.   - `false` — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт модерацию, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на товар.  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа `needKiz` ",
+        description="Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - `true` — продавец подтверждает, что на товар нанесён обязательный код маркировки   - `false` — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе `true`, чтобы подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт проверку, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на товар  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа `needKiz` ",
         alias="kizMarked",
     )
     wholesale: Optional[PostV2CardsUploadRequestInnerVariantsInnerWholesale] = None
@@ -72,7 +72,7 @@ class PostV2CardsUploadAddRequestCardsToAddInner(BaseModel):
         default=None,
         description="Характеристики товара.  Можно получить методом [Характеристики предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId)",
     )
-    documents: Optional[PostV2CardsUploadRequestInnerVariantsInnerDocuments] = None
+    documents: Optional[PostV2CardsUploadAddRequestCardsToAddInnerDocuments] = None
     __properties: ClassVar[List[str]] = [
         "brand",
         "vendorCode",
@@ -201,7 +201,7 @@ class PostV2CardsUploadAddRequestCardsToAddInner(BaseModel):
                     else None
                 ),
                 "documents": (
-                    PostV2CardsUploadRequestInnerVariantsInnerDocuments.from_dict(
+                    PostV2CardsUploadAddRequestCardsToAddInnerDocuments.from_dict(
                         obj["documents"]
                     )
                     if obj.get("documents") is not None

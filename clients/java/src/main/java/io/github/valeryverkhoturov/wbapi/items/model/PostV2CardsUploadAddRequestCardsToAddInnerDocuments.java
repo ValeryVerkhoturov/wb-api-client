@@ -31,44 +31,33 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/**
- * Документы, прикреплённые к карточке товара. Результаты проверки каждого документа указаны в
- * &#x60;items&#x60;. Результат проверки всей карточки товара указан в &#x60;overallVerdict&#x60;
- */
+/** Документы */
 @jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
-public class PostV2GetCardsListResponse200CardsInnerDocuments {
+public class PostV2CardsUploadAddRequestCardsToAddInnerDocuments {
   public static final String SERIALIZED_NAME_ITEMS = "items";
 
   @SerializedName(SERIALIZED_NAME_ITEMS)
   @jakarta.annotation.Nullable
-  private List<PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner> items =
-      new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_OVERALL_VERDICT = "overallVerdict";
-
-  @SerializedName(SERIALIZED_NAME_OVERALL_VERDICT)
-  @jakarta.annotation.Nullable
-  private PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict overallVerdict;
+  private List<DocumentsRequest> items = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_EXCLUDE_DOCUMENTS = "excludeDocuments";
 
   @SerializedName(SERIALIZED_NAME_EXCLUDE_DOCUMENTS)
   @jakarta.annotation.Nullable
-  private Boolean excludeDocuments;
+  private Boolean excludeDocuments = false;
 
-  public PostV2GetCardsListResponse200CardsInnerDocuments() {}
+  public PostV2CardsUploadAddRequestCardsToAddInnerDocuments() {}
 
-  public PostV2GetCardsListResponse200CardsInnerDocuments items(
-      @jakarta.annotation.Nullable
-          List<PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner> items) {
+  public PostV2CardsUploadAddRequestCardsToAddInnerDocuments items(
+      @jakarta.annotation.Nullable List<DocumentsRequest> items) {
     this.items = items;
     return this;
   }
 
-  public PostV2GetCardsListResponse200CardsInnerDocuments addItemsItem(
-      PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner itemsItem) {
+  public PostV2CardsUploadAddRequestCardsToAddInnerDocuments addItemsItem(
+      DocumentsRequest itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -77,45 +66,21 @@ public class PostV2GetCardsListResponse200CardsInnerDocuments {
   }
 
   /**
-   * Список документов и результаты проверки каждого документа
+   * Список разрешительных документов и их данные. Тип документа &#x60;type&#x60; обязателен для
+   * каждого документа
    *
    * @return items
    */
   @jakarta.annotation.Nullable
-  public List<PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner> getItems() {
+  public List<DocumentsRequest> getItems() {
     return items;
   }
 
-  public void setItems(
-      @jakarta.annotation.Nullable
-          List<PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner> items) {
+  public void setItems(@jakarta.annotation.Nullable List<DocumentsRequest> items) {
     this.items = items;
   }
 
-  public PostV2GetCardsListResponse200CardsInnerDocuments overallVerdict(
-      @jakarta.annotation.Nullable
-          PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict overallVerdict) {
-    this.overallVerdict = overallVerdict;
-    return this;
-  }
-
-  /**
-   * Get overallVerdict
-   *
-   * @return overallVerdict
-   */
-  @jakarta.annotation.Nullable
-  public PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict getOverallVerdict() {
-    return overallVerdict;
-  }
-
-  public void setOverallVerdict(
-      @jakarta.annotation.Nullable
-          PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict overallVerdict) {
-    this.overallVerdict = overallVerdict;
-  }
-
-  public PostV2GetCardsListResponse200CardsInnerDocuments excludeDocuments(
+  public PostV2CardsUploadAddRequestCardsToAddInnerDocuments excludeDocuments(
       @jakarta.annotation.Nullable Boolean excludeDocuments) {
     this.excludeDocuments = excludeDocuments;
     return this;
@@ -148,28 +113,25 @@ public class PostV2GetCardsListResponse200CardsInnerDocuments {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PostV2GetCardsListResponse200CardsInnerDocuments
-        postV2GetCardsListResponse200CardsInnerDocuments =
-            (PostV2GetCardsListResponse200CardsInnerDocuments) o;
-    return Objects.equals(this.items, postV2GetCardsListResponse200CardsInnerDocuments.items)
-        && Objects.equals(
-            this.overallVerdict, postV2GetCardsListResponse200CardsInnerDocuments.overallVerdict)
+    PostV2CardsUploadAddRequestCardsToAddInnerDocuments
+        postV2CardsUploadAddRequestCardsToAddInnerDocuments =
+            (PostV2CardsUploadAddRequestCardsToAddInnerDocuments) o;
+    return Objects.equals(this.items, postV2CardsUploadAddRequestCardsToAddInnerDocuments.items)
         && Objects.equals(
             this.excludeDocuments,
-            postV2GetCardsListResponse200CardsInnerDocuments.excludeDocuments);
+            postV2CardsUploadAddRequestCardsToAddInnerDocuments.excludeDocuments);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items, overallVerdict, excludeDocuments);
+    return Objects.hash(items, excludeDocuments);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PostV2GetCardsListResponse200CardsInnerDocuments {\n");
+    sb.append("class PostV2CardsUploadAddRequestCardsToAddInnerDocuments {\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
-    sb.append("    overallVerdict: ").append(toIndentedString(overallVerdict)).append("\n");
     sb.append("    excludeDocuments: ").append(toIndentedString(excludeDocuments)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -192,7 +154,6 @@ public class PostV2GetCardsListResponse200CardsInnerDocuments {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("items");
-    openapiFields.add("overallVerdict");
     openapiFields.add("excludeDocuments");
 
     // a set of required properties/fields (JSON key names)
@@ -204,27 +165,28 @@ public class PostV2GetCardsListResponse200CardsInnerDocuments {
    *
    * @param jsonElement JSON Element
    * @throws IOException if the JSON Element is invalid with respect to
-   *     PostV2GetCardsListResponse200CardsInnerDocuments
+   *     PostV2CardsUploadAddRequestCardsToAddInnerDocuments
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
     if (jsonElement == null) {
-      if (!PostV2GetCardsListResponse200CardsInnerDocuments.openapiRequiredFields
+      if (!PostV2CardsUploadAddRequestCardsToAddInnerDocuments.openapiRequiredFields
           .isEmpty()) { // has required fields but JSON element is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in PostV2GetCardsListResponse200CardsInnerDocuments is not found in the empty JSON string",
-                PostV2GetCardsListResponse200CardsInnerDocuments.openapiRequiredFields.toString()));
+                "The required field(s) %s in PostV2CardsUploadAddRequestCardsToAddInnerDocuments is not found in the empty JSON string",
+                PostV2CardsUploadAddRequestCardsToAddInnerDocuments.openapiRequiredFields
+                    .toString()));
       }
     }
 
     Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
     // check to see if the JSON string contains additional fields
     for (Map.Entry<String, JsonElement> entry : entries) {
-      if (!PostV2GetCardsListResponse200CardsInnerDocuments.openapiFields.contains(
+      if (!PostV2CardsUploadAddRequestCardsToAddInnerDocuments.openapiFields.contains(
           entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `PostV2GetCardsListResponse200CardsInnerDocuments` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `PostV2CardsUploadAddRequestCardsToAddInnerDocuments` properties. JSON: %s",
                 entry.getKey(), jsonElement.toString()));
       }
     }
@@ -242,16 +204,10 @@ public class PostV2GetCardsListResponse200CardsInnerDocuments {
 
         // validate the optional field `items` (array)
         for (int i = 0; i < jsonArrayitems.size(); i++) {
-          PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner.validateJsonElement(
-              jsonArrayitems.get(i));
+          DocumentsRequest.validateJsonElement(jsonArrayitems.get(i));
         }
         ;
       }
-    }
-    // validate the optional field `overallVerdict`
-    if (jsonObj.get("overallVerdict") != null && !jsonObj.get("overallVerdict").isJsonNull()) {
-      PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict.validateJsonElement(
-          jsonObj.get("overallVerdict"));
     }
   }
 
@@ -259,28 +215,28 @@ public class PostV2GetCardsListResponse200CardsInnerDocuments {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-      if (!PostV2GetCardsListResponse200CardsInnerDocuments.class.isAssignableFrom(
+      if (!PostV2CardsUploadAddRequestCardsToAddInnerDocuments.class.isAssignableFrom(
           type.getRawType())) {
         return null; // this class only serializes
-        // 'PostV2GetCardsListResponse200CardsInnerDocuments' and its subtypes
+        // 'PostV2CardsUploadAddRequestCardsToAddInnerDocuments' and its subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-      final TypeAdapter<PostV2GetCardsListResponse200CardsInnerDocuments> thisAdapter =
+      final TypeAdapter<PostV2CardsUploadAddRequestCardsToAddInnerDocuments> thisAdapter =
           gson.getDelegateAdapter(
-              this, TypeToken.get(PostV2GetCardsListResponse200CardsInnerDocuments.class));
+              this, TypeToken.get(PostV2CardsUploadAddRequestCardsToAddInnerDocuments.class));
 
       return (TypeAdapter<T>)
-          new TypeAdapter<PostV2GetCardsListResponse200CardsInnerDocuments>() {
+          new TypeAdapter<PostV2CardsUploadAddRequestCardsToAddInnerDocuments>() {
             @Override
             public void write(
-                JsonWriter out, PostV2GetCardsListResponse200CardsInnerDocuments value)
+                JsonWriter out, PostV2CardsUploadAddRequestCardsToAddInnerDocuments value)
                 throws IOException {
               JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
               elementAdapter.write(out, obj);
             }
 
             @Override
-            public PostV2GetCardsListResponse200CardsInnerDocuments read(JsonReader in)
+            public PostV2CardsUploadAddRequestCardsToAddInnerDocuments read(JsonReader in)
                 throws IOException {
               JsonElement jsonElement = elementAdapter.read(in);
               validateJsonElement(jsonElement);
@@ -291,21 +247,21 @@ public class PostV2GetCardsListResponse200CardsInnerDocuments {
   }
 
   /**
-   * Create an instance of PostV2GetCardsListResponse200CardsInnerDocuments given an JSON string
+   * Create an instance of PostV2CardsUploadAddRequestCardsToAddInnerDocuments given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of PostV2GetCardsListResponse200CardsInnerDocuments
+   * @return An instance of PostV2CardsUploadAddRequestCardsToAddInnerDocuments
    * @throws IOException if the JSON string is invalid with respect to
-   *     PostV2GetCardsListResponse200CardsInnerDocuments
+   *     PostV2CardsUploadAddRequestCardsToAddInnerDocuments
    */
-  public static PostV2GetCardsListResponse200CardsInnerDocuments fromJson(String jsonString)
+  public static PostV2CardsUploadAddRequestCardsToAddInnerDocuments fromJson(String jsonString)
       throws IOException {
     return JSON.getGson()
-        .fromJson(jsonString, PostV2GetCardsListResponse200CardsInnerDocuments.class);
+        .fromJson(jsonString, PostV2CardsUploadAddRequestCardsToAddInnerDocuments.class);
   }
 
   /**
-   * Convert an instance of PostV2GetCardsListResponse200CardsInnerDocuments to an JSON string
+   * Convert an instance of PostV2CardsUploadAddRequestCardsToAddInnerDocuments to an JSON string
    *
    * @return JSON string
    */
