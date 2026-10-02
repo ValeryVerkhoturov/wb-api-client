@@ -93,9 +93,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         [DataMember(Name = "crossBorderType", EmitDefaultValue = true)]
         public CrossBorderTypeEnum? CrossBorderType { get; set; }
         /// <summary>
-        /// Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию. Для этого способа обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле &#x60;waybillUuid&#x60; 
+        /// Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию 
         /// </summary>
-        /// <value>Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию. Для этого способа обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле &#x60;waybillUuid&#x60; </value>
+        /// <value>Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ShippingTypeEnum
         {
@@ -114,9 +114,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
 
 
         /// <summary>
-        /// Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию. Для этого способа обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле &#x60;waybillUuid&#x60; 
+        /// Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию 
         /// </summary>
-        /// <value>Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию. Для этого способа обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле &#x60;waybillUuid&#x60; </value>
+        /// <value>Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию </value>
         /*
         <example>selfShipping</example>
         */
@@ -144,8 +144,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="recommendedWhId">ID рекомендуемого склада для приёмки поставки для Москвы и МО. Рекомендуется ближайший к покупателям склад, который определяется автоматически при передаче поставки в доставку с учётом параметров всех сборочных заданий в поставке. Если &#x60;0&#x60;, рекомендуемый склад не определён.</param>
         /// <param name="shippingDt">Планируемая дата отгрузки поставки, формат &#x60;YYYY-MM-DD&#x60;.</param>
         /// <param name="shippingPointId">ID пункта отгрузки. Можно получить в методе получения [пунктов отгрузки поставок](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints).</param>
-        /// <param name="shippingType">Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию. Для этого способа обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле &#x60;waybillUuid&#x60; .</param>
-        /// <param name="waybillUuid">ID ЭТрН — электронной транспортной накладной. Обязателен при &#x60;\&quot;shippingType\&quot;:\&quot;transportCompany\&quot;&#x60;.</param>
+        /// <param name="shippingType">Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию .</param>
+        /// <param name="waybillUuid">ID ЭТрН — электронной транспортной накладной.</param>
         /// <param name="spotAvailable">Доступен ли СПОТ для этой поставки:   - &#x60;true&#x60; — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)   - &#x60;false&#x60; — нет  (required).</param>
         public Supply(string id = default(string), bool? isB2b = default(bool?), bool isPickupPointShipmentAllowed = default(bool), bool done = default(bool), DateTime createdAt = default(DateTime), DateTime? closedAt = default(DateTime?), DateTime? scanDt = default(DateTime?), string name = default(string), CargoTypeEnum? cargoType = default(CargoTypeEnum?), CrossBorderTypeEnum? crossBorderType = default(CrossBorderTypeEnum?), long? destinationOfficeId = default(long?), long recommendedWhId = default(long), string shippingDt = default(string), int? shippingPointId = default(int?), ShippingTypeEnum? shippingType = default(ShippingTypeEnum?), string waybillUuid = default(string), bool spotAvailable = default(bool))
         {
@@ -283,9 +283,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         public int? ShippingPointId { get; set; }
 
         /// <summary>
-        /// ID ЭТрН — электронной транспортной накладной. Обязателен при &#x60;\&quot;shippingType\&quot;:\&quot;transportCompany\&quot;&#x60;
+        /// ID ЭТрН — электронной транспортной накладной
         /// </summary>
-        /// <value>ID ЭТрН — электронной транспортной накладной. Обязателен при &#x60;\&quot;shippingType\&quot;:\&quot;transportCompany\&quot;&#x60;</value>
+        /// <value>ID ЭТрН — электронной транспортной накладной</value>
         /*
         <example>550e8400-e29b-41d4-a716-384579387429</example>
         */

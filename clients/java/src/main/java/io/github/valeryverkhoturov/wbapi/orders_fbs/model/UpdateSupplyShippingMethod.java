@@ -48,9 +48,7 @@ public class UpdateSupplyShippingMethod {
 
   /**
    * Способ доставки до пункта отгрузки: - &#x60;selfShipping&#x60; — доставка силами продавца -
-   * &#x60;transportCompany&#x60; — доставка через транспортную компанию. Для этого способа
-   * обязательно [укажите ID ЭТрН](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill)
-   * — электронной транспортной накладной — в поле &#x60;waybillUuid&#x60;
+   * &#x60;transportCompany&#x60; — доставка через транспортную компанию
    */
   @JsonAdapter(ShippingTypeEnum.Adapter.class)
   public enum ShippingTypeEnum {
@@ -164,9 +162,7 @@ public class UpdateSupplyShippingMethod {
 
   /**
    * Способ доставки до пункта отгрузки: - &#x60;selfShipping&#x60; — доставка силами продавца -
-   * &#x60;transportCompany&#x60; — доставка через транспортную компанию. Для этого способа
-   * обязательно [укажите ID ЭТрН](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill)
-   * — электронной транспортной накладной — в поле &#x60;waybillUuid&#x60;
+   * &#x60;transportCompany&#x60; — доставка через транспортную компанию
    *
    * @return shippingType
    */

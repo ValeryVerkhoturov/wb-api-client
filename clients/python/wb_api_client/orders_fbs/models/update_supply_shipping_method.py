@@ -37,7 +37,7 @@ class UpdateSupplyShippingMethod(BaseModel):
         alias="shippingPointId",
     )
     shipping_type: StrictStr = Field(
-        description="Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно [укажите ID ЭТрН](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) — электронной транспортной накладной — в поле `waybillUuid` ",
+        description="Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию ",
         alias="shippingType",
     )
     supply_id: StrictStr = Field(description="ID поставки", alias="supplyId")

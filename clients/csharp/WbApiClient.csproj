@@ -15,7 +15,7 @@
     <RootNamespace>ValeryVerkhoturov.WbApiClient</RootNamespace>
 
     <PackageId>ValeryVerkhoturov.WbApiClient</PackageId>
-    <Version>1.20261001.0</Version>
+    <Version>1.20261002.0</Version>
     <Authors>Valery Verkhoturov</Authors>
     <Description>Auto-generated Wildberries Seller API client. All 13 API categories as isolated namespaces.</Description>
     <PackageTags>wildberries;wb;api;client;openapi;sdk</PackageTags>

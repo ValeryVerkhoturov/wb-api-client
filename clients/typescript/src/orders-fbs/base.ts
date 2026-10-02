@@ -289,12 +289,6 @@ export const operationServerMap: ServerMap = {
       description: "No description provided",
     },
   ],
-  "FBSApi.patchV3FbsSuppliesWaybill": [
-    {
-      url: "https://marketplace-api.wildberries.ru",
-      description: "No description provided",
-    },
-  ],
   "FBSApi.patchV3OrdersOrderIdCancel": [
     {
       url: "https://marketplace-api.wildberries.ru",

@@ -32,7 +32,6 @@ import io.github.valeryverkhoturov.wbapi.orders_fbs.model.OrdersRequestAPI;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.Pass;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PassOffice;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PatchV3FbsSuppliesShippingMethodRequest;
-import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PatchV3FbsSuppliesWaybillRequest;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PatchV3SuppliesSupplyIdOrdersRequest;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PostV3FbsSuppliesSpotListRequest;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PostV3OrdersStatusHistoryRequest;
@@ -64,7 +63,6 @@ import io.github.valeryverkhoturov.wbapi.orders_fbs.model.Supply;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.SupplySpotDataResponse;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.SupplySpotQRCode;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.UpdateSuppliesShippingMethodResponse;
-import io.github.valeryverkhoturov.wbapi.orders_fbs.model.UpdateSuppliesWaybillResponse;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.V3ArchiveOrders;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.V3GetMetaMultiRequest;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.V3OrdersMetaAPI;
@@ -1483,7 +1481,7 @@ public class FbsApi {
    * фильтрами: - по населённым пунктам России - по типам товаров, которые принимает пункт отгрузки
    * Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки
    * поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
-   * [Лимит
+   * Доступно только для продавцов из РФ. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
@@ -1520,7 +1518,7 @@ public class FbsApi {
    * фильтрами: - по населённым пунктам России - по типам товаров, которые принимает пункт отгрузки
    * Используйте данные из этого метода, чтобы устанавливать [параметры отгрузки
    * поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
-   * [Лимит
+   * Доступно только для продавцов из РФ. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
@@ -1558,7 +1556,7 @@ public class FbsApi {
    * принимает пункт отгрузки Используйте данные из этого метода, чтобы устанавливать [параметры
    * отгрузки
    * поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
-   * [Лимит
+   * Доступно только для продавцов из РФ. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
@@ -3938,19 +3936,11 @@ public class FbsApi {
 
   /**
    * Установить параметры отгрузки поставок Метод устанавливает способ доставки, дату и пункт
-   * отгрузки у поставок. Для доставки транспортной компанией
-   * &#x60;\&quot;shippingType\&quot;:\&quot;transportCompany\&quot;&#x60; укажите ID ЭТрН —
-   * электронной транспортной накладной — с помощью метода установки [ID ЭТрН
-   * поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).
-   * Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки
-   * &#x60;\&quot;shippingType\&quot;:\&quot;transportCompany\&quot;&#x60; на
-   * &#x60;selfShipping&#x60;. Если вы хотите изменить способ доставки обратно на
-   * &#x60;transportCompany&#x60;, [добавьте ID
-   * ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill)
-   * заново. Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять
-   * параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка
-   * будет отсканирована, метод начнёт возвращать ошибку &#x60;409&#x60;. В запросе можно указать
-   * максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно. [Лимит
+   * отгрузки у поставок. Параметры отгрузки нужно указать до передачи поставки в доставку. Вы
+   * можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки.
+   * Когда поставка будет отсканирована, метод начнёт возвращать ошибку &#x60;409&#x60;. В запросе
+   * можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки
+   * отдельно. Доступно только для продавцов из РФ. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
@@ -3983,19 +3973,11 @@ public class FbsApi {
 
   /**
    * Установить параметры отгрузки поставок Метод устанавливает способ доставки, дату и пункт
-   * отгрузки у поставок. Для доставки транспортной компанией
-   * &#x60;\&quot;shippingType\&quot;:\&quot;transportCompany\&quot;&#x60; укажите ID ЭТрН —
-   * электронной транспортной накладной — с помощью метода установки [ID ЭТрН
-   * поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).
-   * Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки
-   * &#x60;\&quot;shippingType\&quot;:\&quot;transportCompany\&quot;&#x60; на
-   * &#x60;selfShipping&#x60;. Если вы хотите изменить способ доставки обратно на
-   * &#x60;transportCompany&#x60;, [добавьте ID
-   * ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill)
-   * заново. Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять
-   * параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка
-   * будет отсканирована, метод начнёт возвращать ошибку &#x60;409&#x60;. В запросе можно указать
-   * максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно. [Лимит
+   * отгрузки у поставок. Параметры отгрузки нужно указать до передачи поставки в доставку. Вы
+   * можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки.
+   * Когда поставка будет отсканирована, метод начнёт возвращать ошибку &#x60;409&#x60;. В запросе
+   * можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки
+   * отдельно. Доступно только для продавцов из РФ. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
@@ -4031,19 +4013,11 @@ public class FbsApi {
 
   /**
    * Установить параметры отгрузки поставок (asynchronously) Метод устанавливает способ доставки,
-   * дату и пункт отгрузки у поставок. Для доставки транспортной компанией
-   * &#x60;\&quot;shippingType\&quot;:\&quot;transportCompany\&quot;&#x60; укажите ID ЭТрН —
-   * электронной транспортной накладной — с помощью метода установки [ID ЭТрН
-   * поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill).
-   * Добавленный к поставке ID ЭТрН сбрасывается, если поменять способ доставки
-   * &#x60;\&quot;shippingType\&quot;:\&quot;transportCompany\&quot;&#x60; на
-   * &#x60;selfShipping&#x60;. Если вы хотите изменить способ доставки обратно на
-   * &#x60;transportCompany&#x60;, [добавьте ID
-   * ЭТрН](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill)
-   * заново. Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять
-   * параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка
-   * будет отсканирована, метод начнёт возвращать ошибку &#x60;409&#x60;. В запросе можно указать
-   * максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно. [Лимит
+   * дату и пункт отгрузки у поставок. Параметры отгрузки нужно указать до передачи поставки в
+   * доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте
+   * отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку &#x60;409&#x60;. В
+   * запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой
+   * поставки отдельно. Доступно только для продавцов из РФ. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
    * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
@@ -4075,211 +4049,6 @@ public class FbsApi {
         patchV3FbsSuppliesShippingMethodValidateBeforeCall(
             patchV3FbsSuppliesShippingMethodRequest, _callback);
     Type localVarReturnType = new TypeToken<UpdateSuppliesShippingMethodResponse>() {}.getType();
-    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-    return localVarCall;
-  }
-
-  /**
-   * Build call for patchV3FbsSuppliesWaybill
-   *
-   * @param patchV3FbsSuppliesWaybillRequest (required)
-   * @param _callback Callback for upload/download progress
-   * @return Call to execute
-   * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public okhttp3.Call patchV3FbsSuppliesWaybillCall(
-      PatchV3FbsSuppliesWaybillRequest patchV3FbsSuppliesWaybillRequest,
-      final ApiCallback _callback)
-      throws ApiException {
-    String basePath = null;
-    // Operation Servers
-    String[] localBasePaths = new String[] {"https://marketplace-api.wildberries.ru"};
-
-    // Determine Base Path to Use
-    if (localCustomBaseUrl != null) {
-      basePath = localCustomBaseUrl;
-    } else if (localBasePaths.length > 0) {
-      basePath = localBasePaths[localHostIndex];
-    } else {
-      basePath = null;
-    }
-
-    Object localVarPostBody = patchV3FbsSuppliesWaybillRequest;
-
-    // create path and map variables
-    String localVarPath = "/api/marketplace/v3/fbs/supplies/waybill";
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    final String[] localVarAccepts = {"application/json", "application/problem+json"};
-    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-    if (localVarAccept != null) {
-      localVarHeaderParams.put("Accept", localVarAccept);
-    }
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType =
-        localVarApiClient.selectHeaderContentType(localVarContentTypes);
-    if (localVarContentType != null) {
-      localVarHeaderParams.put("Content-Type", localVarContentType);
-    }
-
-    String[] localVarAuthNames = new String[] {"BearerAuth"};
-    return localVarApiClient.buildCall(
-        basePath,
-        localVarPath,
-        "PATCH",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAuthNames,
-        _callback);
-  }
-
-  @SuppressWarnings("rawtypes")
-  private okhttp3.Call patchV3FbsSuppliesWaybillValidateBeforeCall(
-      PatchV3FbsSuppliesWaybillRequest patchV3FbsSuppliesWaybillRequest,
-      final ApiCallback _callback)
-      throws ApiException {
-    // verify the required parameter 'patchV3FbsSuppliesWaybillRequest' is set
-    if (patchV3FbsSuppliesWaybillRequest == null) {
-      throw new ApiException(
-          "Missing the required parameter 'patchV3FbsSuppliesWaybillRequest' when calling patchV3FbsSuppliesWaybill(Async)");
-    }
-
-    return patchV3FbsSuppliesWaybillCall(patchV3FbsSuppliesWaybillRequest, _callback);
-  }
-
-  /**
-   * Установить ID ЭТрН поставок Метод устанавливает ID ЭТрН — электронной транспортной накладной.
-   * Чтобы использовать метод, укажите [место отгрузки
-   * поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod)
-   * со способом доставки &#x60;\&quot;shippingType\&quot;:\&quot;transportCompany\&quot;&#x60;. ID
-   * ЭТрН нужно указать до передачи поставки в доставку. Вы можете обновлять ID ЭТрН до сканирования
-   * поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт
-   * возвращать ошибку &#x60;409&#x60;. В запросе можно указать максимум 100 поставок. Результат
-   * обработки возвращается для каждой поставки отдельно. [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
-   * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
-   * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
-   *
-   * @param patchV3FbsSuppliesWaybillRequest (required)
-   * @return UpdateSuppliesWaybillResponse
-   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-   *     response body
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public UpdateSuppliesWaybillResponse patchV3FbsSuppliesWaybill(
-      PatchV3FbsSuppliesWaybillRequest patchV3FbsSuppliesWaybillRequest) throws ApiException {
-    ApiResponse<UpdateSuppliesWaybillResponse> localVarResp =
-        patchV3FbsSuppliesWaybillWithHttpInfo(patchV3FbsSuppliesWaybillRequest);
-    return localVarResp.getData();
-  }
-
-  /**
-   * Установить ID ЭТрН поставок Метод устанавливает ID ЭТрН — электронной транспортной накладной.
-   * Чтобы использовать метод, укажите [место отгрузки
-   * поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod)
-   * со способом доставки &#x60;\&quot;shippingType\&quot;:\&quot;transportCompany\&quot;&#x60;. ID
-   * ЭТрН нужно указать до передачи поставки в доставку. Вы можете обновлять ID ЭТрН до сканирования
-   * поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт
-   * возвращать ошибку &#x60;409&#x60;. В запросе можно указать максимум 100 поставок. Результат
-   * обработки возвращается для каждой поставки отдельно. [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
-   * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
-   * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
-   *
-   * @param patchV3FbsSuppliesWaybillRequest (required)
-   * @return ApiResponse&lt;UpdateSuppliesWaybillResponse&gt;
-   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-   *     response body
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public ApiResponse<UpdateSuppliesWaybillResponse> patchV3FbsSuppliesWaybillWithHttpInfo(
-      PatchV3FbsSuppliesWaybillRequest patchV3FbsSuppliesWaybillRequest) throws ApiException {
-    okhttp3.Call localVarCall =
-        patchV3FbsSuppliesWaybillValidateBeforeCall(patchV3FbsSuppliesWaybillRequest, null);
-    Type localVarReturnType = new TypeToken<UpdateSuppliesWaybillResponse>() {}.getType();
-    return localVarApiClient.execute(localVarCall, localVarReturnType);
-  }
-
-  /**
-   * Установить ID ЭТрН поставок (asynchronously) Метод устанавливает ID ЭТрН — электронной
-   * транспортной накладной. Чтобы использовать метод, укажите [место отгрузки
-   * поставки](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod)
-   * со способом доставки &#x60;\&quot;shippingType\&quot;:\&quot;transportCompany\&quot;&#x60;. ID
-   * ЭТрН нужно указать до передачи поставки в доставку. Вы можете обновлять ID ЭТрН до сканирования
-   * поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт
-   * возвращать ошибку &#x60;409&#x60;. В запросе можно указать максимум 100 поставок. Результат
-   * обработки возвращается для каждой поставки отдельно. [Лимит
-   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один аккаунт продавца для методов **сборочных заданий, поставок, пропусков и настроек
-   * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
-   * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
-   * как 10 запросов
-   *
-   * @param patchV3FbsSuppliesWaybillRequest (required)
-   * @param _callback The callback to be executed when the API call finishes
-   * @return The request call
-   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table border="1">
-   * <caption>Response Details</caption>
-   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
-   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
-   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
-   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
-   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
-   * </table>
-   */
-  public okhttp3.Call patchV3FbsSuppliesWaybillAsync(
-      PatchV3FbsSuppliesWaybillRequest patchV3FbsSuppliesWaybillRequest,
-      final ApiCallback<UpdateSuppliesWaybillResponse> _callback)
-      throws ApiException {
-
-    okhttp3.Call localVarCall =
-        patchV3FbsSuppliesWaybillValidateBeforeCall(patchV3FbsSuppliesWaybillRequest, _callback);
-    Type localVarReturnType = new TypeToken<UpdateSuppliesWaybillResponse>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }

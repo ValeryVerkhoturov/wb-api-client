@@ -234,9 +234,7 @@ public class Supply {
 
   /**
    * Способ доставки до пункта отгрузки: - &#x60;selfShipping&#x60; — доставка силами продавца -
-   * &#x60;transportCompany&#x60; — доставка через транспортную компанию. Для этого способа
-   * обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле
-   * &#x60;waybillUuid&#x60;
+   * &#x60;transportCompany&#x60; — доставка через транспортную компанию
    */
   @JsonAdapter(ShippingTypeEnum.Adapter.class)
   public enum ShippingTypeEnum {
@@ -590,9 +588,7 @@ public class Supply {
 
   /**
    * Способ доставки до пункта отгрузки: - &#x60;selfShipping&#x60; — доставка силами продавца -
-   * &#x60;transportCompany&#x60; — доставка через транспортную компанию. Для этого способа
-   * обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле
-   * &#x60;waybillUuid&#x60;
+   * &#x60;transportCompany&#x60; — доставка через транспортную компанию
    *
    * @return shippingType
    */
@@ -611,8 +607,7 @@ public class Supply {
   }
 
   /**
-   * ID ЭТрН — электронной транспортной накладной. Обязателен при
-   * &#x60;\&quot;shippingType\&quot;:\&quot;transportCompany\&quot;&#x60;
+   * ID ЭТрН — электронной транспортной накладной
    *
    * @return waybillUuid
    */

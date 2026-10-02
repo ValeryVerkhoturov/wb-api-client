@@ -32,9 +32,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
     public partial class UpdateSupplyShippingMethod : IValidatableObject
     {
         /// <summary>
-        /// Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию. Для этого способа обязательно [укажите ID ЭТрН](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) — электронной транспортной накладной — в поле &#x60;waybillUuid&#x60; 
+        /// Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию 
         /// </summary>
-        /// <value>Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию. Для этого способа обязательно [укажите ID ЭТрН](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) — электронной транспортной накладной — в поле &#x60;waybillUuid&#x60; </value>
+        /// <value>Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ShippingTypeEnum
         {
@@ -53,9 +53,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
 
 
         /// <summary>
-        /// Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию. Для этого способа обязательно [укажите ID ЭТрН](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) — электронной транспортной накладной — в поле &#x60;waybillUuid&#x60; 
+        /// Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию 
         /// </summary>
-        /// <value>Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию. Для этого способа обязательно [укажите ID ЭТрН](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) — электронной транспортной накладной — в поле &#x60;waybillUuid&#x60; </value>
+        /// <value>Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию </value>
         /*
         <example>selfShipping</example>
         */
@@ -71,7 +71,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <param name="shippingDt">Планируемая дата отгрузки поставки, формат &#x60;YYYY-MM-DD&#x60; (required).</param>
         /// <param name="shippingPointId">ID пункта отгрузки. Можно получить с помощью [отдельного метода](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints) (required).</param>
-        /// <param name="shippingType">Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию. Для этого способа обязательно [укажите ID ЭТрН](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesWaybill) — электронной транспортной накладной — в поле &#x60;waybillUuid&#x60;  (required).</param>
+        /// <param name="shippingType">Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию  (required).</param>
         /// <param name="supplyId">ID поставки (required).</param>
         public UpdateSupplyShippingMethod(string shippingDt = default(string), int shippingPointId = default(int), ShippingTypeEnum shippingType = default(ShippingTypeEnum), string supplyId = default(string))
         {

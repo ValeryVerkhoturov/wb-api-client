@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.20261001.0"
+__version__ = "1.20261002.0"
 
 # import apis into sdk package
 from wb_api_client.orders_fbs.api.api import Api
@@ -130,9 +130,6 @@ from wb_api_client.orders_fbs.models.patch_v3_fbs_settings_autoreturns_request i
 )
 from wb_api_client.orders_fbs.models.patch_v3_fbs_supplies_shipping_method_request import (
     PatchV3FbsSuppliesShippingMethodRequest,
-)
-from wb_api_client.orders_fbs.models.patch_v3_fbs_supplies_waybill_request import (
-    PatchV3FbsSuppliesWaybillRequest,
 )
 from wb_api_client.orders_fbs.models.patch_v3_supplies_supply_id_orders_request import (
     PatchV3SuppliesSupplyIdOrdersRequest,
@@ -265,27 +262,14 @@ from wb_api_client.orders_fbs.models.update_supplies_shipping_method_request imp
 from wb_api_client.orders_fbs.models.update_supplies_shipping_method_response import (
     UpdateSuppliesShippingMethodResponse,
 )
-from wb_api_client.orders_fbs.models.update_supplies_waybill import (
-    UpdateSuppliesWaybill,
-)
-from wb_api_client.orders_fbs.models.update_supplies_waybill_response import (
-    UpdateSuppliesWaybillResponse,
-)
 from wb_api_client.orders_fbs.models.update_supply_shipping_method import (
     UpdateSupplyShippingMethod,
 )
-from wb_api_client.orders_fbs.models.update_supply_waybill import UpdateSupplyWaybill
 from wb_api_client.orders_fbs.models.updated_supplies_shipping_method import (
     UpdatedSuppliesShippingMethod,
 )
 from wb_api_client.orders_fbs.models.updated_supplies_shipping_method_error import (
     UpdatedSuppliesShippingMethodError,
-)
-from wb_api_client.orders_fbs.models.updated_supplies_waybill import (
-    UpdatedSuppliesWaybill,
-)
-from wb_api_client.orders_fbs.models.updated_supplies_waybill_error import (
-    UpdatedSuppliesWaybillError,
 )
 from wb_api_client.orders_fbs.models.v3_api_error import V3APIError
 from wb_api_client.orders_fbs.models.v3_archive_order import V3ArchiveOrder

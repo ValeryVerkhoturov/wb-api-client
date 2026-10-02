@@ -299,12 +299,6 @@ func NewConfiguration() *Configuration {
 					Description: "No description provided",
 				},
 			},
-			"FBSAPIService.PatchV3FbsSuppliesWaybill": {
-				{
-					URL:         "https://marketplace-api.wildberries.ru",
-					Description: "No description provided",
-				},
-			},
 			"FBSAPIService.PatchV3OrdersOrderIdCancel": {
 				{
 					URL:         "https://marketplace-api.wildberries.ru",

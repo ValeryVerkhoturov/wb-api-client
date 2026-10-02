@@ -96,12 +96,12 @@ class Supply(BaseModel):
     )
     shipping_type: Optional[StrictStr] = Field(
         default=None,
-        description="Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию. Для этого способа обязательно укажите ID ЭТрН — электронной транспортной накладной — в поле `waybillUuid` ",
+        description="Способ доставки до пункта отгрузки:   - `selfShipping` — доставка силами продавца   - `transportCompany` — доставка через транспортную компанию ",
         alias="shippingType",
     )
     waybill_uuid: Optional[StrictStr] = Field(
         default=None,
-        description='ID ЭТрН — электронной транспортной накладной. Обязателен при `"shippingType":"transportCompany"`',
+        description="ID ЭТрН — электронной транспортной накладной",
         alias="waybillUuid",
     )
     spot_available: StrictBool = Field(
