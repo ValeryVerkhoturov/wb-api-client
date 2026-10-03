@@ -85,6 +85,12 @@ public class PostV2GetCardsListResponse200CardsInner {
   @jakarta.annotation.Nullable
   private String title;
 
+  public static final String SERIALIZED_NAME_GTIN = "gtin";
+
+  @SerializedName(SERIALIZED_NAME_GTIN)
+  @jakarta.annotation.Nullable
+  private String gtin;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -322,6 +328,26 @@ public class PostV2GetCardsListResponse200CardsInner {
 
   public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
+  }
+
+  public PostV2GetCardsListResponse200CardsInner gtin(@jakarta.annotation.Nullable String gtin) {
+    this.gtin = gtin;
+    return this;
+  }
+
+  /**
+   * Дополнительный GTIN. Поле вернётся только при заполненном дополнительном GTIN. Только для
+   * продавцов из РФ
+   *
+   * @return gtin
+   */
+  @jakarta.annotation.Nullable
+  public String getGtin() {
+    return gtin;
+  }
+
+  public void setGtin(@jakarta.annotation.Nullable String gtin) {
+    this.gtin = gtin;
   }
 
   public PostV2GetCardsListResponse200CardsInner description(
@@ -652,6 +678,7 @@ public class PostV2GetCardsListResponse200CardsInner {
         && Objects.equals(this.vendorCode, postV2GetCardsListResponse200CardsInner.vendorCode)
         && Objects.equals(this.brand, postV2GetCardsListResponse200CardsInner.brand)
         && Objects.equals(this.title, postV2GetCardsListResponse200CardsInner.title)
+        && Objects.equals(this.gtin, postV2GetCardsListResponse200CardsInner.gtin)
         && Objects.equals(this.description, postV2GetCardsListResponse200CardsInner.description)
         && Objects.equals(this.needKiz, postV2GetCardsListResponse200CardsInner.needKiz)
         && Objects.equals(this.kizMarked, postV2GetCardsListResponse200CardsInner.kizMarked)
@@ -679,6 +706,7 @@ public class PostV2GetCardsListResponse200CardsInner {
         vendorCode,
         brand,
         title,
+        gtin,
         description,
         needKiz,
         kizMarked,
@@ -706,6 +734,7 @@ public class PostV2GetCardsListResponse200CardsInner {
     sb.append("    vendorCode: ").append(toIndentedString(vendorCode)).append("\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    gtin: ").append(toIndentedString(gtin)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    needKiz: ").append(toIndentedString(needKiz)).append("\n");
     sb.append("    kizMarked: ").append(toIndentedString(kizMarked)).append("\n");
@@ -747,6 +776,7 @@ public class PostV2GetCardsListResponse200CardsInner {
     openapiFields.add("vendorCode");
     openapiFields.add("brand");
     openapiFields.add("title");
+    openapiFields.add("gtin");
     openapiFields.add("description");
     openapiFields.add("needKiz");
     openapiFields.add("kizMarked");
@@ -828,6 +858,13 @@ public class PostV2GetCardsListResponse200CardsInner {
           String.format(
               "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("title").toString()));
+    }
+    if ((jsonObj.get("gtin") != null && !jsonObj.get("gtin").isJsonNull())
+        && !jsonObj.get("gtin").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `gtin` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("gtin").toString()));
     }
     if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
         && !jsonObj.get("description").isJsonPrimitive()) {

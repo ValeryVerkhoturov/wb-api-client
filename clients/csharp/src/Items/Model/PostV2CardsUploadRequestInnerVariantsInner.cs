@@ -41,6 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <param name="brand">Бренд.</param>
         /// <param name="title">Наименование товара.</param>
+        /// <param name="gtin">Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из карточек товара в параметре &#x60;skus&#x60;. Нельзя указывать один и тот же GTIN в &#x60;skus&#x60; для разных карточек или размеров товаров.   Только для продавцов из РФ.</param>
         /// <param name="description">Описание товара. Максимальное количество символов зависит от категории товара Стандарт — 2000, минимум — 1000, максимум — 5000 Подробно о \\*\\*правилах заполнения карточки товара\\*\\* в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов.</param>
         /// <param name="vendorCode">Артикул продавца (required).</param>
         /// <param name="kizMarked">Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - &#x60;true&#x60; — продавец подтверждает, что на товар нанесён обязательный код маркировки   - &#x60;false&#x60; — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе &#x60;true&#x60;, чтобы подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт проверку, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на товар  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа &#x60;needKiz&#x60;  (default to false).</param>
@@ -49,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="sizes">Массив размеров. Если не указать для размерного товара (обувь, одежда и др.), сгенерируется автоматически с &#x60;techSize&#x60; &#x3D; \&quot;A\&quot;, &#x60;wbSize&#x60; &#x3D; \&quot;1\&quot; и баркодом.</param>
         /// <param name="characteristics">Характеристики товара.  Можно получить методом [Характеристики предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId).</param>
         /// <param name="documents">documents.</param>
-        public PostV2CardsUploadRequestInnerVariantsInner(string brand = default(string), string title = default(string), string description = default(string), string vendorCode = default(string), bool kizMarked = false, PostV2CardsUploadRequestInnerVariantsInnerWholesale wholesale = default(PostV2CardsUploadRequestInnerVariantsInnerWholesale), PostV2CardsUploadRequestInnerVariantsInnerDimensions dimensions = default(PostV2CardsUploadRequestInnerVariantsInnerDimensions), List<PostV2CardsUploadRequestInnerVariantsInnerSizesInner> sizes = default(List<PostV2CardsUploadRequestInnerVariantsInnerSizesInner>), List<PostV2CardsUpdateRequestInnerCharacteristicsInner> characteristics = default(List<PostV2CardsUpdateRequestInnerCharacteristicsInner>), PostV2CardsUploadRequestInnerVariantsInnerDocuments documents = default(PostV2CardsUploadRequestInnerVariantsInnerDocuments))
+        public PostV2CardsUploadRequestInnerVariantsInner(string brand = default(string), string title = default(string), string gtin = default(string), string description = default(string), string vendorCode = default(string), bool kizMarked = false, PostV2CardsUploadRequestInnerVariantsInnerWholesale wholesale = default(PostV2CardsUploadRequestInnerVariantsInnerWholesale), PostV2CardsUploadRequestInnerVariantsInnerDimensions dimensions = default(PostV2CardsUploadRequestInnerVariantsInnerDimensions), List<PostV2CardsUploadRequestInnerVariantsInnerSizesInner> sizes = default(List<PostV2CardsUploadRequestInnerVariantsInnerSizesInner>), List<PostV2CardsUpdateRequestInnerCharacteristicsInner> characteristics = default(List<PostV2CardsUpdateRequestInnerCharacteristicsInner>), PostV2CardsUploadRequestInnerVariantsInnerDocuments documents = default(PostV2CardsUploadRequestInnerVariantsInnerDocuments))
         {
             // to ensure "vendorCode" is required (not null)
             if (vendorCode == null)
@@ -59,6 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             this.VendorCode = vendorCode;
             this.Brand = brand;
             this.Title = title;
+            this.Gtin = gtin;
             this.Description = description;
             this.KizMarked = kizMarked;
             this.Wholesale = wholesale;
@@ -81,6 +83,13 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <value>Наименование товара</value>
         [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
+
+        /// <summary>
+        /// Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из карточек товара в параметре &#x60;skus&#x60;. Нельзя указывать один и тот же GTIN в &#x60;skus&#x60; для разных карточек или размеров товаров.   Только для продавцов из РФ
+        /// </summary>
+        /// <value>Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из карточек товара в параметре &#x60;skus&#x60;. Нельзя указывать один и тот же GTIN в &#x60;skus&#x60; для разных карточек или размеров товаров.   Только для продавцов из РФ</value>
+        [DataMember(Name = "gtin", EmitDefaultValue = false)]
+        public string Gtin { get; set; }
 
         /// <summary>
         /// Описание товара. Максимальное количество символов зависит от категории товара Стандарт — 2000, минимум — 1000, максимум — 5000 Подробно о \\*\\*правилах заполнения карточки товара\\*\\* в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов
@@ -145,6 +154,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             sb.Append("class PostV2CardsUploadRequestInnerVariantsInner {\n");
             sb.Append("  Brand: ").Append(Brand).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Gtin: ").Append(Gtin).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  VendorCode: ").Append(VendorCode).Append("\n");
             sb.Append("  KizMarked: ").Append(KizMarked).Append("\n");

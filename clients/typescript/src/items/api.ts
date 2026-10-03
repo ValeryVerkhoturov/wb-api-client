@@ -2316,6 +2316,12 @@ export interface PostV2CardsUpdateRequestInner {
    */
   title?: string;
   /**
+   * Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из карточек товара в параметре `skus`. Нельзя указывать один и тот же GTIN в `skus` для разных карточек или размеров товаров.   Только для продавцов из РФ
+   * @type {string}
+   * @memberof PostV2CardsUpdateRequestInner
+   */
+  gtin?: string;
+  /**
    * Описание товара. Максимальное количество символов зависит от категории товара Стандарт — 2000, минимум — 1000, максимум — 5000 Подробно о \\*\\*правилах заполнения карточки товара\\*\\* в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов
    * @type {string}
    * @memberof PostV2CardsUpdateRequestInner
@@ -2618,6 +2624,12 @@ export interface PostV2CardsUploadAddRequestCardsToAddInner {
    */
   title?: string;
   /**
+   * Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из карточек товара в параметре `skus`. Нельзя указывать один и тот же GTIN в `skus` для разных карточек или размеров товаров.   Только для продавцов из РФ
+   * @type {string}
+   * @memberof PostV2CardsUploadAddRequestCardsToAddInner
+   */
+  gtin?: string;
+  /**
    * Описание товара. Максимальное количество символов зависит от категории товара Стандарт — 2000, минимум — 1000, максимум — 5000 Подробно о \\*\\*правилах заполнения карточки товара\\*\\* в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов
    * @type {string}
    * @memberof PostV2CardsUploadAddRequestCardsToAddInner
@@ -2815,6 +2827,12 @@ export interface PostV2CardsUploadRequestInnerVariantsInner {
    * @memberof PostV2CardsUploadRequestInnerVariantsInner
    */
   title?: string;
+  /**
+   * Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из карточек товара в параметре `skus`. Нельзя указывать один и тот же GTIN в `skus` для разных карточек или размеров товаров.   Только для продавцов из РФ
+   * @type {string}
+   * @memberof PostV2CardsUploadRequestInnerVariantsInner
+   */
+  gtin?: string;
   /**
    * Описание товара. Максимальное количество символов зависит от категории товара Стандарт — 2000, минимум — 1000, максимум — 5000 Подробно о \\*\\*правилах заполнения карточки товара\\*\\* в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов
    * @type {string}
@@ -3222,6 +3240,12 @@ export interface PostV2GetCardsListResponse200CardsInner {
    * @memberof PostV2GetCardsListResponse200CardsInner
    */
   title?: string;
+  /**
+   * Дополнительный GTIN. Поле вернётся только при заполненном дополнительном GTIN.   Только для продавцов из РФ
+   * @type {string}
+   * @memberof PostV2GetCardsListResponse200CardsInner
+   */
+  gtin?: string;
   /**
    * Описание товара
    * @type {string}

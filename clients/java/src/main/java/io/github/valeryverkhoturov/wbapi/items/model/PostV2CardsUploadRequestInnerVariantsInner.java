@@ -48,6 +48,12 @@ public class PostV2CardsUploadRequestInnerVariantsInner {
   @jakarta.annotation.Nullable
   private String title;
 
+  public static final String SERIALIZED_NAME_GTIN = "gtin";
+
+  @SerializedName(SERIALIZED_NAME_GTIN)
+  @jakarta.annotation.Nullable
+  private String gtin;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -137,6 +143,27 @@ public class PostV2CardsUploadRequestInnerVariantsInner {
 
   public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
+  }
+
+  public PostV2CardsUploadRequestInnerVariantsInner gtin(@jakarta.annotation.Nullable String gtin) {
+    this.gtin = gtin;
+    return this;
+  }
+
+  /**
+   * Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из
+   * карточек товара в параметре &#x60;skus&#x60;. Нельзя указывать один и тот же GTIN в
+   * &#x60;skus&#x60; для разных карточек или размеров товаров. Только для продавцов из РФ
+   *
+   * @return gtin
+   */
+  @jakarta.annotation.Nullable
+  public String getGtin() {
+    return gtin;
+  }
+
+  public void setGtin(@jakarta.annotation.Nullable String gtin) {
+    this.gtin = gtin;
   }
 
   public PostV2CardsUploadRequestInnerVariantsInner description(
@@ -356,6 +383,7 @@ public class PostV2CardsUploadRequestInnerVariantsInner {
         (PostV2CardsUploadRequestInnerVariantsInner) o;
     return Objects.equals(this.brand, postV2CardsUploadRequestInnerVariantsInner.brand)
         && Objects.equals(this.title, postV2CardsUploadRequestInnerVariantsInner.title)
+        && Objects.equals(this.gtin, postV2CardsUploadRequestInnerVariantsInner.gtin)
         && Objects.equals(this.description, postV2CardsUploadRequestInnerVariantsInner.description)
         && Objects.equals(this.vendorCode, postV2CardsUploadRequestInnerVariantsInner.vendorCode)
         && Objects.equals(this.kizMarked, postV2CardsUploadRequestInnerVariantsInner.kizMarked)
@@ -372,6 +400,7 @@ public class PostV2CardsUploadRequestInnerVariantsInner {
     return Objects.hash(
         brand,
         title,
+        gtin,
         description,
         vendorCode,
         kizMarked,
@@ -388,6 +417,7 @@ public class PostV2CardsUploadRequestInnerVariantsInner {
     sb.append("class PostV2CardsUploadRequestInnerVariantsInner {\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    gtin: ").append(toIndentedString(gtin)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    vendorCode: ").append(toIndentedString(vendorCode)).append("\n");
     sb.append("    kizMarked: ").append(toIndentedString(kizMarked)).append("\n");
@@ -418,6 +448,7 @@ public class PostV2CardsUploadRequestInnerVariantsInner {
     openapiFields = new HashSet<String>();
     openapiFields.add("brand");
     openapiFields.add("title");
+    openapiFields.add("gtin");
     openapiFields.add("description");
     openapiFields.add("vendorCode");
     openapiFields.add("kizMarked");
@@ -484,6 +515,13 @@ public class PostV2CardsUploadRequestInnerVariantsInner {
           String.format(
               "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("title").toString()));
+    }
+    if ((jsonObj.get("gtin") != null && !jsonObj.get("gtin").isJsonNull())
+        && !jsonObj.get("gtin").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `gtin` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("gtin").toString()));
     }
     if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
         && !jsonObj.get("description").isJsonPrimitive()) {

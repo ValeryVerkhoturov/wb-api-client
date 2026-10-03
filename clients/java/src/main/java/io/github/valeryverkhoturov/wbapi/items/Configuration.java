@@ -16,7 +16,7 @@ package io.github.valeryverkhoturov.wbapi.items;
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
 public class Configuration {
-  public static final String VERSION = "1.20261002.0";
+  public static final String VERSION = "1.20261003.0";
 
   private static ApiClient defaultApiClient = new ApiClient();
 

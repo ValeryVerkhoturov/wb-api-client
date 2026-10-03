@@ -44,12 +44,13 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="kizMarked">Подтверждение, что на товар нанесён обязательный код маркировки [Честного знака](https://честныйзнак.рф/):   - &#x60;true&#x60; — продавец подтверждает, что на товар нанесён обязательный код маркировки.   - &#x60;false&#x60; — продавец не подтверждает, что на товар нанесён обязательный код маркировки. Передайте в запросе &#x60;true&#x60;, чтобы подтвердить наличие на товаре обязательного кода маркировки. Карточка товара не пройдёт проверку, если нет подтверждения продавца о том, что обязательный код маркировки нанесён на товар.  Чтобы проверить, является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, используйте метод [Список карточек товаров](./item-management#tag/listings/operation/postV2GetCardsList), поле ответа &#x60;needKiz&#x60;  (default to false).</param>
         /// <param name="brand">Бренд.</param>
         /// <param name="title">Наименование товара.</param>
+        /// <param name="gtin">Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из карточек товара в параметре &#x60;skus&#x60;. Нельзя указывать один и тот же GTIN в &#x60;skus&#x60; для разных карточек или размеров товаров.   Только для продавцов из РФ.</param>
         /// <param name="description">Описание товара. Максимальное количество символов зависит от категории товара Стандарт — 2000, минимум — 1000, максимум — 5000 Подробно о \\*\\*правилах заполнения карточки товара\\*\\* в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов.</param>
         /// <param name="dimensions">dimensions.</param>
         /// <param name="documents">documents.</param>
         /// <param name="characteristics">Характеристики товара.  Можно получить методом [Характеристики предмета](./item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId).</param>
         /// <param name="sizes">Массив размеров Для безразмерного товара всё равно нужно передавать данный массив без параметров (wbSize и techSize), но с баркодом (required).</param>
-        public PostV2CardsUpdateRequestInner(int nmID = default(int), string vendorCode = default(string), bool kizMarked = false, string brand = default(string), string title = default(string), string description = default(string), PostV2CardsUpdateRequestInnerDimensions dimensions = default(PostV2CardsUpdateRequestInnerDimensions), PostV2CardsUpdateRequestInnerDocuments documents = default(PostV2CardsUpdateRequestInnerDocuments), List<PostV2CardsUpdateRequestInnerCharacteristicsInner> characteristics = default(List<PostV2CardsUpdateRequestInnerCharacteristicsInner>), List<PostV2CardsUpdateRequestInnerSizesInner> sizes = default(List<PostV2CardsUpdateRequestInnerSizesInner>))
+        public PostV2CardsUpdateRequestInner(int nmID = default(int), string vendorCode = default(string), bool kizMarked = false, string brand = default(string), string title = default(string), string gtin = default(string), string description = default(string), PostV2CardsUpdateRequestInnerDimensions dimensions = default(PostV2CardsUpdateRequestInnerDimensions), PostV2CardsUpdateRequestInnerDocuments documents = default(PostV2CardsUpdateRequestInnerDocuments), List<PostV2CardsUpdateRequestInnerCharacteristicsInner> characteristics = default(List<PostV2CardsUpdateRequestInnerCharacteristicsInner>), List<PostV2CardsUpdateRequestInnerSizesInner> sizes = default(List<PostV2CardsUpdateRequestInnerSizesInner>))
         {
             this.NmID = nmID;
             // to ensure "vendorCode" is required (not null)
@@ -67,6 +68,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             this.KizMarked = kizMarked;
             this.Brand = brand;
             this.Title = title;
+            this.Gtin = gtin;
             this.Description = description;
             this.Dimensions = dimensions;
             this.Documents = documents;
@@ -107,6 +109,13 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <value>Наименование товара</value>
         [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
+
+        /// <summary>
+        /// Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из карточек товара в параметре &#x60;skus&#x60;. Нельзя указывать один и тот же GTIN в &#x60;skus&#x60; для разных карточек или размеров товаров.   Только для продавцов из РФ
+        /// </summary>
+        /// <value>Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из карточек товара в параметре &#x60;skus&#x60;. Нельзя указывать один и тот же GTIN в &#x60;skus&#x60; для разных карточек или размеров товаров.   Только для продавцов из РФ</value>
+        [DataMember(Name = "gtin", EmitDefaultValue = false)]
+        public string Gtin { get; set; }
 
         /// <summary>
         /// Описание товара. Максимальное количество символов зависит от категории товара Стандарт — 2000, минимум — 1000, максимум — 5000 Подробно о \\*\\*правилах заполнения карточки товара\\*\\* в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов
@@ -154,6 +163,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             sb.Append("  KizMarked: ").Append(KizMarked).Append("\n");
             sb.Append("  Brand: ").Append(Brand).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Gtin: ").Append(Gtin).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Dimensions: ").Append(Dimensions).Append("\n");
             sb.Append("  Documents: ").Append(Documents).Append("\n");

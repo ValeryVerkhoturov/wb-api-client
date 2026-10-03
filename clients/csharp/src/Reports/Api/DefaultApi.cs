@@ -343,12 +343,12 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата начала отчётного периода</param>
         /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
-        /// <param name="limit">Количество возвратов в ответе</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional)</param>
+        /// <param name="limit">Количество возвратов в ответе (optional)</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GoodsReturn200Response</returns>
-        GoodsReturn200Response GetV1GoodsReturn(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0);
+        GoodsReturn200Response GetV1GoodsReturn(DateOnly dateFrom, DateOnly dateTo, string? status = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Получить отчёт
@@ -359,12 +359,12 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата начала отчётного периода</param>
         /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
-        /// <param name="limit">Количество возвратов в ответе</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional)</param>
+        /// <param name="limit">Количество возвратов в ответе (optional)</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GoodsReturn200Response</returns>
-        ApiResponse<GoodsReturn200Response> GetV1GoodsReturnWithHttpInfo(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0);
+        ApiResponse<GoodsReturn200Response> GetV1GoodsReturnWithHttpInfo(DateOnly dateFrom, DateOnly dateTo, string? status = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Удержания за занижение габаритов упаковки
         /// </summary>
@@ -979,13 +979,13 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата начала отчётного периода</param>
         /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
-        /// <param name="limit">Количество возвратов в ответе</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional)</param>
+        /// <param name="limit">Количество возвратов в ответе (optional)</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GoodsReturn200Response</returns>
-        System.Threading.Tasks.Task<GoodsReturn200Response> GetV1GoodsReturnAsync(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GoodsReturn200Response> GetV1GoodsReturnAsync(DateOnly dateFrom, DateOnly dateTo, string? status = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получить отчёт
@@ -996,13 +996,13 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата начала отчётного периода</param>
         /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
-        /// <param name="limit">Количество возвратов в ответе</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional)</param>
+        /// <param name="limit">Количество возвратов в ответе (optional)</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GoodsReturn200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GoodsReturn200Response>> GetV1GoodsReturnWithHttpInfoAsync(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GoodsReturn200Response>> GetV1GoodsReturnWithHttpInfoAsync(DateOnly dateFrom, DateOnly dateTo, string? status = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Удержания за занижение габаритов упаковки
         /// </summary>
@@ -3463,12 +3463,12 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата начала отчётного периода</param>
         /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
-        /// <param name="limit">Количество возвратов в ответе</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional)</param>
+        /// <param name="limit">Количество возвратов в ответе (optional)</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GoodsReturn200Response</returns>
-        public GoodsReturn200Response GetV1GoodsReturn(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0)
+        public GoodsReturn200Response GetV1GoodsReturn(DateOnly dateFrom, DateOnly dateTo, string? status = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GoodsReturn200Response> localVarResponse = GetV1GoodsReturnWithHttpInfo(dateFrom, dateTo, status, limit, offset);
             return localVarResponse.Data;
@@ -3480,19 +3480,13 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата начала отчётного периода</param>
         /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
-        /// <param name="limit">Количество возвратов в ответе</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional)</param>
+        /// <param name="limit">Количество возвратов в ответе (optional)</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GoodsReturn200Response</returns>
-        public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GoodsReturn200Response> GetV1GoodsReturnWithHttpInfo(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GoodsReturn200Response> GetV1GoodsReturnWithHttpInfo(DateOnly dateFrom, DateOnly dateTo, string? status = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
-            // verify the required parameter 'status' is set
-            if (status == null)
-            {
-                throw new ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException(400, "Missing required parameter 'status' when calling DefaultApi->GetV1GoodsReturn");
-            }
-
             ValeryVerkhoturov.WbApiClient.Reports.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Reports.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -3518,9 +3512,18 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
 
             localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "dateFrom", dateFrom));
             localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "dateTo", dateTo));
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "status", status));
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            if (status != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "status", status));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
 
             localVarRequestOptions.Operation = "DefaultApi.GetV1GoodsReturn";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -3552,13 +3555,13 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата начала отчётного периода</param>
         /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
-        /// <param name="limit">Количество возвратов в ответе</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional)</param>
+        /// <param name="limit">Количество возвратов в ответе (optional)</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GoodsReturn200Response</returns>
-        public async System.Threading.Tasks.Task<GoodsReturn200Response> GetV1GoodsReturnAsync(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GoodsReturn200Response> GetV1GoodsReturnAsync(DateOnly dateFrom, DateOnly dateTo, string? status = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GoodsReturn200Response> localVarResponse = await GetV1GoodsReturnWithHttpInfoAsync(dateFrom, dateTo, status, limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3570,20 +3573,14 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата начала отчётного периода</param>
         /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный </param>
-        /// <param name="limit">Количество возвратов в ответе</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional)</param>
+        /// <param name="limit">Количество возвратов в ответе (optional)</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GoodsReturn200Response)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GoodsReturn200Response>> GetV1GoodsReturnWithHttpInfoAsync(DateOnly dateFrom, DateOnly dateTo, string status, int limit, int offset, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GoodsReturn200Response>> GetV1GoodsReturnWithHttpInfoAsync(DateOnly dateFrom, DateOnly dateTo, string? status = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            // verify the required parameter 'status' is set
-            if (status == null)
-            {
-                throw new ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException(400, "Missing required parameter 'status' when calling DefaultApi->GetV1GoodsReturn");
-            }
-
 
             ValeryVerkhoturov.WbApiClient.Reports.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Reports.Client.RequestOptions();
 
@@ -3610,9 +3607,18 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
 
             localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "dateFrom", dateFrom));
             localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "dateTo", dateTo));
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "status", status));
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            if (status != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "status", status));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Reports.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
 
             localVarRequestOptions.Operation = "DefaultApi.GetV1GoodsReturn";
             localVarRequestOptions.OperationIndex = operationIndex;

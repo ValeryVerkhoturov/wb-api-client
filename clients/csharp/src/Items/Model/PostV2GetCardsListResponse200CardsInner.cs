@@ -42,6 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="vendorCode">Артикул продавца.</param>
         /// <param name="brand">Бренд.</param>
         /// <param name="title">Наименование товара.</param>
+        /// <param name="gtin">Дополнительный GTIN. Поле вернётся только при заполненном дополнительном GTIN.   Только для продавцов из РФ.</param>
         /// <param name="description">Описание товара.</param>
         /// <param name="needKiz">Требуется ли код маркировки [Честного знака](https://честныйзнак.рф/) для этого товара:   - &#x60;false&#x60; — не требуется   - &#x60;true&#x60; — требуется .</param>
         /// <param name="kizMarked">Есть ли подтверждение от продавца, что обязательный код маркировки [Честного знака](https://честныйзнак.рф/) нанесён на товар:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет  Является ли код маркировки [Честного знака](https://честныйзнак.рф/) обязательным, указано в поле &#x60;needKiz&#x60;  (default to false).</param>
@@ -55,7 +56,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="tags">Ярлыки.</param>
         /// <param name="createdAt">Дата и время создания.</param>
         /// <param name="updatedAt">Дата и время изменения.</param>
-        public PostV2GetCardsListResponse200CardsInner(int nmID = default(int), long imtID = default(long), Guid nmUUID = default(Guid), int subjectID = default(int), string subjectName = default(string), string vendorCode = default(string), string brand = default(string), string title = default(string), string description = default(string), bool needKiz = default(bool), bool kizMarked = false, List<PostV2GetCardsListResponse200CardsInnerPhotosInner> photos = default(List<PostV2GetCardsListResponse200CardsInnerPhotosInner>), string video = default(string), PostV2GetCardsListResponse200CardsInnerWholesale wholesale = default(PostV2GetCardsListResponse200CardsInnerWholesale), PostV2GetCardsListResponse200CardsInnerDimensions dimensions = default(PostV2GetCardsListResponse200CardsInnerDimensions), PostV2GetCardsListResponse200CardsInnerDocuments documents = default(PostV2GetCardsListResponse200CardsInnerDocuments), List<PostV2GetCardsListResponse200CardsInnerCharacteristicsInner> characteristics = default(List<PostV2GetCardsListResponse200CardsInnerCharacteristicsInner>), List<PostV2GetCardsListResponse200CardsInnerSizesInner> sizes = default(List<PostV2GetCardsListResponse200CardsInnerSizesInner>), List<PostV2GetCardsListResponse200CardsInnerTagsInner> tags = default(List<PostV2GetCardsListResponse200CardsInnerTagsInner>), string createdAt = default(string), string updatedAt = default(string))
+        public PostV2GetCardsListResponse200CardsInner(int nmID = default(int), long imtID = default(long), Guid nmUUID = default(Guid), int subjectID = default(int), string subjectName = default(string), string vendorCode = default(string), string brand = default(string), string title = default(string), string gtin = default(string), string description = default(string), bool needKiz = default(bool), bool kizMarked = false, List<PostV2GetCardsListResponse200CardsInnerPhotosInner> photos = default(List<PostV2GetCardsListResponse200CardsInnerPhotosInner>), string video = default(string), PostV2GetCardsListResponse200CardsInnerWholesale wholesale = default(PostV2GetCardsListResponse200CardsInnerWholesale), PostV2GetCardsListResponse200CardsInnerDimensions dimensions = default(PostV2GetCardsListResponse200CardsInnerDimensions), PostV2GetCardsListResponse200CardsInnerDocuments documents = default(PostV2GetCardsListResponse200CardsInnerDocuments), List<PostV2GetCardsListResponse200CardsInnerCharacteristicsInner> characteristics = default(List<PostV2GetCardsListResponse200CardsInnerCharacteristicsInner>), List<PostV2GetCardsListResponse200CardsInnerSizesInner> sizes = default(List<PostV2GetCardsListResponse200CardsInnerSizesInner>), List<PostV2GetCardsListResponse200CardsInnerTagsInner> tags = default(List<PostV2GetCardsListResponse200CardsInnerTagsInner>), string createdAt = default(string), string updatedAt = default(string))
         {
             this.NmID = nmID;
             this.ImtID = imtID;
@@ -65,6 +66,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             this.VendorCode = vendorCode;
             this.Brand = brand;
             this.Title = title;
+            this.Gtin = gtin;
             this.Description = description;
             this.NeedKiz = needKiz;
             this.KizMarked = kizMarked;
@@ -135,6 +137,13 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <value>Наименование товара</value>
         [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
+
+        /// <summary>
+        /// Дополнительный GTIN. Поле вернётся только при заполненном дополнительном GTIN.   Только для продавцов из РФ
+        /// </summary>
+        /// <value>Дополнительный GTIN. Поле вернётся только при заполненном дополнительном GTIN.   Только для продавцов из РФ</value>
+        [DataMember(Name = "gtin", EmitDefaultValue = false)]
+        public string Gtin { get; set; }
 
         /// <summary>
         /// Описание товара
@@ -240,6 +249,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             sb.Append("  VendorCode: ").Append(VendorCode).Append("\n");
             sb.Append("  Brand: ").Append(Brand).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Gtin: ").Append(Gtin).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  NeedKiz: ").Append(NeedKiz).Append("\n");
             sb.Append("  KizMarked: ").Append(KizMarked).Append("\n");

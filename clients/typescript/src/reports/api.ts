@@ -2981,30 +2981,24 @@ export const DefaultApiAxiosParamCreator = function (
      * @summary Получить отчёт
      * @param {string} dateFrom Дата начала отчётного периода
      * @param {string} dateTo Дата окончания отчётного периода
-     * @param {GetV1GoodsReturnStatusEnum} status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
-     * @param {number} limit Количество возвратов в ответе
-     * @param {number} offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
+     * @param {GetV1GoodsReturnStatusEnum} [status] Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
+     * @param {number} [limit] Количество возвратов в ответе
+     * @param {number} [offset] Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getV1GoodsReturn: async (
       dateFrom: string,
       dateTo: string,
-      status: GetV1GoodsReturnStatusEnum,
-      limit: number,
-      offset: number,
+      status?: GetV1GoodsReturnStatusEnum,
+      limit?: number,
+      offset?: number,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'dateFrom' is not null or undefined
       assertParamExists("getV1GoodsReturn", "dateFrom", dateFrom);
       // verify required parameter 'dateTo' is not null or undefined
       assertParamExists("getV1GoodsReturn", "dateTo", dateTo);
-      // verify required parameter 'status' is not null or undefined
-      assertParamExists("getV1GoodsReturn", "status", status);
-      // verify required parameter 'limit' is not null or undefined
-      assertParamExists("getV1GoodsReturn", "limit", limit);
-      // verify required parameter 'offset' is not null or undefined
-      assertParamExists("getV1GoodsReturn", "offset", offset);
       const localVarPath = `/api/analytics/v1/item-returns`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4173,18 +4167,18 @@ export const DefaultApiFp = function (configuration?: Configuration) {
      * @summary Получить отчёт
      * @param {string} dateFrom Дата начала отчётного периода
      * @param {string} dateTo Дата окончания отчётного периода
-     * @param {GetV1GoodsReturnStatusEnum} status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
-     * @param {number} limit Количество возвратов в ответе
-     * @param {number} offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
+     * @param {GetV1GoodsReturnStatusEnum} [status] Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
+     * @param {number} [limit] Количество возвратов в ответе
+     * @param {number} [offset] Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async getV1GoodsReturn(
       dateFrom: string,
       dateTo: string,
-      status: GetV1GoodsReturnStatusEnum,
-      limit: number,
-      offset: number,
+      status?: GetV1GoodsReturnStatusEnum,
+      limit?: number,
+      offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (
@@ -4844,18 +4838,18 @@ export const DefaultApiFactory = function (
      * @summary Получить отчёт
      * @param {string} dateFrom Дата начала отчётного периода
      * @param {string} dateTo Дата окончания отчётного периода
-     * @param {GetV1GoodsReturnStatusEnum} status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
-     * @param {number} limit Количество возвратов в ответе
-     * @param {number} offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
+     * @param {GetV1GoodsReturnStatusEnum} [status] Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
+     * @param {number} [limit] Количество возвратов в ответе
+     * @param {number} [offset] Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getV1GoodsReturn(
       dateFrom: string,
       dateTo: string,
-      status: GetV1GoodsReturnStatusEnum,
-      limit: number,
-      offset: number,
+      status?: GetV1GoodsReturnStatusEnum,
+      limit?: number,
+      offset?: number,
       options?: RawAxiosRequestConfig,
     ): AxiosPromise<GoodsReturn200Response> {
       return localVarFp
@@ -5264,9 +5258,9 @@ export interface DefaultApiInterface {
    * @summary Получить отчёт
    * @param {string} dateFrom Дата начала отчётного периода
    * @param {string} dateTo Дата окончания отчётного периода
-   * @param {GetV1GoodsReturnStatusEnum} status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
-   * @param {number} limit Количество возвратов в ответе
-   * @param {number} offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
+   * @param {GetV1GoodsReturnStatusEnum} [status] Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
+   * @param {number} [limit] Количество возвратов в ответе
+   * @param {number} [offset] Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DefaultApiInterface
@@ -5274,9 +5268,9 @@ export interface DefaultApiInterface {
   getV1GoodsReturn(
     dateFrom: string,
     dateTo: string,
-    status: GetV1GoodsReturnStatusEnum,
-    limit: number,
-    offset: number,
+    status?: GetV1GoodsReturnStatusEnum,
+    limit?: number,
+    offset?: number,
     options?: RawAxiosRequestConfig,
   ): AxiosPromise<GoodsReturn200Response>;
 
@@ -5698,9 +5692,9 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
    * @summary Получить отчёт
    * @param {string} dateFrom Дата начала отчётного периода
    * @param {string} dateTo Дата окончания отчётного периода
-   * @param {GetV1GoodsReturnStatusEnum} status Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
-   * @param {number} limit Количество возвратов в ответе
-   * @param {number} offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
+   * @param {GetV1GoodsReturnStatusEnum} [status] Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный
+   * @param {number} [limit] Количество возвратов в ответе
+   * @param {number} [offset] Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof DefaultApi
@@ -5708,9 +5702,9 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
   public getV1GoodsReturn(
     dateFrom: string,
     dateTo: string,
-    status: GetV1GoodsReturnStatusEnum,
-    limit: number,
-    offset: number,
+    status?: GetV1GoodsReturnStatusEnum,
+    limit?: number,
+    offset?: number,
     options?: RawAxiosRequestConfig,
   ) {
     return DefaultApiFp(this.configuration)

@@ -57,6 +57,10 @@ class PostV2CardsUploadAddRequestCardsToAddInner(BaseModel):
     title: Optional[Annotated[str, Field(strict=True, max_length=60)]] = Field(
         default=None, description="Наименование товара"
     )
+    gtin: Optional[StrictStr] = Field(
+        default=None,
+        description="Дополнительный GTIN. Укажите этот параметр, если тот же GTIN вы ранее указывали в одной из карточек товара в параметре `skus`. Нельзя указывать один и тот же GTIN в `skus` для разных карточек или размеров товаров.   Только для продавцов из РФ",
+    )
     description: Optional[StrictStr] = Field(
         default=None,
         description="Описание товара. Максимальное количество символов зависит от категории товара Стандарт — 2000, минимум — 1000, максимум — 5000 Подробно о \\*\\*правилах заполнения карточки товара\\*\\* в [Справочном центре](https://seller.wildberries.ru/instructions/ru/ru/material/how-to-create-card) на портале продавцов",
@@ -79,6 +83,7 @@ class PostV2CardsUploadAddRequestCardsToAddInner(BaseModel):
         "kizMarked",
         "wholesale",
         "title",
+        "gtin",
         "description",
         "dimensions",
         "sizes",
@@ -172,6 +177,7 @@ class PostV2CardsUploadAddRequestCardsToAddInner(BaseModel):
                     else None
                 ),
                 "title": obj.get("title"),
+                "gtin": obj.get("gtin"),
                 "description": obj.get("description"),
                 "dimensions": (
                     PostV2CardsUploadAddRequestCardsToAddInnerDimensions.from_dict(

@@ -73,6 +73,10 @@ class PostV2GetCardsListResponse200CardsInner(BaseModel):
     )
     brand: Optional[StrictStr] = Field(default=None, description="Бренд")
     title: Optional[StrictStr] = Field(default=None, description="Наименование товара")
+    gtin: Optional[StrictStr] = Field(
+        default=None,
+        description="Дополнительный GTIN. Поле вернётся только при заполненном дополнительном GTIN.   Только для продавцов из РФ",
+    )
     description: Optional[StrictStr] = Field(
         default=None, description="Описание товара"
     )
@@ -117,6 +121,7 @@ class PostV2GetCardsListResponse200CardsInner(BaseModel):
         "vendorCode",
         "brand",
         "title",
+        "gtin",
         "description",
         "needKiz",
         "kizMarked",
@@ -227,6 +232,7 @@ class PostV2GetCardsListResponse200CardsInner(BaseModel):
                 "vendorCode": obj.get("vendorCode"),
                 "brand": obj.get("brand"),
                 "title": obj.get("title"),
+                "gtin": obj.get("gtin"),
                 "description": obj.get("description"),
                 "needKiz": obj.get("needKiz"),
                 "kizMarked": (

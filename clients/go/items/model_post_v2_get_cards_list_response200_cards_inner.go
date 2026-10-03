@@ -35,6 +35,8 @@ type PostV2GetCardsListResponse200CardsInner struct {
 	Brand *string `json:"brand,omitempty"`
 	// Наименование товара
 	Title *string `json:"title,omitempty"`
+	// Дополнительный GTIN. Поле вернётся только при заполненном дополнительном GTIN.   Только для продавцов из РФ
+	Gtin *string `json:"gtin,omitempty"`
 	// Описание товара
 	Description *string `json:"description,omitempty"`
 	// Требуется ли код маркировки [Честного знака](https://честныйзнак.рф/) для этого товара:   - `false` — не требуется   - `true` — требуется
@@ -335,6 +337,38 @@ func (o *PostV2GetCardsListResponse200CardsInner) HasTitle() bool {
 // SetTitle gets a reference to the given string and assigns it to the Title field.
 func (o *PostV2GetCardsListResponse200CardsInner) SetTitle(v string) {
 	o.Title = &v
+}
+
+// GetGtin returns the Gtin field value if set, zero value otherwise.
+func (o *PostV2GetCardsListResponse200CardsInner) GetGtin() string {
+	if o == nil || IsNil(o.Gtin) {
+		var ret string
+		return ret
+	}
+	return *o.Gtin
+}
+
+// GetGtinOk returns a tuple with the Gtin field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostV2GetCardsListResponse200CardsInner) GetGtinOk() (*string, bool) {
+	if o == nil || IsNil(o.Gtin) {
+		return nil, false
+	}
+	return o.Gtin, true
+}
+
+// HasGtin returns a boolean if a field has been set.
+func (o *PostV2GetCardsListResponse200CardsInner) HasGtin() bool {
+	if o != nil && !IsNil(o.Gtin) {
+		return true
+	}
+
+	return false
+}
+
+// SetGtin gets a reference to the given string and assigns it to the Gtin field.
+func (o *PostV2GetCardsListResponse200CardsInner) SetGtin(v string) {
+	o.Gtin = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -786,6 +820,9 @@ func (o PostV2GetCardsListResponse200CardsInner) ToMap() (map[string]interface{}
 	}
 	if !IsNil(o.Title) {
 		toSerialize["title"] = o.Title
+	}
+	if !IsNil(o.Gtin) {
+		toSerialize["gtin"] = o.Gtin
 	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description

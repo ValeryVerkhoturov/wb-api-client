@@ -2710,10 +2710,10 @@ public class DefaultApi {
    * @param dateFrom Дата начала отчётного периода (required)
    * @param dateTo Дата окончания отчётного периода (required)
    * @param status Статус возврата: - &#x60;archive&#x60; — архивный - &#x60;active&#x60; — активный
-   *     (required)
-   * @param limit Количество возвратов в ответе (required)
+   *     (optional)
+   * @param limit Количество возвратов в ответе (optional)
    * @param offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11
-   *     элемента (required)
+   *     элемента (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -2829,24 +2829,6 @@ public class DefaultApi {
           "Missing the required parameter 'dateTo' when calling getV1GoodsReturn(Async)");
     }
 
-    // verify the required parameter 'status' is set
-    if (status == null) {
-      throw new ApiException(
-          "Missing the required parameter 'status' when calling getV1GoodsReturn(Async)");
-    }
-
-    // verify the required parameter 'limit' is set
-    if (limit == null) {
-      throw new ApiException(
-          "Missing the required parameter 'limit' when calling getV1GoodsReturn(Async)");
-    }
-
-    // verify the required parameter 'offset' is set
-    if (offset == null) {
-      throw new ApiException(
-          "Missing the required parameter 'offset' when calling getV1GoodsReturn(Async)");
-    }
-
     return getV1GoodsReturnCall(dateFrom, dateTo, status, limit, offset, _callback);
   }
 
@@ -2857,10 +2839,10 @@ public class DefaultApi {
    * @param dateFrom Дата начала отчётного периода (required)
    * @param dateTo Дата окончания отчётного периода (required)
    * @param status Статус возврата: - &#x60;archive&#x60; — архивный - &#x60;active&#x60; — активный
-   *     (required)
-   * @param limit Количество возвратов в ответе (required)
+   *     (optional)
+   * @param limit Количество возвратов в ответе (optional)
    * @param offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11
-   *     элемента (required)
+   *     элемента (optional)
    * @return GoodsReturn200Response
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -2890,10 +2872,10 @@ public class DefaultApi {
    * @param dateFrom Дата начала отчётного периода (required)
    * @param dateTo Дата окончания отчётного периода (required)
    * @param status Статус возврата: - &#x60;archive&#x60; — архивный - &#x60;active&#x60; — активный
-   *     (required)
-   * @param limit Количество возвратов в ответе (required)
+   *     (optional)
+   * @param limit Количество возвратов в ответе (optional)
    * @param offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11
-   *     элемента (required)
+   *     элемента (optional)
    * @return ApiResponse&lt;GoodsReturn200Response&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -2924,10 +2906,10 @@ public class DefaultApi {
    * @param dateFrom Дата начала отчётного периода (required)
    * @param dateTo Дата окончания отчётного периода (required)
    * @param status Статус возврата: - &#x60;archive&#x60; — архивный - &#x60;active&#x60; — активный
-   *     (required)
-   * @param limit Количество возвратов в ответе (required)
+   *     (optional)
+   * @param limit Количество возвратов в ответе (optional)
    * @param offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11
-   *     элемента (required)
+   *     элемента (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
