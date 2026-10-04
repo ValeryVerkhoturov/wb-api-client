@@ -52,11 +52,6 @@ jobs:
           fi
 
       - name: Download upstream specs
-        env:
-          # Rotate the secret when downloads start returning HTTP 498; the
-          # token is fingerprint-bound and expires. When unset, the script's
-          # hardcoded fallback is used.
-          WBAAS_TOKEN: ${{ secrets.WBAAS_TOKEN }}
         run: ./scripts/download-swaggers.sh
 
       - name: Detect changes

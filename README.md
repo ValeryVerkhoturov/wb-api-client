@@ -1,6 +1,6 @@
 # wb-api-client
 
-Auto-generated client libraries for the [Wildberries Seller API](https://dev.wildberries.ru/) in **Python**, **TypeScript**, **Go**, **Java**, **PHP**, **OneScript**, and **C#**. Specs are pulled daily from `dev.wildberries.ru`; when they change, new packages are cut and pushed to each language's package manager.
+Auto-generated client libraries for the [Wildberries Seller API](https://dev.wildberries.ru/) in **Python**, **TypeScript**, **Go**, **Java**, **PHP**, **OneScript**, and **C#**. Specs are pulled daily from the [wb-api-client-specs](https://github.com/ValeryVerkhoturov/wb-api-client-specs) mirror; when they change, new packages are cut and pushed to each language's package manager.
 
 ## What's in the box
 
@@ -165,7 +165,7 @@ Passing the token through the wrapper is the only supported path.
 
 ```bash
 git submodule update --init --recursive # clients/php + clients/onescript must be mounted
-./scripts/download-swaggers.sh          # pull YAMLs from dev.wildberries.ru
+./scripts/download-swaggers.sh          # pull YAMLs from the wb-api-client-specs mirror
 pip install -r scripts/requirements.txt
 python  scripts/post-process.py         # inject Bearer auth security scheme
 ./scripts/generate.sh 0.0.0-local       # emit clients/{python,typescript,go,java,php,onescript,csharp}

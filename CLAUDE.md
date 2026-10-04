@@ -83,7 +83,7 @@ The daily workflow uses `swaggers/checksums.txt` to decide whether upstream chan
 
 ## Auth model — non-obvious
 
-Upstream YAMLs (`dev.wildberries.ru/api/swagger/yaml/ru/*.yaml`) declare a `HeaderApiKey` scheme (apiKey named "Authorization"), which duplicates the actual bearer JWT semantics and makes openapi-generator emit two auth code paths per operation. `scripts/post-process.py`'s `inject_bearer_auth` deletes every pre-existing scheme and rewires every `security` requirement to a single `BearerAuth` (HTTP bearer, JWT). Generated clients then expose exactly one token parameter.
+Upstream YAMLs (mirrored from `dev.wildberries.ru` at `wb-api-client-specs/specs/ru/*.yaml`) declare a `HeaderApiKey` scheme (apiKey named "Authorization"), which duplicates the actual bearer JWT semantics and makes openapi-generator emit two auth code paths per operation. `scripts/post-process.py`'s `inject_bearer_auth` deletes every pre-existing scheme and rewires every `security` requirement to a single `BearerAuth` (HTTP bearer, JWT). Generated clients then expose exactly one token parameter.
 
 The bearer JWT is stored inside a **secret-string wrapper** per language so it redacts under logs / `print` / `console.log` / `System.out.println` / `fmt.Printf` / `var_dump` unless explicitly exposed. `scripts/inject-secret.py` patches every generated `Configuration`/`ApiClient` to accept the wrapper:
 
@@ -162,14 +162,14 @@ Every generated client sends `ValeryVerkhoturov/wb-api-client/<lang>` on every r
 
 (Counted as "8 passes" if you split HTML→MD and link-absolutize; the pipeline diagram calls it 7 for the sake of the "one big semantic step for descriptions" reading.)
 
-## Anti-bot on downloads
+## Spec source — GitHub mirror
 
-`dev.wildberries.ru` sits behind WBAAS and returns HTTP 498 with a JS challenge to non-browser clients. `download-swaggers.sh` sidesteps it by sending a hardcoded `x_wbaas_token` cookie plus the matching browser UA. That cookie is bound to the browser session that minted it (IP + UA fingerprint encoded in the token itself) and expires; when the daily CI download starts 498-ing, the fix is to grab a fresh cookie from a browser and either update `DEFAULT_WBAAS_TOKEN` in the script or set the `WBAAS_TOKEN` env var / GitHub Actions secret. Do not strip the checksum step to hide download failures — daily-check depends on it.
+`dev.wildberries.ru` sits behind WBAAS and returns HTTP 498 with a JS challenge to non-browser clients, so specs are not pulled from the portal directly. `download-swaggers.sh` fetches them from [wb-api-client-specs](https://github.com/ValeryVerkhoturov/wb-api-client-specs) (`specs/ru/*.yaml` on `main`), a mirror of the portal specs that refreshes hourly. Do not strip the checksum step to hide download failures — daily-check depends on it.
 
 ## Local commands
 
 ```bash
-./scripts/download-swaggers.sh                     # pull upstream (may 498 locally)
+./scripts/download-swaggers.sh                     # pull upstream (from the wb-api-client-specs mirror)
 pip install -r scripts/requirements.txt            # ruamel.yaml, markdownify, black, flask
 python  scripts/post-process.py                    # -> swaggers/processed/
 ./scripts/generate.sh 1.20260920.0                 # -> clients/{python,typescript,go,java,php,onescript,csharp}
