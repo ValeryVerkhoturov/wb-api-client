@@ -5,12 +5,12 @@ set -euo pipefail
 # repository. Files are placed in ./swaggers/ next to a checksums file that
 # is later used by the daily GitHub Action to detect upstream changes.
 #
-# Specs come from github.com/ValeryVerkhoturov/wb-api-client-specs, a mirror
-# of dev.wildberries.ru refreshed hourly. Pulling from raw GitHub avoids the
-# WBAAS antibot challenge (HTTP 498) the live portal serves to non-browser
-# clients.
+# Specs come from gitlab.com/ValeryVerkhoturov/wb-api-client-specs, a mirror
+# of dev.wildberries.ru refreshed hourly. Pulling from GitLab's raw file
+# endpoint avoids the WBAAS antibot challenge (HTTP 498) the live portal
+# serves to non-browser clients.
 
-BASE_URL="https://raw.githubusercontent.com/ValeryVerkhoturov/wb-api-client-specs/main/specs/ru"
+BASE_URL="https://gitlab.com/ValeryVerkhoturov/wb-api-client-specs/-/raw/main/specs/ru"
 
 REPO_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 OUT_DIR="${REPO_ROOT}/swaggers"

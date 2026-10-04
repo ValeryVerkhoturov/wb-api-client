@@ -1,6 +1,6 @@
 # wb-api-client
 
-Auto-generated client libraries for the [Wildberries Seller API](https://dev.wildberries.ru/) in **Python**, **TypeScript**, **Go**, **Java**, **PHP**, **OneScript**, and **C#**. Specs are pulled daily from the [wb-api-client-specs](https://github.com/ValeryVerkhoturov/wb-api-client-specs) mirror; when they change, new packages are cut and pushed to each language's package manager.
+Auto-generated client libraries for the [Wildberries Seller API](https://dev.wildberries.ru/) in **Python**, **TypeScript**, **Go**, **Java**, **PHP**, **OneScript**, and **C#**. Specs are pulled daily from the [wb-api-client-specs](https://gitlab.com/ValeryVerkhoturov/wb-api-client-specs) mirror; when they change, new packages are cut and pushed to each language's package manager.
 
 ## What's in the box
 

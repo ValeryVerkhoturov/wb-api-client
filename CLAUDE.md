@@ -162,9 +162,9 @@ Every generated client sends `ValeryVerkhoturov/wb-api-client/<lang>` on every r
 
 (Counted as "8 passes" if you split HTML→MD and link-absolutize; the pipeline diagram calls it 7 for the sake of the "one big semantic step for descriptions" reading.)
 
-## Spec source — GitHub mirror
+## Spec source — GitLab mirror
 
-`dev.wildberries.ru` sits behind WBAAS and returns HTTP 498 with a JS challenge to non-browser clients, so specs are not pulled from the portal directly. `download-swaggers.sh` fetches them from [wb-api-client-specs](https://github.com/ValeryVerkhoturov/wb-api-client-specs) (`specs/ru/*.yaml` on `main`), a mirror of the portal specs that refreshes hourly. Do not strip the checksum step to hide download failures — daily-check depends on it.
+`dev.wildberries.ru` sits behind WBAAS and returns HTTP 498 with a JS challenge to non-browser clients, so specs are not pulled from the portal directly. `download-swaggers.sh` fetches them from [wb-api-client-specs](https://gitlab.com/ValeryVerkhoturov/wb-api-client-specs) (`specs/ru/*.yaml` on `main`), a mirror of the portal specs that refreshes hourly. Do not strip the checksum step to hide download failures — daily-check depends on it.
 
 ## Local commands
 
