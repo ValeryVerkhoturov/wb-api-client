@@ -2223,7 +2223,10 @@ public class DefaultApi {
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public okhttp3.Call getV1AnalyticsRegionSaleCall(
       String dateFrom, String dateTo, final ApiCallback _callback) throws ApiException {
     String basePath = null;
@@ -2286,6 +2289,7 @@ public class DefaultApi {
         _callback);
   }
 
+  @Deprecated
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1AnalyticsRegionSaleValidateBeforeCall(
       String dateFrom, String dateTo, final ApiCallback _callback) throws ApiException {
@@ -2305,9 +2309,8 @@ public class DefaultApi {
   }
 
   /**
-   * Получить отчёт Метод возвращает отчёт с [данными продаж, сгруппированных по регионам
-   * стран](https://seller.wildberries.ru/analytics-reports/region-sale). Можно получить отчёт
-   * максимум за 31 день. [Лимит
+   * Получить отчёт Метод будет отключен [3
+   * ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1
@@ -2330,7 +2333,10 @@ public class DefaultApi {
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public GetV1AnalyticsRegionSale200Response getV1AnalyticsRegionSale(
       String dateFrom, String dateTo) throws ApiException {
     ApiResponse<GetV1AnalyticsRegionSale200Response> localVarResp =
@@ -2339,9 +2345,8 @@ public class DefaultApi {
   }
 
   /**
-   * Получить отчёт Метод возвращает отчёт с [данными продаж, сгруппированных по регионам
-   * стран](https://seller.wildberries.ru/analytics-reports/region-sale). Можно получить отчёт
-   * максимум за 31 день. [Лимит
+   * Получить отчёт Метод будет отключен [3
+   * ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1
@@ -2364,7 +2369,10 @@ public class DefaultApi {
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<GetV1AnalyticsRegionSale200Response> getV1AnalyticsRegionSaleWithHttpInfo(
       String dateFrom, String dateTo) throws ApiException {
     okhttp3.Call localVarCall = getV1AnalyticsRegionSaleValidateBeforeCall(dateFrom, dateTo, null);
@@ -2373,9 +2381,8 @@ public class DefaultApi {
   }
 
   /**
-   * Получить отчёт (asynchronously) Метод возвращает отчёт с [данными продаж, сгруппированных по
-   * регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale). Можно получить
-   * отчёт максимум за 31 день. [Лимит
+   * Получить отчёт (asynchronously) Метод будет отключен [3
+   * ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1
@@ -2398,7 +2405,10 @@ public class DefaultApi {
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public okhttp3.Call getV1AnalyticsRegionSaleAsync(
       String dateFrom,
       String dateTo,

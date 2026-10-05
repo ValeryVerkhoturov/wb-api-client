@@ -280,26 +280,28 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Получить отчёт
         /// </summary>
         /// <remarks>
-        /// Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+        /// Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
         /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1AnalyticsRegionSale200Response</returns>
+        [Obsolete]
         GetV1AnalyticsRegionSale200Response GetV1AnalyticsRegionSale(string dateFrom, string dateTo, int operationIndex = 0);
 
         /// <summary>
         /// Получить отчёт
         /// </summary>
         /// <remarks>
-        /// Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+        /// Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
         /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1AnalyticsRegionSale200Response</returns>
+        [Obsolete]
         ApiResponse<GetV1AnalyticsRegionSale200Response> GetV1AnalyticsRegionSaleWithHttpInfo(string dateFrom, string dateTo, int operationIndex = 0);
         /// <summary>
         /// Подмены и неверные вложения
@@ -912,7 +914,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// Получить отчёт
         /// </summary>
         /// <remarks>
-        /// Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+        /// Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
@@ -920,13 +922,14 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1AnalyticsRegionSale200Response</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<GetV1AnalyticsRegionSale200Response> GetV1AnalyticsRegionSaleAsync(string dateFrom, string dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получить отчёт
         /// </summary>
         /// <remarks>
-        /// Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+        /// Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
@@ -934,6 +937,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1AnalyticsRegionSale200Response)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<GetV1AnalyticsRegionSale200Response>> GetV1AnalyticsRegionSaleWithHttpInfoAsync(string dateFrom, string dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Подмены и неверные вложения
@@ -3082,13 +3086,14 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         }
 
         /// <summary>
-        /// Получить отчёт Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+        /// Получить отчёт Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
         /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1AnalyticsRegionSale200Response</returns>
+        [Obsolete]
         public GetV1AnalyticsRegionSale200Response GetV1AnalyticsRegionSale(string dateFrom, string dateTo, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1AnalyticsRegionSale200Response> localVarResponse = GetV1AnalyticsRegionSaleWithHttpInfo(dateFrom, dateTo);
@@ -3096,13 +3101,14 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         }
 
         /// <summary>
-        /// Получить отчёт Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+        /// Получить отчёт Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
         /// <param name="dateTo">Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1AnalyticsRegionSale200Response</returns>
+        [Obsolete]
         public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1AnalyticsRegionSale200Response> GetV1AnalyticsRegionSaleWithHttpInfo(string dateFrom, string dateTo, int operationIndex = 0)
         {
             // verify the required parameter 'dateFrom' is set
@@ -3168,7 +3174,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         }
 
         /// <summary>
-        /// Получить отчёт Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+        /// Получить отчёт Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
@@ -3176,6 +3182,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1AnalyticsRegionSale200Response</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<GetV1AnalyticsRegionSale200Response> GetV1AnalyticsRegionSaleAsync(string dateFrom, string dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1AnalyticsRegionSale200Response> localVarResponse = await GetV1AnalyticsRegionSaleWithHttpInfoAsync(dateFrom, dateTo, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -3183,7 +3190,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         }
 
         /// <summary>
-        /// Получить отчёт Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+        /// Получить отчёт Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60; </param>
@@ -3191,6 +3198,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1AnalyticsRegionSale200Response)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<GetV1AnalyticsRegionSale200Response>> GetV1AnalyticsRegionSaleWithHttpInfoAsync(string dateFrom, string dateTo, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'dateFrom' is set

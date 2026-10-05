@@ -2829,11 +2829,12 @@ export const DefaultApiAxiosParamCreator = function (
       };
     },
     /**
-     * Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @summary Получить отчёт
      * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
      * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     getV1AnalyticsRegionSale: async (
@@ -4078,11 +4079,12 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
-     * Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @summary Получить отчёт
      * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
      * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     async getV1AnalyticsRegionSale(
@@ -4792,11 +4794,12 @@ export const DefaultApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     * Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+     * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
      * @summary Получить отчёт
      * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
      * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     getV1AnalyticsRegionSale(
@@ -5216,11 +5219,12 @@ export interface DefaultApiInterface {
   ): AxiosPromise<GetV1AnalyticsGoodsReturnResponse200>;
 
   /**
-   * Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
    * @summary Получить отчёт
    * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
    * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
    * @param {*} [options] Override http request option.
+   * @deprecated
    * @throws {RequiredError}
    * @memberof DefaultApiInterface
    */
@@ -5642,11 +5646,12 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
   }
 
   /**
-   * Метод возвращает отчёт с [данными продаж, сгруппированных по регионам стран](https://seller.wildberries.ru/analytics-reports/region-sale).  Можно получить отчёт максимум за 31 день.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
+   * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
    * @summary Получить отчёт
    * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
    * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
    * @param {*} [options] Override http request option.
+   * @deprecated
    * @throws {RequiredError}
    * @memberof DefaultApi
    */
