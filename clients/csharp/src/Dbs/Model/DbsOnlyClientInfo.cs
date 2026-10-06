@@ -35,19 +35,23 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// Initializes a new instance of the <see cref="DbsOnlyClientInfo" /> class.
         /// </summary>
         /// <param name="replacementPhone">Подменный номер для связи с покупателем. Пустое значение &#x60;\&quot;\&quot;&#x60; указывает, что номер еще не назначен.</param>
+        /// <param name="phone">Резервный подменный номер телефона для связи с покупателем. Используйте, если недоступен основной номер из &#x60;replacementPhone&#x60;. Чтобы позвонить покупателю, наберите этот номер и добавочный код из &#x60;phoneCode&#x60;. Пустое значение &#x60;\&quot;\&quot;&#x60; указывает, что номер ещё не назначен.</param>
         /// <param name="firstName">Имя покупателя.</param>
         /// <param name="fullName">Полное имя, используется для оформления документов. Например, документы на автомобиль.</param>
+        /// <param name="additionalPhones">Дополнительные прямые номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из &#x60;phone&#x60;. Пустое значение означает, что номер не указан.</param>
+        /// <param name="replacementAdditionalPhones">Дополнительные подменные номера телефонов для связи с покупателем. Пустое значение означает, что номер не указан.</param>
         /// <param name="orderID">ID сборочного задания.</param>
-        /// <param name="phone">Резервный подменный номер телефона для связи с покупателем. Используйте, если недоступен основной номер из &#x60;replacementPhone&#x60;. Чтобы позвонить покупателю, наберите этот номер и добавочный код из &#x60;phoneCode&#x60;. Пустое значение &#x60;\&quot;\&quot;&#x60; указывает, что номер ещё не назначен.</param>
         /// <param name="phoneCode">Добавочный код. Пустое значение &#x60;\&quot;\&quot;&#x60; указывает, что код ещё не назначен.</param>
         /// <param name="additionalPhoneCodes">Дополнительные добавочные коды. Используйте, если не получилось дозвониться по добавочному коду из &#x60;phoneCode&#x60;. Пустое значение &#x60;\&quot;\&quot;&#x60; указывает, что код ещё не назначен.</param>
-        public DbsOnlyClientInfo(string replacementPhone = default(string), string firstName = default(string), string fullName = default(string), int orderID = default(int), string phone = default(string), int phoneCode = default(int), List<string> additionalPhoneCodes = default(List<string>))
+        public DbsOnlyClientInfo(string replacementPhone = default(string), string phone = default(string), string firstName = default(string), string fullName = default(string), List<string> additionalPhones = default(List<string>), List<string> replacementAdditionalPhones = default(List<string>), int orderID = default(int), int phoneCode = default(int), List<string> additionalPhoneCodes = default(List<string>))
         {
             this.ReplacementPhone = replacementPhone;
+            this.Phone = phone;
             this.FirstName = firstName;
             this.FullName = fullName;
+            this.AdditionalPhones = additionalPhones;
+            this.ReplacementAdditionalPhones = replacementAdditionalPhones;
             this.OrderID = orderID;
-            this.Phone = phone;
             this.PhoneCode = phoneCode;
             this.AdditionalPhoneCodes = additionalPhoneCodes;
         }
@@ -61,6 +65,16 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         */
         [DataMember(Name = "replacementPhone", EmitDefaultValue = false)]
         public string ReplacementPhone { get; set; }
+
+        /// <summary>
+        /// Резервный подменный номер телефона для связи с покупателем. Используйте, если недоступен основной номер из &#x60;replacementPhone&#x60;. Чтобы позвонить покупателю, наберите этот номер и добавочный код из &#x60;phoneCode&#x60;. Пустое значение &#x60;\&quot;\&quot;&#x60; указывает, что номер ещё не назначен
+        /// </summary>
+        /// <value>Резервный подменный номер телефона для связи с покупателем. Используйте, если недоступен основной номер из &#x60;replacementPhone&#x60;. Чтобы позвонить покупателю, наберите этот номер и добавочный код из &#x60;phoneCode&#x60;. Пустое значение &#x60;\&quot;\&quot;&#x60; указывает, что номер ещё не назначен</value>
+        /*
+        <example>+79871234567</example>
+        */
+        [DataMember(Name = "phone", EmitDefaultValue = false)]
+        public string Phone { get; set; }
 
         /// <summary>
         /// Имя покупателя
@@ -80,6 +94,20 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         public string FullName { get; set; }
 
         /// <summary>
+        /// Дополнительные прямые номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из &#x60;phone&#x60;. Пустое значение означает, что номер не указан
+        /// </summary>
+        /// <value>Дополнительные прямые номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из &#x60;phone&#x60;. Пустое значение означает, что номер не указан</value>
+        [DataMember(Name = "additionalPhones", EmitDefaultValue = false)]
+        public List<string> AdditionalPhones { get; set; }
+
+        /// <summary>
+        /// Дополнительные подменные номера телефонов для связи с покупателем. Пустое значение означает, что номер не указан
+        /// </summary>
+        /// <value>Дополнительные подменные номера телефонов для связи с покупателем. Пустое значение означает, что номер не указан</value>
+        [DataMember(Name = "replacementAdditionalPhones", EmitDefaultValue = false)]
+        public List<string> ReplacementAdditionalPhones { get; set; }
+
+        /// <summary>
         /// ID сборочного задания
         /// </summary>
         /// <value>ID сборочного задания</value>
@@ -88,16 +116,6 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         */
         [DataMember(Name = "orderID", EmitDefaultValue = false)]
         public int OrderID { get; set; }
-
-        /// <summary>
-        /// Резервный подменный номер телефона для связи с покупателем. Используйте, если недоступен основной номер из &#x60;replacementPhone&#x60;. Чтобы позвонить покупателю, наберите этот номер и добавочный код из &#x60;phoneCode&#x60;. Пустое значение &#x60;\&quot;\&quot;&#x60; указывает, что номер ещё не назначен
-        /// </summary>
-        /// <value>Резервный подменный номер телефона для связи с покупателем. Используйте, если недоступен основной номер из &#x60;replacementPhone&#x60;. Чтобы позвонить покупателю, наберите этот номер и добавочный код из &#x60;phoneCode&#x60;. Пустое значение &#x60;\&quot;\&quot;&#x60; указывает, что номер ещё не назначен</value>
-        /*
-        <example>+79871234567</example>
-        */
-        [DataMember(Name = "phone", EmitDefaultValue = false)]
-        public string Phone { get; set; }
 
         /// <summary>
         /// Добавочный код. Пустое значение &#x60;\&quot;\&quot;&#x60; указывает, что код ещё не назначен
@@ -128,10 +146,12 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class DbsOnlyClientInfo {\n");
             sb.Append("  ReplacementPhone: ").Append(ReplacementPhone).Append("\n");
+            sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  FullName: ").Append(FullName).Append("\n");
+            sb.Append("  AdditionalPhones: ").Append(AdditionalPhones).Append("\n");
+            sb.Append("  ReplacementAdditionalPhones: ").Append(ReplacementAdditionalPhones).Append("\n");
             sb.Append("  OrderID: ").Append(OrderID).Append("\n");
-            sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  PhoneCode: ").Append(PhoneCode).Append("\n");
             sb.Append("  AdditionalPhoneCodes: ").Append(AdditionalPhoneCodes).Append("\n");
             sb.Append("}\n");

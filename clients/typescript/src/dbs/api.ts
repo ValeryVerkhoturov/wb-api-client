@@ -832,6 +832,12 @@ export interface DbsOnlyClientInfo {
    */
   replacementPhone?: string;
   /**
+   * Резервный подменный номер телефона для связи с покупателем. Используйте, если недоступен основной номер из `replacementPhone`. Чтобы позвонить покупателю, наберите этот номер и добавочный код из `phoneCode`. Пустое значение `\"\"` указывает, что номер ещё не назначен
+   * @type {string}
+   * @memberof DbsOnlyClientInfo
+   */
+  phone?: string;
+  /**
    * Имя покупателя
    * @type {string}
    * @memberof DbsOnlyClientInfo
@@ -844,17 +850,23 @@ export interface DbsOnlyClientInfo {
    */
   fullName?: string;
   /**
+   * Дополнительные прямые номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. Пустое значение означает, что номер не указан
+   * @type {Array<string>}
+   * @memberof DbsOnlyClientInfo
+   */
+  additionalPhones?: Array<string>;
+  /**
+   * Дополнительные подменные номера телефонов для связи с покупателем. Пустое значение означает, что номер не указан
+   * @type {Array<string>}
+   * @memberof DbsOnlyClientInfo
+   */
+  replacementAdditionalPhones?: Array<string>;
+  /**
    * ID сборочного задания
    * @type {number}
    * @memberof DbsOnlyClientInfo
    */
   orderID?: number;
-  /**
-   * Резервный подменный номер телефона для связи с покупателем. Используйте, если недоступен основной номер из `replacementPhone`. Чтобы позвонить покупателю, наберите этот номер и добавочный код из `phoneCode`. Пустое значение `\"\"` указывает, что номер ещё не назначен
-   * @type {string}
-   * @memberof DbsOnlyClientInfo
-   */
-  phone?: string;
   /**
    * Добавочный код. Пустое значение `\"\"` указывает, что код ещё не назначен
    * @type {number}

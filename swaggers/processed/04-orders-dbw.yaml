@@ -1774,12 +1774,20 @@ components:
           type: array
           items:
             type: string
+            example: '79871234567'
           description: |-
-            Дополнительные номера телефонов для связи с покупателем.
+            Дополнительные прямые номера телефонов для связи с покупателем.
             Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`.
             Пустое значение означает, что номер не указан
-          example:
-          - '1234554321'
+        replacementAdditionalPhones:
+          nullable: false
+          type: array
+          items:
+            type: string
+            example: '79871234567'
+          description: |-
+            Дополнительные подменные номера телефонов для связи с покупателем.
+            Пустое значение означает, что номер не указан
         additionalPhoneCodes:
           nullable: false
           type: array

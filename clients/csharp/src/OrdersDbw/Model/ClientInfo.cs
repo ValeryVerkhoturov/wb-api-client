@@ -38,17 +38,19 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// <param name="phone">Номер телефона для связи с покупателем:   - если в поле &#x60;phoneCode&#x60; не указан добавочный код, вы можете позвонить покупателю по указанному номеру. Дополнительные номера телефонов для связи без кодов указаны в поле &#x60;additionalPhones&#x60;   - если в поле &#x60;phoneCode&#x60; указан добавочный код, используйте его, чтобы связаться с покупателем по указанному номеру и добавочному коду .</param>
         /// <param name="firstName">Имя покупателя.</param>
         /// <param name="fullName">Полное имя покупателя, используется для оформления документов.</param>
-        /// <param name="additionalPhones">Дополнительные номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из &#x60;phone&#x60;. Пустое значение означает, что номер не указан.</param>
+        /// <param name="additionalPhones">Дополнительные прямые номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из &#x60;phone&#x60;. Пустое значение означает, что номер не указан.</param>
+        /// <param name="replacementAdditionalPhones">Дополнительные подменные номера телефонов для связи с покупателем. Пустое значение означает, что номер не указан.</param>
         /// <param name="additionalPhoneCodes">Дополнительные добавочные коды. Используйте, если не получилось дозвониться по добавочному коду из &#x60;phoneCode&#x60;. Пустое значение указывает, коды ещё не назначены.</param>
         /// <param name="orderId">ID сборочного задания.</param>
         /// <param name="phoneCode">Добавочный код. Используйте, чтобы связаться с покупателем по номеру из &#x60;phone&#x60;. Если код не указан, вы можете связаться с покупателем без кода.</param>
-        public ClientInfo(string replacementPhone = default(string), string phone = default(string), string firstName = default(string), string fullName = default(string), List<string> additionalPhones = default(List<string>), List<int> additionalPhoneCodes = default(List<int>), int orderId = default(int), int phoneCode = default(int))
+        public ClientInfo(string replacementPhone = default(string), string phone = default(string), string firstName = default(string), string fullName = default(string), List<string> additionalPhones = default(List<string>), List<string> replacementAdditionalPhones = default(List<string>), List<int> additionalPhoneCodes = default(List<int>), int orderId = default(int), int phoneCode = default(int))
         {
             this.ReplacementPhone = replacementPhone;
             this.Phone = phone;
             this.FirstName = firstName;
             this.FullName = fullName;
             this.AdditionalPhones = additionalPhones;
+            this.ReplacementAdditionalPhones = replacementAdditionalPhones;
             this.AdditionalPhoneCodes = additionalPhoneCodes;
             this.OrderId = orderId;
             this.PhoneCode = phoneCode;
@@ -95,14 +97,18 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         public string FullName { get; set; }
 
         /// <summary>
-        /// Дополнительные номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из &#x60;phone&#x60;. Пустое значение означает, что номер не указан
+        /// Дополнительные прямые номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из &#x60;phone&#x60;. Пустое значение означает, что номер не указан
         /// </summary>
-        /// <value>Дополнительные номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из &#x60;phone&#x60;. Пустое значение означает, что номер не указан</value>
-        /*
-        <example>[&quot;1234554321&quot;]</example>
-        */
+        /// <value>Дополнительные прямые номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из &#x60;phone&#x60;. Пустое значение означает, что номер не указан</value>
         [DataMember(Name = "additionalPhones", EmitDefaultValue = false)]
         public List<string> AdditionalPhones { get; set; }
+
+        /// <summary>
+        /// Дополнительные подменные номера телефонов для связи с покупателем. Пустое значение означает, что номер не указан
+        /// </summary>
+        /// <value>Дополнительные подменные номера телефонов для связи с покупателем. Пустое значение означает, что номер не указан</value>
+        [DataMember(Name = "replacementAdditionalPhones", EmitDefaultValue = false)]
+        public List<string> ReplacementAdditionalPhones { get; set; }
 
         /// <summary>
         /// Дополнительные добавочные коды. Используйте, если не получилось дозвониться по добавочному коду из &#x60;phoneCode&#x60;. Пустое значение указывает, коды ещё не назначены
@@ -147,6 +153,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  FullName: ").Append(FullName).Append("\n");
             sb.Append("  AdditionalPhones: ").Append(AdditionalPhones).Append("\n");
+            sb.Append("  ReplacementAdditionalPhones: ").Append(ReplacementAdditionalPhones).Append("\n");
             sb.Append("  AdditionalPhoneCodes: ").Append(AdditionalPhoneCodes).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  PhoneCode: ").Append(PhoneCode).Append("\n");

@@ -60,7 +60,7 @@ class Supply(BaseModel):
     )
     scan_dt: Optional[datetime] = Field(
         default=None,
-        description="Дата сканирования поставки или первого заказа (RFC3339)",
+        description='Дата сканирования поставки (RFC3339). Если `"scanDt":null`, поставка не сканировалась',
         alias="scanDt",
     )
     name: Optional[StrictStr] = Field(default=None, description="Наименование поставки")
@@ -134,8 +134,8 @@ class Supply(BaseModel):
         if value is None:
             return value
 
-        if value not in set([0, 1, 2, 3]):
-            raise ValueError("must be one of enum values (0, 1, 2, 3)")
+        if value not in set([1, 2, 3]):
+            raise ValueError("must be one of enum values (1, 2, 3)")
         return value
 
     @field_validator("cross_border_type")

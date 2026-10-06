@@ -33,19 +33,38 @@ import java.util.Set;
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
 public class SupplySpotDataResponseSuppliesInnerError {
-  public static final String SERIALIZED_NAME_DETAIL = "detail";
-
-  @SerializedName(SERIALIZED_NAME_DETAIL)
-  @jakarta.annotation.Nonnull
-  private String detail;
-
   public static final String SERIALIZED_NAME_TITLE = "title";
 
   @SerializedName(SERIALIZED_NAME_TITLE)
   @jakarta.annotation.Nonnull
   private String title;
 
+  public static final String SERIALIZED_NAME_DETAIL = "detail";
+
+  @SerializedName(SERIALIZED_NAME_DETAIL)
+  @jakarta.annotation.Nonnull
+  private String detail;
+
   public SupplySpotDataResponseSuppliesInnerError() {}
+
+  public SupplySpotDataResponseSuppliesInnerError title(@jakarta.annotation.Nonnull String title) {
+    this.title = title;
+    return this;
+  }
+
+  /**
+   * Заголовок ошибки
+   *
+   * @return title
+   */
+  @jakarta.annotation.Nonnull
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(@jakarta.annotation.Nonnull String title) {
+    this.title = title;
+  }
 
   public SupplySpotDataResponseSuppliesInnerError detail(
       @jakarta.annotation.Nonnull String detail) {
@@ -67,25 +86,6 @@ public class SupplySpotDataResponseSuppliesInnerError {
     this.detail = detail;
   }
 
-  public SupplySpotDataResponseSuppliesInnerError title(@jakarta.annotation.Nonnull String title) {
-    this.title = title;
-    return this;
-  }
-
-  /**
-   * Заголовок ошибки
-   *
-   * @return title
-   */
-  @jakarta.annotation.Nonnull
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(@jakarta.annotation.Nonnull String title) {
-    this.title = title;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -96,21 +96,21 @@ public class SupplySpotDataResponseSuppliesInnerError {
     }
     SupplySpotDataResponseSuppliesInnerError supplySpotDataResponseSuppliesInnerError =
         (SupplySpotDataResponseSuppliesInnerError) o;
-    return Objects.equals(this.detail, supplySpotDataResponseSuppliesInnerError.detail)
-        && Objects.equals(this.title, supplySpotDataResponseSuppliesInnerError.title);
+    return Objects.equals(this.title, supplySpotDataResponseSuppliesInnerError.title)
+        && Objects.equals(this.detail, supplySpotDataResponseSuppliesInnerError.detail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(detail, title);
+    return Objects.hash(title, detail);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SupplySpotDataResponseSuppliesInnerError {\n");
-    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -131,13 +131,13 @@ public class SupplySpotDataResponseSuppliesInnerError {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("detail");
     openapiFields.add("title");
+    openapiFields.add("detail");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("detail");
     openapiRequiredFields.add("title");
+    openapiRequiredFields.add("detail");
   }
 
   /**
@@ -179,17 +179,17 @@ public class SupplySpotDataResponseSuppliesInnerError {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (!jsonObj.get("detail").isJsonPrimitive()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `detail` to be a primitive type in the JSON string but got `%s`",
-              jsonObj.get("detail").toString()));
-    }
     if (!jsonObj.get("title").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("title").toString()));
+    }
+    if (!jsonObj.get("detail").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `detail` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("detail").toString()));
     }
   }
 

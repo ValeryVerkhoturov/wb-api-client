@@ -21,10 +21,10 @@ var _ MappedNullable = &SupplySpotDataResponseSuppliesInnerError{}
 
 // SupplySpotDataResponseSuppliesInnerError struct for SupplySpotDataResponseSuppliesInnerError
 type SupplySpotDataResponseSuppliesInnerError struct {
-	// Детали ошибки
-	Detail string `json:"detail"`
 	// Заголовок ошибки
 	Title string `json:"title"`
+	// Детали ошибки
+	Detail string `json:"detail"`
 }
 
 type _SupplySpotDataResponseSuppliesInnerError SupplySpotDataResponseSuppliesInnerError
@@ -33,10 +33,10 @@ type _SupplySpotDataResponseSuppliesInnerError SupplySpotDataResponseSuppliesInn
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSupplySpotDataResponseSuppliesInnerError(detail string, title string) *SupplySpotDataResponseSuppliesInnerError {
+func NewSupplySpotDataResponseSuppliesInnerError(title string, detail string) *SupplySpotDataResponseSuppliesInnerError {
 	this := SupplySpotDataResponseSuppliesInnerError{}
-	this.Detail = detail
 	this.Title = title
+	this.Detail = detail
 	return &this
 }
 
@@ -46,30 +46,6 @@ func NewSupplySpotDataResponseSuppliesInnerError(detail string, title string) *S
 func NewSupplySpotDataResponseSuppliesInnerErrorWithDefaults() *SupplySpotDataResponseSuppliesInnerError {
 	this := SupplySpotDataResponseSuppliesInnerError{}
 	return &this
-}
-
-// GetDetail returns the Detail field value
-func (o *SupplySpotDataResponseSuppliesInnerError) GetDetail() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Detail
-}
-
-// GetDetailOk returns a tuple with the Detail field value
-// and a boolean to check if the value has been set.
-func (o *SupplySpotDataResponseSuppliesInnerError) GetDetailOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Detail, true
-}
-
-// SetDetail sets field value
-func (o *SupplySpotDataResponseSuppliesInnerError) SetDetail(v string) {
-	o.Detail = v
 }
 
 // GetTitle returns the Title field value
@@ -96,6 +72,30 @@ func (o *SupplySpotDataResponseSuppliesInnerError) SetTitle(v string) {
 	o.Title = v
 }
 
+// GetDetail returns the Detail field value
+func (o *SupplySpotDataResponseSuppliesInnerError) GetDetail() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Detail
+}
+
+// GetDetailOk returns a tuple with the Detail field value
+// and a boolean to check if the value has been set.
+func (o *SupplySpotDataResponseSuppliesInnerError) GetDetailOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Detail, true
+}
+
+// SetDetail sets field value
+func (o *SupplySpotDataResponseSuppliesInnerError) SetDetail(v string) {
+	o.Detail = v
+}
+
 func (o SupplySpotDataResponseSuppliesInnerError) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -106,8 +106,8 @@ func (o SupplySpotDataResponseSuppliesInnerError) MarshalJSON() ([]byte, error) 
 
 func (o SupplySpotDataResponseSuppliesInnerError) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["detail"] = o.Detail
 	toSerialize["title"] = o.Title
+	toSerialize["detail"] = o.Detail
 	return toSerialize, nil
 }
 
@@ -116,8 +116,8 @@ func (o *SupplySpotDataResponseSuppliesInnerError) UnmarshalJSON(data []byte) (e
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"detail",
 		"title",
+		"detail",
 	}
 
 	allProperties := make(map[string]interface{})

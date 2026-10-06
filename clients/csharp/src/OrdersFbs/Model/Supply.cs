@@ -38,11 +38,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         public enum CargoTypeEnum
         {
             /// <summary>
-            /// Enum NUMBER_0 for value: 0
-            /// </summary>
-            NUMBER_0 = 0,
-
-            /// <summary>
             /// Enum NUMBER_1 for value: 1
             /// </summary>
             NUMBER_1 = 1,
@@ -136,7 +131,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="done">Флаг закрытия поставки:   - &#x60;true&#x60; — закрыта   - &#x60;false&#x60; — открыта .</param>
         /// <param name="createdAt">Дата создания поставки (RFC3339).</param>
         /// <param name="closedAt">Дата закрытия поставки (RFC3339).</param>
-        /// <param name="scanDt">Дата сканирования поставки или первого заказа (RFC3339).</param>
+        /// <param name="scanDt">Дата сканирования поставки (RFC3339). Если &#x60;\&quot;scanDt\&quot;:null&#x60;, поставка не сканировалась.</param>
         /// <param name="name">Наименование поставки.</param>
         /// <param name="cargoType">Тип товара:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) .</param>
         /// <param name="crossBorderType">Тип поставки:   - &#x60;0&#x60; — внутренняя поставка   - &#x60;1&#x60; — трансграничная поставка   - &#x60;null&#x60; — значение отсутствует .</param>
@@ -223,9 +218,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         public DateTime? ClosedAt { get; set; }
 
         /// <summary>
-        /// Дата сканирования поставки или первого заказа (RFC3339)
+        /// Дата сканирования поставки (RFC3339). Если &#x60;\&quot;scanDt\&quot;:null&#x60;, поставка не сканировалась
         /// </summary>
-        /// <value>Дата сканирования поставки или первого заказа (RFC3339)</value>
+        /// <value>Дата сканирования поставки (RFC3339). Если &#x60;\&quot;scanDt\&quot;:null&#x60;, поставка не сканировалась</value>
         /*
         <example>2022-05-04T07:56:29Z</example>
         */

@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261005.0";
+        public const string Version = "1.20261006.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -1545,7 +1545,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: items\n";
-            report += "    SDK Package Version: 1.20261005.0\n";
+            report += "    SDK Package Version: 1.20261006.0\n";
 
             return report;
         }

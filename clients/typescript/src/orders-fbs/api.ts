@@ -46,17 +46,17 @@ import {
  */
 export interface ApiErrorV3 {
   /**
-   * Детали ошибки
-   * @type {string}
-   * @memberof ApiErrorV3
-   */
-  detail: string;
-  /**
    * Заголовок ошибки
    * @type {string}
    * @memberof ApiErrorV3
    */
   title: string;
+  /**
+   * Детали ошибки
+   * @type {string}
+   * @memberof ApiErrorV3
+   */
+  detail: string;
 }
 /**
  *
@@ -2205,7 +2205,7 @@ export interface Supply {
    */
   closedAt?: string | null;
   /**
-   * Дата сканирования поставки или первого заказа (RFC3339)
+   * Дата сканирования поставки (RFC3339). Если `\"scanDt\":null`, поставка не сканировалась
    * @type {string}
    * @memberof Supply
    */
@@ -2273,7 +2273,6 @@ export interface Supply {
 }
 
 export const SupplyCargoTypeEnum = {
-  NUMBER_0: 0,
   NUMBER_1: 1,
   NUMBER_2: 2,
   NUMBER_3: 3,
@@ -2406,17 +2405,17 @@ export interface SupplySpotDataResponseSuppliesInner {
  */
 export interface SupplySpotDataResponseSuppliesInnerError {
   /**
-   * Детали ошибки
-   * @type {string}
-   * @memberof SupplySpotDataResponseSuppliesInnerError
-   */
-  detail: string;
-  /**
    * Заголовок ошибки
    * @type {string}
    * @memberof SupplySpotDataResponseSuppliesInnerError
    */
   title: string;
+  /**
+   * Детали ошибки
+   * @type {string}
+   * @memberof SupplySpotDataResponseSuppliesInnerError
+   */
+  detail: string;
 }
 /**
  *

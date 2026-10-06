@@ -47,8 +47,13 @@ class ClientInfo(BaseModel):
     )
     additional_phones: Optional[List[StrictStr]] = Field(
         default=None,
-        description="Дополнительные номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. Пустое значение означает, что номер не указан",
+        description="Дополнительные прямые номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. Пустое значение означает, что номер не указан",
         alias="additionalPhones",
+    )
+    replacement_additional_phones: Optional[List[StrictStr]] = Field(
+        default=None,
+        description="Дополнительные подменные номера телефонов для связи с покупателем. Пустое значение означает, что номер не указан",
+        alias="replacementAdditionalPhones",
     )
     additional_phone_codes: Optional[List[StrictInt]] = Field(
         default=None,
@@ -69,6 +74,7 @@ class ClientInfo(BaseModel):
         "firstName",
         "fullName",
         "additionalPhones",
+        "replacementAdditionalPhones",
         "additionalPhoneCodes",
         "orderId",
         "phoneCode",
@@ -129,6 +135,7 @@ class ClientInfo(BaseModel):
                 "firstName": obj.get("firstName"),
                 "fullName": obj.get("fullName"),
                 "additionalPhones": obj.get("additionalPhones"),
+                "replacementAdditionalPhones": obj.get("replacementAdditionalPhones"),
                 "additionalPhoneCodes": obj.get("additionalPhoneCodes"),
                 "orderId": obj.get("orderId"),
                 "phoneCode": obj.get("phoneCode"),

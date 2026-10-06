@@ -41,6 +41,12 @@ public class DbsOnlyClientInfo {
   @jakarta.annotation.Nullable
   private String replacementPhone;
 
+  public static final String SERIALIZED_NAME_PHONE = "phone";
+
+  @SerializedName(SERIALIZED_NAME_PHONE)
+  @jakarta.annotation.Nullable
+  private String phone;
+
   public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
 
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
@@ -53,17 +59,24 @@ public class DbsOnlyClientInfo {
   @jakarta.annotation.Nullable
   private String fullName;
 
+  public static final String SERIALIZED_NAME_ADDITIONAL_PHONES = "additionalPhones";
+
+  @SerializedName(SERIALIZED_NAME_ADDITIONAL_PHONES)
+  @jakarta.annotation.Nullable
+  private List<String> additionalPhones = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_REPLACEMENT_ADDITIONAL_PHONES =
+      "replacementAdditionalPhones";
+
+  @SerializedName(SERIALIZED_NAME_REPLACEMENT_ADDITIONAL_PHONES)
+  @jakarta.annotation.Nullable
+  private List<String> replacementAdditionalPhones = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_ORDER_I_D = "orderID";
 
   @SerializedName(SERIALIZED_NAME_ORDER_I_D)
   @jakarta.annotation.Nullable
   private Integer orderID;
-
-  public static final String SERIALIZED_NAME_PHONE = "phone";
-
-  @SerializedName(SERIALIZED_NAME_PHONE)
-  @jakarta.annotation.Nullable
-  private String phone;
 
   public static final String SERIALIZED_NAME_PHONE_CODE = "phoneCode";
 
@@ -97,6 +110,28 @@ public class DbsOnlyClientInfo {
 
   public void setReplacementPhone(@jakarta.annotation.Nullable String replacementPhone) {
     this.replacementPhone = replacementPhone;
+  }
+
+  public DbsOnlyClientInfo phone(@jakarta.annotation.Nullable String phone) {
+    this.phone = phone;
+    return this;
+  }
+
+  /**
+   * Резервный подменный номер телефона для связи с покупателем. Используйте, если недоступен
+   * основной номер из &#x60;replacementPhone&#x60;. Чтобы позвонить покупателю, наберите этот номер
+   * и добавочный код из &#x60;phoneCode&#x60;. Пустое значение &#x60;\&quot;\&quot;&#x60;
+   * указывает, что номер ещё не назначен
+   *
+   * @return phone
+   */
+  @jakarta.annotation.Nullable
+  public String getPhone() {
+    return phone;
+  }
+
+  public void setPhone(@jakarta.annotation.Nullable String phone) {
+    this.phone = phone;
   }
 
   public DbsOnlyClientInfo firstName(@jakarta.annotation.Nullable String firstName) {
@@ -137,6 +172,67 @@ public class DbsOnlyClientInfo {
     this.fullName = fullName;
   }
 
+  public DbsOnlyClientInfo additionalPhones(
+      @jakarta.annotation.Nullable List<String> additionalPhones) {
+    this.additionalPhones = additionalPhones;
+    return this;
+  }
+
+  public DbsOnlyClientInfo addAdditionalPhonesItem(String additionalPhonesItem) {
+    if (this.additionalPhones == null) {
+      this.additionalPhones = new ArrayList<>();
+    }
+    this.additionalPhones.add(additionalPhonesItem);
+    return this;
+  }
+
+  /**
+   * Дополнительные прямые номера телефонов для связи с покупателем. Используйте, чтобы позвонить
+   * покупателю, если недоступен основной номер из &#x60;phone&#x60;. Пустое значение означает, что
+   * номер не указан
+   *
+   * @return additionalPhones
+   */
+  @jakarta.annotation.Nullable
+  public List<String> getAdditionalPhones() {
+    return additionalPhones;
+  }
+
+  public void setAdditionalPhones(@jakarta.annotation.Nullable List<String> additionalPhones) {
+    this.additionalPhones = additionalPhones;
+  }
+
+  public DbsOnlyClientInfo replacementAdditionalPhones(
+      @jakarta.annotation.Nullable List<String> replacementAdditionalPhones) {
+    this.replacementAdditionalPhones = replacementAdditionalPhones;
+    return this;
+  }
+
+  public DbsOnlyClientInfo addReplacementAdditionalPhonesItem(
+      String replacementAdditionalPhonesItem) {
+    if (this.replacementAdditionalPhones == null) {
+      this.replacementAdditionalPhones = new ArrayList<>();
+    }
+    this.replacementAdditionalPhones.add(replacementAdditionalPhonesItem);
+    return this;
+  }
+
+  /**
+   * Дополнительные подменные номера телефонов для связи с покупателем. Пустое значение означает,
+   * что номер не указан
+   *
+   * @return replacementAdditionalPhones
+   */
+  @jakarta.annotation.Nullable
+  public List<String> getReplacementAdditionalPhones() {
+    return replacementAdditionalPhones;
+  }
+
+  public void setReplacementAdditionalPhones(
+      @jakarta.annotation.Nullable List<String> replacementAdditionalPhones) {
+    this.replacementAdditionalPhones = replacementAdditionalPhones;
+  }
+
   public DbsOnlyClientInfo orderID(@jakarta.annotation.Nullable Integer orderID) {
     this.orderID = orderID;
     return this;
@@ -154,28 +250,6 @@ public class DbsOnlyClientInfo {
 
   public void setOrderID(@jakarta.annotation.Nullable Integer orderID) {
     this.orderID = orderID;
-  }
-
-  public DbsOnlyClientInfo phone(@jakarta.annotation.Nullable String phone) {
-    this.phone = phone;
-    return this;
-  }
-
-  /**
-   * Резервный подменный номер телефона для связи с покупателем. Используйте, если недоступен
-   * основной номер из &#x60;replacementPhone&#x60;. Чтобы позвонить покупателю, наберите этот номер
-   * и добавочный код из &#x60;phoneCode&#x60;. Пустое значение &#x60;\&quot;\&quot;&#x60;
-   * указывает, что номер ещё не назначен
-   *
-   * @return phone
-   */
-  @jakarta.annotation.Nullable
-  public String getPhone() {
-    return phone;
-  }
-
-  public void setPhone(@jakarta.annotation.Nullable String phone) {
-    this.phone = phone;
   }
 
   public DbsOnlyClientInfo phoneCode(@jakarta.annotation.Nullable Integer phoneCode) {
@@ -238,10 +312,13 @@ public class DbsOnlyClientInfo {
     }
     DbsOnlyClientInfo dbsOnlyClientInfo = (DbsOnlyClientInfo) o;
     return Objects.equals(this.replacementPhone, dbsOnlyClientInfo.replacementPhone)
+        && Objects.equals(this.phone, dbsOnlyClientInfo.phone)
         && Objects.equals(this.firstName, dbsOnlyClientInfo.firstName)
         && Objects.equals(this.fullName, dbsOnlyClientInfo.fullName)
+        && Objects.equals(this.additionalPhones, dbsOnlyClientInfo.additionalPhones)
+        && Objects.equals(
+            this.replacementAdditionalPhones, dbsOnlyClientInfo.replacementAdditionalPhones)
         && Objects.equals(this.orderID, dbsOnlyClientInfo.orderID)
-        && Objects.equals(this.phone, dbsOnlyClientInfo.phone)
         && Objects.equals(this.phoneCode, dbsOnlyClientInfo.phoneCode)
         && Objects.equals(this.additionalPhoneCodes, dbsOnlyClientInfo.additionalPhoneCodes);
   }
@@ -249,7 +326,15 @@ public class DbsOnlyClientInfo {
   @Override
   public int hashCode() {
     return Objects.hash(
-        replacementPhone, firstName, fullName, orderID, phone, phoneCode, additionalPhoneCodes);
+        replacementPhone,
+        phone,
+        firstName,
+        fullName,
+        additionalPhones,
+        replacementAdditionalPhones,
+        orderID,
+        phoneCode,
+        additionalPhoneCodes);
   }
 
   @Override
@@ -257,10 +342,14 @@ public class DbsOnlyClientInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class DbsOnlyClientInfo {\n");
     sb.append("    replacementPhone: ").append(toIndentedString(replacementPhone)).append("\n");
+    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    fullName: ").append(toIndentedString(fullName)).append("\n");
+    sb.append("    additionalPhones: ").append(toIndentedString(additionalPhones)).append("\n");
+    sb.append("    replacementAdditionalPhones: ")
+        .append(toIndentedString(replacementAdditionalPhones))
+        .append("\n");
     sb.append("    orderID: ").append(toIndentedString(orderID)).append("\n");
-    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    phoneCode: ").append(toIndentedString(phoneCode)).append("\n");
     sb.append("    additionalPhoneCodes: ")
         .append(toIndentedString(additionalPhoneCodes))
@@ -286,10 +375,12 @@ public class DbsOnlyClientInfo {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("replacementPhone");
+    openapiFields.add("phone");
     openapiFields.add("firstName");
     openapiFields.add("fullName");
+    openapiFields.add("additionalPhones");
+    openapiFields.add("replacementAdditionalPhones");
     openapiFields.add("orderID");
-    openapiFields.add("phone");
     openapiFields.add("phoneCode");
     openapiFields.add("additionalPhoneCodes");
 
@@ -332,6 +423,13 @@ public class DbsOnlyClientInfo {
               "Expected the field `replacementPhone` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("replacementPhone").toString()));
     }
+    if ((jsonObj.get("phone") != null && !jsonObj.get("phone").isJsonNull())
+        && !jsonObj.get("phone").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `phone` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("phone").toString()));
+    }
     if ((jsonObj.get("firstName") != null && !jsonObj.get("firstName").isJsonNull())
         && !jsonObj.get("firstName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
@@ -346,12 +444,23 @@ public class DbsOnlyClientInfo {
               "Expected the field `fullName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("fullName").toString()));
     }
-    if ((jsonObj.get("phone") != null && !jsonObj.get("phone").isJsonNull())
-        && !jsonObj.get("phone").isJsonPrimitive()) {
+    // ensure the optional json data is an array if present
+    if (jsonObj.get("additionalPhones") != null
+        && !jsonObj.get("additionalPhones").isJsonNull()
+        && !jsonObj.get("additionalPhones").isJsonArray()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `phone` to be a primitive type in the JSON string but got `%s`",
-              jsonObj.get("phone").toString()));
+              "Expected the field `additionalPhones` to be an array in the JSON string but got `%s`",
+              jsonObj.get("additionalPhones").toString()));
+    }
+    // ensure the optional json data is an array if present
+    if (jsonObj.get("replacementAdditionalPhones") != null
+        && !jsonObj.get("replacementAdditionalPhones").isJsonNull()
+        && !jsonObj.get("replacementAdditionalPhones").isJsonArray()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `replacementAdditionalPhones` to be an array in the JSON string but got `%s`",
+              jsonObj.get("replacementAdditionalPhones").toString()));
     }
     // ensure the optional json data is an array if present
     if (jsonObj.get("additionalPhoneCodes") != null

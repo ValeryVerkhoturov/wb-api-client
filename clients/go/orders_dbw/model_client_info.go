@@ -27,8 +27,10 @@ type ClientInfo struct {
 	FirstName *string `json:"firstName,omitempty"`
 	// Полное имя покупателя, используется для оформления документов
 	FullName *string `json:"fullName,omitempty"`
-	// Дополнительные номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. Пустое значение означает, что номер не указан
+	// Дополнительные прямые номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. Пустое значение означает, что номер не указан
 	AdditionalPhones []string `json:"additionalPhones,omitempty"`
+	// Дополнительные подменные номера телефонов для связи с покупателем. Пустое значение означает, что номер не указан
+	ReplacementAdditionalPhones []string `json:"replacementAdditionalPhones,omitempty"`
 	// Дополнительные добавочные коды. Используйте, если не получилось дозвониться по добавочному коду из `phoneCode`. Пустое значение указывает, коды ещё не назначены
 	AdditionalPhoneCodes []int32 `json:"additionalPhoneCodes,omitempty"`
 	// ID сборочного задания
@@ -214,6 +216,38 @@ func (o *ClientInfo) SetAdditionalPhones(v []string) {
 	o.AdditionalPhones = v
 }
 
+// GetReplacementAdditionalPhones returns the ReplacementAdditionalPhones field value if set, zero value otherwise.
+func (o *ClientInfo) GetReplacementAdditionalPhones() []string {
+	if o == nil || IsNil(o.ReplacementAdditionalPhones) {
+		var ret []string
+		return ret
+	}
+	return o.ReplacementAdditionalPhones
+}
+
+// GetReplacementAdditionalPhonesOk returns a tuple with the ReplacementAdditionalPhones field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ClientInfo) GetReplacementAdditionalPhonesOk() ([]string, bool) {
+	if o == nil || IsNil(o.ReplacementAdditionalPhones) {
+		return nil, false
+	}
+	return o.ReplacementAdditionalPhones, true
+}
+
+// HasReplacementAdditionalPhones returns a boolean if a field has been set.
+func (o *ClientInfo) HasReplacementAdditionalPhones() bool {
+	if o != nil && !IsNil(o.ReplacementAdditionalPhones) {
+		return true
+	}
+
+	return false
+}
+
+// SetReplacementAdditionalPhones gets a reference to the given []string and assigns it to the ReplacementAdditionalPhones field.
+func (o *ClientInfo) SetReplacementAdditionalPhones(v []string) {
+	o.ReplacementAdditionalPhones = v
+}
+
 // GetAdditionalPhoneCodes returns the AdditionalPhoneCodes field value if set, zero value otherwise.
 func (o *ClientInfo) GetAdditionalPhoneCodes() []int32 {
 	if o == nil || IsNil(o.AdditionalPhoneCodes) {
@@ -334,6 +368,9 @@ func (o ClientInfo) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.AdditionalPhones) {
 		toSerialize["additionalPhones"] = o.AdditionalPhones
+	}
+	if !IsNil(o.ReplacementAdditionalPhones) {
+		toSerialize["replacementAdditionalPhones"] = o.ReplacementAdditionalPhones
 	}
 	if !IsNil(o.AdditionalPhoneCodes) {
 		toSerialize["additionalPhoneCodes"] = o.AdditionalPhoneCodes

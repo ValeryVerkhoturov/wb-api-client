@@ -90,8 +90,6 @@ public class Supply {
    */
   @JsonAdapter(CargoTypeEnum.Adapter.class)
   public enum CargoTypeEnum {
-    NUMBER_0(0),
-
     NUMBER_1(1),
 
     NUMBER_2(2),
@@ -429,7 +427,8 @@ public class Supply {
   }
 
   /**
-   * Дата сканирования поставки или первого заказа (RFC3339)
+   * Дата сканирования поставки (RFC3339). Если &#x60;\&quot;scanDt\&quot;:null&#x60;, поставка не
+   * сканировалась
    *
    * @return scanDt
    */

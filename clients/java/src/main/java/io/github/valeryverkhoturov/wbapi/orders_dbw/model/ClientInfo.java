@@ -65,6 +65,13 @@ public class ClientInfo {
   @jakarta.annotation.Nullable
   private List<String> additionalPhones = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_REPLACEMENT_ADDITIONAL_PHONES =
+      "replacementAdditionalPhones";
+
+  @SerializedName(SERIALIZED_NAME_REPLACEMENT_ADDITIONAL_PHONES)
+  @jakarta.annotation.Nullable
+  private List<String> replacementAdditionalPhones = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_ADDITIONAL_PHONE_CODES = "additionalPhoneCodes";
 
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_PHONE_CODES)
@@ -180,7 +187,7 @@ public class ClientInfo {
   }
 
   /**
-   * Дополнительные номера телефонов для связи с покупателем. Используйте, чтобы позвонить
+   * Дополнительные прямые номера телефонов для связи с покупателем. Используйте, чтобы позвонить
    * покупателю, если недоступен основной номер из &#x60;phone&#x60;. Пустое значение означает, что
    * номер не указан
    *
@@ -193,6 +200,36 @@ public class ClientInfo {
 
   public void setAdditionalPhones(@jakarta.annotation.Nullable List<String> additionalPhones) {
     this.additionalPhones = additionalPhones;
+  }
+
+  public ClientInfo replacementAdditionalPhones(
+      @jakarta.annotation.Nullable List<String> replacementAdditionalPhones) {
+    this.replacementAdditionalPhones = replacementAdditionalPhones;
+    return this;
+  }
+
+  public ClientInfo addReplacementAdditionalPhonesItem(String replacementAdditionalPhonesItem) {
+    if (this.replacementAdditionalPhones == null) {
+      this.replacementAdditionalPhones = new ArrayList<>();
+    }
+    this.replacementAdditionalPhones.add(replacementAdditionalPhonesItem);
+    return this;
+  }
+
+  /**
+   * Дополнительные подменные номера телефонов для связи с покупателем. Пустое значение означает,
+   * что номер не указан
+   *
+   * @return replacementAdditionalPhones
+   */
+  @jakarta.annotation.Nullable
+  public List<String> getReplacementAdditionalPhones() {
+    return replacementAdditionalPhones;
+  }
+
+  public void setReplacementAdditionalPhones(
+      @jakarta.annotation.Nullable List<String> replacementAdditionalPhones) {
+    this.replacementAdditionalPhones = replacementAdditionalPhones;
   }
 
   public ClientInfo additionalPhoneCodes(
@@ -278,6 +315,7 @@ public class ClientInfo {
         && Objects.equals(this.firstName, clientInfo.firstName)
         && Objects.equals(this.fullName, clientInfo.fullName)
         && Objects.equals(this.additionalPhones, clientInfo.additionalPhones)
+        && Objects.equals(this.replacementAdditionalPhones, clientInfo.replacementAdditionalPhones)
         && Objects.equals(this.additionalPhoneCodes, clientInfo.additionalPhoneCodes)
         && Objects.equals(this.orderId, clientInfo.orderId)
         && Objects.equals(this.phoneCode, clientInfo.phoneCode);
@@ -291,6 +329,7 @@ public class ClientInfo {
         firstName,
         fullName,
         additionalPhones,
+        replacementAdditionalPhones,
         additionalPhoneCodes,
         orderId,
         phoneCode);
@@ -305,6 +344,9 @@ public class ClientInfo {
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    fullName: ").append(toIndentedString(fullName)).append("\n");
     sb.append("    additionalPhones: ").append(toIndentedString(additionalPhones)).append("\n");
+    sb.append("    replacementAdditionalPhones: ")
+        .append(toIndentedString(replacementAdditionalPhones))
+        .append("\n");
     sb.append("    additionalPhoneCodes: ")
         .append(toIndentedString(additionalPhoneCodes))
         .append("\n");
@@ -335,6 +377,7 @@ public class ClientInfo {
     openapiFields.add("firstName");
     openapiFields.add("fullName");
     openapiFields.add("additionalPhones");
+    openapiFields.add("replacementAdditionalPhones");
     openapiFields.add("additionalPhoneCodes");
     openapiFields.add("orderId");
     openapiFields.add("phoneCode");
@@ -407,6 +450,15 @@ public class ClientInfo {
           String.format(
               "Expected the field `additionalPhones` to be an array in the JSON string but got `%s`",
               jsonObj.get("additionalPhones").toString()));
+    }
+    // ensure the optional json data is an array if present
+    if (jsonObj.get("replacementAdditionalPhones") != null
+        && !jsonObj.get("replacementAdditionalPhones").isJsonNull()
+        && !jsonObj.get("replacementAdditionalPhones").isJsonArray()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `replacementAdditionalPhones` to be an array in the JSON string but got `%s`",
+              jsonObj.get("replacementAdditionalPhones").toString()));
     }
     // ensure the optional json data is an array if present
     if (jsonObj.get("additionalPhoneCodes") != null

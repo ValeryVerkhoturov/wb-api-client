@@ -33,6 +33,10 @@ class DbsOnlyClientInfo(BaseModel):
         description='Подменный номер для связи с покупателем. Пустое значение `""` указывает, что номер еще не назначен',
         alias="replacementPhone",
     )
+    phone: Optional[StrictStr] = Field(
+        default=None,
+        description='Резервный подменный номер телефона для связи с покупателем. Используйте, если недоступен основной номер из `replacementPhone`. Чтобы позвонить покупателю, наберите этот номер и добавочный код из `phoneCode`. Пустое значение `""` указывает, что номер ещё не назначен',
+    )
     first_name: Optional[StrictStr] = Field(
         default=None, description="Имя покупателя", alias="firstName"
     )
@@ -41,12 +45,18 @@ class DbsOnlyClientInfo(BaseModel):
         description="Полное имя, используется для оформления документов. Например, документы на автомобиль",
         alias="fullName",
     )
+    additional_phones: Optional[List[StrictStr]] = Field(
+        default=None,
+        description="Дополнительные прямые номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. Пустое значение означает, что номер не указан",
+        alias="additionalPhones",
+    )
+    replacement_additional_phones: Optional[List[StrictStr]] = Field(
+        default=None,
+        description="Дополнительные подменные номера телефонов для связи с покупателем. Пустое значение означает, что номер не указан",
+        alias="replacementAdditionalPhones",
+    )
     order_id: Optional[StrictInt] = Field(
         default=None, description="ID сборочного задания", alias="orderID"
-    )
-    phone: Optional[StrictStr] = Field(
-        default=None,
-        description='Резервный подменный номер телефона для связи с покупателем. Используйте, если недоступен основной номер из `replacementPhone`. Чтобы позвонить покупателю, наберите этот номер и добавочный код из `phoneCode`. Пустое значение `""` указывает, что номер ещё не назначен',
     )
     phone_code: Optional[StrictInt] = Field(
         default=None,
@@ -60,10 +70,12 @@ class DbsOnlyClientInfo(BaseModel):
     )
     __properties: ClassVar[List[str]] = [
         "replacementPhone",
+        "phone",
         "firstName",
         "fullName",
+        "additionalPhones",
+        "replacementAdditionalPhones",
         "orderID",
-        "phone",
         "phoneCode",
         "additionalPhoneCodes",
     ]
@@ -119,10 +131,12 @@ class DbsOnlyClientInfo(BaseModel):
         _obj = cls.model_validate(
             {
                 "replacementPhone": obj.get("replacementPhone"),
+                "phone": obj.get("phone"),
                 "firstName": obj.get("firstName"),
                 "fullName": obj.get("fullName"),
+                "additionalPhones": obj.get("additionalPhones"),
+                "replacementAdditionalPhones": obj.get("replacementAdditionalPhones"),
                 "orderID": obj.get("orderID"),
-                "phone": obj.get("phone"),
                 "phoneCode": obj.get("phoneCode"),
                 "additionalPhoneCodes": obj.get("additionalPhoneCodes"),
             }

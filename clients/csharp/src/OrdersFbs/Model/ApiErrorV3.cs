@@ -39,30 +39,23 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiErrorV3" /> class.
         /// </summary>
-        /// <param name="detail">Детали ошибки (required).</param>
         /// <param name="title">Заголовок ошибки (required).</param>
-        public ApiErrorV3(string detail = default(string), string title = default(string))
+        /// <param name="detail">Детали ошибки (required).</param>
+        public ApiErrorV3(string title = default(string), string detail = default(string))
         {
-            // to ensure "detail" is required (not null)
-            if (detail == null)
-            {
-                throw new ArgumentNullException("detail is a required property for ApiErrorV3 and cannot be null");
-            }
-            this.Detail = detail;
             // to ensure "title" is required (not null)
             if (title == null)
             {
                 throw new ArgumentNullException("title is a required property for ApiErrorV3 and cannot be null");
             }
             this.Title = title;
+            // to ensure "detail" is required (not null)
+            if (detail == null)
+            {
+                throw new ArgumentNullException("detail is a required property for ApiErrorV3 and cannot be null");
+            }
+            this.Detail = detail;
         }
-
-        /// <summary>
-        /// Детали ошибки
-        /// </summary>
-        /// <value>Детали ошибки</value>
-        [DataMember(Name = "detail", IsRequired = true, EmitDefaultValue = true)]
-        public string Detail { get; set; }
 
         /// <summary>
         /// Заголовок ошибки
@@ -72,6 +65,13 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         public string Title { get; set; }
 
         /// <summary>
+        /// Детали ошибки
+        /// </summary>
+        /// <value>Детали ошибки</value>
+        [DataMember(Name = "detail", IsRequired = true, EmitDefaultValue = true)]
+        public string Detail { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -79,8 +79,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ApiErrorV3 {\n");
-            sb.Append("  Detail: ").Append(Detail).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Detail: ").Append(Detail).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
