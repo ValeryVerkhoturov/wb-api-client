@@ -47,7 +47,7 @@ class DbsOnlyClientInfo(BaseModel):
     )
     additional_phones: Optional[List[StrictStr]] = Field(
         default=None,
-        description="Дополнительные прямые номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. Пустое значение означает, что номер не указан",
+        description="Дополнительные номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из `phone`. Пустое значение означает, что номер не указан",
         alias="additionalPhones",
     )
     replacement_additional_phones: Optional[List[StrictStr]] = Field(

@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261006.0";
+        public const string Version = "1.20261007.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -934,7 +934,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: dbs\n";
-            report += "    SDK Package Version: 1.20261006.0\n";
+            report += "    SDK Package Version: 1.20261007.0\n";
 
             return report;
         }

@@ -552,9 +552,10 @@ public class CsvApi {
    * генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry).
    * Также можно [получить список и проверить
    * статусы](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads)
-   * отчётов. Отчёты по [остаткам](https://seller.wildberries.ru/content-analytics/history-remains)
-   * — типы &#x60;STOCK_HISTORY_REPORT_CSV&#x60; и &#x60;STOCK_HISTORY_DAILY_CSV&#x60; — можно
-   * создать без подписки [Джем](https://seller.wildberries.ru/monetization/jam) [Лимит
+   * отчётов. Данные отчётов обновляются 1 раз в 2 часа. Отчёты по
+   * [остаткам](https://seller.wildberries.ru/content-analytics/history-remains) — типы
+   * &#x60;STOCK_HISTORY_REPORT_CSV&#x60; и &#x60;STOCK_HISTORY_DAILY_CSV&#x60; — можно создать без
+   * подписки [Джем](https://seller.wildberries.ru/monetization/jam) [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
@@ -605,9 +606,10 @@ public class CsvApi {
    * генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry).
    * Также можно [получить список и проверить
    * статусы](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads)
-   * отчётов. Отчёты по [остаткам](https://seller.wildberries.ru/content-analytics/history-remains)
-   * — типы &#x60;STOCK_HISTORY_REPORT_CSV&#x60; и &#x60;STOCK_HISTORY_DAILY_CSV&#x60; — можно
-   * создать без подписки [Джем](https://seller.wildberries.ru/monetization/jam) [Лимит
+   * отчётов. Данные отчётов обновляются 1 раз в 2 часа. Отчёты по
+   * [остаткам](https://seller.wildberries.ru/content-analytics/history-remains) — типы
+   * &#x60;STOCK_HISTORY_REPORT_CSV&#x60; и &#x60;STOCK_HISTORY_DAILY_CSV&#x60; — можно создать без
+   * подписки [Джем](https://seller.wildberries.ru/monetization/jam) [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
@@ -659,9 +661,10 @@ public class CsvApi {
    * генерацию](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/postV2NmReportDownloadsRetry).
    * Также можно [получить список и проверить
    * статусы](https://dev.wildberries.ru/openapi/analytics#tag/sellerAnalyticsCsv/operation/getV2NmReportDownloads)
-   * отчётов. Отчёты по [остаткам](https://seller.wildberries.ru/content-analytics/history-remains)
-   * — типы &#x60;STOCK_HISTORY_REPORT_CSV&#x60; и &#x60;STOCK_HISTORY_DAILY_CSV&#x60; — можно
-   * создать без подписки [Джем](https://seller.wildberries.ru/monetization/jam) [Лимит
+   * отчётов. Данные отчётов обновляются 1 раз в 2 часа. Отчёты по
+   * [остаткам](https://seller.wildberries.ru/content-analytics/history-remains) — типы
+   * &#x60;STOCK_HISTORY_REPORT_CSV&#x60; и &#x60;STOCK_HISTORY_DAILY_CSV&#x60; — можно создать без
+   * подписки [Джем](https://seller.wildberries.ru/monetization/jam) [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3

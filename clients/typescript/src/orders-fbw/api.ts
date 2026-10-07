@@ -1954,7 +1954,7 @@ export const DefaultApiAxiosParamCreator = function (
       };
     },
     /**
-     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
      * @summary Список складов
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1997,7 +1997,7 @@ export const DefaultApiAxiosParamCreator = function (
       };
     },
     /**
-     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
      * @summary Опции приёмки
      * @param {Array<ModelsGood>} modelsGood
      * @param {number} [warehouseID] ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*
@@ -2559,7 +2559,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
-     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
      * @summary Список складов
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2588,7 +2588,7 @@ export const DefaultApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
-     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
      * @summary Опции приёмки
      * @param {Array<ModelsGood>} modelsGood
      * @param {number} [warehouseID] ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*
@@ -2897,7 +2897,7 @@ export const DefaultApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
      * @summary Список складов
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2910,7 +2910,7 @@ export const DefaultApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+     * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
      * @summary Опции приёмки
      * @param {Array<ModelsGood>} modelsGood
      * @param {number} [warehouseID] ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*
@@ -3116,7 +3116,7 @@ export interface DefaultApiInterface {
   ): AxiosPromise<Array<ModelsTransitTariff>>;
 
   /**
-   * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+   * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
    * @summary Список складов
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -3127,7 +3127,7 @@ export interface DefaultApiInterface {
   ): AxiosPromise<Array<ModelsWarehousesResultItems>>;
 
   /**
-   * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+   * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
    * @summary Опции приёмки
    * @param {Array<ModelsGood>} modelsGood
    * @param {number} [warehouseID] ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*
@@ -3359,7 +3359,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
   }
 
   /**
-   * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+   * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
    * @summary Список складов
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
@@ -3372,7 +3372,7 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
   }
 
   /**
-   * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+   * Метод [временно отключён](https://dev.wildberries.ru/release-notes?id=570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  ---  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
    * @summary Опции приёмки
    * @param {Array<ModelsGood>} modelsGood
    * @param {number} [warehouseID] ID склада.  Если параметр не указан, возвращаются данные по всем складам.  \\*\\*Максимум одно значение\\*\\*

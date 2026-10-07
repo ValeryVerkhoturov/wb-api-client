@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// Initializes a new instance of the <see cref="InventoryHistoryReportReq" /> class.
         /// </summary>
         /// <param name="id">ID отчёта в UUID-формате. Генерируется продавцом самостоятельно (required).</param>
-        /// <param name="reportType">Тип отчёта &#x60;STOCK\\_HISTORY\\_DAILY\\_CSV&#x60; — Отчёт по истории остатков.  Данные отчёта обновляются 1 раз в 2 часа (required).</param>
+        /// <param name="reportType">Тип отчёта &#x60;STOCK_HISTORY_DAILY_CSV&#x60; — Отчёт по истории остатков (required).</param>
         /// <param name="userReportName">Название отчёта. Если не указано, сформируется автоматически.</param>
         /// <param name="varParams">varParams (required).</param>
         public InventoryHistoryReportReq(Guid id = default(Guid), string reportType = default(string), string userReportName = default(string), InventoryHistoryReportReqParams varParams = default(InventoryHistoryReportReqParams))
@@ -69,9 +69,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Тип отчёта &#x60;STOCK\\_HISTORY\\_DAILY\\_CSV&#x60; — Отчёт по истории остатков.  Данные отчёта обновляются 1 раз в 2 часа
+        /// Тип отчёта &#x60;STOCK_HISTORY_DAILY_CSV&#x60; — Отчёт по истории остатков
         /// </summary>
-        /// <value>Тип отчёта &#x60;STOCK\\_HISTORY\\_DAILY\\_CSV&#x60; — Отчёт по истории остатков.  Данные отчёта обновляются 1 раз в 2 часа</value>
+        /// <value>Тип отчёта &#x60;STOCK_HISTORY_DAILY_CSV&#x60; — Отчёт по истории остатков</value>
         [DataMember(Name = "reportType", IsRequired = true, EmitDefaultValue = true)]
         public string ReportType { get; set; }
 

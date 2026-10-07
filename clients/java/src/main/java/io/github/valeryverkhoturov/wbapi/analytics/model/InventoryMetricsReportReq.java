@@ -85,8 +85,7 @@ public class InventoryMetricsReportReq {
   }
 
   /**
-   * Тип отчёта &#x60;STOCK\\_HISTORY\\_REPORT\\_CSV&#x60; — Отчёт по статистике остатков. Данные
-   * отчёта обновляются 1 раз в 2 часа
+   * Тип отчёта &#x60;STOCK_HISTORY_REPORT_CSV&#x60; — Отчёт по статистике остатков
    *
    * @return reportType
    */

@@ -251,7 +251,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// Список складов
         /// </summary>
         /// <remarks>
-        /// Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+        /// Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  - --  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -262,7 +262,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// Список складов
         /// </summary>
         /// <remarks>
-        /// Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+        /// Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  - --  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -272,7 +272,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// Опции приёмки
         /// </summary>
         /// <remarks>
-        /// Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+        /// Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  - --  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="modelsGood"></param>
@@ -285,7 +285,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// Опции приёмки
         /// </summary>
         /// <remarks>
-        /// Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+        /// Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  - --  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="modelsGood"></param>
@@ -618,7 +618,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// Список складов
         /// </summary>
         /// <remarks>
-        /// Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+        /// Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  - --  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -630,7 +630,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// Список складов
         /// </summary>
         /// <remarks>
-        /// Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+        /// Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  - --  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -641,7 +641,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// Опции приёмки
         /// </summary>
         /// <remarks>
-        /// Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+        /// Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  - --  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="modelsGood"></param>
@@ -655,7 +655,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         /// Опции приёмки
         /// </summary>
         /// <remarks>
-        /// Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+        /// Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  - --  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="modelsGood"></param>
@@ -2306,7 +2306,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         }
 
         /// <summary>
-        /// Список складов Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+        /// Список складов Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  - --  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2318,7 +2318,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         }
 
         /// <summary>
-        /// Список складов Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+        /// Список складов Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  - --  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2374,7 +2374,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         }
 
         /// <summary>
-        /// Список складов Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+        /// Список складов Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  - --  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2387,7 +2387,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         }
 
         /// <summary>
-        /// Список складов Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+        /// Список складов Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 12 ч | 1 запрос | 12 ч | 1 запрос |  - --  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2446,7 +2446,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         }
 
         /// <summary>
-        /// Опции приёмки Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+        /// Опции приёмки Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  - --  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="modelsGood"></param>
@@ -2460,7 +2460,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         }
 
         /// <summary>
-        /// Опции приёмки Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+        /// Опции приёмки Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  - --  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="modelsGood"></param>
@@ -2530,7 +2530,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         }
 
         /// <summary>
-        /// Опции приёмки Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+        /// Опции приёмки Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  - --  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="modelsGood"></param>
@@ -2545,7 +2545,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Api
         }
 
         /// <summary>
-        /// Опции приёмки Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+        /// Опции приёмки Метод [временно отключён](https://dev.wildberries.ru/release-notes?id&#x3D;570)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Сервисный | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый с секретом | 1 мин | 6 запросов | 10 сек | 6 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  - --  В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbw.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="modelsGood"></param>

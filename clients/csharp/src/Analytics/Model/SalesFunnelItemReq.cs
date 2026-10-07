@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// Initializes a new instance of the <see cref="SalesFunnelItemReq" /> class.
         /// </summary>
         /// <param name="id">ID отчёта в UUID-формате. Генерируется продавцом самостоятельно (required).</param>
-        /// <param name="reportType">Тип отчёта &#x60;DETAIL\\_HISTORY\\_REPORT&#x60; — Воронка продаж. По артикулам WB.   Данные отчёта обновляются 1 раз в 2 часа. (required).</param>
+        /// <param name="reportType">Тип отчёта &#x60;DETAIL_HISTORY_REPORT&#x60; — Воронка продаж. По артикулам WB  (required).</param>
         /// <param name="userReportName">Название отчёта. Если не указано, сформируется автоматически.</param>
         /// <param name="varParams">varParams (required).</param>
         public SalesFunnelItemReq(Guid id = default(Guid), string reportType = default(string), string userReportName = default(string), SalesFunnelItemReqParams varParams = default(SalesFunnelItemReqParams))
@@ -69,9 +69,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Тип отчёта &#x60;DETAIL\\_HISTORY\\_REPORT&#x60; — Воронка продаж. По артикулам WB.   Данные отчёта обновляются 1 раз в 2 часа.
+        /// Тип отчёта &#x60;DETAIL_HISTORY_REPORT&#x60; — Воронка продаж. По артикулам WB 
         /// </summary>
-        /// <value>Тип отчёта &#x60;DETAIL\\_HISTORY\\_REPORT&#x60; — Воронка продаж. По артикулам WB.   Данные отчёта обновляются 1 раз в 2 часа.</value>
+        /// <value>Тип отчёта &#x60;DETAIL_HISTORY_REPORT&#x60; — Воронка продаж. По артикулам WB </value>
         [DataMember(Name = "reportType", IsRequired = true, EmitDefaultValue = true)]
         public string ReportType { get; set; }
 

@@ -37,7 +37,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param id Числовой ID ярлыка
@@ -138,7 +138,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2BufferGoodsTaskRequest
@@ -166,7 +166,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2BufferTasksRequest
@@ -200,7 +200,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2CardsLimitsRequest
@@ -226,7 +226,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2DirectoryColorsRequest
@@ -283,7 +283,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2DirectoryKindsRequest
@@ -363,7 +363,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2DirectorySeasonsRequest
@@ -451,7 +451,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2DirectoryVatRequest
@@ -479,7 +479,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2HistoryGoodsTaskRequest
@@ -507,7 +507,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2HistoryTasksRequest
@@ -541,7 +541,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2ListGoodsFilterRequest
@@ -571,7 +571,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2ListGoodsSizeNmRequest
@@ -701,7 +701,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2QuarantineGoodsRequest
@@ -727,7 +727,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV2TagsRequest
@@ -831,7 +831,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@param id Числовой ID ярлыка
@@ -1015,7 +1015,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2CardsErrorListRequest
@@ -1357,7 +1357,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2ListGoodsFilterRequest
@@ -1385,7 +1385,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2TagRequest
@@ -1412,7 +1412,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2TagNomenclatureLinkRequest
@@ -1442,7 +1442,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2UploadTaskRequest
@@ -1470,7 +1470,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2UploadTaskClubDiscountRequest
@@ -1500,7 +1500,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV2UploadTaskSizeRequest
@@ -1536,7 +1536,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3MediaFileRequest
@@ -1580,7 +1580,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3MediaSaveRequest
@@ -1750,7 +1750,7 @@ DeleteV2TagId Удаление ярлыка
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param id Числовой ID ярлыка
@@ -2472,7 +2472,7 @@ GetV2BufferGoodsTask Детализация необработанной заг�
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2BufferGoodsTaskRequest
@@ -2650,7 +2650,7 @@ GetV2BufferTasks Состояние необработанной загрузк�
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2BufferTasksRequest
@@ -2817,7 +2817,7 @@ GetV2CardsLimits Лимиты карточек товаров
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2CardsLimitsRequest
@@ -2968,7 +2968,7 @@ GetV2DirectoryColors Цвет
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectoryColorsRequest
@@ -3303,7 +3303,7 @@ GetV2DirectoryKinds Пол
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectoryKindsRequest
@@ -3837,7 +3837,7 @@ GetV2DirectorySeasons Сезон
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectorySeasonsRequest
@@ -4376,7 +4376,7 @@ GetV2DirectoryVat Ставка НДС
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2DirectoryVatRequest
@@ -4557,7 +4557,7 @@ GetV2HistoryGoodsTask Детализация обработанной загру
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2HistoryGoodsTaskRequest
@@ -4735,7 +4735,7 @@ GetV2HistoryTasks Состояние обработанной загрузки
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2HistoryTasksRequest
@@ -4923,7 +4923,7 @@ GetV2ListGoodsFilter Получить товары с ценами
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2ListGoodsFilterRequest
@@ -5127,7 +5127,7 @@ GetV2ListGoodsSizeNm Получить размеры товара с ценам�
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2ListGoodsSizeNmRequest
@@ -5880,7 +5880,7 @@ GetV2QuarantineGoods Получить товары в карантине
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2QuarantineGoodsRequest
@@ -6067,7 +6067,7 @@ GetV2Tags Список ярлыков
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV2TagsRequest
@@ -6686,7 +6686,7 @@ PatchV2TagId Изменение ярлыка
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param id Числовой ID ярлыка
@@ -7741,7 +7741,7 @@ PostV2CardsErrorList Список несозданных карточек тов
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2CardsErrorListRequest
@@ -9340,7 +9340,7 @@ PostV2ListGoodsFilter Получить товары с ценами по арт�
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2ListGoodsFilterRequest
@@ -9519,7 +9519,7 @@ PostV2Tag Создание ярлыка
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2TagRequest
@@ -9697,7 +9697,7 @@ PostV2TagNomenclatureLink Управление ярлыками в карточ�
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2TagNomenclatureLinkRequest
@@ -9878,7 +9878,7 @@ PostV2UploadTask Установить цены и скидки
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2UploadTaskRequest
@@ -10079,7 +10079,7 @@ PostV2UploadTaskClubDiscount Установить скидки WB Клуба
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2UploadTaskClubDiscountRequest
@@ -10282,7 +10282,7 @@ PostV2UploadTaskSize Установить цены для размеров
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV2UploadTaskSizeRequest
@@ -10505,7 +10505,7 @@ PostV3MediaFile Загрузить медиафайл
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3MediaFileRequest
@@ -10718,7 +10718,7 @@ PostV3MediaSave Загрузить медиафайлы по ссылкам
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3MediaSaveRequest

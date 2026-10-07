@@ -268,7 +268,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiGetV1WarehousesRequest
@@ -294,7 +294,7 @@ type DefaultApi interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV1AcceptanceOptionsRequest
@@ -2001,7 +2001,7 @@ GetV1Warehouses Список складов
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetV1WarehousesRequest
@@ -2158,7 +2158,7 @@ PostV1AcceptanceOptions Опции приёмки
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV1AcceptanceOptionsRequest

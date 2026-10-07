@@ -85,8 +85,7 @@ public class InventoryHistoryReportReq {
   }
 
   /**
-   * Тип отчёта &#x60;STOCK\\_HISTORY\\_DAILY\\_CSV&#x60; — Отчёт по истории остатков. Данные отчёта
-   * обновляются 1 раз в 2 часа
+   * Тип отчёта &#x60;STOCK_HISTORY_DAILY_CSV&#x60; — Отчёт по истории остатков
    *
    * @return reportType
    */

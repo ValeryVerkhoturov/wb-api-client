@@ -33,7 +33,7 @@ class InventoryMetricsReportReq(BaseModel):
         description="ID отчёта в UUID-формате. Генерируется продавцом самостоятельно"
     )
     report_type: StrictStr = Field(
-        description="Тип отчёта `STOCK\\_HISTORY\\_REPORT\\_CSV` — Отчёт по статистике остатков.  Данные отчёта обновляются 1 раз в 2 часа",
+        description="Тип отчёта `STOCK_HISTORY_REPORT_CSV` — Отчёт по статистике остатков",
         alias="reportType",
     )
     user_report_name: Optional[StrictStr] = Field(

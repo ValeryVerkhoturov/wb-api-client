@@ -345,7 +345,7 @@ type DBSAPI interface {
 
 		---
 
-		В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+		В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			@return ApiPostV3DbsOrdersMetaSgtinRequest
@@ -2805,7 +2805,7 @@ PostV3DbsOrdersMetaSgtin Закрепить коды маркировки Чес
 
 ---
 
-В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
+В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiPostV3DbsOrdersMetaSgtinRequest
