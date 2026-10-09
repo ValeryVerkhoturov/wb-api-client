@@ -16,7 +16,6 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from datetime import datetime
 from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
@@ -1990,10 +1989,11 @@ class Api:
     def get_v1_calendar_promotions(
         self,
         start_date_time: Annotated[
-            datetime, Field(description="Начало периода, формат `YYYY-MM-DDTHH:MM:SSZ`")
+            StrictStr,
+            Field(description="Начало периода, формат `YYYY-MM-DDTHH:MM:SSZ`"),
         ],
         end_date_time: Annotated[
-            datetime, Field(description="Конец периода, формат `YYYY-MM-DDTHH:MM:SSZ`")
+            StrictStr, Field(description="Конец периода, формат `YYYY-MM-DDTHH:MM:SSZ`")
         ],
         all_promo: Annotated[
             StrictBool,
@@ -2026,9 +2026,9 @@ class Api:
         Метод возвращает список [акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Календарь акций**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
         :param start_date_time: Начало периода, формат `YYYY-MM-DDTHH:MM:SSZ` (required)
-        :type start_date_time: datetime
+        :type start_date_time: str
         :param end_date_time: Конец периода, формат `YYYY-MM-DDTHH:MM:SSZ` (required)
-        :type end_date_time: datetime
+        :type end_date_time: str
         :param all_promo: Показать акции:   - `false` — доступные для участия   - `true` — все акции  (required)
         :type all_promo: bool
         :param limit: Количество запрашиваемых акций
@@ -2090,10 +2090,11 @@ class Api:
     def get_v1_calendar_promotions_with_http_info(
         self,
         start_date_time: Annotated[
-            datetime, Field(description="Начало периода, формат `YYYY-MM-DDTHH:MM:SSZ`")
+            StrictStr,
+            Field(description="Начало периода, формат `YYYY-MM-DDTHH:MM:SSZ`"),
         ],
         end_date_time: Annotated[
-            datetime, Field(description="Конец периода, формат `YYYY-MM-DDTHH:MM:SSZ`")
+            StrictStr, Field(description="Конец периода, формат `YYYY-MM-DDTHH:MM:SSZ`")
         ],
         all_promo: Annotated[
             StrictBool,
@@ -2126,9 +2127,9 @@ class Api:
         Метод возвращает список [акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Календарь акций**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
         :param start_date_time: Начало периода, формат `YYYY-MM-DDTHH:MM:SSZ` (required)
-        :type start_date_time: datetime
+        :type start_date_time: str
         :param end_date_time: Конец периода, формат `YYYY-MM-DDTHH:MM:SSZ` (required)
-        :type end_date_time: datetime
+        :type end_date_time: str
         :param all_promo: Показать акции:   - `false` — доступные для участия   - `true` — все акции  (required)
         :type all_promo: bool
         :param limit: Количество запрашиваемых акций
@@ -2190,10 +2191,11 @@ class Api:
     def get_v1_calendar_promotions_without_preload_content(
         self,
         start_date_time: Annotated[
-            datetime, Field(description="Начало периода, формат `YYYY-MM-DDTHH:MM:SSZ`")
+            StrictStr,
+            Field(description="Начало периода, формат `YYYY-MM-DDTHH:MM:SSZ`"),
         ],
         end_date_time: Annotated[
-            datetime, Field(description="Конец периода, формат `YYYY-MM-DDTHH:MM:SSZ`")
+            StrictStr, Field(description="Конец периода, формат `YYYY-MM-DDTHH:MM:SSZ`")
         ],
         all_promo: Annotated[
             StrictBool,
@@ -2226,9 +2228,9 @@ class Api:
         Метод возвращает список [акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца для всех методов категории **Календарь акций**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
         :param start_date_time: Начало периода, формат `YYYY-MM-DDTHH:MM:SSZ` (required)
-        :type start_date_time: datetime
+        :type start_date_time: str
         :param end_date_time: Конец периода, формат `YYYY-MM-DDTHH:MM:SSZ` (required)
-        :type end_date_time: datetime
+        :type end_date_time: str
         :param all_promo: Показать акции:   - `false` — доступные для участия   - `true` — все акции  (required)
         :type all_promo: bool
         :param limit: Количество запрашиваемых акций
@@ -2312,30 +2314,12 @@ class Api:
         # process the path parameters
         # process the query parameters
         if start_date_time is not None:
-            if isinstance(start_date_time, datetime):
-                _query_params.append(
-                    (
-                        "startDateTime",
-                        start_date_time.strftime(
-                            self.api_client.configuration.datetime_format
-                        ),
-                    )
-                )
-            else:
-                _query_params.append(("startDateTime", start_date_time))
+
+            _query_params.append(("startDateTime", start_date_time))
 
         if end_date_time is not None:
-            if isinstance(end_date_time, datetime):
-                _query_params.append(
-                    (
-                        "endDateTime",
-                        end_date_time.strftime(
-                            self.api_client.configuration.datetime_format
-                        ),
-                    )
-                )
-            else:
-                _query_params.append(("endDateTime", end_date_time))
+
+            _query_params.append(("endDateTime", end_date_time))
 
         if all_promo is not None:
 

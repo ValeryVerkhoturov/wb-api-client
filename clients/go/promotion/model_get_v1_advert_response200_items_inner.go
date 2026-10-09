@@ -12,7 +12,6 @@ package promotion
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the GetV1AdvertResponse200ItemsInner type satisfies the MappedNullable interface at compile time
@@ -41,13 +40,13 @@ type GetV1AdvertResponse200ItemsInner struct {
 	// Тип продвижения: - `1` — баннер - `2` — всплывающее меню - `3` — почтовая рассылка - `4` — социальные сети - `5` — push-уведомления в мобильном приложении
 	AdvertType *int32 `json:"advert_type,omitempty"`
 	// Дата создания баннера
-	CreatedAt *time.Time `json:"created_at,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
 	// Дата и время обновления баннера
-	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+	UpdatedAt *string `json:"updated_at,omitempty"`
 	// Дата начала работы баннера
-	DateFrom *time.Time `json:"date_from,omitempty"`
+	DateFrom *string `json:"date_from,omitempty"`
 	// Дата завершения работы баннера
-	DateTo *time.Time `json:"date_to,omitempty"`
+	DateTo *string `json:"date_to,omitempty"`
 	// Подборка артикулов WB
 	Nms []int32 `json:"nms,omitempty"`
 	// Текст под плашкой баннера
@@ -410,9 +409,9 @@ func (o *GetV1AdvertResponse200ItemsInner) SetAdvertType(v int32) {
 }
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200ItemsInner) GetCreatedAt() time.Time {
+func (o *GetV1AdvertResponse200ItemsInner) GetCreatedAt() string {
 	if o == nil || IsNil(o.CreatedAt) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.CreatedAt
@@ -420,7 +419,7 @@ func (o *GetV1AdvertResponse200ItemsInner) GetCreatedAt() time.Time {
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200ItemsInner) GetCreatedAtOk() (*time.Time, bool) {
+func (o *GetV1AdvertResponse200ItemsInner) GetCreatedAtOk() (*string, bool) {
 	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
@@ -436,15 +435,15 @@ func (o *GetV1AdvertResponse200ItemsInner) HasCreatedAt() bool {
 	return false
 }
 
-// SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
-func (o *GetV1AdvertResponse200ItemsInner) SetCreatedAt(v time.Time) {
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
+func (o *GetV1AdvertResponse200ItemsInner) SetCreatedAt(v string) {
 	o.CreatedAt = &v
 }
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200ItemsInner) GetUpdatedAt() time.Time {
+func (o *GetV1AdvertResponse200ItemsInner) GetUpdatedAt() string {
 	if o == nil || IsNil(o.UpdatedAt) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.UpdatedAt
@@ -452,7 +451,7 @@ func (o *GetV1AdvertResponse200ItemsInner) GetUpdatedAt() time.Time {
 
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200ItemsInner) GetUpdatedAtOk() (*time.Time, bool) {
+func (o *GetV1AdvertResponse200ItemsInner) GetUpdatedAtOk() (*string, bool) {
 	if o == nil || IsNil(o.UpdatedAt) {
 		return nil, false
 	}
@@ -468,15 +467,15 @@ func (o *GetV1AdvertResponse200ItemsInner) HasUpdatedAt() bool {
 	return false
 }
 
-// SetUpdatedAt gets a reference to the given time.Time and assigns it to the UpdatedAt field.
-func (o *GetV1AdvertResponse200ItemsInner) SetUpdatedAt(v time.Time) {
+// SetUpdatedAt gets a reference to the given string and assigns it to the UpdatedAt field.
+func (o *GetV1AdvertResponse200ItemsInner) SetUpdatedAt(v string) {
 	o.UpdatedAt = &v
 }
 
 // GetDateFrom returns the DateFrom field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200ItemsInner) GetDateFrom() time.Time {
+func (o *GetV1AdvertResponse200ItemsInner) GetDateFrom() string {
 	if o == nil || IsNil(o.DateFrom) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.DateFrom
@@ -484,7 +483,7 @@ func (o *GetV1AdvertResponse200ItemsInner) GetDateFrom() time.Time {
 
 // GetDateFromOk returns a tuple with the DateFrom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200ItemsInner) GetDateFromOk() (*time.Time, bool) {
+func (o *GetV1AdvertResponse200ItemsInner) GetDateFromOk() (*string, bool) {
 	if o == nil || IsNil(o.DateFrom) {
 		return nil, false
 	}
@@ -500,15 +499,15 @@ func (o *GetV1AdvertResponse200ItemsInner) HasDateFrom() bool {
 	return false
 }
 
-// SetDateFrom gets a reference to the given time.Time and assigns it to the DateFrom field.
-func (o *GetV1AdvertResponse200ItemsInner) SetDateFrom(v time.Time) {
+// SetDateFrom gets a reference to the given string and assigns it to the DateFrom field.
+func (o *GetV1AdvertResponse200ItemsInner) SetDateFrom(v string) {
 	o.DateFrom = &v
 }
 
 // GetDateTo returns the DateTo field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200ItemsInner) GetDateTo() time.Time {
+func (o *GetV1AdvertResponse200ItemsInner) GetDateTo() string {
 	if o == nil || IsNil(o.DateTo) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.DateTo
@@ -516,7 +515,7 @@ func (o *GetV1AdvertResponse200ItemsInner) GetDateTo() time.Time {
 
 // GetDateToOk returns a tuple with the DateTo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200ItemsInner) GetDateToOk() (*time.Time, bool) {
+func (o *GetV1AdvertResponse200ItemsInner) GetDateToOk() (*string, bool) {
 	if o == nil || IsNil(o.DateTo) {
 		return nil, false
 	}
@@ -532,8 +531,8 @@ func (o *GetV1AdvertResponse200ItemsInner) HasDateTo() bool {
 	return false
 }
 
-// SetDateTo gets a reference to the given time.Time and assigns it to the DateTo field.
-func (o *GetV1AdvertResponse200ItemsInner) SetDateTo(v time.Time) {
+// SetDateTo gets a reference to the given string and assigns it to the DateTo field.
+func (o *GetV1AdvertResponse200ItemsInner) SetDateTo(v string) {
 	o.DateTo = &v
 }
 

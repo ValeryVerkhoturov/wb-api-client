@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="createTime">Время создания медиакампании.</param>
         /// <param name="extended">extended.</param>
         /// <param name="items">Информация о баннере.  Наличие в ответе тех или иных полей зависит от конфигурации медиакампании..</param>
-        public GetV1AdvertResponse200(int advertId = default(int), string name = default(string), string brand = default(string), int type = default(int), int status = default(int), DateTime createTime = default(DateTime), GetV1AdvertResponse200Extended extended = default(GetV1AdvertResponse200Extended), List<GetV1AdvertResponse200ItemsInner> items = default(List<GetV1AdvertResponse200ItemsInner>))
+        public GetV1AdvertResponse200(int advertId = default(int), string name = default(string), string brand = default(string), int type = default(int), int status = default(int), string createTime = default(string), GetV1AdvertResponse200Extended extended = default(GetV1AdvertResponse200Extended), List<GetV1AdvertResponse200ItemsInner> items = default(List<GetV1AdvertResponse200ItemsInner>))
         {
             this.AdvertId = advertId;
             this.Name = name;
@@ -94,7 +94,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Время создания медиакампании</value>
         [DataMember(Name = "createTime", EmitDefaultValue = false)]
-        public DateTime CreateTime { get; set; }
+        public string CreateTime { get; set; }
 
         /// <summary>
         /// Gets or Sets Extended

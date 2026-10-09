@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -35,12 +34,12 @@ class SellerTaskMetadataBuffer(BaseModel):
     status: Optional[StrictInt] = Field(
         default=None, description="Статус загрузки: `1` — в обработке "
     )
-    upload_date: Optional[datetime] = Field(
+    upload_date: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время, когда загрузка создана",
         alias="uploadDate",
     )
-    activation_date: Optional[datetime] = Field(
+    activation_date: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время, когда загрузка отправляется в обработку",
         alias="activationDate",

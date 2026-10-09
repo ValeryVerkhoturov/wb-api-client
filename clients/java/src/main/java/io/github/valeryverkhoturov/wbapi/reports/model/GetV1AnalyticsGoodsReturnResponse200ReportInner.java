@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.reports.JSON;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -138,7 +137,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
 
   @SerializedName(SERIALIZED_NAME_ORDER_DT)
   @jakarta.annotation.Nullable
-  private LocalDate orderDt;
+  private String orderDt;
 
   public static final String SERIALIZED_NAME_ORDER_ID = "orderId";
 
@@ -363,7 +362,7 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
   }
 
   public GetV1AnalyticsGoodsReturnResponse200ReportInner orderDt(
-      @jakarta.annotation.Nullable LocalDate orderDt) {
+      @jakarta.annotation.Nullable String orderDt) {
     this.orderDt = orderDt;
     return this;
   }
@@ -374,11 +373,11 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
    * @return orderDt
    */
   @jakarta.annotation.Nullable
-  public LocalDate getOrderDt() {
+  public String getOrderDt() {
     return orderDt;
   }
 
-  public void setOrderDt(@jakarta.annotation.Nullable LocalDate orderDt) {
+  public void setOrderDt(@jakarta.annotation.Nullable String orderDt) {
     this.orderDt = orderDt;
   }
 
@@ -779,6 +778,13 @@ public class GetV1AnalyticsGoodsReturnResponse200ReportInner {
     // validate the optional field `isStatusActive`
     if (jsonObj.get("isStatusActive") != null && !jsonObj.get("isStatusActive").isJsonNull()) {
       IsStatusActiveEnum.validateJsonElement(jsonObj.get("isStatusActive"));
+    }
+    if ((jsonObj.get("orderDt") != null && !jsonObj.get("orderDt").isJsonNull())
+        && !jsonObj.get("orderDt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `orderDt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("orderDt").toString()));
     }
     if ((jsonObj.get("readyToReturnDt") != null && !jsonObj.get("readyToReturnDt").isJsonNull())
         && !jsonObj.get("readyToReturnDt").isJsonPrimitive()) {

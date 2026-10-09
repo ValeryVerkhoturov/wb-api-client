@@ -87,7 +87,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <param name="warehouseId">ID склада продавца, на который поступило сборочное задание.</param>
         /// <param name="tireService">Указал ли покупатель, что ему требуется услуга шиномонтажа:   - &#x60;false&#x60; — нет, услуга шиномонтажа не требуется   - &#x60;true&#x60; — да, услуга шиномонтажа требуется .</param>
         /// <param name="options">options.</param>
-        public ApiOrder(string article = default(string), CargoTypeEnum? cargoType = default(CargoTypeEnum?), int chrtId = default(int), DateTime createdAt = default(DateTime), int price = default(int), int finalPrice = default(int), int convertedPrice = default(int), int convertedFinalPrice = default(int), int currencyCode = default(int), int convertedCurrencyCode = default(int), int id = default(int), bool isZeroOrder = default(bool), int nmId = default(int), string orderCode = default(string), string payMode = default(string), string rid = default(string), List<string> skus = default(List<string>), string warehouseAddress = default(string), int warehouseId = default(int), bool tireService = default(bool), ApiOrderOptions options = default(ApiOrderOptions))
+        public ApiOrder(string article = default(string), CargoTypeEnum? cargoType = default(CargoTypeEnum?), int chrtId = default(int), string createdAt = default(string), int price = default(int), int finalPrice = default(int), int convertedPrice = default(int), int convertedFinalPrice = default(int), int currencyCode = default(int), int convertedCurrencyCode = default(int), int id = default(int), bool isZeroOrder = default(bool), int nmId = default(int), string orderCode = default(string), string payMode = default(string), string rid = default(string), List<string> skus = default(List<string>), string warehouseAddress = default(string), int warehouseId = default(int), bool tireService = default(bool), ApiOrderOptions options = default(ApiOrderOptions))
         {
             this.Article = article;
             this.CargoType = cargoType;
@@ -140,7 +140,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         <example>2025-03-21T09:53:31Z</example>
         */
         [DataMember(Name = "createdAt", EmitDefaultValue = false)]
-        public DateTime CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
 
         /// <summary>
         /// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле &#x60;currencyCode&#x60;. Предоставляется в информационных целях 

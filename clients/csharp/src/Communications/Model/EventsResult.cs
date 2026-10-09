@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="oldestEventTime">Время старейшего события в ответе.</param>
         /// <param name="totalEvents">Количество событий.</param>
         /// <param name="events">events.</param>
-        public EventsResult(int next = default(int), DateTime newestEventTime = default(DateTime), DateTime oldestEventTime = default(DateTime), int totalEvents = default(int), List<Event> events = default(List<Event>))
+        public EventsResult(int next = default(int), string newestEventTime = default(string), string oldestEventTime = default(string), int totalEvents = default(int), List<Event> events = default(List<Event>))
         {
             this.Next = next;
             this.NewestEventTime = newestEventTime;
@@ -60,14 +60,14 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Время новейшего события в ответе</value>
         [DataMember(Name = "newestEventTime", EmitDefaultValue = false)]
-        public DateTime NewestEventTime { get; set; }
+        public string NewestEventTime { get; set; }
 
         /// <summary>
         /// Время старейшего события в ответе
         /// </summary>
         /// <value>Время старейшего события в ответе</value>
         [DataMember(Name = "oldestEventTime", EmitDefaultValue = false)]
-        public DateTime OldestEventTime { get; set; }
+        public string OldestEventTime { get; set; }
 
         /// <summary>
         /// Количество событий

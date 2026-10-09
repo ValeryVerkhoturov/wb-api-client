@@ -43,9 +43,14 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// <param name="expiredAt">Дата и время окончания срока действия приглашения (required).</param>
         /// <param name="isSuccess">- &#x60;true&#x60; — приглашение создано успешно - &#x60;false&#x60; — повторите запрос  (required).</param>
         /// <param name="inviteUrl">URL приглашения, по которому должен перейти пользователь (required).</param>
-        public CreateInviteResponse(Guid inviteID = default(Guid), DateTime expiredAt = default(DateTime), bool isSuccess = default(bool), string inviteUrl = default(string))
+        public CreateInviteResponse(Guid inviteID = default(Guid), string expiredAt = default(string), bool isSuccess = default(bool), string inviteUrl = default(string))
         {
             this.InviteID = inviteID;
+            // to ensure "expiredAt" is required (not null)
+            if (expiredAt == null)
+            {
+                throw new ArgumentNullException("expiredAt is a required property for CreateInviteResponse and cannot be null");
+            }
             this.ExpiredAt = expiredAt;
             this.IsSuccess = isSuccess;
             // to ensure "inviteUrl" is required (not null)
@@ -68,7 +73,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// </summary>
         /// <value>Дата и время окончания срока действия приглашения</value>
         [DataMember(Name = "expiredAt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime ExpiredAt { get; set; }
+        public string ExpiredAt { get; set; }
 
         /// <summary>
         /// - &#x60;true&#x60; — приглашение создано успешно - &#x60;false&#x60; — повторите запрос 

@@ -12,7 +12,6 @@ package promotion
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the GetV1AdvertResponse200Extended type satisfies the MappedNullable interface at compile time
@@ -25,11 +24,11 @@ type GetV1AdvertResponse200Extended struct {
 	// Затраты
 	Expenses *int32 `json:"expenses,omitempty"`
 	// Дата и время начала показа медиакампании
-	From *time.Time `json:"from,omitempty"`
+	From *string `json:"from,omitempty"`
 	// Дата и время окончания показа медиакампании
-	To *time.Time `json:"to,omitempty"`
+	To *string `json:"to,omitempty"`
 	// Дата и время изменения кампании
-	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+	UpdatedAt *string `json:"updated_at,omitempty"`
 	// Стоимость размещения по дням для типа `1`
 	Price *int32 `json:"price,omitempty"`
 	// Остаток бюджета для типа `2`
@@ -133,9 +132,9 @@ func (o *GetV1AdvertResponse200Extended) SetExpenses(v int32) {
 }
 
 // GetFrom returns the From field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200Extended) GetFrom() time.Time {
+func (o *GetV1AdvertResponse200Extended) GetFrom() string {
 	if o == nil || IsNil(o.From) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.From
@@ -143,7 +142,7 @@ func (o *GetV1AdvertResponse200Extended) GetFrom() time.Time {
 
 // GetFromOk returns a tuple with the From field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200Extended) GetFromOk() (*time.Time, bool) {
+func (o *GetV1AdvertResponse200Extended) GetFromOk() (*string, bool) {
 	if o == nil || IsNil(o.From) {
 		return nil, false
 	}
@@ -159,15 +158,15 @@ func (o *GetV1AdvertResponse200Extended) HasFrom() bool {
 	return false
 }
 
-// SetFrom gets a reference to the given time.Time and assigns it to the From field.
-func (o *GetV1AdvertResponse200Extended) SetFrom(v time.Time) {
+// SetFrom gets a reference to the given string and assigns it to the From field.
+func (o *GetV1AdvertResponse200Extended) SetFrom(v string) {
 	o.From = &v
 }
 
 // GetTo returns the To field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200Extended) GetTo() time.Time {
+func (o *GetV1AdvertResponse200Extended) GetTo() string {
 	if o == nil || IsNil(o.To) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.To
@@ -175,7 +174,7 @@ func (o *GetV1AdvertResponse200Extended) GetTo() time.Time {
 
 // GetToOk returns a tuple with the To field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200Extended) GetToOk() (*time.Time, bool) {
+func (o *GetV1AdvertResponse200Extended) GetToOk() (*string, bool) {
 	if o == nil || IsNil(o.To) {
 		return nil, false
 	}
@@ -191,15 +190,15 @@ func (o *GetV1AdvertResponse200Extended) HasTo() bool {
 	return false
 }
 
-// SetTo gets a reference to the given time.Time and assigns it to the To field.
-func (o *GetV1AdvertResponse200Extended) SetTo(v time.Time) {
+// SetTo gets a reference to the given string and assigns it to the To field.
+func (o *GetV1AdvertResponse200Extended) SetTo(v string) {
 	o.To = &v
 }
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
-func (o *GetV1AdvertResponse200Extended) GetUpdatedAt() time.Time {
+func (o *GetV1AdvertResponse200Extended) GetUpdatedAt() string {
 	if o == nil || IsNil(o.UpdatedAt) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.UpdatedAt
@@ -207,7 +206,7 @@ func (o *GetV1AdvertResponse200Extended) GetUpdatedAt() time.Time {
 
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertResponse200Extended) GetUpdatedAtOk() (*time.Time, bool) {
+func (o *GetV1AdvertResponse200Extended) GetUpdatedAtOk() (*string, bool) {
 	if o == nil || IsNil(o.UpdatedAt) {
 		return nil, false
 	}
@@ -223,8 +222,8 @@ func (o *GetV1AdvertResponse200Extended) HasUpdatedAt() bool {
 	return false
 }
 
-// SetUpdatedAt gets a reference to the given time.Time and assigns it to the UpdatedAt field.
-func (o *GetV1AdvertResponse200Extended) SetUpdatedAt(v time.Time) {
+// SetUpdatedAt gets a reference to the given string and assigns it to the UpdatedAt field.
+func (o *GetV1AdvertResponse200Extended) SetUpdatedAt(v string) {
 	o.UpdatedAt = &v
 }
 

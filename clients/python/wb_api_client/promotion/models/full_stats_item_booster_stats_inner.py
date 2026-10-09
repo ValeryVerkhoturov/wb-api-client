@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +29,7 @@ class FullStatsItemBoosterStatsInner(BaseModel):
     """  # noqa: E501
 
     avg_position: StrictInt = Field(description="Средняя позиция товара")
-    var_date: date = Field(
+    var_date: StrictStr = Field(
         description="Дата, за которую предоставлены данные", alias="date"
     )
     nm: StrictInt = Field(description="Артикул WB")

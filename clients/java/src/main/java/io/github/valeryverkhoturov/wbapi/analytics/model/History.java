@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.analytics.JSON;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -38,7 +37,7 @@ public class History {
 
   @SerializedName(SERIALIZED_NAME_DATE)
   @jakarta.annotation.Nonnull
-  private LocalDate date;
+  private String date;
 
   public static final String SERIALIZED_NAME_OPEN_COUNT = "openCount";
 
@@ -102,7 +101,7 @@ public class History {
 
   public History() {}
 
-  public History date(@jakarta.annotation.Nonnull LocalDate date) {
+  public History date(@jakarta.annotation.Nonnull String date) {
     this.date = date;
     return this;
   }
@@ -113,11 +112,11 @@ public class History {
    * @return date
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getDate() {
+  public String getDate() {
     return date;
   }
 
-  public void setDate(@jakarta.annotation.Nonnull LocalDate date) {
+  public void setDate(@jakarta.annotation.Nonnull String date) {
     this.date = date;
   }
 
@@ -454,6 +453,12 @@ public class History {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (!jsonObj.get("date").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `date` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("date").toString()));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

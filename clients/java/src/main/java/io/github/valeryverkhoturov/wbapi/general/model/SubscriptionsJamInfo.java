@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.general.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -217,13 +216,13 @@ public class SubscriptionsJamInfo {
 
   @SerializedName(SERIALIZED_NAME_SINCE)
   @jakarta.annotation.Nonnull
-  private OffsetDateTime since;
+  private String since;
 
   public static final String SERIALIZED_NAME_TILL = "till";
 
   @SerializedName(SERIALIZED_NAME_TILL)
   @jakarta.annotation.Nonnull
-  private OffsetDateTime till;
+  private String till;
 
   public SubscriptionsJamInfo() {}
 
@@ -287,7 +286,7 @@ public class SubscriptionsJamInfo {
     this.level = level;
   }
 
-  public SubscriptionsJamInfo since(@jakarta.annotation.Nonnull OffsetDateTime since) {
+  public SubscriptionsJamInfo since(@jakarta.annotation.Nonnull String since) {
     this.since = since;
     return this;
   }
@@ -298,15 +297,15 @@ public class SubscriptionsJamInfo {
    * @return since
    */
   @jakarta.annotation.Nonnull
-  public OffsetDateTime getSince() {
+  public String getSince() {
     return since;
   }
 
-  public void setSince(@jakarta.annotation.Nonnull OffsetDateTime since) {
+  public void setSince(@jakarta.annotation.Nonnull String since) {
     this.since = since;
   }
 
-  public SubscriptionsJamInfo till(@jakarta.annotation.Nonnull OffsetDateTime till) {
+  public SubscriptionsJamInfo till(@jakarta.annotation.Nonnull String till) {
     this.till = till;
     return this;
   }
@@ -317,11 +316,11 @@ public class SubscriptionsJamInfo {
    * @return till
    */
   @jakarta.annotation.Nonnull
-  public OffsetDateTime getTill() {
+  public String getTill() {
     return till;
   }
 
-  public void setTill(@jakarta.annotation.Nonnull OffsetDateTime till) {
+  public void setTill(@jakarta.annotation.Nonnull String till) {
     this.till = till;
   }
 
@@ -452,6 +451,18 @@ public class SubscriptionsJamInfo {
     }
     // validate the required field `level`
     LevelEnum.validateJsonElement(jsonObj.get("level"));
+    if (!jsonObj.get("since").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `since` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("since").toString()));
+    }
+    if (!jsonObj.get("till").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `till` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("till").toString()));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

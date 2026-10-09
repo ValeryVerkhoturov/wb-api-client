@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.promotion.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -44,7 +43,7 @@ public class GetV1PromotionCountResponse200AdvertsInnerAdvertListInner {
 
   @SerializedName(SERIALIZED_NAME_CHANGE_TIME)
   @jakarta.annotation.Nullable
-  private OffsetDateTime changeTime;
+  private String changeTime;
 
   public GetV1PromotionCountResponse200AdvertsInnerAdvertListInner() {}
 
@@ -69,7 +68,7 @@ public class GetV1PromotionCountResponse200AdvertsInnerAdvertListInner {
   }
 
   public GetV1PromotionCountResponse200AdvertsInnerAdvertListInner changeTime(
-      @jakarta.annotation.Nullable OffsetDateTime changeTime) {
+      @jakarta.annotation.Nullable String changeTime) {
     this.changeTime = changeTime;
     return this;
   }
@@ -80,11 +79,11 @@ public class GetV1PromotionCountResponse200AdvertsInnerAdvertListInner {
    * @return changeTime
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getChangeTime() {
+  public String getChangeTime() {
     return changeTime;
   }
 
-  public void setChangeTime(@jakarta.annotation.Nullable OffsetDateTime changeTime) {
+  public void setChangeTime(@jakarta.annotation.Nullable String changeTime) {
     this.changeTime = changeTime;
   }
 
@@ -174,6 +173,13 @@ public class GetV1PromotionCountResponse200AdvertsInnerAdvertListInner {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if ((jsonObj.get("changeTime") != null && !jsonObj.get("changeTime").isJsonNull())
+        && !jsonObj.get("changeTime").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `changeTime` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("changeTime").toString()));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

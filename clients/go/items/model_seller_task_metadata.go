@@ -12,7 +12,6 @@ package items
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the SellerTaskMetadata type satisfies the MappedNullable interface at compile time
@@ -25,9 +24,9 @@ type SellerTaskMetadata struct {
 	// Статус загрузки:   * `3` — обработана, в товарах нет ошибок, цены и скидки обновились   * `4` — отменена   * `5` — обработана, но в товарах есть ошибки. Для товаров без ошибок цены и скидки обновились, а ошибки в остальных товарах можно получить с помощью метода [Детализация обработанной загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)   * `6` — обработана, но во всех товарах есть ошибки. Их тоже можно получить с помощью метода [Детализация обработанной загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)
 	Status *int32 `json:"status,omitempty"`
 	// Дата и время, когда загрузка создана
-	UploadDate *time.Time `json:"uploadDate,omitempty"`
+	UploadDate *string `json:"uploadDate,omitempty"`
 	// Дата и время, когда загрузка отправляется в обработку
-	ActivationDate *time.Time `json:"activationDate,omitempty"`
+	ActivationDate *string `json:"activationDate,omitempty"`
 	// Всего товаров
 	OverAllGoodsNumber *int32 `json:"overAllGoodsNumber,omitempty"`
 	// Товаров без ошибок
@@ -116,9 +115,9 @@ func (o *SellerTaskMetadata) SetStatus(v int32) {
 }
 
 // GetUploadDate returns the UploadDate field value if set, zero value otherwise.
-func (o *SellerTaskMetadata) GetUploadDate() time.Time {
+func (o *SellerTaskMetadata) GetUploadDate() string {
 	if o == nil || IsNil(o.UploadDate) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.UploadDate
@@ -126,7 +125,7 @@ func (o *SellerTaskMetadata) GetUploadDate() time.Time {
 
 // GetUploadDateOk returns a tuple with the UploadDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SellerTaskMetadata) GetUploadDateOk() (*time.Time, bool) {
+func (o *SellerTaskMetadata) GetUploadDateOk() (*string, bool) {
 	if o == nil || IsNil(o.UploadDate) {
 		return nil, false
 	}
@@ -142,15 +141,15 @@ func (o *SellerTaskMetadata) HasUploadDate() bool {
 	return false
 }
 
-// SetUploadDate gets a reference to the given time.Time and assigns it to the UploadDate field.
-func (o *SellerTaskMetadata) SetUploadDate(v time.Time) {
+// SetUploadDate gets a reference to the given string and assigns it to the UploadDate field.
+func (o *SellerTaskMetadata) SetUploadDate(v string) {
 	o.UploadDate = &v
 }
 
 // GetActivationDate returns the ActivationDate field value if set, zero value otherwise.
-func (o *SellerTaskMetadata) GetActivationDate() time.Time {
+func (o *SellerTaskMetadata) GetActivationDate() string {
 	if o == nil || IsNil(o.ActivationDate) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.ActivationDate
@@ -158,7 +157,7 @@ func (o *SellerTaskMetadata) GetActivationDate() time.Time {
 
 // GetActivationDateOk returns a tuple with the ActivationDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SellerTaskMetadata) GetActivationDateOk() (*time.Time, bool) {
+func (o *SellerTaskMetadata) GetActivationDateOk() (*string, bool) {
 	if o == nil || IsNil(o.ActivationDate) {
 		return nil, false
 	}
@@ -174,8 +173,8 @@ func (o *SellerTaskMetadata) HasActivationDate() bool {
 	return false
 }
 
-// SetActivationDate gets a reference to the given time.Time and assigns it to the ActivationDate field.
-func (o *SellerTaskMetadata) SetActivationDate(v time.Time) {
+// SetActivationDate gets a reference to the given string and assigns it to the ActivationDate field.
+func (o *SellerTaskMetadata) SetActivationDate(v string) {
 	o.ActivationDate = &v
 }
 

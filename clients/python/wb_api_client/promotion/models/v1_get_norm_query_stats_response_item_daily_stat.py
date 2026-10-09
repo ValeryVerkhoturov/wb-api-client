@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.promotion.models.v1_get_norm_query_stats_response_item_stat import (
     V1GetNormQueryStatsResponseItemStat,
@@ -32,7 +31,7 @@ class V1GetNormQueryStatsResponseItemDailyStat(BaseModel):
     V1GetNormQueryStatsResponseItemDailyStat
     """  # noqa: E501
 
-    var_date: date = Field(description="Дата", alias="date")
+    var_date: StrictStr = Field(description="Дата", alias="date")
     stat: Optional[V1GetNormQueryStatsResponseItemStat] = None
     __properties: ClassVar[List[str]] = ["date", "stat"]
 

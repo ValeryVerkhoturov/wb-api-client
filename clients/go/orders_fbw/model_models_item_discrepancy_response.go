@@ -14,7 +14,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"time"
 )
 
 // checks if the ModelsItemDiscrepancyResponse type satisfies the MappedNullable interface at compile time
@@ -27,7 +26,7 @@ type ModelsItemDiscrepancyResponse struct {
 	// Видео фиксации расхождений в процессе приёмки
 	VideoUrl string `json:"videoUrl"`
 	// Дата и время видеофиксации расхождений в процессе приемки
-	VideoStartsAt time.Time `json:"videoStartsAt"`
+	VideoStartsAt string `json:"videoStartsAt"`
 	// Доступность видео:    - `false` — видео доступно    - `true` — видео недоступно
 	VideoUnavailable bool `json:"videoUnavailable"`
 	// Товары поставки
@@ -40,7 +39,7 @@ type _ModelsItemDiscrepancyResponse ModelsItemDiscrepancyResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsItemDiscrepancyResponse(packageCode string, videoUrl string, videoStartsAt time.Time, videoUnavailable bool, items []ModelsDiscrepancyResponseItem) *ModelsItemDiscrepancyResponse {
+func NewModelsItemDiscrepancyResponse(packageCode string, videoUrl string, videoStartsAt string, videoUnavailable bool, items []ModelsDiscrepancyResponseItem) *ModelsItemDiscrepancyResponse {
 	this := ModelsItemDiscrepancyResponse{}
 	this.PackageCode = packageCode
 	this.VideoUrl = videoUrl
@@ -107,9 +106,9 @@ func (o *ModelsItemDiscrepancyResponse) SetVideoUrl(v string) {
 }
 
 // GetVideoStartsAt returns the VideoStartsAt field value
-func (o *ModelsItemDiscrepancyResponse) GetVideoStartsAt() time.Time {
+func (o *ModelsItemDiscrepancyResponse) GetVideoStartsAt() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -118,7 +117,7 @@ func (o *ModelsItemDiscrepancyResponse) GetVideoStartsAt() time.Time {
 
 // GetVideoStartsAtOk returns a tuple with the VideoStartsAt field value
 // and a boolean to check if the value has been set.
-func (o *ModelsItemDiscrepancyResponse) GetVideoStartsAtOk() (*time.Time, bool) {
+func (o *ModelsItemDiscrepancyResponse) GetVideoStartsAtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -126,7 +125,7 @@ func (o *ModelsItemDiscrepancyResponse) GetVideoStartsAtOk() (*time.Time, bool) 
 }
 
 // SetVideoStartsAt sets field value
-func (o *ModelsItemDiscrepancyResponse) SetVideoStartsAt(v time.Time) {
+func (o *ModelsItemDiscrepancyResponse) SetVideoStartsAt(v string) {
 	o.VideoStartsAt = v
 }
 

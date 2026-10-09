@@ -12,7 +12,6 @@ package analytics
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the OrderFeedRequestPagination type satisfies the MappedNullable interface at compile time
@@ -21,7 +20,7 @@ var _ MappedNullable = &OrderFeedRequestPagination{}
 // OrderFeedRequestPagination Пагинация
 type OrderFeedRequestPagination struct {
 	// Метка снимка данных, в рамках которого выполняется пагинация. Данные отчёта обновляются асинхронно. Чтобы не пропускать и не дублировать заказы, запросы одной выборки должны быть с одним и тем же `snapshotTime`. В первом запросе выборки (`\"offset\":0`) параметр не указывается, в каждом последующем запросе (`offset`>`0`) указывайте значение поля `snapshotTime` из ответа на **первый** запрос. При изменении значений периода и фильтров начинайте выборку заново с `\"offset\":0` и без `snapshotTime`
-	SnapshotTime *time.Time `json:"snapshotTime,omitempty"`
+	SnapshotTime *string `json:"snapshotTime,omitempty"`
 	// Сколько элементов пропустить. Например, для значения `10` ответ начнётся с 11 элемента
 	Offset *int32 `json:"offset,omitempty"`
 	// Количество заказов в ответе
@@ -54,9 +53,9 @@ func NewOrderFeedRequestPaginationWithDefaults() *OrderFeedRequestPagination {
 }
 
 // GetSnapshotTime returns the SnapshotTime field value if set, zero value otherwise.
-func (o *OrderFeedRequestPagination) GetSnapshotTime() time.Time {
+func (o *OrderFeedRequestPagination) GetSnapshotTime() string {
 	if o == nil || IsNil(o.SnapshotTime) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.SnapshotTime
@@ -64,7 +63,7 @@ func (o *OrderFeedRequestPagination) GetSnapshotTime() time.Time {
 
 // GetSnapshotTimeOk returns a tuple with the SnapshotTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderFeedRequestPagination) GetSnapshotTimeOk() (*time.Time, bool) {
+func (o *OrderFeedRequestPagination) GetSnapshotTimeOk() (*string, bool) {
 	if o == nil || IsNil(o.SnapshotTime) {
 		return nil, false
 	}
@@ -80,8 +79,8 @@ func (o *OrderFeedRequestPagination) HasSnapshotTime() bool {
 	return false
 }
 
-// SetSnapshotTime gets a reference to the given time.Time and assigns it to the SnapshotTime field.
-func (o *OrderFeedRequestPagination) SetSnapshotTime(v time.Time) {
+// SetSnapshotTime gets a reference to the given string and assigns it to the SnapshotTime field.
+func (o *OrderFeedRequestPagination) SetSnapshotTime(v string) {
 	o.SnapshotTime = &v
 }
 

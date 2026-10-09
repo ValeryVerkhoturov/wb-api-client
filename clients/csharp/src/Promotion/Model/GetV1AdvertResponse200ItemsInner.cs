@@ -59,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="actionName">Название акции.</param>
         /// <param name="showHours">Часы показа.</param>
         /// <param name="erid">Уникальный ID медиакампании для работы с ОРД.</param>
-        public GetV1AdvertResponse200ItemsInner(int id = default(int), string name = default(string), int status = default(int), int place = default(int), int budget = default(int), int dailyLimit = default(int), string categoryName = default(string), int cpm = default(int), string url = default(string), int advertType = default(int), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), DateTime dateFrom = default(DateTime), DateTime dateTo = default(DateTime), List<int> nms = default(List<int>), string bottomText1 = default(string), string bottomText2 = default(string), string message = default(string), int additionalSettings = default(int), int receiversCount = default(int), int subjectId = default(int), string subjectName = default(string), string actionName = default(string), List<GetV1AdvertResponse200ItemsInnerShowHoursInner> showHours = default(List<GetV1AdvertResponse200ItemsInnerShowHoursInner>), string erid = default(string))
+        public GetV1AdvertResponse200ItemsInner(int id = default(int), string name = default(string), int status = default(int), int place = default(int), int budget = default(int), int dailyLimit = default(int), string categoryName = default(string), int cpm = default(int), string url = default(string), int advertType = default(int), string createdAt = default(string), string updatedAt = default(string), string dateFrom = default(string), string dateTo = default(string), List<int> nms = default(List<int>), string bottomText1 = default(string), string bottomText2 = default(string), string message = default(string), int additionalSettings = default(int), int receiversCount = default(int), int subjectId = default(int), string subjectName = default(string), string actionName = default(string), List<GetV1AdvertResponse200ItemsInnerShowHoursInner> showHours = default(List<GetV1AdvertResponse200ItemsInnerShowHoursInner>), string erid = default(string))
         {
             this.Id = id;
             this.Name = name;
@@ -163,28 +163,28 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Дата создания баннера</value>
         [DataMember(Name = "created_at", EmitDefaultValue = false)]
-        public DateTime CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
 
         /// <summary>
         /// Дата и время обновления баннера
         /// </summary>
         /// <value>Дата и время обновления баннера</value>
         [DataMember(Name = "updated_at", EmitDefaultValue = false)]
-        public DateTime UpdatedAt { get; set; }
+        public string UpdatedAt { get; set; }
 
         /// <summary>
         /// Дата начала работы баннера
         /// </summary>
         /// <value>Дата начала работы баннера</value>
         [DataMember(Name = "date_from", EmitDefaultValue = false)]
-        public DateTime DateFrom { get; set; }
+        public string DateFrom { get; set; }
 
         /// <summary>
         /// Дата завершения работы баннера
         /// </summary>
         /// <value>Дата завершения работы баннера</value>
         [DataMember(Name = "date_to", EmitDefaultValue = false)]
-        public DateTime DateTo { get; set; }
+        public string DateTo { get; set; }
 
         /// <summary>
         /// Подборка артикулов WB

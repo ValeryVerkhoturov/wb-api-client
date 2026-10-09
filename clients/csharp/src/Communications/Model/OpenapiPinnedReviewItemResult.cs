@@ -111,8 +111,13 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="feedbackId">ID отзыва (required).</param>
         /// <param name="state">Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет  (required).</param>
         /// <param name="unpinnedCause">Причина открепления отзыва:   - &#x60;sysTariffUnpinned&#x60; — закончилась подписка или тарифная опция   - &#x60;sysLimitReached&#x60; — закончился общий лимит по подписке   - &#x60;sysNoratingUnpinned&#x60; — отзыв исключён из рейтинга. Например, удалён или забанен   - &#x60;sysAdditionalSlot&#x60; — к карточке или к группе [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек прикреплено максимальное количество отзывов .</param>
-        public OpenapiPinnedReviewItemResult(DateTime changeStateAt = default(DateTime), int imtId = default(int), int nmId = default(int), int pinId = default(int), DomainReviewPinMethod pinMethod = default(DomainReviewPinMethod), DomainReviewPinOn pinOn = default(DomainReviewPinOn), string feedbackId = default(string), DomainReviewState state = default(DomainReviewState), UnpinnedCauseEnum? unpinnedCause = default(UnpinnedCauseEnum?))
+        public OpenapiPinnedReviewItemResult(string changeStateAt = default(string), int imtId = default(int), int nmId = default(int), int pinId = default(int), DomainReviewPinMethod pinMethod = default(DomainReviewPinMethod), DomainReviewPinOn pinOn = default(DomainReviewPinOn), string feedbackId = default(string), DomainReviewState state = default(DomainReviewState), UnpinnedCauseEnum? unpinnedCause = default(UnpinnedCauseEnum?))
         {
+            // to ensure "changeStateAt" is required (not null)
+            if (changeStateAt == null)
+            {
+                throw new ArgumentNullException("changeStateAt is a required property for OpenapiPinnedReviewItemResult and cannot be null");
+            }
             this.ChangeStateAt = changeStateAt;
             this.ImtId = imtId;
             this.NmId = nmId;
@@ -137,7 +142,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         <example>2020-01-01T15:04:05Z</example>
         */
         [DataMember(Name = "changeStateAt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime ChangeStateAt { get; set; }
+        public string ChangeStateAt { get; set; }
 
         /// <summary>
         /// ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров

@@ -25,7 +25,6 @@ import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.general.JSON;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -121,13 +120,13 @@ public class PlanBuilderOption {
 
   @SerializedName(SERIALIZED_NAME_ACTIVATED_AT)
   @jakarta.annotation.Nullable
-  private OffsetDateTime activatedAt;
+  private String activatedAt;
 
   public static final String SERIALIZED_NAME_EXPIRES_AT = "expiresAt";
 
   @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
   @jakarta.annotation.Nullable
-  private OffsetDateTime expiresAt;
+  private String expiresAt;
 
   public static final String SERIALIZED_NAME_COMMISSION_RATE = "commissionRate";
 
@@ -227,7 +226,7 @@ public class PlanBuilderOption {
     this.status = status;
   }
 
-  public PlanBuilderOption activatedAt(@jakarta.annotation.Nullable OffsetDateTime activatedAt) {
+  public PlanBuilderOption activatedAt(@jakarta.annotation.Nullable String activatedAt) {
     this.activatedAt = activatedAt;
     return this;
   }
@@ -238,15 +237,15 @@ public class PlanBuilderOption {
    * @return activatedAt
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getActivatedAt() {
+  public String getActivatedAt() {
     return activatedAt;
   }
 
-  public void setActivatedAt(@jakarta.annotation.Nullable OffsetDateTime activatedAt) {
+  public void setActivatedAt(@jakarta.annotation.Nullable String activatedAt) {
     this.activatedAt = activatedAt;
   }
 
-  public PlanBuilderOption expiresAt(@jakarta.annotation.Nullable OffsetDateTime expiresAt) {
+  public PlanBuilderOption expiresAt(@jakarta.annotation.Nullable String expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
@@ -257,11 +256,11 @@ public class PlanBuilderOption {
    * @return expiresAt
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getExpiresAt() {
+  public String getExpiresAt() {
     return expiresAt;
   }
 
-  public void setExpiresAt(@jakarta.annotation.Nullable OffsetDateTime expiresAt) {
+  public void setExpiresAt(@jakarta.annotation.Nullable String expiresAt) {
     this.expiresAt = expiresAt;
   }
 
@@ -456,6 +455,20 @@ public class PlanBuilderOption {
     // validate the optional field `status`
     if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
       StatusEnum.validateJsonElement(jsonObj.get("status"));
+    }
+    if ((jsonObj.get("activatedAt") != null && !jsonObj.get("activatedAt").isJsonNull())
+        && !jsonObj.get("activatedAt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `activatedAt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("activatedAt").toString()));
+    }
+    if ((jsonObj.get("expiresAt") != null && !jsonObj.get("expiresAt").isJsonNull())
+        && !jsonObj.get("expiresAt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `expiresAt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("expiresAt").toString()));
     }
     // validate the optional field `promotion`
     if (jsonObj.get("promotion") != null && !jsonObj.get("promotion").isJsonNull()) {

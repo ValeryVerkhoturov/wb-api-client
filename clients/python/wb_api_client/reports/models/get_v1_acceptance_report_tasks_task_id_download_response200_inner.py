@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
@@ -32,7 +31,7 @@ class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner(BaseModel):
     count: Optional[StrictInt] = Field(
         default=None, description="Количество товаров, шт."
     )
-    gi_create_date: Optional[date] = Field(
+    gi_create_date: Optional[StrictStr] = Field(
         default=None, description="Дата создания поставки", alias="giCreateDate"
     )
     income_id: Optional[StrictInt] = Field(
@@ -41,7 +40,7 @@ class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner(BaseModel):
     nm_id: Optional[StrictInt] = Field(
         default=None, description="Артикул WB", alias="nmID"
     )
-    shk_create_date: Optional[date] = Field(
+    shk_create_date: Optional[StrictStr] = Field(
         default=None, description="Дата приёмки", alias="shkCreateDate"
     )
     subject_name: Optional[StrictStr] = Field(

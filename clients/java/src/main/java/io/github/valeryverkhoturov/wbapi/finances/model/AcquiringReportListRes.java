@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.finances.JSON;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -50,19 +49,19 @@ public class AcquiringReportListRes {
 
   @SerializedName(SERIALIZED_NAME_DATE_FROM)
   @jakarta.annotation.Nonnull
-  private LocalDate dateFrom;
+  private String dateFrom;
 
   public static final String SERIALIZED_NAME_DATE_TO = "dateTo";
 
   @SerializedName(SERIALIZED_NAME_DATE_TO)
   @jakarta.annotation.Nonnull
-  private LocalDate dateTo;
+  private String dateTo;
 
   public static final String SERIALIZED_NAME_CREATE_DATE = "createDate";
 
   @SerializedName(SERIALIZED_NAME_CREATE_DATE)
   @jakarta.annotation.Nonnull
-  private LocalDate createDate;
+  private String createDate;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
@@ -123,7 +122,7 @@ public class AcquiringReportListRes {
     this.sellerFinanceName = sellerFinanceName;
   }
 
-  public AcquiringReportListRes dateFrom(@jakarta.annotation.Nonnull LocalDate dateFrom) {
+  public AcquiringReportListRes dateFrom(@jakarta.annotation.Nonnull String dateFrom) {
     this.dateFrom = dateFrom;
     return this;
   }
@@ -134,15 +133,15 @@ public class AcquiringReportListRes {
    * @return dateFrom
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getDateFrom() {
+  public String getDateFrom() {
     return dateFrom;
   }
 
-  public void setDateFrom(@jakarta.annotation.Nonnull LocalDate dateFrom) {
+  public void setDateFrom(@jakarta.annotation.Nonnull String dateFrom) {
     this.dateFrom = dateFrom;
   }
 
-  public AcquiringReportListRes dateTo(@jakarta.annotation.Nonnull LocalDate dateTo) {
+  public AcquiringReportListRes dateTo(@jakarta.annotation.Nonnull String dateTo) {
     this.dateTo = dateTo;
     return this;
   }
@@ -153,15 +152,15 @@ public class AcquiringReportListRes {
    * @return dateTo
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getDateTo() {
+  public String getDateTo() {
     return dateTo;
   }
 
-  public void setDateTo(@jakarta.annotation.Nonnull LocalDate dateTo) {
+  public void setDateTo(@jakarta.annotation.Nonnull String dateTo) {
     this.dateTo = dateTo;
   }
 
-  public AcquiringReportListRes createDate(@jakarta.annotation.Nonnull LocalDate createDate) {
+  public AcquiringReportListRes createDate(@jakarta.annotation.Nonnull String createDate) {
     this.createDate = createDate;
     return this;
   }
@@ -172,11 +171,11 @@ public class AcquiringReportListRes {
    * @return createDate
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getCreateDate() {
+  public String getCreateDate() {
     return createDate;
   }
 
-  public void setCreateDate(@jakarta.annotation.Nonnull LocalDate createDate) {
+  public void setCreateDate(@jakarta.annotation.Nonnull String createDate) {
     this.createDate = createDate;
   }
 
@@ -367,6 +366,24 @@ public class AcquiringReportListRes {
           String.format(
               "Expected the field `sellerFinanceName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("sellerFinanceName").toString()));
+    }
+    if (!jsonObj.get("dateFrom").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `dateFrom` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("dateFrom").toString()));
+    }
+    if (!jsonObj.get("dateTo").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `dateTo` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("dateTo").toString()));
+    }
+    if (!jsonObj.get("createDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `createDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("createDate").toString()));
     }
     if (!jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(

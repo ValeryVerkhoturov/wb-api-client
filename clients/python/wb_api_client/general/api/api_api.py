@@ -16,8 +16,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from datetime import date
-from pydantic import Field, StrictInt
+from pydantic import Field, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
 from wb_api_client.general.models.get_v2_news_response200 import GetV2NewsResponse200
@@ -43,7 +42,7 @@ class APIApi:
     def get_v2_news(
         self,
         var_from: Annotated[
-            Optional[date],
+            Optional[StrictStr],
             Field(description="Дата, от которой необходимо выдать новости"),
         ] = None,
         from_id: Annotated[
@@ -69,7 +68,7 @@ class APIApi:
         Метод позволяет получать новости портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
         :param var_from: Дата, от которой необходимо выдать новости
-        :type var_from: date
+        :type var_from: str
         :param from_id: ID новости, начиная с которой — включая её — нужно получить список новостей
         :type from_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -122,7 +121,7 @@ class APIApi:
     def get_v2_news_with_http_info(
         self,
         var_from: Annotated[
-            Optional[date],
+            Optional[StrictStr],
             Field(description="Дата, от которой необходимо выдать новости"),
         ] = None,
         from_id: Annotated[
@@ -148,7 +147,7 @@ class APIApi:
         Метод позволяет получать новости портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
         :param var_from: Дата, от которой необходимо выдать новости
-        :type var_from: date
+        :type var_from: str
         :param from_id: ID новости, начиная с которой — включая её — нужно получить список новостей
         :type from_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -201,7 +200,7 @@ class APIApi:
     def get_v2_news_without_preload_content(
         self,
         var_from: Annotated[
-            Optional[date],
+            Optional[StrictStr],
             Field(description="Дата, от которой необходимо выдать новости"),
         ] = None,
         from_id: Annotated[
@@ -227,7 +226,7 @@ class APIApi:
         Метод позволяет получать новости портала продавцов.  Для получения успешного ответа необходимо указать один из параметров `from` или `fromID`.  За один запрос можно получить не более 100 новостей.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Сервисный | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 10 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
         :param var_from: Дата, от которой необходимо выдать новости
-        :type var_from: date
+        :type var_from: str
         :param from_id: ID новости, начиная с которой — включая её — нужно получить список новостей
         :type from_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -299,15 +298,8 @@ class APIApi:
         # process the path parameters
         # process the query parameters
         if var_from is not None:
-            if isinstance(var_from, date):
-                _query_params.append(
-                    (
-                        "from",
-                        var_from.strftime(self.api_client.configuration.date_format),
-                    )
-                )
-            else:
-                _query_params.append(("from", var_from))
+
+            _query_params.append(("from", var_from))
 
         if from_id is not None:
 

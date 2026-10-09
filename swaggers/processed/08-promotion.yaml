@@ -1492,7 +1492,6 @@ paths:
         description: Начало интервала
         schema:
           type: string
-          format: date
           example: '2023-07-31'
         required: true
       - name: to
@@ -1502,7 +1501,6 @@ paths:
           (Минимальный интервал 1 день, максимальный 31)
         schema:
           type: string
-          format: date
           example: '2023-08-02'
         required: true
       responses:
@@ -1578,7 +1576,6 @@ paths:
         description: Начало интервала
         schema:
           type: string
-          format: date
           example: '2023-07-31'
       - name: to
         in: query
@@ -1587,7 +1584,6 @@ paths:
           (Минимальный интервал 1 день, максимальный 31)
         schema:
           type: string
-          format: date
           example: '2023-08-02'
       responses:
         '200':
@@ -2840,7 +2836,6 @@ paths:
         description: Дата начала интервала
         schema:
           type: string
-          format: date
         required: true
         example: '2025-09-07'
       - name: endDate
@@ -2848,7 +2843,6 @@ paths:
         description: Дата окончания интервала
         schema:
           type: string
-          format: date
         required: true
         example: '2025-09-08'
       responses:
@@ -4319,12 +4313,10 @@ components:
       properties:
         from:
           type: string
-          format: date
           description: Дата начала периода
           example: '2025-01-01'
         to:
           type: string
-          format: date
           description: Дата окончания периода периода
           example: '2025-01-31'
         items:
@@ -4379,7 +4371,6 @@ components:
       properties:
         date:
           type: string
-          format: date
           description: Дата
         stat:
           $ref: '#/components/schemas/V1GetNormQueryStatsResponseItemStat'
@@ -4457,12 +4448,10 @@ components:
       properties:
         from:
           type: string
-          format: date
           description: Дата начала периода
           example: '2025-10-07'
         to:
           type: string
-          format: date
           description: Дата окончания периода
           example: '2025-10-08'
         items:
@@ -4984,20 +4973,16 @@ components:
         created:
           description: Время создания кампании
           type: string
-          format: date-time
         updated:
           description: Время последнего изменения кампании
           type: string
-          format: date-time
         started:
           description: Время последнего запуска кампании
           nullable: true
           type: string
-          format: date-time
         deleted:
           type: string
           description: Время удаления кампании. Если кампания не удалена, время указывается в будущем
-          format: date-time
     response400:
       type: object
       properties:
@@ -5039,11 +5024,9 @@ components:
             begin:
               description: Начало периода
               type: string
-              format: date
             end:
               description: Конец периода
               type: string
-              format: date
         stats:
           description: Блок статистики
           type: array
@@ -5060,7 +5043,6 @@ components:
           type: array
           items:
             type: string
-            format: date
         stats:
           description: Блок статистики
           type: array
@@ -5126,11 +5108,9 @@ components:
         date_from:
           description: Время начала размещения
           type: string
-          format: date-time
         date_to:
           description: Время завершения размещения
           type: string
-          format: date-time
         subject_name:
           description: Родительская категория предмета
           type: string
@@ -5157,7 +5137,6 @@ components:
               date:
                 description: Дата
                 type: string
-                format: date-time
               app_type_stats:
                 description: Статистика по платформам
                 type: array
@@ -5236,11 +5215,9 @@ components:
         date_from:
           description: Время начала размещения
           type: string
-          format: date-time
         date_to:
           description: Время завершения размещения
           type: string
-          format: date-time
         subject_name:
           description: Родительская категория предмета
           type: string
@@ -5267,7 +5244,6 @@ components:
               date:
                 description: Дата
                 type: string
-                format: date-time
               app_type_stats:
                 description: Статистика по платформам
                 type: array
@@ -5329,7 +5305,6 @@ components:
           type: array
           items:
             type: string
-            format: date
     RequestWithCampaignID:
       type: object
       additionalProperties: false
@@ -5355,11 +5330,9 @@ components:
             begin:
               description: Начало запрашиваемого периода
               type: string
-              format: date
             end:
               description: Конец запрашиваемого периода
               type: string
-              format: date
     FullStatsItem:
       type: object
       required:
@@ -5401,7 +5374,6 @@ components:
               date:
                 description: Дата, за которую предоставлены данные
                 type: string
-                format: date
               nm:
                 description: Артикул WB
                 type: integer
@@ -5575,7 +5547,6 @@ components:
               date:
                 description: Дата, за которую представлены данные
                 type: string
-                format: date-time
               clicks:
                 type: integer
                 description: Количество кликов
@@ -5688,7 +5659,6 @@ components:
           description: Расшифровка HTTP статус-кода
         timestamp:
           type: string
-          format: date-time
           description: Дата и время запроса
     Http400Response:
       type: object
@@ -5729,7 +5699,6 @@ components:
                     changeTime:
                       description: Дата и время последнего изменения кампании
                       type: string
-                      format: date-time
         all:
           description: Общее количество кампаний всех статусов и типов
           type: integer
@@ -6096,11 +6065,9 @@ components:
           createTime:
             description: Время создания медиакампании
             type: string
-            format: date-time
           endTime:
             description: Время завершения медиакампании
             type: string
-            format: date-time
     GetV1AdvertResponse200:
       type: object
       properties:
@@ -6137,7 +6104,6 @@ components:
         createTime:
           description: Время создания медиакампании
           type: string
-          format: date-time
         extended:
           type: object
           properties:
@@ -6151,15 +6117,12 @@ components:
             from:
               description: Дата и время начала показа медиакампании
               type: string
-              format: date-time
             to:
               description: Дата и время окончания показа медиакампании
               type: string
-              format: date-time
             updated_at:
               description: Дата и время изменения кампании
               type: string
-              format: date-time
             price:
               description: Стоимость размещения по дням для типа `1`
               type: integer
@@ -6222,19 +6185,15 @@ components:
                 type: integer
               created_at:
                 description: Дата создания баннера
-                format: date-time
                 type: string
               updated_at:
                 description: Дата и время обновления баннера
-                format: date-time
                 type: string
               date_from:
                 description: Дата начала работы баннера
-                format: date-time
                 type: string
               date_to:
                 description: Дата завершения работы баннера
-                format: date-time
                 type: string
               nms:
                 description: Подборка артикулов WB
@@ -6414,7 +6373,6 @@ components:
       required: true
       schema:
         type: string
-        format: date-time
         example: '2023-09-01T00:00:00Z'
     endDateTime:
       in: query
@@ -6423,7 +6381,6 @@ components:
       required: true
       schema:
         type: string
-        format: date-time
         example: '2024-08-01T23:59:59Z'
     allPromo:
       in: query
@@ -6514,7 +6471,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: unauthorized
@@ -6571,7 +6527,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           examples:
             Response403TokenCategory:
@@ -6614,7 +6569,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: too many requests
@@ -6841,12 +6795,10 @@ components:
                           description: Название акции
                         startDateTime:
                           type: string
-                          format: date-time
                           example: '2023-06-05T21:00:00Z'
                           description: Начало акции
                         endDateTime:
                           type: string
-                          format: date-time
                           example: '2023-06-05T21:00:00Z'
                           description: Конец акции
                         type:

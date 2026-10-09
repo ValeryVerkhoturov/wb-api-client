@@ -17,7 +17,6 @@ import (
 	"net/http"
 	"net/url"
 	"reflect"
-	"time"
 )
 
 type DefaultApi interface {
@@ -2820,21 +2819,21 @@ func (a *DefaultApiService) GetV1BudgetExecute(r ApiGetV1BudgetRequest) (*GetV1B
 type ApiGetV1CalendarPromotionsRequest struct {
 	ctx           context.Context
 	ApiService    DefaultApi
-	startDateTime *time.Time
-	endDateTime   *time.Time
+	startDateTime *string
+	endDateTime   *string
 	allPromo      *bool
 	limit         *int32
 	offset        *int32
 }
 
 // Начало периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60;
-func (r ApiGetV1CalendarPromotionsRequest) StartDateTime(startDateTime time.Time) ApiGetV1CalendarPromotionsRequest {
+func (r ApiGetV1CalendarPromotionsRequest) StartDateTime(startDateTime string) ApiGetV1CalendarPromotionsRequest {
 	r.startDateTime = &startDateTime
 	return r
 }
 
 // Конец периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60;
-func (r ApiGetV1CalendarPromotionsRequest) EndDateTime(endDateTime time.Time) ApiGetV1CalendarPromotionsRequest {
+func (r ApiGetV1CalendarPromotionsRequest) EndDateTime(endDateTime string) ApiGetV1CalendarPromotionsRequest {
 	r.endDateTime = &endDateTime
 	return r
 }

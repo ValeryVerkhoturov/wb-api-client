@@ -254,7 +254,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1PinsResponse200</returns>
-        GetV1PinsResponse200 GetV1Pins(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0);
+        GetV1PinsResponse200 GetV1Pins(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), string? dateFrom = default(string?), string? dateTo = default(string?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Список закреплённых и откреплённых отзывов
@@ -274,7 +274,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1PinsResponse200</returns>
-        ApiResponse<GetV1PinsResponse200> GetV1PinsWithHttpInfo(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0);
+        ApiResponse<GetV1PinsResponse200> GetV1PinsWithHttpInfo(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), string? dateFrom = default(string?), string? dateTo = default(string?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0);
         /// <summary>
         /// Количество закреплённых и откреплённых отзывов
         /// </summary>
@@ -291,7 +291,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1PinsCountResponse200</returns>
-        GetV1PinsCountResponse200 GetV1PinsCount(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0);
+        GetV1PinsCountResponse200 GetV1PinsCount(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), string? dateFrom = default(string?), string? dateTo = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Количество закреплённых и откреплённых отзывов
@@ -309,7 +309,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1PinsCountResponse200</returns>
-        ApiResponse<GetV1PinsCountResponse200> GetV1PinsCountWithHttpInfo(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0);
+        ApiResponse<GetV1PinsCountResponse200> GetV1PinsCountWithHttpInfo(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), string? dateFrom = default(string?), string? dateTo = default(string?), int operationIndex = 0);
         /// <summary>
         /// Лимиты закреплённых отзывов
         /// </summary>
@@ -923,7 +923,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1PinsResponse200</returns>
-        System.Threading.Tasks.Task<GetV1PinsResponse200> GetV1PinsAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV1PinsResponse200> GetV1PinsAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), string? dateFrom = default(string?), string? dateTo = default(string?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Список закреплённых и откреплённых отзывов
@@ -944,7 +944,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1PinsResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV1PinsResponse200>> GetV1PinsWithHttpInfoAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV1PinsResponse200>> GetV1PinsWithHttpInfoAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), string? dateFrom = default(string?), string? dateTo = default(string?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Количество закреплённых и откреплённых отзывов
         /// </summary>
@@ -962,7 +962,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1PinsCountResponse200</returns>
-        System.Threading.Tasks.Task<GetV1PinsCountResponse200> GetV1PinsCountAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV1PinsCountResponse200> GetV1PinsCountAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), string? dateFrom = default(string?), string? dateTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Количество закреплённых и откреплённых отзывов
@@ -981,7 +981,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1PinsCountResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV1PinsCountResponse200>> GetV1PinsCountWithHttpInfoAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV1PinsCountResponse200>> GetV1PinsCountWithHttpInfoAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), string? dateFrom = default(string?), string? dateTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Лимиты закреплённых отзывов
         /// </summary>
@@ -2850,7 +2850,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1PinsResponse200</returns>
-        public GetV1PinsResponse200 GetV1Pins(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0)
+        public GetV1PinsResponse200 GetV1Pins(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), string? dateFrom = default(string?), string? dateTo = default(string?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsResponse200> localVarResponse = GetV1PinsWithHttpInfo(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, next, limit);
             return localVarResponse.Data;
@@ -2871,7 +2871,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="limit">Количество отзывов на одной странице (пагинация) (optional, default to 500)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1PinsResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsResponse200> GetV1PinsWithHttpInfo(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsResponse200> GetV1PinsWithHttpInfo(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), string? dateFrom = default(string?), string? dateTo = default(string?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
 
@@ -2973,7 +2973,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1PinsResponse200</returns>
-        public async System.Threading.Tasks.Task<GetV1PinsResponse200> GetV1PinsAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV1PinsResponse200> GetV1PinsAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), string? dateFrom = default(string?), string? dateTo = default(string?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsResponse200> localVarResponse = await GetV1PinsWithHttpInfoAsync(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, next, limit, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2995,7 +2995,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1PinsResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsResponse200>> GetV1PinsWithHttpInfoAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsResponse200>> GetV1PinsWithHttpInfoAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), string? dateFrom = default(string?), string? dateTo = default(string?), int? next = default(int?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
@@ -3096,7 +3096,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1PinsCountResponse200</returns>
-        public GetV1PinsCountResponse200 GetV1PinsCount(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0)
+        public GetV1PinsCountResponse200 GetV1PinsCount(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), string? dateFrom = default(string?), string? dateTo = default(string?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsCountResponse200> localVarResponse = GetV1PinsCountWithHttpInfo(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo);
             return localVarResponse.Data;
@@ -3115,7 +3115,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="dateTo">Дата закрепления последнего отзыва в списке (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1PinsCountResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsCountResponse200> GetV1PinsCountWithHttpInfo(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsCountResponse200> GetV1PinsCountWithHttpInfo(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), string? dateFrom = default(string?), string? dateTo = default(string?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();
 
@@ -3207,7 +3207,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1PinsCountResponse200</returns>
-        public async System.Threading.Tasks.Task<GetV1PinsCountResponse200> GetV1PinsCountAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV1PinsCountResponse200> GetV1PinsCountAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), string? dateFrom = default(string?), string? dateTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsCountResponse200> localVarResponse = await GetV1PinsCountWithHttpInfoAsync(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3227,7 +3227,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1PinsCountResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsCountResponse200>> GetV1PinsCountWithHttpInfoAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), DateTime? dateFrom = default(DateTime?), DateTime? dateTo = default(DateTime?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Communications.Client.ApiResponse<GetV1PinsCountResponse200>> GetV1PinsCountWithHttpInfoAsync(string? state = default(string?), string? pinOn = default(string?), int? imtId = default(int?), int? nmId = default(int?), int? feedbackId = default(int?), string? dateFrom = default(string?), string? dateTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Communications.Client.RequestOptions();

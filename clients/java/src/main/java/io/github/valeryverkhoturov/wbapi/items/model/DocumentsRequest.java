@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.items.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -68,13 +67,13 @@ public class DocumentsRequest {
 
   @SerializedName(SERIALIZED_NAME_START_DATE)
   @jakarta.annotation.Nullable
-  private OffsetDateTime startDate;
+  private String startDate;
 
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
 
   @SerializedName(SERIALIZED_NAME_END_DATE)
   @jakarta.annotation.Nullable
-  private OffsetDateTime endDate;
+  private String endDate;
 
   public static final String SERIALIZED_NAME_IS_ENDLESS = "isEndless";
 
@@ -193,7 +192,7 @@ public class DocumentsRequest {
     this.applicant = applicant;
   }
 
-  public DocumentsRequest startDate(@jakarta.annotation.Nullable OffsetDateTime startDate) {
+  public DocumentsRequest startDate(@jakarta.annotation.Nullable String startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -204,15 +203,15 @@ public class DocumentsRequest {
    * @return startDate
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getStartDate() {
+  public String getStartDate() {
     return startDate;
   }
 
-  public void setStartDate(@jakarta.annotation.Nullable OffsetDateTime startDate) {
+  public void setStartDate(@jakarta.annotation.Nullable String startDate) {
     this.startDate = startDate;
   }
 
-  public DocumentsRequest endDate(@jakarta.annotation.Nullable OffsetDateTime endDate) {
+  public DocumentsRequest endDate(@jakarta.annotation.Nullable String endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -223,11 +222,11 @@ public class DocumentsRequest {
    * @return endDate
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getEndDate() {
+  public String getEndDate() {
     return endDate;
   }
 
-  public void setEndDate(@jakarta.annotation.Nullable OffsetDateTime endDate) {
+  public void setEndDate(@jakarta.annotation.Nullable String endDate) {
     this.endDate = endDate;
   }
 
@@ -376,6 +375,20 @@ public class DocumentsRequest {
           String.format(
               "Expected the field `applicant` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("applicant").toString()));
+    }
+    if ((jsonObj.get("startDate") != null && !jsonObj.get("startDate").isJsonNull())
+        && !jsonObj.get("startDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `startDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("startDate").toString()));
+    }
+    if ((jsonObj.get("endDate") != null && !jsonObj.get("endDate").isJsonNull())
+        && !jsonObj.get("endDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `endDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("endDate").toString()));
     }
   }
 

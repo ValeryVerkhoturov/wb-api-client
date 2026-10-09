@@ -1524,7 +1524,6 @@ components:
         createdAt:
           type: string
           description: Дата и время создания сборочного задания
-          format: date-time
         warehouseAddress:
           type: string
           description: |
@@ -1672,7 +1671,6 @@ components:
         createdAt:
           type: string
           description: Дата и время создания сборочного задания
-          format: date-time
           example: '2025-03-21T09:53:31Z'
         price:
           type: integer
@@ -2538,7 +2536,6 @@ components:
           description: Расшифровка HTTP статус-кода
         timestamp:
           type: string
-          format: date-time
           description: Дата и время запроса
   responses:
     '401':
@@ -2571,7 +2568,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: unauthorized
@@ -2628,7 +2624,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: too many requests

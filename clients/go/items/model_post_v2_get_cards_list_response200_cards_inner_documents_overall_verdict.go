@@ -12,7 +12,6 @@ package items
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict type satisfies the MappedNullable interface at compile time
@@ -27,7 +26,7 @@ type PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict struct {
 	// Ошибка при проверке, возвращается для `status: 2`. Указывается только 1 причина. Если карточка не прошла проверку по нескольким причинам, то после исправления первой причины, вернётся следующая. Возможные значения: - `tnved\\_missing` — Не указан код ТН ВЭД - `supplier\\_inn\\_missing` — Не указан ИНН - `supplier\\_not\\_registered` — Поставщик не найден в реестре - `supplier\\_inactive` — Ошибка в статусе поставщика, проверьте его в реестре - `product\\_group\\_not\\_registered` — Добавлена неверная товарная группа в системе маркировки - `kiz\\_required` — Этот товар нельзя продавать в России без кода маркировки Честного Знака - `kiz\\_certificate\\_missing` — Нет подтверждения, что на товар нанесена необходимая маркировка
 	Reason NullableString `json:"reason,omitempty"`
 	// Дата и время проверки карточки товара
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
+	CreatedAt *string `json:"createdAt,omitempty"`
 }
 
 // NewPostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict instantiates a new PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict object
@@ -155,9 +154,9 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) UnsetRe
 }
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) GetCreatedAt() time.Time {
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) GetCreatedAt() string {
 	if o == nil || IsNil(o.CreatedAt) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.CreatedAt
@@ -165,7 +164,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) GetCrea
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) GetCreatedAtOk() (*time.Time, bool) {
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) GetCreatedAtOk() (*string, bool) {
 	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
@@ -181,8 +180,8 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) HasCrea
 	return false
 }
 
-// SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) SetCreatedAt(v time.Time) {
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict) SetCreatedAt(v string) {
 	o.CreatedAt = &v
 }
 

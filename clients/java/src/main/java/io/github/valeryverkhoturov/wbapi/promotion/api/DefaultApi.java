@@ -72,8 +72,6 @@ import io.github.valeryverkhoturov.wbapi.promotion.model.V2BudgetRequest;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V2BudgetResponse;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V2GetConfigResponse;
 import java.lang.reflect.Type;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -2301,8 +2299,8 @@ public class DefaultApi {
    * </table>
    */
   public okhttp3.Call getV1CalendarPromotionsCall(
-      OffsetDateTime startDateTime,
-      OffsetDateTime endDateTime,
+      String startDateTime,
+      String endDateTime,
       Boolean allPromo,
       Integer limit,
       Integer offset,
@@ -2382,8 +2380,8 @@ public class DefaultApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1CalendarPromotionsValidateBeforeCall(
-      OffsetDateTime startDateTime,
-      OffsetDateTime endDateTime,
+      String startDateTime,
+      String endDateTime,
       Boolean allPromo,
       Integer limit,
       Integer offset,
@@ -2444,11 +2442,7 @@ public class DefaultApi {
    * </table>
    */
   public GetV1CalendarPromotions200Response getV1CalendarPromotions(
-      OffsetDateTime startDateTime,
-      OffsetDateTime endDateTime,
-      Boolean allPromo,
-      Integer limit,
-      Integer offset)
+      String startDateTime, String endDateTime, Boolean allPromo, Integer limit, Integer offset)
       throws ApiException {
     ApiResponse<GetV1CalendarPromotions200Response> localVarResp =
         getV1CalendarPromotionsWithHttpInfo(startDateTime, endDateTime, allPromo, limit, offset);
@@ -2488,11 +2482,7 @@ public class DefaultApi {
    * </table>
    */
   public ApiResponse<GetV1CalendarPromotions200Response> getV1CalendarPromotionsWithHttpInfo(
-      OffsetDateTime startDateTime,
-      OffsetDateTime endDateTime,
-      Boolean allPromo,
-      Integer limit,
-      Integer offset)
+      String startDateTime, String endDateTime, Boolean allPromo, Integer limit, Integer offset)
       throws ApiException {
     okhttp3.Call localVarCall =
         getV1CalendarPromotionsValidateBeforeCall(
@@ -2534,8 +2524,8 @@ public class DefaultApi {
    * </table>
    */
   public okhttp3.Call getV1CalendarPromotionsAsync(
-      OffsetDateTime startDateTime,
-      OffsetDateTime endDateTime,
+      String startDateTime,
+      String endDateTime,
       Boolean allPromo,
       Integer limit,
       Integer offset,
@@ -3353,7 +3343,7 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV1PaymentsCall(LocalDate from, LocalDate to, final ApiCallback _callback)
+  public okhttp3.Call getV1PaymentsCall(String from, String to, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -3420,7 +3410,7 @@ public class DefaultApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1PaymentsValidateBeforeCall(
-      LocalDate from, LocalDate to, final ApiCallback _callback) throws ApiException {
+      String from, String to, final ApiCallback _callback) throws ApiException {
     return getV1PaymentsCall(from, to, _callback);
   }
 
@@ -3450,7 +3440,7 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public List<GetV1PaymentsResponse200Inner> getV1Payments(LocalDate from, LocalDate to)
+  public List<GetV1PaymentsResponse200Inner> getV1Payments(String from, String to)
       throws ApiException {
     ApiResponse<List<GetV1PaymentsResponse200Inner>> localVarResp =
         getV1PaymentsWithHttpInfo(from, to);
@@ -3484,7 +3474,7 @@ public class DefaultApi {
    * </table>
    */
   public ApiResponse<List<GetV1PaymentsResponse200Inner>> getV1PaymentsWithHttpInfo(
-      LocalDate from, LocalDate to) throws ApiException {
+      String from, String to) throws ApiException {
     okhttp3.Call localVarCall = getV1PaymentsValidateBeforeCall(from, to, null);
     Type localVarReturnType = new TypeToken<List<GetV1PaymentsResponse200Inner>>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3517,9 +3507,7 @@ public class DefaultApi {
    * </table>
    */
   public okhttp3.Call getV1PaymentsAsync(
-      LocalDate from,
-      LocalDate to,
-      final ApiCallback<List<GetV1PaymentsResponse200Inner>> _callback)
+      String from, String to, final ApiCallback<List<GetV1PaymentsResponse200Inner>> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall = getV1PaymentsValidateBeforeCall(from, to, _callback);
@@ -3914,7 +3902,7 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call getV1UpdCall(LocalDate from, LocalDate to, final ApiCallback _callback)
+  public okhttp3.Call getV1UpdCall(String from, String to, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -3981,7 +3969,7 @@ public class DefaultApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1UpdValidateBeforeCall(
-      LocalDate from, LocalDate to, final ApiCallback _callback) throws ApiException {
+      String from, String to, final ApiCallback _callback) throws ApiException {
     // verify the required parameter 'from' is set
     if (from == null) {
       throw new ApiException("Missing the required parameter 'from' when calling getV1Upd(Async)");
@@ -4020,7 +4008,7 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public List<GetV1UpdResponse200Inner> getV1Upd(LocalDate from, LocalDate to) throws ApiException {
+  public List<GetV1UpdResponse200Inner> getV1Upd(String from, String to) throws ApiException {
     ApiResponse<List<GetV1UpdResponse200Inner>> localVarResp = getV1UpdWithHttpInfo(from, to);
     return localVarResp.getData();
   }
@@ -4050,8 +4038,8 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<List<GetV1UpdResponse200Inner>> getV1UpdWithHttpInfo(
-      LocalDate from, LocalDate to) throws ApiException {
+  public ApiResponse<List<GetV1UpdResponse200Inner>> getV1UpdWithHttpInfo(String from, String to)
+      throws ApiException {
     okhttp3.Call localVarCall = getV1UpdValidateBeforeCall(from, to, null);
     Type localVarReturnType = new TypeToken<List<GetV1UpdResponse200Inner>>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -4083,7 +4071,7 @@ public class DefaultApi {
    * </table>
    */
   public okhttp3.Call getV1UpdAsync(
-      LocalDate from, LocalDate to, final ApiCallback<List<GetV1UpdResponse200Inner>> _callback)
+      String from, String to, final ApiCallback<List<GetV1UpdResponse200Inner>> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall = getV1UpdValidateBeforeCall(from, to, _callback);
@@ -4321,7 +4309,7 @@ public class DefaultApi {
    * </table>
    */
   public okhttp3.Call getV3FullstatsCall(
-      String ids, LocalDate beginDate, LocalDate endDate, final ApiCallback _callback)
+      String ids, String beginDate, String endDate, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -4389,7 +4377,7 @@ public class DefaultApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV3FullstatsValidateBeforeCall(
-      String ids, LocalDate beginDate, LocalDate endDate, final ApiCallback _callback)
+      String ids, String beginDate, String endDate, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'ids' is set
     if (ids == null) {
@@ -4440,7 +4428,7 @@ public class DefaultApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public List<FullStatsItem> getV3Fullstats(String ids, LocalDate beginDate, LocalDate endDate)
+  public List<FullStatsItem> getV3Fullstats(String ids, String beginDate, String endDate)
       throws ApiException {
     ApiResponse<List<FullStatsItem>> localVarResp =
         getV3FullstatsWithHttpInfo(ids, beginDate, endDate);
@@ -4476,7 +4464,7 @@ public class DefaultApi {
    * </table>
    */
   public ApiResponse<List<FullStatsItem>> getV3FullstatsWithHttpInfo(
-      String ids, LocalDate beginDate, LocalDate endDate) throws ApiException {
+      String ids, String beginDate, String endDate) throws ApiException {
     okhttp3.Call localVarCall = getV3FullstatsValidateBeforeCall(ids, beginDate, endDate, null);
     Type localVarReturnType = new TypeToken<List<FullStatsItem>>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -4513,8 +4501,8 @@ public class DefaultApi {
    */
   public okhttp3.Call getV3FullstatsAsync(
       String ids,
-      LocalDate beginDate,
-      LocalDate endDate,
+      String beginDate,
+      String endDate,
       final ApiCallback<List<FullStatsItem>> _callback)
       throws ApiException {
 

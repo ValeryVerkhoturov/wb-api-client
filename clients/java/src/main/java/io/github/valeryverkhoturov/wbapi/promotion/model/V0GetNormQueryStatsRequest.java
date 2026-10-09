@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.promotion.JSON;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -41,13 +40,13 @@ public class V0GetNormQueryStatsRequest {
 
   @SerializedName(SERIALIZED_NAME_FROM)
   @jakarta.annotation.Nonnull
-  private LocalDate from;
+  private String from;
 
   public static final String SERIALIZED_NAME_TO = "to";
 
   @SerializedName(SERIALIZED_NAME_TO)
   @jakarta.annotation.Nonnull
-  private LocalDate to;
+  private String to;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
 
@@ -57,7 +56,7 @@ public class V0GetNormQueryStatsRequest {
 
   public V0GetNormQueryStatsRequest() {}
 
-  public V0GetNormQueryStatsRequest from(@jakarta.annotation.Nonnull LocalDate from) {
+  public V0GetNormQueryStatsRequest from(@jakarta.annotation.Nonnull String from) {
     this.from = from;
     return this;
   }
@@ -68,15 +67,15 @@ public class V0GetNormQueryStatsRequest {
    * @return from
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getFrom() {
+  public String getFrom() {
     return from;
   }
 
-  public void setFrom(@jakarta.annotation.Nonnull LocalDate from) {
+  public void setFrom(@jakarta.annotation.Nonnull String from) {
     this.from = from;
   }
 
-  public V0GetNormQueryStatsRequest to(@jakarta.annotation.Nonnull LocalDate to) {
+  public V0GetNormQueryStatsRequest to(@jakarta.annotation.Nonnull String to) {
     this.to = to;
     return this;
   }
@@ -87,11 +86,11 @@ public class V0GetNormQueryStatsRequest {
    * @return to
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getTo() {
+  public String getTo() {
     return to;
   }
 
-  public void setTo(@jakarta.annotation.Nonnull LocalDate to) {
+  public void setTo(@jakarta.annotation.Nonnull String to) {
     this.to = to;
   }
 
@@ -219,6 +218,18 @@ public class V0GetNormQueryStatsRequest {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (!jsonObj.get("from").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `from` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("from").toString()));
+    }
+    if (!jsonObj.get("to").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `to` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("to").toString()));
+    }
     // ensure the json data is an array
     if (!jsonObj.get("items").isJsonArray()) {
       throw new IllegalArgumentException(

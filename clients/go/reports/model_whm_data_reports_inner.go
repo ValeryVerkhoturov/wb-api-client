@@ -12,7 +12,6 @@ package reports
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the WHMDataReportsInner type satisfies the MappedNullable interface at compile time
@@ -37,7 +36,7 @@ type WHMDataReportsInner struct {
 	// Фото замеров
 	PhotoUrls []string `json:"photoUrls,omitempty"`
 	// Дата и время
-	Dt *time.Time `json:"dt,omitempty"`
+	Dt *string `json:"dt,omitempty"`
 }
 
 // NewWHMDataReportsInner instantiates a new WHMDataReportsInner object
@@ -314,9 +313,9 @@ func (o *WHMDataReportsInner) SetPhotoUrls(v []string) {
 }
 
 // GetDt returns the Dt field value if set, zero value otherwise.
-func (o *WHMDataReportsInner) GetDt() time.Time {
+func (o *WHMDataReportsInner) GetDt() string {
 	if o == nil || IsNil(o.Dt) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.Dt
@@ -324,7 +323,7 @@ func (o *WHMDataReportsInner) GetDt() time.Time {
 
 // GetDtOk returns a tuple with the Dt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WHMDataReportsInner) GetDtOk() (*time.Time, bool) {
+func (o *WHMDataReportsInner) GetDtOk() (*string, bool) {
 	if o == nil || IsNil(o.Dt) {
 		return nil, false
 	}
@@ -340,8 +339,8 @@ func (o *WHMDataReportsInner) HasDt() bool {
 	return false
 }
 
-// SetDt gets a reference to the given time.Time and assigns it to the Dt field.
-func (o *WHMDataReportsInner) SetDt(v time.Time) {
+// SetDt gets a reference to the given string and assigns it to the Dt field.
+func (o *WHMDataReportsInner) SetDt(v string) {
 	o.Dt = &v
 }
 

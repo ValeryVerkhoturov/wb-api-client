@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="reason">Ошибка при проверке, возвращается для &#x60;status: 2&#x60;. Возможные значения: - &#x60;document\\_missing&#x60; — Документ не загружен - &#x60;document\\_not\\_found&#x60; — Документ не найден в реестре - &#x60;document\\_inactive&#x60; — У документа нет юридической силы - &#x60;document\\_expired&#x60; — Истёк срок действия документа - &#x60;applicant\\_mismatch&#x60; — Данные заявителя в документе и карточке различаются - &#x60;trade\\_name\\_mismatch&#x60; — Торговое наименование в карточке отличается от документа - &#x60;unknown&#x60; — Проверка не пройдена - &#x60;document\\_type\\_mismatch&#x60; — Номер документа не соответствует указанному типу документа - &#x60;document\\_dates\\_mismatch&#x60; — Неверная дата регистрации или окончания действия документа.</param>
         /// <param name="additionalData">Дополнительная информация.</param>
         /// <param name="createdAt">Дата проверки документа.</param>
-        public PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict(bool verified = default(bool), int status = default(int), string reason = default(string), Object additionalData = default(Object), DateTime createdAt = default(DateTime))
+        public PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict(bool verified = default(bool), int status = default(int), string reason = default(string), Object additionalData = default(Object), string createdAt = default(string))
         {
             this.Verified = verified;
             this.Status = status;
@@ -81,7 +81,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Дата проверки документа</value>
         [DataMember(Name = "createdAt", EmitDefaultValue = false)]
-        public DateTime CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

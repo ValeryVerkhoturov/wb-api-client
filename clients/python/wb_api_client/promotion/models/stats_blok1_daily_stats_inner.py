@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.promotion.models.stats_blok1_daily_stats_inner_app_type_stats_inner import (
     StatsBlok1DailyStatsInnerAppTypeStatsInner,
@@ -32,7 +31,9 @@ class StatsBlok1DailyStatsInner(BaseModel):
     StatsBlok1DailyStatsInner
     """  # noqa: E501
 
-    var_date: Optional[datetime] = Field(default=None, description="Дата", alias="date")
+    var_date: Optional[StrictStr] = Field(
+        default=None, description="Дата", alias="date"
+    )
     app_type_stats: Optional[List[StatsBlok1DailyStatsInnerAppTypeStatsInner]] = Field(
         default=None, description="Статистика по платформам"
     )

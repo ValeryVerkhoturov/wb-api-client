@@ -40,7 +40,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="activationDate">Дата и время, когда загрузка отправляется в обработку.</param>
         /// <param name="overAllGoodsNumber">Всего товаров.</param>
         /// <param name="successGoodsNumber">Товаров без ошибок.</param>
-        public SellerTaskMetadata(int uploadID = default(int), int status = default(int), DateTime uploadDate = default(DateTime), DateTime activationDate = default(DateTime), int overAllGoodsNumber = default(int), int successGoodsNumber = default(int))
+        public SellerTaskMetadata(int uploadID = default(int), int status = default(int), string uploadDate = default(string), string activationDate = default(string), int overAllGoodsNumber = default(int), int successGoodsNumber = default(int))
         {
             this.UploadID = uploadID;
             this.Status = status;
@@ -78,7 +78,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>2022-08-21T22:00:13+02:00</example>
         */
         [DataMember(Name = "uploadDate", EmitDefaultValue = false)]
-        public DateTime UploadDate { get; set; }
+        public string UploadDate { get; set; }
 
         /// <summary>
         /// Дата и время, когда загрузка отправляется в обработку
@@ -88,7 +88,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>2022-08-21T22:00:13+02:00</example>
         */
         [DataMember(Name = "activationDate", EmitDefaultValue = false)]
-        public DateTime ActivationDate { get; set; }
+        public string ActivationDate { get; set; }
 
         /// <summary>
         /// Всего товаров

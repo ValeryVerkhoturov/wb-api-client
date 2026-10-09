@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -36,12 +35,12 @@ class SellerTaskMetadata(BaseModel):
         default=None,
         description="Статус загрузки:   * `3` — обработана, в товарах нет ошибок, цены и скидки обновились   * `4` — отменена   * `5` — обработана, но в товарах есть ошибки. Для товаров без ошибок цены и скидки обновились, а ошибки в остальных товарах можно получить с помощью метода [Детализация обработанной загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)   * `6` — обработана, но во всех товарах есть ошибки. Их тоже можно получить с помощью метода [Детализация обработанной загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask) ",
     )
-    upload_date: Optional[datetime] = Field(
+    upload_date: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время, когда загрузка создана",
         alias="uploadDate",
     )
-    activation_date: Optional[datetime] = Field(
+    activation_date: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время, когда загрузка отправляется в обработку",
         alias="activationDate",

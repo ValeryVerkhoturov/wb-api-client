@@ -12,7 +12,6 @@ package general
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the PlanBuilderPromotion type satisfies the MappedNullable interface at compile time
@@ -23,7 +22,7 @@ type PlanBuilderPromotion struct {
 	// Стоимость подключения опции по акции, % от оборота
 	CommissionRate *float32 `json:"commissionRate,omitempty"`
 	// Дата окончания действия цены по акции
-	ExpiresAt *time.Time `json:"expiresAt,omitempty"`
+	ExpiresAt *string `json:"expiresAt,omitempty"`
 }
 
 // NewPlanBuilderPromotion instantiates a new PlanBuilderPromotion object
@@ -76,9 +75,9 @@ func (o *PlanBuilderPromotion) SetCommissionRate(v float32) {
 }
 
 // GetExpiresAt returns the ExpiresAt field value if set, zero value otherwise.
-func (o *PlanBuilderPromotion) GetExpiresAt() time.Time {
+func (o *PlanBuilderPromotion) GetExpiresAt() string {
 	if o == nil || IsNil(o.ExpiresAt) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.ExpiresAt
@@ -86,7 +85,7 @@ func (o *PlanBuilderPromotion) GetExpiresAt() time.Time {
 
 // GetExpiresAtOk returns a tuple with the ExpiresAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PlanBuilderPromotion) GetExpiresAtOk() (*time.Time, bool) {
+func (o *PlanBuilderPromotion) GetExpiresAtOk() (*string, bool) {
 	if o == nil || IsNil(o.ExpiresAt) {
 		return nil, false
 	}
@@ -102,8 +101,8 @@ func (o *PlanBuilderPromotion) HasExpiresAt() bool {
 	return false
 }
 
-// SetExpiresAt gets a reference to the given time.Time and assigns it to the ExpiresAt field.
-func (o *PlanBuilderPromotion) SetExpiresAt(v time.Time) {
+// SetExpiresAt gets a reference to the given string and assigns it to the ExpiresAt field.
+func (o *PlanBuilderPromotion) SetExpiresAt(v string) {
 	o.ExpiresAt = &v
 }
 

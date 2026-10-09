@@ -42,8 +42,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="snapshotTime">Метка снимка данных, в рамках которого выполняется пагинация (required).</param>
         /// <param name="currency">Валюта отчёта (required).</param>
         /// <param name="orders">Заказы (required).</param>
-        public OrderFeedResponse(DateTime snapshotTime = default(DateTime), string currency = default(string), List<Order> orders = default(List<Order>))
+        public OrderFeedResponse(string snapshotTime = default(string), string currency = default(string), List<Order> orders = default(List<Order>))
         {
+            // to ensure "snapshotTime" is required (not null)
+            if (snapshotTime == null)
+            {
+                throw new ArgumentNullException("snapshotTime is a required property for OrderFeedResponse and cannot be null");
+            }
             this.SnapshotTime = snapshotTime;
             // to ensure "currency" is required (not null)
             if (currency == null)
@@ -67,7 +72,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>2026-07-03T15:04:05Z</example>
         */
         [DataMember(Name = "snapshotTime", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime SnapshotTime { get; set; }
+        public string SnapshotTime { get; set; }
 
         /// <summary>
         /// Валюта отчёта

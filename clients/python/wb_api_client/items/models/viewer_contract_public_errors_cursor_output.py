@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
@@ -32,7 +31,7 @@ class ViewerContractPublicErrorsCursorOutput(BaseModel):
     next: StrictBool = Field(
         description="Есть ли ещё черновики:   - `false` — нет   - `true` — да "
     )
-    updated_at: datetime = Field(
+    updated_at: StrictStr = Field(
         description="Дата и время формирования последнего пакета в ответе",
         alias="updatedAt",
     )

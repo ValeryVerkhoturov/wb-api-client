@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.promotion.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -71,7 +70,7 @@ public class GetV1AdvertResponse200 {
 
   @SerializedName(SERIALIZED_NAME_CREATE_TIME)
   @jakarta.annotation.Nullable
-  private OffsetDateTime createTime;
+  private String createTime;
 
   public static final String SERIALIZED_NAME_EXTENDED = "extended";
 
@@ -187,7 +186,7 @@ public class GetV1AdvertResponse200 {
     this.status = status;
   }
 
-  public GetV1AdvertResponse200 createTime(@jakarta.annotation.Nullable OffsetDateTime createTime) {
+  public GetV1AdvertResponse200 createTime(@jakarta.annotation.Nullable String createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -198,11 +197,11 @@ public class GetV1AdvertResponse200 {
    * @return createTime
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getCreateTime() {
+  public String getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(@jakarta.annotation.Nullable OffsetDateTime createTime) {
+  public void setCreateTime(@jakarta.annotation.Nullable String createTime) {
     this.createTime = createTime;
   }
 
@@ -365,6 +364,13 @@ public class GetV1AdvertResponse200 {
           String.format(
               "Expected the field `brand` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("brand").toString()));
+    }
+    if ((jsonObj.get("createTime") != null && !jsonObj.get("createTime").isJsonNull())
+        && !jsonObj.get("createTime").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `createTime` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("createTime").toString()));
     }
     // validate the optional field `extended`
     if (jsonObj.get("extended") != null && !jsonObj.get("extended").isJsonNull()) {

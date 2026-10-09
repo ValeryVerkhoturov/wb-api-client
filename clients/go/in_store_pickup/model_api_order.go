@@ -12,7 +12,6 @@ package in_store_pickup
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the ApiOrder type satisfies the MappedNullable interface at compile time
@@ -27,7 +26,7 @@ type ApiOrder struct {
 	// ID размера товара в системе WB
 	ChrtId *int32 `json:"chrtId,omitempty"`
 	// Дата и время создания сборочного задания
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
+	CreatedAt *string `json:"createdAt,omitempty"`
 	// Цена в валюте продажи с учетом всех скидок, кроме скидки по WB Кошельку, умноженная на 100. Код валюты продажи указан в поле `currencyCode`. Предоставляется в информационных целях
 	Price *int32 `json:"price,omitempty"`
 	// Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.  Код валюты продажи указан в поле `currencyCode`.  Предоставляется в информационных целях.  Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `\"data\": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода
@@ -177,9 +176,9 @@ func (o *ApiOrder) SetChrtId(v int32) {
 }
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
-func (o *ApiOrder) GetCreatedAt() time.Time {
+func (o *ApiOrder) GetCreatedAt() string {
 	if o == nil || IsNil(o.CreatedAt) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.CreatedAt
@@ -187,7 +186,7 @@ func (o *ApiOrder) GetCreatedAt() time.Time {
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiOrder) GetCreatedAtOk() (*time.Time, bool) {
+func (o *ApiOrder) GetCreatedAtOk() (*string, bool) {
 	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
@@ -203,8 +202,8 @@ func (o *ApiOrder) HasCreatedAt() bool {
 	return false
 }
 
-// SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
-func (o *ApiOrder) SetCreatedAt(v time.Time) {
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
+func (o *ApiOrder) SetCreatedAt(v string) {
 	o.CreatedAt = &v
 }
 

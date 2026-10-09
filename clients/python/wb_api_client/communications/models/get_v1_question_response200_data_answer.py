@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
@@ -34,7 +33,7 @@ class GetV1QuestionResponse200DataAnswer(BaseModel):
         default=None,
         description="Можно ли отредактировать ответ (`false` - нельзя, `true` - можно)",
     )
-    create_date: Optional[datetime] = Field(
+    create_date: Optional[StrictStr] = Field(
         default=None, description="Дата и время создания ответа", alias="createDate"
     )
     __properties: ClassVar[List[str]] = ["text", "editable", "createDate"]

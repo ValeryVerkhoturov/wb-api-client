@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="begin">Начало периода.</param>
         /// <param name="end">Конец периода.</param>
-        public StatIntervalInterval(DateOnly begin = default(DateOnly), DateOnly end = default(DateOnly))
+        public StatIntervalInterval(string begin = default(string), string end = default(string))
         {
             this.Begin = begin;
             this.End = end;
@@ -47,14 +47,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Начало периода</value>
         [DataMember(Name = "begin", EmitDefaultValue = false)]
-        public DateOnly Begin { get; set; }
+        public string Begin { get; set; }
 
         /// <summary>
         /// Конец периода
         /// </summary>
         /// <value>Конец периода</value>
         [DataMember(Name = "end", EmitDefaultValue = false)]
-        public DateOnly End { get; set; }
+        public string End { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

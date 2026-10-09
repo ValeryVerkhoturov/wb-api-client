@@ -18,7 +18,6 @@ import (
 	"net/url"
 	"os"
 	"strings"
-	"time"
 )
 
 type DefaultApi interface {
@@ -2157,8 +2156,8 @@ type ApiGetV1PinsRequest struct {
 	imtId      *int32
 	nmId       *int32
 	feedbackId *int32
-	dateFrom   *time.Time
-	dateTo     *time.Time
+	dateFrom   *string
+	dateTo     *string
 	next       *int32
 	limit      *int32
 }
@@ -2194,13 +2193,13 @@ func (r ApiGetV1PinsRequest) FeedbackId(feedbackId int32) ApiGetV1PinsRequest {
 }
 
 // Дата закрепления первого отзыва в списке
-func (r ApiGetV1PinsRequest) DateFrom(dateFrom time.Time) ApiGetV1PinsRequest {
+func (r ApiGetV1PinsRequest) DateFrom(dateFrom string) ApiGetV1PinsRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Дата закрепления последнего отзыва в списке
-func (r ApiGetV1PinsRequest) DateTo(dateTo time.Time) ApiGetV1PinsRequest {
+func (r ApiGetV1PinsRequest) DateTo(dateTo string) ApiGetV1PinsRequest {
 	r.dateTo = &dateTo
 	return r
 }
@@ -2414,8 +2413,8 @@ type ApiGetV1PinsCountRequest struct {
 	imtId      *int32
 	nmId       *int32
 	feedbackId *int32
-	dateFrom   *time.Time
-	dateTo     *time.Time
+	dateFrom   *string
+	dateTo     *string
 }
 
 // Закреплён ли отзыв:   - &#x60;pinned&#x60; — да   - &#x60;unpinned&#x60; — нет
@@ -2449,13 +2448,13 @@ func (r ApiGetV1PinsCountRequest) FeedbackId(feedbackId int32) ApiGetV1PinsCount
 }
 
 // Дата закрепления первого отзыва в списке
-func (r ApiGetV1PinsCountRequest) DateFrom(dateFrom time.Time) ApiGetV1PinsCountRequest {
+func (r ApiGetV1PinsCountRequest) DateFrom(dateFrom string) ApiGetV1PinsCountRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 
 // Дата закрепления последнего отзыва в списке
-func (r ApiGetV1PinsCountRequest) DateTo(dateTo time.Time) ApiGetV1PinsCountRequest {
+func (r ApiGetV1PinsCountRequest) DateTo(dateTo string) ApiGetV1PinsCountRequest {
 	r.dateTo = &dateTo
 	return r
 }

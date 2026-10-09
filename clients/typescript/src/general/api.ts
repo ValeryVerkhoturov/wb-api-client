@@ -2169,10 +2169,7 @@ export const APIApiAxiosParamCreator = function (
       await setBearerAuthToObject(localVarHeaderParameter, configuration);
 
       if (from !== undefined) {
-        localVarQueryParameter["from"] =
-          (from as any) instanceof Date
-            ? (from as any).toISOString().substring(0, 10)
-            : from;
+        localVarQueryParameter["from"] = from;
       }
 
       if (fromID !== undefined) {

@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.items.models.post_v2_get_cards_list_response200_cards_inner_documents_items_inner_verdict import (
@@ -49,12 +48,12 @@ class PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner(BaseModel):
     applicant: Optional[StrictStr] = Field(
         default=None, description="Представитель изготовителя медицинского изделия"
     )
-    start_date: Optional[datetime] = Field(
+    start_date: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время начала срока действия документа",
         alias="startDate",
     )
-    end_date: Optional[datetime] = Field(
+    end_date: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время окончания срока действия документа",
         alias="endDate",
@@ -67,7 +66,7 @@ class PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner(BaseModel):
     verdict: Optional[
         PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict
     ] = None
-    created_at: Optional[datetime] = Field(
+    created_at: Optional[StrictStr] = Field(
         default=None, description="Дата добавления документа", alias="createdAt"
     )
     __properties: ClassVar[List[str]] = [

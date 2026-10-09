@@ -25,7 +25,6 @@ import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.promotion.JSON;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -60,7 +59,7 @@ public class FullStatsItemDaysInner {
 
   @SerializedName(SERIALIZED_NAME_DATE)
   @jakarta.annotation.Nonnull
-  private OffsetDateTime date;
+  private String date;
 
   public static final String SERIALIZED_NAME_CLICKS = "clicks";
 
@@ -184,7 +183,7 @@ public class FullStatsItemDaysInner {
     this.canceled = canceled;
   }
 
-  public FullStatsItemDaysInner date(@jakarta.annotation.Nonnull OffsetDateTime date) {
+  public FullStatsItemDaysInner date(@jakarta.annotation.Nonnull String date) {
     this.date = date;
     return this;
   }
@@ -195,11 +194,11 @@ public class FullStatsItemDaysInner {
    * @return date
    */
   @jakarta.annotation.Nonnull
-  public OffsetDateTime getDate() {
+  public String getDate() {
     return date;
   }
 
-  public void setDate(@jakarta.annotation.Nonnull OffsetDateTime date) {
+  public void setDate(@jakarta.annotation.Nonnull String date) {
     this.date = date;
   }
 
@@ -527,6 +526,12 @@ public class FullStatsItemDaysInner {
       FullStatsItemDaysInnerAppsInner.validateJsonElement(jsonArrayapps.get(i));
     }
     ;
+    if (!jsonObj.get("date").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `date` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("date").toString()));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

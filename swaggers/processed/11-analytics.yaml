@@ -2907,7 +2907,6 @@ components:
         dt:
           type: string
           description: Дата сбора статистики
-          format: date
           example: '2024-02-10'
         avgPosition:
           example: 10
@@ -3036,7 +3035,6 @@ components:
     Date:
       type: string
       description: Дата
-      format: date
       example: '2024-02-10'
     PeriodOrdersRequest:
       type: object
@@ -3048,12 +3046,10 @@ components:
         start:
           type: string
           description: Дата начала периода. Не позднее `end`. Не ранее 365 суток от сегодня
-          format: date
           example: '2024-02-10'
         end:
           type: string
           description: Дата окончания периода. Не ранее 365 суток от сегодня
-          format: date
           example: '2024-02-10'
     Period:
       type: object
@@ -3065,12 +3061,10 @@ components:
         start:
           type: string
           description: Дата начала периода. Не позднее `end`. Не ранее 365 суток от сегодня
-          format: date
           example: '2024-02-10'
         end:
           type: string
           description: Дата окончания периода. Не ранее 365 суток от сегодня
-          format: date
           example: '2024-02-10'
     pastPeriod:
       type: object
@@ -3082,12 +3076,10 @@ components:
         start:
           type: string
           description: Дата начала периода. Не позднее `end`. Не ранее 365 суток от сегодня
-          format: date
           example: '2024-02-08'
         end:
           type: string
           description: Дата окончания периода. Не позднее даты перед датой начала `currentPeriod`. Не ранее 365 суток от сегодня
-          format: date
           example: '2024-02-08'
     CommonResponseProperties:
       type: object
@@ -3206,11 +3198,9 @@ components:
             startDate:
               type: string
               description: Начало периода
-              format: date
             endDate:
               type: string
               description: Конец периода
-              format: date
             timezone:
               type: string
               description: Временная зона по формату [IANA](https://nodatime.org/TimeZones)
@@ -3285,11 +3275,9 @@ components:
             startDate:
               type: string
               description: Начало периода
-              format: date
             endDate:
               type: string
               description: Конец периода
-              format: date
             timezone:
               type: string
               description: Временная зона по формату [IANA](https://nodatime.org/TimeZones)
@@ -3700,12 +3688,10 @@ components:
               startDate:
                 description: Начало периода
                 type: string
-                format: date
                 example: '2024-06-21'
               endDate:
                 description: Конец периода
                 type: string
-                format: date
                 example: '2024-06-23'
     NmReportRetryReportResponse:
       type: object
@@ -3743,7 +3729,6 @@ components:
           description: Расшифровка HTTP статус-кода
         timestamp:
           type: string
-          format: date-time
           description: Дата и время запроса
       example:
         title: too many requests
@@ -3886,12 +3871,10 @@ components:
         start:
           type: string
           description: Дата начала периода. Не позднее `end`. Не ранее 3 месяцев от текущей даты
-          format: date
           example: '2024-02-10'
         end:
           type: string
           description: Дата окончания периода. Не ранее 3 месяцев от текущей даты
-          format: date
           example: '2024-02-10'
     StockType:
       type: string
@@ -4206,12 +4189,10 @@ components:
       properties:
         start:
           type: string
-          format: date
           description: Начало месяца
           example: '2025-01-01'
         end:
           type: string
-          format: date
           description: Конец месяца
           example: '2025-01-31'
         value:
@@ -5360,7 +5341,6 @@ components:
       properties:
         date:
           type: string
-          format: date
           example: '2024-10-23'
           description: Дата сбора статистики
         openCount:
@@ -5430,12 +5410,10 @@ components:
       properties:
         start:
           type: string
-          format: date
           description: Начало периода
           example: '2023-06-01'
         end:
           type: string
-          format: date
           description: Конец периода
           example: '2024-03-01'
     Level:
@@ -5755,12 +5733,10 @@ components:
         start:
           example: '2026-02-10'
           type: string
-          format: date
           description: Дата начала периода. Не ранее 364 суток от вчерашнего дня и не позднее `end`
         end:
           example: '2026-02-10'
           type: string
-          format: date
           description: Дата окончания периода. Не ранее 364 суток от вчерашнего дня
     PastPeriodItemRating:
       type: object
@@ -5772,12 +5748,10 @@ components:
         start:
           example: '2026-02-08'
           type: string
-          format: date
           description: Дата начала периода. Не ранее 364 суток от вчерашнего дня и не позднее `end`
         end:
           example: '2026-02-08'
           type: string
-          format: date
           description: Дата окончания периода. Не ранее 364 суток от вчерашнего дня и не позднее даты перед началом `currentPeriod`.
     OrderByItemRating:
       type: object
@@ -6197,12 +6171,10 @@ components:
           properties:
             start:
               type: string
-              format: date-time
               description: Дата и время начала периода. Не ранее 31 суток от текущей даты и не позднее `end`
               example: '2026-07-23T00:00:00.00000+03:00'
             end:
               type: string
-              format: date-time
               description: Дата и время конца периода. Не ранее 31 суток от текущей даты
               example: '2026-07-31T00:00:00.00000+03:00'
         nmIds:
@@ -6251,7 +6223,6 @@ components:
           properties:
             snapshotTime:
               type: string
-              format: date-time
               description: "Метка снимка данных, в рамках которого выполняется пагинация.\nДанные отчёта обновляются асинхронно. Чтобы не пропускать и не дублировать заказы, запросы одной выборки должны быть с одним и тем же `snapshotTime`.\nВ первом запросе выборки (`\"offset\":0`) параметр не указывается, в каждом последующем запросе (`offset`>`0`) указывайте значение поля `snapshotTime` из ответа на **первый** запрос.\nПри изменении значений периода и фильтров начинайте выборку заново с `\"offset\":0` и без `snapshotTime`"
               example: '2026-07-28T15:04:05Z'
             offset:
@@ -6277,7 +6248,6 @@ components:
       properties:
         snapshotTime:
           type: string
-          format: date-time
           description: Метка снимка данных, в рамках которого выполняется пагинация
           example: '2026-07-03T15:04:05Z'
         currency:
@@ -6321,12 +6291,10 @@ components:
           example: 7513432034713632943.1.0
         createdAt:
           type: string
-          format: date-time
           description: Дата и время оформления заказа
           example: '2026-06-24T12:57:26+03:00'
         updatedAt:
           type: string
-          format: date-time
           description: Дата и время текущего статуса. При `"status":"created"` возвращается значение поля `createdAt`
           example: '2026-06-26T19:19:38+03:00'
         status:
@@ -6420,7 +6388,6 @@ components:
           description: Расшифровка HTTP статус-кода
         timestamp:
           type: string
-          format: date-time
           description: Дата и время запроса
     PostV3SalesFunnelProductsResponse200:
       type: object
@@ -6782,7 +6749,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: unauthorized
@@ -6839,7 +6805,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: too many requests

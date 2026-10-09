@@ -305,7 +305,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="offset">После какого элемента выдавать данные (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1CalendarPromotions200Response</returns>
-        GetV1CalendarPromotions200Response GetV1CalendarPromotions(DateTime startDateTime, DateTime endDateTime, bool allPromo, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
+        GetV1CalendarPromotions200Response GetV1CalendarPromotions(string startDateTime, string endDateTime, bool allPromo, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Список акций
@@ -321,7 +321,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="offset">После какого элемента выдавать данные (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1CalendarPromotions200Response</returns>
-        ApiResponse<GetV1CalendarPromotions200Response> GetV1CalendarPromotionsWithHttpInfo(DateTime startDateTime, DateTime endDateTime, bool allPromo, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
+        ApiResponse<GetV1CalendarPromotions200Response> GetV1CalendarPromotionsWithHttpInfo(string startDateTime, string endDateTime, bool allPromo, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Детальная информация об акциях
         /// </summary>
@@ -427,7 +427,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="to">Конец интервала. (Минимальный интервал 1 день, максимальный 31) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GetV1PaymentsResponse200Inner&gt;</returns>
-        List<GetV1PaymentsResponse200Inner> GetV1Payments(DateOnly? from = default(DateOnly?), DateOnly? to = default(DateOnly?), int operationIndex = 0);
+        List<GetV1PaymentsResponse200Inner> GetV1Payments(string? from = default(string?), string? to = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Получение истории пополнений счёта
@@ -440,7 +440,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="to">Конец интервала. (Минимальный интервал 1 день, максимальный 31) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GetV1PaymentsResponse200Inner&gt;</returns>
-        ApiResponse<List<GetV1PaymentsResponse200Inner>> GetV1PaymentsWithHttpInfo(DateOnly? from = default(DateOnly?), DateOnly? to = default(DateOnly?), int operationIndex = 0);
+        ApiResponse<List<GetV1PaymentsResponse200Inner>> GetV1PaymentsWithHttpInfo(string? from = default(string?), string? to = default(string?), int operationIndex = 0);
         /// <summary>
         /// Списки кампаний
         /// </summary>
@@ -496,7 +496,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="to">Конец интервала. (Минимальный интервал 1 день, максимальный 31)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GetV1UpdResponse200Inner&gt;</returns>
-        List<GetV1UpdResponse200Inner> GetV1Upd(DateOnly from, DateOnly to, int operationIndex = 0);
+        List<GetV1UpdResponse200Inner> GetV1Upd(string from, string to, int operationIndex = 0);
 
         /// <summary>
         /// Получение истории затрат
@@ -509,7 +509,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="to">Конец интервала. (Минимальный интервал 1 день, максимальный 31)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GetV1UpdResponse200Inner&gt;</returns>
-        ApiResponse<List<GetV1UpdResponse200Inner>> GetV1UpdWithHttpInfo(DateOnly from, DateOnly to, int operationIndex = 0);
+        ApiResponse<List<GetV1UpdResponse200Inner>> GetV1UpdWithHttpInfo(string from, string to, int operationIndex = 0);
         /// <summary>
         /// Информация о кампаниях
         /// </summary>
@@ -549,7 +549,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="endDate">Дата окончания интервала</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;FullStatsItem&gt;</returns>
-        List<FullStatsItem> GetV3Fullstats(string ids, DateOnly beginDate, DateOnly endDate, int operationIndex = 0);
+        List<FullStatsItem> GetV3Fullstats(string ids, string beginDate, string endDate, int operationIndex = 0);
 
         /// <summary>
         /// Статистика кампаний
@@ -563,7 +563,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="endDate">Дата окончания интервала</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;FullStatsItem&gt;</returns>
-        ApiResponse<List<FullStatsItem>> GetV3FullstatsWithHttpInfo(string ids, DateOnly beginDate, DateOnly endDate, int operationIndex = 0);
+        ApiResponse<List<FullStatsItem>> GetV3FullstatsWithHttpInfo(string ids, string beginDate, string endDate, int operationIndex = 0);
         /// <summary>
         /// Изменение списка карточек товаров в кампаниях
         /// </summary>
@@ -1337,7 +1337,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1CalendarPromotions200Response</returns>
-        System.Threading.Tasks.Task<GetV1CalendarPromotions200Response> GetV1CalendarPromotionsAsync(DateTime startDateTime, DateTime endDateTime, bool allPromo, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV1CalendarPromotions200Response> GetV1CalendarPromotionsAsync(string startDateTime, string endDateTime, bool allPromo, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Список акций
@@ -1354,7 +1354,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1CalendarPromotions200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV1CalendarPromotions200Response>> GetV1CalendarPromotionsWithHttpInfoAsync(DateTime startDateTime, DateTime endDateTime, bool allPromo, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV1CalendarPromotions200Response>> GetV1CalendarPromotionsWithHttpInfoAsync(string startDateTime, string endDateTime, bool allPromo, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Детальная информация об акциях
         /// </summary>
@@ -1469,7 +1469,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GetV1PaymentsResponse200Inner&gt;</returns>
-        System.Threading.Tasks.Task<List<GetV1PaymentsResponse200Inner>> GetV1PaymentsAsync(DateOnly? from = default(DateOnly?), DateOnly? to = default(DateOnly?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<GetV1PaymentsResponse200Inner>> GetV1PaymentsAsync(string? from = default(string?), string? to = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получение истории пополнений счёта
@@ -1483,7 +1483,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GetV1PaymentsResponse200Inner&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<GetV1PaymentsResponse200Inner>>> GetV1PaymentsWithHttpInfoAsync(DateOnly? from = default(DateOnly?), DateOnly? to = default(DateOnly?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<GetV1PaymentsResponse200Inner>>> GetV1PaymentsWithHttpInfoAsync(string? from = default(string?), string? to = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Списки кампаний
         /// </summary>
@@ -1544,7 +1544,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GetV1UpdResponse200Inner&gt;</returns>
-        System.Threading.Tasks.Task<List<GetV1UpdResponse200Inner>> GetV1UpdAsync(DateOnly from, DateOnly to, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<GetV1UpdResponse200Inner>> GetV1UpdAsync(string from, string to, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получение истории затрат
@@ -1558,7 +1558,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GetV1UpdResponse200Inner&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<GetV1UpdResponse200Inner>>> GetV1UpdWithHttpInfoAsync(DateOnly from, DateOnly to, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<GetV1UpdResponse200Inner>>> GetV1UpdWithHttpInfoAsync(string from, string to, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Информация о кампаниях
         /// </summary>
@@ -1601,7 +1601,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;FullStatsItem&gt;</returns>
-        System.Threading.Tasks.Task<List<FullStatsItem>> GetV3FullstatsAsync(string ids, DateOnly beginDate, DateOnly endDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<FullStatsItem>> GetV3FullstatsAsync(string ids, string beginDate, string endDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Статистика кампаний
@@ -1616,7 +1616,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;FullStatsItem&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<FullStatsItem>>> GetV3FullstatsWithHttpInfoAsync(string ids, DateOnly beginDate, DateOnly endDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<FullStatsItem>>> GetV3FullstatsWithHttpInfoAsync(string ids, string beginDate, string endDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Изменение списка карточек товаров в кампаниях
         /// </summary>
@@ -3954,7 +3954,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="offset">После какого элемента выдавать данные (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV1CalendarPromotions200Response</returns>
-        public GetV1CalendarPromotions200Response GetV1CalendarPromotions(DateTime startDateTime, DateTime endDateTime, bool allPromo, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public GetV1CalendarPromotions200Response GetV1CalendarPromotions(string startDateTime, string endDateTime, bool allPromo, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<GetV1CalendarPromotions200Response> localVarResponse = GetV1CalendarPromotionsWithHttpInfo(startDateTime, endDateTime, allPromo, limit, offset);
             return localVarResponse.Data;
@@ -3971,8 +3971,20 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="offset">После какого элемента выдавать данные (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV1CalendarPromotions200Response</returns>
-        public ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<GetV1CalendarPromotions200Response> GetV1CalendarPromotionsWithHttpInfo(DateTime startDateTime, DateTime endDateTime, bool allPromo, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<GetV1CalendarPromotions200Response> GetV1CalendarPromotionsWithHttpInfo(string startDateTime, string endDateTime, bool allPromo, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
+            // verify the required parameter 'startDateTime' is set
+            if (startDateTime == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'startDateTime' when calling DefaultApi->GetV1CalendarPromotions");
+            }
+
+            // verify the required parameter 'endDateTime' is set
+            if (endDateTime == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'endDateTime' when calling DefaultApi->GetV1CalendarPromotions");
+            }
+
             ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -4044,7 +4056,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV1CalendarPromotions200Response</returns>
-        public async System.Threading.Tasks.Task<GetV1CalendarPromotions200Response> GetV1CalendarPromotionsAsync(DateTime startDateTime, DateTime endDateTime, bool allPromo, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV1CalendarPromotions200Response> GetV1CalendarPromotionsAsync(string startDateTime, string endDateTime, bool allPromo, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<GetV1CalendarPromotions200Response> localVarResponse = await GetV1CalendarPromotionsWithHttpInfoAsync(startDateTime, endDateTime, allPromo, limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4062,8 +4074,20 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV1CalendarPromotions200Response)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<GetV1CalendarPromotions200Response>> GetV1CalendarPromotionsWithHttpInfoAsync(DateTime startDateTime, DateTime endDateTime, bool allPromo, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<GetV1CalendarPromotions200Response>> GetV1CalendarPromotionsWithHttpInfoAsync(string startDateTime, string endDateTime, bool allPromo, int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'startDateTime' is set
+            if (startDateTime == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'startDateTime' when calling DefaultApi->GetV1CalendarPromotions");
+            }
+
+            // verify the required parameter 'endDateTime' is set
+            if (endDateTime == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'endDateTime' when calling DefaultApi->GetV1CalendarPromotions");
+            }
+
 
             ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions();
 
@@ -4747,7 +4771,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="to">Конец интервала. (Минимальный интервал 1 день, максимальный 31) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GetV1PaymentsResponse200Inner&gt;</returns>
-        public List<GetV1PaymentsResponse200Inner> GetV1Payments(DateOnly? from = default(DateOnly?), DateOnly? to = default(DateOnly?), int operationIndex = 0)
+        public List<GetV1PaymentsResponse200Inner> GetV1Payments(string? from = default(string?), string? to = default(string?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<List<GetV1PaymentsResponse200Inner>> localVarResponse = GetV1PaymentsWithHttpInfo(from, to);
             return localVarResponse.Data;
@@ -4761,7 +4785,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="to">Конец интервала. (Минимальный интервал 1 день, максимальный 31) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GetV1PaymentsResponse200Inner&gt;</returns>
-        public ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<List<GetV1PaymentsResponse200Inner>> GetV1PaymentsWithHttpInfo(DateOnly? from = default(DateOnly?), DateOnly? to = default(DateOnly?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<List<GetV1PaymentsResponse200Inner>> GetV1PaymentsWithHttpInfo(string? from = default(string?), string? to = default(string?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions();
 
@@ -4828,7 +4852,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GetV1PaymentsResponse200Inner&gt;</returns>
-        public async System.Threading.Tasks.Task<List<GetV1PaymentsResponse200Inner>> GetV1PaymentsAsync(DateOnly? from = default(DateOnly?), DateOnly? to = default(DateOnly?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<GetV1PaymentsResponse200Inner>> GetV1PaymentsAsync(string? from = default(string?), string? to = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<List<GetV1PaymentsResponse200Inner>> localVarResponse = await GetV1PaymentsWithHttpInfoAsync(from, to, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4843,7 +4867,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GetV1PaymentsResponse200Inner&gt;)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<List<GetV1PaymentsResponse200Inner>>> GetV1PaymentsWithHttpInfoAsync(DateOnly? from = default(DateOnly?), DateOnly? to = default(DateOnly?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<List<GetV1PaymentsResponse200Inner>>> GetV1PaymentsWithHttpInfoAsync(string? from = default(string?), string? to = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions();
@@ -5203,7 +5227,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="to">Конец интервала. (Минимальный интервал 1 день, максимальный 31)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GetV1UpdResponse200Inner&gt;</returns>
-        public List<GetV1UpdResponse200Inner> GetV1Upd(DateOnly from, DateOnly to, int operationIndex = 0)
+        public List<GetV1UpdResponse200Inner> GetV1Upd(string from, string to, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<List<GetV1UpdResponse200Inner>> localVarResponse = GetV1UpdWithHttpInfo(from, to);
             return localVarResponse.Data;
@@ -5217,8 +5241,20 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="to">Конец интервала. (Минимальный интервал 1 день, максимальный 31)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GetV1UpdResponse200Inner&gt;</returns>
-        public ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<List<GetV1UpdResponse200Inner>> GetV1UpdWithHttpInfo(DateOnly from, DateOnly to, int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<List<GetV1UpdResponse200Inner>> GetV1UpdWithHttpInfo(string from, string to, int operationIndex = 0)
         {
+            // verify the required parameter 'from' is set
+            if (from == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'from' when calling DefaultApi->GetV1Upd");
+            }
+
+            // verify the required parameter 'to' is set
+            if (to == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'to' when calling DefaultApi->GetV1Upd");
+            }
+
             ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -5279,7 +5315,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GetV1UpdResponse200Inner&gt;</returns>
-        public async System.Threading.Tasks.Task<List<GetV1UpdResponse200Inner>> GetV1UpdAsync(DateOnly from, DateOnly to, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<GetV1UpdResponse200Inner>> GetV1UpdAsync(string from, string to, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<List<GetV1UpdResponse200Inner>> localVarResponse = await GetV1UpdWithHttpInfoAsync(from, to, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5294,8 +5330,20 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GetV1UpdResponse200Inner&gt;)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<List<GetV1UpdResponse200Inner>>> GetV1UpdWithHttpInfoAsync(DateOnly from, DateOnly to, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<List<GetV1UpdResponse200Inner>>> GetV1UpdWithHttpInfoAsync(string from, string to, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'from' is set
+            if (from == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'from' when calling DefaultApi->GetV1Upd");
+            }
+
+            // verify the required parameter 'to' is set
+            if (to == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'to' when calling DefaultApi->GetV1Upd");
+            }
+
 
             ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions();
 
@@ -5534,7 +5582,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="endDate">Дата окончания интервала</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;FullStatsItem&gt;</returns>
-        public List<FullStatsItem> GetV3Fullstats(string ids, DateOnly beginDate, DateOnly endDate, int operationIndex = 0)
+        public List<FullStatsItem> GetV3Fullstats(string ids, string beginDate, string endDate, int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<List<FullStatsItem>> localVarResponse = GetV3FullstatsWithHttpInfo(ids, beginDate, endDate);
             return localVarResponse.Data;
@@ -5549,12 +5597,24 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="endDate">Дата окончания интервала</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;FullStatsItem&gt;</returns>
-        public ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<List<FullStatsItem>> GetV3FullstatsWithHttpInfo(string ids, DateOnly beginDate, DateOnly endDate, int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<List<FullStatsItem>> GetV3FullstatsWithHttpInfo(string ids, string beginDate, string endDate, int operationIndex = 0)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
             {
                 throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'ids' when calling DefaultApi->GetV3Fullstats");
+            }
+
+            // verify the required parameter 'beginDate' is set
+            if (beginDate == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'beginDate' when calling DefaultApi->GetV3Fullstats");
+            }
+
+            // verify the required parameter 'endDate' is set
+            if (endDate == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'endDate' when calling DefaultApi->GetV3Fullstats");
             }
 
             ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions();
@@ -5618,7 +5678,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;FullStatsItem&gt;</returns>
-        public async System.Threading.Tasks.Task<List<FullStatsItem>> GetV3FullstatsAsync(string ids, DateOnly beginDate, DateOnly endDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<FullStatsItem>> GetV3FullstatsAsync(string ids, string beginDate, string endDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<List<FullStatsItem>> localVarResponse = await GetV3FullstatsWithHttpInfoAsync(ids, beginDate, endDate, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5634,12 +5694,24 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;FullStatsItem&gt;)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<List<FullStatsItem>>> GetV3FullstatsWithHttpInfoAsync(string ids, DateOnly beginDate, DateOnly endDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<List<FullStatsItem>>> GetV3FullstatsWithHttpInfoAsync(string ids, string beginDate, string endDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
             {
                 throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'ids' when calling DefaultApi->GetV3Fullstats");
+            }
+
+            // verify the required parameter 'beginDate' is set
+            if (beginDate == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'beginDate' when calling DefaultApi->GetV3Fullstats");
+            }
+
+            // verify the required parameter 'endDate' is set
+            if (endDate == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'endDate' when calling DefaultApi->GetV3Fullstats");
             }
 
 

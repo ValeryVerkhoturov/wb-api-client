@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Union
 from wb_api_client.promotion.models.full_stats_item_days_inner_apps_inner import (
     FullStatsItemDaysInnerAppsInner,
@@ -37,7 +36,7 @@ class FullStatsItemDaysInner(BaseModel):
     )
     atbs: StrictInt = Field(description="Количество добавлений товаров в корзину")
     canceled: StrictInt = Field(description="Отмены, шт.")
-    var_date: datetime = Field(
+    var_date: StrictStr = Field(
         description="Дата, за которую представлены данные", alias="date"
     )
     clicks: StrictInt = Field(description="Количество кликов")

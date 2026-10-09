@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
@@ -44,7 +43,7 @@ class PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict(BaseMode
     additional_data: Optional[Dict[str, Any]] = Field(
         default=None, description="Дополнительная информация", alias="additionalData"
     )
-    created_at: Optional[datetime] = Field(
+    created_at: Optional[StrictStr] = Field(
         default=None, description="Дата проверки документа", alias="createdAt"
     )
     __properties: ClassVar[List[str]] = [

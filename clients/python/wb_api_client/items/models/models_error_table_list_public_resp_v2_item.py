@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from wb_api_client.items.models.models_error_brand import ModelsErrorBrand
@@ -44,7 +43,7 @@ class ModelsErrorTableListPublicRespV2Item(BaseModel):
     errors: Dict[str, List[StrictStr]] = Field(
         description="Ошибки. Разбивка по `vendorCodes`"
     )
-    updated_at: datetime = Field(
+    updated_at: StrictStr = Field(
         description="Дата и время создания или редактирования пакета", alias="updatedAt"
     )
     __properties: ClassVar[List[str]] = [

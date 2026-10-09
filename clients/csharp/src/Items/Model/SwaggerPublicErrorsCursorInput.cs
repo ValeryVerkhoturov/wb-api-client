@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="limit">Количество пакетов в ответе (default to 100M).</param>
         /// <param name="updatedAt">Дата и время формирования последнего пакета в ответе на предыдущий запрос.</param>
         /// <param name="batchUUID">ID последнего пакета в ответе на предыдущий запрос.</param>
-        public SwaggerPublicErrorsCursorInput(decimal limit = 100M, DateTime updatedAt = default(DateTime), Guid batchUUID = default(Guid))
+        public SwaggerPublicErrorsCursorInput(decimal limit = 100M, string updatedAt = default(string), Guid batchUUID = default(Guid))
         {
             this.Limit = limit;
             this.UpdatedAt = updatedAt;
@@ -56,7 +56,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Дата и время формирования последнего пакета в ответе на предыдущий запрос</value>
         [DataMember(Name = "updatedAt", EmitDefaultValue = false)]
-        public DateTime UpdatedAt { get; set; }
+        public string UpdatedAt { get; set; }
 
         /// <summary>
         /// ID последнего пакета в ответе на предыдущий запрос

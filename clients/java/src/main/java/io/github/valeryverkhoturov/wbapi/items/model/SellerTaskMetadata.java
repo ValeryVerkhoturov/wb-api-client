@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.items.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -50,13 +49,13 @@ public class SellerTaskMetadata {
 
   @SerializedName(SERIALIZED_NAME_UPLOAD_DATE)
   @jakarta.annotation.Nullable
-  private OffsetDateTime uploadDate;
+  private String uploadDate;
 
   public static final String SERIALIZED_NAME_ACTIVATION_DATE = "activationDate";
 
   @SerializedName(SERIALIZED_NAME_ACTIVATION_DATE)
   @jakarta.annotation.Nullable
-  private OffsetDateTime activationDate;
+  private String activationDate;
 
   public static final String SERIALIZED_NAME_OVER_ALL_GOODS_NUMBER = "overAllGoodsNumber";
 
@@ -117,7 +116,7 @@ public class SellerTaskMetadata {
     this.status = status;
   }
 
-  public SellerTaskMetadata uploadDate(@jakarta.annotation.Nullable OffsetDateTime uploadDate) {
+  public SellerTaskMetadata uploadDate(@jakarta.annotation.Nullable String uploadDate) {
     this.uploadDate = uploadDate;
     return this;
   }
@@ -128,16 +127,15 @@ public class SellerTaskMetadata {
    * @return uploadDate
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getUploadDate() {
+  public String getUploadDate() {
     return uploadDate;
   }
 
-  public void setUploadDate(@jakarta.annotation.Nullable OffsetDateTime uploadDate) {
+  public void setUploadDate(@jakarta.annotation.Nullable String uploadDate) {
     this.uploadDate = uploadDate;
   }
 
-  public SellerTaskMetadata activationDate(
-      @jakarta.annotation.Nullable OffsetDateTime activationDate) {
+  public SellerTaskMetadata activationDate(@jakarta.annotation.Nullable String activationDate) {
     this.activationDate = activationDate;
     return this;
   }
@@ -148,11 +146,11 @@ public class SellerTaskMetadata {
    * @return activationDate
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getActivationDate() {
+  public String getActivationDate() {
     return activationDate;
   }
 
-  public void setActivationDate(@jakarta.annotation.Nullable OffsetDateTime activationDate) {
+  public void setActivationDate(@jakarta.annotation.Nullable String activationDate) {
     this.activationDate = activationDate;
   }
 
@@ -288,6 +286,20 @@ public class SellerTaskMetadata {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if ((jsonObj.get("uploadDate") != null && !jsonObj.get("uploadDate").isJsonNull())
+        && !jsonObj.get("uploadDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `uploadDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("uploadDate").toString()));
+    }
+    if ((jsonObj.get("activationDate") != null && !jsonObj.get("activationDate").isJsonNull())
+        && !jsonObj.get("activationDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `activationDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("activationDate").toString()));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

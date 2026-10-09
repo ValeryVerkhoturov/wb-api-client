@@ -141,7 +141,6 @@ paths:
         required: false
         schema:
           type: string
-          format: date
           example: '2025-02-06'
         description: Дата, от которой необходимо выдать новости
       - in: query
@@ -1050,7 +1049,6 @@ components:
                     format: UUID
                   expiredAt:
                     type: string
-                    format: date-time
                     description: Дата и время окончания срока действия приглашения
                   isActive:
                     type: boolean
@@ -1265,7 +1263,6 @@ components:
           description: ID приглашения
         expiredAt:
           type: string
-          format: date-time
           description: Дата и время окончания срока действия приглашения
         isSuccess:
           type: boolean
@@ -1470,12 +1467,10 @@ components:
               - `premium`
         since:
           type: string
-          format: date-time
           example: '2026-03-16T08:38:08.056406Z'
           description: Дата и время первой активации подписки. Не меняется при продлении или повторной активации
         till:
           type: string
-          format: date-time
           example: '2026-04-25T14:44:28.393587Z'
           description: Дата и время окончания подписки
     PlanBuilderOptionsInfo:
@@ -1544,10 +1539,8 @@ components:
           example: '2006-01-02T15:04:05.999+03:00'
           description: Дата активации пакета
           type: string
-          format: date-time
         expiresAt:
           type: string
-          format: date-time
           example: '2006-01-02T15:04:05.999+03:00'
           description: Дата окончания минимального срока действия пакета. До этого дня пакет опций нельзя отключить
         commissionRate:
@@ -1596,10 +1589,8 @@ components:
           example: '2006-01-02T15:04:05.999+03:00'
           description: Дата активации опции
           type: string
-          format: date-time
         expiresAt:
           type: string
-          format: date-time
           example: '2006-01-02T15:04:05.999+03:00'
           description: Дата окончания минимального срока действия опции. До этого дня опцию нельзя отключить
         commissionRate:
@@ -1641,7 +1632,6 @@ components:
           description: Стоимость подключения опции по акции, % от оборота
         expiresAt:
           type: string
-          format: date-time
           example: '2006-01-02T15:04:05.999+03:00'
           description: Дата окончания действия цены по акции
     PlanBuilderErrors:
@@ -1696,7 +1686,6 @@ components:
           description: Расшифровка HTTP статус-кода
         timestamp:
           type: string
-          format: date-time
           description: Дата и время запроса
     GetPingResponse200:
       type: object
@@ -1723,7 +1712,6 @@ components:
                 description: Текст новости
                 format: plaintext
               date:
-                format: date-time
                 type: string
                 description: Дата и время публикации новости
               header:
@@ -1870,7 +1858,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: unauthorized
@@ -1927,7 +1914,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           examples:
             Response403TokenCategory:
@@ -1970,7 +1956,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: too many requests

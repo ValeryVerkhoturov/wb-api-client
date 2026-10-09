@@ -14,7 +14,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"time"
 )
 
 // checks if the MeasurementPenaltiesDataReportsInner type satisfies the MappedNullable interface at compile time
@@ -49,19 +48,19 @@ type MeasurementPenaltiesDataReportsInner struct {
 	// Фото замеров
 	PhotoUrls []string `json:"photoUrls"`
 	// Дата штрафа
-	DtBonus *time.Time `json:"dtBonus,omitempty"`
+	DtBonus *string `json:"dtBonus,omitempty"`
 	// Статус обмера:   - `false` — отменён   - `true` — подтверждён
 	IsValid *bool `json:"isValid,omitempty"`
 	// Дата и время подтверждения или отмены обмера
-	IsValidDt *time.Time `json:"isValidDt,omitempty"`
+	IsValidDt *string `json:"isValidDt,omitempty"`
 	// Сумма сторно
 	ReversalAmount *float32 `json:"reversalAmount,omitempty"`
 	// Сумма штрафа
 	PenaltyAmount *float32 `json:"penaltyAmount,omitempty"`
 	// Дата и время начала действия коэффициента
-	DateStart *time.Time `json:"dateStart,omitempty"`
+	DateStart *string `json:"dateStart,omitempty"`
 	// Дата и время окончания действия коэффициента
-	DateEnd *time.Time `json:"dateEnd,omitempty"`
+	DateEnd *string `json:"dateEnd,omitempty"`
 }
 
 type _MeasurementPenaltiesDataReportsInner MeasurementPenaltiesDataReportsInner
@@ -409,9 +408,9 @@ func (o *MeasurementPenaltiesDataReportsInner) SetPhotoUrls(v []string) {
 }
 
 // GetDtBonus returns the DtBonus field value if set, zero value otherwise.
-func (o *MeasurementPenaltiesDataReportsInner) GetDtBonus() time.Time {
+func (o *MeasurementPenaltiesDataReportsInner) GetDtBonus() string {
 	if o == nil || IsNil(o.DtBonus) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.DtBonus
@@ -419,7 +418,7 @@ func (o *MeasurementPenaltiesDataReportsInner) GetDtBonus() time.Time {
 
 // GetDtBonusOk returns a tuple with the DtBonus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MeasurementPenaltiesDataReportsInner) GetDtBonusOk() (*time.Time, bool) {
+func (o *MeasurementPenaltiesDataReportsInner) GetDtBonusOk() (*string, bool) {
 	if o == nil || IsNil(o.DtBonus) {
 		return nil, false
 	}
@@ -435,8 +434,8 @@ func (o *MeasurementPenaltiesDataReportsInner) HasDtBonus() bool {
 	return false
 }
 
-// SetDtBonus gets a reference to the given time.Time and assigns it to the DtBonus field.
-func (o *MeasurementPenaltiesDataReportsInner) SetDtBonus(v time.Time) {
+// SetDtBonus gets a reference to the given string and assigns it to the DtBonus field.
+func (o *MeasurementPenaltiesDataReportsInner) SetDtBonus(v string) {
 	o.DtBonus = &v
 }
 
@@ -473,9 +472,9 @@ func (o *MeasurementPenaltiesDataReportsInner) SetIsValid(v bool) {
 }
 
 // GetIsValidDt returns the IsValidDt field value if set, zero value otherwise.
-func (o *MeasurementPenaltiesDataReportsInner) GetIsValidDt() time.Time {
+func (o *MeasurementPenaltiesDataReportsInner) GetIsValidDt() string {
 	if o == nil || IsNil(o.IsValidDt) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.IsValidDt
@@ -483,7 +482,7 @@ func (o *MeasurementPenaltiesDataReportsInner) GetIsValidDt() time.Time {
 
 // GetIsValidDtOk returns a tuple with the IsValidDt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MeasurementPenaltiesDataReportsInner) GetIsValidDtOk() (*time.Time, bool) {
+func (o *MeasurementPenaltiesDataReportsInner) GetIsValidDtOk() (*string, bool) {
 	if o == nil || IsNil(o.IsValidDt) {
 		return nil, false
 	}
@@ -499,8 +498,8 @@ func (o *MeasurementPenaltiesDataReportsInner) HasIsValidDt() bool {
 	return false
 }
 
-// SetIsValidDt gets a reference to the given time.Time and assigns it to the IsValidDt field.
-func (o *MeasurementPenaltiesDataReportsInner) SetIsValidDt(v time.Time) {
+// SetIsValidDt gets a reference to the given string and assigns it to the IsValidDt field.
+func (o *MeasurementPenaltiesDataReportsInner) SetIsValidDt(v string) {
 	o.IsValidDt = &v
 }
 
@@ -569,9 +568,9 @@ func (o *MeasurementPenaltiesDataReportsInner) SetPenaltyAmount(v float32) {
 }
 
 // GetDateStart returns the DateStart field value if set, zero value otherwise.
-func (o *MeasurementPenaltiesDataReportsInner) GetDateStart() time.Time {
+func (o *MeasurementPenaltiesDataReportsInner) GetDateStart() string {
 	if o == nil || IsNil(o.DateStart) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.DateStart
@@ -579,7 +578,7 @@ func (o *MeasurementPenaltiesDataReportsInner) GetDateStart() time.Time {
 
 // GetDateStartOk returns a tuple with the DateStart field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MeasurementPenaltiesDataReportsInner) GetDateStartOk() (*time.Time, bool) {
+func (o *MeasurementPenaltiesDataReportsInner) GetDateStartOk() (*string, bool) {
 	if o == nil || IsNil(o.DateStart) {
 		return nil, false
 	}
@@ -595,15 +594,15 @@ func (o *MeasurementPenaltiesDataReportsInner) HasDateStart() bool {
 	return false
 }
 
-// SetDateStart gets a reference to the given time.Time and assigns it to the DateStart field.
-func (o *MeasurementPenaltiesDataReportsInner) SetDateStart(v time.Time) {
+// SetDateStart gets a reference to the given string and assigns it to the DateStart field.
+func (o *MeasurementPenaltiesDataReportsInner) SetDateStart(v string) {
 	o.DateStart = &v
 }
 
 // GetDateEnd returns the DateEnd field value if set, zero value otherwise.
-func (o *MeasurementPenaltiesDataReportsInner) GetDateEnd() time.Time {
+func (o *MeasurementPenaltiesDataReportsInner) GetDateEnd() string {
 	if o == nil || IsNil(o.DateEnd) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.DateEnd
@@ -611,7 +610,7 @@ func (o *MeasurementPenaltiesDataReportsInner) GetDateEnd() time.Time {
 
 // GetDateEndOk returns a tuple with the DateEnd field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MeasurementPenaltiesDataReportsInner) GetDateEndOk() (*time.Time, bool) {
+func (o *MeasurementPenaltiesDataReportsInner) GetDateEndOk() (*string, bool) {
 	if o == nil || IsNil(o.DateEnd) {
 		return nil, false
 	}
@@ -627,8 +626,8 @@ func (o *MeasurementPenaltiesDataReportsInner) HasDateEnd() bool {
 	return false
 }
 
-// SetDateEnd gets a reference to the given time.Time and assigns it to the DateEnd field.
-func (o *MeasurementPenaltiesDataReportsInner) SetDateEnd(v time.Time) {
+// SetDateEnd gets a reference to the given string and assigns it to the DateEnd field.
+func (o *MeasurementPenaltiesDataReportsInner) SetDateEnd(v string) {
 	o.DateEnd = &v
 }
 

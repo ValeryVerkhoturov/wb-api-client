@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// <param name="phone">Номер телефона.</param>
         /// <param name="pTimeFrom">Дата и время, с которого прибудет курьер.</param>
         /// <param name="pTimeTo">Дата и время, до которого прибудет курьер.</param>
-        public CourierContactsResponse(string carNumber = default(string), string fullName = default(string), string phone = default(string), DateTime? pTimeFrom = default(DateTime?), DateTime? pTimeTo = default(DateTime?))
+        public CourierContactsResponse(string carNumber = default(string), string fullName = default(string), string phone = default(string), string pTimeFrom = default(string), string pTimeTo = default(string))
         {
             this.CarNumber = carNumber;
             this.FullName = fullName;
@@ -83,20 +83,20 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// </summary>
         /// <value>Дата и время, с которого прибудет курьер</value>
         /*
-        <example>2025-09-06T08:00Z</example>
+        <example>2025-09-06T08:00:00Z</example>
         */
         [DataMember(Name = "pTimeFrom", EmitDefaultValue = true)]
-        public DateTime? PTimeFrom { get; set; }
+        public string PTimeFrom { get; set; }
 
         /// <summary>
         /// Дата и время, до которого прибудет курьер
         /// </summary>
         /// <value>Дата и время, до которого прибудет курьер</value>
         /*
-        <example>2025-09-06T11:00Z</example>
+        <example>2025-09-06T11:00:00Z</example>
         */
         [DataMember(Name = "pTimeTo", EmitDefaultValue = true)]
-        public DateTime? PTimeTo { get; set; }
+        public string PTimeTo { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.communications.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -50,7 +49,7 @@ public class GetV1QuestionsResponse200DataQuestionsInnerAnswer {
 
   @SerializedName(SERIALIZED_NAME_CREATE_DATE)
   @jakarta.annotation.Nullable
-  private OffsetDateTime createDate;
+  private String createDate;
 
   public GetV1QuestionsResponse200DataQuestionsInnerAnswer() {}
 
@@ -95,7 +94,7 @@ public class GetV1QuestionsResponse200DataQuestionsInnerAnswer {
   }
 
   public GetV1QuestionsResponse200DataQuestionsInnerAnswer createDate(
-      @jakarta.annotation.Nullable OffsetDateTime createDate) {
+      @jakarta.annotation.Nullable String createDate) {
     this.createDate = createDate;
     return this;
   }
@@ -106,11 +105,11 @@ public class GetV1QuestionsResponse200DataQuestionsInnerAnswer {
    * @return createDate
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getCreateDate() {
+  public String getCreateDate() {
     return createDate;
   }
 
-  public void setCreateDate(@jakarta.annotation.Nullable OffsetDateTime createDate) {
+  public void setCreateDate(@jakarta.annotation.Nullable String createDate) {
     this.createDate = createDate;
   }
 
@@ -208,6 +207,13 @@ public class GetV1QuestionsResponse200DataQuestionsInnerAnswer {
           String.format(
               "Expected the field `text` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("text").toString()));
+    }
+    if ((jsonObj.get("createDate") != null && !jsonObj.get("createDate").isJsonNull())
+        && !jsonObj.get("createDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `createDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("createDate").toString()));
     }
   }
 

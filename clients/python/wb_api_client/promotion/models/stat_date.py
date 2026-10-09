@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.promotion.models.stats_blok2 import StatsBlok2
 from typing import Optional, Set
@@ -30,7 +29,9 @@ class StatDate(BaseModel):
     StatDate
     """  # noqa: E501
 
-    dates: List[date] = Field(description="Даты, за которые нужно получить информацию")
+    dates: List[StrictStr] = Field(
+        description="Даты, за которые нужно получить информацию"
+    )
     stats: Optional[List[StatsBlok2]] = Field(
         default=None, description="Блок статистики"
     )

@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from wb_api_client.promotion.models.stats_blok2_daily_stats_inner import (
@@ -54,10 +53,10 @@ class StatsBlok2(BaseModel):
         default=None,
         description="CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании ",
     )
-    date_from: Optional[datetime] = Field(
+    date_from: Optional[StrictStr] = Field(
         default=None, description="Время начала размещения"
     )
-    date_to: Optional[datetime] = Field(
+    date_to: Optional[StrictStr] = Field(
         default=None, description="Время завершения размещения"
     )
     subject_name: Optional[StrictStr] = Field(

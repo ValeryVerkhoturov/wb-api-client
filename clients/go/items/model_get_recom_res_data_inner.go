@@ -14,7 +14,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"time"
 )
 
 // checks if the GetRecomResDataInner type satisfies the MappedNullable interface at compile time
@@ -31,7 +30,7 @@ type GetRecomResDataInner struct {
 	// Бренд
 	BrandName string `json:"brandName"`
 	// Дата и время последнего обновления рекомендаций
-	UpdatedAt NullableTime `json:"updatedAt,omitempty"`
+	UpdatedAt NullableString `json:"updatedAt,omitempty"`
 	// Количество изображений в карточке товара
 	PicsCount int32 `json:"picsCount"`
 	// Название товара
@@ -175,9 +174,9 @@ func (o *GetRecomResDataInner) SetBrandName(v string) {
 }
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GetRecomResDataInner) GetUpdatedAt() time.Time {
+func (o *GetRecomResDataInner) GetUpdatedAt() string {
 	if o == nil || IsNil(o.UpdatedAt.Get()) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.UpdatedAt.Get()
@@ -186,7 +185,7 @@ func (o *GetRecomResDataInner) GetUpdatedAt() time.Time {
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GetRecomResDataInner) GetUpdatedAtOk() (*time.Time, bool) {
+func (o *GetRecomResDataInner) GetUpdatedAtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -202,8 +201,8 @@ func (o *GetRecomResDataInner) HasUpdatedAt() bool {
 	return false
 }
 
-// SetUpdatedAt gets a reference to the given NullableTime and assigns it to the UpdatedAt field.
-func (o *GetRecomResDataInner) SetUpdatedAt(v time.Time) {
+// SetUpdatedAt gets a reference to the given NullableString and assigns it to the UpdatedAt field.
+func (o *GetRecomResDataInner) SetUpdatedAt(v string) {
 	o.UpdatedAt.Set(&v)
 }
 

@@ -58,7 +58,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="stickerId">Стикер заказа на возврат (required).</param>
         /// <param name="subjectName">Предмет (required).</param>
         /// <param name="techSize">Размер (required).</param>
-        public GoodsReturn200ResponseReportInner(string sku = default(string), string brand = default(string), string completedDt = default(string), string dstOfficeAddress = default(string), string kiz = default(string), int dstOfficeId = default(int), string expiredDt = default(string), int nmId = default(int), DateOnly orderDt = default(DateOnly), int orderId = default(int), string readyToReturnDt = default(string), string returnReason = default(string), string returnType = default(string), int shkId = default(int), string srid = default(string), string returnStatus = default(string), string stickerId = default(string), string subjectName = default(string), string techSize = default(string))
+        public GoodsReturn200ResponseReportInner(string sku = default(string), string brand = default(string), string completedDt = default(string), string dstOfficeAddress = default(string), string kiz = default(string), int dstOfficeId = default(int), string expiredDt = default(string), int nmId = default(int), string orderDt = default(string), int orderId = default(int), string readyToReturnDt = default(string), string returnReason = default(string), string returnType = default(string), int shkId = default(int), string srid = default(string), string returnStatus = default(string), string stickerId = default(string), string subjectName = default(string), string techSize = default(string))
         {
             // to ensure "sku" is required (not null)
             if (sku == null)
@@ -98,6 +98,11 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
             }
             this.ExpiredDt = expiredDt;
             this.NmId = nmId;
+            // to ensure "orderDt" is required (not null)
+            if (orderDt == null)
+            {
+                throw new ArgumentNullException("orderDt is a required property for GoodsReturn200ResponseReportInner and cannot be null");
+            }
             this.OrderDt = orderDt;
             this.OrderId = orderId;
             // to ensure "readyToReturnDt" is required (not null)
@@ -231,10 +236,10 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>Дата заказа на возврат</value>
         /*
-        <example>Mon Aug 26 00:00:00 UTC 2024</example>
+        <example>2024-08-26</example>
         */
         [DataMember(Name = "orderDt", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly OrderDt { get; set; }
+        public string OrderDt { get; set; }
 
         /// <summary>
         /// ID сборочного задания

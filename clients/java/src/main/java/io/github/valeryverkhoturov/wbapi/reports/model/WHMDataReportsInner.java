@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.reports.JSON;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -89,7 +88,7 @@ public class WHMDataReportsInner {
 
   @SerializedName(SERIALIZED_NAME_DT)
   @jakarta.annotation.Nullable
-  private OffsetDateTime dt;
+  private String dt;
 
   public WHMDataReportsInner() {}
 
@@ -253,7 +252,7 @@ public class WHMDataReportsInner {
     this.photoUrls = photoUrls;
   }
 
-  public WHMDataReportsInner dt(@jakarta.annotation.Nullable OffsetDateTime dt) {
+  public WHMDataReportsInner dt(@jakarta.annotation.Nullable String dt) {
     this.dt = dt;
     return this;
   }
@@ -264,11 +263,11 @@ public class WHMDataReportsInner {
    * @return dt
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getDt() {
+  public String getDt() {
     return dt;
   }
 
-  public void setDt(@jakarta.annotation.Nullable OffsetDateTime dt) {
+  public void setDt(@jakarta.annotation.Nullable String dt) {
     this.dt = dt;
   }
 
@@ -387,6 +386,13 @@ public class WHMDataReportsInner {
           String.format(
               "Expected the field `photoUrls` to be an array in the JSON string but got `%s`",
               jsonObj.get("photoUrls").toString()));
+    }
+    if ((jsonObj.get("dt") != null && !jsonObj.get("dt").isJsonNull())
+        && !jsonObj.get("dt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `dt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("dt").toString()));
     }
   }
 

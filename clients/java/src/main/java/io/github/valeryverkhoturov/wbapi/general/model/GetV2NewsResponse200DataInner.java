@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.general.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -47,7 +46,7 @@ public class GetV2NewsResponse200DataInner {
 
   @SerializedName(SERIALIZED_NAME_DATE)
   @jakarta.annotation.Nullable
-  private OffsetDateTime date;
+  private String date;
 
   public static final String SERIALIZED_NAME_HEADER = "header";
 
@@ -88,7 +87,7 @@ public class GetV2NewsResponse200DataInner {
     this.content = content;
   }
 
-  public GetV2NewsResponse200DataInner date(@jakarta.annotation.Nullable OffsetDateTime date) {
+  public GetV2NewsResponse200DataInner date(@jakarta.annotation.Nullable String date) {
     this.date = date;
     return this;
   }
@@ -99,11 +98,11 @@ public class GetV2NewsResponse200DataInner {
    * @return date
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getDate() {
+  public String getDate() {
     return date;
   }
 
-  public void setDate(@jakarta.annotation.Nullable OffsetDateTime date) {
+  public void setDate(@jakarta.annotation.Nullable String date) {
     this.date = date;
   }
 
@@ -270,6 +269,13 @@ public class GetV2NewsResponse200DataInner {
           String.format(
               "Expected the field `content` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("content").toString()));
+    }
+    if ((jsonObj.get("date") != null && !jsonObj.get("date").isJsonNull())
+        && !jsonObj.get("date").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `date` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("date").toString()));
     }
     if ((jsonObj.get("header") != null && !jsonObj.get("header").isJsonNull())
         && !jsonObj.get("header").isJsonPrimitive()) {

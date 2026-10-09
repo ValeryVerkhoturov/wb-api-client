@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.promotion.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -50,19 +49,19 @@ public class GetV1AdvertResponse200Extended {
 
   @SerializedName(SERIALIZED_NAME_FROM)
   @jakarta.annotation.Nullable
-  private OffsetDateTime from;
+  private String from;
 
   public static final String SERIALIZED_NAME_TO = "to";
 
   @SerializedName(SERIALIZED_NAME_TO)
   @jakarta.annotation.Nullable
-  private OffsetDateTime to;
+  private String to;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   @jakarta.annotation.Nullable
-  private OffsetDateTime updatedAt;
+  private String updatedAt;
 
   public static final String SERIALIZED_NAME_PRICE = "price";
 
@@ -128,7 +127,7 @@ public class GetV1AdvertResponse200Extended {
     this.expenses = expenses;
   }
 
-  public GetV1AdvertResponse200Extended from(@jakarta.annotation.Nullable OffsetDateTime from) {
+  public GetV1AdvertResponse200Extended from(@jakarta.annotation.Nullable String from) {
     this.from = from;
     return this;
   }
@@ -139,15 +138,15 @@ public class GetV1AdvertResponse200Extended {
    * @return from
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getFrom() {
+  public String getFrom() {
     return from;
   }
 
-  public void setFrom(@jakarta.annotation.Nullable OffsetDateTime from) {
+  public void setFrom(@jakarta.annotation.Nullable String from) {
     this.from = from;
   }
 
-  public GetV1AdvertResponse200Extended to(@jakarta.annotation.Nullable OffsetDateTime to) {
+  public GetV1AdvertResponse200Extended to(@jakarta.annotation.Nullable String to) {
     this.to = to;
     return this;
   }
@@ -158,16 +157,15 @@ public class GetV1AdvertResponse200Extended {
    * @return to
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getTo() {
+  public String getTo() {
     return to;
   }
 
-  public void setTo(@jakarta.annotation.Nullable OffsetDateTime to) {
+  public void setTo(@jakarta.annotation.Nullable String to) {
     this.to = to;
   }
 
-  public GetV1AdvertResponse200Extended updatedAt(
-      @jakarta.annotation.Nullable OffsetDateTime updatedAt) {
+  public GetV1AdvertResponse200Extended updatedAt(@jakarta.annotation.Nullable String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -178,11 +176,11 @@ public class GetV1AdvertResponse200Extended {
    * @return updatedAt
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getUpdatedAt() {
+  public String getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(@jakarta.annotation.Nullable OffsetDateTime updatedAt) {
+  public void setUpdatedAt(@jakarta.annotation.Nullable String updatedAt) {
     this.updatedAt = updatedAt;
   }
 
@@ -372,6 +370,27 @@ public class GetV1AdvertResponse200Extended {
           String.format(
               "Expected the field `reason` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("reason").toString()));
+    }
+    if ((jsonObj.get("from") != null && !jsonObj.get("from").isJsonNull())
+        && !jsonObj.get("from").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `from` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("from").toString()));
+    }
+    if ((jsonObj.get("to") != null && !jsonObj.get("to").isJsonNull())
+        && !jsonObj.get("to").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `to` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("to").toString()));
+    }
+    if ((jsonObj.get("updated_at") != null && !jsonObj.get("updated_at").isJsonNull())
+        && !jsonObj.get("updated_at").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("updated_at").toString()));
     }
   }
 

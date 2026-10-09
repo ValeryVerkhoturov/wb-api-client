@@ -79,7 +79,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// <param name="commissionRate">Комиссия за пакет, % от оборота.</param>
         /// <param name="periodDuration">Минимальный срок действия пакета в днях.</param>
         /// <param name="options">Опции, которые входят в пакет.</param>
-        public PlanBuilderPackage(Guid id = default(Guid), string slug = default(string), string name = default(string), StatusEnum? status = default(StatusEnum?), DateTime activatedAt = default(DateTime), DateTime expiresAt = default(DateTime), float commissionRate = default(float), decimal periodDuration = default(decimal), List<PlanBuilderOptionShort> options = default(List<PlanBuilderOptionShort>))
+        public PlanBuilderPackage(Guid id = default(Guid), string slug = default(string), string name = default(string), StatusEnum? status = default(StatusEnum?), string activatedAt = default(string), string expiresAt = default(string), float commissionRate = default(float), decimal periodDuration = default(decimal), List<PlanBuilderOptionShort> options = default(List<PlanBuilderOptionShort>))
         {
             this.Id = id;
             this.Slug = slug;
@@ -130,7 +130,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         <example>2006-01-02T15:04:05.999+03:00</example>
         */
         [DataMember(Name = "activatedAt", EmitDefaultValue = false)]
-        public DateTime ActivatedAt { get; set; }
+        public string ActivatedAt { get; set; }
 
         /// <summary>
         /// Дата окончания минимального срока действия пакета. До этого дня пакет опций нельзя отключить
@@ -140,7 +140,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         <example>2006-01-02T15:04:05.999+03:00</example>
         */
         [DataMember(Name = "expiresAt", EmitDefaultValue = false)]
-        public DateTime ExpiresAt { get; set; }
+        public string ExpiresAt { get; set; }
 
         /// <summary>
         /// Комиссия за пакет, % от оборота

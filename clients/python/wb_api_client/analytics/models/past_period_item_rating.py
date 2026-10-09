@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,10 +28,10 @@ class PastPeriodItemRating(BaseModel):
     Прошлый период для сравнения. Количество дней — меньше или равно `currentPeriod`
     """  # noqa: E501
 
-    start: date = Field(
+    start: StrictStr = Field(
         description="Дата начала периода. Не ранее 364 суток от вчерашнего дня и не позднее `end`"
     )
-    end: date = Field(
+    end: StrictStr = Field(
         description="Дата окончания периода. Не ранее 364 суток от вчерашнего дня и не позднее даты перед началом `currentPeriod`."
     )
     __properties: ClassVar[List[str]] = ["start", "end"]

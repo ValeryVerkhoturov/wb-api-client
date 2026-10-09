@@ -80,7 +80,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="stickerId">Стикер заказа на возврат.</param>
         /// <param name="subjectName">Предмет.</param>
         /// <param name="techSize">Размер.</param>
-        public GetV1AnalyticsGoodsReturnResponse200ReportInner(string barcode = default(string), string brand = default(string), string completedDt = default(string), string dstOfficeAddress = default(string), int dstOfficeId = default(int), string expiredDt = default(string), IsStatusActiveEnum? isStatusActive = default(IsStatusActiveEnum?), int nmId = default(int), DateOnly orderDt = default(DateOnly), int orderId = default(int), string readyToReturnDt = default(string), string reason = default(string), string returnType = default(string), int shkId = default(int), string srid = default(string), string status = default(string), string stickerId = default(string), string subjectName = default(string), string techSize = default(string))
+        public GetV1AnalyticsGoodsReturnResponse200ReportInner(string barcode = default(string), string brand = default(string), string completedDt = default(string), string dstOfficeAddress = default(string), int dstOfficeId = default(int), string expiredDt = default(string), IsStatusActiveEnum? isStatusActive = default(IsStatusActiveEnum?), int nmId = default(int), string orderDt = default(string), int orderId = default(int), string readyToReturnDt = default(string), string reason = default(string), string returnType = default(string), int shkId = default(int), string srid = default(string), string status = default(string), string stickerId = default(string), string subjectName = default(string), string techSize = default(string))
         {
             this.Barcode = barcode;
             this.Brand = brand;
@@ -178,10 +178,10 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>Дата заказа на возврат</value>
         /*
-        <example>Mon Aug 26 00:00:00 UTC 2024</example>
+        <example>2024-08-26</example>
         */
         [DataMember(Name = "orderDt", EmitDefaultValue = false)]
-        public DateOnly OrderDt { get; set; }
+        public string OrderDt { get; set; }
 
         /// <summary>
         /// Номер сборочного задания

@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -30,7 +29,7 @@ class OrderFeedRequestPagination(BaseModel):
     Пагинация
     """  # noqa: E501
 
-    snapshot_time: Optional[datetime] = Field(
+    snapshot_time: Optional[StrictStr] = Field(
         default=None,
         description='Метка снимка данных, в рамках которого выполняется пагинация. Данные отчёта обновляются асинхронно. Чтобы не пропускать и не дублировать заказы, запросы одной выборки должны быть с одним и тем же `snapshotTime`. В первом запросе выборки (`"offset":0`) параметр не указывается, в каждом последующем запросе (`offset`>`0`) указывайте значение поля `snapshotTime` из ответа на **первый** запрос. При изменении значений периода и фильтров начинайте выборку заново с `"offset":0` и без `snapshotTime`',
         alias="snapshotTime",

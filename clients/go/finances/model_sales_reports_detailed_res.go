@@ -14,7 +14,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"time"
 )
 
 // checks if the SalesReportsDetailedRes type satisfies the MappedNullable interface at compile time
@@ -75,9 +74,9 @@ type SalesReportsDetailedRes struct {
 	// Обоснование для оплаты
 	SellerOperName string `json:"sellerOperName"`
 	// Дата и время заказа
-	OrderDt time.Time `json:"orderDt"`
+	OrderDt string `json:"orderDt"`
 	// Дата и время продажи
-	SaleDt time.Time `json:"saleDt"`
+	SaleDt string `json:"saleDt"`
 	// Дата операции
 	RrDate string `json:"rrDate"`
 	// Штрихкод
@@ -222,7 +221,7 @@ type _SalesReportsDetailedRes SalesReportsDetailedRes
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSalesReportsDetailedRes(reportId int64, dateFrom string, dateTo string, createDate string, currency string, reportType int32, rrdId int32, giId int32, dlvPrc float32, fixTariffDateFrom string, fixTariffDateTo string, subjectName string, nmId int32, brandName string, vendorCode string, title string, techSize string, sku string, docTypeName string, quantity int32, retailPrice string, retailAmount string, salePercent int32, commissionPercent float32, officeName string, sellerOperName string, orderDt time.Time, saleDt time.Time, rrDate string, shkId int32, retailPriceWithDisc string, deliveryAmount int32, returnAmount int32, deliveryService string, giBoxTypeName string, productDiscountForReport float32, sellerPromo float32, spp float32, kvwBase float32, kvw float32, supRatingUp float32, isKgvpV2 float32, ppvzSalesCommission string, forPay string, ppvzReward string, acquiringFee string, acquiringPercent float32, paymentProcessing string, acquiringBank string, vw string, vwNds string, ppvzOfficeName string, ppvzOfficeId int32, ppvzSupplierName string, ppvzSupplierInn string, declarationNumber string, stickerId string, country string, srvDbs bool, penalty string, additionalPayment string, rebillLogisticCost string, paidStorage string, deduction string, paidAcceptance string, orderId int32, isB2b bool, trbxId string, installmentCofinancingAmount string, wibesDiscountPercent float32, cashbackAmount string, cashbackDiscount string, cashbackCommissionChange string, paymentSchedule string, deliveryMethod string, sellerPromoId int32, sellerPromoDiscount float32, loyaltyId int32, loyaltyDiscount float32, uuidPromocode string, salePricePromocodeDiscountPrc float32, articleSubstitution string, salePriceAffiliatedDiscountPrc float32, salePriceWholesaleDiscountPrc float32, b2bCustomerTin string, paidWithSocialCertificate bool, warehouseLogisticsCoeff float32, buyerTaxRegistrationReasonCode string, utdUcdNumber string, utdUcdDate string, orderUid string, srid string) *SalesReportsDetailedRes {
+func NewSalesReportsDetailedRes(reportId int64, dateFrom string, dateTo string, createDate string, currency string, reportType int32, rrdId int32, giId int32, dlvPrc float32, fixTariffDateFrom string, fixTariffDateTo string, subjectName string, nmId int32, brandName string, vendorCode string, title string, techSize string, sku string, docTypeName string, quantity int32, retailPrice string, retailAmount string, salePercent int32, commissionPercent float32, officeName string, sellerOperName string, orderDt string, saleDt string, rrDate string, shkId int32, retailPriceWithDisc string, deliveryAmount int32, returnAmount int32, deliveryService string, giBoxTypeName string, productDiscountForReport float32, sellerPromo float32, spp float32, kvwBase float32, kvw float32, supRatingUp float32, isKgvpV2 float32, ppvzSalesCommission string, forPay string, ppvzReward string, acquiringFee string, acquiringPercent float32, paymentProcessing string, acquiringBank string, vw string, vwNds string, ppvzOfficeName string, ppvzOfficeId int32, ppvzSupplierName string, ppvzSupplierInn string, declarationNumber string, stickerId string, country string, srvDbs bool, penalty string, additionalPayment string, rebillLogisticCost string, paidStorage string, deduction string, paidAcceptance string, orderId int32, isB2b bool, trbxId string, installmentCofinancingAmount string, wibesDiscountPercent float32, cashbackAmount string, cashbackDiscount string, cashbackCommissionChange string, paymentSchedule string, deliveryMethod string, sellerPromoId int32, sellerPromoDiscount float32, loyaltyId int32, loyaltyDiscount float32, uuidPromocode string, salePricePromocodeDiscountPrc float32, articleSubstitution string, salePriceAffiliatedDiscountPrc float32, salePriceWholesaleDiscountPrc float32, b2bCustomerTin string, paidWithSocialCertificate bool, warehouseLogisticsCoeff float32, buyerTaxRegistrationReasonCode string, utdUcdNumber string, utdUcdDate string, orderUid string, srid string) *SalesReportsDetailedRes {
 	this := SalesReportsDetailedRes{}
 	this.ReportId = reportId
 	this.DateFrom = dateFrom
@@ -952,9 +951,9 @@ func (o *SalesReportsDetailedRes) SetSellerOperName(v string) {
 }
 
 // GetOrderDt returns the OrderDt field value
-func (o *SalesReportsDetailedRes) GetOrderDt() time.Time {
+func (o *SalesReportsDetailedRes) GetOrderDt() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -963,7 +962,7 @@ func (o *SalesReportsDetailedRes) GetOrderDt() time.Time {
 
 // GetOrderDtOk returns a tuple with the OrderDt field value
 // and a boolean to check if the value has been set.
-func (o *SalesReportsDetailedRes) GetOrderDtOk() (*time.Time, bool) {
+func (o *SalesReportsDetailedRes) GetOrderDtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -971,14 +970,14 @@ func (o *SalesReportsDetailedRes) GetOrderDtOk() (*time.Time, bool) {
 }
 
 // SetOrderDt sets field value
-func (o *SalesReportsDetailedRes) SetOrderDt(v time.Time) {
+func (o *SalesReportsDetailedRes) SetOrderDt(v string) {
 	o.OrderDt = v
 }
 
 // GetSaleDt returns the SaleDt field value
-func (o *SalesReportsDetailedRes) GetSaleDt() time.Time {
+func (o *SalesReportsDetailedRes) GetSaleDt() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -987,7 +986,7 @@ func (o *SalesReportsDetailedRes) GetSaleDt() time.Time {
 
 // GetSaleDtOk returns a tuple with the SaleDt field value
 // and a boolean to check if the value has been set.
-func (o *SalesReportsDetailedRes) GetSaleDtOk() (*time.Time, bool) {
+func (o *SalesReportsDetailedRes) GetSaleDtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -995,7 +994,7 @@ func (o *SalesReportsDetailedRes) GetSaleDtOk() (*time.Time, bool) {
 }
 
 // SetSaleDt sets field value
-func (o *SalesReportsDetailedRes) SetSaleDt(v time.Time) {
+func (o *SalesReportsDetailedRes) SetSaleDt(v string) {
 	o.SaleDt = v
 }
 

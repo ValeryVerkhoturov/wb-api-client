@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.orders_fbw.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -51,7 +50,7 @@ public class ModelsItemScans {
 
   @SerializedName(SERIALIZED_NAME_SCAN_TIME)
   @jakarta.annotation.Nonnull
-  private OffsetDateTime scanTime;
+  private String scanTime;
 
   /**
    * Тип расхождения товара: - &#x60;surplus&#x60; — товара больше, чем заявлено -
@@ -162,7 +161,7 @@ public class ModelsItemScans {
     this.declaredSku = declaredSku;
   }
 
-  public ModelsItemScans scanTime(@jakarta.annotation.Nonnull OffsetDateTime scanTime) {
+  public ModelsItemScans scanTime(@jakarta.annotation.Nonnull String scanTime) {
     this.scanTime = scanTime;
     return this;
   }
@@ -173,11 +172,11 @@ public class ModelsItemScans {
    * @return scanTime
    */
   @jakarta.annotation.Nonnull
-  public OffsetDateTime getScanTime() {
+  public String getScanTime() {
     return scanTime;
   }
 
-  public void setScanTime(@jakarta.annotation.Nonnull OffsetDateTime scanTime) {
+  public void setScanTime(@jakarta.annotation.Nonnull String scanTime) {
     this.scanTime = scanTime;
   }
 
@@ -331,6 +330,12 @@ public class ModelsItemScans {
           String.format(
               "Expected the field `declaredSku` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("declaredSku").toString()));
+    }
+    if (!jsonObj.get("scanTime").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `scanTime` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("scanTime").toString()));
     }
     if (!jsonObj.get("discrepancyLabel").isJsonPrimitive()) {
       throw new IllegalArgumentException(

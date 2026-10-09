@@ -14,7 +14,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"time"
 )
 
 // checks if the ModelsItemScans type satisfies the MappedNullable interface at compile time
@@ -27,7 +26,7 @@ type ModelsItemScans struct {
 	// Баркод, заявленный при формировании поставки
 	DeclaredSku string `json:"declaredSku"`
 	// Дата и время сканирования
-	ScanTime time.Time `json:"scanTime"`
+	ScanTime string `json:"scanTime"`
 	// Тип расхождения товара:  - `surplus` — товара больше, чем заявлено  - `shortage` — товара меньше, чем заявлено  - `re-sorting` — баркод принятого товара не соответствует заявленному при формировании поставки
 	DiscrepancyLabel string `json:"discrepancyLabel"`
 	// Фактический баркод
@@ -40,7 +39,7 @@ type _ModelsItemScans ModelsItemScans
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsItemScans(scanId int32, declaredSku string, scanTime time.Time, discrepancyLabel string, actualSku string) *ModelsItemScans {
+func NewModelsItemScans(scanId int32, declaredSku string, scanTime string, discrepancyLabel string, actualSku string) *ModelsItemScans {
 	this := ModelsItemScans{}
 	this.ScanId = scanId
 	this.DeclaredSku = declaredSku
@@ -107,9 +106,9 @@ func (o *ModelsItemScans) SetDeclaredSku(v string) {
 }
 
 // GetScanTime returns the ScanTime field value
-func (o *ModelsItemScans) GetScanTime() time.Time {
+func (o *ModelsItemScans) GetScanTime() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -118,7 +117,7 @@ func (o *ModelsItemScans) GetScanTime() time.Time {
 
 // GetScanTimeOk returns a tuple with the ScanTime field value
 // and a boolean to check if the value has been set.
-func (o *ModelsItemScans) GetScanTimeOk() (*time.Time, bool) {
+func (o *ModelsItemScans) GetScanTimeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -126,7 +125,7 @@ func (o *ModelsItemScans) GetScanTimeOk() (*time.Time, bool) {
 }
 
 // SetScanTime sets field value
-func (o *ModelsItemScans) SetScanTime(v time.Time) {
+func (o *ModelsItemScans) SetScanTime(v string) {
 	o.ScanTime = v
 }
 

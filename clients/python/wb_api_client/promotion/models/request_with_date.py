@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +29,9 @@ class RequestWithDate(BaseModel):
     """  # noqa: E501
 
     id: StrictInt = Field(description="ID кампании")
-    dates: List[date] = Field(description="Даты, за которые нужно получить информацию")
+    dates: List[StrictStr] = Field(
+        description="Даты, за которые нужно получить информацию"
+    )
     __properties: ClassVar[List[str]] = ["id", "dates"]
 
     model_config = ConfigDict(

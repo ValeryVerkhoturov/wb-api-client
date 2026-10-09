@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
@@ -33,7 +32,7 @@ class ModelsItemScans(BaseModel):
     declared_sku: StrictStr = Field(
         description="Баркод, заявленный при формировании поставки", alias="declaredSku"
     )
-    scan_time: datetime = Field(
+    scan_time: StrictStr = Field(
         description="Дата и время сканирования", alias="scanTime"
     )
     discrepancy_label: StrictStr = Field(

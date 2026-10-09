@@ -113,7 +113,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Api
         /// <param name="offset">После какой строки выдавать данные (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetList</returns>
-        GetList GetV1DocumentsList(string? locale = default(string?), DateOnly? beginTime = default(DateOnly?), DateOnly? endTime = default(DateOnly?), string? sort = default(string?), string? order = default(string?), string? category = default(string?), string? serviceName = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
+        GetList GetV1DocumentsList(string? locale = default(string?), string? beginTime = default(string?), string? endTime = default(string?), string? sort = default(string?), string? order = default(string?), string? category = default(string?), string? serviceName = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Список документов
@@ -133,7 +133,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Api
         /// <param name="offset">После какой строки выдавать данные (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetList</returns>
-        ApiResponse<GetList> GetV1DocumentsListWithHttpInfo(string? locale = default(string?), DateOnly? beginTime = default(DateOnly?), DateOnly? endTime = default(DateOnly?), string? sort = default(string?), string? order = default(string?), string? category = default(string?), string? serviceName = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
+        ApiResponse<GetList> GetV1DocumentsListWithHttpInfo(string? locale = default(string?), string? beginTime = default(string?), string? endTime = default(string?), string? sort = default(string?), string? order = default(string?), string? category = default(string?), string? serviceName = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
         /// Детализации к отчётам об издержках на приём платежей за период
         /// </summary>
@@ -402,7 +402,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetList</returns>
-        System.Threading.Tasks.Task<GetList> GetV1DocumentsListAsync(string? locale = default(string?), DateOnly? beginTime = default(DateOnly?), DateOnly? endTime = default(DateOnly?), string? sort = default(string?), string? order = default(string?), string? category = default(string?), string? serviceName = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetList> GetV1DocumentsListAsync(string? locale = default(string?), string? beginTime = default(string?), string? endTime = default(string?), string? sort = default(string?), string? order = default(string?), string? category = default(string?), string? serviceName = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Список документов
@@ -423,7 +423,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetList>> GetV1DocumentsListWithHttpInfoAsync(string? locale = default(string?), DateOnly? beginTime = default(DateOnly?), DateOnly? endTime = default(DateOnly?), string? sort = default(string?), string? order = default(string?), string? category = default(string?), string? serviceName = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetList>> GetV1DocumentsListWithHttpInfoAsync(string? locale = default(string?), string? beginTime = default(string?), string? endTime = default(string?), string? sort = default(string?), string? order = default(string?), string? category = default(string?), string? serviceName = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Детализации к отчётам об издержках на приём платежей за период
         /// </summary>
@@ -1206,7 +1206,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Api
         /// <param name="offset">После какой строки выдавать данные (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetList</returns>
-        public GetList GetV1DocumentsList(string? locale = default(string?), DateOnly? beginTime = default(DateOnly?), DateOnly? endTime = default(DateOnly?), string? sort = default(string?), string? order = default(string?), string? category = default(string?), string? serviceName = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public GetList GetV1DocumentsList(string? locale = default(string?), string? beginTime = default(string?), string? endTime = default(string?), string? sort = default(string?), string? order = default(string?), string? category = default(string?), string? serviceName = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Finances.Client.ApiResponse<GetList> localVarResponse = GetV1DocumentsListWithHttpInfo(locale, beginTime, endTime, sort, order, category, serviceName, limit, offset);
             return localVarResponse.Data;
@@ -1227,7 +1227,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Api
         /// <param name="offset">После какой строки выдавать данные (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetList</returns>
-        public ValeryVerkhoturov.WbApiClient.Finances.Client.ApiResponse<GetList> GetV1DocumentsListWithHttpInfo(string? locale = default(string?), DateOnly? beginTime = default(DateOnly?), DateOnly? endTime = default(DateOnly?), string? sort = default(string?), string? order = default(string?), string? category = default(string?), string? serviceName = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Finances.Client.ApiResponse<GetList> GetV1DocumentsListWithHttpInfo(string? locale = default(string?), string? beginTime = default(string?), string? endTime = default(string?), string? sort = default(string?), string? order = default(string?), string? category = default(string?), string? serviceName = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Finances.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Finances.Client.RequestOptions();
 
@@ -1329,7 +1329,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetList</returns>
-        public async System.Threading.Tasks.Task<GetList> GetV1DocumentsListAsync(string? locale = default(string?), DateOnly? beginTime = default(DateOnly?), DateOnly? endTime = default(DateOnly?), string? sort = default(string?), string? order = default(string?), string? category = default(string?), string? serviceName = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetList> GetV1DocumentsListAsync(string? locale = default(string?), string? beginTime = default(string?), string? endTime = default(string?), string? sort = default(string?), string? order = default(string?), string? category = default(string?), string? serviceName = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Finances.Client.ApiResponse<GetList> localVarResponse = await GetV1DocumentsListWithHttpInfoAsync(locale, beginTime, endTime, sort, order, category, serviceName, limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1351,7 +1351,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetList)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Finances.Client.ApiResponse<GetList>> GetV1DocumentsListWithHttpInfoAsync(string? locale = default(string?), DateOnly? beginTime = default(DateOnly?), DateOnly? endTime = default(DateOnly?), string? sort = default(string?), string? order = default(string?), string? category = default(string?), string? serviceName = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Finances.Client.ApiResponse<GetList>> GetV1DocumentsListWithHttpInfoAsync(string? locale = default(string?), string? beginTime = default(string?), string? endTime = default(string?), string? sort = default(string?), string? order = default(string?), string? category = default(string?), string? serviceName = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.Finances.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Finances.Client.RequestOptions();

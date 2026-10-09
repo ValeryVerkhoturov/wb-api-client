@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.reports.JSON;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -47,7 +46,7 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
 
   @SerializedName(SERIALIZED_NAME_DATE)
   @jakarta.annotation.Nullable
-  private OffsetDateTime date;
+  private String date;
 
   public static final String SERIALIZED_NAME_INCOME_ID = "incomeId";
 
@@ -102,7 +101,7 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
   }
 
   public GetV1AnalyticsGoodsLabeling200ResponseReportInner date(
-      @jakarta.annotation.Nullable OffsetDateTime date) {
+      @jakarta.annotation.Nullable String date) {
     this.date = date;
     return this;
   }
@@ -113,11 +112,11 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
    * @return date
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getDate() {
+  public String getDate() {
     return date;
   }
 
-  public void setDate(@jakarta.annotation.Nullable OffsetDateTime date) {
+  public void setDate(@jakarta.annotation.Nullable String date) {
     this.date = date;
   }
 
@@ -329,6 +328,13 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if ((jsonObj.get("date") != null && !jsonObj.get("date").isJsonNull())
+        && !jsonObj.get("date").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `date` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("date").toString()));
+    }
     // ensure the optional json data is an array if present
     if (jsonObj.get("photoUrls") != null
         && !jsonObj.get("photoUrls").isJsonNull()

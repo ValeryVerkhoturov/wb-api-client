@@ -14,7 +14,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"time"
 )
 
 // checks if the CreateInviteResponse type satisfies the MappedNullable interface at compile time
@@ -25,7 +24,7 @@ type CreateInviteResponse struct {
 	// ID приглашения
 	InviteID string `json:"inviteID"`
 	// Дата и время окончания срока действия приглашения
-	ExpiredAt time.Time `json:"expiredAt"`
+	ExpiredAt string `json:"expiredAt"`
 	// - `true` — приглашение создано успешно - `false` — повторите запрос
 	IsSuccess bool `json:"isSuccess"`
 	// URL приглашения, по которому должен перейти пользователь
@@ -38,7 +37,7 @@ type _CreateInviteResponse CreateInviteResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateInviteResponse(inviteID string, expiredAt time.Time, isSuccess bool, inviteUrl string) *CreateInviteResponse {
+func NewCreateInviteResponse(inviteID string, expiredAt string, isSuccess bool, inviteUrl string) *CreateInviteResponse {
 	this := CreateInviteResponse{}
 	this.InviteID = inviteID
 	this.ExpiredAt = expiredAt
@@ -80,9 +79,9 @@ func (o *CreateInviteResponse) SetInviteID(v string) {
 }
 
 // GetExpiredAt returns the ExpiredAt field value
-func (o *CreateInviteResponse) GetExpiredAt() time.Time {
+func (o *CreateInviteResponse) GetExpiredAt() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -91,7 +90,7 @@ func (o *CreateInviteResponse) GetExpiredAt() time.Time {
 
 // GetExpiredAtOk returns a tuple with the ExpiredAt field value
 // and a boolean to check if the value has been set.
-func (o *CreateInviteResponse) GetExpiredAtOk() (*time.Time, bool) {
+func (o *CreateInviteResponse) GetExpiredAtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -99,7 +98,7 @@ func (o *CreateInviteResponse) GetExpiredAtOk() (*time.Time, bool) {
 }
 
 // SetExpiredAt sets field value
-func (o *CreateInviteResponse) SetExpiredAt(v time.Time) {
+func (o *CreateInviteResponse) SetExpiredAt(v string) {
 	o.ExpiredAt = v
 }
 

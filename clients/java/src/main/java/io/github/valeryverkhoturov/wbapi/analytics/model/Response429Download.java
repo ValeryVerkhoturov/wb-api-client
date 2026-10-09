@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.analytics.JSON;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -81,7 +80,7 @@ public class Response429Download {
 
   @SerializedName(SERIALIZED_NAME_TIMESTAMP)
   @jakarta.annotation.Nullable
-  private OffsetDateTime timestamp;
+  private String timestamp;
 
   public Response429Download() {}
 
@@ -218,7 +217,7 @@ public class Response429Download {
     this.statusText = statusText;
   }
 
-  public Response429Download timestamp(@jakarta.annotation.Nullable OffsetDateTime timestamp) {
+  public Response429Download timestamp(@jakarta.annotation.Nullable String timestamp) {
     this.timestamp = timestamp;
     return this;
   }
@@ -229,11 +228,11 @@ public class Response429Download {
    * @return timestamp
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getTimestamp() {
+  public String getTimestamp() {
     return timestamp;
   }
 
-  public void setTimestamp(@jakarta.annotation.Nullable OffsetDateTime timestamp) {
+  public void setTimestamp(@jakarta.annotation.Nullable String timestamp) {
     this.timestamp = timestamp;
   }
 
@@ -375,6 +374,13 @@ public class Response429Download {
           String.format(
               "Expected the field `statusText` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("statusText").toString()));
+    }
+    if ((jsonObj.get("timestamp") != null && !jsonObj.get("timestamp").isJsonNull())
+        && !jsonObj.get("timestamp").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `timestamp` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("timestamp").toString()));
     }
   }
 

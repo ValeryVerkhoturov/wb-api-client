@@ -143,7 +143,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="isZeroOrder">Признак заказа товара с нулевым остатком:   - &#x60;false&#x60; — заказ сделан на товар с ненулевым остатком   - &#x60;true&#x60; — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену .</param>
         /// <param name="isPickupPointShipmentAllowed">Можно ли отгрузить заказ на ПВЗ:   - &#x60;false&#x60; — нет   - &#x60;true&#x60; — да .</param>
         /// <param name="options">options.</param>
-        public OrderNew(OrderAddress address = default(OrderAddress), string ddate = default(string), string sellerDate = default(string), int? salePrice = default(int?), List<string> requiredMeta = default(List<string>), List<string> optionalMeta = default(List<string>), DeliveryTypeEnum? deliveryType = default(DeliveryTypeEnum?), string comment = default(string), decimal? scanPrice = default(decimal?), string orderUid = default(string), string article = default(string), string colorCode = default(string), string rid = default(string), DateTime createdAt = default(DateTime), List<string> offices = default(List<string>), List<string> skus = default(List<string>), long id = default(long), int warehouseId = default(int), long officeId = default(long), int nmId = default(int), int chrtId = default(int), int price = default(int), int finalPrice = default(int), int convertedPrice = default(int), int convertedFinalPrice = default(int), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), CrossBorderTypeEnum? crossBorderType = default(CrossBorderTypeEnum?), bool isZeroOrder = default(bool), bool isPickupPointShipmentAllowed = default(bool), OrderOptions options = default(OrderOptions))
+        public OrderNew(OrderAddress address = default(OrderAddress), string ddate = default(string), string sellerDate = default(string), int? salePrice = default(int?), List<string> requiredMeta = default(List<string>), List<string> optionalMeta = default(List<string>), DeliveryTypeEnum? deliveryType = default(DeliveryTypeEnum?), string comment = default(string), decimal? scanPrice = default(decimal?), string orderUid = default(string), string article = default(string), string colorCode = default(string), string rid = default(string), string createdAt = default(string), List<string> offices = default(List<string>), List<string> skus = default(List<string>), long id = default(long), int warehouseId = default(int), long officeId = default(long), int nmId = default(int), int chrtId = default(int), int price = default(int), int finalPrice = default(int), int convertedPrice = default(int), int convertedFinalPrice = default(int), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), CrossBorderTypeEnum? crossBorderType = default(CrossBorderTypeEnum?), bool isZeroOrder = default(bool), bool isPickupPointShipmentAllowed = default(bool), OrderOptions options = default(OrderOptions))
         {
             this.Address = address;
             this.Ddate = ddate;
@@ -300,7 +300,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>2022-05-04T07:56:29Z</example>
         */
         [DataMember(Name = "createdAt", EmitDefaultValue = false)]
-        public DateTime CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
 
         /// <summary>
         /// Список офисов, куда следует привезти товар

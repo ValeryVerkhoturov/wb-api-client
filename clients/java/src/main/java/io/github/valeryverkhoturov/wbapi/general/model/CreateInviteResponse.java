@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.general.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -45,7 +44,7 @@ public class CreateInviteResponse {
 
   @SerializedName(SERIALIZED_NAME_EXPIRED_AT)
   @jakarta.annotation.Nonnull
-  private OffsetDateTime expiredAt;
+  private String expiredAt;
 
   public static final String SERIALIZED_NAME_IS_SUCCESS = "isSuccess";
 
@@ -80,7 +79,7 @@ public class CreateInviteResponse {
     this.inviteID = inviteID;
   }
 
-  public CreateInviteResponse expiredAt(@jakarta.annotation.Nonnull OffsetDateTime expiredAt) {
+  public CreateInviteResponse expiredAt(@jakarta.annotation.Nonnull String expiredAt) {
     this.expiredAt = expiredAt;
     return this;
   }
@@ -91,11 +90,11 @@ public class CreateInviteResponse {
    * @return expiredAt
    */
   @jakarta.annotation.Nonnull
-  public OffsetDateTime getExpiredAt() {
+  public String getExpiredAt() {
     return expiredAt;
   }
 
-  public void setExpiredAt(@jakarta.annotation.Nonnull OffsetDateTime expiredAt) {
+  public void setExpiredAt(@jakarta.annotation.Nonnull String expiredAt) {
     this.expiredAt = expiredAt;
   }
 
@@ -241,6 +240,12 @@ public class CreateInviteResponse {
           String.format(
               "Expected the field `inviteID` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("inviteID").toString()));
+    }
+    if (!jsonObj.get("expiredAt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `expiredAt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("expiredAt").toString()));
     }
     if (!jsonObj.get("inviteUrl").isJsonPrimitive()) {
       throw new IllegalArgumentException(

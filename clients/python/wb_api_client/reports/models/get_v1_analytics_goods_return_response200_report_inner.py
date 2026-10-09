@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
@@ -55,7 +54,7 @@ class GetV1AnalyticsGoodsReturnResponse200ReportInner(BaseModel):
     nm_id: Optional[StrictInt] = Field(
         default=None, description="Артикул WB", alias="nmId"
     )
-    order_dt: Optional[date] = Field(
+    order_dt: Optional[StrictStr] = Field(
         default=None, description="Дата заказа на возврат", alias="orderDt"
     )
     order_id: Optional[StrictInt] = Field(

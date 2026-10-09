@@ -12,7 +12,6 @@ package promotion
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the StatsBlok1 type satisfies the MappedNullable interface at compile time
@@ -39,9 +38,9 @@ type StatsBlok1 struct {
 	// CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании
 	Ctr *float32 `json:"ctr,omitempty"`
 	// Время начала размещения
-	DateFrom *time.Time `json:"date_from,omitempty"`
+	DateFrom *string `json:"date_from,omitempty"`
 	// Время завершения размещения
-	DateTo *time.Time `json:"date_to,omitempty"`
+	DateTo *string `json:"date_to,omitempty"`
 	// Родительская категория предмета
 	SubjectName *string `json:"subject_name,omitempty"`
 	// Количество добавлений товаров в корзину
@@ -369,9 +368,9 @@ func (o *StatsBlok1) SetCtr(v float32) {
 }
 
 // GetDateFrom returns the DateFrom field value if set, zero value otherwise.
-func (o *StatsBlok1) GetDateFrom() time.Time {
+func (o *StatsBlok1) GetDateFrom() string {
 	if o == nil || IsNil(o.DateFrom) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.DateFrom
@@ -379,7 +378,7 @@ func (o *StatsBlok1) GetDateFrom() time.Time {
 
 // GetDateFromOk returns a tuple with the DateFrom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsBlok1) GetDateFromOk() (*time.Time, bool) {
+func (o *StatsBlok1) GetDateFromOk() (*string, bool) {
 	if o == nil || IsNil(o.DateFrom) {
 		return nil, false
 	}
@@ -395,15 +394,15 @@ func (o *StatsBlok1) HasDateFrom() bool {
 	return false
 }
 
-// SetDateFrom gets a reference to the given time.Time and assigns it to the DateFrom field.
-func (o *StatsBlok1) SetDateFrom(v time.Time) {
+// SetDateFrom gets a reference to the given string and assigns it to the DateFrom field.
+func (o *StatsBlok1) SetDateFrom(v string) {
 	o.DateFrom = &v
 }
 
 // GetDateTo returns the DateTo field value if set, zero value otherwise.
-func (o *StatsBlok1) GetDateTo() time.Time {
+func (o *StatsBlok1) GetDateTo() string {
 	if o == nil || IsNil(o.DateTo) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.DateTo
@@ -411,7 +410,7 @@ func (o *StatsBlok1) GetDateTo() time.Time {
 
 // GetDateToOk returns a tuple with the DateTo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsBlok1) GetDateToOk() (*time.Time, bool) {
+func (o *StatsBlok1) GetDateToOk() (*string, bool) {
 	if o == nil || IsNil(o.DateTo) {
 		return nil, false
 	}
@@ -427,8 +426,8 @@ func (o *StatsBlok1) HasDateTo() bool {
 	return false
 }
 
-// SetDateTo gets a reference to the given time.Time and assigns it to the DateTo field.
-func (o *StatsBlok1) SetDateTo(v time.Time) {
+// SetDateTo gets a reference to the given string and assigns it to the DateTo field.
+func (o *StatsBlok1) SetDateTo(v string) {
 	o.DateTo = &v
 }
 

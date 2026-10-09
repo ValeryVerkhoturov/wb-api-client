@@ -16,7 +16,6 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from datetime import date
 from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
@@ -1512,10 +1511,10 @@ class DefaultApi:
     def get_v1_payments(
         self,
         var_from: Annotated[
-            Optional[date], Field(description="Начало интервала")
+            Optional[StrictStr], Field(description="Начало интервала")
         ] = None,
         to: Annotated[
-            Optional[date],
+            Optional[StrictStr],
             Field(
                 description="Конец интервала. (Минимальный интервал 1 день, максимальный 31)"
             ),
@@ -1537,9 +1536,9 @@ class DefaultApi:
         Метод возвращает историю пополнений счёта \\*\\*WB Продвижение\\*\\* за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
         :param var_from: Начало интервала
-        :type var_from: date
+        :type var_from: str
         :param to: Конец интервала. (Минимальный интервал 1 день, максимальный 31)
-        :type to: date
+        :type to: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1592,10 +1591,10 @@ class DefaultApi:
     def get_v1_payments_with_http_info(
         self,
         var_from: Annotated[
-            Optional[date], Field(description="Начало интервала")
+            Optional[StrictStr], Field(description="Начало интервала")
         ] = None,
         to: Annotated[
-            Optional[date],
+            Optional[StrictStr],
             Field(
                 description="Конец интервала. (Минимальный интервал 1 день, максимальный 31)"
             ),
@@ -1617,9 +1616,9 @@ class DefaultApi:
         Метод возвращает историю пополнений счёта \\*\\*WB Продвижение\\*\\* за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
         :param var_from: Начало интервала
-        :type var_from: date
+        :type var_from: str
         :param to: Конец интервала. (Минимальный интервал 1 день, максимальный 31)
-        :type to: date
+        :type to: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1672,10 +1671,10 @@ class DefaultApi:
     def get_v1_payments_without_preload_content(
         self,
         var_from: Annotated[
-            Optional[date], Field(description="Начало интервала")
+            Optional[StrictStr], Field(description="Начало интервала")
         ] = None,
         to: Annotated[
-            Optional[date],
+            Optional[StrictStr],
             Field(
                 description="Конец интервала. (Минимальный интервал 1 день, максимальный 31)"
             ),
@@ -1697,9 +1696,9 @@ class DefaultApi:
         Метод возвращает историю пополнений счёта \\*\\*WB Продвижение\\*\\* за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
         :param var_from: Начало интервала
-        :type var_from: date
+        :type var_from: str
         :param to: Конец интервала. (Минимальный интервал 1 день, максимальный 31)
-        :type to: date
+        :type to: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1774,23 +1773,12 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if var_from is not None:
-            if isinstance(var_from, date):
-                _query_params.append(
-                    (
-                        "from",
-                        var_from.strftime(self.api_client.configuration.date_format),
-                    )
-                )
-            else:
-                _query_params.append(("from", var_from))
+
+            _query_params.append(("from", var_from))
 
         if to is not None:
-            if isinstance(to, date):
-                _query_params.append(
-                    ("to", to.strftime(self.api_client.configuration.date_format))
-                )
-            else:
-                _query_params.append(("to", to))
+
+            _query_params.append(("to", to))
 
         # process the header parameters
         # process the form parameters
@@ -2063,9 +2051,9 @@ class DefaultApi:
     @validate_call
     def get_v1_upd(
         self,
-        var_from: Annotated[date, Field(description="Начало интервала")],
+        var_from: Annotated[StrictStr, Field(description="Начало интервала")],
         to: Annotated[
-            date,
+            StrictStr,
             Field(
                 description="Конец интервала. (Минимальный интервал 1 день, максимальный 31)"
             ),
@@ -2087,9 +2075,9 @@ class DefaultApi:
         Метод формирует список фактических затрат на рекламные кампании за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
         :param var_from: Начало интервала (required)
-        :type var_from: date
+        :type var_from: str
         :param to: Конец интервала. (Минимальный интервал 1 день, максимальный 31) (required)
-        :type to: date
+        :type to: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2140,9 +2128,9 @@ class DefaultApi:
     @validate_call
     def get_v1_upd_with_http_info(
         self,
-        var_from: Annotated[date, Field(description="Начало интервала")],
+        var_from: Annotated[StrictStr, Field(description="Начало интервала")],
         to: Annotated[
-            date,
+            StrictStr,
             Field(
                 description="Конец интервала. (Минимальный интервал 1 день, максимальный 31)"
             ),
@@ -2164,9 +2152,9 @@ class DefaultApi:
         Метод формирует список фактических затрат на рекламные кампании за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
         :param var_from: Начало интервала (required)
-        :type var_from: date
+        :type var_from: str
         :param to: Конец интервала. (Минимальный интервал 1 день, максимальный 31) (required)
-        :type to: date
+        :type to: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2217,9 +2205,9 @@ class DefaultApi:
     @validate_call
     def get_v1_upd_without_preload_content(
         self,
-        var_from: Annotated[date, Field(description="Начало интервала")],
+        var_from: Annotated[StrictStr, Field(description="Начало интервала")],
         to: Annotated[
-            date,
+            StrictStr,
             Field(
                 description="Конец интервала. (Минимальный интервал 1 день, максимальный 31)"
             ),
@@ -2241,9 +2229,9 @@ class DefaultApi:
         Метод формирует список фактических затрат на рекламные кампании за заданный период.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один аккаунт продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Сервисный | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |
 
         :param var_from: Начало интервала (required)
-        :type var_from: date
+        :type var_from: str
         :param to: Конец интервала. (Минимальный интервал 1 день, максимальный 31) (required)
-        :type to: date
+        :type to: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2317,23 +2305,12 @@ class DefaultApi:
         # process the path parameters
         # process the query parameters
         if var_from is not None:
-            if isinstance(var_from, date):
-                _query_params.append(
-                    (
-                        "from",
-                        var_from.strftime(self.api_client.configuration.date_format),
-                    )
-                )
-            else:
-                _query_params.append(("from", var_from))
+
+            _query_params.append(("from", var_from))
 
         if to is not None:
-            if isinstance(to, date):
-                _query_params.append(
-                    ("to", to.strftime(self.api_client.configuration.date_format))
-                )
-            else:
-                _query_params.append(("to", to))
+
+            _query_params.append(("to", to))
 
         # process the header parameters
         # process the form parameters
@@ -2690,8 +2667,8 @@ class DefaultApi:
         ids: Annotated[
             StrictStr, Field(description="ID кампаний, максимум 50 значений")
         ],
-        begin_date: Annotated[date, Field(description="Дата начала интервала")],
-        end_date: Annotated[date, Field(description="Дата окончания интервала")],
+        begin_date: Annotated[StrictStr, Field(description="Дата начала интервала")],
+        end_date: Annotated[StrictStr, Field(description="Дата окончания интервала")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2711,9 +2688,9 @@ class DefaultApi:
         :param ids: ID кампаний, максимум 50 значений (required)
         :type ids: str
         :param begin_date: Дата начала интервала (required)
-        :type begin_date: date
+        :type begin_date: str
         :param end_date: Дата окончания интервала (required)
-        :type end_date: date
+        :type end_date: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2768,8 +2745,8 @@ class DefaultApi:
         ids: Annotated[
             StrictStr, Field(description="ID кампаний, максимум 50 значений")
         ],
-        begin_date: Annotated[date, Field(description="Дата начала интервала")],
-        end_date: Annotated[date, Field(description="Дата окончания интервала")],
+        begin_date: Annotated[StrictStr, Field(description="Дата начала интервала")],
+        end_date: Annotated[StrictStr, Field(description="Дата окончания интервала")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2789,9 +2766,9 @@ class DefaultApi:
         :param ids: ID кампаний, максимум 50 значений (required)
         :type ids: str
         :param begin_date: Дата начала интервала (required)
-        :type begin_date: date
+        :type begin_date: str
         :param end_date: Дата окончания интервала (required)
-        :type end_date: date
+        :type end_date: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2846,8 +2823,8 @@ class DefaultApi:
         ids: Annotated[
             StrictStr, Field(description="ID кампаний, максимум 50 значений")
         ],
-        begin_date: Annotated[date, Field(description="Дата начала интервала")],
-        end_date: Annotated[date, Field(description="Дата окончания интервала")],
+        begin_date: Annotated[StrictStr, Field(description="Дата начала интервала")],
+        end_date: Annotated[StrictStr, Field(description="Дата окончания интервала")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2867,9 +2844,9 @@ class DefaultApi:
         :param ids: ID кампаний, максимум 50 значений (required)
         :type ids: str
         :param begin_date: Дата начала интервала (required)
-        :type begin_date: date
+        :type begin_date: str
         :param end_date: Дата окончания интервала (required)
-        :type end_date: date
+        :type end_date: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2946,26 +2923,12 @@ class DefaultApi:
             _query_params.append(("ids", ids))
 
         if begin_date is not None:
-            if isinstance(begin_date, date):
-                _query_params.append(
-                    (
-                        "beginDate",
-                        begin_date.strftime(self.api_client.configuration.date_format),
-                    )
-                )
-            else:
-                _query_params.append(("beginDate", begin_date))
+
+            _query_params.append(("beginDate", begin_date))
 
         if end_date is not None:
-            if isinstance(end_date, date):
-                _query_params.append(
-                    (
-                        "endDate",
-                        end_date.strftime(self.api_client.configuration.date_format),
-                    )
-                )
-            else:
-                _query_params.append(("endDate", end_date))
+
+            _query_params.append(("endDate", end_date))
 
         # process the header parameters
         # process the form parameters

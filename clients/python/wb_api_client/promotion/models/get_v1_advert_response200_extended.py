@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
@@ -33,15 +32,15 @@ class GetV1AdvertResponse200Extended(BaseModel):
         default=None, description="Комментарий модератора"
     )
     expenses: Optional[StrictInt] = Field(default=None, description="Затраты")
-    var_from: Optional[datetime] = Field(
+    var_from: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время начала показа медиакампании",
         alias="from",
     )
-    to: Optional[datetime] = Field(
+    to: Optional[StrictStr] = Field(
         default=None, description="Дата и время окончания показа медиакампании"
     )
-    updated_at: Optional[datetime] = Field(
+    updated_at: Optional[StrictStr] = Field(
         default=None, description="Дата и время изменения кампании"
     )
     price: Optional[StrictInt] = Field(

@@ -12,7 +12,6 @@ package in_store_pickup
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the ApiNewOrder type satisfies the MappedNullable interface at compile time
@@ -31,7 +30,7 @@ type ApiNewOrder struct {
 	// Уникальный ID заказа. Примечание: `rid` — это `srid` в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчет о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
 	Rid *string `json:"rid,omitempty"`
 	// Дата и время создания сборочного задания
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
+	CreatedAt *string `json:"createdAt,omitempty"`
 	// Адрес магазина (склада продавца), на который поступило сборочное задание
 	WarehouseAddress *string `json:"warehouseAddress,omitempty"`
 	// Уникальный ID заказа покупателя
@@ -259,9 +258,9 @@ func (o *ApiNewOrder) SetRid(v string) {
 }
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
-func (o *ApiNewOrder) GetCreatedAt() time.Time {
+func (o *ApiNewOrder) GetCreatedAt() string {
 	if o == nil || IsNil(o.CreatedAt) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.CreatedAt
@@ -269,7 +268,7 @@ func (o *ApiNewOrder) GetCreatedAt() time.Time {
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiNewOrder) GetCreatedAtOk() (*time.Time, bool) {
+func (o *ApiNewOrder) GetCreatedAtOk() (*string, bool) {
 	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
@@ -285,8 +284,8 @@ func (o *ApiNewOrder) HasCreatedAt() bool {
 	return false
 }
 
-// SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
-func (o *ApiNewOrder) SetCreatedAt(v time.Time) {
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
+func (o *ApiNewOrder) SetCreatedAt(v string) {
 	o.CreatedAt = &v
 }
 

@@ -25,7 +25,6 @@ import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.promotion.JSON;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -96,13 +95,13 @@ public class StatsBlok2 {
 
   @SerializedName(SERIALIZED_NAME_DATE_FROM)
   @jakarta.annotation.Nullable
-  private OffsetDateTime dateFrom;
+  private String dateFrom;
 
   public static final String SERIALIZED_NAME_DATE_TO = "date_to";
 
   @SerializedName(SERIALIZED_NAME_DATE_TO)
   @jakarta.annotation.Nullable
-  private OffsetDateTime dateTo;
+  private String dateTo;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subject_name";
 
@@ -340,7 +339,7 @@ public class StatsBlok2 {
     this.ctr = ctr;
   }
 
-  public StatsBlok2 dateFrom(@jakarta.annotation.Nullable OffsetDateTime dateFrom) {
+  public StatsBlok2 dateFrom(@jakarta.annotation.Nullable String dateFrom) {
     this.dateFrom = dateFrom;
     return this;
   }
@@ -351,15 +350,15 @@ public class StatsBlok2 {
    * @return dateFrom
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getDateFrom() {
+  public String getDateFrom() {
     return dateFrom;
   }
 
-  public void setDateFrom(@jakarta.annotation.Nullable OffsetDateTime dateFrom) {
+  public void setDateFrom(@jakarta.annotation.Nullable String dateFrom) {
     this.dateFrom = dateFrom;
   }
 
-  public StatsBlok2 dateTo(@jakarta.annotation.Nullable OffsetDateTime dateTo) {
+  public StatsBlok2 dateTo(@jakarta.annotation.Nullable String dateTo) {
     this.dateTo = dateTo;
     return this;
   }
@@ -370,11 +369,11 @@ public class StatsBlok2 {
    * @return dateTo
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getDateTo() {
+  public String getDateTo() {
     return dateTo;
   }
 
-  public void setDateTo(@jakarta.annotation.Nullable OffsetDateTime dateTo) {
+  public void setDateTo(@jakarta.annotation.Nullable String dateTo) {
     this.dateTo = dateTo;
   }
 
@@ -748,6 +747,20 @@ public class StatsBlok2 {
           String.format(
               "Expected the field `category_name` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("category_name").toString()));
+    }
+    if ((jsonObj.get("date_from") != null && !jsonObj.get("date_from").isJsonNull())
+        && !jsonObj.get("date_from").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `date_from` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("date_from").toString()));
+    }
+    if ((jsonObj.get("date_to") != null && !jsonObj.get("date_to").isJsonNull())
+        && !jsonObj.get("date_to").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `date_to` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("date_to").toString()));
     }
     if ((jsonObj.get("subject_name") != null && !jsonObj.get("subject_name").isJsonNull())
         && !jsonObj.get("subject_name").isJsonPrimitive()) {

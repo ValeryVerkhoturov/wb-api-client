@@ -43,9 +43,19 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="updated">Время последнего изменения кампании (required).</param>
         /// <param name="started">Время последнего запуска кампании (required).</param>
         /// <param name="deleted">Время удаления кампании. Если кампания не удалена, время указывается в будущем (required).</param>
-        public Timestamps(DateTime created = default(DateTime), DateTime updated = default(DateTime), DateTime? started = default(DateTime?), DateTime deleted = default(DateTime))
+        public Timestamps(string created = default(string), string updated = default(string), string started = default(string), string deleted = default(string))
         {
+            // to ensure "created" is required (not null)
+            if (created == null)
+            {
+                throw new ArgumentNullException("created is a required property for Timestamps and cannot be null");
+            }
             this.Created = created;
+            // to ensure "updated" is required (not null)
+            if (updated == null)
+            {
+                throw new ArgumentNullException("updated is a required property for Timestamps and cannot be null");
+            }
             this.Updated = updated;
             // to ensure "started" is required (not null)
             if (started == null)
@@ -53,6 +63,11 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
                 throw new ArgumentNullException("started is a required property for Timestamps and cannot be null");
             }
             this.Started = started;
+            // to ensure "deleted" is required (not null)
+            if (deleted == null)
+            {
+                throw new ArgumentNullException("deleted is a required property for Timestamps and cannot be null");
+            }
             this.Deleted = deleted;
         }
 
@@ -61,28 +76,28 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Время создания кампании</value>
         [DataMember(Name = "created", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
 
         /// <summary>
         /// Время последнего изменения кампании
         /// </summary>
         /// <value>Время последнего изменения кампании</value>
         [DataMember(Name = "updated", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime Updated { get; set; }
+        public string Updated { get; set; }
 
         /// <summary>
         /// Время последнего запуска кампании
         /// </summary>
         /// <value>Время последнего запуска кампании</value>
         [DataMember(Name = "started", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime? Started { get; set; }
+        public string Started { get; set; }
 
         /// <summary>
         /// Время удаления кампании. Если кампания не удалена, время указывается в будущем
         /// </summary>
         /// <value>Время удаления кампании. Если кампания не удалена, время указывается в будущем</value>
         [DataMember(Name = "deleted", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime Deleted { get; set; }
+        public string Deleted { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

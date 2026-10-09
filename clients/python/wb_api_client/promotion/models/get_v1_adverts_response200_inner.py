@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
@@ -44,10 +43,10 @@ class GetV1AdvertsResponse200Inner(BaseModel):
         default=None,
         description="Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза ",
     )
-    create_time: Optional[datetime] = Field(
+    create_time: Optional[StrictStr] = Field(
         default=None, description="Время создания медиакампании", alias="createTime"
     )
-    end_time: Optional[datetime] = Field(
+    end_time: Optional[StrictStr] = Field(
         default=None, description="Время завершения медиакампании", alias="endTime"
     )
     __properties: ClassVar[List[str]] = [

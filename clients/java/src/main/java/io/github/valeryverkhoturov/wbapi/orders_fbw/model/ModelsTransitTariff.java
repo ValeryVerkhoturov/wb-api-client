@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.orders_fbw.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -54,7 +53,7 @@ public class ModelsTransitTariff {
 
   @SerializedName(SERIALIZED_NAME_ACTIVE_FROM)
   @jakarta.annotation.Nullable
-  private OffsetDateTime activeFrom;
+  private String activeFrom;
 
   public static final String SERIALIZED_NAME_BOX_TARIFF = "boxTariff";
 
@@ -111,7 +110,7 @@ public class ModelsTransitTariff {
     this.destinationWarehouseName = destinationWarehouseName;
   }
 
-  public ModelsTransitTariff activeFrom(@jakarta.annotation.Nullable OffsetDateTime activeFrom) {
+  public ModelsTransitTariff activeFrom(@jakarta.annotation.Nullable String activeFrom) {
     this.activeFrom = activeFrom;
     return this;
   }
@@ -122,11 +121,11 @@ public class ModelsTransitTariff {
    * @return activeFrom
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getActiveFrom() {
+  public String getActiveFrom() {
     return activeFrom;
   }
 
-  public void setActiveFrom(@jakarta.annotation.Nullable OffsetDateTime activeFrom) {
+  public void setActiveFrom(@jakarta.annotation.Nullable String activeFrom) {
     this.activeFrom = activeFrom;
   }
 
@@ -286,6 +285,13 @@ public class ModelsTransitTariff {
           String.format(
               "Expected the field `destinationWarehouseName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("destinationWarehouseName").toString()));
+    }
+    if ((jsonObj.get("activeFrom") != null && !jsonObj.get("activeFrom").isJsonNull())
+        && !jsonObj.get("activeFrom").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `activeFrom` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("activeFrom").toString()));
     }
     if (jsonObj.get("boxTariff") != null && !jsonObj.get("boxTariff").isJsonNull()) {
       JsonArray jsonArrayboxTariff = jsonObj.getAsJsonArray("boxTariff");

@@ -41,6 +41,14 @@ Passes applied to every spec:
    Those don't resolve outside the portal, so we prefix them with
    `https://dev.wildberries.ru`. Runs after the HTML→Markdown pass so it
    sees the final link form.
+
+8. `drop_date_formats` — WB returns `""` for unset date fields (e.g.
+   `fixTariffDateFrom`, `utdUcdDate` in sales-report detail rows), which is
+   not a valid RFC3339 date. Strict date parsers in every generated
+   language then fail response deserialization (pydantic
+   `date_from_datetime_parsing`, Go `time.Time` unmarshal, Java
+   `LocalDate`). We strip `format: date` / `format: date-time` from string
+   schemas so clients type these as plain strings.
 """
 from __future__ import annotations
 
@@ -442,6 +450,29 @@ def sanitize_non_ascii_enums(node: Any) -> int:
     return fixed
 
 
+def drop_date_formats(node: Any) -> int:
+    """Remove `format: date` / `format: date-time` from string schemas.
+
+    WB returns "" for unset date fields (e.g. `fixTariffDateFrom`,
+    `utdUcdDate` in sales-report detail rows), which is not a valid RFC3339
+    date. Strict date parsers in every generated language then fail
+    response deserialization (pydantic `date_from_datetime_parsing`, Go
+    `time.Time` unmarshal, Java `LocalDate`). Typing these as plain strings
+    is the honest contract.
+    """
+    fixed = 0
+    if isinstance(node, dict):
+        if node.get("type") == "string" and node.get("format") in ("date", "date-time"):
+            del node["format"]
+            fixed += 1
+        for v in node.values():
+            fixed += drop_date_formats(v)
+    elif isinstance(node, list):
+        for v in node:
+            fixed += drop_date_formats(v)
+    return fixed
+
+
 def process_file(src: Path, dst: Path) -> dict:
     with src.open("r", encoding="utf-8") as f:
         spec = yaml.load(f)
@@ -455,6 +486,7 @@ def process_file(src: Path, dst: Path) -> dict:
         "renamed_schemas": rename_digit_prefixed_schemas(spec),
         "hoisted_responses": name_inline_response_schemas(spec),
         "enums": sanitize_non_ascii_enums(spec),
+        "date_formats_dropped": drop_date_formats(spec),
         "descriptions_md": htmlize_descriptions_to_markdown(spec),
         "links_absolutized": absolutize_description_links(spec),
     }
@@ -476,8 +508,8 @@ def main() -> int:
         return 1
 
     totals = {"arrays": 0, "inlined_arrays": 0, "renamed_schemas": 0,
-              "hoisted_responses": 0, "enums": 0, "descriptions_md": 0,
-              "links_absolutized": 0}
+              "hoisted_responses": 0, "enums": 0, "date_formats_dropped": 0,
+              "descriptions_md": 0, "links_absolutized": 0}
     for spec_path in specs:
         target = dst_dir / spec_path.name
         stats = process_file(spec_path, target)
@@ -490,6 +522,7 @@ def main() -> int:
             f"renamed={stats['renamed_schemas']:>2} "
             f"hoisted-responses={stats['hoisted_responses']:>3} "
             f"enums={stats['enums']:>2} "
+            f"date-formats={stats['date_formats_dropped']:>2} "
             f"desc-md={stats['descriptions_md']:>4} "
             f"abs-links={stats['links_absolutized']:>4}"
         )

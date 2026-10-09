@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.orders_fbw.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -53,7 +52,7 @@ public class ModelsItemDiscrepancyResponse {
 
   @SerializedName(SERIALIZED_NAME_VIDEO_STARTS_AT)
   @jakarta.annotation.Nonnull
-  private OffsetDateTime videoStartsAt;
+  private String videoStartsAt;
 
   public static final String SERIALIZED_NAME_VIDEO_UNAVAILABLE = "videoUnavailable";
 
@@ -108,7 +107,7 @@ public class ModelsItemDiscrepancyResponse {
   }
 
   public ModelsItemDiscrepancyResponse videoStartsAt(
-      @jakarta.annotation.Nonnull OffsetDateTime videoStartsAt) {
+      @jakarta.annotation.Nonnull String videoStartsAt) {
     this.videoStartsAt = videoStartsAt;
     return this;
   }
@@ -119,11 +118,11 @@ public class ModelsItemDiscrepancyResponse {
    * @return videoStartsAt
    */
   @jakarta.annotation.Nonnull
-  public OffsetDateTime getVideoStartsAt() {
+  public String getVideoStartsAt() {
     return videoStartsAt;
   }
 
-  public void setVideoStartsAt(@jakarta.annotation.Nonnull OffsetDateTime videoStartsAt) {
+  public void setVideoStartsAt(@jakarta.annotation.Nonnull String videoStartsAt) {
     this.videoStartsAt = videoStartsAt;
   }
 
@@ -290,6 +289,12 @@ public class ModelsItemDiscrepancyResponse {
           String.format(
               "Expected the field `videoUrl` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("videoUrl").toString()));
+    }
+    if (!jsonObj.get("videoStartsAt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `videoStartsAt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("videoStartsAt").toString()));
     }
     // ensure the json data is an array
     if (!jsonObj.get("items").isJsonArray()) {

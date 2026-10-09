@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.communications.models.event import Event
 from typing import Optional, Set
@@ -34,12 +33,12 @@ class EventsResult(BaseModel):
         default=None,
         description="Пагинатор. Значение поля необходимо указать в запросе для получения следующего пакета данных",
     )
-    newest_event_time: Optional[datetime] = Field(
+    newest_event_time: Optional[StrictStr] = Field(
         default=None,
         description="Время новейшего события в ответе",
         alias="newestEventTime",
     )
-    oldest_event_time: Optional[datetime] = Field(
+    oldest_event_time: Optional[StrictStr] = Field(
         default=None,
         description="Время старейшего события в ответе",
         alias="oldestEventTime",

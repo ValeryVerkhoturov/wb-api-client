@@ -39,8 +39,6 @@ import io.github.valeryverkhoturov.wbapi.reports.model.OrdersItem;
 import io.github.valeryverkhoturov.wbapi.reports.model.SalesItem;
 import io.github.valeryverkhoturov.wbapi.reports.model.WHM;
 import java.lang.reflect.Type;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -1811,7 +1809,7 @@ public class DefaultApi {
    * </table>
    */
   public okhttp3.Call getV1AnalyticsGoodsLabelingCall(
-      LocalDate dateFrom, LocalDate dateTo, final ApiCallback _callback) throws ApiException {
+      String dateFrom, String dateTo, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {"https://seller-analytics-api.wildberries.ru"};
@@ -1874,7 +1872,7 @@ public class DefaultApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1AnalyticsGoodsLabelingValidateBeforeCall(
-      LocalDate dateFrom, LocalDate dateTo, final ApiCallback _callback) throws ApiException {
+      String dateFrom, String dateTo, final ApiCallback _callback) throws ApiException {
     // verify the required parameter 'dateFrom' is set
     if (dateFrom == null) {
       throw new ApiException(
@@ -1918,7 +1916,7 @@ public class DefaultApi {
    * </table>
    */
   public GetV1AnalyticsGoodsLabeling200Response getV1AnalyticsGoodsLabeling(
-      LocalDate dateFrom, LocalDate dateTo) throws ApiException {
+      String dateFrom, String dateTo) throws ApiException {
     ApiResponse<GetV1AnalyticsGoodsLabeling200Response> localVarResp =
         getV1AnalyticsGoodsLabelingWithHttpInfo(dateFrom, dateTo);
     return localVarResp.getData();
@@ -1952,8 +1950,7 @@ public class DefaultApi {
    * </table>
    */
   public ApiResponse<GetV1AnalyticsGoodsLabeling200Response>
-      getV1AnalyticsGoodsLabelingWithHttpInfo(LocalDate dateFrom, LocalDate dateTo)
-          throws ApiException {
+      getV1AnalyticsGoodsLabelingWithHttpInfo(String dateFrom, String dateTo) throws ApiException {
     okhttp3.Call localVarCall =
         getV1AnalyticsGoodsLabelingValidateBeforeCall(dateFrom, dateTo, null);
     Type localVarReturnType = new TypeToken<GetV1AnalyticsGoodsLabeling200Response>() {}.getType();
@@ -1989,8 +1986,8 @@ public class DefaultApi {
    * </table>
    */
   public okhttp3.Call getV1AnalyticsGoodsLabelingAsync(
-      LocalDate dateFrom,
-      LocalDate dateTo,
+      String dateFrom,
+      String dateTo,
       final ApiCallback<GetV1AnalyticsGoodsLabeling200Response> _callback)
       throws ApiException {
 
@@ -2025,7 +2022,7 @@ public class DefaultApi {
    */
   @Deprecated
   public okhttp3.Call getV1AnalyticsGoodsReturnCall(
-      LocalDate dateFrom, LocalDate dateTo, final ApiCallback _callback) throws ApiException {
+      String dateFrom, String dateTo, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {"https://seller-analytics-api.wildberries.ru"};
@@ -2089,7 +2086,7 @@ public class DefaultApi {
   @Deprecated
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1AnalyticsGoodsReturnValidateBeforeCall(
-      LocalDate dateFrom, LocalDate dateTo, final ApiCallback _callback) throws ApiException {
+      String dateFrom, String dateTo, final ApiCallback _callback) throws ApiException {
     // verify the required parameter 'dateFrom' is set
     if (dateFrom == null) {
       throw new ApiException(
@@ -2130,7 +2127,7 @@ public class DefaultApi {
    */
   @Deprecated
   public GetV1AnalyticsGoodsReturnResponse200 getV1AnalyticsGoodsReturn(
-      LocalDate dateFrom, LocalDate dateTo) throws ApiException {
+      String dateFrom, String dateTo) throws ApiException {
     ApiResponse<GetV1AnalyticsGoodsReturnResponse200> localVarResp =
         getV1AnalyticsGoodsReturnWithHttpInfo(dateFrom, dateTo);
     return localVarResp.getData();
@@ -2161,7 +2158,7 @@ public class DefaultApi {
    */
   @Deprecated
   public ApiResponse<GetV1AnalyticsGoodsReturnResponse200> getV1AnalyticsGoodsReturnWithHttpInfo(
-      LocalDate dateFrom, LocalDate dateTo) throws ApiException {
+      String dateFrom, String dateTo) throws ApiException {
     okhttp3.Call localVarCall = getV1AnalyticsGoodsReturnValidateBeforeCall(dateFrom, dateTo, null);
     Type localVarReturnType = new TypeToken<GetV1AnalyticsGoodsReturnResponse200>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2192,8 +2189,8 @@ public class DefaultApi {
    */
   @Deprecated
   public okhttp3.Call getV1AnalyticsGoodsReturnAsync(
-      LocalDate dateFrom,
-      LocalDate dateTo,
+      String dateFrom,
+      String dateTo,
       final ApiCallback<GetV1AnalyticsGoodsReturnResponse200> _callback)
       throws ApiException {
 
@@ -2452,9 +2449,9 @@ public class DefaultApi {
    * </table>
    */
   public okhttp3.Call getV1DeductionsCall(
-      OffsetDateTime dateTo,
+      String dateTo,
       Integer limit,
-      OffsetDateTime dateFrom,
+      String dateFrom,
       String sort,
       String order,
       Integer offset,
@@ -2538,9 +2535,9 @@ public class DefaultApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1DeductionsValidateBeforeCall(
-      OffsetDateTime dateTo,
+      String dateTo,
       Integer limit,
-      OffsetDateTime dateFrom,
+      String dateFrom,
       String sort,
       String order,
       Integer offset,
@@ -2598,12 +2595,7 @@ public class DefaultApi {
    * </table>
    */
   public GetV1Deductions200Response getV1Deductions(
-      OffsetDateTime dateTo,
-      Integer limit,
-      OffsetDateTime dateFrom,
-      String sort,
-      String order,
-      Integer offset)
+      String dateTo, Integer limit, String dateFrom, String sort, String order, Integer offset)
       throws ApiException {
     ApiResponse<GetV1Deductions200Response> localVarResp =
         getV1DeductionsWithHttpInfo(dateTo, limit, dateFrom, sort, order, offset);
@@ -2647,12 +2639,7 @@ public class DefaultApi {
    * </table>
    */
   public ApiResponse<GetV1Deductions200Response> getV1DeductionsWithHttpInfo(
-      OffsetDateTime dateTo,
-      Integer limit,
-      OffsetDateTime dateFrom,
-      String sort,
-      String order,
-      Integer offset)
+      String dateTo, Integer limit, String dateFrom, String sort, String order, Integer offset)
       throws ApiException {
     okhttp3.Call localVarCall =
         getV1DeductionsValidateBeforeCall(dateTo, limit, dateFrom, sort, order, offset, null);
@@ -2698,9 +2685,9 @@ public class DefaultApi {
    * </table>
    */
   public okhttp3.Call getV1DeductionsAsync(
-      OffsetDateTime dateTo,
+      String dateTo,
       Integer limit,
-      OffsetDateTime dateFrom,
+      String dateFrom,
       String sort,
       String order,
       Integer offset,
@@ -2739,8 +2726,8 @@ public class DefaultApi {
    * </table>
    */
   public okhttp3.Call getV1GoodsReturnCall(
-      LocalDate dateFrom,
-      LocalDate dateTo,
+      String dateFrom,
+      String dateTo,
       String status,
       Integer limit,
       Integer offset,
@@ -2820,8 +2807,8 @@ public class DefaultApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1GoodsReturnValidateBeforeCall(
-      LocalDate dateFrom,
-      LocalDate dateTo,
+      String dateFrom,
+      String dateTo,
       String status,
       Integer limit,
       Integer offset,
@@ -2868,7 +2855,7 @@ public class DefaultApi {
    * </table>
    */
   public GoodsReturn200Response getV1GoodsReturn(
-      LocalDate dateFrom, LocalDate dateTo, String status, Integer limit, Integer offset)
+      String dateFrom, String dateTo, String status, Integer limit, Integer offset)
       throws ApiException {
     ApiResponse<GoodsReturn200Response> localVarResp =
         getV1GoodsReturnWithHttpInfo(dateFrom, dateTo, status, limit, offset);
@@ -2901,7 +2888,7 @@ public class DefaultApi {
    * </table>
    */
   public ApiResponse<GoodsReturn200Response> getV1GoodsReturnWithHttpInfo(
-      LocalDate dateFrom, LocalDate dateTo, String status, Integer limit, Integer offset)
+      String dateFrom, String dateTo, String status, Integer limit, Integer offset)
       throws ApiException {
     okhttp3.Call localVarCall =
         getV1GoodsReturnValidateBeforeCall(dateFrom, dateTo, status, limit, offset, null);
@@ -2935,8 +2922,8 @@ public class DefaultApi {
    * </table>
    */
   public okhttp3.Call getV1GoodsReturnAsync(
-      LocalDate dateFrom,
-      LocalDate dateTo,
+      String dateFrom,
+      String dateTo,
       String status,
       Integer limit,
       Integer offset,
@@ -2975,11 +2962,7 @@ public class DefaultApi {
    * </table>
    */
   public okhttp3.Call getV1MeasurementPenaltiesCall(
-      OffsetDateTime dateTo,
-      Integer limit,
-      OffsetDateTime dateFrom,
-      Integer offset,
-      final ApiCallback _callback)
+      String dateTo, Integer limit, String dateFrom, Integer offset, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -3051,11 +3034,7 @@ public class DefaultApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1MeasurementPenaltiesValidateBeforeCall(
-      OffsetDateTime dateTo,
-      Integer limit,
-      OffsetDateTime dateFrom,
-      Integer offset,
-      final ApiCallback _callback)
+      String dateTo, Integer limit, String dateFrom, Integer offset, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'dateTo' is set
     if (dateTo == null) {
@@ -3104,8 +3083,7 @@ public class DefaultApi {
    * </table>
    */
   public MeasurementPenalties getV1MeasurementPenalties(
-      OffsetDateTime dateTo, Integer limit, OffsetDateTime dateFrom, Integer offset)
-      throws ApiException {
+      String dateTo, Integer limit, String dateFrom, Integer offset) throws ApiException {
     ApiResponse<MeasurementPenalties> localVarResp =
         getV1MeasurementPenaltiesWithHttpInfo(dateTo, limit, dateFrom, offset);
     return localVarResp.getData();
@@ -3143,8 +3121,7 @@ public class DefaultApi {
    * </table>
    */
   public ApiResponse<MeasurementPenalties> getV1MeasurementPenaltiesWithHttpInfo(
-      OffsetDateTime dateTo, Integer limit, OffsetDateTime dateFrom, Integer offset)
-      throws ApiException {
+      String dateTo, Integer limit, String dateFrom, Integer offset) throws ApiException {
     okhttp3.Call localVarCall =
         getV1MeasurementPenaltiesValidateBeforeCall(dateTo, limit, dateFrom, offset, null);
     Type localVarReturnType = new TypeToken<MeasurementPenalties>() {}.getType();
@@ -3183,9 +3160,9 @@ public class DefaultApi {
    * </table>
    */
   public okhttp3.Call getV1MeasurementPenaltiesAsync(
-      OffsetDateTime dateTo,
+      String dateTo,
       Integer limit,
-      OffsetDateTime dateFrom,
+      String dateFrom,
       Integer offset,
       final ApiCallback<MeasurementPenalties> _callback)
       throws ApiException {
@@ -4451,11 +4428,7 @@ public class DefaultApi {
    * </table>
    */
   public okhttp3.Call getV1WarehouseMeasurementsCall(
-      OffsetDateTime dateTo,
-      Integer limit,
-      OffsetDateTime dateFrom,
-      Integer offset,
-      final ApiCallback _callback)
+      String dateTo, Integer limit, String dateFrom, Integer offset, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -4527,11 +4500,7 @@ public class DefaultApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1WarehouseMeasurementsValidateBeforeCall(
-      OffsetDateTime dateTo,
-      Integer limit,
-      OffsetDateTime dateFrom,
-      Integer offset,
-      final ApiCallback _callback)
+      String dateTo, Integer limit, String dateFrom, Integer offset, final ApiCallback _callback)
       throws ApiException {
     // verify the required parameter 'dateTo' is set
     if (dateTo == null) {
@@ -4580,8 +4549,7 @@ public class DefaultApi {
    * </table>
    */
   public WHM getV1WarehouseMeasurements(
-      OffsetDateTime dateTo, Integer limit, OffsetDateTime dateFrom, Integer offset)
-      throws ApiException {
+      String dateTo, Integer limit, String dateFrom, Integer offset) throws ApiException {
     ApiResponse<WHM> localVarResp =
         getV1WarehouseMeasurementsWithHttpInfo(dateTo, limit, dateFrom, offset);
     return localVarResp.getData();
@@ -4619,8 +4587,7 @@ public class DefaultApi {
    * </table>
    */
   public ApiResponse<WHM> getV1WarehouseMeasurementsWithHttpInfo(
-      OffsetDateTime dateTo, Integer limit, OffsetDateTime dateFrom, Integer offset)
-      throws ApiException {
+      String dateTo, Integer limit, String dateFrom, Integer offset) throws ApiException {
     okhttp3.Call localVarCall =
         getV1WarehouseMeasurementsValidateBeforeCall(dateTo, limit, dateFrom, offset, null);
     Type localVarReturnType = new TypeToken<WHM>() {}.getType();
@@ -4659,9 +4626,9 @@ public class DefaultApi {
    * </table>
    */
   public okhttp3.Call getV1WarehouseMeasurementsAsync(
-      OffsetDateTime dateTo,
+      String dateTo,
       Integer limit,
-      OffsetDateTime dateFrom,
+      String dateFrom,
       Integer offset,
       final ApiCallback<WHM> _callback)
       throws ApiException {

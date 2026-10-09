@@ -1955,17 +1955,11 @@ export const DefaultApiAxiosParamCreator = function (
       }
 
       if (beginTime !== undefined) {
-        localVarQueryParameter["beginTime"] =
-          (beginTime as any) instanceof Date
-            ? (beginTime as any).toISOString().substring(0, 10)
-            : beginTime;
+        localVarQueryParameter["beginTime"] = beginTime;
       }
 
       if (endTime !== undefined) {
-        localVarQueryParameter["endTime"] =
-          (endTime as any) instanceof Date
-            ? (endTime as any).toISOString().substring(0, 10)
-            : endTime;
+        localVarQueryParameter["endTime"] = endTime;
       }
 
       if (sort !== undefined) {

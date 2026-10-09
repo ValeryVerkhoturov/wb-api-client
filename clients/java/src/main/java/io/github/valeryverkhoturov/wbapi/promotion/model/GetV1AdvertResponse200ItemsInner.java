@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.promotion.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -101,25 +100,25 @@ public class GetV1AdvertResponse200ItemsInner {
 
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   @jakarta.annotation.Nullable
-  private OffsetDateTime createdAt;
+  private String createdAt;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   @jakarta.annotation.Nullable
-  private OffsetDateTime updatedAt;
+  private String updatedAt;
 
   public static final String SERIALIZED_NAME_DATE_FROM = "date_from";
 
   @SerializedName(SERIALIZED_NAME_DATE_FROM)
   @jakarta.annotation.Nullable
-  private OffsetDateTime dateFrom;
+  private String dateFrom;
 
   public static final String SERIALIZED_NAME_DATE_TO = "date_to";
 
   @SerializedName(SERIALIZED_NAME_DATE_TO)
   @jakarta.annotation.Nullable
-  private OffsetDateTime dateTo;
+  private String dateTo;
 
   public static final String SERIALIZED_NAME_NMS = "nms";
 
@@ -384,8 +383,7 @@ public class GetV1AdvertResponse200ItemsInner {
     this.advertType = advertType;
   }
 
-  public GetV1AdvertResponse200ItemsInner createdAt(
-      @jakarta.annotation.Nullable OffsetDateTime createdAt) {
+  public GetV1AdvertResponse200ItemsInner createdAt(@jakarta.annotation.Nullable String createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -396,16 +394,15 @@ public class GetV1AdvertResponse200ItemsInner {
    * @return createdAt
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getCreatedAt() {
+  public String getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(@jakarta.annotation.Nullable OffsetDateTime createdAt) {
+  public void setCreatedAt(@jakarta.annotation.Nullable String createdAt) {
     this.createdAt = createdAt;
   }
 
-  public GetV1AdvertResponse200ItemsInner updatedAt(
-      @jakarta.annotation.Nullable OffsetDateTime updatedAt) {
+  public GetV1AdvertResponse200ItemsInner updatedAt(@jakarta.annotation.Nullable String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -416,16 +413,15 @@ public class GetV1AdvertResponse200ItemsInner {
    * @return updatedAt
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getUpdatedAt() {
+  public String getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(@jakarta.annotation.Nullable OffsetDateTime updatedAt) {
+  public void setUpdatedAt(@jakarta.annotation.Nullable String updatedAt) {
     this.updatedAt = updatedAt;
   }
 
-  public GetV1AdvertResponse200ItemsInner dateFrom(
-      @jakarta.annotation.Nullable OffsetDateTime dateFrom) {
+  public GetV1AdvertResponse200ItemsInner dateFrom(@jakarta.annotation.Nullable String dateFrom) {
     this.dateFrom = dateFrom;
     return this;
   }
@@ -436,16 +432,15 @@ public class GetV1AdvertResponse200ItemsInner {
    * @return dateFrom
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getDateFrom() {
+  public String getDateFrom() {
     return dateFrom;
   }
 
-  public void setDateFrom(@jakarta.annotation.Nullable OffsetDateTime dateFrom) {
+  public void setDateFrom(@jakarta.annotation.Nullable String dateFrom) {
     this.dateFrom = dateFrom;
   }
 
-  public GetV1AdvertResponse200ItemsInner dateTo(
-      @jakarta.annotation.Nullable OffsetDateTime dateTo) {
+  public GetV1AdvertResponse200ItemsInner dateTo(@jakarta.annotation.Nullable String dateTo) {
     this.dateTo = dateTo;
     return this;
   }
@@ -456,11 +451,11 @@ public class GetV1AdvertResponse200ItemsInner {
    * @return dateTo
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getDateTo() {
+  public String getDateTo() {
     return dateTo;
   }
 
-  public void setDateTo(@jakarta.annotation.Nullable OffsetDateTime dateTo) {
+  public void setDateTo(@jakarta.annotation.Nullable String dateTo) {
     this.dateTo = dateTo;
   }
 
@@ -897,6 +892,34 @@ public class GetV1AdvertResponse200ItemsInner {
           String.format(
               "Expected the field `url` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("url").toString()));
+    }
+    if ((jsonObj.get("created_at") != null && !jsonObj.get("created_at").isJsonNull())
+        && !jsonObj.get("created_at").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `created_at` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("created_at").toString()));
+    }
+    if ((jsonObj.get("updated_at") != null && !jsonObj.get("updated_at").isJsonNull())
+        && !jsonObj.get("updated_at").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("updated_at").toString()));
+    }
+    if ((jsonObj.get("date_from") != null && !jsonObj.get("date_from").isJsonNull())
+        && !jsonObj.get("date_from").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `date_from` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("date_from").toString()));
+    }
+    if ((jsonObj.get("date_to") != null && !jsonObj.get("date_to").isJsonNull())
+        && !jsonObj.get("date_to").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `date_to` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("date_to").toString()));
     }
     // ensure the optional json data is an array if present
     if (jsonObj.get("nms") != null

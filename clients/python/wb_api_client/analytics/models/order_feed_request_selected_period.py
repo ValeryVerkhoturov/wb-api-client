@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,10 +28,10 @@ class OrderFeedRequestSelectedPeriod(BaseModel):
     Запрашиваемый период. По дате текущего статуса заказа
     """  # noqa: E501
 
-    start: datetime = Field(
+    start: StrictStr = Field(
         description="Дата и время начала периода. Не ранее 31 суток от текущей даты и не позднее `end`"
     )
-    end: Optional[datetime] = Field(
+    end: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время конца периода. Не ранее 31 суток от текущей даты",
     )

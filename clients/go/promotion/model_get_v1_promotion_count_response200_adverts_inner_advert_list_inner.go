@@ -12,7 +12,6 @@ package promotion
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the GetV1PromotionCountResponse200AdvertsInnerAdvertListInner type satisfies the MappedNullable interface at compile time
@@ -23,7 +22,7 @@ type GetV1PromotionCountResponse200AdvertsInnerAdvertListInner struct {
 	// ID кампании
 	AdvertId *int32 `json:"advertId,omitempty"`
 	// Дата и время последнего изменения кампании
-	ChangeTime *time.Time `json:"changeTime,omitempty"`
+	ChangeTime *string `json:"changeTime,omitempty"`
 }
 
 // NewGetV1PromotionCountResponse200AdvertsInnerAdvertListInner instantiates a new GetV1PromotionCountResponse200AdvertsInnerAdvertListInner object
@@ -76,9 +75,9 @@ func (o *GetV1PromotionCountResponse200AdvertsInnerAdvertListInner) SetAdvertId(
 }
 
 // GetChangeTime returns the ChangeTime field value if set, zero value otherwise.
-func (o *GetV1PromotionCountResponse200AdvertsInnerAdvertListInner) GetChangeTime() time.Time {
+func (o *GetV1PromotionCountResponse200AdvertsInnerAdvertListInner) GetChangeTime() string {
 	if o == nil || IsNil(o.ChangeTime) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.ChangeTime
@@ -86,7 +85,7 @@ func (o *GetV1PromotionCountResponse200AdvertsInnerAdvertListInner) GetChangeTim
 
 // GetChangeTimeOk returns a tuple with the ChangeTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1PromotionCountResponse200AdvertsInnerAdvertListInner) GetChangeTimeOk() (*time.Time, bool) {
+func (o *GetV1PromotionCountResponse200AdvertsInnerAdvertListInner) GetChangeTimeOk() (*string, bool) {
 	if o == nil || IsNil(o.ChangeTime) {
 		return nil, false
 	}
@@ -102,8 +101,8 @@ func (o *GetV1PromotionCountResponse200AdvertsInnerAdvertListInner) HasChangeTim
 	return false
 }
 
-// SetChangeTime gets a reference to the given time.Time and assigns it to the ChangeTime field.
-func (o *GetV1PromotionCountResponse200AdvertsInnerAdvertListInner) SetChangeTime(v time.Time) {
+// SetChangeTime gets a reference to the given string and assigns it to the ChangeTime field.
+func (o *GetV1PromotionCountResponse200AdvertsInnerAdvertListInner) SetChangeTime(v string) {
 	o.ChangeTime = &v
 }
 

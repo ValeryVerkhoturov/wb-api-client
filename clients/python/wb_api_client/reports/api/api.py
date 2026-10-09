@@ -16,7 +16,6 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from datetime import date
 from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
@@ -45,8 +44,12 @@ class Api:
     @validate_call
     def get_v1_analytics_goods_return(
         self,
-        date_from: Annotated[date, Field(description="Дата начала отчётного периода")],
-        date_to: Annotated[date, Field(description="Дата окончания отчётного периода")],
+        date_from: Annotated[
+            StrictStr, Field(description="Дата начала отчётного периода")
+        ],
+        date_to: Annotated[
+            StrictStr, Field(description="Дата окончания отчётного периода")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -64,9 +67,9 @@ class Api:
         Метод будет отключен [26 октября](https://dev.wildberries.ru/release-notes?id=577).
 
         :param date_from: Дата начала отчётного периода (required)
-        :type date_from: date
+        :type date_from: str
         :param date_to: Дата окончания отчётного периода (required)
-        :type date_to: date
+        :type date_to: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -121,8 +124,12 @@ class Api:
     @validate_call
     def get_v1_analytics_goods_return_with_http_info(
         self,
-        date_from: Annotated[date, Field(description="Дата начала отчётного периода")],
-        date_to: Annotated[date, Field(description="Дата окончания отчётного периода")],
+        date_from: Annotated[
+            StrictStr, Field(description="Дата начала отчётного периода")
+        ],
+        date_to: Annotated[
+            StrictStr, Field(description="Дата окончания отчётного периода")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -140,9 +147,9 @@ class Api:
         Метод будет отключен [26 октября](https://dev.wildberries.ru/release-notes?id=577).
 
         :param date_from: Дата начала отчётного периода (required)
-        :type date_from: date
+        :type date_from: str
         :param date_to: Дата окончания отчётного периода (required)
-        :type date_to: date
+        :type date_to: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -197,8 +204,12 @@ class Api:
     @validate_call
     def get_v1_analytics_goods_return_without_preload_content(
         self,
-        date_from: Annotated[date, Field(description="Дата начала отчётного периода")],
-        date_to: Annotated[date, Field(description="Дата окончания отчётного периода")],
+        date_from: Annotated[
+            StrictStr, Field(description="Дата начала отчётного периода")
+        ],
+        date_to: Annotated[
+            StrictStr, Field(description="Дата окончания отчётного периода")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -216,9 +227,9 @@ class Api:
         Метод будет отключен [26 октября](https://dev.wildberries.ru/release-notes?id=577).
 
         :param date_from: Дата начала отчётного периода (required)
-        :type date_from: date
+        :type date_from: str
         :param date_to: Дата окончания отчётного периода (required)
-        :type date_to: date
+        :type date_to: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -293,26 +304,12 @@ class Api:
         # process the path parameters
         # process the query parameters
         if date_from is not None:
-            if isinstance(date_from, date):
-                _query_params.append(
-                    (
-                        "dateFrom",
-                        date_from.strftime(self.api_client.configuration.date_format),
-                    )
-                )
-            else:
-                _query_params.append(("dateFrom", date_from))
+
+            _query_params.append(("dateFrom", date_from))
 
         if date_to is not None:
-            if isinstance(date_to, date):
-                _query_params.append(
-                    (
-                        "dateTo",
-                        date_to.strftime(self.api_client.configuration.date_format),
-                    )
-                )
-            else:
-                _query_params.append(("dateTo", date_to))
+
+            _query_params.append(("dateTo", date_to))
 
         # process the header parameters
         # process the form parameters
@@ -345,8 +342,12 @@ class Api:
     @validate_call
     def get_v1_goods_return(
         self,
-        date_from: Annotated[date, Field(description="Дата начала отчётного периода")],
-        date_to: Annotated[date, Field(description="Дата окончания отчётного периода")],
+        date_from: Annotated[
+            StrictStr, Field(description="Дата начала отчётного периода")
+        ],
+        date_to: Annotated[
+            StrictStr, Field(description="Дата окончания отчётного периода")
+        ],
         status: Annotated[
             Optional[StrictStr],
             Field(
@@ -380,9 +381,9 @@ class Api:
         Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
 
         :param date_from: Дата начала отчётного периода (required)
-        :type date_from: date
+        :type date_from: str
         :param date_to: Дата окончания отчётного периода (required)
-        :type date_to: date
+        :type date_to: str
         :param status: Статус возврата:   - `archive` — архивный   - `active` — активный
         :type status: str
         :param limit: Количество возвратов в ответе
@@ -442,8 +443,12 @@ class Api:
     @validate_call
     def get_v1_goods_return_with_http_info(
         self,
-        date_from: Annotated[date, Field(description="Дата начала отчётного периода")],
-        date_to: Annotated[date, Field(description="Дата окончания отчётного периода")],
+        date_from: Annotated[
+            StrictStr, Field(description="Дата начала отчётного периода")
+        ],
+        date_to: Annotated[
+            StrictStr, Field(description="Дата окончания отчётного периода")
+        ],
         status: Annotated[
             Optional[StrictStr],
             Field(
@@ -477,9 +482,9 @@ class Api:
         Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
 
         :param date_from: Дата начала отчётного периода (required)
-        :type date_from: date
+        :type date_from: str
         :param date_to: Дата окончания отчётного периода (required)
-        :type date_to: date
+        :type date_to: str
         :param status: Статус возврата:   - `archive` — архивный   - `active` — активный
         :type status: str
         :param limit: Количество возвратов в ответе
@@ -539,8 +544,12 @@ class Api:
     @validate_call
     def get_v1_goods_return_without_preload_content(
         self,
-        date_from: Annotated[date, Field(description="Дата начала отчётного периода")],
-        date_to: Annotated[date, Field(description="Дата окончания отчётного периода")],
+        date_from: Annotated[
+            StrictStr, Field(description="Дата начала отчётного периода")
+        ],
+        date_to: Annotated[
+            StrictStr, Field(description="Дата окончания отчётного периода")
+        ],
         status: Annotated[
             Optional[StrictStr],
             Field(
@@ -574,9 +583,9 @@ class Api:
         Метод возвращает отчёт о [возвратах товаров продавцу](https://seller.wildberries.ru/return-transfer-reports).
 
         :param date_from: Дата начала отчётного периода (required)
-        :type date_from: date
+        :type date_from: str
         :param date_to: Дата окончания отчётного периода (required)
-        :type date_to: date
+        :type date_to: str
         :param status: Статус возврата:   - `archive` — архивный   - `active` — активный
         :type status: str
         :param limit: Количество возвратов в ответе
@@ -659,26 +668,12 @@ class Api:
         # process the path parameters
         # process the query parameters
         if date_from is not None:
-            if isinstance(date_from, date):
-                _query_params.append(
-                    (
-                        "dateFrom",
-                        date_from.strftime(self.api_client.configuration.date_format),
-                    )
-                )
-            else:
-                _query_params.append(("dateFrom", date_from))
+
+            _query_params.append(("dateFrom", date_from))
 
         if date_to is not None:
-            if isinstance(date_to, date):
-                _query_params.append(
-                    (
-                        "dateTo",
-                        date_to.strftime(self.api_client.configuration.date_format),
-                    )
-                )
-            else:
-                _query_params.append(("dateTo", date_to))
+
+            _query_params.append(("dateTo", date_to))
 
         if status is not None:
 

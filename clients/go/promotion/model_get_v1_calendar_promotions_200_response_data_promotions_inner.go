@@ -12,7 +12,6 @@ package promotion
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the GetV1CalendarPromotions200ResponseDataPromotionsInner type satisfies the MappedNullable interface at compile time
@@ -25,9 +24,9 @@ type GetV1CalendarPromotions200ResponseDataPromotionsInner struct {
 	// Название акции
 	Name *string `json:"name,omitempty"`
 	// Начало акции
-	StartDateTime *time.Time `json:"startDateTime,omitempty"`
+	StartDateTime *string `json:"startDateTime,omitempty"`
 	// Конец акции
-	EndDateTime *time.Time `json:"endDateTime,omitempty"`
+	EndDateTime *string `json:"endDateTime,omitempty"`
 	// Тип акции:   - `regular` — акция   - `auto` — автоакция
 	Type *string `json:"type,omitempty"`
 }
@@ -114,9 +113,9 @@ func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) SetName(v string
 }
 
 // GetStartDateTime returns the StartDateTime field value if set, zero value otherwise.
-func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) GetStartDateTime() time.Time {
+func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) GetStartDateTime() string {
 	if o == nil || IsNil(o.StartDateTime) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.StartDateTime
@@ -124,7 +123,7 @@ func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) GetStartDateTime
 
 // GetStartDateTimeOk returns a tuple with the StartDateTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) GetStartDateTimeOk() (*time.Time, bool) {
+func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) GetStartDateTimeOk() (*string, bool) {
 	if o == nil || IsNil(o.StartDateTime) {
 		return nil, false
 	}
@@ -140,15 +139,15 @@ func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) HasStartDateTime
 	return false
 }
 
-// SetStartDateTime gets a reference to the given time.Time and assigns it to the StartDateTime field.
-func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) SetStartDateTime(v time.Time) {
+// SetStartDateTime gets a reference to the given string and assigns it to the StartDateTime field.
+func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) SetStartDateTime(v string) {
 	o.StartDateTime = &v
 }
 
 // GetEndDateTime returns the EndDateTime field value if set, zero value otherwise.
-func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) GetEndDateTime() time.Time {
+func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) GetEndDateTime() string {
 	if o == nil || IsNil(o.EndDateTime) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.EndDateTime
@@ -156,7 +155,7 @@ func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) GetEndDateTime()
 
 // GetEndDateTimeOk returns a tuple with the EndDateTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) GetEndDateTimeOk() (*time.Time, bool) {
+func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) GetEndDateTimeOk() (*string, bool) {
 	if o == nil || IsNil(o.EndDateTime) {
 		return nil, false
 	}
@@ -172,8 +171,8 @@ func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) HasEndDateTime()
 	return false
 }
 
-// SetEndDateTime gets a reference to the given time.Time and assigns it to the EndDateTime field.
-func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) SetEndDateTime(v time.Time) {
+// SetEndDateTime gets a reference to the given string and assigns it to the EndDateTime field.
+func (o *GetV1CalendarPromotions200ResponseDataPromotionsInner) SetEndDateTime(v string) {
 	o.EndDateTime = &v
 }
 

@@ -12,7 +12,6 @@ package orders_fbw
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the ModelsTransitTariff type satisfies the MappedNullable interface at compile time
@@ -25,7 +24,7 @@ type ModelsTransitTariff struct {
 	// Склад назначения
 	DestinationWarehouseName *string `json:"destinationWarehouseName,omitempty"`
 	// С какого числа доступно транзитное направление
-	ActiveFrom *time.Time `json:"activeFrom,omitempty"`
+	ActiveFrom *string `json:"activeFrom,omitempty"`
 	// Тариф за транзит коробов. Если `null`, транзит для коробов недоступен
 	BoxTariff []ModelsVolumeTariff `json:"boxTariff,omitempty"`
 	// Тариф за паллету, ₽
@@ -114,9 +113,9 @@ func (o *ModelsTransitTariff) SetDestinationWarehouseName(v string) {
 }
 
 // GetActiveFrom returns the ActiveFrom field value if set, zero value otherwise.
-func (o *ModelsTransitTariff) GetActiveFrom() time.Time {
+func (o *ModelsTransitTariff) GetActiveFrom() string {
 	if o == nil || IsNil(o.ActiveFrom) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.ActiveFrom
@@ -124,7 +123,7 @@ func (o *ModelsTransitTariff) GetActiveFrom() time.Time {
 
 // GetActiveFromOk returns a tuple with the ActiveFrom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModelsTransitTariff) GetActiveFromOk() (*time.Time, bool) {
+func (o *ModelsTransitTariff) GetActiveFromOk() (*string, bool) {
 	if o == nil || IsNil(o.ActiveFrom) {
 		return nil, false
 	}
@@ -140,8 +139,8 @@ func (o *ModelsTransitTariff) HasActiveFrom() bool {
 	return false
 }
 
-// SetActiveFrom gets a reference to the given time.Time and assigns it to the ActiveFrom field.
-func (o *ModelsTransitTariff) SetActiveFrom(v time.Time) {
+// SetActiveFrom gets a reference to the given string and assigns it to the ActiveFrom field.
+func (o *ModelsTransitTariff) SetActiveFrom(v string) {
 	o.ActiveFrom = &v
 }
 

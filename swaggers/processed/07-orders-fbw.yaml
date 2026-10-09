@@ -1095,7 +1095,6 @@ components:
         videoStartsAt:
           description: Дата и время видеофиксации расхождений в процессе приемки
           type: string
-          format: date-time
         videoUnavailable:
           description: |
             Доступность видео:
@@ -1176,7 +1175,6 @@ components:
         scanTime:
           nullable: false
           description: Дата и время сканирования
-          format: date-time
           type: string
         discrepancyLabel:
           nullable: false
@@ -1427,7 +1425,6 @@ components:
         activeFrom:
           type: string
           description: С какого числа доступно транзитное направление
-          format: date-time
         boxTariff:
           nullable: true
           type: array
@@ -2003,7 +2000,6 @@ components:
           description: Расшифровка HTTP статус-кода
         timestamp:
           type: string
-          format: date-time
           description: Дата и время запроса
     GetV1WarehousesResponse200:
       type: array
@@ -2314,7 +2310,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: unauthorized
@@ -2371,7 +2366,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           examples:
             Response403TokenCategory:
@@ -2414,7 +2408,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: too many requests

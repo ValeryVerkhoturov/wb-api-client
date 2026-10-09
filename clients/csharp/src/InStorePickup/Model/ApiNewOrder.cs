@@ -87,7 +87,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// <param name="isZeroOrder">Признак заказа товара с нулевым остатком:   - &#x60;false&#x60; — заказ сделан на товар с ненулевым остатком   - &#x60;true&#x60; — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену .</param>
         /// <param name="tireService">Указал ли покупатель, что ему требуется услуга шиномонтажа:   - &#x60;false&#x60; — нет, услуга шиномонтажа не требуется   - &#x60;true&#x60; — да, услуга шиномонтажа требуется .</param>
         /// <param name="options">options.</param>
-        public ApiNewOrder(string ddate = default(string), int? salePrice = default(int?), List<string> requiredMeta = default(List<string>), string article = default(string), string rid = default(string), DateTime createdAt = default(DateTime), string warehouseAddress = default(string), string orderCode = default(string), string payMode = default(string), List<string> skus = default(List<string>), int id = default(int), int warehouseId = default(int), int nmId = default(int), int chrtId = default(int), int price = default(int), int finalPrice = default(int), int convertedPrice = default(int), int convertedFinalPrice = default(int), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), bool isZeroOrder = default(bool), bool tireService = default(bool), ApiNewOrderOptions options = default(ApiNewOrderOptions))
+        public ApiNewOrder(string ddate = default(string), int? salePrice = default(int?), List<string> requiredMeta = default(List<string>), string article = default(string), string rid = default(string), string createdAt = default(string), string warehouseAddress = default(string), string orderCode = default(string), string payMode = default(string), List<string> skus = default(List<string>), int id = default(int), int warehouseId = default(int), int nmId = default(int), int chrtId = default(int), int price = default(int), int finalPrice = default(int), int convertedPrice = default(int), int convertedFinalPrice = default(int), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), bool isZeroOrder = default(bool), bool tireService = default(bool), ApiNewOrderOptions options = default(ApiNewOrderOptions))
         {
             this.Ddate = ddate;
             this.SalePrice = salePrice;
@@ -158,7 +158,7 @@ namespace ValeryVerkhoturov.WbApiClient.InStorePickup.Model
         /// </summary>
         /// <value>Дата и время создания сборочного задания</value>
         [DataMember(Name = "createdAt", EmitDefaultValue = false)]
-        public DateTime CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
 
         /// <summary>
         /// Адрес магазина (склада продавца), на который поступило сборочное задание 

@@ -45,7 +45,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="isEndless">Бессрочный ли документ:   - &#x60;true&#x60; — да, документ бессрочный   - &#x60;false&#x60; — нет, у документа есть срок действия .</param>
         /// <param name="verdict">verdict.</param>
         /// <param name="createdAt">Дата добавления документа.</param>
-        public PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner(string id = default(string), int type = default(int), string number = default(string), string productNumber = default(string), string tradeName = default(string), string applicant = default(string), DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), bool isEndless = default(bool), PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict verdict = default(PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict), DateTime createdAt = default(DateTime))
+        public PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner(string id = default(string), int type = default(int), string number = default(string), string productNumber = default(string), string tradeName = default(string), string applicant = default(string), string startDate = default(string), string endDate = default(string), bool isEndless = default(bool), PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict verdict = default(PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict), string createdAt = default(string))
         {
             this.Id = id;
             this.Type = type;
@@ -107,14 +107,14 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Дата и время начала срока действия документа</value>
         [DataMember(Name = "startDate", EmitDefaultValue = false)]
-        public DateTime StartDate { get; set; }
+        public string StartDate { get; set; }
 
         /// <summary>
         /// Дата и время окончания срока действия документа
         /// </summary>
         /// <value>Дата и время окончания срока действия документа</value>
         [DataMember(Name = "endDate", EmitDefaultValue = false)]
-        public DateTime EndDate { get; set; }
+        public string EndDate { get; set; }
 
         /// <summary>
         /// Бессрочный ли документ:   - &#x60;true&#x60; — да, документ бессрочный   - &#x60;false&#x60; — нет, у документа есть срок действия 
@@ -134,7 +134,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Дата добавления документа</value>
         [DataMember(Name = "createdAt", EmitDefaultValue = false)]
-        public DateTime CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -51,7 +51,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="recomCount">Количество рекомендуемых товаров (required).</param>
         /// <param name="recomPics">Список URL основных изображений рекомендуемых товаров (required).</param>
         /// <param name="recomNms">Список &#x60;nmId&#x60; рекомендуемых товаров (required).</param>
-        public GetRecomResDataInner(int nmId = default(int), long imtId = default(long), string vendorCode = default(string), string brandName = default(string), DateTime? updatedAt = default(DateTime?), int picsCount = default(int), string title = default(string), string subjectName = default(string), string pic = default(string), int recomCount = default(int), List<string> recomPics = default(List<string>), List<int> recomNms = default(List<int>))
+        public GetRecomResDataInner(int nmId = default(int), long imtId = default(long), string vendorCode = default(string), string brandName = default(string), string updatedAt = default(string), int picsCount = default(int), string title = default(string), string subjectName = default(string), string pic = default(string), int recomCount = default(int), List<string> recomPics = default(List<string>), List<int> recomNms = default(List<int>))
         {
             this.NmId = nmId;
             this.ImtId = imtId;
@@ -150,7 +150,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         <example>2025-11-13T12:56:15.778591Z</example>
         */
         [DataMember(Name = "updatedAt", EmitDefaultValue = true)]
-        public DateTime? UpdatedAt { get; set; }
+        public string UpdatedAt { get; set; }
 
         /// <summary>
         /// Количество изображений в карточке товара

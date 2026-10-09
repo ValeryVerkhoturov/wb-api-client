@@ -12,7 +12,6 @@ package communications
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the GetV1QuestionsResponse200DataQuestionsInner type satisfies the MappedNullable interface at compile time
@@ -25,7 +24,7 @@ type GetV1QuestionsResponse200DataQuestionsInner struct {
 	// Текст вопроса
 	Text *string `json:"text,omitempty"`
 	// Дата и время создания вопроса
-	CreatedDate *time.Time `json:"createdDate,omitempty"`
+	CreatedDate *string `json:"createdDate,omitempty"`
 	// Статус вопроса:   - `none` — вопрос отклонён продавцом (такой вопрос не отображается на портале покупателей)   - `wbRu` — ответ предоставлен, вопрос отображается на сайте покупателей   - `suppliersPortalSynch` - новый вопрос
 	State          *string                                                    `json:"state,omitempty"`
 	Answer         NullableGetV1QuestionsResponse200DataQuestionsInnerAnswer  `json:"answer,omitempty"`
@@ -118,9 +117,9 @@ func (o *GetV1QuestionsResponse200DataQuestionsInner) SetText(v string) {
 }
 
 // GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
-func (o *GetV1QuestionsResponse200DataQuestionsInner) GetCreatedDate() time.Time {
+func (o *GetV1QuestionsResponse200DataQuestionsInner) GetCreatedDate() string {
 	if o == nil || IsNil(o.CreatedDate) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.CreatedDate
@@ -128,7 +127,7 @@ func (o *GetV1QuestionsResponse200DataQuestionsInner) GetCreatedDate() time.Time
 
 // GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1QuestionsResponse200DataQuestionsInner) GetCreatedDateOk() (*time.Time, bool) {
+func (o *GetV1QuestionsResponse200DataQuestionsInner) GetCreatedDateOk() (*string, bool) {
 	if o == nil || IsNil(o.CreatedDate) {
 		return nil, false
 	}
@@ -144,8 +143,8 @@ func (o *GetV1QuestionsResponse200DataQuestionsInner) HasCreatedDate() bool {
 	return false
 }
 
-// SetCreatedDate gets a reference to the given time.Time and assigns it to the CreatedDate field.
-func (o *GetV1QuestionsResponse200DataQuestionsInner) SetCreatedDate(v time.Time) {
+// SetCreatedDate gets a reference to the given string and assigns it to the CreatedDate field.
+func (o *GetV1QuestionsResponse200DataQuestionsInner) SetCreatedDate(v string) {
 	o.CreatedDate = &v
 }
 

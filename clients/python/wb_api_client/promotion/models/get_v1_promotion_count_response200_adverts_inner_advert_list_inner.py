@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,7 +31,7 @@ class GetV1PromotionCountResponse200AdvertsInnerAdvertListInner(BaseModel):
     advert_id: Optional[StrictInt] = Field(
         default=None, description="ID кампании", alias="advertId"
     )
-    change_time: Optional[datetime] = Field(
+    change_time: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время последнего изменения кампании",
         alias="changeTime",

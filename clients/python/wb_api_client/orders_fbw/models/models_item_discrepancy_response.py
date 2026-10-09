@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List
 from wb_api_client.orders_fbw.models.models_discrepancy_response_item import (
@@ -36,7 +35,7 @@ class ModelsItemDiscrepancyResponse(BaseModel):
     video_url: StrictStr = Field(
         description="Видео фиксации расхождений в процессе приёмки", alias="videoUrl"
     )
-    video_starts_at: datetime = Field(
+    video_starts_at: StrictStr = Field(
         description="Дата и время видеофиксации расхождений в процессе приемки",
         alias="videoStartsAt",
     )

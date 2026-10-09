@@ -14,7 +14,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"time"
 )
 
 // checks if the FullStatsItemDaysInner type satisfies the MappedNullable interface at compile time
@@ -29,7 +28,7 @@ type FullStatsItemDaysInner struct {
 	// Отмены, шт.
 	Canceled int32 `json:"canceled"`
 	// Дата, за которую представлены данные
-	Date time.Time `json:"date"`
+	Date string `json:"date"`
 	// Количество кликов
 	Clicks int32 `json:"clicks"`
 	// Средняя стоимость клика в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances)
@@ -56,7 +55,7 @@ type _FullStatsItemDaysInner FullStatsItemDaysInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFullStatsItemDaysInner(apps []FullStatsItemDaysInnerAppsInner, atbs int32, canceled int32, date time.Time, clicks int32, cpc float32, cr float32, ctr float32, orders int32, shks int32, sum float32, sumPrice float32, views int32) *FullStatsItemDaysInner {
+func NewFullStatsItemDaysInner(apps []FullStatsItemDaysInnerAppsInner, atbs int32, canceled int32, date string, clicks int32, cpc float32, cr float32, ctr float32, orders int32, shks int32, sum float32, sumPrice float32, views int32) *FullStatsItemDaysInner {
 	this := FullStatsItemDaysInner{}
 	this.Apps = apps
 	this.Atbs = atbs
@@ -155,9 +154,9 @@ func (o *FullStatsItemDaysInner) SetCanceled(v int32) {
 }
 
 // GetDate returns the Date field value
-func (o *FullStatsItemDaysInner) GetDate() time.Time {
+func (o *FullStatsItemDaysInner) GetDate() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -166,7 +165,7 @@ func (o *FullStatsItemDaysInner) GetDate() time.Time {
 
 // GetDateOk returns a tuple with the Date field value
 // and a boolean to check if the value has been set.
-func (o *FullStatsItemDaysInner) GetDateOk() (*time.Time, bool) {
+func (o *FullStatsItemDaysInner) GetDateOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -174,7 +173,7 @@ func (o *FullStatsItemDaysInner) GetDateOk() (*time.Time, bool) {
 }
 
 // SetDate sets field value
-func (o *FullStatsItemDaysInner) SetDate(v time.Time) {
+func (o *FullStatsItemDaysInner) SetDate(v string) {
 	o.Date = v
 }
 

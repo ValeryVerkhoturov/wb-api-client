@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.analytics.JSON;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -58,13 +57,13 @@ public class SalesFunnelGroupReqParams {
 
   @SerializedName(SERIALIZED_NAME_START_DATE)
   @jakarta.annotation.Nonnull
-  private LocalDate startDate;
+  private String startDate;
 
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
 
   @SerializedName(SERIALIZED_NAME_END_DATE)
   @jakarta.annotation.Nonnull
-  private LocalDate endDate;
+  private String endDate;
 
   public static final String SERIALIZED_NAME_TIMEZONE = "timezone";
 
@@ -169,7 +168,7 @@ public class SalesFunnelGroupReqParams {
     this.tagIds = tagIds;
   }
 
-  public SalesFunnelGroupReqParams startDate(@jakarta.annotation.Nonnull LocalDate startDate) {
+  public SalesFunnelGroupReqParams startDate(@jakarta.annotation.Nonnull String startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -180,15 +179,15 @@ public class SalesFunnelGroupReqParams {
    * @return startDate
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getStartDate() {
+  public String getStartDate() {
     return startDate;
   }
 
-  public void setStartDate(@jakarta.annotation.Nonnull LocalDate startDate) {
+  public void setStartDate(@jakarta.annotation.Nonnull String startDate) {
     this.startDate = startDate;
   }
 
-  public SalesFunnelGroupReqParams endDate(@jakarta.annotation.Nonnull LocalDate endDate) {
+  public SalesFunnelGroupReqParams endDate(@jakarta.annotation.Nonnull String endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -199,11 +198,11 @@ public class SalesFunnelGroupReqParams {
    * @return endDate
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getEndDate() {
+  public String getEndDate() {
     return endDate;
   }
 
-  public void setEndDate(@jakarta.annotation.Nonnull LocalDate endDate) {
+  public void setEndDate(@jakarta.annotation.Nonnull String endDate) {
     this.endDate = endDate;
   }
 
@@ -410,6 +409,18 @@ public class SalesFunnelGroupReqParams {
           String.format(
               "Expected the field `tagIds` to be an array in the JSON string but got `%s`",
               jsonObj.get("tagIds").toString()));
+    }
+    if (!jsonObj.get("startDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `startDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("startDate").toString()));
+    }
+    if (!jsonObj.get("endDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `endDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("endDate").toString()));
     }
     if ((jsonObj.get("timezone") != null && !jsonObj.get("timezone").isJsonNull())
         && !jsonObj.get("timezone").isJsonPrimitive()) {

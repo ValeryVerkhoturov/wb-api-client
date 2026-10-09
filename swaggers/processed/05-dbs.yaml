@@ -1827,7 +1827,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: unauthorized
@@ -1884,7 +1883,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: too many requests
@@ -2131,7 +2129,6 @@ components:
           example: f884001e44e511edb8780242ac120002
         createdAt:
           type: string
-          format: date-time
           nullable: false
           description: Дата создания сборочного задания
           example: '2022-05-04T07:56:29Z'
@@ -2319,7 +2316,6 @@ components:
           example: f884001e44e511edb8780242ac120002
         createdAt:
           type: string
-          format: date-time
           nullable: false
           description: Дата создания сборочного задания
           example: '2022-05-04T07:56:29Z'
@@ -3176,7 +3172,6 @@ components:
           description: Расшифровка HTTP статус-кода
         timestamp:
           type: string
-          format: date-time
           description: Дата и время запроса
     GetV3DbsOrdersNewResponse200:
       type: object

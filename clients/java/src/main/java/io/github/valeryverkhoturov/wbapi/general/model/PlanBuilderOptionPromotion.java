@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.general.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -44,7 +43,7 @@ public class PlanBuilderOptionPromotion {
 
   @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
   @jakarta.annotation.Nullable
-  private OffsetDateTime expiresAt;
+  private String expiresAt;
 
   public PlanBuilderOptionPromotion() {}
 
@@ -68,8 +67,7 @@ public class PlanBuilderOptionPromotion {
     this.commissionRate = commissionRate;
   }
 
-  public PlanBuilderOptionPromotion expiresAt(
-      @jakarta.annotation.Nullable OffsetDateTime expiresAt) {
+  public PlanBuilderOptionPromotion expiresAt(@jakarta.annotation.Nullable String expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
@@ -80,11 +78,11 @@ public class PlanBuilderOptionPromotion {
    * @return expiresAt
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getExpiresAt() {
+  public String getExpiresAt() {
     return expiresAt;
   }
 
-  public void setExpiresAt(@jakarta.annotation.Nullable OffsetDateTime expiresAt) {
+  public void setExpiresAt(@jakarta.annotation.Nullable String expiresAt) {
     this.expiresAt = expiresAt;
   }
 
@@ -167,6 +165,13 @@ public class PlanBuilderOptionPromotion {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if ((jsonObj.get("expiresAt") != null && !jsonObj.get("expiresAt").isJsonNull())
+        && !jsonObj.get("expiresAt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `expiresAt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("expiresAt").toString()));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -12,7 +12,6 @@ package communications
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the GetV1FeedbacksResponse200DataFeedbacksInner type satisfies the MappedNullable interface at compile time
@@ -31,7 +30,7 @@ type GetV1FeedbacksResponse200DataFeedbacksInner struct {
 	// Оценка товара
 	ProductValuation *int32 `json:"productValuation,omitempty"`
 	// Дата и время создания отзыва
-	CreatedDate *time.Time                                                `json:"createdDate,omitempty"`
+	CreatedDate *string                                                   `json:"createdDate,omitempty"`
 	Answer      NullableGetV1FeedbacksResponse200DataFeedbacksInnerAnswer `json:"answer,omitempty"`
 	// Статус отзыва:   - `none` - не обработан (новый)   - `wbRu` - обработан
 	State          *string                                                    `json:"state,omitempty"`
@@ -255,9 +254,9 @@ func (o *GetV1FeedbacksResponse200DataFeedbacksInner) SetProductValuation(v int3
 }
 
 // GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
-func (o *GetV1FeedbacksResponse200DataFeedbacksInner) GetCreatedDate() time.Time {
+func (o *GetV1FeedbacksResponse200DataFeedbacksInner) GetCreatedDate() string {
 	if o == nil || IsNil(o.CreatedDate) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.CreatedDate
@@ -265,7 +264,7 @@ func (o *GetV1FeedbacksResponse200DataFeedbacksInner) GetCreatedDate() time.Time
 
 // GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1FeedbacksResponse200DataFeedbacksInner) GetCreatedDateOk() (*time.Time, bool) {
+func (o *GetV1FeedbacksResponse200DataFeedbacksInner) GetCreatedDateOk() (*string, bool) {
 	if o == nil || IsNil(o.CreatedDate) {
 		return nil, false
 	}
@@ -281,8 +280,8 @@ func (o *GetV1FeedbacksResponse200DataFeedbacksInner) HasCreatedDate() bool {
 	return false
 }
 
-// SetCreatedDate gets a reference to the given time.Time and assigns it to the CreatedDate field.
-func (o *GetV1FeedbacksResponse200DataFeedbacksInner) SetCreatedDate(v time.Time) {
+// SetCreatedDate gets a reference to the given string and assigns it to the CreatedDate field.
+func (o *GetV1FeedbacksResponse200DataFeedbacksInner) SetCreatedDate(v string) {
 	o.CreatedDate = &v
 }
 

@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="text">Текст ответа.</param>
         /// <param name="editable">Можно ли отредактировать ответ (&#x60;false&#x60; - нельзя, &#x60;true&#x60; - можно).</param>
         /// <param name="createDate">Дата и время создания ответа.</param>
-        public GetV1QuestionsResponse200DataQuestionsInnerAnswer(string text = default(string), bool editable = default(bool), DateTime createDate = default(DateTime))
+        public GetV1QuestionsResponse200DataQuestionsInnerAnswer(string text = default(string), bool editable = default(bool), string createDate = default(string))
         {
             this.Text = text;
             this.Editable = editable;
@@ -63,7 +63,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Дата и время создания ответа</value>
         [DataMember(Name = "createDate", EmitDefaultValue = false)]
-        public DateTime CreateDate { get; set; }
+        public string CreateDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

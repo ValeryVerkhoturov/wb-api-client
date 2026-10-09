@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.orders_fbs.models.post_v3_orders_status_history_response200_orders_inner_statuses_inner import (
     PostV3OrdersStatusHistoryResponse200OrdersInnerStatusesInner,
@@ -32,7 +31,7 @@ class PostV3OrdersStatusHistoryResponse200OrdersInner(BaseModel):
     PostV3OrdersStatusHistoryResponse200OrdersInner
     """  # noqa: E501
 
-    delivery_date: Optional[datetime] = Field(
+    delivery_date: Optional[StrictStr] = Field(
         default=None,
         description="Планируемая дата доставки, [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)",
         alias="deliveryDate",

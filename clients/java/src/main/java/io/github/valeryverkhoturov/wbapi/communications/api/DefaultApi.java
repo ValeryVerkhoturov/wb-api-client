@@ -48,7 +48,6 @@ import io.github.valeryverkhoturov.wbapi.communications.model.PostV1FeedbacksOrd
 import io.github.valeryverkhoturov.wbapi.communications.model.PostV1PinsResponse200;
 import java.io.File;
 import java.lang.reflect.Type;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -1915,8 +1914,8 @@ public class DefaultApi {
       Integer imtId,
       Integer nmId,
       Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo,
+      String dateFrom,
+      String dateTo,
       Integer next,
       Integer limit,
       final ApiCallback _callback)
@@ -2016,8 +2015,8 @@ public class DefaultApi {
       Integer imtId,
       Integer nmId,
       Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo,
+      String dateFrom,
+      String dateTo,
       Integer next,
       Integer limit,
       final ApiCallback _callback)
@@ -2075,8 +2074,8 @@ public class DefaultApi {
       Integer imtId,
       Integer nmId,
       Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo,
+      String dateFrom,
+      String dateTo,
       Integer next,
       Integer limit)
       throws ApiException {
@@ -2134,8 +2133,8 @@ public class DefaultApi {
       Integer imtId,
       Integer nmId,
       Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo,
+      String dateFrom,
+      String dateTo,
       Integer next,
       Integer limit)
       throws ApiException {
@@ -2196,8 +2195,8 @@ public class DefaultApi {
       Integer imtId,
       Integer nmId,
       Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo,
+      String dateFrom,
+      String dateTo,
       Integer next,
       Integer limit,
       final ApiCallback<GetV1PinsResponse200> _callback)
@@ -2250,8 +2249,8 @@ public class DefaultApi {
       Integer imtId,
       Integer nmId,
       Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo,
+      String dateFrom,
+      String dateTo,
       final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
@@ -2341,8 +2340,8 @@ public class DefaultApi {
       Integer imtId,
       Integer nmId,
       Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo,
+      String dateFrom,
+      String dateTo,
       final ApiCallback _callback)
       throws ApiException {
     return getV1PinsCountCall(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo, _callback);
@@ -2394,8 +2393,8 @@ public class DefaultApi {
       Integer imtId,
       Integer nmId,
       Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo)
+      String dateFrom,
+      String dateTo)
       throws ApiException {
     ApiResponse<GetV1PinsCountResponse200> localVarResp =
         getV1PinsCountWithHttpInfo(state, pinOn, imtId, nmId, feedbackId, dateFrom, dateTo);
@@ -2448,8 +2447,8 @@ public class DefaultApi {
       Integer imtId,
       Integer nmId,
       Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo)
+      String dateFrom,
+      String dateTo)
       throws ApiException {
     okhttp3.Call localVarCall =
         getV1PinsCountValidateBeforeCall(
@@ -2504,8 +2503,8 @@ public class DefaultApi {
       Integer imtId,
       Integer nmId,
       Integer feedbackId,
-      OffsetDateTime dateFrom,
-      OffsetDateTime dateTo,
+      String dateFrom,
+      String dateTo,
       final ApiCallback<GetV1PinsCountResponse200> _callback)
       throws ApiException {
 

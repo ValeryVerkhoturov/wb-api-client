@@ -43,7 +43,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="height">Высота, см.</param>
         /// <param name="photoUrls">Фото замеров.</param>
         /// <param name="dt">Дата и время.</param>
-        public WHMDataReportsInner(int nmId = default(int), string subjectName = default(string), int dimId = default(int), decimal volume = default(decimal), int width = default(int), int length = default(int), int height = default(int), List<string> photoUrls = default(List<string>), DateTime dt = default(DateTime))
+        public WHMDataReportsInner(int nmId = default(int), string subjectName = default(string), int dimId = default(int), decimal volume = default(decimal), int width = default(int), int length = default(int), int height = default(int), List<string> photoUrls = default(List<string>), string dt = default(string))
         {
             this.NmId = nmId;
             this.SubjectName = subjectName;
@@ -135,10 +135,10 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>Дата и время</value>
         /*
-        <example>2025-04-01T00:06Z</example>
+        <example>2025-04-01T00:06:00Z</example>
         */
         [DataMember(Name = "dt", EmitDefaultValue = false)]
-        public DateTime Dt { get; set; }
+        public string Dt { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

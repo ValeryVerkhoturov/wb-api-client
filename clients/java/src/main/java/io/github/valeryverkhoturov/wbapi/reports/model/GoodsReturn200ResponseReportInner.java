@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.reports.JSON;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -86,7 +85,7 @@ public class GoodsReturn200ResponseReportInner {
 
   @SerializedName(SERIALIZED_NAME_ORDER_DT)
   @jakarta.annotation.Nonnull
-  private LocalDate orderDt;
+  private String orderDt;
 
   public static final String SERIALIZED_NAME_ORDER_ID = "orderId";
 
@@ -306,7 +305,7 @@ public class GoodsReturn200ResponseReportInner {
     this.nmId = nmId;
   }
 
-  public GoodsReturn200ResponseReportInner orderDt(@jakarta.annotation.Nonnull LocalDate orderDt) {
+  public GoodsReturn200ResponseReportInner orderDt(@jakarta.annotation.Nonnull String orderDt) {
     this.orderDt = orderDt;
     return this;
   }
@@ -317,11 +316,11 @@ public class GoodsReturn200ResponseReportInner {
    * @return orderDt
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getOrderDt() {
+  public String getOrderDt() {
     return orderDt;
   }
 
-  public void setOrderDt(@jakarta.annotation.Nonnull LocalDate orderDt) {
+  public void setOrderDt(@jakarta.annotation.Nonnull String orderDt) {
     this.orderDt = orderDt;
   }
 
@@ -738,6 +737,12 @@ public class GoodsReturn200ResponseReportInner {
           String.format(
               "Expected the field `expiredDt` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("expiredDt").toString()));
+    }
+    if (!jsonObj.get("orderDt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `orderDt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("orderDt").toString()));
     }
     if ((jsonObj.get("readyToReturnDt") != null && !jsonObj.get("readyToReturnDt").isJsonNull())
         && !jsonObj.get("readyToReturnDt").isJsonPrimitive()) {

@@ -16,7 +16,6 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from datetime import date
 from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
@@ -851,11 +850,11 @@ class DefaultApi:
             ),
         ] = None,
         begin_time: Annotated[
-            Optional[date],
+            Optional[StrictStr],
             Field(description="Начало периода. Только вместе с `endTime`"),
         ] = None,
         end_time: Annotated[
-            Optional[date],
+            Optional[StrictStr],
             Field(description="Конец периода. Только вместе с `beginTime`"),
         ] = None,
         sort: Annotated[
@@ -905,9 +904,9 @@ class DefaultApi:
         :param locale: Язык поля `category`:   - `ru` — русский   - `en` — английский   - `zh` — китайский
         :type locale: str
         :param begin_time: Начало периода. Только вместе с `endTime`
-        :type begin_time: date
+        :type begin_time: str
         :param end_time: Конец периода. Только вместе с `beginTime`
-        :type end_time: date
+        :type end_time: str
         :param sort: Сортировка:   - `date` — по дате создания документа   - `category` — по категории (только при `locale=ru`)  Только вместе с `order`
         :type sort: str
         :param order: Сортировка:   - `desc` — по убыванию   - `asc` — по возрастанию  Только вместе с `sort`
@@ -985,11 +984,11 @@ class DefaultApi:
             ),
         ] = None,
         begin_time: Annotated[
-            Optional[date],
+            Optional[StrictStr],
             Field(description="Начало периода. Только вместе с `endTime`"),
         ] = None,
         end_time: Annotated[
-            Optional[date],
+            Optional[StrictStr],
             Field(description="Конец периода. Только вместе с `beginTime`"),
         ] = None,
         sort: Annotated[
@@ -1039,9 +1038,9 @@ class DefaultApi:
         :param locale: Язык поля `category`:   - `ru` — русский   - `en` — английский   - `zh` — китайский
         :type locale: str
         :param begin_time: Начало периода. Только вместе с `endTime`
-        :type begin_time: date
+        :type begin_time: str
         :param end_time: Конец периода. Только вместе с `beginTime`
-        :type end_time: date
+        :type end_time: str
         :param sort: Сортировка:   - `date` — по дате создания документа   - `category` — по категории (только при `locale=ru`)  Только вместе с `order`
         :type sort: str
         :param order: Сортировка:   - `desc` — по убыванию   - `asc` — по возрастанию  Только вместе с `sort`
@@ -1119,11 +1118,11 @@ class DefaultApi:
             ),
         ] = None,
         begin_time: Annotated[
-            Optional[date],
+            Optional[StrictStr],
             Field(description="Начало периода. Только вместе с `endTime`"),
         ] = None,
         end_time: Annotated[
-            Optional[date],
+            Optional[StrictStr],
             Field(description="Конец периода. Только вместе с `beginTime`"),
         ] = None,
         sort: Annotated[
@@ -1173,9 +1172,9 @@ class DefaultApi:
         :param locale: Язык поля `category`:   - `ru` — русский   - `en` — английский   - `zh` — китайский
         :type locale: str
         :param begin_time: Начало периода. Только вместе с `endTime`
-        :type begin_time: date
+        :type begin_time: str
         :param end_time: Конец периода. Только вместе с `beginTime`
-        :type end_time: date
+        :type end_time: str
         :param sort: Сортировка:   - `date` — по дате создания документа   - `category` — по категории (только при `locale=ru`)  Только вместе с `order`
         :type sort: str
         :param order: Сортировка:   - `desc` — по убыванию   - `asc` — по возрастанию  Только вместе с `sort`
@@ -1277,26 +1276,12 @@ class DefaultApi:
             _query_params.append(("locale", locale))
 
         if begin_time is not None:
-            if isinstance(begin_time, date):
-                _query_params.append(
-                    (
-                        "beginTime",
-                        begin_time.strftime(self.api_client.configuration.date_format),
-                    )
-                )
-            else:
-                _query_params.append(("beginTime", begin_time))
+
+            _query_params.append(("beginTime", begin_time))
 
         if end_time is not None:
-            if isinstance(end_time, date):
-                _query_params.append(
-                    (
-                        "endTime",
-                        end_time.strftime(self.api_client.configuration.date_format),
-                    )
-                )
-            else:
-                _query_params.append(("endTime", end_time))
+
+            _query_params.append(("endTime", end_time))
 
         if sort is not None:
 
