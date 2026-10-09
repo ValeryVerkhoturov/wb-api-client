@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.items.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -68,13 +67,13 @@ public class PostV2CardsUpdateRequestInnerDocumentsItemsInner {
 
   @SerializedName(SERIALIZED_NAME_START_DATE)
   @jakarta.annotation.Nullable
-  private OffsetDateTime startDate;
+  private String startDate;
 
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
 
   @SerializedName(SERIALIZED_NAME_END_DATE)
   @jakarta.annotation.Nullable
-  private OffsetDateTime endDate;
+  private String endDate;
 
   public static final String SERIALIZED_NAME_IS_ENDLESS = "isEndless";
 
@@ -205,7 +204,7 @@ public class PostV2CardsUpdateRequestInnerDocumentsItemsInner {
   }
 
   public PostV2CardsUpdateRequestInnerDocumentsItemsInner startDate(
-      @jakarta.annotation.Nullable OffsetDateTime startDate) {
+      @jakarta.annotation.Nullable String startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -216,16 +215,16 @@ public class PostV2CardsUpdateRequestInnerDocumentsItemsInner {
    * @return startDate
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getStartDate() {
+  public String getStartDate() {
     return startDate;
   }
 
-  public void setStartDate(@jakarta.annotation.Nullable OffsetDateTime startDate) {
+  public void setStartDate(@jakarta.annotation.Nullable String startDate) {
     this.startDate = startDate;
   }
 
   public PostV2CardsUpdateRequestInnerDocumentsItemsInner endDate(
-      @jakarta.annotation.Nullable OffsetDateTime endDate) {
+      @jakarta.annotation.Nullable String endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -236,11 +235,11 @@ public class PostV2CardsUpdateRequestInnerDocumentsItemsInner {
    * @return endDate
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getEndDate() {
+  public String getEndDate() {
     return endDate;
   }
 
-  public void setEndDate(@jakarta.annotation.Nullable OffsetDateTime endDate) {
+  public void setEndDate(@jakarta.annotation.Nullable String endDate) {
     this.endDate = endDate;
   }
 
@@ -425,6 +424,20 @@ public class PostV2CardsUpdateRequestInnerDocumentsItemsInner {
           String.format(
               "Expected the field `applicant` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("applicant").toString()));
+    }
+    if ((jsonObj.get("startDate") != null && !jsonObj.get("startDate").isJsonNull())
+        && !jsonObj.get("startDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `startDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("startDate").toString()));
+    }
+    if ((jsonObj.get("endDate") != null && !jsonObj.get("endDate").isJsonNull())
+        && !jsonObj.get("endDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `endDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("endDate").toString()));
     }
     if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull())
         && !jsonObj.get("id").isJsonPrimitive()) {

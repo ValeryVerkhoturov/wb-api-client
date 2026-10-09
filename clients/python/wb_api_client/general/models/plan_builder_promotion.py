@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
@@ -34,7 +33,7 @@ class PlanBuilderPromotion(BaseModel):
         description="Стоимость подключения опции по акции, % от оборота",
         alias="commissionRate",
     )
-    expires_at: Optional[datetime] = Field(
+    expires_at: Optional[StrictStr] = Field(
         default=None,
         description="Дата окончания действия цены по акции",
         alias="expiresAt",

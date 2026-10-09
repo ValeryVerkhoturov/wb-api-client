@@ -46,7 +46,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="size">Размер отчёта, Б (required).</param>
         /// <param name="startDate">Начало периода (required).</param>
         /// <param name="endDate">Конец периода (required).</param>
-        public NmReportGetReportsResponseDataInner(Guid id = default(Guid), string createdAt = default(string), string status = default(string), string name = default(string), int size = default(int), DateOnly startDate = default(DateOnly), DateOnly endDate = default(DateOnly))
+        public NmReportGetReportsResponseDataInner(Guid id = default(Guid), string createdAt = default(string), string status = default(string), string name = default(string), int size = default(int), string startDate = default(string), string endDate = default(string))
         {
             this.Id = id;
             // to ensure "createdAt" is required (not null)
@@ -68,7 +68,17 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
             }
             this.Name = name;
             this.Size = size;
+            // to ensure "startDate" is required (not null)
+            if (startDate == null)
+            {
+                throw new ArgumentNullException("startDate is a required property for NmReportGetReportsResponseDataInner and cannot be null");
+            }
             this.StartDate = startDate;
+            // to ensure "endDate" is required (not null)
+            if (endDate == null)
+            {
+                throw new ArgumentNullException("endDate is a required property for NmReportGetReportsResponseDataInner and cannot be null");
+            }
             this.EndDate = endDate;
         }
 
@@ -127,20 +137,20 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <value>Начало периода</value>
         /*
-        <example>Fri Jun 21 00:00:00 UTC 2024</example>
+        <example>2024-06-21</example>
         */
         [DataMember(Name = "startDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly StartDate { get; set; }
+        public string StartDate { get; set; }
 
         /// <summary>
         /// Конец периода
         /// </summary>
         /// <value>Конец периода</value>
         /*
-        <example>Sun Jun 23 00:00:00 UTC 2024</example>
+        <example>2024-06-23</example>
         */
         [DataMember(Name = "endDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly EndDate { get; set; }
+        public string EndDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

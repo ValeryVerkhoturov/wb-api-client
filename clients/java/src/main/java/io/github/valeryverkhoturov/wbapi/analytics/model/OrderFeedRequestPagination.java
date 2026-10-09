@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.analytics.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -38,7 +37,7 @@ public class OrderFeedRequestPagination {
 
   @SerializedName(SERIALIZED_NAME_SNAPSHOT_TIME)
   @jakarta.annotation.Nullable
-  private OffsetDateTime snapshotTime;
+  private String snapshotTime;
 
   public static final String SERIALIZED_NAME_OFFSET = "offset";
 
@@ -54,8 +53,7 @@ public class OrderFeedRequestPagination {
 
   public OrderFeedRequestPagination() {}
 
-  public OrderFeedRequestPagination snapshotTime(
-      @jakarta.annotation.Nullable OffsetDateTime snapshotTime) {
+  public OrderFeedRequestPagination snapshotTime(@jakarta.annotation.Nullable String snapshotTime) {
     this.snapshotTime = snapshotTime;
     return this;
   }
@@ -72,11 +70,11 @@ public class OrderFeedRequestPagination {
    * @return snapshotTime
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getSnapshotTime() {
+  public String getSnapshotTime() {
     return snapshotTime;
   }
 
-  public void setSnapshotTime(@jakarta.annotation.Nullable OffsetDateTime snapshotTime) {
+  public void setSnapshotTime(@jakarta.annotation.Nullable String snapshotTime) {
     this.snapshotTime = snapshotTime;
   }
 
@@ -201,6 +199,13 @@ public class OrderFeedRequestPagination {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if ((jsonObj.get("snapshotTime") != null && !jsonObj.get("snapshotTime").isJsonNull())
+        && !jsonObj.get("snapshotTime").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `snapshotTime` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("snapshotTime").toString()));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

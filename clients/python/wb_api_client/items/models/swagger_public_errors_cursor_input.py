@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
@@ -36,7 +35,7 @@ class SwaggerPublicErrorsCursorInput(BaseModel):
             Annotated[int, Field(le=100, strict=True)],
         ]
     ] = Field(default=100, description="Количество пакетов в ответе")
-    updated_at: Optional[datetime] = Field(
+    updated_at: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время формирования последнего пакета в ответе на предыдущий запрос",
         alias="updatedAt",

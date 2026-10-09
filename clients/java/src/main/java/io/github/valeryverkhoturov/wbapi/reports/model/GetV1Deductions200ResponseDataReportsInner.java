@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.reports.JSON;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -41,7 +40,7 @@ public class GetV1Deductions200ResponseDataReportsInner {
 
   @SerializedName(SERIALIZED_NAME_DT_BONUS)
   @jakarta.annotation.Nullable
-  private OffsetDateTime dtBonus;
+  private String dtBonus;
 
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
@@ -130,7 +129,7 @@ public class GetV1Deductions200ResponseDataReportsInner {
   public GetV1Deductions200ResponseDataReportsInner() {}
 
   public GetV1Deductions200ResponseDataReportsInner dtBonus(
-      @jakarta.annotation.Nullable OffsetDateTime dtBonus) {
+      @jakarta.annotation.Nullable String dtBonus) {
     this.dtBonus = dtBonus;
     return this;
   }
@@ -141,11 +140,11 @@ public class GetV1Deductions200ResponseDataReportsInner {
    * @return dtBonus
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getDtBonus() {
+  public String getDtBonus() {
     return dtBonus;
   }
 
-  public void setDtBonus(@jakarta.annotation.Nullable OffsetDateTime dtBonus) {
+  public void setDtBonus(@jakarta.annotation.Nullable String dtBonus) {
     this.dtBonus = dtBonus;
   }
 
@@ -574,6 +573,13 @@ public class GetV1Deductions200ResponseDataReportsInner {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if ((jsonObj.get("dtBonus") != null && !jsonObj.get("dtBonus").isJsonNull())
+        && !jsonObj.get("dtBonus").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `dtBonus` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("dtBonus").toString()));
+    }
     if ((jsonObj.get("oldColor") != null && !jsonObj.get("oldColor").isJsonNull())
         && !jsonObj.get("oldColor").isJsonPrimitive()) {
       throw new IllegalArgumentException(

@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
@@ -44,7 +43,7 @@ class GetV3PassesOffices401Response(BaseModel):
     status_text: Optional[StrictStr] = Field(
         default=None, description="Расшифровка HTTP статус-кода", alias="statusText"
     )
-    timestamp: Optional[datetime] = Field(
+    timestamp: Optional[StrictStr] = Field(
         default=None, description="Дата и время запроса"
     )
     __properties: ClassVar[List[str]] = [

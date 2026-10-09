@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.analytics.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -41,7 +40,7 @@ public class OrderFeedResponse {
 
   @SerializedName(SERIALIZED_NAME_SNAPSHOT_TIME)
   @jakarta.annotation.Nonnull
-  private OffsetDateTime snapshotTime;
+  private String snapshotTime;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
@@ -57,7 +56,7 @@ public class OrderFeedResponse {
 
   public OrderFeedResponse() {}
 
-  public OrderFeedResponse snapshotTime(@jakarta.annotation.Nonnull OffsetDateTime snapshotTime) {
+  public OrderFeedResponse snapshotTime(@jakarta.annotation.Nonnull String snapshotTime) {
     this.snapshotTime = snapshotTime;
     return this;
   }
@@ -68,11 +67,11 @@ public class OrderFeedResponse {
    * @return snapshotTime
    */
   @jakarta.annotation.Nonnull
-  public OffsetDateTime getSnapshotTime() {
+  public String getSnapshotTime() {
     return snapshotTime;
   }
 
-  public void setSnapshotTime(@jakarta.annotation.Nonnull OffsetDateTime snapshotTime) {
+  public void setSnapshotTime(@jakarta.annotation.Nonnull String snapshotTime) {
     this.snapshotTime = snapshotTime;
   }
 
@@ -217,6 +216,12 @@ public class OrderFeedResponse {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (!jsonObj.get("snapshotTime").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `snapshotTime` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("snapshotTime").toString()));
+    }
     if (!jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(

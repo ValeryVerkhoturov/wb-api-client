@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.orders_dbw.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -56,13 +55,13 @@ public class CourierContactsResponse {
 
   @SerializedName(SERIALIZED_NAME_P_TIME_FROM)
   @jakarta.annotation.Nullable
-  private OffsetDateTime pTimeFrom;
+  private String pTimeFrom;
 
   public static final String SERIALIZED_NAME_P_TIME_TO = "pTimeTo";
 
   @SerializedName(SERIALIZED_NAME_P_TIME_TO)
   @jakarta.annotation.Nullable
-  private OffsetDateTime pTimeTo;
+  private String pTimeTo;
 
   public CourierContactsResponse() {}
 
@@ -123,7 +122,7 @@ public class CourierContactsResponse {
     this.phone = phone;
   }
 
-  public CourierContactsResponse pTimeFrom(@jakarta.annotation.Nullable OffsetDateTime pTimeFrom) {
+  public CourierContactsResponse pTimeFrom(@jakarta.annotation.Nullable String pTimeFrom) {
     this.pTimeFrom = pTimeFrom;
     return this;
   }
@@ -134,15 +133,15 @@ public class CourierContactsResponse {
    * @return pTimeFrom
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getpTimeFrom() {
+  public String getpTimeFrom() {
     return pTimeFrom;
   }
 
-  public void setpTimeFrom(@jakarta.annotation.Nullable OffsetDateTime pTimeFrom) {
+  public void setpTimeFrom(@jakarta.annotation.Nullable String pTimeFrom) {
     this.pTimeFrom = pTimeFrom;
   }
 
-  public CourierContactsResponse pTimeTo(@jakarta.annotation.Nullable OffsetDateTime pTimeTo) {
+  public CourierContactsResponse pTimeTo(@jakarta.annotation.Nullable String pTimeTo) {
     this.pTimeTo = pTimeTo;
     return this;
   }
@@ -153,11 +152,11 @@ public class CourierContactsResponse {
    * @return pTimeTo
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getpTimeTo() {
+  public String getpTimeTo() {
     return pTimeTo;
   }
 
-  public void setpTimeTo(@jakarta.annotation.Nullable OffsetDateTime pTimeTo) {
+  public void setpTimeTo(@jakarta.annotation.Nullable String pTimeTo) {
     this.pTimeTo = pTimeTo;
   }
 
@@ -269,6 +268,20 @@ public class CourierContactsResponse {
           String.format(
               "Expected the field `phone` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("phone").toString()));
+    }
+    if ((jsonObj.get("pTimeFrom") != null && !jsonObj.get("pTimeFrom").isJsonNull())
+        && !jsonObj.get("pTimeFrom").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `pTimeFrom` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("pTimeFrom").toString()));
+    }
+    if ((jsonObj.get("pTimeTo") != null && !jsonObj.get("pTimeTo").isJsonNull())
+        && !jsonObj.get("pTimeTo").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `pTimeTo` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("pTimeTo").toString()));
     }
   }
 

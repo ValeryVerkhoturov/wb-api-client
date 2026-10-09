@@ -5247,17 +5247,11 @@ export const DefaultApiAxiosParamCreator = function (
       await setBearerAuthToObject(localVarHeaderParameter, configuration);
 
       if (startDateTime !== undefined) {
-        localVarQueryParameter["startDateTime"] =
-          (startDateTime as any) instanceof Date
-            ? (startDateTime as any).toISOString()
-            : startDateTime;
+        localVarQueryParameter["startDateTime"] = startDateTime;
       }
 
       if (endDateTime !== undefined) {
-        localVarQueryParameter["endDateTime"] =
-          (endDateTime as any) instanceof Date
-            ? (endDateTime as any).toISOString()
-            : endDateTime;
+        localVarQueryParameter["endDateTime"] = endDateTime;
       }
 
       if (allPromo !== undefined) {
@@ -5540,17 +5534,11 @@ export const DefaultApiAxiosParamCreator = function (
       await setBearerAuthToObject(localVarHeaderParameter, configuration);
 
       if (from !== undefined) {
-        localVarQueryParameter["from"] =
-          (from as any) instanceof Date
-            ? (from as any).toISOString().substring(0, 10)
-            : from;
+        localVarQueryParameter["from"] = from;
       }
 
       if (to !== undefined) {
-        localVarQueryParameter["to"] =
-          (to as any) instanceof Date
-            ? (to as any).toISOString().substring(0, 10)
-            : to;
+        localVarQueryParameter["to"] = to;
       }
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -5697,17 +5685,11 @@ export const DefaultApiAxiosParamCreator = function (
       await setBearerAuthToObject(localVarHeaderParameter, configuration);
 
       if (from !== undefined) {
-        localVarQueryParameter["from"] =
-          (from as any) instanceof Date
-            ? (from as any).toISOString().substring(0, 10)
-            : from;
+        localVarQueryParameter["from"] = from;
       }
 
       if (to !== undefined) {
-        localVarQueryParameter["to"] =
-          (to as any) instanceof Date
-            ? (to as any).toISOString().substring(0, 10)
-            : to;
+        localVarQueryParameter["to"] = to;
       }
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -5831,17 +5813,11 @@ export const DefaultApiAxiosParamCreator = function (
       }
 
       if (beginDate !== undefined) {
-        localVarQueryParameter["beginDate"] =
-          (beginDate as any) instanceof Date
-            ? (beginDate as any).toISOString().substring(0, 10)
-            : beginDate;
+        localVarQueryParameter["beginDate"] = beginDate;
       }
 
       if (endDate !== undefined) {
-        localVarQueryParameter["endDate"] =
-          (endDate as any) instanceof Date
-            ? (endDate as any).toISOString().substring(0, 10)
-            : endDate;
+        localVarQueryParameter["endDate"] = endDate;
       }
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);

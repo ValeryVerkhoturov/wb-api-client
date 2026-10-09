@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// </summary>
         /// <param name="commissionRate">Стоимость подключения опции по акции, % от оборота.</param>
         /// <param name="expiresAt">Дата окончания действия цены по акции.</param>
-        public PlanBuilderPromotion(float commissionRate = default(float), DateTime expiresAt = default(DateTime))
+        public PlanBuilderPromotion(float commissionRate = default(float), string expiresAt = default(string))
         {
             this.CommissionRate = commissionRate;
             this.ExpiresAt = expiresAt;
@@ -60,7 +60,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         <example>2006-01-02T15:04:05.999+03:00</example>
         */
         [DataMember(Name = "expiresAt", EmitDefaultValue = false)]
-        public DateTime ExpiresAt { get; set; }
+        public string ExpiresAt { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

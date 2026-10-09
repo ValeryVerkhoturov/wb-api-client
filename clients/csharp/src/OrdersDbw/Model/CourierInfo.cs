@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// <param name="contacts">Контактные данные курьера.</param>
         /// <param name="mustBeAssigned">Должен ли быть назначен курьер к текущему моменту:   - &#x60;false&#x60; — нет   - &#x60;true&#x60; — да    Если &#x60;\&quot;mustBeAssigned\&quot;:true&#x60;, а &#x60;\&quot;contacts\&quot;:null&#x60;, необходимо запросить контакты в [поддержке](https://seller.wildberries.ru/service-desk-v2) .</param>
         /// <param name="updatedAt">Дата и время обновления информации о курьере.  Если &#x60;null&#x60;, информация не обновлялась.</param>
-        public CourierInfo(CourierContactsResponse contacts = default(CourierContactsResponse), bool mustBeAssigned = default(bool), DateTime? updatedAt = default(DateTime?))
+        public CourierInfo(CourierContactsResponse contacts = default(CourierContactsResponse), bool mustBeAssigned = default(bool), string updatedAt = default(string))
         {
             this.Contacts = contacts;
             this.MustBeAssigned = mustBeAssigned;
@@ -66,7 +66,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         <example>2025-09-06T11:33:10+03:00</example>
         */
         [DataMember(Name = "updatedAt", EmitDefaultValue = true)]
-        public DateTime? UpdatedAt { get; set; }
+        public string UpdatedAt { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -49,7 +49,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="bonusSumm">Сумма удержания.</param>
         /// <param name="bonusType">Причина удержания.</param>
         /// <param name="photoUrls">Фото замеров.</param>
-        public GetV1Deductions200ResponseDataReportsInner(DateTime dtBonus = default(DateTime), int nmId = default(int), int oldShkId = default(int), string oldColor = default(string), string oldSize = default(string), string oldSku = default(string), string oldVendorCode = default(string), int newShkId = default(int), string newColor = default(string), string newSize = default(string), string newSku = default(string), string newVendorCode = default(string), decimal bonusSumm = default(decimal), string bonusType = default(string), List<string> photoUrls = default(List<string>))
+        public GetV1Deductions200ResponseDataReportsInner(string dtBonus = default(string), int nmId = default(int), int oldShkId = default(int), string oldColor = default(string), string oldSize = default(string), string oldSku = default(string), string oldVendorCode = default(string), int newShkId = default(int), string newColor = default(string), string newSize = default(string), string newSku = default(string), string newVendorCode = default(string), decimal bonusSumm = default(decimal), string bonusType = default(string), List<string> photoUrls = default(List<string>))
         {
             this.DtBonus = dtBonus;
             this.NmId = nmId;
@@ -73,10 +73,10 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>Дата и время удержания</value>
         /*
-        <example>2025-06-02T00:00Z</example>
+        <example>2025-06-02T00:00:00Z</example>
         */
         [DataMember(Name = "dtBonus", EmitDefaultValue = false)]
-        public DateTime DtBonus { get; set; }
+        public string DtBonus { get; set; }
 
         /// <summary>
         /// Артикул WB

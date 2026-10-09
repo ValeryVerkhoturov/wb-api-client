@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import (
     BaseModel,
     ConfigDict,
@@ -49,10 +48,10 @@ class PlanBuilderOption(BaseModel):
         default=None,
         description="Статус опции:   - `active` — активна   - `pendingActivation` — подключена, начнёт работать с 00:00 следующего дня   - `pendingDeactivation` — отключена, перестанет работать с 00:00 следующего дня ",
     )
-    activated_at: Optional[datetime] = Field(
+    activated_at: Optional[StrictStr] = Field(
         default=None, description="Дата активации опции", alias="activatedAt"
     )
-    expires_at: Optional[datetime] = Field(
+    expires_at: Optional[StrictStr] = Field(
         default=None,
         description="Дата окончания минимального срока действия опции. До этого дня опцию нельзя отключить",
         alias="expiresAt",

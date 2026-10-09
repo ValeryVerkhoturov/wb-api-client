@@ -12,7 +12,6 @@ package items
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the SwaggerPublicErrorsCursorInput type satisfies the MappedNullable interface at compile time
@@ -23,7 +22,7 @@ type SwaggerPublicErrorsCursorInput struct {
 	// Количество пакетов в ответе
 	Limit *float32 `json:"limit,omitempty"`
 	// Дата и время формирования последнего пакета в ответе на предыдущий запрос
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	UpdatedAt *string `json:"updatedAt,omitempty"`
 	// ID последнего пакета в ответе на предыдущий запрос
 	BatchUUID *string `json:"batchUUID,omitempty"`
 }
@@ -82,9 +81,9 @@ func (o *SwaggerPublicErrorsCursorInput) SetLimit(v float32) {
 }
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
-func (o *SwaggerPublicErrorsCursorInput) GetUpdatedAt() time.Time {
+func (o *SwaggerPublicErrorsCursorInput) GetUpdatedAt() string {
 	if o == nil || IsNil(o.UpdatedAt) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.UpdatedAt
@@ -92,7 +91,7 @@ func (o *SwaggerPublicErrorsCursorInput) GetUpdatedAt() time.Time {
 
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SwaggerPublicErrorsCursorInput) GetUpdatedAtOk() (*time.Time, bool) {
+func (o *SwaggerPublicErrorsCursorInput) GetUpdatedAtOk() (*string, bool) {
 	if o == nil || IsNil(o.UpdatedAt) {
 		return nil, false
 	}
@@ -108,8 +107,8 @@ func (o *SwaggerPublicErrorsCursorInput) HasUpdatedAt() bool {
 	return false
 }
 
-// SetUpdatedAt gets a reference to the given time.Time and assigns it to the UpdatedAt field.
-func (o *SwaggerPublicErrorsCursorInput) SetUpdatedAt(v time.Time) {
+// SetUpdatedAt gets a reference to the given string and assigns it to the UpdatedAt field.
+func (o *SwaggerPublicErrorsCursorInput) SetUpdatedAt(v string) {
 	o.UpdatedAt = &v
 }
 

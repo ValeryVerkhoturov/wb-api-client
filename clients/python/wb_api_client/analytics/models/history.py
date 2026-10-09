@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +28,7 @@ class History(BaseModel):
     History
     """  # noqa: E501
 
-    var_date: date = Field(description="Дата сбора статистики", alias="date")
+    var_date: StrictStr = Field(description="Дата сбора статистики", alias="date")
     open_count: StrictInt = Field(
         description="Количество переходов в карточку товара", alias="openCount"
     )

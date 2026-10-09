@@ -6208,12 +6208,10 @@ components:
     Date:
       type: string
       example: '2022-08-21T22:00:13+02:00'
-      format: date-time
       description: Дата и время, когда загрузка создана
     Date1:
       type: string
       example: '2022-08-21T22:00:13+02:00'
-      format: date-time
       description: "Дата и время, когда загрузка отправляется в обработку"
     TaskStatus:
       description: "Статус загрузки:\n  * `3` — обработана, в товарах нет ошибок, цены и скидки обновились\n  * `4` — отменена\n  * `5` — обработана, но в товарах есть ошибки. Для товаров без ошибок цены и скидки обновились, а ошибки в остальных товарах можно получить с помощью метода [Детализация обработанной загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)\n  * `6` — обработана, но во всех товарах есть ошибки. Их тоже можно получить с помощью метода [Детализация обработанной загрузки](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask)\n"
@@ -6505,7 +6503,6 @@ components:
               type: string
         updatedAt:
           type: string
-          format: date-time
           description: Дата и время создания или редактирования пакета
     viewer_contract.PublicErrorsCursorOutput:
       type: object
@@ -6523,7 +6520,6 @@ components:
               - `true` — да
         updatedAt:
           type: string
-          format: date-time
           description: Дата и время формирования последнего пакета в ответе
         batchUUID:
           type: string
@@ -6571,7 +6567,6 @@ components:
           default: 100
         updatedAt:
           type: string
-          format: date-time
           description: Дата и время формирования последнего пакета в ответе на предыдущий запрос
         batchUUID:
           type: string
@@ -6672,7 +6667,6 @@ components:
               updatedAt:
                 description: Дата и время последнего обновления рекомендаций
                 type: string
-                format: date-time
                 nullable: true
                 example: '2025-11-13T12:56:15.778591Z'
               picsCount:
@@ -6914,11 +6908,9 @@ components:
           description: Представитель изготовителя медицинского изделия
         startDate:
           type: string
-          format: date-time
           description: Дата и время начала срока действия документа
         endDate:
           type: string
-          format: date-time
           description: Дата и время окончания срока действия документа
         isEndless:
           type: boolean
@@ -6981,7 +6973,6 @@ components:
           description: Расшифровка HTTP статус-кода
         timestamp:
           type: string
-          format: date-time
           description: Дата и время запроса
     GetV2ObjectParentAllResponse200:
       type: object
@@ -7588,11 +7579,9 @@ components:
                           description: Представитель изготовителя медицинского изделия
                         startDate:
                           type: string
-                          format: date-time
                           description: Дата и время начала срока действия документа
                         endDate:
                           type: string
-                          format: date-time
                           description: Дата и время окончания срока действия документа
                         isEndless:
                           type: boolean
@@ -7623,11 +7612,9 @@ components:
                               description: Дополнительная информация
                             createdAt:
                               type: string
-                              format: date-time
                               description: Дата проверки документа
                         createdAt:
                           type: string
-                          format: date-time
                           description: Дата добавления документа
                   overallVerdict:
                     type: object
@@ -7650,7 +7637,6 @@ components:
                         $ref: '#/components/schemas/reasonListing'
                       createdAt:
                         type: string
-                        format: date-time
                         description: Дата и время проверки карточки товара
                   excludeDocuments:
                     type: boolean
@@ -8344,7 +8330,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: unauthorized
@@ -8401,7 +8386,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           examples:
             Response403TokenCategory:
@@ -8444,7 +8428,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: too many requests

@@ -12,7 +12,6 @@ package reports
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the GetV1AnalyticsGoodsLabeling200ResponseReportInner type satisfies the MappedNullable interface at compile time
@@ -23,7 +22,7 @@ type GetV1AnalyticsGoodsLabeling200ResponseReportInner struct {
 	// Сумма штрафа, руб
 	Amount *float32 `json:"amount,omitempty"`
 	// Дата
-	Date *time.Time `json:"date,omitempty"`
+	Date *string `json:"date,omitempty"`
 	// Номер поставки
 	IncomeId *int32 `json:"incomeId,omitempty"`
 	// Артикул WB
@@ -86,9 +85,9 @@ func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetAmount(v float32)
 }
 
 // GetDate returns the Date field value if set, zero value otherwise.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetDate() time.Time {
+func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetDate() string {
 	if o == nil || IsNil(o.Date) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.Date
@@ -96,7 +95,7 @@ func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetDate() time.Time 
 
 // GetDateOk returns a tuple with the Date field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetDateOk() (*time.Time, bool) {
+func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) GetDateOk() (*string, bool) {
 	if o == nil || IsNil(o.Date) {
 		return nil, false
 	}
@@ -112,8 +111,8 @@ func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) HasDate() bool {
 	return false
 }
 
-// SetDate gets a reference to the given time.Time and assigns it to the Date field.
-func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetDate(v time.Time) {
+// SetDate gets a reference to the given string and assigns it to the Date field.
+func (o *GetV1AnalyticsGoodsLabeling200ResponseReportInner) SetDate(v string) {
 	o.Date = &v
 }
 

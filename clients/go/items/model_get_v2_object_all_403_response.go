@@ -12,7 +12,6 @@ package items
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the GetV2ObjectAll403Response type satisfies the MappedNullable interface at compile time
@@ -35,7 +34,7 @@ type GetV2ObjectAll403Response struct {
 	// Расшифровка HTTP статус-кода
 	StatusText *string `json:"statusText,omitempty"`
 	// Дата и время запроса
-	Timestamp *time.Time `json:"timestamp,omitempty"`
+	Timestamp *string `json:"timestamp,omitempty"`
 }
 
 // NewGetV2ObjectAll403Response instantiates a new GetV2ObjectAll403Response object
@@ -280,9 +279,9 @@ func (o *GetV2ObjectAll403Response) SetStatusText(v string) {
 }
 
 // GetTimestamp returns the Timestamp field value if set, zero value otherwise.
-func (o *GetV2ObjectAll403Response) GetTimestamp() time.Time {
+func (o *GetV2ObjectAll403Response) GetTimestamp() string {
 	if o == nil || IsNil(o.Timestamp) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.Timestamp
@@ -290,7 +289,7 @@ func (o *GetV2ObjectAll403Response) GetTimestamp() time.Time {
 
 // GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV2ObjectAll403Response) GetTimestampOk() (*time.Time, bool) {
+func (o *GetV2ObjectAll403Response) GetTimestampOk() (*string, bool) {
 	if o == nil || IsNil(o.Timestamp) {
 		return nil, false
 	}
@@ -306,8 +305,8 @@ func (o *GetV2ObjectAll403Response) HasTimestamp() bool {
 	return false
 }
 
-// SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
-func (o *GetV2ObjectAll403Response) SetTimestamp(v time.Time) {
+// SetTimestamp gets a reference to the given string and assigns it to the Timestamp field.
+func (o *GetV2ObjectAll403Response) SetTimestamp(v string) {
 	o.Timestamp = &v
 }
 

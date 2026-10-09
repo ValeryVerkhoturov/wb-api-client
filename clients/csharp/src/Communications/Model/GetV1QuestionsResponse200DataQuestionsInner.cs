@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// <param name="productDetails">productDetails.</param>
         /// <param name="wasViewed">Просмотрен ли вопрос.</param>
         /// <param name="isWarned">Признак подозрительного вопроса. Если &#x60;true&#x60;, то вопрос опубликован, но на портале продавцов вы увидите баннер \\*\\*Сообщение подозрительное\\*\\*.</param>
-        public GetV1QuestionsResponse200DataQuestionsInner(string id = default(string), string text = default(string), DateTime createdDate = default(DateTime), string state = default(string), GetV1QuestionsResponse200DataQuestionsInnerAnswer answer = default(GetV1QuestionsResponse200DataQuestionsInnerAnswer), GetV1QuestionsResponse200DataQuestionsInnerProductDetails productDetails = default(GetV1QuestionsResponse200DataQuestionsInnerProductDetails), bool wasViewed = default(bool), bool isWarned = default(bool))
+        public GetV1QuestionsResponse200DataQuestionsInner(string id = default(string), string text = default(string), string createdDate = default(string), string state = default(string), GetV1QuestionsResponse200DataQuestionsInnerAnswer answer = default(GetV1QuestionsResponse200DataQuestionsInnerAnswer), GetV1QuestionsResponse200DataQuestionsInnerProductDetails productDetails = default(GetV1QuestionsResponse200DataQuestionsInnerProductDetails), bool wasViewed = default(bool), bool isWarned = default(bool))
         {
             this.Id = id;
             this.Text = text;
@@ -73,7 +73,7 @@ namespace ValeryVerkhoturov.WbApiClient.Communications.Model
         /// </summary>
         /// <value>Дата и время создания вопроса</value>
         [DataMember(Name = "createdDate", EmitDefaultValue = false)]
-        public DateTime CreatedDate { get; set; }
+        public string CreatedDate { get; set; }
 
         /// <summary>
         /// Статус вопроса:   - &#x60;none&#x60; — вопрос отклонён продавцом (такой вопрос не отображается на портале покупателей)   - &#x60;wbRu&#x60; — ответ предоставлен, вопрос отображается на сайте покупателей   - &#x60;suppliersPortalSynch&#x60; - новый вопрос 

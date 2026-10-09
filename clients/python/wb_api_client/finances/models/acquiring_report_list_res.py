@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
@@ -33,11 +32,13 @@ class AcquiringReportListRes(BaseModel):
     seller_finance_name: StrictStr = Field(
         description="Наименование продавца", alias="sellerFinanceName"
     )
-    date_from: date = Field(
+    date_from: StrictStr = Field(
         description="Дата начала отчётного периода", alias="dateFrom"
     )
-    date_to: date = Field(description="Дата конца отчётного периода", alias="dateTo")
-    create_date: date = Field(
+    date_to: StrictStr = Field(
+        description="Дата конца отчётного периода", alias="dateTo"
+    )
+    create_date: StrictStr = Field(
         description="Дата формирования отчёта", alias="createDate"
     )
     currency: StrictStr = Field(description="Валюта отчёта")

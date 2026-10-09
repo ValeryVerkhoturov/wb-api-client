@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,8 +28,8 @@ class FloatGraphByPeriodItem(BaseModel):
     Среднее количество заказов за месяц
     """  # noqa: E501
 
-    start: date = Field(description="Начало месяца")
-    end: date = Field(description="Конец месяца")
+    start: StrictStr = Field(description="Начало месяца")
+    end: StrictStr = Field(description="Конец месяца")
     value: Union[StrictFloat, StrictInt] = Field(
         description="Среднее количество заказов"
     )

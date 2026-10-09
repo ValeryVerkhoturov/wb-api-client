@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.general.models.get_v2_news_response200_data_inner_types_inner import (
@@ -33,7 +32,7 @@ class GetV2NewsResponse200DataInner(BaseModel):
     """  # noqa: E501
 
     content: Optional[StrictStr] = Field(default=None, description="Текст новости")
-    var_date: Optional[datetime] = Field(
+    var_date: Optional[StrictStr] = Field(
         default=None, description="Дата и время публикации новости", alias="date"
     )
     header: Optional[StrictStr] = Field(default=None, description="Заголовок новости")

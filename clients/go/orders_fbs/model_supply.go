@@ -14,7 +14,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"time"
 )
 
 // checks if the Supply type satisfies the MappedNullable interface at compile time
@@ -31,11 +30,11 @@ type Supply struct {
 	// Флаг закрытия поставки:   - `true` — закрыта   - `false` — открыта
 	Done *bool `json:"done,omitempty"`
 	// Дата создания поставки (RFC3339)
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
+	CreatedAt *string `json:"createdAt,omitempty"`
 	// Дата закрытия поставки (RFC3339)
-	ClosedAt NullableTime `json:"closedAt,omitempty"`
+	ClosedAt NullableString `json:"closedAt,omitempty"`
 	// Дата сканирования поставки (RFC3339). Если `\"scanDt\":null`, поставка не сканировалась
-	ScanDt NullableTime `json:"scanDt,omitempty"`
+	ScanDt NullableString `json:"scanDt,omitempty"`
 	// Наименование поставки
 	Name *string `json:"name,omitempty"`
 	// Тип товара:   - `1` — малогабаритный товар (МГТ)   - `2` — сверхгабаритный товар (СГТ)   - `3` — крупногабаритный товар (КГТ+)
@@ -218,9 +217,9 @@ func (o *Supply) SetDone(v bool) {
 }
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
-func (o *Supply) GetCreatedAt() time.Time {
+func (o *Supply) GetCreatedAt() string {
 	if o == nil || IsNil(o.CreatedAt) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.CreatedAt
@@ -228,7 +227,7 @@ func (o *Supply) GetCreatedAt() time.Time {
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Supply) GetCreatedAtOk() (*time.Time, bool) {
+func (o *Supply) GetCreatedAtOk() (*string, bool) {
 	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
@@ -244,15 +243,15 @@ func (o *Supply) HasCreatedAt() bool {
 	return false
 }
 
-// SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
-func (o *Supply) SetCreatedAt(v time.Time) {
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
+func (o *Supply) SetCreatedAt(v string) {
 	o.CreatedAt = &v
 }
 
 // GetClosedAt returns the ClosedAt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Supply) GetClosedAt() time.Time {
+func (o *Supply) GetClosedAt() string {
 	if o == nil || IsNil(o.ClosedAt.Get()) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.ClosedAt.Get()
@@ -261,7 +260,7 @@ func (o *Supply) GetClosedAt() time.Time {
 // GetClosedAtOk returns a tuple with the ClosedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Supply) GetClosedAtOk() (*time.Time, bool) {
+func (o *Supply) GetClosedAtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -277,8 +276,8 @@ func (o *Supply) HasClosedAt() bool {
 	return false
 }
 
-// SetClosedAt gets a reference to the given NullableTime and assigns it to the ClosedAt field.
-func (o *Supply) SetClosedAt(v time.Time) {
+// SetClosedAt gets a reference to the given NullableString and assigns it to the ClosedAt field.
+func (o *Supply) SetClosedAt(v string) {
 	o.ClosedAt.Set(&v)
 }
 
@@ -293,9 +292,9 @@ func (o *Supply) UnsetClosedAt() {
 }
 
 // GetScanDt returns the ScanDt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Supply) GetScanDt() time.Time {
+func (o *Supply) GetScanDt() string {
 	if o == nil || IsNil(o.ScanDt.Get()) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.ScanDt.Get()
@@ -304,7 +303,7 @@ func (o *Supply) GetScanDt() time.Time {
 // GetScanDtOk returns a tuple with the ScanDt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Supply) GetScanDtOk() (*time.Time, bool) {
+func (o *Supply) GetScanDtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -320,8 +319,8 @@ func (o *Supply) HasScanDt() bool {
 	return false
 }
 
-// SetScanDt gets a reference to the given NullableTime and assigns it to the ScanDt field.
-func (o *Supply) SetScanDt(v time.Time) {
+// SetScanDt gets a reference to the given NullableString and assigns it to the ScanDt field.
+func (o *Supply) SetScanDt(v string) {
 	o.ScanDt.Set(&v)
 }
 

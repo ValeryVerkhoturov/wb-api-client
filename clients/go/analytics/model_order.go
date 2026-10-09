@@ -14,7 +14,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"time"
 )
 
 // checks if the Order type satisfies the MappedNullable interface at compile time
@@ -29,9 +28,9 @@ type Order struct {
 	// ID заказа
 	Srid string `json:"srid"`
 	// Дата и время оформления заказа
-	CreatedAt time.Time `json:"createdAt"`
+	CreatedAt string `json:"createdAt"`
 	// Дата и время текущего статуса. При `\"status\":\"created\"` возвращается значение поля `createdAt`
-	UpdatedAt time.Time `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt"`
 	// Статус заказа:   - `created` — оформлен   - `buyout` — продан   - `cancel` — отменён   - `return` — возвращён   - `returnDefective` — возвращён по причине брака
 	Status string `json:"status"`
 	// Тип отмены (при `\"status\":\"cancel\"`):   - `app` — отказ до получения   - `receipt` — отказ при получении   - `expire` — истёк срок получения   - `other` — техническая отмена
@@ -58,7 +57,7 @@ type _Order Order
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrder(nmId int64, chrtId int32, srid string, createdAt time.Time, updatedAt time.Time, status string, warehouseName string, warehouseRegion string, isMp bool, destinationCity string, destinationDistrict string, sellerPrice float32, isB2b bool) *Order {
+func NewOrder(nmId int64, chrtId int32, srid string, createdAt string, updatedAt string, status string, warehouseName string, warehouseRegion string, isMp bool, destinationCity string, destinationDistrict string, sellerPrice float32, isB2b bool) *Order {
 	this := Order{}
 	this.NmId = nmId
 	this.ChrtId = chrtId
@@ -157,9 +156,9 @@ func (o *Order) SetSrid(v string) {
 }
 
 // GetCreatedAt returns the CreatedAt field value
-func (o *Order) GetCreatedAt() time.Time {
+func (o *Order) GetCreatedAt() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -168,7 +167,7 @@ func (o *Order) GetCreatedAt() time.Time {
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value
 // and a boolean to check if the value has been set.
-func (o *Order) GetCreatedAtOk() (*time.Time, bool) {
+func (o *Order) GetCreatedAtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -176,14 +175,14 @@ func (o *Order) GetCreatedAtOk() (*time.Time, bool) {
 }
 
 // SetCreatedAt sets field value
-func (o *Order) SetCreatedAt(v time.Time) {
+func (o *Order) SetCreatedAt(v string) {
 	o.CreatedAt = v
 }
 
 // GetUpdatedAt returns the UpdatedAt field value
-func (o *Order) GetUpdatedAt() time.Time {
+func (o *Order) GetUpdatedAt() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -192,7 +191,7 @@ func (o *Order) GetUpdatedAt() time.Time {
 
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value
 // and a boolean to check if the value has been set.
-func (o *Order) GetUpdatedAtOk() (*time.Time, bool) {
+func (o *Order) GetUpdatedAtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -200,7 +199,7 @@ func (o *Order) GetUpdatedAtOk() (*time.Time, bool) {
 }
 
 // SetUpdatedAt sets field value
-func (o *Order) SetUpdatedAt(v time.Time) {
+func (o *Order) SetUpdatedAt(v string) {
 	o.UpdatedAt = v
 }
 

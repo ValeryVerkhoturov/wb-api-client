@@ -12,7 +12,6 @@ package general
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the PlanBuilderPackage type satisfies the MappedNullable interface at compile time
@@ -29,9 +28,9 @@ type PlanBuilderPackage struct {
 	// Статус пакета:   - `active` — активен   - `pendingActivation` — подключён, начнёт работать с 00:00 следующего дня   - `pendingDeactivation` — отключён, перестанет работать с 00:00 следующего дня
 	Status *string `json:"status,omitempty"`
 	// Дата активации пакета
-	ActivatedAt *time.Time `json:"activatedAt,omitempty"`
+	ActivatedAt *string `json:"activatedAt,omitempty"`
 	// Дата окончания минимального срока действия пакета. До этого дня пакет опций нельзя отключить
-	ExpiresAt *time.Time `json:"expiresAt,omitempty"`
+	ExpiresAt *string `json:"expiresAt,omitempty"`
 	// Комиссия за пакет, % от оборота
 	CommissionRate *float32 `json:"commissionRate,omitempty"`
 	// Минимальный срок действия пакета в днях
@@ -186,9 +185,9 @@ func (o *PlanBuilderPackage) SetStatus(v string) {
 }
 
 // GetActivatedAt returns the ActivatedAt field value if set, zero value otherwise.
-func (o *PlanBuilderPackage) GetActivatedAt() time.Time {
+func (o *PlanBuilderPackage) GetActivatedAt() string {
 	if o == nil || IsNil(o.ActivatedAt) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.ActivatedAt
@@ -196,7 +195,7 @@ func (o *PlanBuilderPackage) GetActivatedAt() time.Time {
 
 // GetActivatedAtOk returns a tuple with the ActivatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PlanBuilderPackage) GetActivatedAtOk() (*time.Time, bool) {
+func (o *PlanBuilderPackage) GetActivatedAtOk() (*string, bool) {
 	if o == nil || IsNil(o.ActivatedAt) {
 		return nil, false
 	}
@@ -212,15 +211,15 @@ func (o *PlanBuilderPackage) HasActivatedAt() bool {
 	return false
 }
 
-// SetActivatedAt gets a reference to the given time.Time and assigns it to the ActivatedAt field.
-func (o *PlanBuilderPackage) SetActivatedAt(v time.Time) {
+// SetActivatedAt gets a reference to the given string and assigns it to the ActivatedAt field.
+func (o *PlanBuilderPackage) SetActivatedAt(v string) {
 	o.ActivatedAt = &v
 }
 
 // GetExpiresAt returns the ExpiresAt field value if set, zero value otherwise.
-func (o *PlanBuilderPackage) GetExpiresAt() time.Time {
+func (o *PlanBuilderPackage) GetExpiresAt() string {
 	if o == nil || IsNil(o.ExpiresAt) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.ExpiresAt
@@ -228,7 +227,7 @@ func (o *PlanBuilderPackage) GetExpiresAt() time.Time {
 
 // GetExpiresAtOk returns a tuple with the ExpiresAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PlanBuilderPackage) GetExpiresAtOk() (*time.Time, bool) {
+func (o *PlanBuilderPackage) GetExpiresAtOk() (*string, bool) {
 	if o == nil || IsNil(o.ExpiresAt) {
 		return nil, false
 	}
@@ -244,8 +243,8 @@ func (o *PlanBuilderPackage) HasExpiresAt() bool {
 	return false
 }
 
-// SetExpiresAt gets a reference to the given time.Time and assigns it to the ExpiresAt field.
-func (o *PlanBuilderPackage) SetExpiresAt(v time.Time) {
+// SetExpiresAt gets a reference to the given string and assigns it to the ExpiresAt field.
+func (o *PlanBuilderPackage) SetExpiresAt(v string) {
 	o.ExpiresAt = &v
 }
 

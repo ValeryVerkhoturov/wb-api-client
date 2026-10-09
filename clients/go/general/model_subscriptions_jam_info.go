@@ -14,7 +14,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"time"
 )
 
 // checks if the SubscriptionsJamInfo type satisfies the MappedNullable interface at compile time
@@ -29,9 +28,9 @@ type SubscriptionsJamInfo struct {
 	// Уровень подписки:   - `standard`   - `advanced`   - `premium`
 	Level string `json:"level"`
 	// Дата и время первой активации подписки. Не меняется при продлении или повторной активации
-	Since time.Time `json:"since"`
+	Since string `json:"since"`
 	// Дата и время окончания подписки
-	Till time.Time `json:"till"`
+	Till string `json:"till"`
 }
 
 type _SubscriptionsJamInfo SubscriptionsJamInfo
@@ -40,7 +39,7 @@ type _SubscriptionsJamInfo SubscriptionsJamInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSubscriptionsJamInfo(state string, activationSource string, level string, since time.Time, till time.Time) *SubscriptionsJamInfo {
+func NewSubscriptionsJamInfo(state string, activationSource string, level string, since string, till string) *SubscriptionsJamInfo {
 	this := SubscriptionsJamInfo{}
 	this.State = state
 	this.ActivationSource = activationSource
@@ -131,9 +130,9 @@ func (o *SubscriptionsJamInfo) SetLevel(v string) {
 }
 
 // GetSince returns the Since field value
-func (o *SubscriptionsJamInfo) GetSince() time.Time {
+func (o *SubscriptionsJamInfo) GetSince() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -142,7 +141,7 @@ func (o *SubscriptionsJamInfo) GetSince() time.Time {
 
 // GetSinceOk returns a tuple with the Since field value
 // and a boolean to check if the value has been set.
-func (o *SubscriptionsJamInfo) GetSinceOk() (*time.Time, bool) {
+func (o *SubscriptionsJamInfo) GetSinceOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -150,14 +149,14 @@ func (o *SubscriptionsJamInfo) GetSinceOk() (*time.Time, bool) {
 }
 
 // SetSince sets field value
-func (o *SubscriptionsJamInfo) SetSince(v time.Time) {
+func (o *SubscriptionsJamInfo) SetSince(v string) {
 	o.Since = v
 }
 
 // GetTill returns the Till field value
-func (o *SubscriptionsJamInfo) GetTill() time.Time {
+func (o *SubscriptionsJamInfo) GetTill() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -166,7 +165,7 @@ func (o *SubscriptionsJamInfo) GetTill() time.Time {
 
 // GetTillOk returns a tuple with the Till field value
 // and a boolean to check if the value has been set.
-func (o *SubscriptionsJamInfo) GetTillOk() (*time.Time, bool) {
+func (o *SubscriptionsJamInfo) GetTillOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -174,7 +173,7 @@ func (o *SubscriptionsJamInfo) GetTillOk() (*time.Time, bool) {
 }
 
 // SetTill sets field value
-func (o *SubscriptionsJamInfo) SetTill(v time.Time) {
+func (o *SubscriptionsJamInfo) SetTill(v string) {
 	o.Till = v
 }
 

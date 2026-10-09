@@ -12,7 +12,6 @@ package items
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner type satisfies the MappedNullable interface at compile time
@@ -33,14 +32,14 @@ type PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner struct {
 	// Представитель изготовителя медицинского изделия
 	Applicant *string `json:"applicant,omitempty"`
 	// Дата и время начала срока действия документа
-	StartDate *time.Time `json:"startDate,omitempty"`
+	StartDate *string `json:"startDate,omitempty"`
 	// Дата и время окончания срока действия документа
-	EndDate *time.Time `json:"endDate,omitempty"`
+	EndDate *string `json:"endDate,omitempty"`
 	// Бессрочный ли документ:   - `true` — да, документ бессрочный   - `false` — нет, у документа есть срок действия
 	IsEndless *bool                                                              `json:"isEndless,omitempty"`
 	Verdict   *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict `json:"verdict,omitempty"`
 	// Дата добавления документа
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
+	CreatedAt *string `json:"createdAt,omitempty"`
 }
 
 // NewPostV2GetCardsListResponse200CardsInnerDocumentsItemsInner instantiates a new PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner object
@@ -253,9 +252,9 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) SetApplican
 }
 
 // GetStartDate returns the StartDate field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetStartDate() time.Time {
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetStartDate() string {
 	if o == nil || IsNil(o.StartDate) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.StartDate
@@ -263,7 +262,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetStartDat
 
 // GetStartDateOk returns a tuple with the StartDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetStartDateOk() (*time.Time, bool) {
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetStartDateOk() (*string, bool) {
 	if o == nil || IsNil(o.StartDate) {
 		return nil, false
 	}
@@ -279,15 +278,15 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) HasStartDat
 	return false
 }
 
-// SetStartDate gets a reference to the given time.Time and assigns it to the StartDate field.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) SetStartDate(v time.Time) {
+// SetStartDate gets a reference to the given string and assigns it to the StartDate field.
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) SetStartDate(v string) {
 	o.StartDate = &v
 }
 
 // GetEndDate returns the EndDate field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetEndDate() time.Time {
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetEndDate() string {
 	if o == nil || IsNil(o.EndDate) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.EndDate
@@ -295,7 +294,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetEndDate(
 
 // GetEndDateOk returns a tuple with the EndDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetEndDateOk() (*time.Time, bool) {
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetEndDateOk() (*string, bool) {
 	if o == nil || IsNil(o.EndDate) {
 		return nil, false
 	}
@@ -311,8 +310,8 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) HasEndDate(
 	return false
 }
 
-// SetEndDate gets a reference to the given time.Time and assigns it to the EndDate field.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) SetEndDate(v time.Time) {
+// SetEndDate gets a reference to the given string and assigns it to the EndDate field.
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) SetEndDate(v string) {
 	o.EndDate = &v
 }
 
@@ -381,9 +380,9 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) SetVerdict(
 }
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetCreatedAt() time.Time {
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetCreatedAt() string {
 	if o == nil || IsNil(o.CreatedAt) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.CreatedAt
@@ -391,7 +390,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetCreatedA
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetCreatedAtOk() (*time.Time, bool) {
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) GetCreatedAtOk() (*string, bool) {
 	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
@@ -407,8 +406,8 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) HasCreatedA
 	return false
 }
 
-// SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) SetCreatedAt(v time.Time) {
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInner) SetCreatedAt(v string) {
 	o.CreatedAt = &v
 }
 

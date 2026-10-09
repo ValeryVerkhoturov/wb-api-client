@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="date">Дата.</param>
         /// <param name="appTypeStats">Статистика по платформам.</param>
-        public StatsBlok2DailyStatsInner(DateTime date = default(DateTime), List<StatsBlok2DailyStatsInnerAppTypeStatsInner> appTypeStats = default(List<StatsBlok2DailyStatsInnerAppTypeStatsInner>))
+        public StatsBlok2DailyStatsInner(string date = default(string), List<StatsBlok2DailyStatsInnerAppTypeStatsInner> appTypeStats = default(List<StatsBlok2DailyStatsInnerAppTypeStatsInner>))
         {
             this.Date = date;
             this.AppTypeStats = appTypeStats;
@@ -47,7 +47,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Дата</value>
         [DataMember(Name = "date", EmitDefaultValue = false)]
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         /// <summary>
         /// Статистика по платформам

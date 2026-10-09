@@ -2735,17 +2735,11 @@ export const DefaultApiAxiosParamCreator = function (
       await setBearerAuthToObject(localVarHeaderParameter, configuration);
 
       if (dateFrom !== undefined) {
-        localVarQueryParameter["dateFrom"] =
-          (dateFrom as any) instanceof Date
-            ? (dateFrom as any).toISOString().substring(0, 10)
-            : dateFrom;
+        localVarQueryParameter["dateFrom"] = dateFrom;
       }
 
       if (dateTo !== undefined) {
-        localVarQueryParameter["dateTo"] =
-          (dateTo as any) instanceof Date
-            ? (dateTo as any).toISOString().substring(0, 10)
-            : dateTo;
+        localVarQueryParameter["dateTo"] = dateTo;
       }
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -2801,17 +2795,11 @@ export const DefaultApiAxiosParamCreator = function (
       await setBearerAuthToObject(localVarHeaderParameter, configuration);
 
       if (dateFrom !== undefined) {
-        localVarQueryParameter["dateFrom"] =
-          (dateFrom as any) instanceof Date
-            ? (dateFrom as any).toISOString().substring(0, 10)
-            : dateFrom;
+        localVarQueryParameter["dateFrom"] = dateFrom;
       }
 
       if (dateTo !== undefined) {
-        localVarQueryParameter["dateTo"] =
-          (dateTo as any) instanceof Date
-            ? (dateTo as any).toISOString().substring(0, 10)
-            : dateTo;
+        localVarQueryParameter["dateTo"] = dateTo;
       }
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -2934,17 +2922,11 @@ export const DefaultApiAxiosParamCreator = function (
       await setBearerAuthToObject(localVarHeaderParameter, configuration);
 
       if (dateFrom !== undefined) {
-        localVarQueryParameter["dateFrom"] =
-          (dateFrom as any) instanceof Date
-            ? (dateFrom as any).toISOString()
-            : dateFrom;
+        localVarQueryParameter["dateFrom"] = dateFrom;
       }
 
       if (dateTo !== undefined) {
-        localVarQueryParameter["dateTo"] =
-          (dateTo as any) instanceof Date
-            ? (dateTo as any).toISOString()
-            : dateTo;
+        localVarQueryParameter["dateTo"] = dateTo;
       }
 
       if (sort !== undefined) {
@@ -3021,17 +3003,11 @@ export const DefaultApiAxiosParamCreator = function (
       await setBearerAuthToObject(localVarHeaderParameter, configuration);
 
       if (dateFrom !== undefined) {
-        localVarQueryParameter["dateFrom"] =
-          (dateFrom as any) instanceof Date
-            ? (dateFrom as any).toISOString().substring(0, 10)
-            : dateFrom;
+        localVarQueryParameter["dateFrom"] = dateFrom;
       }
 
       if (dateTo !== undefined) {
-        localVarQueryParameter["dateTo"] =
-          (dateTo as any) instanceof Date
-            ? (dateTo as any).toISOString().substring(0, 10)
-            : dateTo;
+        localVarQueryParameter["dateTo"] = dateTo;
       }
 
       if (status !== undefined) {
@@ -3102,17 +3078,11 @@ export const DefaultApiAxiosParamCreator = function (
       await setBearerAuthToObject(localVarHeaderParameter, configuration);
 
       if (dateFrom !== undefined) {
-        localVarQueryParameter["dateFrom"] =
-          (dateFrom as any) instanceof Date
-            ? (dateFrom as any).toISOString()
-            : dateFrom;
+        localVarQueryParameter["dateFrom"] = dateFrom;
       }
 
       if (dateTo !== undefined) {
-        localVarQueryParameter["dateTo"] =
-          (dateTo as any) instanceof Date
-            ? (dateTo as any).toISOString()
-            : dateTo;
+        localVarQueryParameter["dateTo"] = dateTo;
       }
 
       if (limit !== undefined) {
@@ -3458,17 +3428,11 @@ export const DefaultApiAxiosParamCreator = function (
       await setBearerAuthToObject(localVarHeaderParameter, configuration);
 
       if (dateFrom !== undefined) {
-        localVarQueryParameter["dateFrom"] =
-          (dateFrom as any) instanceof Date
-            ? (dateFrom as any).toISOString()
-            : dateFrom;
+        localVarQueryParameter["dateFrom"] = dateFrom;
       }
 
       if (dateTo !== undefined) {
-        localVarQueryParameter["dateTo"] =
-          (dateTo as any) instanceof Date
-            ? (dateTo as any).toISOString()
-            : dateTo;
+        localVarQueryParameter["dateTo"] = dateTo;
       }
 
       if (limit !== undefined) {

@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.communications.models.get_v1_questions_response200_data_questions_inner_answer import (
@@ -37,7 +36,7 @@ class GetV1QuestionsResponse200DataQuestionsInner(BaseModel):
 
     id: Optional[StrictStr] = Field(default=None, description="id вопроса")
     text: Optional[StrictStr] = Field(default=None, description="Текст вопроса")
-    created_date: Optional[datetime] = Field(
+    created_date: Optional[StrictStr] = Field(
         default=None, description="Дата и время создания вопроса", alias="createdDate"
     )
     state: Optional[StrictStr] = Field(

@@ -142,7 +142,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="shippingType">Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию .</param>
         /// <param name="waybillUuid">ID ЭТрН — электронной транспортной накладной.</param>
         /// <param name="spotAvailable">Доступен ли СПОТ для этой поставки:   - &#x60;true&#x60; — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)   - &#x60;false&#x60; — нет  (required).</param>
-        public Supply(string id = default(string), bool? isB2b = default(bool?), bool isPickupPointShipmentAllowed = default(bool), bool done = default(bool), DateTime createdAt = default(DateTime), DateTime? closedAt = default(DateTime?), DateTime? scanDt = default(DateTime?), string name = default(string), CargoTypeEnum? cargoType = default(CargoTypeEnum?), CrossBorderTypeEnum? crossBorderType = default(CrossBorderTypeEnum?), long? destinationOfficeId = default(long?), long recommendedWhId = default(long), string shippingDt = default(string), int? shippingPointId = default(int?), ShippingTypeEnum? shippingType = default(ShippingTypeEnum?), string waybillUuid = default(string), bool spotAvailable = default(bool))
+        public Supply(string id = default(string), bool? isB2b = default(bool?), bool isPickupPointShipmentAllowed = default(bool), bool done = default(bool), string createdAt = default(string), string closedAt = default(string), string scanDt = default(string), string name = default(string), CargoTypeEnum? cargoType = default(CargoTypeEnum?), CrossBorderTypeEnum? crossBorderType = default(CrossBorderTypeEnum?), long? destinationOfficeId = default(long?), long recommendedWhId = default(long), string shippingDt = default(string), int? shippingPointId = default(int?), ShippingTypeEnum? shippingType = default(ShippingTypeEnum?), string waybillUuid = default(string), bool spotAvailable = default(bool))
         {
             this.SpotAvailable = spotAvailable;
             this.Id = id;
@@ -205,7 +205,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>2022-05-04T07:56:29Z</example>
         */
         [DataMember(Name = "createdAt", EmitDefaultValue = false)]
-        public DateTime CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
 
         /// <summary>
         /// Дата закрытия поставки (RFC3339)
@@ -215,7 +215,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>2022-05-04T07:56:29Z</example>
         */
         [DataMember(Name = "closedAt", EmitDefaultValue = true)]
-        public DateTime? ClosedAt { get; set; }
+        public string ClosedAt { get; set; }
 
         /// <summary>
         /// Дата сканирования поставки (RFC3339). Если &#x60;\&quot;scanDt\&quot;:null&#x60;, поставка не сканировалась
@@ -225,7 +225,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         <example>2022-05-04T07:56:29Z</example>
         */
         [DataMember(Name = "scanDt", EmitDefaultValue = true)]
-        public DateTime? ScanDt { get; set; }
+        public string ScanDt { get; set; }
 
         /// <summary>
         /// Наименование поставки

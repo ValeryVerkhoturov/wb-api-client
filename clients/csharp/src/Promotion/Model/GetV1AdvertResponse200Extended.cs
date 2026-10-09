@@ -43,7 +43,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="budget">Остаток бюджета для типа &#x60;2&#x60;.</param>
         /// <param name="operation">Источник списания:   - &#x60;1&#x60; — баланс   - &#x60;2&#x60; — счёт .</param>
         /// <param name="contractId">ID контракта, для продавцов на контракте.</param>
-        public GetV1AdvertResponse200Extended(string reason = default(string), int expenses = default(int), DateTime from = default(DateTime), DateTime to = default(DateTime), DateTime updatedAt = default(DateTime), int price = default(int), int budget = default(int), int operation = default(int), int contractId = default(int))
+        public GetV1AdvertResponse200Extended(string reason = default(string), int expenses = default(int), string from = default(string), string to = default(string), string updatedAt = default(string), int price = default(int), int budget = default(int), int operation = default(int), int contractId = default(int))
         {
             this.Reason = reason;
             this.Expenses = expenses;
@@ -75,21 +75,21 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Дата и время начала показа медиакампании</value>
         [DataMember(Name = "from", EmitDefaultValue = false)]
-        public DateTime From { get; set; }
+        public string From { get; set; }
 
         /// <summary>
         /// Дата и время окончания показа медиакампании
         /// </summary>
         /// <value>Дата и время окончания показа медиакампании</value>
         [DataMember(Name = "to", EmitDefaultValue = false)]
-        public DateTime To { get; set; }
+        public string To { get; set; }
 
         /// <summary>
         /// Дата и время изменения кампании
         /// </summary>
         /// <value>Дата и время изменения кампании</value>
         [DataMember(Name = "updated_at", EmitDefaultValue = false)]
-        public DateTime UpdatedAt { get; set; }
+        public string UpdatedAt { get; set; }
 
         /// <summary>
         /// Стоимость размещения по дням для типа &#x60;1&#x60;

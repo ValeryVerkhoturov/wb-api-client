@@ -12,7 +12,6 @@ package analytics
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the Response429Download type satisfies the MappedNullable interface at compile time
@@ -35,7 +34,7 @@ type Response429Download struct {
 	// Расшифровка HTTP статус-кода
 	StatusText *string `json:"statusText,omitempty"`
 	// Дата и время запроса
-	Timestamp *time.Time `json:"timestamp,omitempty"`
+	Timestamp *string `json:"timestamp,omitempty"`
 }
 
 // NewResponse429Download instantiates a new Response429Download object
@@ -280,9 +279,9 @@ func (o *Response429Download) SetStatusText(v string) {
 }
 
 // GetTimestamp returns the Timestamp field value if set, zero value otherwise.
-func (o *Response429Download) GetTimestamp() time.Time {
+func (o *Response429Download) GetTimestamp() string {
 	if o == nil || IsNil(o.Timestamp) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.Timestamp
@@ -290,7 +289,7 @@ func (o *Response429Download) GetTimestamp() time.Time {
 
 // GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Response429Download) GetTimestampOk() (*time.Time, bool) {
+func (o *Response429Download) GetTimestampOk() (*string, bool) {
 	if o == nil || IsNil(o.Timestamp) {
 		return nil, false
 	}
@@ -306,8 +305,8 @@ func (o *Response429Download) HasTimestamp() bool {
 	return false
 }
 
-// SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
-func (o *Response429Download) SetTimestamp(v time.Time) {
+// SetTimestamp gets a reference to the given string and assigns it to the Timestamp field.
+func (o *Response429Download) SetTimestamp(v string) {
 	o.Timestamp = &v
 }
 

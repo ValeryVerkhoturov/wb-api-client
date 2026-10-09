@@ -77,7 +77,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="scanTime">Дата и время сканирования (required).</param>
         /// <param name="discrepancyLabel">Тип расхождения товара:  - &#x60;surplus&#x60; — товара больше, чем заявлено  - &#x60;shortage&#x60; — товара меньше, чем заявлено  - &#x60;re-sorting&#x60; — баркод принятого товара не соответствует заявленному при формировании поставки  (required).</param>
         /// <param name="actualSku">Фактический баркод (required).</param>
-        public ModelsItemScans(int scanId = default(int), string declaredSku = default(string), DateTime scanTime = default(DateTime), DiscrepancyLabelEnum discrepancyLabel = default(DiscrepancyLabelEnum), string actualSku = default(string))
+        public ModelsItemScans(int scanId = default(int), string declaredSku = default(string), string scanTime = default(string), DiscrepancyLabelEnum discrepancyLabel = default(DiscrepancyLabelEnum), string actualSku = default(string))
         {
             this.ScanId = scanId;
             // to ensure "declaredSku" is required (not null)
@@ -86,6 +86,11 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
                 throw new ArgumentNullException("declaredSku is a required property for ModelsItemScans and cannot be null");
             }
             this.DeclaredSku = declaredSku;
+            // to ensure "scanTime" is required (not null)
+            if (scanTime == null)
+            {
+                throw new ArgumentNullException("scanTime is a required property for ModelsItemScans and cannot be null");
+            }
             this.ScanTime = scanTime;
             this.DiscrepancyLabel = discrepancyLabel;
             // to ensure "actualSku" is required (not null)
@@ -115,7 +120,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>Дата и время сканирования</value>
         [DataMember(Name = "scanTime", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime ScanTime { get; set; }
+        public string ScanTime { get; set; }
 
         /// <summary>
         /// Фактический баркод

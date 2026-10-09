@@ -162,11 +162,26 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /// <param name="utdUcdDate">Дата УПД или УКД (required).</param>
         /// <param name="orderUid">ID корзины заказа — транзакции. Заказы в одной корзине покупателя будут иметь одинаковый &#x60;orderUid&#x60; (required).</param>
         /// <param name="srid">ID заказа. В ответах методов сборочных заданий [FBS](./orders-fbs#tag/fbsAssemblyOrders), [DBW](./orders-dbw#tag/dbwAssemblyOrders), [DBS](./dbs#tag/dbsAssemblyOrders) и [Самовывоз](./in-store-pickup#tag/inStorePickupAssemblyOrders) &#x60;srid&#x60; равен &#x60;rid&#x60; (required).</param>
-        public SalesReportsDetailedRes(long reportId = default(long), DateOnly dateFrom = default(DateOnly), DateOnly dateTo = default(DateOnly), DateOnly createDate = default(DateOnly), string currency = default(string), ReportTypeEnum reportType = default(ReportTypeEnum), int rrdId = default(int), int giId = default(int), decimal dlvPrc = default(decimal), DateOnly fixTariffDateFrom = default(DateOnly), DateOnly fixTariffDateTo = default(DateOnly), string subjectName = default(string), int nmId = default(int), string brandName = default(string), string vendorCode = default(string), string title = default(string), string techSize = default(string), string sku = default(string), string docTypeName = default(string), int quantity = default(int), string retailPrice = default(string), string retailAmount = default(string), int salePercent = default(int), decimal commissionPercent = default(decimal), string officeName = default(string), string sellerOperName = default(string), DateTime orderDt = default(DateTime), DateTime saleDt = default(DateTime), DateOnly rrDate = default(DateOnly), int shkId = default(int), string retailPriceWithDisc = default(string), int deliveryAmount = default(int), int returnAmount = default(int), string deliveryService = default(string), string giBoxTypeName = default(string), decimal productDiscountForReport = default(decimal), decimal sellerPromo = default(decimal), decimal spp = default(decimal), decimal kvwBase = default(decimal), decimal kvw = default(decimal), decimal supRatingUp = default(decimal), decimal isKgvpV2 = default(decimal), string ppvzSalesCommission = default(string), string forPay = default(string), string ppvzReward = default(string), string acquiringFee = default(string), decimal acquiringPercent = default(decimal), string paymentProcessing = default(string), string acquiringBank = default(string), string vw = default(string), string vwNds = default(string), string ppvzOfficeName = default(string), int ppvzOfficeId = default(int), string ppvzSupplierName = default(string), string ppvzSupplierInn = default(string), string declarationNumber = default(string), string bonusTypeName = default(string), string stickerId = default(string), string country = default(string), bool srvDbs = default(bool), string penalty = default(string), string additionalPayment = default(string), string rebillLogisticCost = default(string), string rebillLogisticOrg = default(string), string paidStorage = default(string), string deduction = default(string), string paidAcceptance = default(string), int orderId = default(int), string kiz = default(string), bool isB2b = default(bool), string trbxId = default(string), string installmentCofinancingAmount = default(string), decimal wibesDiscountPercent = default(decimal), string cashbackAmount = default(string), string cashbackDiscount = default(string), string cashbackCommissionChange = default(string), string paymentSchedule = default(string), string deliveryMethod = default(string), int sellerPromoId = default(int), decimal sellerPromoDiscount = default(decimal), int loyaltyId = default(int), decimal loyaltyDiscount = default(decimal), string uuidPromocode = default(string), decimal salePricePromocodeDiscountPrc = default(decimal), string articleSubstitution = default(string), decimal salePriceAffiliatedDiscountPrc = default(decimal), decimal agencyVat = default(decimal), decimal salePriceWholesaleDiscountPrc = default(decimal), string b2bCustomerTin = default(string), bool paidWithSocialCertificate = default(bool), decimal warehouseLogisticsCoeff = default(decimal), string buyerTaxRegistrationReasonCode = default(string), string utdUcdNumber = default(string), DateOnly utdUcdDate = default(DateOnly), string orderUid = default(string), string srid = default(string))
+        public SalesReportsDetailedRes(long reportId = default(long), string dateFrom = default(string), string dateTo = default(string), string createDate = default(string), string currency = default(string), ReportTypeEnum reportType = default(ReportTypeEnum), int rrdId = default(int), int giId = default(int), decimal dlvPrc = default(decimal), string fixTariffDateFrom = default(string), string fixTariffDateTo = default(string), string subjectName = default(string), int nmId = default(int), string brandName = default(string), string vendorCode = default(string), string title = default(string), string techSize = default(string), string sku = default(string), string docTypeName = default(string), int quantity = default(int), string retailPrice = default(string), string retailAmount = default(string), int salePercent = default(int), decimal commissionPercent = default(decimal), string officeName = default(string), string sellerOperName = default(string), string orderDt = default(string), string saleDt = default(string), string rrDate = default(string), int shkId = default(int), string retailPriceWithDisc = default(string), int deliveryAmount = default(int), int returnAmount = default(int), string deliveryService = default(string), string giBoxTypeName = default(string), decimal productDiscountForReport = default(decimal), decimal sellerPromo = default(decimal), decimal spp = default(decimal), decimal kvwBase = default(decimal), decimal kvw = default(decimal), decimal supRatingUp = default(decimal), decimal isKgvpV2 = default(decimal), string ppvzSalesCommission = default(string), string forPay = default(string), string ppvzReward = default(string), string acquiringFee = default(string), decimal acquiringPercent = default(decimal), string paymentProcessing = default(string), string acquiringBank = default(string), string vw = default(string), string vwNds = default(string), string ppvzOfficeName = default(string), int ppvzOfficeId = default(int), string ppvzSupplierName = default(string), string ppvzSupplierInn = default(string), string declarationNumber = default(string), string bonusTypeName = default(string), string stickerId = default(string), string country = default(string), bool srvDbs = default(bool), string penalty = default(string), string additionalPayment = default(string), string rebillLogisticCost = default(string), string rebillLogisticOrg = default(string), string paidStorage = default(string), string deduction = default(string), string paidAcceptance = default(string), int orderId = default(int), string kiz = default(string), bool isB2b = default(bool), string trbxId = default(string), string installmentCofinancingAmount = default(string), decimal wibesDiscountPercent = default(decimal), string cashbackAmount = default(string), string cashbackDiscount = default(string), string cashbackCommissionChange = default(string), string paymentSchedule = default(string), string deliveryMethod = default(string), int sellerPromoId = default(int), decimal sellerPromoDiscount = default(decimal), int loyaltyId = default(int), decimal loyaltyDiscount = default(decimal), string uuidPromocode = default(string), decimal salePricePromocodeDiscountPrc = default(decimal), string articleSubstitution = default(string), decimal salePriceAffiliatedDiscountPrc = default(decimal), decimal agencyVat = default(decimal), decimal salePriceWholesaleDiscountPrc = default(decimal), string b2bCustomerTin = default(string), bool paidWithSocialCertificate = default(bool), decimal warehouseLogisticsCoeff = default(decimal), string buyerTaxRegistrationReasonCode = default(string), string utdUcdNumber = default(string), string utdUcdDate = default(string), string orderUid = default(string), string srid = default(string))
         {
             this.ReportId = reportId;
+            // to ensure "dateFrom" is required (not null)
+            if (dateFrom == null)
+            {
+                throw new ArgumentNullException("dateFrom is a required property for SalesReportsDetailedRes and cannot be null");
+            }
             this.DateFrom = dateFrom;
+            // to ensure "dateTo" is required (not null)
+            if (dateTo == null)
+            {
+                throw new ArgumentNullException("dateTo is a required property for SalesReportsDetailedRes and cannot be null");
+            }
             this.DateTo = dateTo;
+            // to ensure "createDate" is required (not null)
+            if (createDate == null)
+            {
+                throw new ArgumentNullException("createDate is a required property for SalesReportsDetailedRes and cannot be null");
+            }
             this.CreateDate = createDate;
             // to ensure "currency" is required (not null)
             if (currency == null)
@@ -178,7 +193,17 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
             this.RrdId = rrdId;
             this.GiId = giId;
             this.DlvPrc = dlvPrc;
+            // to ensure "fixTariffDateFrom" is required (not null)
+            if (fixTariffDateFrom == null)
+            {
+                throw new ArgumentNullException("fixTariffDateFrom is a required property for SalesReportsDetailedRes and cannot be null");
+            }
             this.FixTariffDateFrom = fixTariffDateFrom;
+            // to ensure "fixTariffDateTo" is required (not null)
+            if (fixTariffDateTo == null)
+            {
+                throw new ArgumentNullException("fixTariffDateTo is a required property for SalesReportsDetailedRes and cannot be null");
+            }
             this.FixTariffDateTo = fixTariffDateTo;
             // to ensure "subjectName" is required (not null)
             if (subjectName == null)
@@ -250,8 +275,23 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
                 throw new ArgumentNullException("sellerOperName is a required property for SalesReportsDetailedRes and cannot be null");
             }
             this.SellerOperName = sellerOperName;
+            // to ensure "orderDt" is required (not null)
+            if (orderDt == null)
+            {
+                throw new ArgumentNullException("orderDt is a required property for SalesReportsDetailedRes and cannot be null");
+            }
             this.OrderDt = orderDt;
+            // to ensure "saleDt" is required (not null)
+            if (saleDt == null)
+            {
+                throw new ArgumentNullException("saleDt is a required property for SalesReportsDetailedRes and cannot be null");
+            }
             this.SaleDt = saleDt;
+            // to ensure "rrDate" is required (not null)
+            if (rrDate == null)
+            {
+                throw new ArgumentNullException("rrDate is a required property for SalesReportsDetailedRes and cannot be null");
+            }
             this.RrDate = rrDate;
             this.ShkId = shkId;
             // to ensure "retailPriceWithDisc" is required (not null)
@@ -488,6 +528,11 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
                 throw new ArgumentNullException("utdUcdNumber is a required property for SalesReportsDetailedRes and cannot be null");
             }
             this.UtdUcdNumber = utdUcdNumber;
+            // to ensure "utdUcdDate" is required (not null)
+            if (utdUcdDate == null)
+            {
+                throw new ArgumentNullException("utdUcdDate is a required property for SalesReportsDetailedRes and cannot be null");
+            }
             this.UtdUcdDate = utdUcdDate;
             // to ensure "orderUid" is required (not null)
             if (orderUid == null)
@@ -522,30 +567,30 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /// </summary>
         /// <value>Дата начала отчётного периода</value>
         /*
-        <example>Mon Mar 16 00:00:00 UTC 2026</example>
+        <example>2026-03-16</example>
         */
         [DataMember(Name = "dateFrom", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly DateFrom { get; set; }
+        public string DateFrom { get; set; }
 
         /// <summary>
         /// Дата конца отчётного периода
         /// </summary>
         /// <value>Дата конца отчётного периода</value>
         /*
-        <example>Sun Mar 22 00:00:00 UTC 2026</example>
+        <example>2026-03-22</example>
         */
         [DataMember(Name = "dateTo", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly DateTo { get; set; }
+        public string DateTo { get; set; }
 
         /// <summary>
         /// Дата формирования отчёта
         /// </summary>
         /// <value>Дата формирования отчёта</value>
         /*
-        <example>Mon Mar 23 00:00:00 UTC 2026</example>
+        <example>2026-03-23</example>
         */
         [DataMember(Name = "createDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly CreateDate { get; set; }
+        public string CreateDate { get; set; }
 
         /// <summary>
         /// Валюта отчёта
@@ -592,20 +637,20 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /// </summary>
         /// <value>Дата начала действия фиксации</value>
         /*
-        <example>Wed Mar 18 00:00:00 UTC 2026</example>
+        <example>2026-03-18</example>
         */
         [DataMember(Name = "fixTariffDateFrom", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly FixTariffDateFrom { get; set; }
+        public string FixTariffDateFrom { get; set; }
 
         /// <summary>
         /// Дата конца действия фиксации
         /// </summary>
         /// <value>Дата конца действия фиксации</value>
         /*
-        <example>Thu Mar 19 00:00:00 UTC 2026</example>
+        <example>2026-03-19</example>
         */
         [DataMember(Name = "fixTariffDateTo", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly FixTariffDateTo { get; set; }
+        public string FixTariffDateTo { get; set; }
 
         /// <summary>
         /// Предмет
@@ -762,30 +807,30 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /// </summary>
         /// <value>Дата и время заказа</value>
         /*
-        <example>2026-03-14T00:00Z</example>
+        <example>2026-03-14T00:00:00Z</example>
         */
         [DataMember(Name = "orderDt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime OrderDt { get; set; }
+        public string OrderDt { get; set; }
 
         /// <summary>
         /// Дата и время продажи
         /// </summary>
         /// <value>Дата и время продажи</value>
         /*
-        <example>2026-03-21T00:00Z</example>
+        <example>2026-03-21T00:00:00Z</example>
         */
         [DataMember(Name = "saleDt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime SaleDt { get; set; }
+        public string SaleDt { get; set; }
 
         /// <summary>
         /// Дата операции
         /// </summary>
         /// <value>Дата операции</value>
         /*
-        <example>Mon Oct 20 00:00:00 UTC 2025</example>
+        <example>2025-10-20</example>
         */
         [DataMember(Name = "rrDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly RrDate { get; set; }
+        public string RrDate { get; set; }
 
         /// <summary>
         /// Штрихкод
@@ -1417,10 +1462,10 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /// </summary>
         /// <value>Дата УПД или УКД</value>
         /*
-        <example>Mon Jan 02 00:00:00 UTC 2006</example>
+        <example>2006-01-02</example>
         */
         [DataMember(Name = "utdUcdDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly UtdUcdDate { get; set; }
+        public string UtdUcdDate { get; set; }
 
         /// <summary>
         /// ID корзины заказа — транзакции. Заказы в одной корзине покупателя будут иметь одинаковый &#x60;orderUid&#x60;

@@ -79,7 +79,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// <param name="commissionRate">Стоимость подключения опции, % от оборота. Возвращается, если в ответе нет объекта &#x60;promotion&#x60;.</param>
         /// <param name="periodDuration">Минимальный срок действия опции в днях.</param>
         /// <param name="promotion">promotion.</param>
-        public PlanBuilderOption(string id = default(string), string slug = default(string), string name = default(string), StatusEnum? status = default(StatusEnum?), DateTime activatedAt = default(DateTime), DateTime expiresAt = default(DateTime), float commissionRate = default(float), decimal periodDuration = default(decimal), PlanBuilderOptionPromotion promotion = default(PlanBuilderOptionPromotion))
+        public PlanBuilderOption(string id = default(string), string slug = default(string), string name = default(string), StatusEnum? status = default(StatusEnum?), string activatedAt = default(string), string expiresAt = default(string), float commissionRate = default(float), decimal periodDuration = default(decimal), PlanBuilderOptionPromotion promotion = default(PlanBuilderOptionPromotion))
         {
             this.Id = id;
             this.Slug = slug;
@@ -130,7 +130,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         <example>2006-01-02T15:04:05.999+03:00</example>
         */
         [DataMember(Name = "activatedAt", EmitDefaultValue = false)]
-        public DateTime ActivatedAt { get; set; }
+        public string ActivatedAt { get; set; }
 
         /// <summary>
         /// Дата окончания минимального срока действия опции. До этого дня опцию нельзя отключить
@@ -140,7 +140,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         <example>2006-01-02T15:04:05.999+03:00</example>
         */
         [DataMember(Name = "expiresAt", EmitDefaultValue = false)]
-        public DateTime ExpiresAt { get; set; }
+        public string ExpiresAt { get; set; }
 
         /// <summary>
         /// Стоимость подключения опции, % от оборота. Возвращается, если в ответе нет объекта &#x60;promotion&#x60;

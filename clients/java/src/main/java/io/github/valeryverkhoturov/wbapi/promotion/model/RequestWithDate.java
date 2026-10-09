@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.promotion.JSON;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -46,7 +45,7 @@ public class RequestWithDate {
 
   @SerializedName(SERIALIZED_NAME_DATES)
   @jakarta.annotation.Nonnull
-  private List<LocalDate> dates = new ArrayList<>();
+  private List<String> dates = new ArrayList<>();
 
   public RequestWithDate() {}
 
@@ -69,12 +68,12 @@ public class RequestWithDate {
     this.id = id;
   }
 
-  public RequestWithDate dates(@jakarta.annotation.Nonnull List<LocalDate> dates) {
+  public RequestWithDate dates(@jakarta.annotation.Nonnull List<String> dates) {
     this.dates = dates;
     return this;
   }
 
-  public RequestWithDate addDatesItem(LocalDate datesItem) {
+  public RequestWithDate addDatesItem(String datesItem) {
     if (this.dates == null) {
       this.dates = new ArrayList<>();
     }
@@ -88,11 +87,11 @@ public class RequestWithDate {
    * @return dates
    */
   @jakarta.annotation.Nonnull
-  public List<LocalDate> getDates() {
+  public List<String> getDates() {
     return dates;
   }
 
-  public void setDates(@jakarta.annotation.Nonnull List<LocalDate> dates) {
+  public void setDates(@jakarta.annotation.Nonnull List<String> dates) {
     this.dates = dates;
   }
 

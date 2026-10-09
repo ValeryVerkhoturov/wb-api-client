@@ -17,7 +17,6 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
-	"time"
 )
 
 type DefaultApi interface {
@@ -2608,16 +2607,16 @@ func (a *DefaultApiService) GetV1AnalyticsRegionSaleExecute(r ApiGetV1AnalyticsR
 type ApiGetV1DeductionsRequest struct {
 	ctx        context.Context
 	ApiService DefaultApi
-	dateTo     *time.Time
+	dateTo     *string
 	limit      *int32
-	dateFrom   *time.Time
+	dateFrom   *string
 	sort       *string
 	order      *string
 	offset     *int32
 }
 
 // Конец отчётного периода
-func (r ApiGetV1DeductionsRequest) DateTo(dateTo time.Time) ApiGetV1DeductionsRequest {
+func (r ApiGetV1DeductionsRequest) DateTo(dateTo string) ApiGetV1DeductionsRequest {
 	r.dateTo = &dateTo
 	return r
 }
@@ -2629,7 +2628,7 @@ func (r ApiGetV1DeductionsRequest) Limit(limit int32) ApiGetV1DeductionsRequest 
 }
 
 // Начало отчётного периода. По умолчанию используются дата и время, когда были впервые получены данные для отчёта
-func (r ApiGetV1DeductionsRequest) DateFrom(dateFrom time.Time) ApiGetV1DeductionsRequest {
+func (r ApiGetV1DeductionsRequest) DateFrom(dateFrom string) ApiGetV1DeductionsRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
@@ -3028,14 +3027,14 @@ func (a *DefaultApiService) GetV1GoodsReturnExecute(r ApiGetV1GoodsReturnRequest
 type ApiGetV1MeasurementPenaltiesRequest struct {
 	ctx        context.Context
 	ApiService DefaultApi
-	dateTo     *time.Time
+	dateTo     *string
 	limit      *int32
-	dateFrom   *time.Time
+	dateFrom   *string
 	offset     *int32
 }
 
 // Конец отчётного периода
-func (r ApiGetV1MeasurementPenaltiesRequest) DateTo(dateTo time.Time) ApiGetV1MeasurementPenaltiesRequest {
+func (r ApiGetV1MeasurementPenaltiesRequest) DateTo(dateTo string) ApiGetV1MeasurementPenaltiesRequest {
 	r.dateTo = &dateTo
 	return r
 }
@@ -3047,7 +3046,7 @@ func (r ApiGetV1MeasurementPenaltiesRequest) Limit(limit int32) ApiGetV1Measurem
 }
 
 // Начало отчётного периода. По умолчанию используется дата, когда были впервые получены данные для отчёта
-func (r ApiGetV1MeasurementPenaltiesRequest) DateFrom(dateFrom time.Time) ApiGetV1MeasurementPenaltiesRequest {
+func (r ApiGetV1MeasurementPenaltiesRequest) DateFrom(dateFrom string) ApiGetV1MeasurementPenaltiesRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
@@ -4176,14 +4175,14 @@ func (a *DefaultApiService) GetV1SupplierSalesExecute(r ApiGetV1SupplierSalesReq
 type ApiGetV1WarehouseMeasurementsRequest struct {
 	ctx        context.Context
 	ApiService DefaultApi
-	dateTo     *time.Time
+	dateTo     *string
 	limit      *int32
-	dateFrom   *time.Time
+	dateFrom   *string
 	offset     *int32
 }
 
 // Конец отчётного периода
-func (r ApiGetV1WarehouseMeasurementsRequest) DateTo(dateTo time.Time) ApiGetV1WarehouseMeasurementsRequest {
+func (r ApiGetV1WarehouseMeasurementsRequest) DateTo(dateTo string) ApiGetV1WarehouseMeasurementsRequest {
 	r.dateTo = &dateTo
 	return r
 }
@@ -4195,7 +4194,7 @@ func (r ApiGetV1WarehouseMeasurementsRequest) Limit(limit int32) ApiGetV1Warehou
 }
 
 // Начало отчётного периода. По умолчанию используется дата, когда были впервые получены данные для отчёта
-func (r ApiGetV1WarehouseMeasurementsRequest) DateFrom(dateFrom time.Time) ApiGetV1WarehouseMeasurementsRequest {
+func (r ApiGetV1WarehouseMeasurementsRequest) DateFrom(dateFrom string) ApiGetV1WarehouseMeasurementsRequest {
 	r.dateFrom = &dateFrom
 	return r
 }

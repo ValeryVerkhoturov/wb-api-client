@@ -143,7 +143,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="destinationDistrict">Федеральный округ доставки. Если доставка не по России, возвращается страна (required).</param>
         /// <param name="sellerPrice">Цена продавца со скидкой продавца (без учёта скидки WB Клуба и оптовой скидки для B2B-продаж) (required).</param>
         /// <param name="isB2b">Тип продажи:   - &#x60;true&#x60; — B2B   - &#x60;false&#x60; — B2C  (required).</param>
-        public Order(long nmId = default(long), int chrtId = default(int), string srid = default(string), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), StatusEnum status = default(StatusEnum), CancelTypeEnum? cancelType = default(CancelTypeEnum?), string warehouseName = default(string), string warehouseRegion = default(string), bool isMp = default(bool), string destinationCity = default(string), string destinationDistrict = default(string), decimal sellerPrice = default(decimal), bool isB2b = default(bool))
+        public Order(long nmId = default(long), int chrtId = default(int), string srid = default(string), string createdAt = default(string), string updatedAt = default(string), StatusEnum status = default(StatusEnum), CancelTypeEnum? cancelType = default(CancelTypeEnum?), string warehouseName = default(string), string warehouseRegion = default(string), bool isMp = default(bool), string destinationCity = default(string), string destinationDistrict = default(string), decimal sellerPrice = default(decimal), bool isB2b = default(bool))
         {
             this.NmId = nmId;
             this.ChrtId = chrtId;
@@ -153,7 +153,17 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
                 throw new ArgumentNullException("srid is a required property for Order and cannot be null");
             }
             this.Srid = srid;
+            // to ensure "createdAt" is required (not null)
+            if (createdAt == null)
+            {
+                throw new ArgumentNullException("createdAt is a required property for Order and cannot be null");
+            }
             this.CreatedAt = createdAt;
+            // to ensure "updatedAt" is required (not null)
+            if (updatedAt == null)
+            {
+                throw new ArgumentNullException("updatedAt is a required property for Order and cannot be null");
+            }
             this.UpdatedAt = updatedAt;
             this.Status = status;
             // to ensure "warehouseName" is required (not null)
@@ -224,7 +234,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>2026-06-24T12:57:26+03:00</example>
         */
         [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
 
         /// <summary>
         /// Дата и время текущего статуса. При &#x60;\&quot;status\&quot;:\&quot;created\&quot;&#x60; возвращается значение поля &#x60;createdAt&#x60;
@@ -234,7 +244,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>2026-06-26T19:19:38+03:00</example>
         */
         [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime UpdatedAt { get; set; }
+        public string UpdatedAt { get; set; }
 
         /// <summary>
         /// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только &#x60;Склад WB&#x60;

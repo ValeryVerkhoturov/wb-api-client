@@ -1458,7 +1458,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: unauthorized
@@ -1515,7 +1514,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: too many requests
@@ -1847,13 +1845,11 @@ components:
           example: '71230971931'
         pTimeFrom:
           type: string
-          format: date-time
           description: Дата и время, с которого прибудет курьер
           nullable: true
           example: '2025-09-06T08:00:00Z'
         pTimeTo:
           type: string
-          format: date-time
           description: Дата и время, до которого прибудет курьер
           nullable: true
           example: '2025-09-06T11:00:00Z'
@@ -1876,7 +1872,6 @@ components:
               Если `"mustBeAssigned":true`, а `"contacts":null`, необходимо запросить контакты в [поддержке](https://seller.wildberries.ru/service-desk-v2)
         updatedAt:
           type: string
-          format: date-time
           description: "Дата и время обновления информации о курьере.\n Если `null`, информация не обновлялась"
           nullable: true
           example: '2025-09-06T11:33:10+03:00'
@@ -2136,7 +2131,6 @@ components:
           example: f884001e44e511edb8780242ac120002
         createdAt:
           type: string
-          format: date-time
           nullable: false
           description: Дата создания сборочного задания
           example: '2022-05-04T07:56:29Z'
@@ -2281,7 +2275,6 @@ components:
           example: f884001e44e511edb8780242ac120002
         createdAt:
           type: string
-          format: date-time
           nullable: false
           description: Дата создания сборочного задания
           example: '2022-05-04T07:56:29Z'
@@ -2429,7 +2422,6 @@ components:
           description: Расшифровка HTTP статус-кода
         timestamp:
           type: string
-          format: date-time
           description: Дата и время запроса
     GetV3DbwOrdersNewResponse200:
       type: object

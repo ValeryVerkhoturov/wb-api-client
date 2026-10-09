@@ -42,9 +42,14 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="next">Есть ли ещё черновики:   - &#x60;false&#x60; — нет   - &#x60;true&#x60; — да  (required).</param>
         /// <param name="updatedAt">Дата и время формирования последнего пакета в ответе (required).</param>
         /// <param name="batchUUID">ID последнего пакета в ответе (required).</param>
-        public ViewerContractPublicErrorsCursorOutput(bool next = default(bool), DateTime updatedAt = default(DateTime), Guid batchUUID = default(Guid))
+        public ViewerContractPublicErrorsCursorOutput(bool next = default(bool), string updatedAt = default(string), Guid batchUUID = default(Guid))
         {
             this.Next = next;
+            // to ensure "updatedAt" is required (not null)
+            if (updatedAt == null)
+            {
+                throw new ArgumentNullException("updatedAt is a required property for ViewerContractPublicErrorsCursorOutput and cannot be null");
+            }
             this.UpdatedAt = updatedAt;
             this.BatchUUID = batchUUID;
         }
@@ -61,7 +66,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Дата и время формирования последнего пакета в ответе</value>
         [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime UpdatedAt { get; set; }
+        public string UpdatedAt { get; set; }
 
         /// <summary>
         /// ID последнего пакета в ответе

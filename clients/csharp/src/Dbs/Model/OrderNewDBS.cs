@@ -122,7 +122,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// <param name="cargoType">Тип товара:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) .</param>
         /// <param name="isZeroOrder">Признак заказа товара с нулевым остатком:   - &#x60;false&#x60; — заказ сделан на товар с ненулевым остатком   - &#x60;true&#x60; — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену .</param>
         /// <param name="wbStickerId">ID стикера. Отображается только для заказов в ПВЗ.</param>
-        public OrderNewDBS(int? salePrice = default(int?), List<string> requiredMeta = default(List<string>), string comment = default(string), OrderNewDBSOptions options = default(OrderNewDBSOptions), OrderNewDBSAddress address = default(OrderNewDBSAddress), string orderUid = default(string), Guid groupId = default(Guid), string article = default(string), string colorCode = default(string), Object rid = default(Object), DateTime createdAt = default(DateTime), DeliveryTypeEnum? deliveryType = default(DeliveryTypeEnum?), List<string> skus = default(List<string>), long id = default(long), int warehouseId = default(int), int nmId = default(int), int chrtId = default(int), int price = default(int), int finalPrice = default(int), int convertedFinalPrice = default(int), int convertedPrice = default(int), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), bool isZeroOrder = default(bool), int wbStickerId = default(int))
+        public OrderNewDBS(int? salePrice = default(int?), List<string> requiredMeta = default(List<string>), string comment = default(string), OrderNewDBSOptions options = default(OrderNewDBSOptions), OrderNewDBSAddress address = default(OrderNewDBSAddress), string orderUid = default(string), Guid groupId = default(Guid), string article = default(string), string colorCode = default(string), Object rid = default(Object), string createdAt = default(string), DeliveryTypeEnum? deliveryType = default(DeliveryTypeEnum?), List<string> skus = default(List<string>), long id = default(long), int warehouseId = default(int), int nmId = default(int), int chrtId = default(int), int price = default(int), int finalPrice = default(int), int convertedFinalPrice = default(int), int convertedPrice = default(int), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), bool isZeroOrder = default(bool), int wbStickerId = default(int))
         {
             this.SalePrice = salePrice;
             this.RequiredMeta = requiredMeta;
@@ -252,7 +252,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         <example>2022-05-04T07:56:29Z</example>
         */
         [DataMember(Name = "createdAt", EmitDefaultValue = false)]
-        public DateTime CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
 
         /// <summary>
         /// Массив баркодов товара

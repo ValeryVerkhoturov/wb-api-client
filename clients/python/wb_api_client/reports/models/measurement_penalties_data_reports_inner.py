@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import (
     BaseModel,
     ConfigDict,
@@ -68,7 +67,7 @@ class MeasurementPenaltiesDataReportsInner(BaseModel):
         description="Высота, см (габариты карточки товара)", alias="heightSup"
     )
     photo_urls: List[StrictStr] = Field(description="Фото замеров", alias="photoUrls")
-    dt_bonus: Optional[datetime] = Field(
+    dt_bonus: Optional[StrictStr] = Field(
         default=None, description="Дата штрафа", alias="dtBonus"
     )
     is_valid: Optional[StrictBool] = Field(
@@ -76,7 +75,7 @@ class MeasurementPenaltiesDataReportsInner(BaseModel):
         description="Статус обмера:   - `false` — отменён   - `true` — подтверждён ",
         alias="isValid",
     )
-    is_valid_dt: Optional[datetime] = Field(
+    is_valid_dt: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время подтверждения или отмены обмера",
         alias="isValidDt",
@@ -87,12 +86,12 @@ class MeasurementPenaltiesDataReportsInner(BaseModel):
     penalty_amount: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None, description="Сумма штрафа", alias="penaltyAmount"
     )
-    date_start: Optional[datetime] = Field(
+    date_start: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время начала действия коэффициента",
         alias="dateStart",
     )
-    date_end: Optional[datetime] = Field(
+    date_end: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время окончания действия коэффициента",
         alias="dateEnd",

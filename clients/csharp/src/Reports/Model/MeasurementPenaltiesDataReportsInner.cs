@@ -59,7 +59,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="penaltyAmount">Сумма штрафа.</param>
         /// <param name="dateStart">Дата и время начала действия коэффициента.</param>
         /// <param name="dateEnd">Дата и время окончания действия коэффициента.</param>
-        public MeasurementPenaltiesDataReportsInner(int nmId = default(int), string subjectName = default(string), int dimId = default(int), decimal prcOver = default(decimal), decimal volume = default(decimal), int width = default(int), int length = default(int), int height = default(int), decimal volumeSup = default(decimal), int widthSup = default(int), int lengthSup = default(int), int heightSup = default(int), List<string> photoUrls = default(List<string>), DateTime dtBonus = default(DateTime), bool isValid = default(bool), DateTime isValidDt = default(DateTime), decimal reversalAmount = default(decimal), decimal penaltyAmount = default(decimal), DateTime dateStart = default(DateTime), DateTime dateEnd = default(DateTime))
+        public MeasurementPenaltiesDataReportsInner(int nmId = default(int), string subjectName = default(string), int dimId = default(int), decimal prcOver = default(decimal), decimal volume = default(decimal), int width = default(int), int length = default(int), int height = default(int), decimal volumeSup = default(decimal), int widthSup = default(int), int lengthSup = default(int), int heightSup = default(int), List<string> photoUrls = default(List<string>), string dtBonus = default(string), bool isValid = default(bool), string isValidDt = default(string), decimal reversalAmount = default(decimal), decimal penaltyAmount = default(decimal), string dateStart = default(string), string dateEnd = default(string))
         {
             this.NmId = nmId;
             // to ensure "subjectName" is required (not null)
@@ -228,10 +228,10 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>Дата штрафа</value>
         /*
-        <example>2025-06-02T00:00Z</example>
+        <example>2025-06-02T00:00:00Z</example>
         */
         [DataMember(Name = "dtBonus", EmitDefaultValue = false)]
-        public DateTime DtBonus { get; set; }
+        public string DtBonus { get; set; }
 
         /// <summary>
         /// Статус обмера:   - &#x60;false&#x60; — отменён   - &#x60;true&#x60; — подтверждён 
@@ -251,7 +251,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>2025-05-29T13:35:57Z</example>
         */
         [DataMember(Name = "isValidDt", EmitDefaultValue = false)]
-        public DateTime IsValidDt { get; set; }
+        public string IsValidDt { get; set; }
 
         /// <summary>
         /// Сумма сторно
@@ -281,7 +281,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>2025-05-09T13:35:57Z</example>
         */
         [DataMember(Name = "dateStart", EmitDefaultValue = false)]
-        public DateTime DateStart { get; set; }
+        public string DateStart { get; set; }
 
         /// <summary>
         /// Дата и время окончания действия коэффициента
@@ -291,7 +291,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         <example>2025-05-29T13:35:57Z</example>
         */
         [DataMember(Name = "dateEnd", EmitDefaultValue = false)]
-        public DateTime DateEnd { get; set; }
+        public string DateEnd { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

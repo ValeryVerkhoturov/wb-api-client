@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.promotion.models.get_v1_advert_response200_items_inner_show_hours_inner import (
@@ -56,16 +55,16 @@ class GetV1AdvertResponse200ItemsInner(BaseModel):
         default=None,
         description="Тип продвижения: - `1` — баннер - `2` — всплывающее меню - `3` — почтовая рассылка - `4` — социальные сети - `5` — push-уведомления в мобильном приложении ",
     )
-    created_at: Optional[datetime] = Field(
+    created_at: Optional[StrictStr] = Field(
         default=None, description="Дата создания баннера"
     )
-    updated_at: Optional[datetime] = Field(
+    updated_at: Optional[StrictStr] = Field(
         default=None, description="Дата и время обновления баннера"
     )
-    date_from: Optional[datetime] = Field(
+    date_from: Optional[StrictStr] = Field(
         default=None, description="Дата начала работы баннера"
     )
-    date_to: Optional[datetime] = Field(
+    date_to: Optional[StrictStr] = Field(
         default=None, description="Дата завершения работы баннера"
     )
     nms: Optional[List[StrictInt]] = Field(

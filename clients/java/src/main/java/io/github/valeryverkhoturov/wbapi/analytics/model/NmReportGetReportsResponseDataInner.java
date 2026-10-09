@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.analytics.JSON;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -69,13 +68,13 @@ public class NmReportGetReportsResponseDataInner {
 
   @SerializedName(SERIALIZED_NAME_START_DATE)
   @jakarta.annotation.Nonnull
-  private LocalDate startDate;
+  private String startDate;
 
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
 
   @SerializedName(SERIALIZED_NAME_END_DATE)
   @jakarta.annotation.Nonnull
-  private LocalDate endDate;
+  private String endDate;
 
   public NmReportGetReportsResponseDataInner() {}
 
@@ -178,7 +177,7 @@ public class NmReportGetReportsResponseDataInner {
   }
 
   public NmReportGetReportsResponseDataInner startDate(
-      @jakarta.annotation.Nonnull LocalDate startDate) {
+      @jakarta.annotation.Nonnull String startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -189,16 +188,15 @@ public class NmReportGetReportsResponseDataInner {
    * @return startDate
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getStartDate() {
+  public String getStartDate() {
     return startDate;
   }
 
-  public void setStartDate(@jakarta.annotation.Nonnull LocalDate startDate) {
+  public void setStartDate(@jakarta.annotation.Nonnull String startDate) {
     this.startDate = startDate;
   }
 
-  public NmReportGetReportsResponseDataInner endDate(
-      @jakarta.annotation.Nonnull LocalDate endDate) {
+  public NmReportGetReportsResponseDataInner endDate(@jakarta.annotation.Nonnull String endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -209,11 +207,11 @@ public class NmReportGetReportsResponseDataInner {
    * @return endDate
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getEndDate() {
+  public String getEndDate() {
     return endDate;
   }
 
-  public void setEndDate(@jakarta.annotation.Nonnull LocalDate endDate) {
+  public void setEndDate(@jakarta.annotation.Nonnull String endDate) {
     this.endDate = endDate;
   }
 
@@ -353,6 +351,18 @@ public class NmReportGetReportsResponseDataInner {
           String.format(
               "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("name").toString()));
+    }
+    if (!jsonObj.get("startDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `startDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("startDate").toString()));
+    }
+    if (!jsonObj.get("endDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `endDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("endDate").toString()));
     }
   }
 

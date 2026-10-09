@@ -43,7 +43,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="endDate">Дата и время окончания срока действия документа.</param>
         /// <param name="isEndless">Бессрочный ли документ:   - &#x60;true&#x60; — да, документ бессрочный   - &#x60;false&#x60; — нет, у документа есть срок действия .</param>
         /// <param name="id">ID документа, прикреплённого к карточке. Укажите &#x60;id&#x60;, чтобы внести изменения в прикреплённый ранее документ. ID документа указан в [списке карточек товаров](https://dev.wildberries.ru/item-management#tag/listings/operation/postV2GetCardsList). Чтобы добавить новый документ, указывать &#x60;id&#x60; не нужно..</param>
-        public PostV2CardsUpdateRequestInnerDocumentsItemsInner(int type = default(int), string number = default(string), string productNumber = default(string), string tradeName = default(string), string applicant = default(string), DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), bool isEndless = default(bool), string id = default(string))
+        public PostV2CardsUpdateRequestInnerDocumentsItemsInner(int type = default(int), string number = default(string), string productNumber = default(string), string tradeName = default(string), string applicant = default(string), string startDate = default(string), string endDate = default(string), bool isEndless = default(bool), string id = default(string))
         {
             this.Type = type;
             this.Number = number;
@@ -96,14 +96,14 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Дата и время начала срока действия документа</value>
         [DataMember(Name = "startDate", EmitDefaultValue = false)]
-        public DateTime StartDate { get; set; }
+        public string StartDate { get; set; }
 
         /// <summary>
         /// Дата и время окончания срока действия документа
         /// </summary>
         /// <value>Дата и время окончания срока действия документа</value>
         [DataMember(Name = "endDate", EmitDefaultValue = false)]
-        public DateTime EndDate { get; set; }
+        public string EndDate { get; set; }
 
         /// <summary>
         /// Бессрочный ли документ:   - &#x60;true&#x60; — да, документ бессрочный   - &#x60;false&#x60; — нет, у документа есть срок действия 

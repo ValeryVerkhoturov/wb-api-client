@@ -12,7 +12,6 @@ package items
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the PostV2CardsUpdateRequestInnerDocumentsItemsInner type satisfies the MappedNullable interface at compile time
@@ -31,9 +30,9 @@ type PostV2CardsUpdateRequestInnerDocumentsItemsInner struct {
 	// Представитель изготовителя медицинского изделия
 	Applicant *string `json:"applicant,omitempty"`
 	// Дата и время начала срока действия документа
-	StartDate *time.Time `json:"startDate,omitempty"`
+	StartDate *string `json:"startDate,omitempty"`
 	// Дата и время окончания срока действия документа
-	EndDate *time.Time `json:"endDate,omitempty"`
+	EndDate *string `json:"endDate,omitempty"`
 	// Бессрочный ли документ:   - `true` — да, документ бессрочный   - `false` — нет, у документа есть срок действия
 	IsEndless *bool `json:"isEndless,omitempty"`
 	// ID документа, прикреплённого к карточке. Укажите `id`, чтобы внести изменения в прикреплённый ранее документ. ID документа указан в [списке карточек товаров](https://dev.wildberries.ru/item-management#tag/listings/operation/postV2GetCardsList). Чтобы добавить новый документ, указывать `id` не нужно.
@@ -218,9 +217,9 @@ func (o *PostV2CardsUpdateRequestInnerDocumentsItemsInner) SetApplicant(v string
 }
 
 // GetStartDate returns the StartDate field value if set, zero value otherwise.
-func (o *PostV2CardsUpdateRequestInnerDocumentsItemsInner) GetStartDate() time.Time {
+func (o *PostV2CardsUpdateRequestInnerDocumentsItemsInner) GetStartDate() string {
 	if o == nil || IsNil(o.StartDate) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.StartDate
@@ -228,7 +227,7 @@ func (o *PostV2CardsUpdateRequestInnerDocumentsItemsInner) GetStartDate() time.T
 
 // GetStartDateOk returns a tuple with the StartDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2CardsUpdateRequestInnerDocumentsItemsInner) GetStartDateOk() (*time.Time, bool) {
+func (o *PostV2CardsUpdateRequestInnerDocumentsItemsInner) GetStartDateOk() (*string, bool) {
 	if o == nil || IsNil(o.StartDate) {
 		return nil, false
 	}
@@ -244,15 +243,15 @@ func (o *PostV2CardsUpdateRequestInnerDocumentsItemsInner) HasStartDate() bool {
 	return false
 }
 
-// SetStartDate gets a reference to the given time.Time and assigns it to the StartDate field.
-func (o *PostV2CardsUpdateRequestInnerDocumentsItemsInner) SetStartDate(v time.Time) {
+// SetStartDate gets a reference to the given string and assigns it to the StartDate field.
+func (o *PostV2CardsUpdateRequestInnerDocumentsItemsInner) SetStartDate(v string) {
 	o.StartDate = &v
 }
 
 // GetEndDate returns the EndDate field value if set, zero value otherwise.
-func (o *PostV2CardsUpdateRequestInnerDocumentsItemsInner) GetEndDate() time.Time {
+func (o *PostV2CardsUpdateRequestInnerDocumentsItemsInner) GetEndDate() string {
 	if o == nil || IsNil(o.EndDate) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.EndDate
@@ -260,7 +259,7 @@ func (o *PostV2CardsUpdateRequestInnerDocumentsItemsInner) GetEndDate() time.Tim
 
 // GetEndDateOk returns a tuple with the EndDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2CardsUpdateRequestInnerDocumentsItemsInner) GetEndDateOk() (*time.Time, bool) {
+func (o *PostV2CardsUpdateRequestInnerDocumentsItemsInner) GetEndDateOk() (*string, bool) {
 	if o == nil || IsNil(o.EndDate) {
 		return nil, false
 	}
@@ -276,8 +275,8 @@ func (o *PostV2CardsUpdateRequestInnerDocumentsItemsInner) HasEndDate() bool {
 	return false
 }
 
-// SetEndDate gets a reference to the given time.Time and assigns it to the EndDate field.
-func (o *PostV2CardsUpdateRequestInnerDocumentsItemsInner) SetEndDate(v time.Time) {
+// SetEndDate gets a reference to the given string and assigns it to the EndDate field.
+func (o *PostV2CardsUpdateRequestInnerDocumentsItemsInner) SetEndDate(v string) {
 	o.EndDate = &v
 }
 

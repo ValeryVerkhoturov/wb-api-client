@@ -45,7 +45,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="vendorCodes">Артикулы продавца (required).</param>
         /// <param name="errors">Ошибки. Разбивка по &#x60;vendorCodes&#x60; (required).</param>
         /// <param name="updatedAt">Дата и время создания или редактирования пакета (required).</param>
-        public ModelsErrorTableListPublicRespV2Item(Guid batchUUID = default(Guid), Dictionary<string, ModelsErrorSubcategory> subjects = default(Dictionary<string, ModelsErrorSubcategory>), Dictionary<string, ModelsErrorBrand> brands = default(Dictionary<string, ModelsErrorBrand>), List<string> vendorCodes = default(List<string>), Dictionary<string, List<string>> errors = default(Dictionary<string, List<string>>), DateTime updatedAt = default(DateTime))
+        public ModelsErrorTableListPublicRespV2Item(Guid batchUUID = default(Guid), Dictionary<string, ModelsErrorSubcategory> subjects = default(Dictionary<string, ModelsErrorSubcategory>), Dictionary<string, ModelsErrorBrand> brands = default(Dictionary<string, ModelsErrorBrand>), List<string> vendorCodes = default(List<string>), Dictionary<string, List<string>> errors = default(Dictionary<string, List<string>>), string updatedAt = default(string))
         {
             this.BatchUUID = batchUUID;
             // to ensure "subjects" is required (not null)
@@ -72,6 +72,11 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
                 throw new ArgumentNullException("errors is a required property for ModelsErrorTableListPublicRespV2Item and cannot be null");
             }
             this.Errors = errors;
+            // to ensure "updatedAt" is required (not null)
+            if (updatedAt == null)
+            {
+                throw new ArgumentNullException("updatedAt is a required property for ModelsErrorTableListPublicRespV2Item and cannot be null");
+            }
             this.UpdatedAt = updatedAt;
         }
 
@@ -115,7 +120,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Дата и время создания или редактирования пакета</value>
         [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime UpdatedAt { get; set; }
+        public string UpdatedAt { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -14,7 +14,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"time"
 )
 
 // checks if the ModelsErrorTableListPublicRespV2Item type satisfies the MappedNullable interface at compile time
@@ -33,7 +32,7 @@ type ModelsErrorTableListPublicRespV2Item struct {
 	// Ошибки. Разбивка по `vendorCodes`
 	Errors map[string][]string `json:"errors"`
 	// Дата и время создания или редактирования пакета
-	UpdatedAt time.Time `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt"`
 }
 
 type _ModelsErrorTableListPublicRespV2Item ModelsErrorTableListPublicRespV2Item
@@ -42,7 +41,7 @@ type _ModelsErrorTableListPublicRespV2Item ModelsErrorTableListPublicRespV2Item
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModelsErrorTableListPublicRespV2Item(batchUUID string, subjects map[string]ModelsErrorSubcategory, brands map[string]ModelsErrorBrand, vendorCodes []string, errors map[string][]string, updatedAt time.Time) *ModelsErrorTableListPublicRespV2Item {
+func NewModelsErrorTableListPublicRespV2Item(batchUUID string, subjects map[string]ModelsErrorSubcategory, brands map[string]ModelsErrorBrand, vendorCodes []string, errors map[string][]string, updatedAt string) *ModelsErrorTableListPublicRespV2Item {
 	this := ModelsErrorTableListPublicRespV2Item{}
 	this.BatchUUID = batchUUID
 	this.Subjects = subjects
@@ -182,9 +181,9 @@ func (o *ModelsErrorTableListPublicRespV2Item) SetErrors(v map[string][]string) 
 }
 
 // GetUpdatedAt returns the UpdatedAt field value
-func (o *ModelsErrorTableListPublicRespV2Item) GetUpdatedAt() time.Time {
+func (o *ModelsErrorTableListPublicRespV2Item) GetUpdatedAt() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -193,7 +192,7 @@ func (o *ModelsErrorTableListPublicRespV2Item) GetUpdatedAt() time.Time {
 
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value
 // and a boolean to check if the value has been set.
-func (o *ModelsErrorTableListPublicRespV2Item) GetUpdatedAtOk() (*time.Time, bool) {
+func (o *ModelsErrorTableListPublicRespV2Item) GetUpdatedAtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -201,7 +200,7 @@ func (o *ModelsErrorTableListPublicRespV2Item) GetUpdatedAtOk() (*time.Time, boo
 }
 
 // SetUpdatedAt sets field value
-func (o *ModelsErrorTableListPublicRespV2Item) SetUpdatedAt(v time.Time) {
+func (o *ModelsErrorTableListPublicRespV2Item) SetUpdatedAt(v string) {
 	o.UpdatedAt = v
 }
 

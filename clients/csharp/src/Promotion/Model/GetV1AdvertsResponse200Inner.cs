@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="status">Статус медиакампании:   - &#x60;1&#x60; — черновик   - &#x60;2&#x60; — модерация   - &#x60;3&#x60; — отклонена (с возможностью вернуть на модерацию)   - &#x60;4&#x60; — готова к запуску   - &#x60;5&#x60; — запланирована   - &#x60;6&#x60; — на показах   - &#x60;7&#x60; — завершена   - &#x60;8&#x60; — отменена   - &#x60;9&#x60; — приостановлена продавцом   - &#x60;10&#x60; — пауза по дневному лимиту   - &#x60;11&#x60; — пауза .</param>
         /// <param name="createTime">Время создания медиакампании.</param>
         /// <param name="endTime">Время завершения медиакампании.</param>
-        public GetV1AdvertsResponse200Inner(int advertId = default(int), string name = default(string), string brand = default(string), int type = default(int), int status = default(int), DateTime createTime = default(DateTime), DateTime endTime = default(DateTime))
+        public GetV1AdvertsResponse200Inner(int advertId = default(int), string name = default(string), string brand = default(string), int type = default(int), int status = default(int), string createTime = default(string), string endTime = default(string))
         {
             this.AdvertId = advertId;
             this.Name = name;
@@ -92,14 +92,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Время создания медиакампании</value>
         [DataMember(Name = "createTime", EmitDefaultValue = false)]
-        public DateTime CreateTime { get; set; }
+        public string CreateTime { get; set; }
 
         /// <summary>
         /// Время завершения медиакампании
         /// </summary>
         /// <value>Время завершения медиакампании</value>
         [DataMember(Name = "endTime", EmitDefaultValue = false)]
-        public DateTime EndTime { get; set; }
+        public string EndTime { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

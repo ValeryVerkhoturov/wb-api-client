@@ -12,7 +12,6 @@ package orders_dbw
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the CourierInfo type satisfies the MappedNullable interface at compile time
@@ -25,7 +24,7 @@ type CourierInfo struct {
 	// Должен ли быть назначен курьер к текущему моменту:   - `false` — нет   - `true` — да    Если `\"mustBeAssigned\":true`, а `\"contacts\":null`, необходимо запросить контакты в [поддержке](https://seller.wildberries.ru/service-desk-v2)
 	MustBeAssigned *bool `json:"mustBeAssigned,omitempty"`
 	// Дата и время обновления информации о курьере.  Если `null`, информация не обновлялась
-	UpdatedAt NullableTime `json:"updatedAt,omitempty"`
+	UpdatedAt NullableString `json:"updatedAt,omitempty"`
 }
 
 // NewCourierInfo instantiates a new CourierInfo object
@@ -121,9 +120,9 @@ func (o *CourierInfo) SetMustBeAssigned(v bool) {
 }
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CourierInfo) GetUpdatedAt() time.Time {
+func (o *CourierInfo) GetUpdatedAt() string {
 	if o == nil || IsNil(o.UpdatedAt.Get()) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.UpdatedAt.Get()
@@ -132,7 +131,7 @@ func (o *CourierInfo) GetUpdatedAt() time.Time {
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CourierInfo) GetUpdatedAtOk() (*time.Time, bool) {
+func (o *CourierInfo) GetUpdatedAtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -148,8 +147,8 @@ func (o *CourierInfo) HasUpdatedAt() bool {
 	return false
 }
 
-// SetUpdatedAt gets a reference to the given NullableTime and assigns it to the UpdatedAt field.
-func (o *CourierInfo) SetUpdatedAt(v time.Time) {
+// SetUpdatedAt gets a reference to the given NullableString and assigns it to the UpdatedAt field.
+func (o *CourierInfo) SetUpdatedAt(v string) {
 	o.UpdatedAt.Set(&v)
 }
 

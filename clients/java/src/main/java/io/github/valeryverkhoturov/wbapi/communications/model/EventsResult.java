@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.communications.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -47,13 +46,13 @@ public class EventsResult {
 
   @SerializedName(SERIALIZED_NAME_NEWEST_EVENT_TIME)
   @jakarta.annotation.Nullable
-  private OffsetDateTime newestEventTime;
+  private String newestEventTime;
 
   public static final String SERIALIZED_NAME_OLDEST_EVENT_TIME = "oldestEventTime";
 
   @SerializedName(SERIALIZED_NAME_OLDEST_EVENT_TIME)
   @jakarta.annotation.Nullable
-  private OffsetDateTime oldestEventTime;
+  private String oldestEventTime;
 
   public static final String SERIALIZED_NAME_TOTAL_EVENTS = "totalEvents";
 
@@ -88,7 +87,7 @@ public class EventsResult {
     this.next = next;
   }
 
-  public EventsResult newestEventTime(@jakarta.annotation.Nullable OffsetDateTime newestEventTime) {
+  public EventsResult newestEventTime(@jakarta.annotation.Nullable String newestEventTime) {
     this.newestEventTime = newestEventTime;
     return this;
   }
@@ -99,15 +98,15 @@ public class EventsResult {
    * @return newestEventTime
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getNewestEventTime() {
+  public String getNewestEventTime() {
     return newestEventTime;
   }
 
-  public void setNewestEventTime(@jakarta.annotation.Nullable OffsetDateTime newestEventTime) {
+  public void setNewestEventTime(@jakarta.annotation.Nullable String newestEventTime) {
     this.newestEventTime = newestEventTime;
   }
 
-  public EventsResult oldestEventTime(@jakarta.annotation.Nullable OffsetDateTime oldestEventTime) {
+  public EventsResult oldestEventTime(@jakarta.annotation.Nullable String oldestEventTime) {
     this.oldestEventTime = oldestEventTime;
     return this;
   }
@@ -118,11 +117,11 @@ public class EventsResult {
    * @return oldestEventTime
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getOldestEventTime() {
+  public String getOldestEventTime() {
     return oldestEventTime;
   }
 
-  public void setOldestEventTime(@jakarta.annotation.Nullable OffsetDateTime oldestEventTime) {
+  public void setOldestEventTime(@jakarta.annotation.Nullable String oldestEventTime) {
     this.oldestEventTime = oldestEventTime;
   }
 
@@ -260,6 +259,20 @@ public class EventsResult {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if ((jsonObj.get("newestEventTime") != null && !jsonObj.get("newestEventTime").isJsonNull())
+        && !jsonObj.get("newestEventTime").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `newestEventTime` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("newestEventTime").toString()));
+    }
+    if ((jsonObj.get("oldestEventTime") != null && !jsonObj.get("oldestEventTime").isJsonNull())
+        && !jsonObj.get("oldestEventTime").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `oldestEventTime` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("oldestEventTime").toString()));
+    }
     if (jsonObj.get("events") != null && !jsonObj.get("events").isJsonNull()) {
       JsonArray jsonArrayevents = jsonObj.getAsJsonArray("events");
       if (jsonArrayevents != null) {

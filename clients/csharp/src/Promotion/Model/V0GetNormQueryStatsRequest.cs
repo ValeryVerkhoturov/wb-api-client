@@ -42,9 +42,19 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="from">Дата начала периода (required).</param>
         /// <param name="to">Дата окончания периода (required).</param>
         /// <param name="items">items (required).</param>
-        public V0GetNormQueryStatsRequest(DateOnly from = default(DateOnly), DateOnly to = default(DateOnly), List<V0GetNormQueryStatsRequestItemsInner> items = default(List<V0GetNormQueryStatsRequestItemsInner>))
+        public V0GetNormQueryStatsRequest(string from = default(string), string to = default(string), List<V0GetNormQueryStatsRequestItemsInner> items = default(List<V0GetNormQueryStatsRequestItemsInner>))
         {
+            // to ensure "from" is required (not null)
+            if (from == null)
+            {
+                throw new ArgumentNullException("from is a required property for V0GetNormQueryStatsRequest and cannot be null");
+            }
             this.From = from;
+            // to ensure "to" is required (not null)
+            if (to == null)
+            {
+                throw new ArgumentNullException("to is a required property for V0GetNormQueryStatsRequest and cannot be null");
+            }
             this.To = to;
             // to ensure "items" is required (not null)
             if (items == null)
@@ -59,20 +69,20 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Дата начала периода</value>
         /*
-        <example>Tue Oct 07 00:00:00 UTC 2025</example>
+        <example>2025-10-07</example>
         */
         [DataMember(Name = "from", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly From { get; set; }
+        public string From { get; set; }
 
         /// <summary>
         /// Дата окончания периода
         /// </summary>
         /// <value>Дата окончания периода</value>
         /*
-        <example>Wed Oct 08 00:00:00 UTC 2025</example>
+        <example>2025-10-08</example>
         */
         [DataMember(Name = "to", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly To { get; set; }
+        public string To { get; set; }
 
         /// <summary>
         /// Gets or Sets Items

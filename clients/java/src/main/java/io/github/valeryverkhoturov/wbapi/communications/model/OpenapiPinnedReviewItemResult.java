@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.communications.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -39,7 +38,7 @@ public class OpenapiPinnedReviewItemResult {
 
   @SerializedName(SERIALIZED_NAME_CHANGE_STATE_AT)
   @jakarta.annotation.Nonnull
-  private OffsetDateTime changeStateAt;
+  private String changeStateAt;
 
   public static final String SERIALIZED_NAME_IMT_ID = "imtId";
 
@@ -154,7 +153,7 @@ public class OpenapiPinnedReviewItemResult {
   public OpenapiPinnedReviewItemResult() {}
 
   public OpenapiPinnedReviewItemResult changeStateAt(
-      @jakarta.annotation.Nonnull OffsetDateTime changeStateAt) {
+      @jakarta.annotation.Nonnull String changeStateAt) {
     this.changeStateAt = changeStateAt;
     return this;
   }
@@ -165,11 +164,11 @@ public class OpenapiPinnedReviewItemResult {
    * @return changeStateAt
    */
   @jakarta.annotation.Nonnull
-  public OffsetDateTime getChangeStateAt() {
+  public String getChangeStateAt() {
     return changeStateAt;
   }
 
-  public void setChangeStateAt(@jakarta.annotation.Nonnull OffsetDateTime changeStateAt) {
+  public void setChangeStateAt(@jakarta.annotation.Nonnull String changeStateAt) {
     this.changeStateAt = changeStateAt;
   }
 
@@ -457,6 +456,12 @@ public class OpenapiPinnedReviewItemResult {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (!jsonObj.get("changeStateAt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `changeStateAt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("changeStateAt").toString()));
+    }
     // validate the required field `pinMethod`
     DomainReviewPinMethod.validateJsonElement(jsonObj.get("pinMethod"));
     // validate the required field `pinOn`

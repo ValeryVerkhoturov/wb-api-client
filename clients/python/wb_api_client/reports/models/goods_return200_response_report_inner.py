@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
@@ -47,7 +46,7 @@ class GoodsReturn200ResponseReportInner(BaseModel):
         description="Дата и время истечения срока хранения возврата", alias="expiredDt"
     )
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
-    order_dt: date = Field(description="Дата заказа на возврат", alias="orderDt")
+    order_dt: StrictStr = Field(description="Дата заказа на возврат", alias="orderDt")
     order_id: StrictInt = Field(description="ID сборочного задания", alias="orderId")
     ready_to_return_dt: Optional[StrictStr] = Field(
         description="Дата и время готовности возврата к выдаче", alias="readyToReturnDt"

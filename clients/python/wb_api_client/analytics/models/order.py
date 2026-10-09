@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import (
     BaseModel,
     ConfigDict,
@@ -41,10 +40,10 @@ class Order(BaseModel):
     nm_id: StrictInt = Field(description="Артикул WB", alias="nmId")
     chrt_id: StrictInt = Field(description="ID размера", alias="chrtId")
     srid: StrictStr = Field(description="ID заказа")
-    created_at: datetime = Field(
+    created_at: StrictStr = Field(
         description="Дата и время оформления заказа", alias="createdAt"
     )
-    updated_at: datetime = Field(
+    updated_at: StrictStr = Field(
         description='Дата и время текущего статуса. При `"status":"created"` возвращается значение поля `createdAt`',
         alias="updatedAt",
     )

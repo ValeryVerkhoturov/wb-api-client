@@ -35,7 +35,6 @@ import io.github.valeryverkhoturov.wbapi.finances.model.SalesReportListRes;
 import io.github.valeryverkhoturov.wbapi.finances.model.SalesReportsDetailedReq;
 import io.github.valeryverkhoturov.wbapi.finances.model.SalesReportsDetailedRes;
 import java.lang.reflect.Type;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -667,8 +666,8 @@ public class DefaultApi {
    */
   public okhttp3.Call getV1DocumentsListCall(
       String locale,
-      LocalDate beginTime,
-      LocalDate endTime,
+      String beginTime,
+      String endTime,
       String sort,
       String order,
       String category,
@@ -768,8 +767,8 @@ public class DefaultApi {
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV1DocumentsListValidateBeforeCall(
       String locale,
-      LocalDate beginTime,
-      LocalDate endTime,
+      String beginTime,
+      String endTime,
       String sort,
       String order,
       String category,
@@ -826,8 +825,8 @@ public class DefaultApi {
    */
   public GetList getV1DocumentsList(
       String locale,
-      LocalDate beginTime,
-      LocalDate endTime,
+      String beginTime,
+      String endTime,
       String sort,
       String order,
       String category,
@@ -885,8 +884,8 @@ public class DefaultApi {
    */
   public ApiResponse<GetList> getV1DocumentsListWithHttpInfo(
       String locale,
-      LocalDate beginTime,
-      LocalDate endTime,
+      String beginTime,
+      String endTime,
       String sort,
       String order,
       String category,
@@ -946,8 +945,8 @@ public class DefaultApi {
    */
   public okhttp3.Call getV1DocumentsListAsync(
       String locale,
-      LocalDate beginTime,
-      LocalDate endTime,
+      String beginTime,
+      String endTime,
       String sort,
       String order,
       String category,

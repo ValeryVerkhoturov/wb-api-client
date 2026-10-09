@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -41,7 +40,7 @@ public class PostV3OrdersStatusHistoryResponse200OrdersInner {
 
   @SerializedName(SERIALIZED_NAME_DELIVERY_DATE)
   @jakarta.annotation.Nullable
-  private OffsetDateTime deliveryDate;
+  private String deliveryDate;
 
   public static final String SERIALIZED_NAME_STATUSES = "statuses";
 
@@ -59,7 +58,7 @@ public class PostV3OrdersStatusHistoryResponse200OrdersInner {
   public PostV3OrdersStatusHistoryResponse200OrdersInner() {}
 
   public PostV3OrdersStatusHistoryResponse200OrdersInner deliveryDate(
-      @jakarta.annotation.Nullable OffsetDateTime deliveryDate) {
+      @jakarta.annotation.Nullable String deliveryDate) {
     this.deliveryDate = deliveryDate;
     return this;
   }
@@ -70,11 +69,11 @@ public class PostV3OrdersStatusHistoryResponse200OrdersInner {
    * @return deliveryDate
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getDeliveryDate() {
+  public String getDeliveryDate() {
     return deliveryDate;
   }
 
-  public void setDeliveryDate(@jakarta.annotation.Nullable OffsetDateTime deliveryDate) {
+  public void setDeliveryDate(@jakarta.annotation.Nullable String deliveryDate) {
     this.deliveryDate = deliveryDate;
   }
 
@@ -216,6 +215,13 @@ public class PostV3OrdersStatusHistoryResponse200OrdersInner {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if ((jsonObj.get("deliveryDate") != null && !jsonObj.get("deliveryDate").isJsonNull())
+        && !jsonObj.get("deliveryDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `deliveryDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("deliveryDate").toString()));
+    }
     if (jsonObj.get("statuses") != null && !jsonObj.get("statuses").isJsonNull()) {
       JsonArray jsonArraystatuses = jsonObj.getAsJsonArray("statuses");
       if (jsonArraystatuses != null) {

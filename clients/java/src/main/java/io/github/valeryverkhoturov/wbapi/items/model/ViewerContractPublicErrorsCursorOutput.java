@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.items.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -45,7 +44,7 @@ public class ViewerContractPublicErrorsCursorOutput {
 
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   @jakarta.annotation.Nonnull
-  private OffsetDateTime updatedAt;
+  private String updatedAt;
 
   public static final String SERIALIZED_NAME_BATCH_U_U_I_D = "batchUUID";
 
@@ -75,7 +74,7 @@ public class ViewerContractPublicErrorsCursorOutput {
   }
 
   public ViewerContractPublicErrorsCursorOutput updatedAt(
-      @jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
+      @jakarta.annotation.Nonnull String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -86,11 +85,11 @@ public class ViewerContractPublicErrorsCursorOutput {
    * @return updatedAt
    */
   @jakarta.annotation.Nonnull
-  public OffsetDateTime getUpdatedAt() {
+  public String getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
+  public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
     this.updatedAt = updatedAt;
   }
 
@@ -211,6 +210,12 @@ public class ViewerContractPublicErrorsCursorOutput {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (!jsonObj.get("updatedAt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `updatedAt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("updatedAt").toString()));
+    }
     if (!jsonObj.get("batchUUID").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(

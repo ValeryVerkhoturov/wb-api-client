@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.analytics.JSON;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -38,7 +37,7 @@ public class VisibilityInfoByDayInner {
 
   @SerializedName(SERIALIZED_NAME_DT)
   @jakarta.annotation.Nonnull
-  private LocalDate dt;
+  private String dt;
 
   public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
 
@@ -54,7 +53,7 @@ public class VisibilityInfoByDayInner {
 
   public VisibilityInfoByDayInner() {}
 
-  public VisibilityInfoByDayInner dt(@jakarta.annotation.Nonnull LocalDate dt) {
+  public VisibilityInfoByDayInner dt(@jakarta.annotation.Nonnull String dt) {
     this.dt = dt;
     return this;
   }
@@ -65,11 +64,11 @@ public class VisibilityInfoByDayInner {
    * @return dt
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getDt() {
+  public String getDt() {
     return dt;
   }
 
-  public void setDt(@jakarta.annotation.Nonnull LocalDate dt) {
+  public void setDt(@jakarta.annotation.Nonnull String dt) {
     this.dt = dt;
   }
 
@@ -206,6 +205,12 @@ public class VisibilityInfoByDayInner {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (!jsonObj.get("dt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `dt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("dt").toString()));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

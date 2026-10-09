@@ -25,7 +25,6 @@ import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.analytics.JSON;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -58,13 +57,13 @@ public class Order {
 
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   @jakarta.annotation.Nonnull
-  private OffsetDateTime createdAt;
+  private String createdAt;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
 
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   @jakarta.annotation.Nonnull
-  private OffsetDateTime updatedAt;
+  private String updatedAt;
 
   /**
    * Статус заказа: - &#x60;created&#x60; — оформлен - &#x60;buyout&#x60; — продан -
@@ -299,7 +298,7 @@ public class Order {
     this.srid = srid;
   }
 
-  public Order createdAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
+  public Order createdAt(@jakarta.annotation.Nonnull String createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -310,15 +309,15 @@ public class Order {
    * @return createdAt
    */
   @jakarta.annotation.Nonnull
-  public OffsetDateTime getCreatedAt() {
+  public String getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
+  public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
     this.createdAt = createdAt;
   }
 
-  public Order updatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
+  public Order updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -330,11 +329,11 @@ public class Order {
    * @return updatedAt
    */
   @jakarta.annotation.Nonnull
-  public OffsetDateTime getUpdatedAt() {
+  public String getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
+  public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
     this.updatedAt = updatedAt;
   }
 
@@ -674,6 +673,18 @@ public class Order {
           String.format(
               "Expected the field `srid` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("srid").toString()));
+    }
+    if (!jsonObj.get("createdAt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `createdAt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("createdAt").toString()));
+    }
+    if (!jsonObj.get("updatedAt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `updatedAt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("updatedAt").toString()));
     }
     if (!jsonObj.get("status").isJsonPrimitive()) {
       throw new IllegalArgumentException(

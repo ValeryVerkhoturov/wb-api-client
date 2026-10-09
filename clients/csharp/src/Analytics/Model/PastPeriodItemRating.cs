@@ -41,9 +41,19 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <param name="start">Дата начала периода. Не ранее 364 суток от вчерашнего дня и не позднее &#x60;end&#x60; (required).</param>
         /// <param name="end">Дата окончания периода. Не ранее 364 суток от вчерашнего дня и не позднее даты перед началом &#x60;currentPeriod&#x60;. (required).</param>
-        public PastPeriodItemRating(DateOnly start = default(DateOnly), DateOnly end = default(DateOnly))
+        public PastPeriodItemRating(string start = default(string), string end = default(string))
         {
+            // to ensure "start" is required (not null)
+            if (start == null)
+            {
+                throw new ArgumentNullException("start is a required property for PastPeriodItemRating and cannot be null");
+            }
             this.Start = start;
+            // to ensure "end" is required (not null)
+            if (end == null)
+            {
+                throw new ArgumentNullException("end is a required property for PastPeriodItemRating and cannot be null");
+            }
             this.End = end;
         }
 
@@ -52,20 +62,20 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <value>Дата начала периода. Не ранее 364 суток от вчерашнего дня и не позднее &#x60;end&#x60;</value>
         /*
-        <example>Sun Feb 08 00:00:00 UTC 2026</example>
+        <example>2026-02-08</example>
         */
         [DataMember(Name = "start", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly Start { get; set; }
+        public string Start { get; set; }
 
         /// <summary>
         /// Дата окончания периода. Не ранее 364 суток от вчерашнего дня и не позднее даты перед началом &#x60;currentPeriod&#x60;.
         /// </summary>
         /// <value>Дата окончания периода. Не ранее 364 суток от вчерашнего дня и не позднее даты перед началом &#x60;currentPeriod&#x60;.</value>
         /*
-        <example>Sun Feb 08 00:00:00 UTC 2026</example>
+        <example>2026-02-08</example>
         */
         [DataMember(Name = "end", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly End { get; set; }
+        public string End { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

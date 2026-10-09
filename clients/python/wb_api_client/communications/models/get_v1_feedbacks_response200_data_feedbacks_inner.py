@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.communications.models.get_v1_feedbacks_response200_data_feedbacks_inner_answer import (
@@ -48,7 +47,7 @@ class GetV1FeedbacksResponse200DataFeedbacksInner(BaseModel):
     product_valuation: Optional[StrictInt] = Field(
         default=None, description="Оценка товара", alias="productValuation"
     )
-    created_date: Optional[datetime] = Field(
+    created_date: Optional[StrictStr] = Field(
         default=None, description="Дата и время создания отзыва", alias="createdDate"
     )
     answer: Optional[GetV1FeedbacksResponse200DataFeedbacksInnerAnswer] = None

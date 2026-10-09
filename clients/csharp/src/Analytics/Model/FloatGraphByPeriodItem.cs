@@ -42,9 +42,19 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="start">Начало месяца (required).</param>
         /// <param name="end">Конец месяца (required).</param>
         /// <param name="value">Среднее количество заказов (required).</param>
-        public FloatGraphByPeriodItem(DateOnly start = default(DateOnly), DateOnly end = default(DateOnly), decimal value = default(decimal))
+        public FloatGraphByPeriodItem(string start = default(string), string end = default(string), decimal value = default(decimal))
         {
+            // to ensure "start" is required (not null)
+            if (start == null)
+            {
+                throw new ArgumentNullException("start is a required property for FloatGraphByPeriodItem and cannot be null");
+            }
             this.Start = start;
+            // to ensure "end" is required (not null)
+            if (end == null)
+            {
+                throw new ArgumentNullException("end is a required property for FloatGraphByPeriodItem and cannot be null");
+            }
             this.End = end;
             this.Value = value;
         }
@@ -54,20 +64,20 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <value>Начало месяца</value>
         /*
-        <example>Wed Jan 01 00:00:00 UTC 2025</example>
+        <example>2025-01-01</example>
         */
         [DataMember(Name = "start", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly Start { get; set; }
+        public string Start { get; set; }
 
         /// <summary>
         /// Конец месяца
         /// </summary>
         /// <value>Конец месяца</value>
         /*
-        <example>Fri Jan 31 00:00:00 UTC 2025</example>
+        <example>2025-01-31</example>
         */
         [DataMember(Name = "end", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly End { get; set; }
+        public string End { get; set; }
 
         /// <summary>
         /// Среднее количество заказов

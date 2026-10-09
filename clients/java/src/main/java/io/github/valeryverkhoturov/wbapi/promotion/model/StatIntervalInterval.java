@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.promotion.JSON;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -38,17 +37,17 @@ public class StatIntervalInterval {
 
   @SerializedName(SERIALIZED_NAME_BEGIN)
   @jakarta.annotation.Nullable
-  private LocalDate begin;
+  private String begin;
 
   public static final String SERIALIZED_NAME_END = "end";
 
   @SerializedName(SERIALIZED_NAME_END)
   @jakarta.annotation.Nullable
-  private LocalDate end;
+  private String end;
 
   public StatIntervalInterval() {}
 
-  public StatIntervalInterval begin(@jakarta.annotation.Nullable LocalDate begin) {
+  public StatIntervalInterval begin(@jakarta.annotation.Nullable String begin) {
     this.begin = begin;
     return this;
   }
@@ -59,15 +58,15 @@ public class StatIntervalInterval {
    * @return begin
    */
   @jakarta.annotation.Nullable
-  public LocalDate getBegin() {
+  public String getBegin() {
     return begin;
   }
 
-  public void setBegin(@jakarta.annotation.Nullable LocalDate begin) {
+  public void setBegin(@jakarta.annotation.Nullable String begin) {
     this.begin = begin;
   }
 
-  public StatIntervalInterval end(@jakarta.annotation.Nullable LocalDate end) {
+  public StatIntervalInterval end(@jakarta.annotation.Nullable String end) {
     this.end = end;
     return this;
   }
@@ -78,11 +77,11 @@ public class StatIntervalInterval {
    * @return end
    */
   @jakarta.annotation.Nullable
-  public LocalDate getEnd() {
+  public String getEnd() {
     return end;
   }
 
-  public void setEnd(@jakarta.annotation.Nullable LocalDate end) {
+  public void setEnd(@jakarta.annotation.Nullable String end) {
     this.end = end;
   }
 
@@ -165,6 +164,20 @@ public class StatIntervalInterval {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if ((jsonObj.get("begin") != null && !jsonObj.get("begin").isJsonNull())
+        && !jsonObj.get("begin").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `begin` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("begin").toString()));
+    }
+    if ((jsonObj.get("end") != null && !jsonObj.get("end").isJsonNull())
+        && !jsonObj.get("end").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `end` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("end").toString()));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.communications.models.domain_review_pin_method import (
@@ -34,7 +33,7 @@ class OpenapiPinnedReviewItemResult(BaseModel):
     OpenapiPinnedReviewItemResult
     """  # noqa: E501
 
-    change_state_at: datetime = Field(
+    change_state_at: StrictStr = Field(
         description="Дата и время закрепления или открепления", alias="changeStateAt"
     )
     imt_id: StrictInt = Field(

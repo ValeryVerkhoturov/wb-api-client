@@ -50,8 +50,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="addToCartConversion">Конверсия в корзину. Какой процент посетителей, открывших карточку товара, добавили товар в корзину, % (required).</param>
         /// <param name="cartToOrderConversion">Конверсия в заказ. Какой процент посетителей, добавивших товар в корзину, сделали заказ (required).</param>
         /// <param name="addToWishlistCount">Количество добавлений товара в **Отложенные** (required).</param>
-        public History(DateOnly date = default(DateOnly), int openCount = default(int), int cartCount = default(int), int orderCount = default(int), int orderSum = default(int), int buyoutCount = default(int), int buyoutSum = default(int), int buyoutPercent = default(int), int addToCartConversion = default(int), int cartToOrderConversion = default(int), int addToWishlistCount = default(int))
+        public History(string date = default(string), int openCount = default(int), int cartCount = default(int), int orderCount = default(int), int orderSum = default(int), int buyoutCount = default(int), int buyoutSum = default(int), int buyoutPercent = default(int), int addToCartConversion = default(int), int cartToOrderConversion = default(int), int addToWishlistCount = default(int))
         {
+            // to ensure "date" is required (not null)
+            if (date == null)
+            {
+                throw new ArgumentNullException("date is a required property for History and cannot be null");
+            }
             this.Date = date;
             this.OpenCount = openCount;
             this.CartCount = cartCount;
@@ -70,10 +75,10 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <value>Дата сбора статистики</value>
         /*
-        <example>Wed Oct 23 00:00:00 UTC 2024</example>
+        <example>2024-10-23</example>
         */
         [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly Date { get; set; }
+        public string Date { get; set; }
 
         /// <summary>
         /// Количество переходов в карточку товара

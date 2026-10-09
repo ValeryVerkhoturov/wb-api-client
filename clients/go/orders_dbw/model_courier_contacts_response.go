@@ -12,7 +12,6 @@ package orders_dbw
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the CourierContactsResponse type satisfies the MappedNullable interface at compile time
@@ -27,9 +26,9 @@ type CourierContactsResponse struct {
 	// Номер телефона
 	Phone *string `json:"phone,omitempty"`
 	// Дата и время, с которого прибудет курьер
-	PTimeFrom NullableTime `json:"pTimeFrom,omitempty"`
+	PTimeFrom NullableString `json:"pTimeFrom,omitempty"`
 	// Дата и время, до которого прибудет курьер
-	PTimeTo NullableTime `json:"pTimeTo,omitempty"`
+	PTimeTo NullableString `json:"pTimeTo,omitempty"`
 }
 
 // NewCourierContactsResponse instantiates a new CourierContactsResponse object
@@ -146,9 +145,9 @@ func (o *CourierContactsResponse) SetPhone(v string) {
 }
 
 // GetPTimeFrom returns the PTimeFrom field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CourierContactsResponse) GetPTimeFrom() time.Time {
+func (o *CourierContactsResponse) GetPTimeFrom() string {
 	if o == nil || IsNil(o.PTimeFrom.Get()) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.PTimeFrom.Get()
@@ -157,7 +156,7 @@ func (o *CourierContactsResponse) GetPTimeFrom() time.Time {
 // GetPTimeFromOk returns a tuple with the PTimeFrom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CourierContactsResponse) GetPTimeFromOk() (*time.Time, bool) {
+func (o *CourierContactsResponse) GetPTimeFromOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -173,8 +172,8 @@ func (o *CourierContactsResponse) HasPTimeFrom() bool {
 	return false
 }
 
-// SetPTimeFrom gets a reference to the given NullableTime and assigns it to the PTimeFrom field.
-func (o *CourierContactsResponse) SetPTimeFrom(v time.Time) {
+// SetPTimeFrom gets a reference to the given NullableString and assigns it to the PTimeFrom field.
+func (o *CourierContactsResponse) SetPTimeFrom(v string) {
 	o.PTimeFrom.Set(&v)
 }
 
@@ -189,9 +188,9 @@ func (o *CourierContactsResponse) UnsetPTimeFrom() {
 }
 
 // GetPTimeTo returns the PTimeTo field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CourierContactsResponse) GetPTimeTo() time.Time {
+func (o *CourierContactsResponse) GetPTimeTo() string {
 	if o == nil || IsNil(o.PTimeTo.Get()) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.PTimeTo.Get()
@@ -200,7 +199,7 @@ func (o *CourierContactsResponse) GetPTimeTo() time.Time {
 // GetPTimeToOk returns a tuple with the PTimeTo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CourierContactsResponse) GetPTimeToOk() (*time.Time, bool) {
+func (o *CourierContactsResponse) GetPTimeToOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -216,8 +215,8 @@ func (o *CourierContactsResponse) HasPTimeTo() bool {
 	return false
 }
 
-// SetPTimeTo gets a reference to the given NullableTime and assigns it to the PTimeTo field.
-func (o *CourierContactsResponse) SetPTimeTo(v time.Time) {
+// SetPTimeTo gets a reference to the given NullableString and assigns it to the PTimeTo field.
+func (o *CourierContactsResponse) SetPTimeTo(v string) {
 	o.PTimeTo.Set(&v)
 }
 

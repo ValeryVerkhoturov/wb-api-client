@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
@@ -31,10 +30,10 @@ class GetV1CalendarPromotions200ResponseDataPromotionsInner(BaseModel):
 
     id: Optional[StrictInt] = Field(default=None, description="ID акции")
     name: Optional[StrictStr] = Field(default=None, description="Название акции")
-    start_date_time: Optional[datetime] = Field(
+    start_date_time: Optional[StrictStr] = Field(
         default=None, description="Начало акции", alias="startDateTime"
     )
-    end_date_time: Optional[datetime] = Field(
+    end_date_time: Optional[StrictStr] = Field(
         default=None, description="Конец акции", alias="endDateTime"
     )
     type: Optional[StrictStr] = Field(

@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <param name="shkCreateDate">Дата приёмки.</param>
         /// <param name="subjectName">Предмет.</param>
         /// <param name="total">Суммарная стоимость приёмки, ₽ с копейками.</param>
-        public GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner(int count = default(int), DateOnly giCreateDate = default(DateOnly), int incomeId = default(int), int nmID = default(int), DateOnly shkCreateDate = default(DateOnly), string subjectName = default(string), decimal total = default(decimal))
+        public GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner(int count = default(int), string giCreateDate = default(string), int incomeId = default(int), int nmID = default(int), string shkCreateDate = default(string), string subjectName = default(string), decimal total = default(decimal))
         {
             this.Count = count;
             this.GiCreateDate = giCreateDate;
@@ -67,10 +67,10 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>Дата создания поставки</value>
         /*
-        <example>Tue Mar 04 00:00:00 UTC 2025</example>
+        <example>2025-03-04</example>
         */
         [DataMember(Name = "giCreateDate", EmitDefaultValue = false)]
-        public DateOnly GiCreateDate { get; set; }
+        public string GiCreateDate { get; set; }
 
         /// <summary>
         /// Номер поставки
@@ -97,10 +97,10 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// </summary>
         /// <value>Дата приёмки</value>
         /*
-        <example>Fri Mar 14 00:00:00 UTC 2025</example>
+        <example>2025-03-14</example>
         */
         [DataMember(Name = "shkCreateDate", EmitDefaultValue = false)]
-        public DateOnly ShkCreateDate { get; set; }
+        public string ShkCreateDate { get; set; }
 
         /// <summary>
         /// Предмет

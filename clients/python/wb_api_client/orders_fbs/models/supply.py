@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import (
     BaseModel,
     ConfigDict,
@@ -52,13 +51,13 @@ class Supply(BaseModel):
         default=None,
         description="Флаг закрытия поставки:   - `true` — закрыта   - `false` — открыта ",
     )
-    created_at: Optional[datetime] = Field(
+    created_at: Optional[StrictStr] = Field(
         default=None, description="Дата создания поставки (RFC3339)", alias="createdAt"
     )
-    closed_at: Optional[datetime] = Field(
+    closed_at: Optional[StrictStr] = Field(
         default=None, description="Дата закрытия поставки (RFC3339)", alias="closedAt"
     )
-    scan_dt: Optional[datetime] = Field(
+    scan_dt: Optional[StrictStr] = Field(
         default=None,
         description='Дата сканирования поставки (RFC3339). Если `"scanDt":null`, поставка не сканировалась',
         alias="scanDt",

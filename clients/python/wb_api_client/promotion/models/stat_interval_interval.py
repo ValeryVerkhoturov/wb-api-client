@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,8 +28,8 @@ class StatIntervalInterval(BaseModel):
     Период
     """  # noqa: E501
 
-    begin: Optional[date] = Field(default=None, description="Начало периода")
-    end: Optional[date] = Field(default=None, description="Конец периода")
+    begin: Optional[StrictStr] = Field(default=None, description="Начало периода")
+    end: Optional[StrictStr] = Field(default=None, description="Конец периода")
     __properties: ClassVar[List[str]] = ["begin", "end"]
 
     model_config = ConfigDict(

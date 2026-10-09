@@ -12,7 +12,6 @@ package communications
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the EventsResult type satisfies the MappedNullable interface at compile time
@@ -23,9 +22,9 @@ type EventsResult struct {
 	// Пагинатор. Значение поля необходимо указать в запросе для получения следующего пакета данных
 	Next *int32 `json:"next,omitempty"`
 	// Время новейшего события в ответе
-	NewestEventTime *time.Time `json:"newestEventTime,omitempty"`
+	NewestEventTime *string `json:"newestEventTime,omitempty"`
 	// Время старейшего события в ответе
-	OldestEventTime *time.Time `json:"oldestEventTime,omitempty"`
+	OldestEventTime *string `json:"oldestEventTime,omitempty"`
 	// Количество событий
 	TotalEvents *int32  `json:"totalEvents,omitempty"`
 	Events      []Event `json:"events,omitempty"`
@@ -81,9 +80,9 @@ func (o *EventsResult) SetNext(v int32) {
 }
 
 // GetNewestEventTime returns the NewestEventTime field value if set, zero value otherwise.
-func (o *EventsResult) GetNewestEventTime() time.Time {
+func (o *EventsResult) GetNewestEventTime() string {
 	if o == nil || IsNil(o.NewestEventTime) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.NewestEventTime
@@ -91,7 +90,7 @@ func (o *EventsResult) GetNewestEventTime() time.Time {
 
 // GetNewestEventTimeOk returns a tuple with the NewestEventTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EventsResult) GetNewestEventTimeOk() (*time.Time, bool) {
+func (o *EventsResult) GetNewestEventTimeOk() (*string, bool) {
 	if o == nil || IsNil(o.NewestEventTime) {
 		return nil, false
 	}
@@ -107,15 +106,15 @@ func (o *EventsResult) HasNewestEventTime() bool {
 	return false
 }
 
-// SetNewestEventTime gets a reference to the given time.Time and assigns it to the NewestEventTime field.
-func (o *EventsResult) SetNewestEventTime(v time.Time) {
+// SetNewestEventTime gets a reference to the given string and assigns it to the NewestEventTime field.
+func (o *EventsResult) SetNewestEventTime(v string) {
 	o.NewestEventTime = &v
 }
 
 // GetOldestEventTime returns the OldestEventTime field value if set, zero value otherwise.
-func (o *EventsResult) GetOldestEventTime() time.Time {
+func (o *EventsResult) GetOldestEventTime() string {
 	if o == nil || IsNil(o.OldestEventTime) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.OldestEventTime
@@ -123,7 +122,7 @@ func (o *EventsResult) GetOldestEventTime() time.Time {
 
 // GetOldestEventTimeOk returns a tuple with the OldestEventTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EventsResult) GetOldestEventTimeOk() (*time.Time, bool) {
+func (o *EventsResult) GetOldestEventTimeOk() (*string, bool) {
 	if o == nil || IsNil(o.OldestEventTime) {
 		return nil, false
 	}
@@ -139,8 +138,8 @@ func (o *EventsResult) HasOldestEventTime() bool {
 	return false
 }
 
-// SetOldestEventTime gets a reference to the given time.Time and assigns it to the OldestEventTime field.
-func (o *EventsResult) SetOldestEventTime(v time.Time) {
+// SetOldestEventTime gets a reference to the given string and assigns it to the OldestEventTime field.
+func (o *EventsResult) SetOldestEventTime(v string) {
 	o.OldestEventTime = &v
 }
 

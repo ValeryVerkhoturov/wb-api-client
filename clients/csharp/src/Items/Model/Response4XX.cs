@@ -42,7 +42,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// <param name="status">HTTP статус-код.</param>
         /// <param name="statusText">Расшифровка HTTP статус-кода.</param>
         /// <param name="timestamp">Дата и время запроса.</param>
-        public Response4XX(string title = default(string), string detail = default(string), string code = default(string), string requestId = default(string), string origin = default(string), decimal status = default(decimal), string statusText = default(string), DateTime timestamp = default(DateTime))
+        public Response4XX(string title = default(string), string detail = default(string), string code = default(string), string requestId = default(string), string origin = default(string), decimal status = default(decimal), string statusText = default(string), string timestamp = default(string))
         {
             this.Title = title;
             this.Detail = detail;
@@ -108,7 +108,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         /// <value>Дата и время запроса</value>
         [DataMember(Name = "timestamp", EmitDefaultValue = false)]
-        public DateTime Timestamp { get; set; }
+        public string Timestamp { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.dbs.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -102,7 +101,7 @@ public class OrderNewDBS {
 
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   @jakarta.annotation.Nullable
-  private OffsetDateTime createdAt;
+  private String createdAt;
 
   /**
    * Тип доставки: - &#x60;dbs&#x60; — доставка силами продавца - &#x60;dbsPickupPoint&#x60; —
@@ -526,7 +525,7 @@ public class OrderNewDBS {
     this.rid = rid;
   }
 
-  public OrderNewDBS createdAt(@jakarta.annotation.Nullable OffsetDateTime createdAt) {
+  public OrderNewDBS createdAt(@jakarta.annotation.Nullable String createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -537,11 +536,11 @@ public class OrderNewDBS {
    * @return createdAt
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getCreatedAt() {
+  public String getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(@jakarta.annotation.Nullable OffsetDateTime createdAt) {
+  public void setCreatedAt(@jakarta.annotation.Nullable String createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -1087,6 +1086,13 @@ public class OrderNewDBS {
           String.format(
               "Expected the field `colorCode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("colorCode").toString()));
+    }
+    if ((jsonObj.get("createdAt") != null && !jsonObj.get("createdAt").isJsonNull())
+        && !jsonObj.get("createdAt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `createdAt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("createdAt").toString()));
     }
     if ((jsonObj.get("deliveryType") != null && !jsonObj.get("deliveryType").isJsonNull())
         && !jsonObj.get("deliveryType").isJsonPrimitive()) {

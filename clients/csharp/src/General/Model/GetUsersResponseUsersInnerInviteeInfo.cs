@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// <param name="inviteUuid">ID приглашения.</param>
         /// <param name="expiredAt">Дата и время окончания срока действия приглашения.</param>
         /// <param name="isActive">- &#x60;true&#x60; — приглашение активно - &#x60;false&#x60; — приглашение неактивно .</param>
-        public GetUsersResponseUsersInnerInviteeInfo(string phoneNumber = default(string), string position = default(string), Guid inviteUuid = default(Guid), DateTime expiredAt = default(DateTime), bool isActive = default(bool))
+        public GetUsersResponseUsersInnerInviteeInfo(string phoneNumber = default(string), string position = default(string), Guid inviteUuid = default(Guid), string expiredAt = default(string), bool isActive = default(bool))
         {
             this.PhoneNumber = phoneNumber;
             this.Position = position;
@@ -74,7 +74,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// </summary>
         /// <value>Дата и время окончания срока действия приглашения</value>
         [DataMember(Name = "expiredAt", EmitDefaultValue = false)]
-        public DateTime ExpiredAt { get; set; }
+        public string ExpiredAt { get; set; }
 
         /// <summary>
         /// - &#x60;true&#x60; — приглашение активно - &#x60;false&#x60; — приглашение неактивно 

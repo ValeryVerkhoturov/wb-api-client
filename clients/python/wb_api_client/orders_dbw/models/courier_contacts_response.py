@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
@@ -36,12 +35,12 @@ class CourierContactsResponse(BaseModel):
         default=None, description="ФИО курьера", alias="fullName"
     )
     phone: Optional[StrictStr] = Field(default=None, description="Номер телефона")
-    p_time_from: Optional[datetime] = Field(
+    p_time_from: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время, с которого прибудет курьер",
         alias="pTimeFrom",
     )
-    p_time_to: Optional[datetime] = Field(
+    p_time_to: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время, до которого прибудет курьер",
         alias="pTimeTo",

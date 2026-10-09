@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.items.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -72,7 +71,7 @@ public class ModelsErrorTableListPublicRespV2Item {
 
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   @jakarta.annotation.Nonnull
-  private OffsetDateTime updatedAt;
+  private String updatedAt;
 
   public ModelsErrorTableListPublicRespV2Item() {}
 
@@ -212,7 +211,7 @@ public class ModelsErrorTableListPublicRespV2Item {
   }
 
   public ModelsErrorTableListPublicRespV2Item updatedAt(
-      @jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
+      @jakarta.annotation.Nonnull String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -223,11 +222,11 @@ public class ModelsErrorTableListPublicRespV2Item {
    * @return updatedAt
    */
   @jakarta.annotation.Nonnull
-  public OffsetDateTime getUpdatedAt() {
+  public String getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
+  public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
     this.updatedAt = updatedAt;
   }
 
@@ -355,6 +354,12 @@ public class ModelsErrorTableListPublicRespV2Item {
           String.format(
               "Expected the field `vendorCodes` to be an array in the JSON string but got `%s`",
               jsonObj.get("vendorCodes").toString()));
+    }
+    if (!jsonObj.get("updatedAt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `updatedAt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("updatedAt").toString()));
     }
   }
 

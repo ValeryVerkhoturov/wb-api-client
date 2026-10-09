@@ -14,7 +14,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"time"
 )
 
 // checks if the Timestamps type satisfies the MappedNullable interface at compile time
@@ -23,13 +22,13 @@ var _ MappedNullable = &Timestamps{}
 // Timestamps Временные отметки
 type Timestamps struct {
 	// Время создания кампании
-	Created time.Time `json:"created"`
+	Created string `json:"created"`
 	// Время последнего изменения кампании
-	Updated time.Time `json:"updated"`
+	Updated string `json:"updated"`
 	// Время последнего запуска кампании
-	Started NullableTime `json:"started"`
+	Started NullableString `json:"started"`
 	// Время удаления кампании. Если кампания не удалена, время указывается в будущем
-	Deleted time.Time `json:"deleted"`
+	Deleted string `json:"deleted"`
 }
 
 type _Timestamps Timestamps
@@ -38,7 +37,7 @@ type _Timestamps Timestamps
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTimestamps(created time.Time, updated time.Time, started NullableTime, deleted time.Time) *Timestamps {
+func NewTimestamps(created string, updated string, started NullableString, deleted string) *Timestamps {
 	this := Timestamps{}
 	this.Created = created
 	this.Updated = updated
@@ -56,9 +55,9 @@ func NewTimestampsWithDefaults() *Timestamps {
 }
 
 // GetCreated returns the Created field value
-func (o *Timestamps) GetCreated() time.Time {
+func (o *Timestamps) GetCreated() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -67,7 +66,7 @@ func (o *Timestamps) GetCreated() time.Time {
 
 // GetCreatedOk returns a tuple with the Created field value
 // and a boolean to check if the value has been set.
-func (o *Timestamps) GetCreatedOk() (*time.Time, bool) {
+func (o *Timestamps) GetCreatedOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -75,14 +74,14 @@ func (o *Timestamps) GetCreatedOk() (*time.Time, bool) {
 }
 
 // SetCreated sets field value
-func (o *Timestamps) SetCreated(v time.Time) {
+func (o *Timestamps) SetCreated(v string) {
 	o.Created = v
 }
 
 // GetUpdated returns the Updated field value
-func (o *Timestamps) GetUpdated() time.Time {
+func (o *Timestamps) GetUpdated() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -91,7 +90,7 @@ func (o *Timestamps) GetUpdated() time.Time {
 
 // GetUpdatedOk returns a tuple with the Updated field value
 // and a boolean to check if the value has been set.
-func (o *Timestamps) GetUpdatedOk() (*time.Time, bool) {
+func (o *Timestamps) GetUpdatedOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -99,15 +98,15 @@ func (o *Timestamps) GetUpdatedOk() (*time.Time, bool) {
 }
 
 // SetUpdated sets field value
-func (o *Timestamps) SetUpdated(v time.Time) {
+func (o *Timestamps) SetUpdated(v string) {
 	o.Updated = v
 }
 
 // GetStarted returns the Started field value
-// If the value is explicit nil, the zero value for time.Time will be returned
-func (o *Timestamps) GetStarted() time.Time {
+// If the value is explicit nil, the zero value for string will be returned
+func (o *Timestamps) GetStarted() string {
 	if o == nil || o.Started.Get() == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -117,7 +116,7 @@ func (o *Timestamps) GetStarted() time.Time {
 // GetStartedOk returns a tuple with the Started field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Timestamps) GetStartedOk() (*time.Time, bool) {
+func (o *Timestamps) GetStartedOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -125,14 +124,14 @@ func (o *Timestamps) GetStartedOk() (*time.Time, bool) {
 }
 
 // SetStarted sets field value
-func (o *Timestamps) SetStarted(v time.Time) {
+func (o *Timestamps) SetStarted(v string) {
 	o.Started.Set(&v)
 }
 
 // GetDeleted returns the Deleted field value
-func (o *Timestamps) GetDeleted() time.Time {
+func (o *Timestamps) GetDeleted() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -141,7 +140,7 @@ func (o *Timestamps) GetDeleted() time.Time {
 
 // GetDeletedOk returns a tuple with the Deleted field value
 // and a boolean to check if the value has been set.
-func (o *Timestamps) GetDeletedOk() (*time.Time, bool) {
+func (o *Timestamps) GetDeletedOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -149,7 +148,7 @@ func (o *Timestamps) GetDeletedOk() (*time.Time, bool) {
 }
 
 // SetDeleted sets field value
-func (o *Timestamps) SetDeleted(v time.Time) {
+func (o *Timestamps) SetDeleted(v string) {
 	o.Deleted = v
 }
 

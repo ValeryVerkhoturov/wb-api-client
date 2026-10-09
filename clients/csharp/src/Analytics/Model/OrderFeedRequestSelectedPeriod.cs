@@ -41,8 +41,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <param name="start">Дата и время начала периода. Не ранее 31 суток от текущей даты и не позднее &#x60;end&#x60; (required).</param>
         /// <param name="end">Дата и время конца периода. Не ранее 31 суток от текущей даты.</param>
-        public OrderFeedRequestSelectedPeriod(DateTime start = default(DateTime), DateTime end = default(DateTime))
+        public OrderFeedRequestSelectedPeriod(string start = default(string), string end = default(string))
         {
+            // to ensure "start" is required (not null)
+            if (start == null)
+            {
+                throw new ArgumentNullException("start is a required property for OrderFeedRequestSelectedPeriod and cannot be null");
+            }
             this.Start = start;
             this.End = end;
         }
@@ -52,20 +57,20 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <value>Дата и время начала периода. Не ранее 31 суток от текущей даты и не позднее &#x60;end&#x60;</value>
         /*
-        <example>2026-07-23T00:00+03:00</example>
+        <example>2026-07-23T00:00:00.00000+03:00</example>
         */
         [DataMember(Name = "start", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime Start { get; set; }
+        public string Start { get; set; }
 
         /// <summary>
         /// Дата и время конца периода. Не ранее 31 суток от текущей даты
         /// </summary>
         /// <value>Дата и время конца периода. Не ранее 31 суток от текущей даты</value>
         /*
-        <example>2026-07-31T00:00+03:00</example>
+        <example>2026-07-31T00:00:00.00000+03:00</example>
         */
         [DataMember(Name = "end", EmitDefaultValue = false)]
-        public DateTime End { get; set; }
+        public string End { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

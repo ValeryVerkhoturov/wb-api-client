@@ -39,7 +39,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="activeFrom">С какого числа доступно транзитное направление.</param>
         /// <param name="boxTariff">Тариф за транзит коробов. Если &#x60;null&#x60;, транзит для коробов недоступен.</param>
         /// <param name="palletTariff">Тариф за паллету, ₽.</param>
-        public ModelsTransitTariff(string transitWarehouseName = default(string), string destinationWarehouseName = default(string), DateTime activeFrom = default(DateTime), List<ModelsVolumeTariff> boxTariff = default(List<ModelsVolumeTariff>), int palletTariff = default(int))
+        public ModelsTransitTariff(string transitWarehouseName = default(string), string destinationWarehouseName = default(string), string activeFrom = default(string), List<ModelsVolumeTariff> boxTariff = default(List<ModelsVolumeTariff>), int palletTariff = default(int))
         {
             this.TransitWarehouseName = transitWarehouseName;
             this.DestinationWarehouseName = destinationWarehouseName;
@@ -67,7 +67,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>С какого числа доступно транзитное направление</value>
         [DataMember(Name = "activeFrom", EmitDefaultValue = false)]
-        public DateTime ActiveFrom { get; set; }
+        public string ActiveFrom { get; set; }
 
         /// <summary>
         /// Тариф за транзит коробов. Если &#x60;null&#x60;, транзит для коробов недоступен

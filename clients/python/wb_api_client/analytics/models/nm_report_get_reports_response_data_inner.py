@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
@@ -38,8 +37,8 @@ class NmReportGetReportsResponseDataInner(BaseModel):
     )
     name: StrictStr = Field(description="Название отчёта")
     size: StrictInt = Field(description="Размер отчёта, Б")
-    start_date: date = Field(description="Начало периода", alias="startDate")
-    end_date: date = Field(description="Конец периода", alias="endDate")
+    start_date: StrictStr = Field(description="Начало периода", alias="startDate")
+    end_date: StrictStr = Field(description="Конец периода", alias="endDate")
     __properties: ClassVar[List[str]] = [
         "id",
         "createdAt",

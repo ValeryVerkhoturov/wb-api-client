@@ -42,8 +42,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="dt">Дата сбора статистики (required).</param>
         /// <param name="avgPosition">Средняя позиция товара в результатах поиска (required).</param>
         /// <param name="orders">Сколько раз товары из поиска заказали (required).</param>
-        public ItemOrdersMetrics(DateOnly dt = default(DateOnly), int avgPosition = default(int), int orders = default(int))
+        public ItemOrdersMetrics(string dt = default(string), int avgPosition = default(int), int orders = default(int))
         {
+            // to ensure "dt" is required (not null)
+            if (dt == null)
+            {
+                throw new ArgumentNullException("dt is a required property for ItemOrdersMetrics and cannot be null");
+            }
             this.Dt = dt;
             this.AvgPosition = avgPosition;
             this.Orders = orders;
@@ -54,10 +59,10 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <value>Дата сбора статистики</value>
         /*
-        <example>Sat Feb 10 00:00:00 UTC 2024</example>
+        <example>2024-02-10</example>
         */
         [DataMember(Name = "dt", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly Dt { get; set; }
+        public string Dt { get; set; }
 
         /// <summary>
         /// Средняя позиция товара в результатах поиска

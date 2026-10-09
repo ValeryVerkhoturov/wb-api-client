@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +28,7 @@ class VisibilityInfoByDayInner(BaseModel):
     VisibilityInfoByDayInner
     """  # noqa: E501
 
-    dt: date = Field(description="Дата")
+    dt: StrictStr = Field(description="Дата")
     visibility: StrictInt = Field(
         description="Видимость карточки в результатах поиска, %"
     )

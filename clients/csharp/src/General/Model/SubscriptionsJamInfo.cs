@@ -140,12 +140,22 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         /// <param name="level">Уровень подписки:   - &#x60;standard&#x60;   - &#x60;advanced&#x60;   - &#x60;premium&#x60;  (required).</param>
         /// <param name="since">Дата и время первой активации подписки. Не меняется при продлении или повторной активации (required).</param>
         /// <param name="till">Дата и время окончания подписки (required).</param>
-        public SubscriptionsJamInfo(StateEnum state = default(StateEnum), ActivationSourceEnum activationSource = default(ActivationSourceEnum), LevelEnum level = default(LevelEnum), DateTime since = default(DateTime), DateTime till = default(DateTime))
+        public SubscriptionsJamInfo(StateEnum state = default(StateEnum), ActivationSourceEnum activationSource = default(ActivationSourceEnum), LevelEnum level = default(LevelEnum), string since = default(string), string till = default(string))
         {
             this.State = state;
             this.ActivationSource = activationSource;
             this.Level = level;
+            // to ensure "since" is required (not null)
+            if (since == null)
+            {
+                throw new ArgumentNullException("since is a required property for SubscriptionsJamInfo and cannot be null");
+            }
             this.Since = since;
+            // to ensure "till" is required (not null)
+            if (till == null)
+            {
+                throw new ArgumentNullException("till is a required property for SubscriptionsJamInfo and cannot be null");
+            }
             this.Till = till;
         }
 
@@ -157,7 +167,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         <example>2026-03-16T08:38:08.056406Z</example>
         */
         [DataMember(Name = "since", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime Since { get; set; }
+        public string Since { get; set; }
 
         /// <summary>
         /// Дата и время окончания подписки
@@ -167,7 +177,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Model
         <example>2026-04-25T14:44:28.393587Z</example>
         */
         [DataMember(Name = "till", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime Till { get; set; }
+        public string Till { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

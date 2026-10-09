@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.reports.JSON;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -119,7 +118,7 @@ public class MeasurementPenaltiesDataReportsInner {
 
   @SerializedName(SERIALIZED_NAME_DT_BONUS)
   @jakarta.annotation.Nullable
-  private OffsetDateTime dtBonus;
+  private String dtBonus;
 
   public static final String SERIALIZED_NAME_IS_VALID = "isValid";
 
@@ -131,7 +130,7 @@ public class MeasurementPenaltiesDataReportsInner {
 
   @SerializedName(SERIALIZED_NAME_IS_VALID_DT)
   @jakarta.annotation.Nullable
-  private OffsetDateTime isValidDt;
+  private String isValidDt;
 
   public static final String SERIALIZED_NAME_REVERSAL_AMOUNT = "reversalAmount";
 
@@ -149,13 +148,13 @@ public class MeasurementPenaltiesDataReportsInner {
 
   @SerializedName(SERIALIZED_NAME_DATE_START)
   @jakarta.annotation.Nullable
-  private OffsetDateTime dateStart;
+  private String dateStart;
 
   public static final String SERIALIZED_NAME_DATE_END = "dateEnd";
 
   @SerializedName(SERIALIZED_NAME_DATE_END)
   @jakarta.annotation.Nullable
-  private OffsetDateTime dateEnd;
+  private String dateEnd;
 
   public MeasurementPenaltiesDataReportsInner() {}
 
@@ -422,8 +421,7 @@ public class MeasurementPenaltiesDataReportsInner {
     this.photoUrls = photoUrls;
   }
 
-  public MeasurementPenaltiesDataReportsInner dtBonus(
-      @jakarta.annotation.Nullable OffsetDateTime dtBonus) {
+  public MeasurementPenaltiesDataReportsInner dtBonus(@jakarta.annotation.Nullable String dtBonus) {
     this.dtBonus = dtBonus;
     return this;
   }
@@ -434,11 +432,11 @@ public class MeasurementPenaltiesDataReportsInner {
    * @return dtBonus
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getDtBonus() {
+  public String getDtBonus() {
     return dtBonus;
   }
 
-  public void setDtBonus(@jakarta.annotation.Nullable OffsetDateTime dtBonus) {
+  public void setDtBonus(@jakarta.annotation.Nullable String dtBonus) {
     this.dtBonus = dtBonus;
   }
 
@@ -463,7 +461,7 @@ public class MeasurementPenaltiesDataReportsInner {
   }
 
   public MeasurementPenaltiesDataReportsInner isValidDt(
-      @jakarta.annotation.Nullable OffsetDateTime isValidDt) {
+      @jakarta.annotation.Nullable String isValidDt) {
     this.isValidDt = isValidDt;
     return this;
   }
@@ -474,11 +472,11 @@ public class MeasurementPenaltiesDataReportsInner {
    * @return isValidDt
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getIsValidDt() {
+  public String getIsValidDt() {
     return isValidDt;
   }
 
-  public void setIsValidDt(@jakarta.annotation.Nullable OffsetDateTime isValidDt) {
+  public void setIsValidDt(@jakarta.annotation.Nullable String isValidDt) {
     this.isValidDt = isValidDt;
   }
 
@@ -523,7 +521,7 @@ public class MeasurementPenaltiesDataReportsInner {
   }
 
   public MeasurementPenaltiesDataReportsInner dateStart(
-      @jakarta.annotation.Nullable OffsetDateTime dateStart) {
+      @jakarta.annotation.Nullable String dateStart) {
     this.dateStart = dateStart;
     return this;
   }
@@ -534,16 +532,15 @@ public class MeasurementPenaltiesDataReportsInner {
    * @return dateStart
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getDateStart() {
+  public String getDateStart() {
     return dateStart;
   }
 
-  public void setDateStart(@jakarta.annotation.Nullable OffsetDateTime dateStart) {
+  public void setDateStart(@jakarta.annotation.Nullable String dateStart) {
     this.dateStart = dateStart;
   }
 
-  public MeasurementPenaltiesDataReportsInner dateEnd(
-      @jakarta.annotation.Nullable OffsetDateTime dateEnd) {
+  public MeasurementPenaltiesDataReportsInner dateEnd(@jakarta.annotation.Nullable String dateEnd) {
     this.dateEnd = dateEnd;
     return this;
   }
@@ -554,11 +551,11 @@ public class MeasurementPenaltiesDataReportsInner {
    * @return dateEnd
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getDateEnd() {
+  public String getDateEnd() {
     return dateEnd;
   }
 
-  public void setDateEnd(@jakarta.annotation.Nullable OffsetDateTime dateEnd) {
+  public void setDateEnd(@jakarta.annotation.Nullable String dateEnd) {
     this.dateEnd = dateEnd;
   }
 
@@ -755,6 +752,34 @@ public class MeasurementPenaltiesDataReportsInner {
           String.format(
               "Expected the field `photoUrls` to be an array in the JSON string but got `%s`",
               jsonObj.get("photoUrls").toString()));
+    }
+    if ((jsonObj.get("dtBonus") != null && !jsonObj.get("dtBonus").isJsonNull())
+        && !jsonObj.get("dtBonus").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `dtBonus` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("dtBonus").toString()));
+    }
+    if ((jsonObj.get("isValidDt") != null && !jsonObj.get("isValidDt").isJsonNull())
+        && !jsonObj.get("isValidDt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `isValidDt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("isValidDt").toString()));
+    }
+    if ((jsonObj.get("dateStart") != null && !jsonObj.get("dateStart").isJsonNull())
+        && !jsonObj.get("dateStart").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `dateStart` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("dateStart").toString()));
+    }
+    if ((jsonObj.get("dateEnd") != null && !jsonObj.get("dateEnd").isJsonNull())
+        && !jsonObj.get("dateEnd").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `dateEnd` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("dateEnd").toString()));
     }
   }
 

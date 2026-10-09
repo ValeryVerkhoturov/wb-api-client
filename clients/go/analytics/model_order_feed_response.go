@@ -14,7 +14,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"time"
 )
 
 // checks if the OrderFeedResponse type satisfies the MappedNullable interface at compile time
@@ -23,7 +22,7 @@ var _ MappedNullable = &OrderFeedResponse{}
 // OrderFeedResponse Данные ответа
 type OrderFeedResponse struct {
 	// Метка снимка данных, в рамках которого выполняется пагинация
-	SnapshotTime time.Time `json:"snapshotTime"`
+	SnapshotTime string `json:"snapshotTime"`
 	// Валюта отчёта
 	Currency string `json:"currency"`
 	// Заказы
@@ -36,7 +35,7 @@ type _OrderFeedResponse OrderFeedResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderFeedResponse(snapshotTime time.Time, currency string, orders []Order) *OrderFeedResponse {
+func NewOrderFeedResponse(snapshotTime string, currency string, orders []Order) *OrderFeedResponse {
 	this := OrderFeedResponse{}
 	this.SnapshotTime = snapshotTime
 	this.Currency = currency
@@ -53,9 +52,9 @@ func NewOrderFeedResponseWithDefaults() *OrderFeedResponse {
 }
 
 // GetSnapshotTime returns the SnapshotTime field value
-func (o *OrderFeedResponse) GetSnapshotTime() time.Time {
+func (o *OrderFeedResponse) GetSnapshotTime() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -64,7 +63,7 @@ func (o *OrderFeedResponse) GetSnapshotTime() time.Time {
 
 // GetSnapshotTimeOk returns a tuple with the SnapshotTime field value
 // and a boolean to check if the value has been set.
-func (o *OrderFeedResponse) GetSnapshotTimeOk() (*time.Time, bool) {
+func (o *OrderFeedResponse) GetSnapshotTimeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -72,7 +71,7 @@ func (o *OrderFeedResponse) GetSnapshotTimeOk() (*time.Time, bool) {
 }
 
 // SetSnapshotTime sets field value
-func (o *OrderFeedResponse) SetSnapshotTime(v time.Time) {
+func (o *OrderFeedResponse) SetSnapshotTime(v string) {
 	o.SnapshotTime = v
 }
 

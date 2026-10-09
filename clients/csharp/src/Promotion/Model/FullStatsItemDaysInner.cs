@@ -52,7 +52,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="sum">Затраты в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
         /// <param name="sumPrice">Заказов на сумму в базовых единицах валюты [аккаунта продавца](https://cmp.wildberries.ru/campaigns/finances) (required).</param>
         /// <param name="views">Количество просмотров (required).</param>
-        public FullStatsItemDaysInner(List<FullStatsItemDaysInnerAppsInner> apps = default(List<FullStatsItemDaysInnerAppsInner>), int atbs = default(int), int canceled = default(int), DateTime date = default(DateTime), int clicks = default(int), decimal cpc = default(decimal), decimal cr = default(decimal), decimal ctr = default(decimal), int orders = default(int), int shks = default(int), decimal sum = default(decimal), decimal sumPrice = default(decimal), int views = default(int))
+        public FullStatsItemDaysInner(List<FullStatsItemDaysInnerAppsInner> apps = default(List<FullStatsItemDaysInnerAppsInner>), int atbs = default(int), int canceled = default(int), string date = default(string), int clicks = default(int), decimal cpc = default(decimal), decimal cr = default(decimal), decimal ctr = default(decimal), int orders = default(int), int shks = default(int), decimal sum = default(decimal), decimal sumPrice = default(decimal), int views = default(int))
         {
             // to ensure "apps" is required (not null)
             if (apps == null)
@@ -62,6 +62,11 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
             this.Apps = apps;
             this.Atbs = atbs;
             this.Canceled = canceled;
+            // to ensure "date" is required (not null)
+            if (date == null)
+            {
+                throw new ArgumentNullException("date is a required property for FullStatsItemDaysInner and cannot be null");
+            }
             this.Date = date;
             this.Clicks = clicks;
             this.Cpc = cpc;
@@ -100,7 +105,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Дата, за которую представлены данные</value>
         [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         /// <summary>
         /// Количество кликов

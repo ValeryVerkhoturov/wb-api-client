@@ -12,7 +12,6 @@ package promotion
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the StatsBlok1DailyStatsInner type satisfies the MappedNullable interface at compile time
@@ -21,7 +20,7 @@ var _ MappedNullable = &StatsBlok1DailyStatsInner{}
 // StatsBlok1DailyStatsInner struct for StatsBlok1DailyStatsInner
 type StatsBlok1DailyStatsInner struct {
 	// Дата
-	Date *time.Time `json:"date,omitempty"`
+	Date *string `json:"date,omitempty"`
 	// Статистика по платформам
 	AppTypeStats []StatsBlok1DailyStatsInnerAppTypeStatsInner `json:"app_type_stats,omitempty"`
 }
@@ -44,9 +43,9 @@ func NewStatsBlok1DailyStatsInnerWithDefaults() *StatsBlok1DailyStatsInner {
 }
 
 // GetDate returns the Date field value if set, zero value otherwise.
-func (o *StatsBlok1DailyStatsInner) GetDate() time.Time {
+func (o *StatsBlok1DailyStatsInner) GetDate() string {
 	if o == nil || IsNil(o.Date) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.Date
@@ -54,7 +53,7 @@ func (o *StatsBlok1DailyStatsInner) GetDate() time.Time {
 
 // GetDateOk returns a tuple with the Date field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsBlok1DailyStatsInner) GetDateOk() (*time.Time, bool) {
+func (o *StatsBlok1DailyStatsInner) GetDateOk() (*string, bool) {
 	if o == nil || IsNil(o.Date) {
 		return nil, false
 	}
@@ -70,8 +69,8 @@ func (o *StatsBlok1DailyStatsInner) HasDate() bool {
 	return false
 }
 
-// SetDate gets a reference to the given time.Time and assigns it to the Date field.
-func (o *StatsBlok1DailyStatsInner) SetDate(v time.Time) {
+// SetDate gets a reference to the given string and assigns it to the Date field.
+func (o *StatsBlok1DailyStatsInner) SetDate(v string) {
 	o.Date = &v
 }
 

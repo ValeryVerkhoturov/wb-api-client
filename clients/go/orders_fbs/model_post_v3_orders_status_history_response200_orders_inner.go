@@ -12,7 +12,6 @@ package orders_fbs
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the PostV3OrdersStatusHistoryResponse200OrdersInner type satisfies the MappedNullable interface at compile time
@@ -21,7 +20,7 @@ var _ MappedNullable = &PostV3OrdersStatusHistoryResponse200OrdersInner{}
 // PostV3OrdersStatusHistoryResponse200OrdersInner struct for PostV3OrdersStatusHistoryResponse200OrdersInner
 type PostV3OrdersStatusHistoryResponse200OrdersInner struct {
 	// Планируемая дата доставки, [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)
-	DeliveryDate *time.Time `json:"deliveryDate,omitempty"`
+	DeliveryDate *string `json:"deliveryDate,omitempty"`
 	// Статусы
 	Statuses []PostV3OrdersStatusHistoryResponse200OrdersInnerStatusesInner `json:"statuses,omitempty"`
 	// ID сборочного задания
@@ -46,9 +45,9 @@ func NewPostV3OrdersStatusHistoryResponse200OrdersInnerWithDefaults() *PostV3Ord
 }
 
 // GetDeliveryDate returns the DeliveryDate field value if set, zero value otherwise.
-func (o *PostV3OrdersStatusHistoryResponse200OrdersInner) GetDeliveryDate() time.Time {
+func (o *PostV3OrdersStatusHistoryResponse200OrdersInner) GetDeliveryDate() string {
 	if o == nil || IsNil(o.DeliveryDate) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.DeliveryDate
@@ -56,7 +55,7 @@ func (o *PostV3OrdersStatusHistoryResponse200OrdersInner) GetDeliveryDate() time
 
 // GetDeliveryDateOk returns a tuple with the DeliveryDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV3OrdersStatusHistoryResponse200OrdersInner) GetDeliveryDateOk() (*time.Time, bool) {
+func (o *PostV3OrdersStatusHistoryResponse200OrdersInner) GetDeliveryDateOk() (*string, bool) {
 	if o == nil || IsNil(o.DeliveryDate) {
 		return nil, false
 	}
@@ -72,8 +71,8 @@ func (o *PostV3OrdersStatusHistoryResponse200OrdersInner) HasDeliveryDate() bool
 	return false
 }
 
-// SetDeliveryDate gets a reference to the given time.Time and assigns it to the DeliveryDate field.
-func (o *PostV3OrdersStatusHistoryResponse200OrdersInner) SetDeliveryDate(v time.Time) {
+// SetDeliveryDate gets a reference to the given string and assigns it to the DeliveryDate field.
+func (o *PostV3OrdersStatusHistoryResponse200OrdersInner) SetDeliveryDate(v string) {
 	o.DeliveryDate = &v
 }
 

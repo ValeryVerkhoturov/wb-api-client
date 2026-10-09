@@ -41,9 +41,19 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <param name="start">Дата начала периода. Не позднее &#x60;end&#x60;. Не ранее 3 месяцев от текущей даты (required).</param>
         /// <param name="end">Дата окончания периода. Не ранее 3 месяцев от текущей даты (required).</param>
-        public PeriodInv(DateOnly start = default(DateOnly), DateOnly end = default(DateOnly))
+        public PeriodInv(string start = default(string), string end = default(string))
         {
+            // to ensure "start" is required (not null)
+            if (start == null)
+            {
+                throw new ArgumentNullException("start is a required property for PeriodInv and cannot be null");
+            }
             this.Start = start;
+            // to ensure "end" is required (not null)
+            if (end == null)
+            {
+                throw new ArgumentNullException("end is a required property for PeriodInv and cannot be null");
+            }
             this.End = end;
         }
 
@@ -52,20 +62,20 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <value>Дата начала периода. Не позднее &#x60;end&#x60;. Не ранее 3 месяцев от текущей даты</value>
         /*
-        <example>Sat Feb 10 00:00:00 UTC 2024</example>
+        <example>2024-02-10</example>
         */
         [DataMember(Name = "start", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly Start { get; set; }
+        public string Start { get; set; }
 
         /// <summary>
         /// Дата окончания периода. Не ранее 3 месяцев от текущей даты
         /// </summary>
         /// <value>Дата окончания периода. Не ранее 3 месяцев от текущей даты</value>
         /*
-        <example>Sat Feb 10 00:00:00 UTC 2024</example>
+        <example>2024-02-10</example>
         */
         [DataMember(Name = "end", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly End { get; set; }
+        public string End { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

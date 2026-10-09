@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date, datetime
 from pydantic import (
     BaseModel,
     ConfigDict,
@@ -39,11 +38,13 @@ class SalesReportsDetailedRes(BaseModel):
     """  # noqa: E501
 
     report_id: StrictInt = Field(description="ID отчёта", alias="reportId")
-    date_from: date = Field(
+    date_from: StrictStr = Field(
         description="Дата начала отчётного периода", alias="dateFrom"
     )
-    date_to: date = Field(description="Дата конца отчётного периода", alias="dateTo")
-    create_date: date = Field(
+    date_to: StrictStr = Field(
+        description="Дата конца отчётного периода", alias="dateTo"
+    )
+    create_date: StrictStr = Field(
         description="Дата формирования отчёта", alias="createDate"
     )
     currency: StrictStr = Field(description="Валюта отчёта")
@@ -56,10 +57,10 @@ class SalesReportsDetailedRes(BaseModel):
     dlv_prc: Union[StrictFloat, StrictInt] = Field(
         description="Фиксированный коэффициент склада по поставке", alias="dlvPrc"
     )
-    fix_tariff_date_from: date = Field(
+    fix_tariff_date_from: StrictStr = Field(
         description="Дата начала действия фиксации", alias="fixTariffDateFrom"
     )
-    fix_tariff_date_to: date = Field(
+    fix_tariff_date_to: StrictStr = Field(
         description="Дата конца действия фиксации", alias="fixTariffDateTo"
     )
     subject_name: StrictStr = Field(description="Предмет", alias="subjectName")
@@ -85,9 +86,9 @@ class SalesReportsDetailedRes(BaseModel):
     seller_oper_name: StrictStr = Field(
         description="Обоснование для оплаты", alias="sellerOperName"
     )
-    order_dt: datetime = Field(description="Дата и время заказа", alias="orderDt")
-    sale_dt: datetime = Field(description="Дата и время продажи", alias="saleDt")
-    rr_date: date = Field(description="Дата операции", alias="rrDate")
+    order_dt: StrictStr = Field(description="Дата и время заказа", alias="orderDt")
+    sale_dt: StrictStr = Field(description="Дата и время продажи", alias="saleDt")
+    rr_date: StrictStr = Field(description="Дата операции", alias="rrDate")
     shk_id: StrictInt = Field(description="Штрихкод", alias="shkId")
     retail_price_with_disc: StrictStr = Field(
         description="Цена розничная с учётом согласованной скидки",
@@ -277,7 +278,7 @@ class SalesReportsDetailedRes(BaseModel):
     utd_ucd_number: StrictStr = Field(
         description="Номер УПД или УКД", alias="utdUcdNumber"
     )
-    utd_ucd_date: date = Field(description="Дата УПД или УКД", alias="utdUcdDate")
+    utd_ucd_date: StrictStr = Field(description="Дата УПД или УКД", alias="utdUcdDate")
     order_uid: StrictStr = Field(
         description="ID корзины заказа — транзакции. Заказы в одной корзине покупателя будут иметь одинаковый `orderUid`",
         alias="orderUid",

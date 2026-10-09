@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.reports.JSON;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -45,7 +44,7 @@ public class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_GI_CREATE_DATE)
   @jakarta.annotation.Nullable
-  private LocalDate giCreateDate;
+  private String giCreateDate;
 
   public static final String SERIALIZED_NAME_INCOME_ID = "incomeId";
 
@@ -63,7 +62,7 @@ public class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_SHK_CREATE_DATE)
   @jakarta.annotation.Nullable
-  private LocalDate shkCreateDate;
+  private String shkCreateDate;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
@@ -100,7 +99,7 @@ public class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner {
   }
 
   public GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner giCreateDate(
-      @jakarta.annotation.Nullable LocalDate giCreateDate) {
+      @jakarta.annotation.Nullable String giCreateDate) {
     this.giCreateDate = giCreateDate;
     return this;
   }
@@ -111,11 +110,11 @@ public class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner {
    * @return giCreateDate
    */
   @jakarta.annotation.Nullable
-  public LocalDate getGiCreateDate() {
+  public String getGiCreateDate() {
     return giCreateDate;
   }
 
-  public void setGiCreateDate(@jakarta.annotation.Nullable LocalDate giCreateDate) {
+  public void setGiCreateDate(@jakarta.annotation.Nullable String giCreateDate) {
     this.giCreateDate = giCreateDate;
   }
 
@@ -160,7 +159,7 @@ public class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner {
   }
 
   public GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner shkCreateDate(
-      @jakarta.annotation.Nullable LocalDate shkCreateDate) {
+      @jakarta.annotation.Nullable String shkCreateDate) {
     this.shkCreateDate = shkCreateDate;
     return this;
   }
@@ -171,11 +170,11 @@ public class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner {
    * @return shkCreateDate
    */
   @jakarta.annotation.Nullable
-  public LocalDate getShkCreateDate() {
+  public String getShkCreateDate() {
     return shkCreateDate;
   }
 
-  public void setShkCreateDate(@jakarta.annotation.Nullable LocalDate shkCreateDate) {
+  public void setShkCreateDate(@jakarta.annotation.Nullable String shkCreateDate) {
     this.shkCreateDate = shkCreateDate;
   }
 
@@ -326,6 +325,20 @@ public class GetV1AcceptanceReportTasksTaskIdDownloadResponse200Inner {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if ((jsonObj.get("giCreateDate") != null && !jsonObj.get("giCreateDate").isJsonNull())
+        && !jsonObj.get("giCreateDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `giCreateDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("giCreateDate").toString()));
+    }
+    if ((jsonObj.get("shkCreateDate") != null && !jsonObj.get("shkCreateDate").isJsonNull())
+        && !jsonObj.get("shkCreateDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `shkCreateDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("shkCreateDate").toString()));
+    }
     if ((jsonObj.get("subjectName") != null && !jsonObj.get("subjectName").isJsonNull())
         && !jsonObj.get("subjectName").isJsonPrimitive()) {
       throw new IllegalArgumentException(

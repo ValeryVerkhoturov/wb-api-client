@@ -1521,14 +1521,12 @@ paths:
         description: Дата закрепления первого отзыва в списке
         schema:
           type: string
-          format: date-time
           example: '2020-01-01T15:04:05Z'
       - name: dateTo
         in: query
         description: Дата закрепления последнего отзыва в списке
         schema:
           type: string
-          format: date-time
           example: '2020-02-01T15:04:05Z'
       - name: next
         in: query
@@ -1789,14 +1787,12 @@ paths:
         description: Дата закрепления первого отзыва в списке
         schema:
           type: string
-          format: date-time
           example: '2020-01-01T15:04:05Z'
       - name: dateTo
         in: query
         description: Дата закрепления последнего отзыва в списке
         schema:
           type: string
-          format: date-time
           example: '2020-02-01T15:04:05Z'
       responses:
         '200':
@@ -2749,11 +2745,9 @@ components:
         newestEventTime:
           description: Время новейшего события в ответе
           type: string
-          format: date-time
         oldestEventTime:
           description: Время старейшего события в ответе
           type: string
-          format: date-time
         totalEvents:
           type: integer
           description: Количество событий
@@ -2891,7 +2885,6 @@ components:
         changeStateAt:
           type: string
           description: Дата и время закрепления или открепления
-          format: date-time
           example: '2020-01-01T15:04:05Z'
         imtId:
           type: integer
@@ -3103,7 +3096,6 @@ components:
           description: Расшифровка HTTP статус-кода
         timestamp:
           type: string
-          format: date-time
           description: Дата и время запроса
     GetV1NewFeedbacksQuestionsResponse200:
       type: object
@@ -3217,7 +3209,6 @@ components:
                     description: Текст вопроса
                   createdDate:
                     type: string
-                    format: date-time
                     description: Дата и время создания вопроса
                   state:
                     type: string
@@ -3239,7 +3230,6 @@ components:
                         description: Можно ли отредактировать ответ (`false` - нельзя, `true` - можно)
                       createDate:
                         type: string
-                        format: date-time
                         description: Дата и время создания ответа
                   productDetails:
                     type: object
@@ -3317,7 +3307,6 @@ components:
               description: Текст вопроса
             createdDate:
               type: string
-              format: date-time
               description: Дата и время создания вопроса
             state:
               type: string
@@ -3339,7 +3328,6 @@ components:
                   description: Можно ли отредактировать ответ (`false` - нельзя, `true` - можно)
                 createDate:
                   type: string
-                  format: date-time
                   description: Дата и время создания ответа
             productDetails:
               type: object
@@ -3475,7 +3463,6 @@ components:
                     description: Оценка товара
                   createdDate:
                     type: string
-                    format: date-time
                     description: Дата и время создания отзыва
                   answer:
                     nullable: true
@@ -3693,7 +3680,6 @@ components:
               description: Оценка товара
             createdDate:
               type: string
-              format: date-time
               description: Дата и время создания отзыва
             answer:
               nullable: true
@@ -3895,7 +3881,6 @@ components:
                     description: Оценка товара
                   createdDate:
                     type: string
-                    format: date-time
                     description: Дата и время создания отзыва
                   answer:
                     nullable: true
@@ -4234,7 +4219,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: unauthorized
@@ -4291,7 +4275,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           examples:
             Response403TokenCategory:
@@ -4334,7 +4317,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: too many requests

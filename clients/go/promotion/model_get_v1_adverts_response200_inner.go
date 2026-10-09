@@ -12,7 +12,6 @@ package promotion
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the GetV1AdvertsResponse200Inner type satisfies the MappedNullable interface at compile time
@@ -31,9 +30,9 @@ type GetV1AdvertsResponse200Inner struct {
 	// Статус медиакампании:   - `1` — черновик   - `2` — модерация   - `3` — отклонена (с возможностью вернуть на модерацию)   - `4` — готова к запуску   - `5` — запланирована   - `6` — на показах   - `7` — завершена   - `8` — отменена   - `9` — приостановлена продавцом   - `10` — пауза по дневному лимиту   - `11` — пауза
 	Status *int32 `json:"status,omitempty"`
 	// Время создания медиакампании
-	CreateTime *time.Time `json:"createTime,omitempty"`
+	CreateTime *string `json:"createTime,omitempty"`
 	// Время завершения медиакампании
-	EndTime *time.Time `json:"endTime,omitempty"`
+	EndTime *string `json:"endTime,omitempty"`
 }
 
 // NewGetV1AdvertsResponse200Inner instantiates a new GetV1AdvertsResponse200Inner object
@@ -214,9 +213,9 @@ func (o *GetV1AdvertsResponse200Inner) SetStatus(v int32) {
 }
 
 // GetCreateTime returns the CreateTime field value if set, zero value otherwise.
-func (o *GetV1AdvertsResponse200Inner) GetCreateTime() time.Time {
+func (o *GetV1AdvertsResponse200Inner) GetCreateTime() string {
 	if o == nil || IsNil(o.CreateTime) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.CreateTime
@@ -224,7 +223,7 @@ func (o *GetV1AdvertsResponse200Inner) GetCreateTime() time.Time {
 
 // GetCreateTimeOk returns a tuple with the CreateTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertsResponse200Inner) GetCreateTimeOk() (*time.Time, bool) {
+func (o *GetV1AdvertsResponse200Inner) GetCreateTimeOk() (*string, bool) {
 	if o == nil || IsNil(o.CreateTime) {
 		return nil, false
 	}
@@ -240,15 +239,15 @@ func (o *GetV1AdvertsResponse200Inner) HasCreateTime() bool {
 	return false
 }
 
-// SetCreateTime gets a reference to the given time.Time and assigns it to the CreateTime field.
-func (o *GetV1AdvertsResponse200Inner) SetCreateTime(v time.Time) {
+// SetCreateTime gets a reference to the given string and assigns it to the CreateTime field.
+func (o *GetV1AdvertsResponse200Inner) SetCreateTime(v string) {
 	o.CreateTime = &v
 }
 
 // GetEndTime returns the EndTime field value if set, zero value otherwise.
-func (o *GetV1AdvertsResponse200Inner) GetEndTime() time.Time {
+func (o *GetV1AdvertsResponse200Inner) GetEndTime() string {
 	if o == nil || IsNil(o.EndTime) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.EndTime
@@ -256,7 +255,7 @@ func (o *GetV1AdvertsResponse200Inner) GetEndTime() time.Time {
 
 // GetEndTimeOk returns a tuple with the EndTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1AdvertsResponse200Inner) GetEndTimeOk() (*time.Time, bool) {
+func (o *GetV1AdvertsResponse200Inner) GetEndTimeOk() (*string, bool) {
 	if o == nil || IsNil(o.EndTime) {
 		return nil, false
 	}
@@ -272,8 +271,8 @@ func (o *GetV1AdvertsResponse200Inner) HasEndTime() bool {
 	return false
 }
 
-// SetEndTime gets a reference to the given time.Time and assigns it to the EndTime field.
-func (o *GetV1AdvertsResponse200Inner) SetEndTime(v time.Time) {
+// SetEndTime gets a reference to the given string and assigns it to the EndTime field.
+func (o *GetV1AdvertsResponse200Inner) SetEndTime(v string) {
 	o.EndTime = &v
 }
 

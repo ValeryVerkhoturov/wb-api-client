@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
@@ -32,7 +31,9 @@ class GetV1AnalyticsGoodsLabeling200ResponseReportInner(BaseModel):
     amount: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None, description="Сумма штрафа, руб"
     )
-    var_date: Optional[datetime] = Field(default=None, description="Дата", alias="date")
+    var_date: Optional[StrictStr] = Field(
+        default=None, description="Дата", alias="date"
+    )
     income_id: Optional[StrictInt] = Field(
         default=None, description="Номер поставки", alias="incomeId"
     )

@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="dates">Даты, за которые нужно получить информацию (required).</param>
         /// <param name="stats">Блок статистики.</param>
-        public StatDate(List<DateOnly> dates = default(List<DateOnly>), List<StatsBlok2> stats = default(List<StatsBlok2>))
+        public StatDate(List<string> dates = default(List<string>), List<StatsBlok2> stats = default(List<StatsBlok2>))
         {
             // to ensure "dates" is required (not null)
             if (dates == null)
@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Даты, за которые нужно получить информацию</value>
         [DataMember(Name = "dates", IsRequired = true, EmitDefaultValue = true)]
-        public List<DateOnly> Dates { get; set; }
+        public List<string> Dates { get; set; }
 
         /// <summary>
         /// Блок статистики

@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
@@ -29,7 +28,7 @@ class GetV1Deductions200ResponseDataReportsInner(BaseModel):
     GetV1Deductions200ResponseDataReportsInner
     """  # noqa: E501
 
-    dt_bonus: Optional[datetime] = Field(
+    dt_bonus: Optional[StrictStr] = Field(
         default=None, description="Дата и время удержания", alias="dtBonus"
     )
     nm_id: Optional[StrictInt] = Field(

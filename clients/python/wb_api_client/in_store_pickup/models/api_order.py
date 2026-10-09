@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import (
     BaseModel,
     ConfigDict,
@@ -47,7 +46,7 @@ class ApiOrder(BaseModel):
     chrt_id: Optional[StrictInt] = Field(
         default=None, description="ID размера товара в системе WB", alias="chrtId"
     )
-    created_at: Optional[datetime] = Field(
+    created_at: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время создания сборочного задания",
         alias="createdAt",

@@ -41,9 +41,19 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <param name="start">Начало периода (required).</param>
         /// <param name="end">Конец периода (required).</param>
-        public ItemsRequestSelectedPeriod(DateOnly start = default(DateOnly), DateOnly end = default(DateOnly))
+        public ItemsRequestSelectedPeriod(string start = default(string), string end = default(string))
         {
+            // to ensure "start" is required (not null)
+            if (start == null)
+            {
+                throw new ArgumentNullException("start is a required property for ItemsRequestSelectedPeriod and cannot be null");
+            }
             this.Start = start;
+            // to ensure "end" is required (not null)
+            if (end == null)
+            {
+                throw new ArgumentNullException("end is a required property for ItemsRequestSelectedPeriod and cannot be null");
+            }
             this.End = end;
         }
 
@@ -52,20 +62,20 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <value>Начало периода</value>
         /*
-        <example>Thu Jun 01 00:00:00 UTC 2023</example>
+        <example>2023-06-01</example>
         */
         [DataMember(Name = "start", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly Start { get; set; }
+        public string Start { get; set; }
 
         /// <summary>
         /// Конец периода
         /// </summary>
         /// <value>Конец периода</value>
         /*
-        <example>Fri Mar 01 00:00:00 UTC 2024</example>
+        <example>2024-03-01</example>
         */
         [DataMember(Name = "end", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly End { get; set; }
+        public string End { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Api
         /// <param name="fromID">ID новости, начиная с которой — включая её — нужно получить список новостей (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2NewsResponse200</returns>
-        GetV2NewsResponse200 GetV2News(DateOnly? from = default(DateOnly?), int? fromID = default(int?), int operationIndex = 0);
+        GetV2NewsResponse200 GetV2News(string? from = default(string?), int? fromID = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Получение новостей портала продавцов
@@ -50,7 +50,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Api
         /// <param name="fromID">ID новости, начиная с которой — включая её — нужно получить список новостей (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2NewsResponse200</returns>
-        ApiResponse<GetV2NewsResponse200> GetV2NewsWithHttpInfo(DateOnly? from = default(DateOnly?), int? fromID = default(int?), int operationIndex = 0);
+        ApiResponse<GetV2NewsResponse200> GetV2NewsWithHttpInfo(string? from = default(string?), int? fromID = default(int?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -72,7 +72,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2NewsResponse200</returns>
-        System.Threading.Tasks.Task<GetV2NewsResponse200> GetV2NewsAsync(DateOnly? from = default(DateOnly?), int? fromID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetV2NewsResponse200> GetV2NewsAsync(string? from = default(string?), int? fromID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получение новостей портала продавцов
@@ -86,7 +86,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2NewsResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetV2NewsResponse200>> GetV2NewsWithHttpInfoAsync(DateOnly? from = default(DateOnly?), int? fromID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetV2NewsResponse200>> GetV2NewsWithHttpInfoAsync(string? from = default(string?), int? fromID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -215,7 +215,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Api
         /// <param name="fromID">ID новости, начиная с которой — включая её — нужно получить список новостей (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetV2NewsResponse200</returns>
-        public GetV2NewsResponse200 GetV2News(DateOnly? from = default(DateOnly?), int? fromID = default(int?), int operationIndex = 0)
+        public GetV2NewsResponse200 GetV2News(string? from = default(string?), int? fromID = default(int?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.General.Client.ApiResponse<GetV2NewsResponse200> localVarResponse = GetV2NewsWithHttpInfo(from, fromID);
             return localVarResponse.Data;
@@ -229,7 +229,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Api
         /// <param name="fromID">ID новости, начиная с которой — включая её — нужно получить список новостей (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetV2NewsResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.General.Client.ApiResponse<GetV2NewsResponse200> GetV2NewsWithHttpInfo(DateOnly? from = default(DateOnly?), int? fromID = default(int?), int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.General.Client.ApiResponse<GetV2NewsResponse200> GetV2NewsWithHttpInfo(string? from = default(string?), int? fromID = default(int?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.General.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.General.Client.RequestOptions();
 
@@ -296,7 +296,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetV2NewsResponse200</returns>
-        public async System.Threading.Tasks.Task<GetV2NewsResponse200> GetV2NewsAsync(DateOnly? from = default(DateOnly?), int? fromID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetV2NewsResponse200> GetV2NewsAsync(string? from = default(string?), int? fromID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.General.Client.ApiResponse<GetV2NewsResponse200> localVarResponse = await GetV2NewsWithHttpInfoAsync(from, fromID, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -311,7 +311,7 @@ namespace ValeryVerkhoturov.WbApiClient.General.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetV2NewsResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.General.Client.ApiResponse<GetV2NewsResponse200>> GetV2NewsWithHttpInfoAsync(DateOnly? from = default(DateOnly?), int? fromID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.General.Client.ApiResponse<GetV2NewsResponse200>> GetV2NewsWithHttpInfoAsync(string? from = default(string?), int? fromID = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ValeryVerkhoturov.WbApiClient.General.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.General.Client.RequestOptions();

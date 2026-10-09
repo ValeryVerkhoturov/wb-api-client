@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.promotion.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -51,13 +50,13 @@ public class GetV1CalendarPromotions200ResponseDataPromotionsInner {
 
   @SerializedName(SERIALIZED_NAME_START_DATE_TIME)
   @jakarta.annotation.Nullable
-  private OffsetDateTime startDateTime;
+  private String startDateTime;
 
   public static final String SERIALIZED_NAME_END_DATE_TIME = "endDateTime";
 
   @SerializedName(SERIALIZED_NAME_END_DATE_TIME)
   @jakarta.annotation.Nullable
-  private OffsetDateTime endDateTime;
+  private String endDateTime;
 
   /** Тип акции: - &#x60;regular&#x60; — акция - &#x60;auto&#x60; — автоакция */
   @JsonAdapter(TypeEnum.Adapter.class)
@@ -159,7 +158,7 @@ public class GetV1CalendarPromotions200ResponseDataPromotionsInner {
   }
 
   public GetV1CalendarPromotions200ResponseDataPromotionsInner startDateTime(
-      @jakarta.annotation.Nullable OffsetDateTime startDateTime) {
+      @jakarta.annotation.Nullable String startDateTime) {
     this.startDateTime = startDateTime;
     return this;
   }
@@ -170,16 +169,16 @@ public class GetV1CalendarPromotions200ResponseDataPromotionsInner {
    * @return startDateTime
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getStartDateTime() {
+  public String getStartDateTime() {
     return startDateTime;
   }
 
-  public void setStartDateTime(@jakarta.annotation.Nullable OffsetDateTime startDateTime) {
+  public void setStartDateTime(@jakarta.annotation.Nullable String startDateTime) {
     this.startDateTime = startDateTime;
   }
 
   public GetV1CalendarPromotions200ResponseDataPromotionsInner endDateTime(
-      @jakarta.annotation.Nullable OffsetDateTime endDateTime) {
+      @jakarta.annotation.Nullable String endDateTime) {
     this.endDateTime = endDateTime;
     return this;
   }
@@ -190,11 +189,11 @@ public class GetV1CalendarPromotions200ResponseDataPromotionsInner {
    * @return endDateTime
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getEndDateTime() {
+  public String getEndDateTime() {
     return endDateTime;
   }
 
-  public void setEndDateTime(@jakarta.annotation.Nullable OffsetDateTime endDateTime) {
+  public void setEndDateTime(@jakarta.annotation.Nullable String endDateTime) {
     this.endDateTime = endDateTime;
   }
 
@@ -319,6 +318,20 @@ public class GetV1CalendarPromotions200ResponseDataPromotionsInner {
           String.format(
               "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("name").toString()));
+    }
+    if ((jsonObj.get("startDateTime") != null && !jsonObj.get("startDateTime").isJsonNull())
+        && !jsonObj.get("startDateTime").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `startDateTime` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("startDateTime").toString()));
+    }
+    if ((jsonObj.get("endDateTime") != null && !jsonObj.get("endDateTime").isJsonNull())
+        && !jsonObj.get("endDateTime").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `endDateTime` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("endDateTime").toString()));
     }
     if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull())
         && !jsonObj.get("type").isJsonPrimitive()) {

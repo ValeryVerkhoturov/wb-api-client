@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.promotion.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -38,29 +37,29 @@ public class Timestamps {
 
   @SerializedName(SERIALIZED_NAME_CREATED)
   @jakarta.annotation.Nonnull
-  private OffsetDateTime created;
+  private String created;
 
   public static final String SERIALIZED_NAME_UPDATED = "updated";
 
   @SerializedName(SERIALIZED_NAME_UPDATED)
   @jakarta.annotation.Nonnull
-  private OffsetDateTime updated;
+  private String updated;
 
   public static final String SERIALIZED_NAME_STARTED = "started";
 
   @SerializedName(SERIALIZED_NAME_STARTED)
   @jakarta.annotation.Nullable
-  private OffsetDateTime started;
+  private String started;
 
   public static final String SERIALIZED_NAME_DELETED = "deleted";
 
   @SerializedName(SERIALIZED_NAME_DELETED)
   @jakarta.annotation.Nonnull
-  private OffsetDateTime deleted;
+  private String deleted;
 
   public Timestamps() {}
 
-  public Timestamps created(@jakarta.annotation.Nonnull OffsetDateTime created) {
+  public Timestamps created(@jakarta.annotation.Nonnull String created) {
     this.created = created;
     return this;
   }
@@ -71,15 +70,15 @@ public class Timestamps {
    * @return created
    */
   @jakarta.annotation.Nonnull
-  public OffsetDateTime getCreated() {
+  public String getCreated() {
     return created;
   }
 
-  public void setCreated(@jakarta.annotation.Nonnull OffsetDateTime created) {
+  public void setCreated(@jakarta.annotation.Nonnull String created) {
     this.created = created;
   }
 
-  public Timestamps updated(@jakarta.annotation.Nonnull OffsetDateTime updated) {
+  public Timestamps updated(@jakarta.annotation.Nonnull String updated) {
     this.updated = updated;
     return this;
   }
@@ -90,15 +89,15 @@ public class Timestamps {
    * @return updated
    */
   @jakarta.annotation.Nonnull
-  public OffsetDateTime getUpdated() {
+  public String getUpdated() {
     return updated;
   }
 
-  public void setUpdated(@jakarta.annotation.Nonnull OffsetDateTime updated) {
+  public void setUpdated(@jakarta.annotation.Nonnull String updated) {
     this.updated = updated;
   }
 
-  public Timestamps started(@jakarta.annotation.Nullable OffsetDateTime started) {
+  public Timestamps started(@jakarta.annotation.Nullable String started) {
     this.started = started;
     return this;
   }
@@ -109,15 +108,15 @@ public class Timestamps {
    * @return started
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getStarted() {
+  public String getStarted() {
     return started;
   }
 
-  public void setStarted(@jakarta.annotation.Nullable OffsetDateTime started) {
+  public void setStarted(@jakarta.annotation.Nullable String started) {
     this.started = started;
   }
 
-  public Timestamps deleted(@jakarta.annotation.Nonnull OffsetDateTime deleted) {
+  public Timestamps deleted(@jakarta.annotation.Nonnull String deleted) {
     this.deleted = deleted;
     return this;
   }
@@ -128,11 +127,11 @@ public class Timestamps {
    * @return deleted
    */
   @jakarta.annotation.Nonnull
-  public OffsetDateTime getDeleted() {
+  public String getDeleted() {
     return deleted;
   }
 
-  public void setDeleted(@jakarta.annotation.Nonnull OffsetDateTime deleted) {
+  public void setDeleted(@jakarta.annotation.Nonnull String deleted) {
     this.deleted = deleted;
   }
 
@@ -235,6 +234,31 @@ public class Timestamps {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (!jsonObj.get("created").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `created` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("created").toString()));
+    }
+    if (!jsonObj.get("updated").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `updated` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("updated").toString()));
+    }
+    if ((jsonObj.get("started") != null && !jsonObj.get("started").isJsonNull())
+        && !jsonObj.get("started").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `started` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("started").toString()));
+    }
+    if (!jsonObj.get("deleted").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `deleted` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("deleted").toString()));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

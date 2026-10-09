@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
@@ -36,7 +35,7 @@ class GetRecomResDataInner(BaseModel):
     )
     vendor_code: StrictStr = Field(description="Артикул продавца", alias="vendorCode")
     brand_name: StrictStr = Field(description="Бренд", alias="brandName")
-    updated_at: Optional[datetime] = Field(
+    updated_at: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время последнего обновления рекомендаций",
         alias="updatedAt",

@@ -14,7 +14,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"time"
 )
 
 // checks if the OpenapiPinnedReviewItemResult type satisfies the MappedNullable interface at compile time
@@ -23,7 +22,7 @@ var _ MappedNullable = &OpenapiPinnedReviewItemResult{}
 // OpenapiPinnedReviewItemResult struct for OpenapiPinnedReviewItemResult
 type OpenapiPinnedReviewItemResult struct {
 	// Дата и время закрепления или открепления
-	ChangeStateAt time.Time `json:"changeStateAt"`
+	ChangeStateAt string `json:"changeStateAt"`
 	// ID для [объединённых](https://dev.wildberries.ru/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/rabota-s-tovarami#obuedinenie-i-razuedinenie-kartochek-tovarov) карточек товаров
 	ImtId int32 `json:"imtId"`
 	// Артикул WB
@@ -48,7 +47,7 @@ type _OpenapiPinnedReviewItemResult OpenapiPinnedReviewItemResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOpenapiPinnedReviewItemResult(changeStateAt time.Time, imtId int32, nmId int32, pinId int32, pinMethod DomainReviewPinMethod, pinOn DomainReviewPinOn, feedbackId string, state DomainReviewState) *OpenapiPinnedReviewItemResult {
+func NewOpenapiPinnedReviewItemResult(changeStateAt string, imtId int32, nmId int32, pinId int32, pinMethod DomainReviewPinMethod, pinOn DomainReviewPinOn, feedbackId string, state DomainReviewState) *OpenapiPinnedReviewItemResult {
 	this := OpenapiPinnedReviewItemResult{}
 	this.ChangeStateAt = changeStateAt
 	this.ImtId = imtId
@@ -70,9 +69,9 @@ func NewOpenapiPinnedReviewItemResultWithDefaults() *OpenapiPinnedReviewItemResu
 }
 
 // GetChangeStateAt returns the ChangeStateAt field value
-func (o *OpenapiPinnedReviewItemResult) GetChangeStateAt() time.Time {
+func (o *OpenapiPinnedReviewItemResult) GetChangeStateAt() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -81,7 +80,7 @@ func (o *OpenapiPinnedReviewItemResult) GetChangeStateAt() time.Time {
 
 // GetChangeStateAtOk returns a tuple with the ChangeStateAt field value
 // and a boolean to check if the value has been set.
-func (o *OpenapiPinnedReviewItemResult) GetChangeStateAtOk() (*time.Time, bool) {
+func (o *OpenapiPinnedReviewItemResult) GetChangeStateAtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -89,7 +88,7 @@ func (o *OpenapiPinnedReviewItemResult) GetChangeStateAtOk() (*time.Time, bool) 
 }
 
 // SetChangeStateAt sets field value
-func (o *OpenapiPinnedReviewItemResult) SetChangeStateAt(v time.Time) {
+func (o *OpenapiPinnedReviewItemResult) SetChangeStateAt(v string) {
 	o.ChangeStateAt = v
 }
 

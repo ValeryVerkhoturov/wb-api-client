@@ -4214,7 +4214,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: unauthorized
@@ -4271,7 +4270,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           examples:
             Response403TokenCategory:
@@ -4314,7 +4312,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: too many requests
@@ -4364,7 +4361,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: unauthorized
@@ -4405,7 +4401,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: too many requests
@@ -4819,7 +4814,6 @@ components:
           example: f884001e44e511edb8780242ac120002
         createdAt:
           type: string
-          format: date-time
           nullable: false
           description: Дата создания сборочного задания (RFC3339). Часовой пояс — UTC
           example: '2022-05-04T07:56:29Z'
@@ -4970,20 +4964,17 @@ components:
               - `false` — открыта
         createdAt:
           type: string
-          format: date-time
           nullable: false
           description: Дата создания поставки (RFC3339)
           example: '2022-05-04T07:56:29Z'
         closedAt:
           type: string
-          format: date-time
           nullable: true
           description: Дата закрытия поставки (RFC3339)
           example: '2022-05-04T07:56:29Z'
         scanDt:
           type: string
           nullable: true
-          format: date-time
           description: "Дата сканирования поставки (RFC3339).\nЕсли `\"scanDt\":null`, поставка не сканировалась"
           example: '2022-05-04T07:56:29Z'
         name:
@@ -5178,7 +5169,6 @@ components:
           example: f884001e44e511edb8780242ac120002
         createdAt:
           type: string
-          format: date-time
           nullable: false
           description: Дата создания сборочного задания (RFC3339)
           example: '2022-05-04T07:56:29Z'
@@ -5785,7 +5775,6 @@ components:
           description: Расшифровка HTTP статус-кода
         timestamp:
           type: string
-          format: date-time
           description: Дата и время запроса
     Http409SupplyDeliverError:
       type: object
@@ -6069,7 +6058,6 @@ components:
             properties:
               deliveryDate:
                 type: string
-                format: date-time
                 description: Планируемая дата доставки, [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)
               statuses:
                 description: Статусы

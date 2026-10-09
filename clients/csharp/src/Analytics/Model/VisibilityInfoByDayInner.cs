@@ -42,8 +42,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="dt">Дата (required).</param>
         /// <param name="visibility">Видимость карточки в результатах поиска, % (required).</param>
         /// <param name="open">Количество переходов в карточку (required).</param>
-        public VisibilityInfoByDayInner(DateOnly dt = default(DateOnly), int visibility = default(int), int open = default(int))
+        public VisibilityInfoByDayInner(string dt = default(string), int visibility = default(int), int open = default(int))
         {
+            // to ensure "dt" is required (not null)
+            if (dt == null)
+            {
+                throw new ArgumentNullException("dt is a required property for VisibilityInfoByDayInner and cannot be null");
+            }
             this.Dt = dt;
             this.Visibility = visibility;
             this.Open = open;
@@ -54,10 +59,10 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <value>Дата</value>
         /*
-        <example>Sat Feb 10 00:00:00 UTC 2024</example>
+        <example>2024-02-10</example>
         */
         [DataMember(Name = "dt", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly Dt { get; set; }
+        public string Dt { get; set; }
 
         /// <summary>
         /// Видимость карточки в результатах поиска, %

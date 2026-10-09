@@ -81,9 +81,19 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="timezone">Временная зона по формату [IANA](https://nodatime.org/TimeZones) (default to &quot;Europe/Moscow&quot;).</param>
         /// <param name="aggregationLevel">Как сгруппировать данные (по умолчанию по дням):    * &#x60;day&#x60; — по дням   * &#x60;week&#x60; — по неделям   * &#x60;month&#x60; — по месяцам .</param>
         /// <param name="skipDeletedNm">Скрыть удалённые товары.</param>
-        public SalesFunnelItemReqParams(List<long> nmIDs = default(List<long>), List<int> subjectIds = default(List<int>), List<string> brandNames = default(List<string>), List<long> tagIds = default(List<long>), DateOnly startDate = default(DateOnly), DateOnly endDate = default(DateOnly), string timezone = @"Europe/Moscow", AggregationLevelEnum? aggregationLevel = default(AggregationLevelEnum?), bool skipDeletedNm = default(bool))
+        public SalesFunnelItemReqParams(List<long> nmIDs = default(List<long>), List<int> subjectIds = default(List<int>), List<string> brandNames = default(List<string>), List<long> tagIds = default(List<long>), string startDate = default(string), string endDate = default(string), string timezone = @"Europe/Moscow", AggregationLevelEnum? aggregationLevel = default(AggregationLevelEnum?), bool skipDeletedNm = default(bool))
         {
+            // to ensure "startDate" is required (not null)
+            if (startDate == null)
+            {
+                throw new ArgumentNullException("startDate is a required property for SalesFunnelItemReqParams and cannot be null");
+            }
             this.StartDate = startDate;
+            // to ensure "endDate" is required (not null)
+            if (endDate == null)
+            {
+                throw new ArgumentNullException("endDate is a required property for SalesFunnelItemReqParams and cannot be null");
+            }
             this.EndDate = endDate;
             this.NmIDs = nmIDs;
             this.SubjectIds = subjectIds;
@@ -137,14 +147,14 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <value>Начало периода</value>
         [DataMember(Name = "startDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly StartDate { get; set; }
+        public string StartDate { get; set; }
 
         /// <summary>
         /// Конец периода
         /// </summary>
         /// <value>Конец периода</value>
         [DataMember(Name = "endDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly EndDate { get; set; }
+        public string EndDate { get; set; }
 
         /// <summary>
         /// Временная зона по формату [IANA](https://nodatime.org/TimeZones)

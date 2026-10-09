@@ -44,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="videoStartsAt">Дата и время видеофиксации расхождений в процессе приемки (required).</param>
         /// <param name="videoUnavailable">Доступность видео:    - &#x60;false&#x60; — видео доступно    - &#x60;true&#x60; — видео недоступно  (required).</param>
         /// <param name="items">Товары поставки (required).</param>
-        public ModelsItemDiscrepancyResponse(string packageCode = default(string), string videoUrl = default(string), DateTime videoStartsAt = default(DateTime), bool videoUnavailable = default(bool), List<ModelsDiscrepancyResponseItem> items = default(List<ModelsDiscrepancyResponseItem>))
+        public ModelsItemDiscrepancyResponse(string packageCode = default(string), string videoUrl = default(string), string videoStartsAt = default(string), bool videoUnavailable = default(bool), List<ModelsDiscrepancyResponseItem> items = default(List<ModelsDiscrepancyResponseItem>))
         {
             // to ensure "packageCode" is required (not null)
             if (packageCode == null)
@@ -58,6 +58,11 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
                 throw new ArgumentNullException("videoUrl is a required property for ModelsItemDiscrepancyResponse and cannot be null");
             }
             this.VideoUrl = videoUrl;
+            // to ensure "videoStartsAt" is required (not null)
+            if (videoStartsAt == null)
+            {
+                throw new ArgumentNullException("videoStartsAt is a required property for ModelsItemDiscrepancyResponse and cannot be null");
+            }
             this.VideoStartsAt = videoStartsAt;
             this.VideoUnavailable = videoUnavailable;
             // to ensure "items" is required (not null)
@@ -87,7 +92,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// </summary>
         /// <value>Дата и время видеофиксации расхождений в процессе приемки</value>
         [DataMember(Name = "videoStartsAt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime VideoStartsAt { get; set; }
+        public string VideoStartsAt { get; set; }
 
         /// <summary>
         /// Доступность видео:    - &#x60;false&#x60; — видео доступно    - &#x60;true&#x60; — видео недоступно 

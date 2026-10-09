@@ -12,7 +12,6 @@ package communications
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the GetV1QuestionResponse200DataAnswer type satisfies the MappedNullable interface at compile time
@@ -25,7 +24,7 @@ type GetV1QuestionResponse200DataAnswer struct {
 	// Можно ли отредактировать ответ (`false` - нельзя, `true` - можно)
 	Editable *bool `json:"editable,omitempty"`
 	// Дата и время создания ответа
-	CreateDate *time.Time `json:"createDate,omitempty"`
+	CreateDate *string `json:"createDate,omitempty"`
 }
 
 // NewGetV1QuestionResponse200DataAnswer instantiates a new GetV1QuestionResponse200DataAnswer object
@@ -110,9 +109,9 @@ func (o *GetV1QuestionResponse200DataAnswer) SetEditable(v bool) {
 }
 
 // GetCreateDate returns the CreateDate field value if set, zero value otherwise.
-func (o *GetV1QuestionResponse200DataAnswer) GetCreateDate() time.Time {
+func (o *GetV1QuestionResponse200DataAnswer) GetCreateDate() string {
 	if o == nil || IsNil(o.CreateDate) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.CreateDate
@@ -120,7 +119,7 @@ func (o *GetV1QuestionResponse200DataAnswer) GetCreateDate() time.Time {
 
 // GetCreateDateOk returns a tuple with the CreateDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1QuestionResponse200DataAnswer) GetCreateDateOk() (*time.Time, bool) {
+func (o *GetV1QuestionResponse200DataAnswer) GetCreateDateOk() (*string, bool) {
 	if o == nil || IsNil(o.CreateDate) {
 		return nil, false
 	}
@@ -136,8 +135,8 @@ func (o *GetV1QuestionResponse200DataAnswer) HasCreateDate() bool {
 	return false
 }
 
-// SetCreateDate gets a reference to the given time.Time and assigns it to the CreateDate field.
-func (o *GetV1QuestionResponse200DataAnswer) SetCreateDate(v time.Time) {
+// SetCreateDate gets a reference to the given string and assigns it to the CreateDate field.
+func (o *GetV1QuestionResponse200DataAnswer) SetCreateDate(v string) {
 	o.CreateDate = &v
 }
 

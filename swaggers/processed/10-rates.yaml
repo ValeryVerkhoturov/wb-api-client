@@ -906,7 +906,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: unauthorized
@@ -963,7 +962,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: too many requests

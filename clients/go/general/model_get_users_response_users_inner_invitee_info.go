@@ -12,7 +12,6 @@ package general
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the GetUsersResponseUsersInnerInviteeInfo type satisfies the MappedNullable interface at compile time
@@ -27,7 +26,7 @@ type GetUsersResponseUsersInnerInviteeInfo struct {
 	// ID приглашения
 	InviteUuid *string `json:"inviteUuid,omitempty"`
 	// Дата и время окончания срока действия приглашения
-	ExpiredAt *time.Time `json:"expiredAt,omitempty"`
+	ExpiredAt *string `json:"expiredAt,omitempty"`
 	// - `true` — приглашение активно - `false` — приглашение неактивно
 	IsActive *bool `json:"isActive,omitempty"`
 }
@@ -146,9 +145,9 @@ func (o *GetUsersResponseUsersInnerInviteeInfo) SetInviteUuid(v string) {
 }
 
 // GetExpiredAt returns the ExpiredAt field value if set, zero value otherwise.
-func (o *GetUsersResponseUsersInnerInviteeInfo) GetExpiredAt() time.Time {
+func (o *GetUsersResponseUsersInnerInviteeInfo) GetExpiredAt() string {
 	if o == nil || IsNil(o.ExpiredAt) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.ExpiredAt
@@ -156,7 +155,7 @@ func (o *GetUsersResponseUsersInnerInviteeInfo) GetExpiredAt() time.Time {
 
 // GetExpiredAtOk returns a tuple with the ExpiredAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetUsersResponseUsersInnerInviteeInfo) GetExpiredAtOk() (*time.Time, bool) {
+func (o *GetUsersResponseUsersInnerInviteeInfo) GetExpiredAtOk() (*string, bool) {
 	if o == nil || IsNil(o.ExpiredAt) {
 		return nil, false
 	}
@@ -172,8 +171,8 @@ func (o *GetUsersResponseUsersInnerInviteeInfo) HasExpiredAt() bool {
 	return false
 }
 
-// SetExpiredAt gets a reference to the given time.Time and assigns it to the ExpiredAt field.
-func (o *GetUsersResponseUsersInnerInviteeInfo) SetExpiredAt(v time.Time) {
+// SetExpiredAt gets a reference to the given string and assigns it to the ExpiredAt field.
+func (o *GetUsersResponseUsersInnerInviteeInfo) SetExpiredAt(v string) {
 	o.ExpiredAt = &v
 }
 

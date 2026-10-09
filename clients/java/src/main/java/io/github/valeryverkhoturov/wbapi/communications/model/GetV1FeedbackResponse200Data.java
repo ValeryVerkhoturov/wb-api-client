@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.communications.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -77,7 +76,7 @@ public class GetV1FeedbackResponse200Data {
 
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
   @jakarta.annotation.Nullable
-  private OffsetDateTime createdDate;
+  private String createdDate;
 
   public static final String SERIALIZED_NAME_ANSWER = "answer";
 
@@ -336,8 +335,7 @@ public class GetV1FeedbackResponse200Data {
     this.productValuation = productValuation;
   }
 
-  public GetV1FeedbackResponse200Data createdDate(
-      @jakarta.annotation.Nullable OffsetDateTime createdDate) {
+  public GetV1FeedbackResponse200Data createdDate(@jakarta.annotation.Nullable String createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -348,11 +346,11 @@ public class GetV1FeedbackResponse200Data {
    * @return createdDate
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getCreatedDate() {
+  public String getCreatedDate() {
     return createdDate;
   }
 
-  public void setCreatedDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable String createdDate) {
     this.createdDate = createdDate;
   }
 
@@ -1061,6 +1059,13 @@ public class GetV1FeedbackResponse200Data {
           String.format(
               "Expected the field `matchingSize` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("matchingSize").toString()));
+    }
+    if ((jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull())
+        && !jsonObj.get("createdDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `createdDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("createdDate").toString()));
     }
     // validate the optional field `answer`
     if (jsonObj.get("answer") != null && !jsonObj.get("answer").isJsonNull()) {

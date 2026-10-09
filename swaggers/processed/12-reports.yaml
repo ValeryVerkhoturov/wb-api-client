@@ -678,7 +678,6 @@ paths:
         description: Начало отчётного периода. По умолчанию используется дата, когда были впервые получены данные для отчёта
         schema:
           type: string
-          format: date-time
         example: '2025-02-01T15:00:00Z'
       - in: query
         name: dateTo
@@ -686,7 +685,6 @@ paths:
         description: Конец отчётного периода
         schema:
           type: string
-          format: date-time
         example: '2025-10-11T18:00:00Z'
       - name: limit
         in: query
@@ -766,7 +764,6 @@ paths:
         description: Начало отчётного периода. По умолчанию используется дата, когда были впервые получены данные для отчёта
         schema:
           type: string
-          format: date-time
         example: '2025-02-01T15:00:00Z'
       - in: query
         name: dateTo
@@ -774,7 +771,6 @@ paths:
         description: Конец отчётного периода
         schema:
           type: string
-          format: date-time
         example: '2025-10-11T18:00:00Z'
       - name: limit
         in: query
@@ -854,7 +850,6 @@ paths:
         description: Начало отчётного периода. По умолчанию используются дата и время, когда были впервые получены данные для отчёта
         schema:
           type: string
-          format: date-time
         example: '2025-02-01T15:00:00Z'
       - name: dateTo
         in: query
@@ -862,7 +857,6 @@ paths:
         description: Конец отчётного периода
         schema:
           type: string
-          format: date-time
         example: '2025-10-11T18:00:00Z'
       - name: sort
         in: query
@@ -1863,7 +1857,6 @@ paths:
         required: true
         schema:
           type: string
-          format: date
           example: '2024-08-13'
         description: Дата начала отчётного периода
       - name: dateTo
@@ -1871,7 +1864,6 @@ paths:
         required: true
         schema:
           type: string
-          format: date
           example: '2024-08-27'
         description: Дата окончания отчётного периода
       responses:
@@ -1929,7 +1921,6 @@ paths:
         required: true
         schema:
           type: string
-          format: date
           example: '2024-08-13'
         description: Дата начала отчётного периода
       - name: dateTo
@@ -1937,7 +1928,6 @@ paths:
         required: true
         schema:
           type: string
-          format: date
           example: '2024-08-27'
         description: Дата окончания отчётного периода
       - name: status
@@ -2077,7 +2067,6 @@ components:
                 description: Артикул WB
               orderDt:
                 type: string
-                format: date
                 example: '2024-08-26'
                 description: Дата заказа на возврат
               orderId:
@@ -2525,7 +2514,6 @@ components:
                     - https://static-basket-09.wbbasket.ru/vol184/obmer-tovarov/measurement_on_table/wbs35189094220_em904757_n3_9f502e24-3b3e-4efd-9hac-802813046ac3.webp
                   dtBonus:
                     type: string
-                    format: date-time
                     description: Дата штрафа
                     example: '2025-06-02T00:00:00Z'
                   isValid:
@@ -2537,7 +2525,6 @@ components:
                     example: true
                   isValidDt:
                     type: string
-                    format: date-time
                     description: Дата и время подтверждения или отмены обмера
                     example: '2025-05-29T13:35:57Z'
                   reversalAmount:
@@ -2550,12 +2537,10 @@ components:
                     example: 449.83
                   dateStart:
                     type: string
-                    format: date-time
                     example: '2025-05-09T13:35:57Z'
                     description: Дата и время начала действия коэффициента
                   dateEnd:
                     type: string
-                    format: date-time
                     example: '2025-05-29T13:35:57Z'
                     description: Дата и время окончания действия коэффициента
             total:
@@ -2618,7 +2603,6 @@ components:
                     - https://static-basket-03.wb.ru/vol54/handheld-goods-measurements-photo/8906416_ff93b7c4-19d6-e0a2-4dba-7c2f09f06b3.jpg
                   dt:
                     type: string
-                    format: date-time
                     description: Дата и время
                     example: '2025-04-01T00:06:00Z'
             total:
@@ -2728,7 +2712,6 @@ components:
           description: Расшифровка HTTP статус-кода
         timestamp:
           type: string
-          format: date-time
           description: Дата и время запроса
     Http4XXResponse:
       type: object
@@ -2812,7 +2795,6 @@ components:
             example: 40
           giCreateDate:
             type: string
-            format: date
             description: Дата создания поставки
             example: '2025-03-04'
           incomeId:
@@ -2825,7 +2807,6 @@ components:
             example: 123456789
           shkCreateDate:
             type: string
-            format: date
             description: Дата приёмки
             example: '2025-03-14'
           subjectName:
@@ -3034,7 +3015,6 @@ components:
                 description: Артикул WB
               orderDt:
                 type: string
-                format: date
                 example: '2024-08-26'
                 description: Дата заказа на возврат
               orderId:
@@ -3131,7 +3111,6 @@ components:
         Начало отчётного периода, `ГГГГ-ММ-ДД`
       schema:
         type: string
-        format: date
         example: '2024-04-01'
       required: true
     DateToGoodsLabeling:
@@ -3141,7 +3120,6 @@ components:
         Конец отчётного периода, `ГГГГ-ММ-ДД`
       schema:
         type: string
-        format: date
         example: '2024-04-30'
       required: true
   examples:
@@ -3415,7 +3393,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: unauthorized
@@ -3472,7 +3449,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           examples:
             Response403TokenCategory:
@@ -3515,7 +3491,6 @@ components:
                 description: Расшифровка HTTP статус-кода
               timestamp:
                 type: string
-                format: date-time
                 description: Дата и время запроса
           example:
             title: too many requests
@@ -3632,7 +3607,6 @@ components:
                       properties:
                         dtBonus:
                           type: string
-                          format: date-time
                           description: Дата и время удержания
                           example: '2025-06-02T00:00:00Z'
                         nmId:
@@ -3717,7 +3691,6 @@ components:
                     date:
                       description: Дата
                       type: string
-                      format: date-time
                     incomeId:
                       description: Номер поставки
                       type: integer

@@ -42,9 +42,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="avgPosition">Средняя позиция товара (required).</param>
         /// <param name="date">Дата, за которую предоставлены данные (required).</param>
         /// <param name="nm">Артикул WB (required).</param>
-        public FullStatsItemBoosterStatsInner(int avgPosition = default(int), DateOnly date = default(DateOnly), int nm = default(int))
+        public FullStatsItemBoosterStatsInner(int avgPosition = default(int), string date = default(string), int nm = default(int))
         {
             this.AvgPosition = avgPosition;
+            // to ensure "date" is required (not null)
+            if (date == null)
+            {
+                throw new ArgumentNullException("date is a required property for FullStatsItemBoosterStatsInner and cannot be null");
+            }
             this.Date = date;
             this.Nm = nm;
         }
@@ -61,7 +66,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Дата, за которую предоставлены данные</value>
         [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly Date { get; set; }
+        public string Date { get; set; }
 
         /// <summary>
         /// Артикул WB

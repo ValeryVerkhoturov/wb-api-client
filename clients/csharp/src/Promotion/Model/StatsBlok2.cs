@@ -55,7 +55,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="expenses">Стоимость размещения баннера.</param>
         /// <param name="cr1">Отношение количества добавлений в корзину к количеству кликов.</param>
         /// <param name="cr2">Отношение количества заказов к количеству добавлений в корзину.</param>
-        public StatsBlok2(int itemId = default(int), string itemName = default(string), string categoryName = default(string), int advertType = default(int), int place = default(int), int views = default(int), int clicks = default(int), decimal cr = default(decimal), decimal ctr = default(decimal), DateTime dateFrom = default(DateTime), DateTime dateTo = default(DateTime), string subjectName = default(string), int atbs = default(int), int orders = default(int), decimal price = default(decimal), decimal cpc = default(decimal), int status = default(int), List<StatsBlok2DailyStatsInner> dailyStats = default(List<StatsBlok2DailyStatsInner>), decimal expenses = default(decimal), decimal cr1 = default(decimal), int cr2 = default(int))
+        public StatsBlok2(int itemId = default(int), string itemName = default(string), string categoryName = default(string), int advertType = default(int), int place = default(int), int views = default(int), int clicks = default(int), decimal cr = default(decimal), decimal ctr = default(decimal), string dateFrom = default(string), string dateTo = default(string), string subjectName = default(string), int atbs = default(int), int orders = default(int), decimal price = default(decimal), decimal cpc = default(decimal), int status = default(int), List<StatsBlok2DailyStatsInner> dailyStats = default(List<StatsBlok2DailyStatsInner>), decimal expenses = default(decimal), decimal cr1 = default(decimal), int cr2 = default(int))
         {
             this.ItemId = itemId;
             this.ItemName = itemName;
@@ -148,14 +148,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Время начала размещения</value>
         [DataMember(Name = "date_from", EmitDefaultValue = false)]
-        public DateTime DateFrom { get; set; }
+        public string DateFrom { get; set; }
 
         /// <summary>
         /// Время завершения размещения
         /// </summary>
         /// <value>Время завершения размещения</value>
         [DataMember(Name = "date_to", EmitDefaultValue = false)]
-        public DateTime DateTo { get; set; }
+        public string DateTo { get; set; }
 
         /// <summary>
         /// Родительская категория предмета

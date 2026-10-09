@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
@@ -42,7 +41,7 @@ class PostV2GetCardsListResponse200CardsInnerDocumentsOverallVerdict(BaseModel):
         default=None,
         description="Ошибка при проверке, возвращается для `status: 2`. Указывается только 1 причина. Если карточка не прошла проверку по нескольким причинам, то после исправления первой причины, вернётся следующая. Возможные значения: - `tnved\\_missing` — Не указан код ТН ВЭД - `supplier\\_inn\\_missing` — Не указан ИНН - `supplier\\_not\\_registered` — Поставщик не найден в реестре - `supplier\\_inactive` — Ошибка в статусе поставщика, проверьте его в реестре - `product\\_group\\_not\\_registered` — Добавлена неверная товарная группа в системе маркировки - `kiz\\_required` — Этот товар нельзя продавать в России без кода маркировки Честного Знака - `kiz\\_certificate\\_missing` — Нет подтверждения, что на товар нанесена необходимая маркировка",
     )
-    created_at: Optional[datetime] = Field(
+    created_at: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время проверки карточки товара",
         alias="createdAt",

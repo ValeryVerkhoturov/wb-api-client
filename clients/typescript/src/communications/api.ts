@@ -3688,17 +3688,11 @@ export const DefaultApiAxiosParamCreator = function (
       }
 
       if (dateFrom !== undefined) {
-        localVarQueryParameter["dateFrom"] =
-          (dateFrom as any) instanceof Date
-            ? (dateFrom as any).toISOString()
-            : dateFrom;
+        localVarQueryParameter["dateFrom"] = dateFrom;
       }
 
       if (dateTo !== undefined) {
-        localVarQueryParameter["dateTo"] =
-          (dateTo as any) instanceof Date
-            ? (dateTo as any).toISOString()
-            : dateTo;
+        localVarQueryParameter["dateTo"] = dateTo;
       }
 
       if (next !== undefined) {
@@ -3787,17 +3781,11 @@ export const DefaultApiAxiosParamCreator = function (
       }
 
       if (dateFrom !== undefined) {
-        localVarQueryParameter["dateFrom"] =
-          (dateFrom as any) instanceof Date
-            ? (dateFrom as any).toISOString()
-            : dateFrom;
+        localVarQueryParameter["dateFrom"] = dateFrom;
       }
 
       if (dateTo !== undefined) {
-        localVarQueryParameter["dateTo"] =
-          (dateTo as any) instanceof Date
-            ? (dateTo as any).toISOString()
-            : dateTo;
+        localVarQueryParameter["dateTo"] = dateTo;
       }
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);

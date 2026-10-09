@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.promotion.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -41,7 +40,7 @@ public class StatsBlok2DailyStatsInner {
 
   @SerializedName(SERIALIZED_NAME_DATE)
   @jakarta.annotation.Nullable
-  private OffsetDateTime date;
+  private String date;
 
   public static final String SERIALIZED_NAME_APP_TYPE_STATS = "app_type_stats";
 
@@ -51,7 +50,7 @@ public class StatsBlok2DailyStatsInner {
 
   public StatsBlok2DailyStatsInner() {}
 
-  public StatsBlok2DailyStatsInner date(@jakarta.annotation.Nullable OffsetDateTime date) {
+  public StatsBlok2DailyStatsInner date(@jakarta.annotation.Nullable String date) {
     this.date = date;
     return this;
   }
@@ -62,11 +61,11 @@ public class StatsBlok2DailyStatsInner {
    * @return date
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getDate() {
+  public String getDate() {
     return date;
   }
 
-  public void setDate(@jakarta.annotation.Nullable OffsetDateTime date) {
+  public void setDate(@jakarta.annotation.Nullable String date) {
     this.date = date;
   }
 
@@ -179,6 +178,13 @@ public class StatsBlok2DailyStatsInner {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if ((jsonObj.get("date") != null && !jsonObj.get("date").isJsonNull())
+        && !jsonObj.get("date").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `date` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("date").toString()));
+    }
     if (jsonObj.get("app_type_stats") != null && !jsonObj.get("app_type_stats").isJsonNull()) {
       JsonArray jsonArrayappTypeStats = jsonObj.getAsJsonArray("app_type_stats");
       if (jsonArrayappTypeStats != null) {

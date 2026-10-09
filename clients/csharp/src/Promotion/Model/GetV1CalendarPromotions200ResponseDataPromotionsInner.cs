@@ -66,7 +66,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="startDateTime">Начало акции.</param>
         /// <param name="endDateTime">Конец акции.</param>
         /// <param name="type">Тип акции:   - &#x60;regular&#x60; — акция   - &#x60;auto&#x60; — автоакция .</param>
-        public GetV1CalendarPromotions200ResponseDataPromotionsInner(int id = default(int), string name = default(string), DateTime startDateTime = default(DateTime), DateTime endDateTime = default(DateTime), TypeEnum? type = default(TypeEnum?))
+        public GetV1CalendarPromotions200ResponseDataPromotionsInner(int id = default(int), string name = default(string), string startDateTime = default(string), string endDateTime = default(string), TypeEnum? type = default(TypeEnum?))
         {
             this.Id = id;
             this.Name = name;
@@ -100,20 +100,20 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Начало акции</value>
         /*
-        <example>2023-06-05T21:00Z</example>
+        <example>2023-06-05T21:00:00Z</example>
         */
         [DataMember(Name = "startDateTime", EmitDefaultValue = false)]
-        public DateTime StartDateTime { get; set; }
+        public string StartDateTime { get; set; }
 
         /// <summary>
         /// Конец акции
         /// </summary>
         /// <value>Конец акции</value>
         /*
-        <example>2023-06-05T21:00Z</example>
+        <example>2023-06-05T21:00:00Z</example>
         */
         [DataMember(Name = "endDateTime", EmitDefaultValue = false)]
-        public DateTime EndDateTime { get; set; }
+        public string EndDateTime { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

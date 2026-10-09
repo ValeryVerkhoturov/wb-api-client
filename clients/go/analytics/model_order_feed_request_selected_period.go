@@ -14,7 +14,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"time"
 )
 
 // checks if the OrderFeedRequestSelectedPeriod type satisfies the MappedNullable interface at compile time
@@ -23,9 +22,9 @@ var _ MappedNullable = &OrderFeedRequestSelectedPeriod{}
 // OrderFeedRequestSelectedPeriod Запрашиваемый период. По дате текущего статуса заказа
 type OrderFeedRequestSelectedPeriod struct {
 	// Дата и время начала периода. Не ранее 31 суток от текущей даты и не позднее `end`
-	Start time.Time `json:"start"`
+	Start string `json:"start"`
 	// Дата и время конца периода. Не ранее 31 суток от текущей даты
-	End *time.Time `json:"end,omitempty"`
+	End *string `json:"end,omitempty"`
 }
 
 type _OrderFeedRequestSelectedPeriod OrderFeedRequestSelectedPeriod
@@ -34,7 +33,7 @@ type _OrderFeedRequestSelectedPeriod OrderFeedRequestSelectedPeriod
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderFeedRequestSelectedPeriod(start time.Time) *OrderFeedRequestSelectedPeriod {
+func NewOrderFeedRequestSelectedPeriod(start string) *OrderFeedRequestSelectedPeriod {
 	this := OrderFeedRequestSelectedPeriod{}
 	this.Start = start
 	return &this
@@ -49,9 +48,9 @@ func NewOrderFeedRequestSelectedPeriodWithDefaults() *OrderFeedRequestSelectedPe
 }
 
 // GetStart returns the Start field value
-func (o *OrderFeedRequestSelectedPeriod) GetStart() time.Time {
+func (o *OrderFeedRequestSelectedPeriod) GetStart() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -60,7 +59,7 @@ func (o *OrderFeedRequestSelectedPeriod) GetStart() time.Time {
 
 // GetStartOk returns a tuple with the Start field value
 // and a boolean to check if the value has been set.
-func (o *OrderFeedRequestSelectedPeriod) GetStartOk() (*time.Time, bool) {
+func (o *OrderFeedRequestSelectedPeriod) GetStartOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,14 +67,14 @@ func (o *OrderFeedRequestSelectedPeriod) GetStartOk() (*time.Time, bool) {
 }
 
 // SetStart sets field value
-func (o *OrderFeedRequestSelectedPeriod) SetStart(v time.Time) {
+func (o *OrderFeedRequestSelectedPeriod) SetStart(v string) {
 	o.Start = v
 }
 
 // GetEnd returns the End field value if set, zero value otherwise.
-func (o *OrderFeedRequestSelectedPeriod) GetEnd() time.Time {
+func (o *OrderFeedRequestSelectedPeriod) GetEnd() string {
 	if o == nil || IsNil(o.End) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.End
@@ -83,7 +82,7 @@ func (o *OrderFeedRequestSelectedPeriod) GetEnd() time.Time {
 
 // GetEndOk returns a tuple with the End field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderFeedRequestSelectedPeriod) GetEndOk() (*time.Time, bool) {
+func (o *OrderFeedRequestSelectedPeriod) GetEndOk() (*string, bool) {
 	if o == nil || IsNil(o.End) {
 		return nil, false
 	}
@@ -99,8 +98,8 @@ func (o *OrderFeedRequestSelectedPeriod) HasEnd() bool {
 	return false
 }
 
-// SetEnd gets a reference to the given time.Time and assigns it to the End field.
-func (o *OrderFeedRequestSelectedPeriod) SetEnd(v time.Time) {
+// SetEnd gets a reference to the given string and assigns it to the End field.
+func (o *OrderFeedRequestSelectedPeriod) SetEnd(v string) {
 	o.End = &v
 }
 

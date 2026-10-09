@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.items.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -64,7 +63,7 @@ public class GetRecomResDataInner {
 
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   @jakarta.annotation.Nullable
-  private OffsetDateTime updatedAt;
+  private String updatedAt;
 
   public static final String SERIALIZED_NAME_PICS_COUNT = "picsCount";
 
@@ -188,7 +187,7 @@ public class GetRecomResDataInner {
     this.brandName = brandName;
   }
 
-  public GetRecomResDataInner updatedAt(@jakarta.annotation.Nullable OffsetDateTime updatedAt) {
+  public GetRecomResDataInner updatedAt(@jakarta.annotation.Nullable String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -199,11 +198,11 @@ public class GetRecomResDataInner {
    * @return updatedAt
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getUpdatedAt() {
+  public String getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(@jakarta.annotation.Nullable OffsetDateTime updatedAt) {
+  public void setUpdatedAt(@jakarta.annotation.Nullable String updatedAt) {
     this.updatedAt = updatedAt;
   }
 
@@ -509,6 +508,13 @@ public class GetRecomResDataInner {
           String.format(
               "Expected the field `brandName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("brandName").toString()));
+    }
+    if ((jsonObj.get("updatedAt") != null && !jsonObj.get("updatedAt").isJsonNull())
+        && !jsonObj.get("updatedAt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `updatedAt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("updatedAt").toString()));
     }
     if (!jsonObj.get("title").isJsonPrimitive()) {
       throw new IllegalArgumentException(

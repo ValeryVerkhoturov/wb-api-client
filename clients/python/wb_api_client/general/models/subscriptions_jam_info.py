@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
@@ -39,10 +38,10 @@ class SubscriptionsJamInfo(BaseModel):
     level: StrictStr = Field(
         description="Уровень подписки:   - `standard`   - `advanced`   - `premium` "
     )
-    since: datetime = Field(
+    since: StrictStr = Field(
         description="Дата и время первой активации подписки. Не меняется при продлении или повторной активации"
     )
-    till: datetime = Field(description="Дата и время окончания подписки")
+    till: StrictStr = Field(description="Дата и время окончания подписки")
     __properties: ClassVar[List[str]] = [
         "state",
         "activationSource",

@@ -41,8 +41,13 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="date">Дата (required).</param>
         /// <param name="stat">stat.</param>
-        public V1GetNormQueryStatsResponseItemDailyStat(DateOnly date = default(DateOnly), V1GetNormQueryStatsResponseItemStat stat = default(V1GetNormQueryStatsResponseItemStat))
+        public V1GetNormQueryStatsResponseItemDailyStat(string date = default(string), V1GetNormQueryStatsResponseItemStat stat = default(V1GetNormQueryStatsResponseItemStat))
         {
+            // to ensure "date" is required (not null)
+            if (date == null)
+            {
+                throw new ArgumentNullException("date is a required property for V1GetNormQueryStatsResponseItemDailyStat and cannot be null");
+            }
             this.Date = date;
             this.Stat = stat;
         }
@@ -52,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <value>Дата</value>
         [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly Date { get; set; }
+        public string Date { get; set; }
 
         /// <summary>
         /// Gets or Sets Stat

@@ -85,7 +85,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         /// <param name="convertedCurrencyCode">Код валюты страны продавца.</param>
         /// <param name="cargoType">Тип товара:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) .</param>
         /// <param name="isZeroOrder">Признак заказа товара с нулевым остатком:   - &#x60;false&#x60; — заказ сделан на товар с ненулевым остатком   - &#x60;true&#x60; — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену .</param>
-        public OrderNewDBW(OrderNewDBWAddress address = default(OrderNewDBWAddress), int? salePrice = default(int?), List<string> requiredMeta = default(List<string>), string comment = default(string), OrderNewDBWOptions options = default(OrderNewDBWOptions), string orderUid = default(string), Guid groupId = default(Guid), string article = default(string), string colorCode = default(string), string rid = default(string), DateTime createdAt = default(DateTime), List<string> skus = default(List<string>), long id = default(long), int warehouseId = default(int), int nmId = default(int), int chrtId = default(int), int price = default(int), int convertedPrice = default(int), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), bool isZeroOrder = default(bool))
+        public OrderNewDBW(OrderNewDBWAddress address = default(OrderNewDBWAddress), int? salePrice = default(int?), List<string> requiredMeta = default(List<string>), string comment = default(string), OrderNewDBWOptions options = default(OrderNewDBWOptions), string orderUid = default(string), Guid groupId = default(Guid), string article = default(string), string colorCode = default(string), string rid = default(string), string createdAt = default(string), List<string> skus = default(List<string>), long id = default(long), int warehouseId = default(int), int nmId = default(int), int chrtId = default(int), int price = default(int), int convertedPrice = default(int), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), bool isZeroOrder = default(bool))
         {
             this.Address = address;
             this.SalePrice = salePrice;
@@ -211,7 +211,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersDbw.Model
         <example>2022-05-04T07:56:29Z</example>
         */
         [DataMember(Name = "createdAt", EmitDefaultValue = false)]
-        public DateTime CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
 
         /// <summary>
         /// Массив баркодов товара

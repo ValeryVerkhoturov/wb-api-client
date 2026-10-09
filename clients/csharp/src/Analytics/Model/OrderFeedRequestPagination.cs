@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="snapshotTime">Метка снимка данных, в рамках которого выполняется пагинация. Данные отчёта обновляются асинхронно. Чтобы не пропускать и не дублировать заказы, запросы одной выборки должны быть с одним и тем же &#x60;snapshotTime&#x60;. В первом запросе выборки (&#x60;\&quot;offset\&quot;:0&#x60;) параметр не указывается, в каждом последующем запросе (&#x60;offset&#x60;&gt;&#x60;0&#x60;) указывайте значение поля &#x60;snapshotTime&#x60; из ответа на **первый** запрос. При изменении значений периода и фильтров начинайте выборку заново с &#x60;\&quot;offset\&quot;:0&#x60; и без &#x60;snapshotTime&#x60;.</param>
         /// <param name="offset">Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента (default to 0).</param>
         /// <param name="limit">Количество заказов в ответе (default to 50).</param>
-        public OrderFeedRequestPagination(DateTime snapshotTime = default(DateTime), int offset = 0, int limit = 50)
+        public OrderFeedRequestPagination(string snapshotTime = default(string), int offset = 0, int limit = 50)
         {
             this.SnapshotTime = snapshotTime;
             this.Offset = offset;
@@ -52,7 +52,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         <example>2026-07-28T15:04:05Z</example>
         */
         [DataMember(Name = "snapshotTime", EmitDefaultValue = false)]
-        public DateTime SnapshotTime { get; set; }
+        public string SnapshotTime { get; set; }
 
         /// <summary>
         /// Сколько элементов пропустить. Например, для значения &#x60;10&#x60; ответ начнётся с 11 элемента

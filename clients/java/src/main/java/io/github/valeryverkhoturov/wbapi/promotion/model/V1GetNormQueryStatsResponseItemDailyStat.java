@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.promotion.JSON;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -38,7 +37,7 @@ public class V1GetNormQueryStatsResponseItemDailyStat {
 
   @SerializedName(SERIALIZED_NAME_DATE)
   @jakarta.annotation.Nonnull
-  private LocalDate date;
+  private String date;
 
   public static final String SERIALIZED_NAME_STAT = "stat";
 
@@ -48,7 +47,7 @@ public class V1GetNormQueryStatsResponseItemDailyStat {
 
   public V1GetNormQueryStatsResponseItemDailyStat() {}
 
-  public V1GetNormQueryStatsResponseItemDailyStat date(@jakarta.annotation.Nonnull LocalDate date) {
+  public V1GetNormQueryStatsResponseItemDailyStat date(@jakarta.annotation.Nonnull String date) {
     this.date = date;
     return this;
   }
@@ -59,11 +58,11 @@ public class V1GetNormQueryStatsResponseItemDailyStat {
    * @return date
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getDate() {
+  public String getDate() {
     return date;
   }
 
-  public void setDate(@jakarta.annotation.Nonnull LocalDate date) {
+  public void setDate(@jakarta.annotation.Nonnull String date) {
     this.date = date;
   }
 
@@ -179,6 +178,12 @@ public class V1GetNormQueryStatsResponseItemDailyStat {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (!jsonObj.get("date").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `date` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("date").toString()));
+    }
     // validate the optional field `stat`
     if (jsonObj.get("stat") != null && !jsonObj.get("stat").isJsonNull()) {
       V1GetNormQueryStatsResponseItemStat.validateJsonElement(jsonObj.get("stat"));

@@ -14,7 +14,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"time"
 )
 
 // checks if the ViewerContractPublicErrorsCursorOutput type satisfies the MappedNullable interface at compile time
@@ -25,7 +24,7 @@ type ViewerContractPublicErrorsCursorOutput struct {
 	// Есть ли ещё черновики:   - `false` — нет   - `true` — да
 	Next bool `json:"next"`
 	// Дата и время формирования последнего пакета в ответе
-	UpdatedAt time.Time `json:"updatedAt"`
+	UpdatedAt string `json:"updatedAt"`
 	// ID последнего пакета в ответе
 	BatchUUID string `json:"batchUUID"`
 }
@@ -36,7 +35,7 @@ type _ViewerContractPublicErrorsCursorOutput ViewerContractPublicErrorsCursorOut
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewViewerContractPublicErrorsCursorOutput(next bool, updatedAt time.Time, batchUUID string) *ViewerContractPublicErrorsCursorOutput {
+func NewViewerContractPublicErrorsCursorOutput(next bool, updatedAt string, batchUUID string) *ViewerContractPublicErrorsCursorOutput {
 	this := ViewerContractPublicErrorsCursorOutput{}
 	this.Next = next
 	this.UpdatedAt = updatedAt
@@ -77,9 +76,9 @@ func (o *ViewerContractPublicErrorsCursorOutput) SetNext(v bool) {
 }
 
 // GetUpdatedAt returns the UpdatedAt field value
-func (o *ViewerContractPublicErrorsCursorOutput) GetUpdatedAt() time.Time {
+func (o *ViewerContractPublicErrorsCursorOutput) GetUpdatedAt() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -88,7 +87,7 @@ func (o *ViewerContractPublicErrorsCursorOutput) GetUpdatedAt() time.Time {
 
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value
 // and a boolean to check if the value has been set.
-func (o *ViewerContractPublicErrorsCursorOutput) GetUpdatedAtOk() (*time.Time, bool) {
+func (o *ViewerContractPublicErrorsCursorOutput) GetUpdatedAtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -96,7 +95,7 @@ func (o *ViewerContractPublicErrorsCursorOutput) GetUpdatedAtOk() (*time.Time, b
 }
 
 // SetUpdatedAt sets field value
-func (o *ViewerContractPublicErrorsCursorOutput) SetUpdatedAt(v time.Time) {
+func (o *ViewerContractPublicErrorsCursorOutput) SetUpdatedAt(v string) {
 	o.UpdatedAt = v
 }
 

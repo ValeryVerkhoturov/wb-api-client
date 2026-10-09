@@ -87,7 +87,7 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /// <param name="cashbackCommissionChangeSum">Стоимость участия в программе лояльности (required).</param>
         /// <param name="paymentSchedule">Разовое изменение срока перечисления денежных средств (required).</param>
         /// <param name="bankPaymentSum">Итого к оплате (required).</param>
-        public SalesReportListRes(long reportId = default(long), string sellerFinanceName = default(string), DateOnly dateFrom = default(DateOnly), DateOnly dateTo = default(DateOnly), DateOnly createDate = default(DateOnly), string currency = default(string), ReportTypeEnum reportType = default(ReportTypeEnum), string retailAmountSum = default(string), string forPaySum = default(string), decimal avgSalePercent = default(decimal), string deliveryServiceSum = default(string), string paidStorageSum = default(string), string paidAcceptanceSum = default(string), string deductionSum = default(string), string penaltySum = default(string), string additionalPaymentSum = default(string), string cashbackAmountSum = default(string), string cashbackDiscountSum = default(string), string cashbackCommissionChangeSum = default(string), string paymentSchedule = default(string), string bankPaymentSum = default(string))
+        public SalesReportListRes(long reportId = default(long), string sellerFinanceName = default(string), string dateFrom = default(string), string dateTo = default(string), string createDate = default(string), string currency = default(string), ReportTypeEnum reportType = default(ReportTypeEnum), string retailAmountSum = default(string), string forPaySum = default(string), decimal avgSalePercent = default(decimal), string deliveryServiceSum = default(string), string paidStorageSum = default(string), string paidAcceptanceSum = default(string), string deductionSum = default(string), string penaltySum = default(string), string additionalPaymentSum = default(string), string cashbackAmountSum = default(string), string cashbackDiscountSum = default(string), string cashbackCommissionChangeSum = default(string), string paymentSchedule = default(string), string bankPaymentSum = default(string))
         {
             this.ReportId = reportId;
             // to ensure "sellerFinanceName" is required (not null)
@@ -96,8 +96,23 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
                 throw new ArgumentNullException("sellerFinanceName is a required property for SalesReportListRes and cannot be null");
             }
             this.SellerFinanceName = sellerFinanceName;
+            // to ensure "dateFrom" is required (not null)
+            if (dateFrom == null)
+            {
+                throw new ArgumentNullException("dateFrom is a required property for SalesReportListRes and cannot be null");
+            }
             this.DateFrom = dateFrom;
+            // to ensure "dateTo" is required (not null)
+            if (dateTo == null)
+            {
+                throw new ArgumentNullException("dateTo is a required property for SalesReportListRes and cannot be null");
+            }
             this.DateTo = dateTo;
+            // to ensure "createDate" is required (not null)
+            if (createDate == null)
+            {
+                throw new ArgumentNullException("createDate is a required property for SalesReportListRes and cannot be null");
+            }
             this.CreateDate = createDate;
             // to ensure "currency" is required (not null)
             if (currency == null)
@@ -212,30 +227,30 @@ namespace ValeryVerkhoturov.WbApiClient.Finances.Model
         /// </summary>
         /// <value>Дата начала отчётного периода</value>
         /*
-        <example>Mon Mar 16 00:00:00 UTC 2026</example>
+        <example>2026-03-16</example>
         */
         [DataMember(Name = "dateFrom", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly DateFrom { get; set; }
+        public string DateFrom { get; set; }
 
         /// <summary>
         /// Дата конца отчётного периода
         /// </summary>
         /// <value>Дата конца отчётного периода</value>
         /*
-        <example>Sun Mar 22 00:00:00 UTC 2026</example>
+        <example>2026-03-22</example>
         */
         [DataMember(Name = "dateTo", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly DateTo { get; set; }
+        public string DateTo { get; set; }
 
         /// <summary>
         /// Дата формирования отчёта
         /// </summary>
         /// <value>Дата формирования отчёта</value>
         /*
-        <example>Mon Mar 23 00:00:00 UTC 2026</example>
+        <example>2026-03-23</example>
         */
         [DataMember(Name = "createDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateOnly CreateDate { get; set; }
+        public string CreateDate { get; set; }
 
         /// <summary>
         /// Валюта отчёта

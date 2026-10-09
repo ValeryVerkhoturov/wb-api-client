@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from wb_api_client.orders_dbw.models.courier_contacts_response import (
     CourierContactsResponse,
@@ -40,7 +39,7 @@ class CourierInfo(BaseModel):
         description='Должен ли быть назначен курьер к текущему моменту:   - `false` — нет   - `true` — да    Если `"mustBeAssigned":true`, а `"contacts":null`, необходимо запросить контакты в [поддержке](https://seller.wildberries.ru/service-desk-v2) ',
         alias="mustBeAssigned",
     )
-    updated_at: Optional[datetime] = Field(
+    updated_at: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время обновления информации о курьере.  Если `null`, информация не обновлялась",
         alias="updatedAt",

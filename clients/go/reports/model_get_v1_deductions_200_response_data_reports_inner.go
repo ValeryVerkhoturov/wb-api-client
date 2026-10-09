@@ -12,7 +12,6 @@ package reports
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the GetV1Deductions200ResponseDataReportsInner type satisfies the MappedNullable interface at compile time
@@ -21,7 +20,7 @@ var _ MappedNullable = &GetV1Deductions200ResponseDataReportsInner{}
 // GetV1Deductions200ResponseDataReportsInner struct for GetV1Deductions200ResponseDataReportsInner
 type GetV1Deductions200ResponseDataReportsInner struct {
 	// Дата и время удержания
-	DtBonus *time.Time `json:"dtBonus,omitempty"`
+	DtBonus *string `json:"dtBonus,omitempty"`
 	// Артикул WB
 	NmId *int32 `json:"nmId,omitempty"`
 	// Старый штрихкод
@@ -70,9 +69,9 @@ func NewGetV1Deductions200ResponseDataReportsInnerWithDefaults() *GetV1Deduction
 }
 
 // GetDtBonus returns the DtBonus field value if set, zero value otherwise.
-func (o *GetV1Deductions200ResponseDataReportsInner) GetDtBonus() time.Time {
+func (o *GetV1Deductions200ResponseDataReportsInner) GetDtBonus() string {
 	if o == nil || IsNil(o.DtBonus) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.DtBonus
@@ -80,7 +79,7 @@ func (o *GetV1Deductions200ResponseDataReportsInner) GetDtBonus() time.Time {
 
 // GetDtBonusOk returns a tuple with the DtBonus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV1Deductions200ResponseDataReportsInner) GetDtBonusOk() (*time.Time, bool) {
+func (o *GetV1Deductions200ResponseDataReportsInner) GetDtBonusOk() (*string, bool) {
 	if o == nil || IsNil(o.DtBonus) {
 		return nil, false
 	}
@@ -96,8 +95,8 @@ func (o *GetV1Deductions200ResponseDataReportsInner) HasDtBonus() bool {
 	return false
 }
 
-// SetDtBonus gets a reference to the given time.Time and assigns it to the DtBonus field.
-func (o *GetV1Deductions200ResponseDataReportsInner) SetDtBonus(v time.Time) {
+// SetDtBonus gets a reference to the given string and assigns it to the DtBonus field.
+func (o *GetV1Deductions200ResponseDataReportsInner) SetDtBonus(v string) {
 	o.DtBonus = &v
 }
 

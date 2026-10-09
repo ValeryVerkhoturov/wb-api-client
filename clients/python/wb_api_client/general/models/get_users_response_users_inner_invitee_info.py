@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
@@ -40,7 +39,7 @@ class GetUsersResponseUsersInnerInviteeInfo(BaseModel):
     invite_uuid: Optional[StrictStr] = Field(
         default=None, description="ID приглашения", alias="inviteUuid"
     )
-    expired_at: Optional[datetime] = Field(
+    expired_at: Optional[StrictStr] = Field(
         default=None,
         description="Дата и время окончания срока действия приглашения",
         alias="expiredAt",

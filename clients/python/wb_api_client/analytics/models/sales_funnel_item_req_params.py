@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date
 from pydantic import (
     BaseModel,
     ConfigDict,
@@ -56,8 +55,8 @@ class SalesFunnelItemReqParams(BaseModel):
     tag_ids: Optional[List[StrictInt]] = Field(
         default=None, description="Список ID ярлыков для фильтрации", alias="tagIds"
     )
-    start_date: date = Field(description="Начало периода", alias="startDate")
-    end_date: date = Field(description="Конец периода", alias="endDate")
+    start_date: StrictStr = Field(description="Начало периода", alias="startDate")
+    end_date: StrictStr = Field(description="Конец периода", alias="endDate")
     timezone: Optional[StrictStr] = Field(
         default="Europe/Moscow",
         description="Временная зона по формату [IANA](https://nodatime.org/TimeZones)",

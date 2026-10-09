@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.promotion.JSON;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -68,13 +67,13 @@ public class GetV1AdvertsResponse200Inner {
 
   @SerializedName(SERIALIZED_NAME_CREATE_TIME)
   @jakarta.annotation.Nullable
-  private OffsetDateTime createTime;
+  private String createTime;
 
   public static final String SERIALIZED_NAME_END_TIME = "endTime";
 
   @SerializedName(SERIALIZED_NAME_END_TIME)
   @jakarta.annotation.Nullable
-  private OffsetDateTime endTime;
+  private String endTime;
 
   public GetV1AdvertsResponse200Inner() {}
 
@@ -178,8 +177,7 @@ public class GetV1AdvertsResponse200Inner {
     this.status = status;
   }
 
-  public GetV1AdvertsResponse200Inner createTime(
-      @jakarta.annotation.Nullable OffsetDateTime createTime) {
+  public GetV1AdvertsResponse200Inner createTime(@jakarta.annotation.Nullable String createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -190,15 +188,15 @@ public class GetV1AdvertsResponse200Inner {
    * @return createTime
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getCreateTime() {
+  public String getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(@jakarta.annotation.Nullable OffsetDateTime createTime) {
+  public void setCreateTime(@jakarta.annotation.Nullable String createTime) {
     this.createTime = createTime;
   }
 
-  public GetV1AdvertsResponse200Inner endTime(@jakarta.annotation.Nullable OffsetDateTime endTime) {
+  public GetV1AdvertsResponse200Inner endTime(@jakarta.annotation.Nullable String endTime) {
     this.endTime = endTime;
     return this;
   }
@@ -209,11 +207,11 @@ public class GetV1AdvertsResponse200Inner {
    * @return endTime
    */
   @jakarta.annotation.Nullable
-  public OffsetDateTime getEndTime() {
+  public String getEndTime() {
     return endTime;
   }
 
-  public void setEndTime(@jakarta.annotation.Nullable OffsetDateTime endTime) {
+  public void setEndTime(@jakarta.annotation.Nullable String endTime) {
     this.endTime = endTime;
   }
 
@@ -324,6 +322,20 @@ public class GetV1AdvertsResponse200Inner {
           String.format(
               "Expected the field `brand` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("brand").toString()));
+    }
+    if ((jsonObj.get("createTime") != null && !jsonObj.get("createTime").isJsonNull())
+        && !jsonObj.get("createTime").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `createTime` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("createTime").toString()));
+    }
+    if ((jsonObj.get("endTime") != null && !jsonObj.get("endTime").isJsonNull())
+        && !jsonObj.get("endTime").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `endTime` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("endTime").toString()));
     }
   }
 

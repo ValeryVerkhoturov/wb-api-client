@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from wb_api_client.analytics.models.order import Order
@@ -30,7 +29,7 @@ class OrderFeedResponse(BaseModel):
     Данные ответа
     """  # noqa: E501
 
-    snapshot_time: datetime = Field(
+    snapshot_time: StrictStr = Field(
         description="Метка снимка данных, в рамках которого выполняется пагинация",
         alias="snapshotTime",
     )

@@ -17,7 +17,7 @@ Everything under `clients/` is generated output. Do not edit it — regenerate.
 
 ```
 download-swaggers.sh   →  swaggers/*.yaml         (raw upstream, checksummed)
-post-process.py        →  swaggers/processed/     (7 passes; see below)
+post-process.py        →  swaggers/processed/     (8 passes; see below)
 generate.sh <ver>      →  clients/<lang>/…        (openapi-generator-cli, 7 langs)
     ├── inject-secret.py           (SecretString wrapper per lang; OneScript ships its own)
     ├── {black|prettier|gofmt|spotless|php-cs-fixer}   (canonicalize formatting)
@@ -159,8 +159,9 @@ Every generated client sends `ValeryVerkhoturov/wb-api-client/<lang>` on every r
 6. `sanitize_non_ascii_enums` — adds `x-enum-varnames` for `["Склад WB", "Склад продавца"]`-style enums (empty JS/Go/Java identifiers otherwise)
 7. `htmlize_descriptions_to_markdown` — every `description` field goes through `markdownify` (`<div>`, `<a href>`, `<br>`, `<ul>`, `<code>` → Markdown for readable doc-comments)
 8. `absolutize_description_links` — prefixes `[…](/openapi/…)` with `https://dev.wildberries.ru` so links in generated docstrings resolve
+9. `drop_date_formats` — strips `format: date` / `date-time` from string schemas (WB returns `""` for unset dates like `fixTariffDateFrom`/`utdUcdDate`, which crashes strict date parsers in every language; plain strings are the honest contract)
 
-(Counted as "8 passes" if you split HTML→MD and link-absolutize; the pipeline diagram calls it 7 for the sake of the "one big semantic step for descriptions" reading.)
+(Counted as "9 passes" if you split HTML→MD and link-absolutize; the pipeline diagram calls it 8 for the sake of the "one big semantic step for descriptions" reading.)
 
 ## Spec source — GitLab mirror
 

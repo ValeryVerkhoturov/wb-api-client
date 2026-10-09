@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.analytics.JSON;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -38,17 +37,17 @@ public class Period {
 
   @SerializedName(SERIALIZED_NAME_START)
   @jakarta.annotation.Nonnull
-  private LocalDate start;
+  private String start;
 
   public static final String SERIALIZED_NAME_END = "end";
 
   @SerializedName(SERIALIZED_NAME_END)
   @jakarta.annotation.Nonnull
-  private LocalDate end;
+  private String end;
 
   public Period() {}
 
-  public Period start(@jakarta.annotation.Nonnull LocalDate start) {
+  public Period start(@jakarta.annotation.Nonnull String start) {
     this.start = start;
     return this;
   }
@@ -59,15 +58,15 @@ public class Period {
    * @return start
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getStart() {
+  public String getStart() {
     return start;
   }
 
-  public void setStart(@jakarta.annotation.Nonnull LocalDate start) {
+  public void setStart(@jakarta.annotation.Nonnull String start) {
     this.start = start;
   }
 
-  public Period end(@jakarta.annotation.Nonnull LocalDate end) {
+  public Period end(@jakarta.annotation.Nonnull String end) {
     this.end = end;
     return this;
   }
@@ -78,11 +77,11 @@ public class Period {
    * @return end
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getEnd() {
+  public String getEnd() {
     return end;
   }
 
-  public void setEnd(@jakarta.annotation.Nonnull LocalDate end) {
+  public void setEnd(@jakarta.annotation.Nonnull String end) {
     this.end = end;
   }
 
@@ -175,6 +174,18 @@ public class Period {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (!jsonObj.get("start").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `start` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("start").toString()));
+    }
+    if (!jsonObj.get("end").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `end` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("end").toString()));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

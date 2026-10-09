@@ -25,8 +25,6 @@ import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.finances.JSON;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -47,19 +45,19 @@ public class SalesReportsDetailedRes {
 
   @SerializedName(SERIALIZED_NAME_DATE_FROM)
   @jakarta.annotation.Nonnull
-  private LocalDate dateFrom;
+  private String dateFrom;
 
   public static final String SERIALIZED_NAME_DATE_TO = "dateTo";
 
   @SerializedName(SERIALIZED_NAME_DATE_TO)
   @jakarta.annotation.Nonnull
-  private LocalDate dateTo;
+  private String dateTo;
 
   public static final String SERIALIZED_NAME_CREATE_DATE = "createDate";
 
   @SerializedName(SERIALIZED_NAME_CREATE_DATE)
   @jakarta.annotation.Nonnull
-  private LocalDate createDate;
+  private String createDate;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
@@ -146,13 +144,13 @@ public class SalesReportsDetailedRes {
 
   @SerializedName(SERIALIZED_NAME_FIX_TARIFF_DATE_FROM)
   @jakarta.annotation.Nonnull
-  private LocalDate fixTariffDateFrom;
+  private String fixTariffDateFrom;
 
   public static final String SERIALIZED_NAME_FIX_TARIFF_DATE_TO = "fixTariffDateTo";
 
   @SerializedName(SERIALIZED_NAME_FIX_TARIFF_DATE_TO)
   @jakarta.annotation.Nonnull
-  private LocalDate fixTariffDateTo;
+  private String fixTariffDateTo;
 
   public static final String SERIALIZED_NAME_SUBJECT_NAME = "subjectName";
 
@@ -248,19 +246,19 @@ public class SalesReportsDetailedRes {
 
   @SerializedName(SERIALIZED_NAME_ORDER_DT)
   @jakarta.annotation.Nonnull
-  private OffsetDateTime orderDt;
+  private String orderDt;
 
   public static final String SERIALIZED_NAME_SALE_DT = "saleDt";
 
   @SerializedName(SERIALIZED_NAME_SALE_DT)
   @jakarta.annotation.Nonnull
-  private OffsetDateTime saleDt;
+  private String saleDt;
 
   public static final String SERIALIZED_NAME_RR_DATE = "rrDate";
 
   @SerializedName(SERIALIZED_NAME_RR_DATE)
   @jakarta.annotation.Nonnull
-  private LocalDate rrDate;
+  private String rrDate;
 
   public static final String SERIALIZED_NAME_SHK_ID = "shkId";
 
@@ -658,7 +656,7 @@ public class SalesReportsDetailedRes {
 
   @SerializedName(SERIALIZED_NAME_UTD_UCD_DATE)
   @jakarta.annotation.Nonnull
-  private LocalDate utdUcdDate;
+  private String utdUcdDate;
 
   public static final String SERIALIZED_NAME_ORDER_UID = "orderUid";
 
@@ -693,7 +691,7 @@ public class SalesReportsDetailedRes {
     this.reportId = reportId;
   }
 
-  public SalesReportsDetailedRes dateFrom(@jakarta.annotation.Nonnull LocalDate dateFrom) {
+  public SalesReportsDetailedRes dateFrom(@jakarta.annotation.Nonnull String dateFrom) {
     this.dateFrom = dateFrom;
     return this;
   }
@@ -704,15 +702,15 @@ public class SalesReportsDetailedRes {
    * @return dateFrom
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getDateFrom() {
+  public String getDateFrom() {
     return dateFrom;
   }
 
-  public void setDateFrom(@jakarta.annotation.Nonnull LocalDate dateFrom) {
+  public void setDateFrom(@jakarta.annotation.Nonnull String dateFrom) {
     this.dateFrom = dateFrom;
   }
 
-  public SalesReportsDetailedRes dateTo(@jakarta.annotation.Nonnull LocalDate dateTo) {
+  public SalesReportsDetailedRes dateTo(@jakarta.annotation.Nonnull String dateTo) {
     this.dateTo = dateTo;
     return this;
   }
@@ -723,15 +721,15 @@ public class SalesReportsDetailedRes {
    * @return dateTo
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getDateTo() {
+  public String getDateTo() {
     return dateTo;
   }
 
-  public void setDateTo(@jakarta.annotation.Nonnull LocalDate dateTo) {
+  public void setDateTo(@jakarta.annotation.Nonnull String dateTo) {
     this.dateTo = dateTo;
   }
 
-  public SalesReportsDetailedRes createDate(@jakarta.annotation.Nonnull LocalDate createDate) {
+  public SalesReportsDetailedRes createDate(@jakarta.annotation.Nonnull String createDate) {
     this.createDate = createDate;
     return this;
   }
@@ -742,11 +740,11 @@ public class SalesReportsDetailedRes {
    * @return createDate
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getCreateDate() {
+  public String getCreateDate() {
     return createDate;
   }
 
-  public void setCreateDate(@jakarta.annotation.Nonnull LocalDate createDate) {
+  public void setCreateDate(@jakarta.annotation.Nonnull String createDate) {
     this.createDate = createDate;
   }
 
@@ -846,7 +844,7 @@ public class SalesReportsDetailedRes {
   }
 
   public SalesReportsDetailedRes fixTariffDateFrom(
-      @jakarta.annotation.Nonnull LocalDate fixTariffDateFrom) {
+      @jakarta.annotation.Nonnull String fixTariffDateFrom) {
     this.fixTariffDateFrom = fixTariffDateFrom;
     return this;
   }
@@ -857,16 +855,16 @@ public class SalesReportsDetailedRes {
    * @return fixTariffDateFrom
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getFixTariffDateFrom() {
+  public String getFixTariffDateFrom() {
     return fixTariffDateFrom;
   }
 
-  public void setFixTariffDateFrom(@jakarta.annotation.Nonnull LocalDate fixTariffDateFrom) {
+  public void setFixTariffDateFrom(@jakarta.annotation.Nonnull String fixTariffDateFrom) {
     this.fixTariffDateFrom = fixTariffDateFrom;
   }
 
   public SalesReportsDetailedRes fixTariffDateTo(
-      @jakarta.annotation.Nonnull LocalDate fixTariffDateTo) {
+      @jakarta.annotation.Nonnull String fixTariffDateTo) {
     this.fixTariffDateTo = fixTariffDateTo;
     return this;
   }
@@ -877,11 +875,11 @@ public class SalesReportsDetailedRes {
    * @return fixTariffDateTo
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getFixTariffDateTo() {
+  public String getFixTariffDateTo() {
     return fixTariffDateTo;
   }
 
-  public void setFixTariffDateTo(@jakarta.annotation.Nonnull LocalDate fixTariffDateTo) {
+  public void setFixTariffDateTo(@jakarta.annotation.Nonnull String fixTariffDateTo) {
     this.fixTariffDateTo = fixTariffDateTo;
   }
 
@@ -1171,7 +1169,7 @@ public class SalesReportsDetailedRes {
     this.sellerOperName = sellerOperName;
   }
 
-  public SalesReportsDetailedRes orderDt(@jakarta.annotation.Nonnull OffsetDateTime orderDt) {
+  public SalesReportsDetailedRes orderDt(@jakarta.annotation.Nonnull String orderDt) {
     this.orderDt = orderDt;
     return this;
   }
@@ -1182,15 +1180,15 @@ public class SalesReportsDetailedRes {
    * @return orderDt
    */
   @jakarta.annotation.Nonnull
-  public OffsetDateTime getOrderDt() {
+  public String getOrderDt() {
     return orderDt;
   }
 
-  public void setOrderDt(@jakarta.annotation.Nonnull OffsetDateTime orderDt) {
+  public void setOrderDt(@jakarta.annotation.Nonnull String orderDt) {
     this.orderDt = orderDt;
   }
 
-  public SalesReportsDetailedRes saleDt(@jakarta.annotation.Nonnull OffsetDateTime saleDt) {
+  public SalesReportsDetailedRes saleDt(@jakarta.annotation.Nonnull String saleDt) {
     this.saleDt = saleDt;
     return this;
   }
@@ -1201,15 +1199,15 @@ public class SalesReportsDetailedRes {
    * @return saleDt
    */
   @jakarta.annotation.Nonnull
-  public OffsetDateTime getSaleDt() {
+  public String getSaleDt() {
     return saleDt;
   }
 
-  public void setSaleDt(@jakarta.annotation.Nonnull OffsetDateTime saleDt) {
+  public void setSaleDt(@jakarta.annotation.Nonnull String saleDt) {
     this.saleDt = saleDt;
   }
 
-  public SalesReportsDetailedRes rrDate(@jakarta.annotation.Nonnull LocalDate rrDate) {
+  public SalesReportsDetailedRes rrDate(@jakarta.annotation.Nonnull String rrDate) {
     this.rrDate = rrDate;
     return this;
   }
@@ -1220,11 +1218,11 @@ public class SalesReportsDetailedRes {
    * @return rrDate
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getRrDate() {
+  public String getRrDate() {
     return rrDate;
   }
 
-  public void setRrDate(@jakarta.annotation.Nonnull LocalDate rrDate) {
+  public void setRrDate(@jakarta.annotation.Nonnull String rrDate) {
     this.rrDate = rrDate;
   }
 
@@ -2480,7 +2478,7 @@ public class SalesReportsDetailedRes {
     this.utdUcdNumber = utdUcdNumber;
   }
 
-  public SalesReportsDetailedRes utdUcdDate(@jakarta.annotation.Nonnull LocalDate utdUcdDate) {
+  public SalesReportsDetailedRes utdUcdDate(@jakarta.annotation.Nonnull String utdUcdDate) {
     this.utdUcdDate = utdUcdDate;
     return this;
   }
@@ -2491,11 +2489,11 @@ public class SalesReportsDetailedRes {
    * @return utdUcdDate
    */
   @jakarta.annotation.Nonnull
-  public LocalDate getUtdUcdDate() {
+  public String getUtdUcdDate() {
     return utdUcdDate;
   }
 
-  public void setUtdUcdDate(@jakarta.annotation.Nonnull LocalDate utdUcdDate) {
+  public void setUtdUcdDate(@jakarta.annotation.Nonnull String utdUcdDate) {
     this.utdUcdDate = utdUcdDate;
   }
 
@@ -3141,6 +3139,24 @@ public class SalesReportsDetailedRes {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (!jsonObj.get("dateFrom").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `dateFrom` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("dateFrom").toString()));
+    }
+    if (!jsonObj.get("dateTo").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `dateTo` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("dateTo").toString()));
+    }
+    if (!jsonObj.get("createDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `createDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("createDate").toString()));
+    }
     if (!jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
@@ -3149,6 +3165,18 @@ public class SalesReportsDetailedRes {
     }
     // validate the required field `reportType`
     ReportTypeEnum.validateJsonElement(jsonObj.get("reportType"));
+    if (!jsonObj.get("fixTariffDateFrom").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `fixTariffDateFrom` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("fixTariffDateFrom").toString()));
+    }
+    if (!jsonObj.get("fixTariffDateTo").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `fixTariffDateTo` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("fixTariffDateTo").toString()));
+    }
     if (!jsonObj.get("subjectName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
@@ -3214,6 +3242,24 @@ public class SalesReportsDetailedRes {
           String.format(
               "Expected the field `sellerOperName` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("sellerOperName").toString()));
+    }
+    if (!jsonObj.get("orderDt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `orderDt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("orderDt").toString()));
+    }
+    if (!jsonObj.get("saleDt").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `saleDt` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("saleDt").toString()));
+    }
+    if (!jsonObj.get("rrDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `rrDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("rrDate").toString()));
     }
     if (!jsonObj.get("retailPriceWithDisc").isJsonPrimitive()) {
       throw new IllegalArgumentException(
@@ -3445,6 +3491,12 @@ public class SalesReportsDetailedRes {
           String.format(
               "Expected the field `utdUcdNumber` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("utdUcdNumber").toString()));
+    }
+    if (!jsonObj.get("utdUcdDate").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `utdUcdDate` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("utdUcdDate").toString()));
     }
     if (!jsonObj.get("orderUid").isJsonPrimitive()) {
       throw new IllegalArgumentException(

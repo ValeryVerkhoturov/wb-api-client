@@ -12,7 +12,6 @@ package general
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the GetV2NewsResponse200DataInner type satisfies the MappedNullable interface at compile time
@@ -23,7 +22,7 @@ type GetV2NewsResponse200DataInner struct {
 	// Текст новости
 	Content *string `json:"content,omitempty"`
 	// Дата и время публикации новости
-	Date *time.Time `json:"date,omitempty"`
+	Date *string `json:"date,omitempty"`
 	// Заголовок новости
 	Header *string `json:"header,omitempty"`
 	// ID новости
@@ -82,9 +81,9 @@ func (o *GetV2NewsResponse200DataInner) SetContent(v string) {
 }
 
 // GetDate returns the Date field value if set, zero value otherwise.
-func (o *GetV2NewsResponse200DataInner) GetDate() time.Time {
+func (o *GetV2NewsResponse200DataInner) GetDate() string {
 	if o == nil || IsNil(o.Date) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.Date
@@ -92,7 +91,7 @@ func (o *GetV2NewsResponse200DataInner) GetDate() time.Time {
 
 // GetDateOk returns a tuple with the Date field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetV2NewsResponse200DataInner) GetDateOk() (*time.Time, bool) {
+func (o *GetV2NewsResponse200DataInner) GetDateOk() (*string, bool) {
 	if o == nil || IsNil(o.Date) {
 		return nil, false
 	}
@@ -108,8 +107,8 @@ func (o *GetV2NewsResponse200DataInner) HasDate() bool {
 	return false
 }
 
-// SetDate gets a reference to the given time.Time and assigns it to the Date field.
-func (o *GetV2NewsResponse200DataInner) SetDate(v time.Time) {
+// SetDate gets a reference to the given string and assigns it to the Date field.
+func (o *GetV2NewsResponse200DataInner) SetDate(v string) {
 	o.Date = &v
 }
 

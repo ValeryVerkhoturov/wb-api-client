@@ -12,7 +12,6 @@ package general
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the GetPing403Response type satisfies the MappedNullable interface at compile time
@@ -35,7 +34,7 @@ type GetPing403Response struct {
 	// Расшифровка HTTP статус-кода
 	StatusText *string `json:"statusText,omitempty"`
 	// Дата и время запроса
-	Timestamp *time.Time `json:"timestamp,omitempty"`
+	Timestamp *string `json:"timestamp,omitempty"`
 }
 
 // NewGetPing403Response instantiates a new GetPing403Response object
@@ -280,9 +279,9 @@ func (o *GetPing403Response) SetStatusText(v string) {
 }
 
 // GetTimestamp returns the Timestamp field value if set, zero value otherwise.
-func (o *GetPing403Response) GetTimestamp() time.Time {
+func (o *GetPing403Response) GetTimestamp() string {
 	if o == nil || IsNil(o.Timestamp) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.Timestamp
@@ -290,7 +289,7 @@ func (o *GetPing403Response) GetTimestamp() time.Time {
 
 // GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetPing403Response) GetTimestampOk() (*time.Time, bool) {
+func (o *GetPing403Response) GetTimestampOk() (*string, bool) {
 	if o == nil || IsNil(o.Timestamp) {
 		return nil, false
 	}
@@ -306,8 +305,8 @@ func (o *GetPing403Response) HasTimestamp() bool {
 	return false
 }
 
-// SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
-func (o *GetPing403Response) SetTimestamp(v time.Time) {
+// SetTimestamp gets a reference to the given string and assigns it to the Timestamp field.
+func (o *GetPing403Response) SetTimestamp(v string) {
 	o.Timestamp = &v
 }
 

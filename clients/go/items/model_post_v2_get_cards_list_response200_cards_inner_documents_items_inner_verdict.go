@@ -12,7 +12,6 @@ package items
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict type satisfies the MappedNullable interface at compile time
@@ -29,7 +28,7 @@ type PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict struct {
 	// Дополнительная информация
 	AdditionalData map[string]interface{} `json:"additionalData,omitempty"`
 	// Дата проверки документа
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
+	CreatedAt *string `json:"createdAt,omitempty"`
 }
 
 // NewPostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict instantiates a new PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict object
@@ -190,9 +189,9 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict) SetA
 }
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict) GetCreatedAt() time.Time {
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict) GetCreatedAt() string {
 	if o == nil || IsNil(o.CreatedAt) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.CreatedAt
@@ -200,7 +199,7 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict) GetC
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict) GetCreatedAtOk() (*time.Time, bool) {
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict) GetCreatedAtOk() (*string, bool) {
 	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
@@ -216,8 +215,8 @@ func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict) HasC
 	return false
 }
 
-// SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
-func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict) SetCreatedAt(v time.Time) {
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
+func (o *PostV2GetCardsListResponse200CardsInnerDocumentsItemsInnerVerdict) SetCreatedAt(v string) {
 	o.CreatedAt = &v
 }
 

@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,10 +28,12 @@ class Timestamps(BaseModel):
     Временные отметки
     """  # noqa: E501
 
-    created: datetime = Field(description="Время создания кампании")
-    updated: datetime = Field(description="Время последнего изменения кампании")
-    started: Optional[datetime] = Field(description="Время последнего запуска кампании")
-    deleted: datetime = Field(
+    created: StrictStr = Field(description="Время создания кампании")
+    updated: StrictStr = Field(description="Время последнего изменения кампании")
+    started: Optional[StrictStr] = Field(
+        description="Время последнего запуска кампании"
+    )
+    deleted: StrictStr = Field(
         description="Время удаления кампании. Если кампания не удалена, время указывается в будущем"
     )
     __properties: ClassVar[List[str]] = ["created", "updated", "started", "deleted"]

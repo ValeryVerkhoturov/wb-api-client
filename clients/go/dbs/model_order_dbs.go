@@ -12,7 +12,6 @@ package dbs
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the OrderDBS type satisfies the MappedNullable interface at compile time
@@ -35,7 +34,7 @@ type OrderDBS struct {
 	// Уникальный ID заказа. Примечание: `rid` — это `srid` в ответах методов: - [Заявки покупателей на возврат](./customer-communication#tag/buyersReturns/operation/getV1Claims) - [Лента заказов](./analytics#tag/orderFeed/operation/postV1OrderFeed) - [Заказы](./reports#tag/mainReports/operation/getV1SupplierOrders) - [Продажи](./reports#tag/mainReports/operation/getV1SupplierSales) - [Отчёт о возвратах и перемещении товаров](./reports#tag/returnsAndItemMovementReport) - [Детализации к отчётам реализации по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailedReportId) - [Детализации к отчётам реализации за период](./documents-and-accounting#tag/financialReports/operation/postV1SalesReportsDetailed) - [Детализации к отчётам об издержках на приём платежей по ID отчётов](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailedReportId) - [Детализации к отчётам об издержках на приём платежей за период](./documents-and-accounting#tag/financialReports/operation/postV1AcquiringDetailed)
 	Rid interface{} `json:"rid,omitempty"`
 	// Дата создания сборочного задания
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
+	CreatedAt *string `json:"createdAt,omitempty"`
 	// Массив баркодов товара
 	Skus []string `json:"skus,omitempty"`
 	// ID сборочного задания
@@ -356,9 +355,9 @@ func (o *OrderDBS) SetRid(v interface{}) {
 }
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
-func (o *OrderDBS) GetCreatedAt() time.Time {
+func (o *OrderDBS) GetCreatedAt() string {
 	if o == nil || IsNil(o.CreatedAt) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.CreatedAt
@@ -366,7 +365,7 @@ func (o *OrderDBS) GetCreatedAt() time.Time {
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrderDBS) GetCreatedAtOk() (*time.Time, bool) {
+func (o *OrderDBS) GetCreatedAtOk() (*string, bool) {
 	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
@@ -382,8 +381,8 @@ func (o *OrderDBS) HasCreatedAt() bool {
 	return false
 }
 
-// SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
-func (o *OrderDBS) SetCreatedAt(v time.Time) {
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
+func (o *OrderDBS) SetCreatedAt(v string) {
 	o.CreatedAt = &v
 }
 

@@ -17,8 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,10 +28,10 @@ class PeriodInv(BaseModel):
     Период
     """  # noqa: E501
 
-    start: date = Field(
+    start: StrictStr = Field(
         description="Дата начала периода. Не позднее `end`. Не ранее 3 месяцев от текущей даты"
     )
-    end: date = Field(
+    end: StrictStr = Field(
         description="Дата окончания периода. Не ранее 3 месяцев от текущей даты"
     )
     __properties: ClassVar[List[str]] = ["start", "end"]
