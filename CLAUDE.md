@@ -228,8 +228,9 @@ PyPI + npm trusted publishing: **the "Workflow filename" on pypi.org and npmjs.c
   OneScript equivalent of `OPENAPI_GENERATOR_VERSION` — bump it deliberately, since it
   decides every generated name.
 - **No namespaces.** Every OneScript class name is global, so the usual
-  "one sub-namespace per category" trick doesn't exist. Tag names happen to be unique
-  across all 13 specs, so API classes keep the tag (`КарточкиТоваровApi`); model names
+  "one sub-namespace per category" trick doesn't exist. API classes use the module
+  name like every other language (`ItemsApi`) — `rename_tags_to_module` makes the
+  module the only tag, and module names are unique by construction; model names
   are *not* unique (34 repeat, `Response4XX` in 12 specs), so each category is passed
   `modelNamePrefix=<Slug>` and its models come out as `ItemsResponse4XX`,
   `OrdersFbsResponse4XX`. Directories under `src/Классы/` and `src/Модели/` are for

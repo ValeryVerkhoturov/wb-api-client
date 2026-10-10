@@ -401,7 +401,10 @@ def bind_typescript(root: Path, slug: str) -> dict[str, Binding]:
     # factories above them repeat every method name.
     chunks = re.split(r"^export class ", text, flags=re.M)[1:]
     for chunk in chunks:
-        cls = chunk.split(" ", 1)[0]
+        # Split on any whitespace: Prettier wraps long class declarations
+        # (`export class InStorePickupApi\n  extends BaseAPI …`), so the
+        # class name may be newline-terminated rather than space-terminated.
+        cls = chunk.split(None, 1)[0]
         if not cls.endswith("Api"):
             continue
         for m in re.finditer(r"^\s{2}public (\w+)\(", chunk, re.M):
